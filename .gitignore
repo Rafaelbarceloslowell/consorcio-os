@@ -1,0 +1,54 @@
+﻿# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Assistentes que não usamos neste projeto
+**/.claude/
+**/.windsurf/
+
+# Dependências
+**/node_modules/
+**/.pnp/
+**/.yarn/cache/
+
+# Builds e caches
+**/.next/
+**/out/
+**/build/
+**/dist/
+**/coverage/
+**/*.tsbuildinfo
+
+# Variáveis de ambiente e segredos
+**/.env
+**/.env.*
+!**/.env.example
+
+# Logs
+**/*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Arquivos temporários e backups
+**/*.bak
+**/*.backup
+**/*.backup-*
+**/*.tmp
+**/*-audit.txt
+**/*-auditoria.txt
+**/*-test-completo.txt
+
+# Prisma gerado
+**/lib/generated/prisma/
+
+# Vercel
+**/.vercel/
+
+**/.agents/

@@ -1,0 +1,1242 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum WorkspaceStatus {
+  ACTIVE   @map("active")
+  INACTIVE @map("inactive")
+
+  @@map("workspace_status")
+}
+
+enum ConsultantRole {
+  CONSULTANT @map("consultant")
+  MANAGER    @map("manager")
+  ADMIN      @map("admin")
+
+  @@map("consultant_role")
+}
+
+enum ConsultantStatus {
+  ACTIVE   @map("active")
+  INACTIVE @map("inactive")
+  ON_LEAVE @map("on_leave")
+
+  @@map("consultant_status")
+}
+
+enum ConsortiumType {
+  REAL_ESTATE   @map("real_estate")
+  VEHICLE       @map("vehicle")
+  HEAVY_VEHICLE @map("heavy_vehicle")
+  SERVICES      @map("services")
+  OTHER         @map("other")
+
+  @@map("consortium_type")
+}
+
+enum ConsortiumStatus {
+  FORMING @map("forming")
+  ACTIVE  @map("active")
+  CLOSED  @map("closed")
+
+  @@map("consortium_status")
+}
+
+enum PipelineStageType {
+  LEAD @map("lead")
+  DEAL @map("deal")
+
+  @@map("pipeline_stage_type")
+}
+
+enum LeadSource {
+  REFERRAL     @map("referral")
+  WEBSITE      @map("website")
+  SOCIAL_MEDIA @map("social_media")
+  COLD_CALL    @map("cold_call")
+  EVENT        @map("event")
+  PARTNER      @map("partner")
+  WALK_IN      @map("walk_in")
+  OTHER        @map("other")
+
+  @@map("lead_source")
+}
+
+enum LeadStatus {
+  NEW         @map("new")
+  CONTACTED   @map("contacted")
+  QUALIFIED   @map("qualified")
+  NEGOTIATING @map("negotiating")
+  CONVERTED   @map("converted")
+  LOST        @map("lost")
+
+  @@map("lead_status")
+}
+
+enum PersonType {
+  INDIVIDUAL @map("individual")
+  COMPANY    @map("company")
+
+  @@map("person_type")
+}
+
+enum ClientStatus {
+  ACTIVE   @map("active")
+  INACTIVE @map("inactive")
+  BLOCKED  @map("blocked")
+
+  @@map("client_status")
+}
+
+enum ProposalStatus {
+  DRAFT    @map("draft")
+  SENT     @map("sent")
+  ACCEPTED @map("accepted")
+  REJECTED @map("rejected")
+  EXPIRED  @map("expired")
+
+  @@map("proposal_status")
+}
+
+enum MeetingType {
+  IN_PERSON @map("in_person")
+  ONLINE    @map("online")
+  PHONE     @map("phone")
+
+  @@map("meeting_type")
+}
+
+enum MeetingStatus {
+  SCHEDULED @map("scheduled")
+  COMPLETED @map("completed")
+  CANCELLED @map("cancelled")
+  NO_SHOW   @map("no_show")
+
+  @@map("meeting_status")
+}
+
+enum MeetingOutcome {
+  PROPOSAL_SENT       @map("proposal_sent")
+  FOLLOW_UP_SCHEDULED @map("follow_up_scheduled")
+  NOT_INTERESTED      @map("not_interested")
+  CONVERTED           @map("converted")
+  NO_ANSWER           @map("no_answer")
+  OTHER               @map("other")
+
+  @@map("meeting_outcome")
+}
+
+enum SaleStatus {
+  PENDING_SIGNATURE @map("pending_signature")
+  ACTIVE            @map("active")
+  CANCELLED         @map("cancelled")
+
+  @@map("sale_status")
+}
+
+enum QuotaStatus {
+  NOT_CONTEMPLATED @map("not_contemplated")
+  CONTEMPLATED     @map("contemplated")
+  PAID_OFF         @map("paid_off")
+  CANCELLED        @map("cancelled")
+
+  @@map("quota_status")
+}
+
+enum PaymentMethod {
+  BANK_SLIP    @map("bank_slip")
+  DIRECT_DEBIT @map("direct_debit")
+  CREDIT_CARD  @map("credit_card")
+  PIX          @map("pix")
+
+  @@map("payment_method")
+}
+
+enum TaskPriority {
+  HIGH   @map("high")
+  MEDIUM @map("medium")
+  LOW    @map("low")
+
+  @@map("task_priority")
+}
+
+enum TaskStatus {
+  PENDING     @map("pending")
+  IN_PROGRESS @map("in_progress")
+  COMPLETED   @map("completed")
+  CANCELLED   @map("cancelled")
+
+  @@map("task_status")
+}
+
+enum TaskType {
+  CALL            @map("call")
+  EMAIL           @map("email")
+  FOLLOW_UP       @map("follow_up")
+  DOCUMENT        @map("document")
+  MEETING_PREP    @map("meeting_prep")
+  PROPOSAL_REVIEW @map("proposal_review")
+  OTHER           @map("other")
+
+  @@map("task_type")
+}
+
+enum CommercialJourneyPriority {
+  LOW    @map("low")
+  NORMAL @map("normal")
+  HIGH   @map("high")
+  URGENT @map("urgent")
+
+  @@map("commercial_journey_priority")
+}
+
+enum CommercialJourneyOutcome {
+  WON                     @map("won")
+  LOST_TO_COMPETITOR      @map("lost_to_competitor")
+  NO_FINANCIAL_CAPACITY   @map("no_financial_capacity")
+  NO_RESPONSE             @map("no_response")
+  POSTPONED               @map("postponed")
+  PRODUCT_NOT_SUITABLE    @map("product_not_suitable")
+  TRUST_CONCERN           @map("trust_concern")
+  CLIENT_WITHDREW         @map("client_withdrew")
+  CANCELLED_BY_CONSULTANT @map("cancelled_by_consultant")
+  OTHER                   @map("other")
+
+  @@map("commercial_journey_outcome")
+}
+
+enum CommercialActorType {
+  LEAD          @map("lead")
+  CLIENT        @map("client")
+  CONSULTANT    @map("consultant")
+  AI            @map("ai")
+  SYSTEM        @map("system")
+  AUTOMATION    @map("automation")
+  ADMINISTRATOR @map("administrator")
+
+  @@map("commercial_actor_type")
+}
+
+enum CommercialEventType {
+  LEAD_CREATED       @map("lead_created")
+  LEAD_REPLIED       @map("lead_replied")
+  MEETING_SCHEDULED  @map("meeting_scheduled")
+  MEETING_COMPLETED  @map("meeting_completed")
+  PROPOSAL_SENT      @map("proposal_sent")
+  PROPOSAL_ACCEPTED  @map("proposal_accepted")
+  DOCUMENT_REQUESTED @map("document_requested")
+  DOCUMENT_RECEIVED  @map("document_received")
+  PAYMENT_CONFIRMED  @map("payment_confirmed")
+  SALE_COMPLETED     @map("sale_completed")
+  STATE_CHANGED      @map("state_changed")
+  NOTE_ADDED         @map("note_added")
+  TASK_CREATED       @map("task_created")
+  TASK_COMPLETED     @map("task_completed")
+
+  @@map("commercial_event_type")
+}
+
+enum CommercialActionType {
+  CHANGE_STATE       @map("change_state")
+  CREATE_TASK        @map("create_task")
+  COMPLETE_TASK      @map("complete_task")
+  ADD_NOTE           @map("add_note")
+  UPDATE_PRIORITY    @map("update_priority")
+  UPDATE_SCORE       @map("update_score")
+  ASSIGN_CONSULTANT  @map("assign_consultant")
+  SEND_NOTIFICATION  @map("send_notification")
+  SEND_MESSAGE       @map("send_message")
+  REQUEST_DOCUMENT   @map("request_document")
+  CREATE_PROPOSAL    @map("create_proposal")
+  TRIGGER_AUTOMATION @map("trigger_automation")
+
+  @@map("commercial_action_type")
+}
+
+enum CommercialActionStatus {
+  PENDING     @map("pending")
+  IN_PROGRESS @map("in_progress")
+  COMPLETED   @map("completed")
+  FAILED      @map("failed")
+  CANCELLED   @map("cancelled")
+
+  @@map("commercial_action_status")
+}
+
+enum CommercialActionOrigin {
+  MANUAL           @map("manual")
+  WORKFLOW_RULE    @map("workflow_rule")
+  NEXT_BEST_ACTION @map("next_best_action")
+  AI               @map("ai")
+  SYSTEM           @map("system")
+
+  @@map("commercial_action_origin")
+}
+
+enum NextBestActionSource {
+  RULE_ENGINE @map("rule_engine")
+  AI          @map("ai")
+  SYSTEM      @map("system")
+  CONSULTANT  @map("consultant")
+
+  @@map("next_best_action_source")
+}
+
+enum NextBestActionPriority {
+  LOW    @map("low")
+  NORMAL @map("normal")
+  HIGH   @map("high")
+  URGENT @map("urgent")
+
+  @@map("next_best_action_priority")
+}
+
+model Workspace {
+  id String @id @default(cuid())
+
+  name String
+
+  slug String @unique
+
+  status WorkspaceStatus @default(ACTIVE)
+
+  consultants Consultant[]
+
+  consortiums Consortium[]
+
+  pipelineStages PipelineStage[]
+
+  leads Lead[]
+
+  clients Client[]
+
+  proposals Proposal[]
+
+  meetings Meeting[]
+
+  sales Sale[]
+
+  tasks Task[]
+
+  journeyPhases JourneyPhase[]
+
+  journeyStates JourneyState[]
+
+  commercialJourneys CommercialJourney[]
+
+  commercialEvents CommercialEvent[]
+
+  commercialActions CommercialAction[]
+
+  workflowRules WorkflowRule[]
+
+  nextBestActions NextBestAction[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([status], map: "workspaces_status_idx")
+  @@map("workspaces")
+}
+
+model Consultant {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  name String
+
+  email String
+
+  phone String
+
+  document String
+
+  role ConsultantRole @default(CONSULTANT)
+
+  team String
+
+  region String
+
+  avatarUrl String? @map("avatar_url")
+
+  status ConsultantStatus @default(ACTIVE)
+
+  monthlySalesTarget Decimal @default(0) @map("monthly_sales_target") @db.Decimal(18, 2)
+
+  monthlyLeadsTarget Int @default(0) @map("monthly_leads_target")
+
+  leads Lead[]
+
+  clients Client[]
+
+  proposals Proposal[]
+
+  meetings Meeting[]
+
+  sales Sale[]
+
+  assignedTasks Task[]
+
+  commercialJourneys CommercialJourney[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([workspaceId, email], map: "consultants_workspace_email_key")
+  @@unique([workspaceId, document], map: "consultants_workspace_document_key")
+  @@index([workspaceId], map: "consultants_workspace_idx")
+  @@index([workspaceId, status], map: "consultants_workspace_status_idx")
+  @@index([workspaceId, role], map: "consultants_workspace_role_idx")
+  @@map("consultants")
+}
+
+model Consortium {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  name String
+
+  administrator String
+
+  type ConsortiumType
+
+  groupNumber String @map("group_number")
+
+  minCreditValue Decimal @map("min_credit_value") @db.Decimal(18, 2)
+
+  maxCreditValue Decimal @map("max_credit_value") @db.Decimal(18, 2)
+
+  defaultTermMonths Int @map("default_term_months")
+
+  administrationFeePercent Decimal @map("administration_fee_percent") @db.Decimal(8, 4)
+
+  reserveFundPercent Decimal @map("reserve_fund_percent") @db.Decimal(8, 4)
+
+  totalQuotas Int @map("total_quotas")
+
+  availableQuotas Int @map("available_quotas")
+
+  status ConsortiumStatus @default(FORMING)
+
+  description String?
+
+  proposals Proposal[]
+
+  sales Sale[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([workspaceId, administrator, groupNumber], map: "consortiums_workspace_administrator_group_key")
+  @@index([workspaceId], map: "consortiums_workspace_idx")
+  @@index([workspaceId, status], map: "consortiums_workspace_status_idx")
+  @@index([workspaceId, type], map: "consortiums_workspace_type_idx")
+  @@index([workspaceId, administrator], map: "consortiums_workspace_administrator_idx")
+  @@map("consortiums")
+}
+
+model PipelineStage {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  name String
+
+  order Int
+
+  type PipelineStageType
+
+  color String
+
+  description String?
+
+  winProbability Decimal @map("win_probability") @db.Decimal(5, 2)
+
+  isClosedStage Boolean @default(false) @map("is_closed_stage")
+
+  isWonStage Boolean @default(false) @map("is_won_stage")
+
+  leads Lead[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([workspaceId, type, order], map: "pipeline_stages_workspace_type_order_key")
+  @@index([workspaceId], map: "pipeline_stages_workspace_idx")
+  @@index([workspaceId, type], map: "pipeline_stages_workspace_type_idx")
+  @@index([workspaceId, isClosedStage], map: "pipeline_stages_workspace_closed_idx")
+  @@index([workspaceId, isWonStage], map: "pipeline_stages_workspace_won_idx")
+  @@map("pipeline_stages")
+}
+
+model Lead {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  name String
+
+  email String
+
+  phone String
+
+  document String?
+
+  companyName String? @map("company_name")
+
+  source LeadSource
+
+  status LeadStatus @default(NEW)
+
+  consortiumType ConsortiumType @map("consortium_type")
+
+  desiredCreditValue Decimal @map("desired_credit_value") @db.Decimal(18, 2)
+
+  desiredTermMonths Int @map("desired_term_months")
+
+  consultantId String @map("consultant_id")
+
+  consultant Consultant @relation(fields: [consultantId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  pipelineStageId String @map("pipeline_stage_id")
+
+  pipelineStage PipelineStage @relation(fields: [pipelineStageId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  score Int @default(0)
+
+  lostReason String? @map("lost_reason")
+
+  notes String? @db.Text
+
+  convertedClientId String? @unique(map: "leads_converted_client_key") @map("converted_client_id")
+
+  convertedClient Client? @relation("LeadConversion", fields: [convertedClientId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  proposals Proposal[]
+
+  meetings Meeting[]
+
+  tasks Task[]
+
+  commercialJourneys CommercialJourney[]
+
+  lastContactAt DateTime? @map("last_contact_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workspaceId], map: "leads_workspace_idx")
+  @@index([workspaceId, status], map: "leads_workspace_status_idx")
+  @@index([workspaceId, source], map: "leads_workspace_source_idx")
+  @@index([workspaceId, consultantId], map: "leads_workspace_consultant_idx")
+  @@index([workspaceId, pipelineStageId], map: "leads_workspace_pipeline_stage_idx")
+  @@index([workspaceId, consortiumType], map: "leads_workspace_consortium_type_idx")
+  @@index([workspaceId, createdAt], map: "leads_workspace_created_at_idx")
+  @@map("leads")
+}
+
+model Client {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  type PersonType
+
+  name String
+
+  email String
+
+  phone String
+
+  document String
+
+  birthDate DateTime? @map("birth_date") @db.Date
+
+  companyName String? @map("company_name")
+
+  tradeName String? @map("trade_name")
+
+  stateRegistration String? @map("state_registration")
+
+  addressStreet String @map("address_street")
+
+  addressNumber String @map("address_number")
+
+  addressComplement String? @map("address_complement")
+
+  addressNeighborhood String @map("address_neighborhood")
+
+  addressCity String @map("address_city")
+
+  addressState String @map("address_state")
+
+  addressZipCode String @map("address_zip_code")
+
+  consultantId String @map("consultant_id")
+
+  consultant Consultant @relation(fields: [consultantId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  convertedFromLead Lead? @relation("LeadConversion")
+
+  status ClientStatus @default(ACTIVE)
+
+  tags String[] @default([])
+
+  notes String? @db.Text
+
+  proposals Proposal[]
+
+  meetings Meeting[]
+
+  sales Sale[]
+
+  tasks Task[]
+
+  commercialJourneys CommercialJourney[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([workspaceId, document], map: "clients_workspace_document_key")
+  @@index([workspaceId], map: "clients_workspace_idx")
+  @@index([workspaceId, status], map: "clients_workspace_status_idx")
+  @@index([workspaceId, type], map: "clients_workspace_type_idx")
+  @@index([workspaceId, consultantId], map: "clients_workspace_consultant_idx")
+  @@index([workspaceId, name], map: "clients_workspace_name_idx")
+  @@index([workspaceId, email], map: "clients_workspace_email_idx")
+  @@index([workspaceId, createdAt], map: "clients_workspace_created_at_idx")
+  @@map("clients")
+}
+
+model Proposal {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  code String
+
+  clientId String? @map("client_id")
+
+  client Client? @relation(fields: [clientId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  leadId String? @map("lead_id")
+
+  lead Lead? @relation(fields: [leadId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  consultantId String @map("consultant_id")
+
+  consultant Consultant @relation(fields: [consultantId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  consortiumId String @map("consortium_id")
+
+  consortium Consortium @relation(fields: [consortiumId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  creditValue Decimal @map("credit_value") @db.Decimal(18, 2)
+
+  installmentValue Decimal @map("installment_value") @db.Decimal(18, 2)
+
+  termMonths Int @map("term_months")
+
+  administrationFeePercent Decimal @map("administration_fee_percent") @db.Decimal(8, 4)
+
+  reserveFundPercent Decimal @map("reserve_fund_percent") @db.Decimal(8, 4)
+
+  status ProposalStatus @default(DRAFT)
+
+  sentAt DateTime? @map("sent_at")
+
+  validUntil DateTime @map("valid_until")
+
+  acceptedAt DateTime? @map("accepted_at")
+
+  rejectedAt DateTime? @map("rejected_at")
+
+  rejectionReason String? @map("rejection_reason")
+
+  notes String? @db.Text
+
+  meetings Meeting[]
+
+  sale Sale?
+
+  tasks Task[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([workspaceId, code], map: "proposals_workspace_code_key")
+  @@index([workspaceId], map: "proposals_workspace_idx")
+  @@index([workspaceId, status], map: "proposals_workspace_status_idx")
+  @@index([workspaceId, consultantId], map: "proposals_workspace_consultant_idx")
+  @@index([workspaceId, consortiumId], map: "proposals_workspace_consortium_idx")
+  @@index([workspaceId, leadId], map: "proposals_workspace_lead_idx")
+  @@index([workspaceId, clientId], map: "proposals_workspace_client_idx")
+  @@index([workspaceId, validUntil], map: "proposals_workspace_valid_until_idx")
+  @@index([workspaceId, createdAt], map: "proposals_workspace_created_at_idx")
+  @@map("proposals")
+}
+
+model Meeting {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  title String
+
+  description String? @db.Text
+
+  type MeetingType
+
+  status MeetingStatus @default(SCHEDULED)
+
+  startAt DateTime @map("start_at")
+
+  endAt DateTime @map("end_at")
+
+  location String?
+
+  meetingUrl String? @map("meeting_url")
+
+  consultantId String @map("consultant_id")
+
+  consultant Consultant @relation(fields: [consultantId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  leadId String? @map("lead_id")
+
+  lead Lead? @relation(fields: [leadId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  clientId String? @map("client_id")
+
+  client Client? @relation(fields: [clientId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  proposalId String? @map("proposal_id")
+
+  proposal Proposal? @relation(fields: [proposalId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  outcome MeetingOutcome?
+
+  notes String? @db.Text
+
+  tasks Task[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workspaceId], map: "meetings_workspace_idx")
+  @@index([workspaceId, status], map: "meetings_workspace_status_idx")
+  @@index([workspaceId, type], map: "meetings_workspace_type_idx")
+  @@index([workspaceId, consultantId], map: "meetings_workspace_consultant_idx")
+  @@index([workspaceId, leadId], map: "meetings_workspace_lead_idx")
+  @@index([workspaceId, clientId], map: "meetings_workspace_client_idx")
+  @@index([workspaceId, proposalId], map: "meetings_workspace_proposal_idx")
+  @@index([workspaceId, startAt], map: "meetings_workspace_start_at_idx")
+  @@index([workspaceId, consultantId, startAt], map: "meetings_consultant_start_at_idx")
+  @@map("meetings")
+}
+
+model Sale {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  contractNumber String @map("contract_number")
+
+  proposalId String @unique(map: "sales_proposal_key") @map("proposal_id")
+
+  proposal Proposal @relation(fields: [proposalId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  clientId String @map("client_id")
+
+  client Client @relation(fields: [clientId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  consultantId String @map("consultant_id")
+
+  consultant Consultant @relation(fields: [consultantId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  consortiumId String @map("consortium_id")
+
+  consortium Consortium @relation(fields: [consortiumId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  groupNumber String @map("group_number")
+
+  quotaNumber Int @map("quota_number")
+
+  creditValue Decimal @map("credit_value") @db.Decimal(18, 2)
+
+  installmentValue Decimal @map("installment_value") @db.Decimal(18, 2)
+
+  termMonths Int @map("term_months")
+
+  administrationFeePercent Decimal @map("administration_fee_percent") @db.Decimal(8, 4)
+
+  reserveFundPercent Decimal @map("reserve_fund_percent") @db.Decimal(8, 4)
+
+  commissionValue Decimal @map("commission_value") @db.Decimal(18, 2)
+
+  commissionPercent Decimal @map("commission_percent") @db.Decimal(8, 4)
+
+  status SaleStatus @default(PENDING_SIGNATURE)
+
+  quotaStatus QuotaStatus @default(NOT_CONTEMPLATED) @map("quota_status")
+
+  paymentMethod PaymentMethod @map("payment_method")
+
+  saleDate DateTime @map("sale_date")
+
+  firstInstallmentDate DateTime @map("first_installment_date") @db.Date
+
+  contemplatedAt DateTime? @map("contemplated_at")
+
+  paidOffAt DateTime? @map("paid_off_at")
+
+  cancelledAt DateTime? @map("cancelled_at")
+
+  cancellationReason String? @map("cancellation_reason")
+
+  notes String? @db.Text
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([workspaceId, contractNumber], map: "sales_workspace_contract_number_key")
+  @@unique([workspaceId, consortiumId, groupNumber, quotaNumber], map: "sales_workspace_group_quota_key")
+  @@index([workspaceId], map: "sales_workspace_idx")
+  @@index([workspaceId, status], map: "sales_workspace_status_idx")
+  @@index([workspaceId, quotaStatus], map: "sales_workspace_quota_status_idx")
+  @@index([workspaceId, consultantId], map: "sales_workspace_consultant_idx")
+  @@index([workspaceId, clientId], map: "sales_workspace_client_idx")
+  @@index([workspaceId, consortiumId], map: "sales_workspace_consortium_idx")
+  @@index([workspaceId, paymentMethod], map: "sales_workspace_payment_method_idx")
+  @@index([workspaceId, saleDate], map: "sales_workspace_sale_date_idx")
+  @@index([workspaceId, firstInstallmentDate], map: "sales_workspace_first_installment_idx")
+  @@map("sales")
+}
+
+model Task {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  title String
+
+  description String? @db.Text
+
+  type TaskType
+
+  status TaskStatus @default(PENDING)
+
+  priority TaskPriority @default(MEDIUM)
+
+  dueAt DateTime @map("due_at")
+
+  assignedToId String @map("assigned_to_id")
+
+  assignedTo Consultant @relation(fields: [assignedToId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  leadId String? @map("lead_id")
+
+  lead Lead? @relation(fields: [leadId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  clientId String? @map("client_id")
+
+  client Client? @relation(fields: [clientId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  meetingId String? @map("meeting_id")
+
+  meeting Meeting? @relation(fields: [meetingId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  proposalId String? @map("proposal_id")
+
+  proposal Proposal? @relation(fields: [proposalId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  completedAt DateTime? @map("completed_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workspaceId], map: "tasks_workspace_idx")
+  @@index([workspaceId, status], map: "tasks_workspace_status_idx")
+  @@index([workspaceId, priority], map: "tasks_workspace_priority_idx")
+  @@index([workspaceId, type], map: "tasks_workspace_type_idx")
+  @@index([workspaceId, assignedToId], map: "tasks_workspace_assigned_to_idx")
+  @@index([workspaceId, assignedToId, status], map: "tasks_assigned_to_status_idx")
+  @@index([workspaceId, dueAt], map: "tasks_workspace_due_at_idx")
+  @@index([workspaceId, status, dueAt], map: "tasks_status_due_at_idx")
+  @@index([workspaceId, leadId], map: "tasks_workspace_lead_idx")
+  @@index([workspaceId, clientId], map: "tasks_workspace_client_idx")
+  @@index([workspaceId, meetingId], map: "tasks_workspace_meeting_idx")
+  @@index([workspaceId, proposalId], map: "tasks_workspace_proposal_idx")
+  @@map("tasks")
+}
+
+model JourneyPhase {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  code String
+
+  name String
+
+  description String? @db.Text
+
+  order Int
+
+  isActive Boolean @default(true) @map("is_active")
+
+  states JourneyState[]
+
+  commercialJourneys CommercialJourney[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([workspaceId, code], map: "journey_phases_workspace_code_key")
+  @@unique([workspaceId, order], map: "journey_phases_workspace_order_key")
+  @@index([workspaceId], map: "journey_phases_workspace_idx")
+  @@index([workspaceId, isActive], map: "journey_phases_workspace_active_idx")
+  @@map("journey_phases")
+}
+
+model JourneyState {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  phaseId String @map("phase_id")
+
+  phase JourneyPhase @relation(fields: [phaseId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  code String
+
+  name String
+
+  description String? @db.Text
+
+  order Int
+
+  color String?
+
+  icon String?
+
+  isInitial Boolean @default(false) @map("is_initial")
+
+  isFinal Boolean @default(false) @map("is_final")
+
+  isWon Boolean @default(false) @map("is_won")
+
+  isLost Boolean @default(false) @map("is_lost")
+
+  allowReopen Boolean @default(false) @map("allow_reopen")
+
+  isActive Boolean @default(true) @map("is_active")
+
+  commercialJourneys CommercialJourney[]
+
+  sourceWorkflowRules WorkflowRule[] @relation("WorkflowRuleSourceState")
+
+  targetWorkflowRules WorkflowRule[] @relation("WorkflowRuleTargetState")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([workspaceId, code], map: "journey_states_workspace_code_key")
+  @@unique([phaseId, order], map: "journey_states_phase_order_key")
+  @@index([workspaceId], map: "journey_states_workspace_idx")
+  @@index([workspaceId, phaseId], map: "journey_states_workspace_phase_idx")
+  @@index([workspaceId, isActive], map: "journey_states_workspace_active_idx")
+  @@index([workspaceId, isInitial], map: "journey_states_workspace_initial_idx")
+  @@index([workspaceId, isFinal], map: "journey_states_workspace_final_idx")
+  @@map("journey_states")
+}
+
+model CommercialJourney {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  leadId String @map("lead_id")
+
+  lead Lead @relation(fields: [leadId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  clientId String? @map("client_id")
+
+  client Client? @relation(fields: [clientId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  consultantId String @map("consultant_id")
+
+  consultant Consultant @relation(fields: [consultantId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  title String
+
+  consortiumType ConsortiumType @map("consortium_type")
+
+  currentPhaseId String @map("current_phase_id")
+
+  currentPhase JourneyPhase @relation(fields: [currentPhaseId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  currentStateId String @map("current_state_id")
+
+  currentState JourneyState @relation(fields: [currentStateId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  priority CommercialJourneyPriority @default(NORMAL)
+
+  score Int @default(0)
+
+  outcome CommercialJourneyOutcome?
+
+  stateEnteredAt DateTime @map("state_entered_at")
+
+  lastInteractionAt DateTime? @map("last_interaction_at")
+
+  closedAt DateTime? @map("closed_at")
+
+  version Int @default(1)
+
+  commercialEvents CommercialEvent[]
+
+  commercialActions CommercialAction[]
+
+  nextBestActions NextBestAction[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workspaceId], map: "commercial_journeys_workspace_idx")
+  @@index([workspaceId, leadId], map: "commercial_journeys_workspace_lead_idx")
+  @@index([workspaceId, clientId], map: "commercial_journeys_workspace_client_idx")
+  @@index([workspaceId, consultantId], map: "commercial_journeys_workspace_consultant_idx")
+  @@index([workspaceId, currentPhaseId], map: "commercial_journeys_workspace_phase_idx")
+  @@index([workspaceId, currentStateId], map: "commercial_journeys_workspace_state_idx")
+  @@index([workspaceId, priority], map: "commercial_journeys_workspace_priority_idx")
+  @@index([workspaceId, outcome], map: "commercial_journeys_workspace_outcome_idx")
+  @@index([workspaceId, lastInteractionAt], map: "commercial_journeys_workspace_last_interaction_idx")
+  @@index([workspaceId, closedAt], map: "commercial_journeys_workspace_closed_at_idx")
+  @@map("commercial_journeys")
+}
+
+model CommercialEvent {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  journeyId String @map("journey_id")
+
+  journey CommercialJourney @relation(fields: [journeyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  type CommercialEventType
+
+  actorType CommercialActorType @map("actor_type")
+
+  actorId String? @map("actor_id")
+
+  payload Json @default("{}")
+
+  occurredAt DateTime @map("occurred_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workspaceId], map: "commercial_events_workspace_idx")
+  @@index([workspaceId, journeyId], map: "commercial_events_workspace_journey_idx")
+  @@index([workspaceId, type], map: "commercial_events_workspace_type_idx")
+  @@index([workspaceId, actorType], map: "commercial_events_workspace_actor_type_idx")
+  @@index([workspaceId, occurredAt], map: "commercial_events_workspace_occurred_at_idx")
+  @@map("commercial_events")
+}
+
+model CommercialAction {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  journeyId String @map("journey_id")
+
+  journey CommercialJourney @relation(fields: [journeyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  type CommercialActionType
+
+  status CommercialActionStatus @default(PENDING)
+
+  origin CommercialActionOrigin
+
+  actorType CommercialActorType @map("actor_type")
+
+  actorId String? @map("actor_id")
+
+  title String
+
+  description String? @db.Text
+
+  payload Json @default("{}")
+
+  scheduledFor DateTime? @map("scheduled_for")
+
+  startedAt DateTime? @map("started_at")
+
+  completedAt DateTime? @map("completed_at")
+
+  failedAt DateTime? @map("failed_at")
+
+  failureReason String? @map("failure_reason")
+
+  createdBy String? @map("created_by")
+
+  executedNextBestAction NextBestAction?
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workspaceId], map: "commercial_actions_workspace_idx")
+  @@index([workspaceId, journeyId], map: "commercial_actions_workspace_journey_idx")
+  @@index([workspaceId, status], map: "commercial_actions_workspace_status_idx")
+  @@index([workspaceId, type], map: "commercial_actions_workspace_type_idx")
+  @@index([workspaceId, origin], map: "commercial_actions_workspace_origin_idx")
+  @@index([workspaceId, scheduledFor], map: "commercial_actions_workspace_scheduled_for_idx")
+  @@map("commercial_actions")
+}
+
+model WorkflowRule {
+  id String @id @default(cuid())
+
+  workspaceId String? @map("workspace_id")
+
+  workspace Workspace? @relation(fields: [workspaceId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  name String
+
+  description String? @db.Text
+
+  eventType String @map("event_type")
+
+  sourceStateId String? @map("source_state_id")
+
+  sourceState JourneyState? @relation("WorkflowRuleSourceState", fields: [sourceStateId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  targetStateId String? @map("target_state_id")
+
+  targetState JourneyState? @relation("WorkflowRuleTargetState", fields: [targetStateId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  conditions Json @default("[]")
+
+  actions Json @default("[]")
+
+  priority Int @default(0)
+
+  stopProcessingAfterMatch Boolean @default(false) @map("stop_processing_after_match")
+
+  isActive Boolean @default(true) @map("is_active")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workspaceId], map: "workflow_rules_workspace_idx")
+  @@index([workspaceId, eventType], map: "workflow_rules_workspace_event_type_idx")
+  @@index([workspaceId, isActive], map: "workflow_rules_workspace_active_idx")
+  @@index([workspaceId, priority], map: "workflow_rules_workspace_priority_idx")
+  @@index([sourceStateId], map: "workflow_rules_source_state_idx")
+  @@index([targetStateId], map: "workflow_rules_target_state_idx")
+  @@map("workflow_rules")
+}
+
+model NextBestAction {
+  id String @id @default(cuid())
+
+  workspaceId String @map("workspace_id")
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  journeyId String @map("journey_id")
+
+  journey CommercialJourney @relation(fields: [journeyId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  actionType CommercialActionType @map("action_type")
+
+  title String
+
+  description String? @db.Text
+
+  reason String @db.Text
+
+  confidence Decimal @db.Decimal(5, 4)
+
+  priority NextBestActionPriority @default(NORMAL)
+
+  source NextBestActionSource
+
+  expiresAt DateTime? @map("expires_at")
+
+  acceptedAt DateTime? @map("accepted_at")
+
+  rejectedAt DateTime? @map("rejected_at")
+
+  executedActionId String? @unique(map: "next_best_actions_executed_action_key") @map("executed_action_id")
+
+  executedAction CommercialAction? @relation(fields: [executedActionId], references: [id], onDelete: SetNull, onUpdate: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([workspaceId], map: "next_best_actions_workspace_idx")
+  @@index([workspaceId, journeyId], map: "next_best_actions_workspace_journey_idx")
+  @@index([workspaceId, priority], map: "next_best_actions_workspace_priority_idx")
+  @@index([workspaceId, source], map: "next_best_actions_workspace_source_idx")
+  @@index([workspaceId, actionType], map: "next_best_actions_workspace_action_type_idx")
+  @@index([workspaceId, expiresAt], map: "next_best_actions_workspace_expires_at_idx")
+  @@index([workspaceId, acceptedAt], map: "next_best_actions_workspace_accepted_at_idx")
+  @@index([workspaceId, rejectedAt], map: "next_best_actions_workspace_rejected_at_idx")
+  @@map("next_best_actions")
+}
