@@ -1,4 +1,10 @@
+"use client"
+
+import { useSyncExternalStore } from "react"
+
 import { cn } from "@/lib/utils"
+
+type BrandTheme = "dark" | "light"
 
 type BrandIdentityProps = {
   compact?: boolean
@@ -7,11 +13,42 @@ type BrandIdentityProps = {
   showDescriptor?: boolean
 }
 
+function getActiveBrandTheme(): BrandTheme {
+  return document.documentElement.classList.contains("gorila-light")
+    ? "light"
+    : "dark"
+}
+
+function getServerBrandTheme(): BrandTheme {
+  return "dark"
+}
+
+function subscribeToBrandTheme(onThemeChange: () => void) {
+  const observer = new MutationObserver(onThemeChange)
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  })
+
+  return () => observer.disconnect()
+}
+
 export function BrandMarkSlot({
   className,
 }: {
   className?: string
 }) {
+  const theme = useSyncExternalStore(
+    subscribeToBrandTheme,
+    getActiveBrandTheme,
+    getServerBrandTheme
+  )
+  const markSource =
+    theme === "light"
+      ? "/brand/GorillaMark_Light.svg"
+      : "/brand/GorillaMark_Dark.svg"
+
   return (
     <span
       aria-hidden="true"
@@ -23,7 +60,13 @@ export function BrandMarkSlot({
         "after:absolute after:inset-[9px] after:rounded-[8px] after:border after:border-[#43A972]/25",
         className
       )}
-    />
+    >
+      <img
+        src={markSource}
+        alt=""
+        className="size-full object-contain"
+      />
+    </span>
   )
 }
 
