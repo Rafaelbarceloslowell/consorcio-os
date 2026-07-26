@@ -33,6 +33,28 @@ export type PipelineStage = {
   value: number
 }
 
+export type DashboardPriorityLevel =
+  | "critical"
+  | "important"
+  | "monitoring"
+  | "completed"
+
+export type DashboardIntelligence = {
+  criticalCount: number
+  importantCount: number
+  monitoringCount: number
+  unpreparedMeetings: number
+  staleOpportunities: number
+  pipelineValue: number
+  nextAction?: string
+  topOpportunity?: {
+    id: string
+    name: string
+    value: number
+    score: number
+  }
+}
+
 export type DashboardData = {
   user: User
   summary: string
@@ -40,4 +62,5 @@ export type DashboardData = {
   meetings: Meeting[]
   tasks: Task[]
   pipeline: PipelineStage[]
+  intelligence?: DashboardIntelligence
 }

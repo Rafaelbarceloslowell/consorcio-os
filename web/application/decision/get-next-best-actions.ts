@@ -27,7 +27,7 @@ export type OperationalNextBestAction = {
 }
 
 type GetNextBestActionsCommonInput = {
-  crmRepository: CrmRepository
+  crmRepository?: CrmRepository
 
   consultantId?: string
 
