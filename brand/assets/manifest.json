@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-26T18:04:56.647Z",
+  "source": {
+    "path": "brand/assets/source/GorillaMark_Master.svg",
+    "sha256": "6572940ba485e3e9d993754b8d422cefb26de5b194ed5ad8219771224bb29b70",
+    "viewBox": "0 0 1024 1024"
+  },
+  "colors": {
+    "gorillaGreen": "#163F35",
+    "gorillaGray": "#818487",
+    "darkForeground": "#FFFFFF"
+  },
+  "variants": {
+    "Light": "Cores oficiais sobre fundo transparente.",
+    "Dark": "Cabeça branca e moldura oficial sobre fundo transparente.",
+    "Monochrome": "Aplicação monocromática no verde oficial."
+  },
+  "assets": [
+    {
+      "path": "brand/assets/favicon/favicon-16x16.png",
+      "bytes": 464,
+      "sha256": "9d7cbc4ac252e7ce625590f72ba4972f799c6ec513c22fee2eaf7590670374dd",
+      "kind": "favicon",
+      "variant": "Light",
+      "mediaType": "image/png",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "brand/assets/favicon/favicon-32x32.png",
+      "bytes": 830,
+      "sha256": "431838b4032f27f39acb3a5e4da574e96c65fa2c375b022f30d813c8d015c703",
+      "kind": "favicon",
+      "variant": "Light",
+      "mediaType": "image/png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "brand/assets/favicon/favicon-48x48.png",
+      "bytes": 1176,
+      "sha256": "12bec5cb7197e0814ace53954a94ad9e3fb465ecdab49b9bec767861f1b5c8e7",
+      "kind": "favicon",
+      "variant": "Light",
+      "mediaType": "image/png",
+      "width": 48,
+      "height": 48
+    },
+    {
+      "path": "brand/assets/favicon/favicon.ico",
+      "bytes": 2524,
+      "sha256": "c19b41dd7319994251c0a7010d6ac5ca06535d8b0417ffd753523775b3db2019",
+      "kind": "favicon",
+      "variant": "Light",
+      "mediaType": "image/x-icon"
+    },
+    {
+      "path": "brand/assets/favicon/favicon.svg",
+      "bytes": 938,
+      "sha256": "feea021e48da76da21865ba9e143b067438cbe716d9726dd436adae03d6e2237",
+      "kind": "favicon",
+      "variant": "Light",
+      "mediaType": "image/svg+xml",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "brand/assets/png/dark/GorillaMark_Dark_1024.png",
+      "bytes": 24985,
+      "sha256": "36c54797629e42f16ad7c0ac291ff69b0ff829c7147a6b354d3b53638d8ab4ab",
+      "kind": "png",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "brand/assets/png/dark/GorillaMark_Dark_128.png",
+      "bytes": 2330,
+      "sha256": "ac168e0ed5f3b80cebdf0b48f063fab7469426d217a1efdd7a45265d77ba3a6a",
+      "kind": "png",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "brand/assets/png/dark/GorillaMark_Dark_256.png",
+      "bytes": 4669,
+      "sha256": "a1b8fbc71dacde896cea9b8012ef484e226a4218d1a50f6e52c52380acb8f57f",
+      "kind": "png",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "brand/assets/png/dark/GorillaMark_Dark_32.png",
+      "bytes": 740,
+      "sha256": "8ca6c4acc5b9a25ebdc7e469b0a19752228f8101510a113927296a50c2ad170c",
+      "kind": "png",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "brand/assets/png/dark/GorillaMark_Dark_512.png",
+      "bytes": 9972,
+      "sha256": "d6029e661d448fc8cd0dfcc4a811f55b76131b90cdba9476595f6754093a5610",
+      "kind": "png",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "brand/assets/png/dark/GorillaMark_Dark_64.png",
+      "bytes": 1270,
+      "sha256": "59038cb9780ffbeda92463ce6fcd8459e5d05f4578145f15fce1bb491eab4eac",
+      "kind": "png",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "brand/assets/png/light/GorillaMark_Light_1024.png",
+      "bytes": 27573,
+      "sha256": "e5542ed0f8f859e6564cf9ced9a4465570e13c544c63487dc32c40d9e17ffab4",
+      "kind": "png",
+      "variant": "Light",
+      "mediaType": "image/png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "brand/assets/png/light/GorillaMark_Light_128.png",
+      "bytes": 2561,
+      "sha256": "b3c683f84caea91910ec926d731c5171d70b338e36585d8f72db435fd52dd3ef",
+      "kind": "png",
+      "variant": "Light",
+      "mediaType": "image/png",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "brand/assets/png/light/GorillaMark_Light_256.png",
+      "bytes": 5134,
+      "sha256": "78b7197c0f43495e23aa81a9d0204e5714881786b3ccd66a5172ef34b8462b53",
+      "kind": "png",
+      "variant": "Light",
+      "mediaType": "image/png",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "brand/assets/png/light/GorillaMark_Light_32.png",
+      "bytes": 830,
+      "sha256": "431838b4032f27f39acb3a5e4da574e96c65fa2c375b022f30d813c8d015c703",
+      "kind": "png",
+      "variant": "Light",
+      "mediaType": "image/png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "brand/assets/png/light/GorillaMark_Light_512.png",
+      "bytes": 11042,
+      "sha256": "a80eee8f446a9244eb89a9248f724d68be368a295eb99a32965c7ce1945898ef",
+      "kind": "png",
+      "variant": "Light",
+      "mediaType": "image/png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "brand/assets/png/light/GorillaMark_Light_64.png",
+      "bytes": 1434,
+      "sha256": "95798bbe439586dedc5ea3f4474e9b46f3c7e8515d117e2486be95bfc00990d2",
+      "kind": "png",
+      "variant": "Light",
+      "mediaType": "image/png",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "brand/assets/png/monochrome/GorillaMark_Monochrome_1024.png",
+      "bytes": 27029,
+      "sha256": "b9aff11a5c685a3e8877ac25977508bb5513840912eac0e03834e1ec542b9546",
+      "kind": "png",
+      "variant": "Monochrome",
+      "mediaType": "image/png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "brand/assets/png/monochrome/GorillaMark_Monochrome_128.png",
+      "bytes": 2430,
+      "sha256": "3e109add46386cffd3cb961bc01ba57e15a8b8e5218f2474adea502b9355798e",
+      "kind": "png",
+      "variant": "Monochrome",
+      "mediaType": "image/png",
+      "width": 128,
+      "height": 128
+    },
+    {
+      "path": "brand/assets/png/monochrome/GorillaMark_Monochrome_256.png",
+      "bytes": 4930,
+      "sha256": "e07dfb06442aafbeb3ba5f201700cf8806d8392cee77d4fc41130c71df4905d6",
+      "kind": "png",
+      "variant": "Monochrome",
+      "mediaType": "image/png",
+      "width": 256,
+      "height": 256
+    },
+    {
+      "path": "brand/assets/png/monochrome/GorillaMark_Monochrome_32.png",
+      "bytes": 779,
+      "sha256": "235a3e9811946380b113834b6b51eacd89d86f4152333aaf10b80885b856ab55",
+      "kind": "png",
+      "variant": "Monochrome",
+      "mediaType": "image/png",
+      "width": 32,
+      "height": 32
+    },
+    {
+      "path": "brand/assets/png/monochrome/GorillaMark_Monochrome_512.png",
+      "bytes": 10802,
+      "sha256": "be2eb1ec04a21e2f20d595bd5e39e51ff866cf7e29c6559432c8a5499143a686",
+      "kind": "png",
+      "variant": "Monochrome",
+      "mediaType": "image/png",
+      "width": 512,
+      "height": 512
+    },
+    {
+      "path": "brand/assets/png/monochrome/GorillaMark_Monochrome_64.png",
+      "bytes": 1338,
+      "sha256": "6c8debe2f9a0783c435004fa74f40b16dbcb8fce030e25e20702b582e30d20c8",
+      "kind": "png",
+      "variant": "Monochrome",
+      "mediaType": "image/png",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "brand/assets/pwa/apple-touch-icon-120x120.png",
+      "bytes": 2383,
+      "sha256": "2dba4ad5bc0326deb060bbea3f3a9651450c294b3df80ed191fe4a6d7bd6d56c",
+      "kind": "apple-touch",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 120,
+      "height": 120
+    },
+    {
+      "path": "brand/assets/pwa/apple-touch-icon-152x152.png",
+      "bytes": 3019,
+      "sha256": "d39d4ec2ef46e40935507c564d4ba8ca5f53cbfd0c30da2f6126cfdabb564797",
+      "kind": "apple-touch",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 152,
+      "height": 152
+    },
+    {
+      "path": "brand/assets/pwa/apple-touch-icon-167x167.png",
+      "bytes": 3261,
+      "sha256": "62768aa406fd5b48ffd8540cfe5b4ebba8fad3727dbdebaa92f9761e9ece91c0",
+      "kind": "apple-touch",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 167,
+      "height": 167
+    },
+    {
+      "path": "brand/assets/pwa/apple-touch-icon-180x180.png",
+      "bytes": 3567,
+      "sha256": "0bac47b438df386413ad9d3717276a0c00bc7b0bf0999cc8a0cb871cbc3fd8dc",
+      "kind": "apple-touch",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 180,
+      "height": 180
+    },
+    {
+      "path": "brand/assets/pwa/pwa-icon-192x192.png",
+      "bytes": 3973,
+      "sha256": "fd66fbaa7b84117643d4e31b898c2f3bfd5be21ba8e6b4edde2f6555c018a1d7",
+      "kind": "pwa",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 192,
+      "height": 192,
+      "purpose": "any"
+    },
+    {
+      "path": "brand/assets/pwa/pwa-icon-512x512.png",
+      "bytes": 11566,
+      "sha256": "084d105fca54f562830809fc1a33ae0dbfcb874c65cbe43d3971ba97756fd58a",
+      "kind": "pwa",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 512,
+      "height": 512,
+      "purpose": "any"
+    },
+    {
+      "path": "brand/assets/pwa/pwa-maskable-192x192.png",
+      "bytes": 3489,
+      "sha256": "8bb1b9eb0d0a5ced9f2dea9381eb09c0f88b46b39feeb03e5c385d4447b618d0",
+      "kind": "pwa",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 192,
+      "height": 192,
+      "purpose": "maskable"
+    },
+    {
+      "path": "brand/assets/pwa/pwa-maskable-512x512.png",
+      "bytes": 9919,
+      "sha256": "516314f76409f67f46185c94ec2c28ecd10111f056d3fca696cc214a96e73d03",
+      "kind": "pwa",
+      "variant": "Dark",
+      "mediaType": "image/png",
+      "width": 512,
+      "height": 512,
+      "purpose": "maskable"
+    },
+    {
+      "path": "brand/assets/svg/GorillaMark_Dark.svg",
+      "bytes": 937,
+      "sha256": "7fc4ba6c6b5beea9b082cff751a480d7df8f8d372984703cf6847e2398b5749e",
+      "kind": "svg",
+      "variant": "Dark",
+      "mediaType": "image/svg+xml",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "brand/assets/svg/GorillaMark_Light.svg",
+      "bytes": 938,
+      "sha256": "feea021e48da76da21865ba9e143b067438cbe716d9726dd436adae03d6e2237",
+      "kind": "svg",
+      "variant": "Light",
+      "mediaType": "image/svg+xml",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "path": "brand/assets/svg/GorillaMark_Monochrome.svg",
+      "bytes": 943,
+      "sha256": "b85b7ba8da693872b81604a89a5d5e28a14cfc78c06423322ff260f330f7738b",
+      "kind": "svg",
+      "variant": "Monochrome",
+      "mediaType": "image/svg+xml",
+      "width": 1024,
+      "height": 1024
+    }
+  ]
+}

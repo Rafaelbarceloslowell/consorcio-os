@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 1024 1024"
+     style="--gorilla-green:#FFFFFF;--gorilla-gray:#818487">
+  <title>GorillaMark Dark</title>
+  <desc>Marca oficial do Gorila OS: perfil angular de um gorila dentro de uma moldura hexagonal aberta.</desc>
+  <g id="gorilla-mark-frame" fill="var(--gorilla-gray)">
+    <path d="M512 80 864 288 864 560 848 560 782 468 782 340 512 178 257 340 257 641 176 696 176 282Z"/>
+    <path d="M176 696 257 641 512 808 679 703 664 680 673 625 729 608 771 641 828 603 864 626 864 696 512 920Z"/>
+  </g>
+  <g id="gorilla-mark-head" fill="var(--gorilla-green)">
+    <path d="M606 318C559 296 508 294 468 306 439 313 414 338 397 369L351 386C330 431 317 472 317 506L317 593 397 649 429 564 475 608 487 592 450 499 471 463 482 460 493 472 515 470 486 422C505 370 545 319 606 318Z"/>
+    <path d="M621 462 674 487 713 521 751 522 786 565 713 565 674 532 643 510 593 485Z"/>
+  </g>
+</svg>
