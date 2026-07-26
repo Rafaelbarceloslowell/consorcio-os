@@ -13,7 +13,7 @@ export default function DecisionDebugPage() {
       <h1>Decision Engine Debug</h1>
 
       <p>
-        Resultado produzido pelo motor de decisão do ConsórcioOS.
+        Resultado produzido pelo motor de decisão do Gorila OS.
       </p>
 
       <pre
