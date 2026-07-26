@@ -3,20 +3,21 @@
 import { render, screen } from "@testing-library/react"
 import { describe, expect, it } from "vitest"
 
-import { DashboardContent } from "./dashboard-content"
 import type { DashboardData } from "@/types/dashboard"
+
+import { DashboardContent } from "./dashboard-content"
 
 const dashboardData: DashboardData = {
   user: {
     id: "user-1",
     name: "Rafael",
   },
-  summary: "Bom trabalho hoje!",
+  summary: "Hoje existem 2 oportunidades críticas.",
   metrics: {
     newLeads: 18,
     meetingsToday: 7,
     monthlySales: 1250000,
-    pendingTasks: 12,
+    pendingTasks: 2,
   },
   meetings: [],
   tasks: [
@@ -34,117 +35,81 @@ const dashboardData: DashboardData = {
     },
   ],
   pipeline: [],
+  intelligence: {
+    criticalCount: 1,
+    importantCount: 1,
+    monitoringCount: 0,
+    unpreparedMeetings: 2,
+    staleOpportunities: 1,
+    pipelineValue: 850000,
+    nextAction: "Ligar para cliente",
+    topOpportunity: {
+      id: "lead-1",
+      name: "Marina Costa",
+      value: 500000,
+      score: 92,
+    },
+  },
 }
 
 describe("DashboardContent", () => {
-  it("deve renderizar o DashboardHeader", () => {
+  it("apresenta o resumo operacional do R2", () => {
     render(<DashboardContent {...dashboardData} />)
 
     expect(
-      screen.getByText("Bom trabalho hoje!")
+      screen.getByText("Hoje existem 2 oportunidades críticas.")
     ).toBeInTheDocument()
+    expect(screen.getByText("R2 em atividade")).toBeInTheDocument()
   })
 
-  it("deve renderizar o MetricsGrid", () => {
+  it("organiza as ações pela hierarquia operacional", () => {
     render(<DashboardContent {...dashboardData} />)
 
-    expect(screen.getByText("Leads novos")).toBeInTheDocument()
-    expect(screen.getByText("Reuniões hoje")).toBeInTheDocument()
-    expect(screen.getByText("Vendas no mês")).toBeInTheDocument()
-    expect(screen.getByText("Tarefas pendentes")).toBeInTheDocument()
+    expect(screen.getAllByText("Crítico")).toHaveLength(2)
+    expect(screen.getAllByText("Importante")).toHaveLength(2)
+    expect(screen.getByText("Acompanhar")).toBeInTheDocument()
   })
 
-  it("deve renderizar o UpcomingTasks", () => {
+  it("destaca a primeira ação sem duplicar o título da tarefa", () => {
     render(<DashboardContent {...dashboardData} />)
 
     expect(
-      screen.getByText("Próximas tarefas")
+      screen.getByText("Comece por: Ligar para cliente")
     ).toBeInTheDocument()
-
-    expect(
-      screen.getByText("Ligar para cliente")
-    ).toBeInTheDocument()
-  })
-
-  it("deve renderizar todas as tarefas", () => {
-    render(<DashboardContent {...dashboardData} />)
-
     expect(screen.getByText("Ligar para cliente")).toBeInTheDocument()
+  })
+
+  it("destaca a oportunidade com maior potencial", () => {
+    render(<DashboardContent {...dashboardData} />)
+
+    expect(
+      screen.getByText(/Marina Costa · R\$\s*500\.000 · score 92/)
+    ).toBeInTheDocument()
+  })
+
+  it("mantém os indicadores e a fila de tarefas existentes", () => {
+    render(<DashboardContent {...dashboardData} />)
+
+    expect(screen.getByText("Novas oportunidades")).toBeInTheDocument()
+    expect(screen.getByText("Compromissos hoje")).toBeInTheDocument()
+    expect(screen.getByText("Produção no mês")).toBeInTheDocument()
+    expect(screen.getByText("Ações pendentes")).toBeInTheDocument()
+    expect(screen.getByText("Próximas tarefas")).toBeInTheDocument()
     expect(screen.getByText("Enviar proposta")).toBeInTheDocument()
   })
 
-  it("deve renderizar os indicadores", () => {
-    render(<DashboardContent {...dashboardData} />)
-
-    expect(screen.getByText("18")).toBeInTheDocument()
-    expect(screen.getByText("7")).toBeInTheDocument()
-    expect(screen.getByText("12")).toBeInTheDocument()
-
-    expect(
-      screen.getByText("R$ 1.250.000")
-    ).toBeInTheDocument()
-  })
-
-  it("deve renderizar o container principal", () => {
-    const { container } = render(
-      <DashboardContent {...dashboardData} />
-    )
-
-    expect(container.firstChild).toHaveClass(
-      "mx-auto",
-      "max-w-7xl",
-      "space-y-8",
-      "p-6",
-      "lg:p-8"
-    )
-  })
-
-  it("deve renderizar as duas seções da dashboard", () => {
-    render(<DashboardContent {...dashboardData} />)
-
-    expect(
-      screen.getByRole("region", {
-        name: "Indicadores da operação",
-      })
-    ).toBeInTheDocument()
-
-    expect(
-      screen.getByRole("region", {
-        name: "Próximas tarefas",
-      })
-    ).toBeInTheDocument()
-  })
-
-  it("deve renderizar exatamente duas seções", () => {
-    const { container } = render(
-      <DashboardContent {...dashboardData} />
-    )
-
-    expect(
-      container.querySelectorAll("section")
-    ).toHaveLength(2)
-  })
-
-  it("deve renderizar exatamente cinco Cards", () => {
-    const { container } = render(
-      <DashboardContent {...dashboardData} />
-    )
-
-    expect(
-      container.querySelectorAll('[data-slot="card"]')
-    ).toHaveLength(5)
-  })
-
-  it("deve renderizar corretamente com lista vazia de tarefas", () => {
+  it("oferece uma orientação segura quando não há tarefas", () => {
     render(
       <DashboardContent
         {...dashboardData}
         tasks={[]}
+        intelligence={undefined}
       />
     )
 
     expect(
-      screen.getByText("Próximas tarefas")
+      screen.getByText("Comece por: Revisar o pipeline comercial")
     ).toBeInTheDocument()
+    expect(screen.getByText("Operação em dia")).toBeInTheDocument()
   })
 })

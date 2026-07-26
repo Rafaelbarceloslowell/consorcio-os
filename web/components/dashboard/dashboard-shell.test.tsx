@@ -1,191 +1,569 @@
 // @vitest-environment jsdom
 
-import { fireEvent, render, screen } from "@testing-library/react"
-import { describe, expect, it } from "vitest"
+import {
+  fireEvent,
+  render,
+  screen,
+} from "@testing-library/react"
 
-import { DashboardShell } from "./dashboard-shell"
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest"
 
-const dashboardData = {
+import type {
+  DashboardData,
+} from "@/types/dashboard"
+
+import {
+  DashboardShell,
+} from "./dashboard-shell"
+
+const sidebarMock = vi.fn()
+const dashboardContentMock = vi.fn()
+
+vi.mock(
+  "@/components/dashboard/sidebar",
+  () => ({
+    Sidebar: (props: {
+      open: boolean
+      collapsed: boolean
+      onClose: () => void
+      onCollapsedChange: (
+        collapsed: boolean
+      ) => void
+    }) => {
+      sidebarMock(props)
+
+      return (
+        <aside
+          aria-label="Sidebar mock"
+          data-open={String(props.open)}
+          data-collapsed={String(
+            props.collapsed
+          )}
+        >
+          <button
+            type="button"
+            onClick={props.onClose}
+          >
+            Fechar sidebar
+          </button>
+
+          <button
+            type="button"
+            onClick={() =>
+              props.onCollapsedChange(true)
+            }
+          >
+            Recolher sidebar
+          </button>
+
+          <button
+            type="button"
+            onClick={() =>
+              props.onCollapsedChange(false)
+            }
+          >
+            Expandir sidebar
+          </button>
+        </aside>
+      )
+    },
+  })
+)
+
+vi.mock(
+  "@/components/dashboard/dashboard-content",
+  () => ({
+    DashboardContent: (props: {
+      user: DashboardData["user"]
+      summary: DashboardData["summary"]
+      metrics: DashboardData["metrics"]
+      tasks: DashboardData["tasks"]
+    }) => {
+      dashboardContentMock(props)
+
+      return (
+        <section aria-label="Conteúdo do dashboard">
+          Dashboard Content Mock
+        </section>
+      )
+    },
+  })
+)
+
+const dashboardData: DashboardData = {
   user: {
     id: "user-1",
-    name: "Rafael",
+    name: "Rafael Barcelos",
   },
-
-  summary: "Você possui 3 tarefas pendentes para hoje.",
-
+  summary:
+    "O R2 encontrou três ações prioritárias.",
   metrics: {
-    newLeads: 18,
+    newLeads: 12,
     meetingsToday: 4,
-    monthlySales: 1200000,
-    pendingTasks: 3,
+    monthlySales: 1850000,
+    pendingTasks: 7,
   },
-
-  meetings: [
-    {
-      id: "meeting-1",
-      title: "Reunião",
-      time: "09:00",
-      clientName: "João",
-    },
-  ],
-
+  meetings: [],
   tasks: [
     {
-      id: "1",
-      title: "Ligar para João",
-      time: "09:00",
-      priority: "high" as const,
-    },
-    {
-      id: "2",
-      title: "Enviar proposta",
-      time: "14:00",
-      priority: "medium" as const,
+      id: "task-1",
+      title: "Retornar contato do cliente",
+      time: "10:30",
+      priority: "high",
     },
   ],
-
-  pipeline: [
-    {
-      id: "pipeline-1",
-      name: "Novos Leads",
-      count: 10,
-      value: 500000,
-    },
-  ],
+  pipeline: [],
 }
 
 describe("DashboardShell", () => {
-  it("deve renderizar o Sidebar", () => {
-    render(<DashboardShell {...dashboardData} />)
-
-    expect(screen.getByText("Dashboard")).toBeInTheDocument()
+  beforeEach(() => {
+    vi.clearAllMocks()
   })
 
-  it("deve renderizar o DashboardContent", () => {
-    render(<DashboardShell {...dashboardData} />)
-
-    expect(screen.getByText("Ligar para João")).toBeInTheDocument()
-  })
-
-  it("deve renderizar o botão de abrir menu", () => {
-    render(<DashboardShell {...dashboardData} />)
-
-    expect(
-      screen.getByRole("button", {
-        name: "Abrir menu",
-      })
-    ).toBeInTheDocument()
-  })
-
-  it("deve abrir o Sidebar ao clicar no botão", () => {
-    render(<DashboardShell {...dashboardData} />)
-
-    fireEvent.click(
-      screen.getByRole("button", {
-        name: "Abrir menu",
-      })
-    )
-
-    expect(
-      screen.getAllByRole("button", {
-        name: "Fechar menu",
-      })
-    ).toHaveLength(2)
-  })
-
-  it("deve fechar o Sidebar ao clicar no overlay", () => {
-    render(<DashboardShell {...dashboardData} />)
-
-    fireEvent.click(
-      screen.getByRole("button", {
-        name: "Abrir menu",
-      })
-    )
-
-    fireEvent.click(
-      screen.getAllByRole("button", {
-        name: "Fechar menu",
-      })[0]
-    )
-
-    expect(
-      screen.getByRole("button", {
-        name: "Fechar menu",
-      })
-    ).toBeInTheDocument()
-  })
-
-  it("deve renderizar os dois títulos do sistema", () => {
-    render(<DashboardShell {...dashboardData} />)
-
-    expect(
-      screen.getAllByText("ConsórcioOS")
-    ).toHaveLength(2)
-  })
-
-  it("deve renderizar o elemento main", () => {
-    const { container } = render(
+  it("deve renderizar o container principal da aplicação", () => {
+    const {
+      container,
+    } = render(
       <DashboardShell {...dashboardData} />
     )
 
-    expect(
-      container.querySelector("main")
-    ).toBeInTheDocument()
-  })
+    const shell =
+      container.firstElementChild
 
-  it("deve renderizar o header mobile", () => {
-    const { container } = render(
-      <DashboardShell {...dashboardData} />
-    )
-
-    expect(
-      container.querySelector("header")
-    ).toBeInTheDocument()
-  })
-
-  it("deve renderizar exatamente um elemento main", () => {
-    const { container } = render(
-      <DashboardShell {...dashboardData} />
-    )
-
-    expect(
-      container.querySelectorAll("main")
-    ).toHaveLength(1)
-  })
-
-  it("deve renderizar exatamente dois headers", () => {
-    const { container } = render(
-      <DashboardShell {...dashboardData} />
-    )
-
-    expect(
-      container.querySelectorAll("header")
-    ).toHaveLength(2)
-  })
-
-  it("deve renderizar o container principal", () => {
-    const { container } = render(
-      <DashboardShell {...dashboardData} />
-    )
-
-    expect(container.firstChild).toHaveClass(
-      "flex",
-      "min-h-screen"
+    expect(shell).toHaveClass(
+      "min-h-screen",
+      "bg-[var(--gorila-canvas)]",
+      "text-[var(--gorila-text)]"
     )
   })
 
-  it("deve renderizar corretamente quando não houver tarefas", () => {
+  it("deve renderizar a sidebar", () => {
     render(
-      <DashboardShell
-        {...dashboardData}
-        tasks={[]}
-      />
+      <DashboardShell {...dashboardData} />
     )
 
     expect(
+      screen.getByRole("complementary", {
+        name: "Sidebar mock",
+      })
+    ).toBeInTheDocument()
+  })
+
+  it("deve iniciar a sidebar móvel fechada", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      screen.getByRole("complementary", {
+        name: "Sidebar mock",
+      })
+    ).toHaveAttribute(
+      "data-open",
+      "false"
+    )
+  })
+
+  it("deve iniciar a sidebar expandida", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      screen.getByRole("complementary", {
+        name: "Sidebar mock",
+      })
+    ).toHaveAttribute(
+      "data-collapsed",
+      "false"
+    )
+  })
+
+  it("deve abrir a sidebar móvel ao clicar no botão de menu", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    fireEvent.click(
       screen.getByRole("button", {
         name: "Abrir menu",
       })
+    )
+
+    expect(
+      screen.getByRole("complementary", {
+        name: "Sidebar mock",
+      })
+    ).toHaveAttribute(
+      "data-open",
+      "true"
+    )
+  })
+
+  it("deve fechar a sidebar móvel por meio do callback onClose", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Abrir menu",
+      })
+    )
+
+    expect(
+      screen.getByRole("complementary", {
+        name: "Sidebar mock",
+      })
+    ).toHaveAttribute(
+      "data-open",
+      "true"
+    )
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Fechar sidebar",
+      })
+    )
+
+    expect(
+      screen.getByRole("complementary", {
+        name: "Sidebar mock",
+      })
+    ).toHaveAttribute(
+      "data-open",
+      "false"
+    )
+  })
+
+  it("deve recolher a sidebar por meio do callback onCollapsedChange", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Recolher sidebar",
+      })
+    )
+
+    expect(
+      screen.getByRole("complementary", {
+        name: "Sidebar mock",
+      })
+    ).toHaveAttribute(
+      "data-collapsed",
+      "true"
+    )
+  })
+
+  it("deve expandir novamente a sidebar", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Recolher sidebar",
+      })
+    )
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Expandir sidebar",
+      })
+    )
+
+    expect(
+      screen.getByRole("complementary", {
+        name: "Sidebar mock",
+      })
+    ).toHaveAttribute(
+      "data-collapsed",
+      "false"
+    )
+  })
+
+  it("deve reservar 288 pixels para a sidebar expandida", () => {
+    const {
+      container,
+    } = render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    const contentWrapper =
+      container.querySelector(
+        ".lg\\:pl-\\[288px\\]"
+      )
+
+    expect(
+      contentWrapper
     ).toBeInTheDocument()
+
+    expect(
+      contentWrapper
+    ).not.toHaveClass(
+      "lg:pl-[88px]"
+    )
+  })
+
+  it("deve reservar 88 pixels para a sidebar recolhida", () => {
+    const {
+      container,
+    } = render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    fireEvent.click(
+      screen.getByRole("button", {
+        name: "Recolher sidebar",
+      })
+    )
+
+    const contentWrapper =
+      container.querySelector(
+        ".lg\\:pl-\\[88px\\]"
+      )
+
+    expect(
+      contentWrapper
+    ).toBeInTheDocument()
+
+    expect(
+      contentWrapper
+    ).not.toHaveClass(
+      "lg:pl-[288px]"
+    )
+  })
+
+  it("deve aplicar transição ao espaço lateral da sidebar", () => {
+    const {
+      container,
+    } = render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    const contentWrapper =
+      container.querySelector(
+        ".transition-\\[padding-left\\]"
+      )
+
+    expect(
+      contentWrapper
+    ).toHaveClass(
+      "min-h-screen",
+      "transition-[padding-left]",
+      "duration-250",
+      "ease-out"
+    )
+  })
+
+  it("deve renderizar o cabeçalho móvel", () => {
+    const {
+      container,
+    } = render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    const mobileHeader =
+      container.querySelector(
+        "header"
+      )
+
+    expect(
+      mobileHeader
+    ).toBeInTheDocument()
+
+    expect(
+      mobileHeader
+    ).toHaveClass(
+      "sticky",
+      "top-0",
+      "z-30",
+      "lg:hidden"
+    )
+  })
+
+  it("deve renderizar a marca Gorila OS no cabeçalho móvel", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      screen.getByText("Gorila OS")
+    ).toBeInTheDocument()
+  })
+
+  it("deve renderizar o subtítulo do centro de operações", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      screen.getByText(
+        "Centro de operações"
+      )
+    ).toBeInTheDocument()
+  })
+
+  it("deve renderizar o ícone de menu", () => {
+    const {
+      container,
+    } = render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      container.querySelector(
+        ".lucide-menu"
+      )
+    ).toBeInTheDocument()
+  })
+
+  it("deve aplicar relevo no hover do botão de menu sem usar azul", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    const menuButton =
+      screen.getByRole("button", {
+        name: "Abrir menu",
+      })
+
+    expect(menuButton).toHaveClass(
+      "hover:-translate-y-px",
+      "hover:border-white/[0.1]",
+      "hover:bg-white/[0.045]",
+      "hover:shadow-[0_10px_24px_rgba(0,0,0,0.24)]"
+    )
+
+    expect(
+      menuButton.className
+    ).not.toMatch(
+      /hover:(bg|border|text)-(blue|sky|cyan|indigo)/
+    )
+  })
+
+  it("deve renderizar o conteúdo principal", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      screen.getByRole("main")
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole("region", {
+        name: "Conteúdo do dashboard",
+      })
+    ).toBeInTheDocument()
+  })
+
+  it("deve encaminhar o usuário para o DashboardContent", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      dashboardContentMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        user: dashboardData.user,
+      })
+    )
+  })
+
+  it("deve encaminhar o resumo para o DashboardContent", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      dashboardContentMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        summary:
+          dashboardData.summary,
+      })
+    )
+  })
+
+  it("deve encaminhar as métricas para o DashboardContent", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      dashboardContentMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        metrics:
+          dashboardData.metrics,
+      })
+    )
+  })
+
+  it("deve encaminhar as tarefas para o DashboardContent", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      dashboardContentMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        tasks:
+          dashboardData.tasks,
+      })
+    )
+  })
+
+  it("não deve encaminhar reuniões e pipeline para o DashboardContent", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    const receivedProps =
+      dashboardContentMock.mock
+        .calls[0]?.[0]
+
+    expect(
+      receivedProps
+    ).not.toHaveProperty(
+      "meetings"
+    )
+
+    expect(
+      receivedProps
+    ).not.toHaveProperty(
+      "pipeline"
+    )
+  })
+
+  it("deve encaminhar o estado inicial correto para a Sidebar", () => {
+    render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    expect(
+      sidebarMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        open: false,
+        collapsed: false,
+        onClose: expect.any(
+          Function
+        ),
+        onCollapsedChange:
+          expect.any(Function),
+      })
+    )
   })
 })

@@ -1,92 +1,435 @@
 // @vitest-environment jsdom
 
-import { render, screen } from "@testing-library/react"
-import { describe, expect, it } from "vitest"
+import {
+  render,
+  screen,
+} from "@testing-library/react"
 
-import { MetricsGrid } from "./metrics-grid"
-import type { DashboardMetrics } from "@/types/dashboard"
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest"
+
+import type {
+  DashboardMetrics,
+} from "@/types/dashboard"
+
+import {
+  MetricsGrid,
+} from "./metrics-grid"
+
+const statCardMock = vi.fn()
+
+vi.mock(
+  "@/components/dashboard/stat-card",
+  () => ({
+    StatCard: (props: {
+      title: string
+      description: string
+      value: string
+      icon: unknown
+      iconClassName: string
+      accentClassName: string
+    }) => {
+      statCardMock(props)
+
+      return (
+        <article
+          aria-label={props.title}
+          data-icon-class={props.iconClassName}
+          data-accent-class={props.accentClassName}
+        >
+          <h3>{props.title}</h3>
+
+          <p>{props.description}</p>
+
+          <span>{props.value}</span>
+        </article>
+      )
+    },
+  })
+)
 
 const metrics: DashboardMetrics = {
-  newLeads: 18,
-  meetingsToday: 7,
-  monthlySales: 1250000,
-  pendingTasks: 12,
+  newLeads: 12,
+  meetingsToday: 4,
+  monthlySales: 1850000,
+  pendingTasks: 7,
 }
 
 describe("MetricsGrid", () => {
-  it("deve renderizar a seção de indicadores", () => {
-    render(<MetricsGrid metrics={metrics} />)
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  it("deve renderizar a seção de visão da operação", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
 
     expect(
       screen.getByRole("region", {
-        name: "Indicadores da operação",
+        name: "Visão da operação",
       })
     ).toBeInTheDocument()
   })
 
-  it("deve renderizar os quatro títulos", () => {
-    render(<MetricsGrid metrics={metrics} />)
-
-    expect(screen.getByText("Leads novos")).toBeInTheDocument()
-    expect(screen.getByText("Reuniões hoje")).toBeInTheDocument()
-    expect(screen.getByText("Vendas no mês")).toBeInTheDocument()
-    expect(screen.getByText("Tarefas pendentes")).toBeInTheDocument()
-  })
-
-  it("deve renderizar os valores numéricos", () => {
-    render(<MetricsGrid metrics={metrics} />)
-
-    expect(screen.getByText("18")).toBeInTheDocument()
-    expect(screen.getByText("7")).toBeInTheDocument()
-    expect(screen.getByText("12")).toBeInTheDocument()
-  })
-
-  it("deve formatar corretamente o valor monetário", () => {
-    render(<MetricsGrid metrics={metrics} />)
+  it("deve renderizar o título principal da seção", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
 
     expect(
-      screen.getByText("R$ 1.250.000")
+      screen.getByRole("heading", {
+        level: 2,
+        name: "Visão da operação",
+      })
     ).toBeInTheDocument()
   })
 
-  it("deve renderizar quatro cards", () => {
-    const { container } = render(
+  it("deve associar corretamente o título à seção", () => {
+    const {
+      container,
+    } = render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    const section =
+      container.querySelector("section")
+
+    const title =
+      screen.getByRole("heading", {
+        level: 2,
+        name: "Visão da operação",
+      })
+
+    expect(section).toHaveAttribute(
+      "aria-labelledby",
+      "operation-overview-title"
+    )
+
+    expect(title).toHaveAttribute(
+      "id",
+      "operation-overview-title"
+    )
+  })
+
+  it("deve renderizar o rótulo de desempenho atual", () => {
+    render(
       <MetricsGrid metrics={metrics} />
     )
 
     expect(
-      container.querySelectorAll('[data-slot="card"]')
-    ).toHaveLength(4)
+      screen.getByText(
+        "Desempenho atual"
+      )
+    ).toBeInTheDocument()
   })
 
-  it("deve renderizar quatro conteúdos de card", () => {
-    const { container } = render(
+  it("deve renderizar a descrição dos indicadores", () => {
+    render(
       <MetricsGrid metrics={metrics} />
     )
 
     expect(
-      container.querySelectorAll('[data-slot="card-content"]')
-    ).toHaveLength(4)
+      screen.getByText(
+        "Os indicadores que podem exigir uma decisão sua hoje."
+      )
+    ).toBeInTheDocument()
   })
 
-  it("deve renderizar quatro ícones SVG", () => {
-    const { container } = render(
+  it("deve renderizar o estado de atualização", () => {
+    render(
       <MetricsGrid metrics={metrics} />
     )
 
     expect(
-      container.querySelectorAll("svg")
-    ).toHaveLength(4)
+      screen.getByText(
+        "Atualizado agora"
+      )
+    ).toBeInTheDocument()
   })
 
-  it("deve aplicar as classes da grid", () => {
-    const { container } = render(
+  it("deve renderizar quatro cartões de métricas", () => {
+    render(
       <MetricsGrid metrics={metrics} />
     )
 
-    const section = container.querySelector("section")
+    expect(
+      screen.getAllByRole("article")
+    ).toHaveLength(4)
+  })
 
-    expect(section).toHaveClass(
+  it("deve renderizar o cartão de novas oportunidades", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    expect(
+      screen.getByRole("article", {
+        name: "Novas oportunidades",
+      })
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText(
+        "Quem entrou hoje e precisa do primeiro contato"
+      )
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText("12")
+    ).toBeInTheDocument()
+  })
+
+  it("deve renderizar o cartão de compromissos de hoje", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    expect(
+      screen.getByRole("article", {
+        name: "Compromissos hoje",
+      })
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText(
+        "Conversas que exigem preparação hoje"
+      )
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText("4")
+    ).toBeInTheDocument()
+  })
+
+  it("deve renderizar o cartão de produção mensal", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    expect(
+      screen.getByRole("article", {
+        name: "Produção no mês",
+      })
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText(
+        "Quanto a operação já converteu neste mês"
+      )
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText(
+        /R\$\s*1\.850\.000/
+      )
+    ).toBeInTheDocument()
+  })
+
+  it("deve renderizar o cartão de ações pendentes", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    expect(
+      screen.getByRole("article", {
+        name: "Ações pendentes",
+      })
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText(
+        "O que ainda bloqueia avanço hoje"
+      )
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText("7")
+    ).toBeInTheDocument()
+  })
+
+  it("deve encaminhar as novas oportunidades ao StatCard", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    expect(
+      statCardMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "Novas oportunidades",
+        description:
+          "Quem entrou hoje e precisa do primeiro contato",
+        value: "12",
+        iconClassName:
+          "border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10] text-[#43A972]",
+        accentClassName:
+          "from-[#43A972]/55 via-[#2F8F5B]/15 to-transparent",
+      })
+    )
+  })
+
+  it("deve encaminhar os compromissos ao StatCard", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    expect(
+      statCardMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "Compromissos hoje",
+        description:
+          "Conversas que exigem preparação hoje",
+        value: "4",
+        iconClassName:
+          "border-white/[0.08] bg-white/[0.04] text-[#D6DBE3]",
+        accentClassName:
+          "from-white/25 via-white/[0.06] to-transparent",
+      })
+    )
+  })
+
+  it("deve encaminhar a produção mensal formatada ao StatCard", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    expect(
+      statCardMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "Produção no mês",
+        description:
+          "Quanto a operação já converteu neste mês",
+        value: expect.stringMatching(
+          /R\$\s*1\.850\.000/
+        ),
+        iconClassName:
+          "border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10] text-[#43A972]",
+        accentClassName:
+          "from-[#43A972]/55 via-[#2F8F5B]/15 to-transparent",
+      })
+    )
+  })
+
+  it("deve encaminhar as ações pendentes ao StatCard", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    expect(
+      statCardMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "Ações pendentes",
+        description:
+          "O que ainda bloqueia avanço hoje",
+        value: "7",
+        iconClassName:
+          "border-white/[0.08] bg-white/[0.04] text-[#D6DBE3]",
+        accentClassName:
+          "from-white/25 via-white/[0.06] to-transparent",
+      })
+    )
+  })
+
+  it("deve preservar a ordem comercial das métricas", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    const cards =
+      screen.getAllByRole("article")
+
+    expect(cards[0]).toHaveAccessibleName(
+      "Novas oportunidades"
+    )
+
+    expect(cards[1]).toHaveAccessibleName(
+      "Compromissos hoje"
+    )
+
+    expect(cards[2]).toHaveAccessibleName(
+      "Produção no mês"
+    )
+
+    expect(cards[3]).toHaveAccessibleName(
+      "Ações pendentes"
+    )
+  })
+
+  it("deve renderizar corretamente métricas zeradas", () => {
+    const zeroMetrics: DashboardMetrics = {
+      newLeads: 0,
+      meetingsToday: 0,
+      monthlySales: 0,
+      pendingTasks: 0,
+    }
+
+    render(
+      <MetricsGrid
+        metrics={zeroMetrics}
+      />
+    )
+
+    expect(
+      statCardMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "Novas oportunidades",
+        value: "0",
+      })
+    )
+
+    expect(
+      statCardMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "Compromissos hoje",
+        value: "0",
+      })
+    )
+
+    expect(
+      statCardMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "Produção no mês",
+        value: expect.stringMatching(
+          /R\$\s*0/
+        ),
+      })
+    )
+
+    expect(
+      statCardMock
+    ).toHaveBeenCalledWith(
+      expect.objectContaining({
+        title: "Ações pendentes",
+        value: "0",
+      })
+    )
+  })
+
+  it("deve renderizar o grid responsivo das métricas", () => {
+    const {
+      container,
+    } = render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    const grid =
+      container.querySelector(
+        ".grid"
+      )
+
+    expect(grid).toHaveClass(
       "grid",
       "gap-4",
       "sm:grid-cols-2",
@@ -94,28 +437,54 @@ describe("MetricsGrid", () => {
     )
   })
 
-  it("deve atualizar os valores quando as métricas mudarem", () => {
-    const updatedMetrics: DashboardMetrics = {
-      newLeads: 30,
-      meetingsToday: 10,
-      monthlySales: 2500000,
-      pendingTasks: 5,
-    }
-
-    render(<MetricsGrid metrics={updatedMetrics} />)
-
-    expect(screen.getByText("30")).toBeInTheDocument()
-    expect(screen.getByText("10")).toBeInTheDocument()
-    expect(screen.getByText("5")).toBeInTheDocument()
+  it("deve aplicar as classes premium ao título", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
 
     expect(
-      screen.getByText("R$ 2.500.000")
-    ).toBeInTheDocument()
+      screen.getByRole("heading", {
+        level: 2,
+        name: "Visão da operação",
+      })
+    ).toHaveClass(
+      "mt-2",
+      "text-xl",
+      "font-semibold",
+      "tracking-[-0.04em]",
+      "text-[#F5F7FA]"
+    )
   })
 
-  it("deve manter todos os títulos após atualização das métricas", () => {
-    render(<MetricsGrid metrics={metrics} />)
+  it("deve aplicar estilo discreto ao indicador de atualização", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
 
-    expect(screen.getAllByText(/Leads|Reuniões|Vendas|Tarefas/)).toHaveLength(4)
+    const updateIndicator =
+      screen.getByText(
+        "Atualizado agora"
+      )
+
+    expect(
+      updateIndicator
+    ).toHaveClass(
+      "inline-flex",
+      "rounded-full",
+      "border",
+      "border-white/[0.055]",
+      "bg-white/[0.025]",
+      "text-[#697384]"
+    )
+  })
+
+  it("deve chamar o StatCard exatamente quatro vezes", () => {
+    render(
+      <MetricsGrid metrics={metrics} />
+    )
+
+    expect(
+      statCardMock
+    ).toHaveBeenCalledTimes(4)
   })
 })
