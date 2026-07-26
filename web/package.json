@@ -8,6 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "prisma:generate": "prisma generate",
+    "prisma:seed": "npm run prisma:generate && prisma db seed",
     "test": "vitest",
     "test:watch": "vitest",
     "test:run": "vitest run",
@@ -44,6 +46,7 @@
     "prisma": "^7.9.0",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
+    "tsx": "^4.23.1",
     "typescript": "^5",
     "vitest": "^4.1.10"
   }
