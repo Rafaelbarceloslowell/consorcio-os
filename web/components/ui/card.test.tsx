@@ -1,193 +1,331 @@
-// @vitest-environment jsdom
+import {
+  renderToStaticMarkup,
+} from "react-dom/server";
 
-import { render, screen } from "@testing-library/react"
-import { describe, expect, it } from "vitest"
+import {
+  describe,
+  expect,
+  it,
+} from "vitest";
 
 import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-} from "./card"
+} from "@/components/ui/card";
 
 describe("Card", () => {
-  it("deve renderizar a estrutura completa do card", () => {
-    render(
+  it("renderiza o card com conteúdo", () => {
+    const html = renderToStaticMarkup(
       <Card>
+        Conteúdo do card
+      </Card>,
+    );
+
+    expect(html).toContain('data-slot="card"');
+    expect(html).toContain("Conteúdo do card");
+  });
+
+  it("utiliza os estilos padrão", () => {
+    const html = renderToStaticMarkup(
+      <Card>
+        Padrão
+      </Card>,
+    );
+
+    expect(html).not.toContain('data-glass="true"');
+    expect(html).not.toContain('data-hover="true"');
+    expect(html).toContain("flex");
+    expect(html).toContain("flex-col");
+    expect(html).toContain("overflow-hidden");
+    expect(html).toContain("border");
+    expect(html).toContain("--card-bg");
+    expect(html).toContain("--card-border");
+    expect(html).toContain("--card-shadow");
+  });
+
+  it("aplica o modo glass", () => {
+    const html = renderToStaticMarkup(
+      <Card glass>
+        Glass
+      </Card>,
+    );
+
+    expect(html).toContain('data-glass="true"');
+    expect(html).toContain("backdrop-filter:blur(20px)");
+    expect(html).toContain("-webkit-backdrop-filter:blur(20px)");
+  });
+
+  it("aplica o comportamento de hover", () => {
+    const html = renderToStaticMarkup(
+      <Card hover>
+        Interativo
+      </Card>,
+    );
+
+    expect(html).toContain('data-hover="true"');
+
+    expect(html).toContain(
+      "hover:border-[var(--card-border-hover)]",
+    );
+
+    expect(html).toContain(
+      "hover:shadow-[var(--card-shadow-hover)]",
+    );
+
+    expect(html).not.toContain("hover:-translate-y-1");
+  });
+
+  it("permite adicionar classes personalizadas", () => {
+    const html = renderToStaticMarkup(
+      <Card className="custom-card">
+        Personalizado
+      </Card>,
+    );
+
+    expect(html).toContain("custom-card");
+    expect(html).toContain("flex-col");
+  });
+
+  it("repassa propriedades nativas", () => {
+    const html = renderToStaticMarkup(
+      <Card
+        id="sales-card"
+        aria-label="Resumo de vendas"
+        title="Vendas"
+      >
+        Resultado
+      </Card>,
+    );
+
+    expect(html).toContain('id="sales-card"');
+    expect(html).toContain(
+      'aria-label="Resumo de vendas"',
+    );
+    expect(html).toContain('title="Vendas"');
+  });
+
+  it("permite sobrescrever estilos", () => {
+    const html = renderToStaticMarkup(
+      <Card
+        style={{
+          marginTop: 16,
+        }}
+      >
+        Estilizado
+      </Card>,
+    );
+
+    expect(html).toContain("margin-top:16px");
+    expect(html).toContain("--card-radius");
+  });
+});
+
+describe("CardHeader", () => {
+  it("renderiza o cabeçalho", () => {
+    const html = renderToStaticMarkup(
+      <CardHeader>
+        Cabeçalho
+      </CardHeader>,
+    );
+
+    expect(html).toContain('data-slot="card-header"');
+    expect(html).toContain("Cabeçalho");
+    expect(html).toContain("gap-5");
+    expect(html).toContain("px-7");
+    expect(html).toContain("py-6");
+
+    expect(html).toContain(
+      "border-[var(--card-divider)]",
+    );
+  });
+
+  it("aceita classes personalizadas", () => {
+    const html = renderToStaticMarkup(
+      <CardHeader className="custom-header">
+        Cabeçalho
+      </CardHeader>,
+    );
+
+    expect(html).toContain("custom-header");
+  });
+});
+
+describe("CardTitle", () => {
+  it("renderiza o título", () => {
+    const html = renderToStaticMarkup(
+      <CardTitle>
+        Vendas do mês
+      </CardTitle>,
+    );
+
+    expect(html).toContain('data-slot="card-title"');
+    expect(html).toContain("Vendas do mês");
+    expect(html).toContain("leading-tight");
+    expect(html).toContain("tracking-[-0.02em]");
+    expect(html).toContain("var(--card-title)");
+  });
+
+  it("permite sobrescrever estilos do título", () => {
+    const html = renderToStaticMarkup(
+      <CardTitle
+        style={{
+          textTransform: "uppercase",
+        }}
+      >
+        Pipeline
+      </CardTitle>,
+    );
+
+    expect(html).toContain(
+      "text-transform:uppercase",
+    );
+  });
+});
+
+describe("CardDescription", () => {
+  it("renderiza a descrição", () => {
+    const html = renderToStaticMarkup(
+      <CardDescription>
+        Acompanhe os principais resultados.
+      </CardDescription>,
+    );
+
+    expect(html).toContain(
+      'data-slot="card-description"',
+    );
+
+    expect(html).toContain(
+      "Acompanhe os principais resultados.",
+    );
+
+    expect(html).toContain("mt-2");
+    expect(html).toContain("max-w-2xl");
+    expect(html).toContain("leading-relaxed");
+    expect(html).toContain(
+      "var(--card-description)",
+    );
+  });
+});
+
+describe("CardContent", () => {
+  it("renderiza o conteúdo com espaçamento", () => {
+    const html = renderToStaticMarkup(
+      <CardContent>
+        Conteúdo principal
+      </CardContent>,
+    );
+
+    expect(html).toContain(
+      'data-slot="card-content"',
+    );
+
+    expect(html).toContain("Conteúdo principal");
+    expect(html).toContain("flex-1");
+    expect(html).toContain("px-7");
+    expect(html).toContain("py-6");
+  });
+
+  it("aceita classes personalizadas", () => {
+    const html = renderToStaticMarkup(
+      <CardContent className="custom-content">
+        Conteúdo
+      </CardContent>,
+    );
+
+    expect(html).toContain("custom-content");
+  });
+});
+
+describe("CardFooter", () => {
+  it("renderiza o rodapé", () => {
+    const html = renderToStaticMarkup(
+      <CardFooter>
+        Ações
+      </CardFooter>,
+    );
+
+    expect(html).toContain('data-slot="card-footer"');
+    expect(html).toContain("Ações");
+    expect(html).toContain("justify-end");
+    expect(html).toContain("gap-3");
+    expect(html).toContain("px-7");
+    expect(html).toContain("py-5");
+
+    expect(html).toContain(
+      "border-[var(--card-divider)]",
+    );
+  });
+
+  it("repassa propriedades nativas", () => {
+    const html = renderToStaticMarkup(
+      <CardFooter
+        id="card-actions"
+        aria-label="Ações do card"
+      >
+        Ações
+      </CardFooter>,
+    );
+
+    expect(html).toContain('id="card-actions"');
+
+    expect(html).toContain(
+      'aria-label="Ações do card"',
+    );
+  });
+});
+
+describe("Card completo", () => {
+  it("renderiza todas as partes em conjunto", () => {
+    const html = renderToStaticMarkup(
+      <Card glass hover>
         <CardHeader>
-          <CardTitle>Resumo comercial</CardTitle>
-          <CardDescription>
-            Indicadores da operação
-          </CardDescription>
+          <div>
+            <CardTitle>
+              Pipeline comercial
+            </CardTitle>
+
+            <CardDescription>
+              Acompanhe as oportunidades.
+            </CardDescription>
+          </div>
         </CardHeader>
 
         <CardContent>
-          R$ 1.000.000 em vendas
+          R$ 1.000.000,00
         </CardContent>
-      </Card>
-    )
 
-    expect(screen.getByText("Resumo comercial")).toBeInTheDocument()
-    expect(screen.getByText("Indicadores da operação")).toBeInTheDocument()
-    expect(screen.getByText("R$ 1.000.000 em vendas")).toBeInTheDocument()
-  })
+        <CardFooter>
+          Ver detalhes
+        </CardFooter>
+      </Card>,
+    );
 
-  it("deve aplicar o data-slot no card principal", () => {
-    render(<Card data-testid="card">Conteúdo</Card>)
-
-    expect(screen.getByTestId("card")).toHaveAttribute(
-      "data-slot",
-      "card"
-    )
-  })
-
-  it("deve aplicar o data-slot no cabeçalho", () => {
-    render(
-      <CardHeader data-testid="card-header">
-        Cabeçalho
-      </CardHeader>
-    )
-
-    expect(screen.getByTestId("card-header")).toHaveAttribute(
-      "data-slot",
-      "card-header"
-    )
-  })
-
-  it("deve aplicar o data-slot no título", () => {
-    render(
-      <CardTitle data-testid="card-title">
-        Título
-      </CardTitle>
-    )
-
-    expect(screen.getByTestId("card-title")).toHaveAttribute(
-      "data-slot",
-      "card-title"
-    )
-  })
-
-  it("deve aplicar o data-slot na descrição", () => {
-    render(
-      <CardDescription data-testid="card-description">
-        Descrição
-      </CardDescription>
-    )
-
-    expect(screen.getByTestId("card-description")).toHaveAttribute(
-      "data-slot",
-      "card-description"
-    )
-  })
-
-  it("deve aplicar o data-slot no conteúdo", () => {
-    render(
-      <CardContent data-testid="card-content">
-        Conteúdo
-      </CardContent>
-    )
-
-    expect(screen.getByTestId("card-content")).toHaveAttribute(
-      "data-slot",
-      "card-content"
-    )
-  })
-
-  it("deve aplicar as classes padrão do card", () => {
-    render(<Card data-testid="card">Conteúdo</Card>)
-
-    expect(screen.getByTestId("card")).toHaveClass(
-      "bg-card",
-      "text-card-foreground",
-      "flex",
-      "rounded-xl",
-      "border",
-      "shadow-sm"
-    )
-  })
-
-  it("deve aceitar classes personalizadas no card", () => {
-    render(
-      <Card
-        data-testid="card"
-        className="custom-card"
-      >
-        Conteúdo
-      </Card>
-    )
-
-    expect(screen.getByTestId("card")).toHaveClass(
-      "custom-card"
-    )
-  })
-
-  it("deve aceitar classes personalizadas em todos os subcomponentes", () => {
-    render(
-      <Card>
-        <CardHeader
-          data-testid="header"
-          className="custom-header"
-        >
-          <CardTitle
-            data-testid="title"
-            className="custom-title"
-          >
-            Título
-          </CardTitle>
-
-          <CardDescription
-            data-testid="description"
-            className="custom-description"
-          >
-            Descrição
-          </CardDescription>
-        </CardHeader>
-
-        <CardContent
-          data-testid="content"
-          className="custom-content"
-        >
-          Conteúdo
-        </CardContent>
-      </Card>
-    )
-
-    expect(screen.getByTestId("header")).toHaveClass("custom-header")
-    expect(screen.getByTestId("title")).toHaveClass("custom-title")
-    expect(screen.getByTestId("description")).toHaveClass(
-      "custom-description"
-    )
-    expect(screen.getByTestId("content")).toHaveClass("custom-content")
-  })
-
-  it("deve encaminhar atributos HTML para os componentes", () => {
-    render(
-      <Card
-        id="dashboard-card"
-        aria-label="Card do dashboard"
-      >
-        Conteúdo
-      </Card>
-    )
-
-    const card = screen.getByLabelText("Card do dashboard")
-
-    expect(card).toHaveAttribute("id", "dashboard-card")
-  })
-
-  it("deve manter as classes padrão ao receber classes personalizadas", () => {
-    render(
-      <Card
-        data-testid="card"
-        className="mt-4"
-      >
-        Conteúdo
-      </Card>
-    )
-
-    const card = screen.getByTestId("card")
-
-    expect(card).toHaveClass("bg-card", "rounded-xl", "mt-4")
-  })
-})
+    expect(html).toContain('data-glass="true"');
+    expect(html).toContain('data-hover="true"');
+    expect(html).toContain(
+      'data-slot="card-header"',
+    );
+    expect(html).toContain(
+      'data-slot="card-title"',
+    );
+    expect(html).toContain(
+      'data-slot="card-description"',
+    );
+    expect(html).toContain(
+      'data-slot="card-content"',
+    );
+    expect(html).toContain(
+      'data-slot="card-footer"',
+    );
+    expect(html).toContain(
+      "Pipeline comercial",
+    );
+    expect(html).toContain(
+      "R$ 1.000.000,00",
+    );
+  });
+});

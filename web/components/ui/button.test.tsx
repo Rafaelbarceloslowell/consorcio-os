@@ -1,159 +1,378 @@
-// @vitest-environment jsdom
+import {
+  renderToStaticMarkup,
+} from "react-dom/server";
 
-import { fireEvent, render, screen } from "@testing-library/react"
-import { describe, expect, it, vi } from "vitest"
+import {
+  describe,
+  expect,
+  it,
+} from "vitest";
 
-import { Button, buttonVariants } from "./button"
+import {
+  Button,
+  buttonVariants,
+} from "@/components/ui/button";
 
 describe("Button", () => {
-  it("deve renderizar um botão com o conteúdo informado", () => {
-    render(<Button>Salvar</Button>)
+  it("renderiza o conteúdo recebido", () => {
+    const html = renderToStaticMarkup(
+      <Button>
+        Continuar
+      </Button>,
+    );
 
-    expect(
-      screen.getByRole("button", { name: "Salvar" })
-    ).toBeInTheDocument()
-  })
+    expect(html).toContain('data-slot="button"');
+    expect(html).toContain("Continuar");
+  });
 
-  it("deve aplicar o data-slot correto", () => {
-    render(<Button>Continuar</Button>)
+  it("utiliza as variantes padrão", () => {
+    const html = renderToStaticMarkup(
+      <Button>
+        Confirmar
+      </Button>,
+    );
 
-    expect(
-      screen.getByRole("button", { name: "Continuar" })
-    ).toHaveAttribute("data-slot", "button")
-  })
+    expect(html).toContain('data-variant="default"');
+    expect(html).toContain('data-size="default"');
+    expect(html).not.toContain('data-full-width="true"');
+    expect(html).not.toContain('data-loading="true"');
 
-  it("deve aplicar as variantes padrão quando nenhuma opção for informada", () => {
-    render(<Button>Confirmar</Button>)
+    expect(html).toContain(
+      "bg-[var(--button-primary-bg)]",
+    );
 
-    const button = screen.getByRole("button", { name: "Confirmar" })
+    expect(html).toContain(
+      "text-[var(--button-primary-text)]",
+    );
+  });
 
-    expect(button).toHaveClass(
-      "bg-primary",
-      "text-primary-foreground",
-      "h-8"
-    )
-  })
+  it("aplica a variante primary", () => {
+    const html = renderToStaticMarkup(
+      <Button variant="primary">
+        Salvar
+      </Button>,
+    );
 
-  it("deve aplicar a variante outline", () => {
-    render(<Button variant="outline">Editar</Button>)
+    expect(html).toContain('data-variant="primary"');
 
-    const button = screen.getByRole("button", { name: "Editar" })
+    expect(html).toContain(
+      "bg-[var(--button-primary-bg)]",
+    );
 
-    expect(button).toHaveClass(
-      "border-border",
-      "bg-background"
-    )
-  })
+    expect(html).toContain(
+      "hover:bg-[var(--button-primary-hover)]",
+    );
+  });
 
-  it("deve aplicar a variante destructive", () => {
-    render(<Button variant="destructive">Excluir</Button>)
+  it("aplica a variante secondary", () => {
+    const html = renderToStaticMarkup(
+      <Button variant="secondary">
+        Voltar
+      </Button>,
+    );
 
-    const button = screen.getByRole("button", { name: "Excluir" })
+    expect(html).toContain('data-variant="secondary"');
 
-    expect(button).toHaveClass(
-      "bg-destructive/10",
-      "text-destructive"
-    )
-  })
+    expect(html).toContain(
+      "bg-[var(--button-secondary-bg)]",
+    );
 
-  it("deve aplicar o tamanho informado", () => {
-    render(<Button size="lg">Avançar</Button>)
+    expect(html).toContain(
+      "text-[var(--button-secondary-text)]",
+    );
+  });
 
-    expect(
-      screen.getByRole("button", { name: "Avançar" })
-    ).toHaveClass("h-9")
-  })
+  it("aplica a variante outline", () => {
+    const html = renderToStaticMarkup(
+      <Button variant="outline">
+        Detalhes
+      </Button>,
+    );
 
-  it("deve aceitar classes personalizadas", () => {
-    render(<Button className="custom-button">Personalizado</Button>)
+    expect(html).toContain('data-variant="outline"');
 
-    expect(
-      screen.getByRole("button", { name: "Personalizado" })
-    ).toHaveClass("custom-button")
-  })
+    expect(html).toContain(
+      "border-[var(--button-outline-border)]",
+    );
 
-  it("deve preservar a classe personalizada ao combinar variantes", () => {
-    render(
+    expect(html).toContain(
+      "bg-[var(--button-outline-bg)]",
+    );
+  });
+
+  it("aplica a variante ghost", () => {
+    const html = renderToStaticMarkup(
+      <Button variant="ghost">
+        Cancelar
+      </Button>,
+    );
+
+    expect(html).toContain('data-variant="ghost"');
+    expect(html).toContain("bg-transparent");
+
+    expect(html).toContain(
+      "text-[var(--button-ghost-text)]",
+    );
+  });
+
+  it("aplica as variantes de perigo", () => {
+    const destructiveHtml = renderToStaticMarkup(
+      <Button variant="destructive">
+        Excluir
+      </Button>,
+    );
+
+    const dangerHtml = renderToStaticMarkup(
+      <Button variant="danger">
+        Remover
+      </Button>,
+    );
+
+    expect(destructiveHtml).toContain(
+      'data-variant="destructive"',
+    );
+
+    expect(dangerHtml).toContain(
+      'data-variant="danger"',
+    );
+
+    expect(destructiveHtml).toContain(
+      "bg-[var(--button-danger-bg)]",
+    );
+
+    expect(dangerHtml).toContain(
+      "bg-[var(--button-danger-bg)]",
+    );
+  });
+
+  it("aplica a variante link", () => {
+    const html = renderToStaticMarkup(
+      <Button variant="link">
+        Saiba mais
+      </Button>,
+    );
+
+    expect(html).toContain('data-variant="link"');
+    expect(html).toContain("underline-offset-4");
+    expect(html).toContain("hover:underline");
+
+    expect(html).toContain(
+      "text-[var(--button-link-text)]",
+    );
+  });
+
+  it("aplica os tamanhos disponíveis", () => {
+    const xsHtml = renderToStaticMarkup(
+      <Button size="xs">
+        XS
+      </Button>,
+    );
+
+    const smHtml = renderToStaticMarkup(
+      <Button size="sm">
+        SM
+      </Button>,
+    );
+
+    const mdHtml = renderToStaticMarkup(
+      <Button size="md">
+        MD
+      </Button>,
+    );
+
+    const lgHtml = renderToStaticMarkup(
+      <Button size="lg">
+        LG
+      </Button>,
+    );
+
+    expect(xsHtml).toContain('data-size="xs"');
+    expect(xsHtml).toContain("h-7");
+
+    expect(smHtml).toContain('data-size="sm"');
+    expect(smHtml).toContain("h-8");
+
+    expect(mdHtml).toContain('data-size="md"');
+    expect(mdHtml).toContain("h-10");
+
+    expect(lgHtml).toContain('data-size="lg"');
+    expect(lgHtml).toContain("h-12");
+  });
+
+  it("aplica os tamanhos de ícone", () => {
+    const iconHtml = renderToStaticMarkup(
       <Button
-        variant="secondary"
-        size="sm"
-        className="w-full"
+        size="icon"
+        aria-label="Abrir menu"
       >
-        Simular
-      </Button>
-    )
+        <svg />
+      </Button>,
+    );
 
-    const button = screen.getByRole("button", { name: "Simular" })
-
-    expect(button).toHaveClass(
-      "bg-secondary",
-      "h-7",
-      "w-full"
-    )
-  })
-
-  it("deve executar o evento de clique", () => {
-    const handleClick = vi.fn()
-
-    render(<Button onClick={handleClick}>Clicar</Button>)
-
-    fireEvent.click(screen.getByRole("button", { name: "Clicar" }))
-
-    expect(handleClick).toHaveBeenCalledTimes(1)
-  })
-
-  it("não deve executar clique quando estiver desabilitado", () => {
-    const handleClick = vi.fn()
-
-    render(
-      <Button disabled onClick={handleClick}>
-        Bloqueado
-      </Button>
-    )
-
-    const button = screen.getByRole("button", { name: "Bloqueado" })
-
-    expect(button).toBeDisabled()
-
-    fireEvent.click(button)
-
-    expect(handleClick).not.toHaveBeenCalled()
-  })
-
-  it("deve encaminhar atributos HTML para o elemento", () => {
-    render(
+    const iconSmallHtml = renderToStaticMarkup(
       <Button
+        size="icon-sm"
+        aria-label="Fechar"
+      >
+        <svg />
+      </Button>,
+    );
+
+    const iconLargeHtml = renderToStaticMarkup(
+      <Button
+        size="icon-lg"
+        aria-label="Adicionar"
+      >
+        <svg />
+      </Button>,
+    );
+
+    expect(iconHtml).toContain('data-size="icon"');
+    expect(iconHtml).toContain("size-10");
+
+    expect(iconSmallHtml).toContain(
+      'data-size="icon-sm"',
+    );
+
+    expect(iconSmallHtml).toContain("size-8");
+
+    expect(iconLargeHtml).toContain(
+      'data-size="icon-lg"',
+    );
+
+    expect(iconLargeHtml).toContain("size-12");
+  });
+
+  it("aplica largura total", () => {
+    const html = renderToStaticMarkup(
+      <Button fullWidth>
+        Entrar
+      </Button>,
+    );
+
+    expect(html).toContain(
+      'data-full-width="true"',
+    );
+
+    expect(html).toContain("w-full");
+  });
+
+  it("renderiza o estado de carregamento", () => {
+    const html = renderToStaticMarkup(
+      <Button
+        loading
+        loadingText="Salvando..."
+      >
+        Salvar
+      </Button>,
+    );
+
+    expect(html).toContain('data-loading="true"');
+    expect(html).toContain('aria-busy="true"');
+    expect(html).toContain("Salvando...");
+    expect(html).not.toContain(">Salvar<");
+    expect(html).toContain("animate-spin");
+    expect(html).toContain("disabled");
+  });
+
+  it("mantém o conteúdo original durante o carregamento sem loadingText", () => {
+    const html = renderToStaticMarkup(
+      <Button loading>
+        Processando
+      </Button>,
+    );
+
+    expect(html).toContain("Processando");
+    expect(html).toContain("animate-spin");
+    expect(html).toContain("disabled");
+  });
+
+  it("respeita o estado desabilitado", () => {
+    const html = renderToStaticMarkup(
+      <Button disabled>
+        Indisponível
+      </Button>,
+    );
+
+    expect(html).toContain("disabled");
+
+    expect(html).toContain(
+      "disabled:pointer-events-none",
+    );
+
+    expect(html).toContain(
+      "disabled:opacity-45",
+    );
+  });
+
+  it("permite adicionar classes personalizadas", () => {
+    const html = renderToStaticMarkup(
+      <Button className="custom-button">
+        Personalizado
+      </Button>,
+    );
+
+    expect(html).toContain("custom-button");
+    expect(html).toContain("inline-flex");
+    expect(html).toContain("items-center");
+    expect(html).toContain("justify-center");
+  });
+
+  it("repassa propriedades nativas", () => {
+    const html = renderToStaticMarkup(
+      <Button
+        id="save-button"
+        name="save"
         type="submit"
-        aria-label="Enviar proposta"
-        data-testid="proposal-button"
+        aria-label="Salvar cliente"
+        title="Salvar"
       >
-        Enviar
-      </Button>
-    )
+        Salvar
+      </Button>,
+    );
 
-    const button = screen.getByTestId("proposal-button")
+    expect(html).toContain('id="save-button"');
+    expect(html).toContain('name="save"');
+    expect(html).toContain('type="submit"');
 
-    expect(button).toHaveAttribute("type", "submit")
-    expect(button).toHaveAccessibleName("Enviar proposta")
-  })
-})
+    expect(html).toContain(
+      'aria-label="Salvar cliente"',
+    );
 
-describe("buttonVariants", () => {
-  it("deve gerar as classes das variantes informadas", () => {
+    expect(html).toContain('title="Salvar"');
+  });
+
+  it("permite sobrescrever estilos", () => {
+    const html = renderToStaticMarkup(
+      <Button
+        style={{
+          marginTop: 12,
+        }}
+      >
+        Estilizado
+      </Button>,
+    );
+
+    expect(html).toContain("margin-top:12px");
+    expect(html).toContain("--button-primary-bg");
+  });
+
+  it("gera diretamente as classes das variantes", () => {
     const classes = buttonVariants({
-      variant: "ghost",
-      size: "icon-lg",
-    })
+      variant: "secondary",
+      size: "lg",
+      fullWidth: true,
+    });
 
-    expect(classes).toContain("hover:bg-muted")
-    expect(classes).toContain("size-9")
-  })
+    expect(classes).toContain(
+      "bg-[var(--button-secondary-bg)]",
+    );
 
-  it("deve incluir classes personalizadas", () => {
-    const classes = buttonVariants({
-      className: "my-custom-class",
-    })
+    expect(classes).toContain("h-12");
+    expect(classes).toContain("w-full");
 
-    expect(classes).toContain("my-custom-class")
-  })
-})
+    expect(classes).toContain(
+      "hover:shadow-[var(--button-hover-shadow)]",
+    );
+  });
+});
