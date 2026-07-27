@@ -1,4 +1,4 @@
-// @vitest-environment jsdom
+﻿// @vitest-environment jsdom
 
 import {
   render,
@@ -27,6 +27,14 @@ const mocks = vi.hoisted(() => ({
       "NEXT_NOT_FOUND",
     )
   }),
+  blockClientAction:
+    vi.fn(async () => {}),
+  unblockClientAction:
+    vi.fn(async () => {}),
+  deactivateClientAction:
+    vi.fn(async () => {}),
+  reactivateClientAction:
+    vi.fn(async () => {}),
   clients: {
     repository: "clients",
   },
@@ -85,10 +93,26 @@ vi.mock(
   }),
 )
 
+vi.mock(
+  "./actions",
+  () => ({
+    blockClientAction:
+      mocks.blockClientAction,
+    unblockClientAction:
+      mocks.unblockClientAction,
+    deactivateClientAction:
+      mocks.deactivateClientAction,
+    reactivateClientAction:
+      mocks.reactivateClientAction,
+  }),
+)
+
 import ClientDetailsPage from "./page"
 
-function createView():
-  ClientDetailsView {
+function createView(
+  overrides:
+    Partial<ClientDetailsView> = {},
+): ClientDetailsView {
   return {
     id: "client-1",
     name: "Ana Lima",
@@ -118,22 +142,26 @@ function createView():
       "2026-07-01T00:00:00.000Z",
     updatedAt:
       "2026-07-02T00:00:00.000Z",
+    ...overrides,
   }
 }
 
 describe("ClientDetailsPage", () => {
   beforeEach(() => {
     vi.clearAllMocks()
+
     mocks.findWorkspace
       .mockResolvedValue({
         id: "workspace-1",
       })
+
     mocks.createRepositories
       .mockReturnValue({
         clients: mocks.clients,
         consultants:
           mocks.consultants,
       })
+
     mocks.execute
       .mockResolvedValue({
         client: createView(),
@@ -155,14 +183,18 @@ describe("ClientDetailsPage", () => {
       where: {
         slug: "consorcio-os",
       },
-      select: { id: true },
+      select: {
+        id: true,
+      },
     })
+
     expect(
       mocks.createRepositories,
     ).toHaveBeenCalledExactlyOnceWith({
       workspaceId:
         "workspace-1",
     })
+
     expect(
       mocks
         .constructorDependencies,
@@ -173,6 +205,7 @@ describe("ClientDetailsPage", () => {
       consultants:
         mocks.consultants,
     })
+
     expect(
       mocks.execute,
     ).toHaveBeenCalledExactlyOnceWith({
@@ -180,12 +213,119 @@ describe("ClientDetailsPage", () => {
         "workspace-1",
       clientId: "client-1",
     })
+
     expect(
       screen.getByRole(
         "heading",
-        { name: "Ana Lima" },
+        {
+          name: "Ana Lima",
+        },
       ),
     ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole(
+        "button",
+        {
+          name:
+            "Bloquear cliente",
+        },
+      ),
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole(
+        "button",
+        {
+          name:
+            "Desativar cliente",
+        },
+      ),
+    ).toBeInTheDocument()
+  })
+
+  it("compõe ações válidas para cliente bloqueado", async () => {
+    mocks.execute
+      .mockResolvedValue({
+        client: createView({
+          status: "blocked",
+        }),
+      })
+
+    render(
+      await ClientDetailsPage({
+        params: Promise.resolve({
+          clientId: "client-1",
+        }),
+      }),
+    )
+
+    expect(
+      screen.getByRole(
+        "button",
+        {
+          name:
+            "Desbloquear cliente",
+        },
+      ),
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole(
+        "button",
+        {
+          name:
+            "Desativar cliente",
+        },
+      ),
+    ).toBeInTheDocument()
+
+    expect(
+      screen.queryByRole(
+        "button",
+        {
+          name:
+            "Bloquear cliente",
+        },
+      ),
+    ).not.toBeInTheDocument()
+  })
+
+  it("compõe reativação para cliente inativo", async () => {
+    mocks.execute
+      .mockResolvedValue({
+        client: createView({
+          status: "inactive",
+        }),
+      })
+
+    render(
+      await ClientDetailsPage({
+        params: Promise.resolve({
+          clientId: "client-1",
+        }),
+      }),
+    )
+
+    expect(
+      screen.getByRole(
+        "button",
+        {
+          name:
+            "Reativar cliente",
+        },
+      ),
+    ).toBeInTheDocument()
+
+    expect(
+      screen.queryByRole(
+        "button",
+        {
+          name:
+            "Desativar cliente",
+        },
+      ),
+    ).not.toBeInTheDocument()
   })
 
   it("não compõe repositories sem workspace", async () => {
@@ -201,11 +341,14 @@ describe("ClientDetailsPage", () => {
     ).rejects.toThrow(
       'Workspace "consorcio-os" não encontrado.',
     )
+
     expect(
       mocks.createRepositories,
     ).not.toHaveBeenCalled()
-    expect(mocks.execute)
-      .not.toHaveBeenCalled()
+
+    expect(
+      mocks.execute,
+    ).not.toHaveBeenCalled()
   })
 
   it("aciona notFound para cliente inexistente", async () => {
@@ -225,8 +368,10 @@ describe("ClientDetailsPage", () => {
     ).rejects.toThrow(
       "NEXT_NOT_FOUND",
     )
-    expect(mocks.notFound)
-      .toHaveBeenCalledTimes(1)
+
+    expect(
+      mocks.notFound,
+    ).toHaveBeenCalledTimes(1)
   })
 
   it("propaga erro inesperado por identidade", async () => {
@@ -234,6 +379,7 @@ describe("ClientDetailsPage", () => {
       new Error(
         "Falha inesperada",
       )
+
     mocks.execute
       .mockRejectedValue(error)
 
@@ -244,7 +390,9 @@ describe("ClientDetailsPage", () => {
         }),
       }),
     ).rejects.toBe(error)
-    expect(mocks.notFound)
-      .not.toHaveBeenCalled()
+
+    expect(
+      mocks.notFound,
+    ).not.toHaveBeenCalled()
   })
 })

@@ -1,4 +1,4 @@
-import {
+﻿import {
   notFound,
 } from "next/navigation"
 
@@ -9,6 +9,9 @@ import {
 import {
   ClientDetails,
 } from "@/components/client/client-details"
+import {
+  ClientLifecycleActions,
+} from "@/components/client/client-lifecycle-actions"
 
 import {
   prisma,
@@ -17,6 +20,13 @@ import {
 import {
   createPrismaCrmRepositories,
 } from "@/infrastructure/prisma/repositories/prisma-crm-repositories"
+
+import {
+  blockClientAction,
+  deactivateClientAction,
+  reactivateClientAction,
+  unblockClientAction,
+} from "./actions"
 
 type ClientDetailsPageProps = {
   params: Promise<{
@@ -67,9 +77,43 @@ export default async function ClientDetailsPage({
       })
 
     return (
-      <ClientDetails
-        client={client}
-      />
+      <>
+        <ClientDetails
+          client={client}
+        />
+
+        <div className="-mt-8 bg-[var(--gorila-canvas)] px-4 pb-8 text-[var(--gorila-text)] sm:px-8 lg:px-12">
+          <div className="mx-auto max-w-5xl">
+            <ClientLifecycleActions
+              status={client.status}
+              blockAction={
+                blockClientAction.bind(
+                  null,
+                  client.id,
+                )
+              }
+              unblockAction={
+                unblockClientAction.bind(
+                  null,
+                  client.id,
+                )
+              }
+              deactivateAction={
+                deactivateClientAction.bind(
+                  null,
+                  client.id,
+                )
+              }
+              reactivateAction={
+                reactivateClientAction.bind(
+                  null,
+                  client.id,
+                )
+              }
+            />
+          </div>
+        </div>
+      </>
     )
   } catch (error) {
     const normalizedClientId =
