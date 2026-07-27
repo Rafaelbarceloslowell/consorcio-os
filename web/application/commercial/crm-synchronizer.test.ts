@@ -607,6 +607,175 @@
           ])
         },
       )
+
+      it(
+        "não deve consultar ou avisar sobre lead em jornada originada por cliente",
+        () => {
+          const scenario =
+            createScenario(
+              "CONTACTED",
+              {
+                journeyOverrides: {
+                  leadId: null,
+                  clientId: "client-1",
+                },
+              },
+            )
+
+          const getLeadByIdSpy =
+            vi.spyOn(
+              scenario.crmRepository,
+              "getLeadById",
+            )
+
+          const getClientByIdSpy =
+            vi.spyOn(
+              scenario.crmRepository,
+              "getClientById",
+            )
+
+          const getStateByIdSpy =
+            vi.spyOn(
+              scenario.commercialRepository,
+              "getStateById",
+            )
+
+          const getPhaseByIdSpy =
+            vi.spyOn(
+              scenario.commercialRepository,
+              "getPhaseById",
+            )
+
+          const updateLeadSpy =
+            vi.spyOn(
+              scenario.crmRepository,
+              "updateLead",
+            )
+
+          const result =
+            synchronizeCommercialJourneyWithCrm({
+              journey: scenario.journey,
+              commercialRepository:
+                scenario.commercialRepository,
+              crmRepository:
+                scenario.crmRepository,
+              now: NOW,
+            })
+
+          expect(
+            getLeadByIdSpy,
+          ).not.toHaveBeenCalled()
+          expect(
+            getClientByIdSpy,
+          ).toHaveBeenCalledExactlyOnceWith(
+            "client-1",
+          )
+          expect(
+            getStateByIdSpy,
+          ).toHaveBeenCalledExactlyOnceWith(
+            scenario.journey.currentStateId,
+          )
+          expect(
+            getPhaseByIdSpy,
+          ).toHaveBeenCalledExactlyOnceWith(
+            scenario.state.phaseId,
+          )
+          expect(
+            getStateByIdSpy.mock
+              .invocationCallOrder[0],
+          ).toBeLessThan(
+            getClientByIdSpy.mock
+              .invocationCallOrder[0] ??
+              0,
+          )
+          expect(
+            getPhaseByIdSpy.mock
+              .invocationCallOrder[0],
+          ).toBeLessThan(
+            getClientByIdSpy.mock
+              .invocationCallOrder[0] ??
+              0,
+          )
+          expect(result.lead).toBeNull()
+          expect(
+            result.previousLead,
+          ).toBeNull()
+          expect(result.changed).toBe(false)
+          expect(result.warnings).toEqual([])
+          expect(
+            updateLeadSpy,
+          ).not.toHaveBeenCalled()
+          expect(result.state).toEqual(
+            scenario.state,
+          )
+          expect(result.phase).toEqual(
+            getPhaseById(
+              scenario.state.phaseId,
+            ),
+          )
+        },
+      )
+
+      it(
+        "deve avisar quando o cliente da jornada sem lead não existir",
+        () => {
+          const scenario =
+            createScenario(
+              "CONTACTED",
+              {
+                journeyOverrides: {
+                  leadId: null,
+                  clientId:
+                    "client-missing",
+                },
+              },
+            )
+
+          const getLeadByIdSpy =
+            vi.spyOn(
+              scenario.crmRepository,
+              "getLeadById",
+            )
+
+          const getClientByIdSpy =
+            vi.spyOn(
+              scenario.crmRepository,
+              "getClientById",
+            )
+
+          const updateLeadSpy =
+            vi.spyOn(
+              scenario.crmRepository,
+              "updateLead",
+            )
+
+          const result =
+            synchronizeCommercialJourneyWithCrm({
+              journey: scenario.journey,
+              commercialRepository:
+                scenario.commercialRepository,
+              crmRepository:
+                scenario.crmRepository,
+              now: NOW,
+            })
+
+          expect(
+            getClientByIdSpy,
+          ).toHaveBeenCalledExactlyOnceWith(
+            "client-missing",
+          )
+          expect(
+            getLeadByIdSpy,
+          ).not.toHaveBeenCalled()
+          expect(result.changed).toBe(false)
+          expect(result.warnings).toEqual([
+            "Cliente não encontrado para a jornada comercial.",
+          ])
+          expect(
+            updateLeadSpy,
+          ).not.toHaveBeenCalled()
+        },
+      )
   
       it(
         "deve rejeitar uma jornada cujo estado não exista",
@@ -913,7 +1082,7 @@
   
           expect(
             scenario.crmRepository.getLeadById(
-              scenario.journey.leadId,
+              scenario.journey.leadId ?? "",
             ),
           ).toEqual(result.lead)
         },

@@ -164,11 +164,29 @@ import {
     workspaceId: string
     journey: CommercialJourney
   }
+
+  function validateJourneyOrigin(
+    journeyId: string,
+    leadId: string | null,
+    clientId: string | null,
+  ): void {
+    if (!leadId && !clientId) {
+      throw new Error(
+        `A jornada comercial "${journeyId}" deve estar vinculada a um lead ou cliente.`,
+      )
+    }
+  }
   
   export class CommercialJourneyMapper {
     static toDomain(
       raw: PrismaCommercialJourney,
     ): CommercialJourney {
+      validateJourneyOrigin(
+        raw.id,
+        raw.leadId,
+        raw.clientId,
+      )
+
       return {
         id:
           raw.id,
@@ -242,6 +260,12 @@ import {
       workspaceId,
       journey,
     }: CommercialJourneyPersistenceInput): Prisma.CommercialJourneyUncheckedCreateInput {
+      validateJourneyOrigin(
+        journey.id,
+        journey.leadId,
+        journey.clientId,
+      )
+
       return {
         id:
           journey.id,

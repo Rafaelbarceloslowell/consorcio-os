@@ -539,6 +539,46 @@ function synchronizeResolvedCommercialJourneyWithCrm({
   now:
     Date
 }): SynchronizeCommercialJourneyWithCrmResult {
+  if (!journey.leadId) {
+    const client =
+      journey.clientId
+        ? crmRepository.getClientById(
+            journey.clientId,
+          )
+        : undefined
+
+    return {
+      journey,
+
+      lead:
+        null,
+
+      previousLead:
+        null,
+
+      state,
+
+      phase,
+
+      pipelineStage:
+        null,
+
+      changed:
+        false,
+
+      diagnostics: [
+        `A jornada comercial "${journey.id}" foi analisada para sincronização com o CRM sem um lead vinculado.`,
+      ],
+
+      warnings:
+        client
+          ? []
+          : [
+              "Cliente não encontrado para a jornada comercial.",
+            ],
+    }
+  }
+
   const lead =
     crmRepository.getLeadById(
       journey.leadId,
