@@ -94,6 +94,14 @@ export function ClientDetails({
                   ]
                 }
               </span>
+              <Link
+                href={`/clients/${encodeURIComponent(
+                  client.id,
+                )}/edit`}
+                className="ml-auto rounded-lg border border-[var(--gorila-line)] px-3 py-2 text-sm font-medium text-[#43A972] hover:bg-[var(--gorila-surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+              >
+                Editar cliente
+              </Link>
             </div>
           </header>
 

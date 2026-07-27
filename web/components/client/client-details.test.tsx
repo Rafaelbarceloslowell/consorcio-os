@@ -157,6 +157,14 @@ describe("ClientDetails", () => {
       "/clients",
     )
     expect(
+      screen.getByRole("link", {
+        name: "Editar cliente",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/clients/client-1/edit",
+    )
+    expect(
       screen.queryByRole("button"),
     ).not.toBeInTheDocument()
     expect(
@@ -164,7 +172,7 @@ describe("ClientDetails", () => {
     ).not.toBeInTheDocument()
     expect(
       screen.queryByText(
-        /editar|excluir|oportunidade/i,
+        /excluir|oportunidade/i,
       ),
     ).not.toBeInTheDocument()
   })
