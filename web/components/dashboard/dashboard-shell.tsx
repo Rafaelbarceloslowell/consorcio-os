@@ -17,6 +17,7 @@ export function DashboardShell({
   summary,
   metrics,
   tasks,
+  opportunities = [],
   intelligence,
 }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -76,6 +77,9 @@ export function DashboardShell({
             summary={summary}
             metrics={metrics}
             tasks={tasks}
+            opportunities={
+              opportunities
+            }
             intelligence={intelligence}
           />
         </main>

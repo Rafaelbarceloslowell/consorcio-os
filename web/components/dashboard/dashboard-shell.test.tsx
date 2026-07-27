@@ -84,6 +84,8 @@ vi.mock(
       summary: DashboardData["summary"]
       metrics: DashboardData["metrics"]
       tasks: DashboardData["tasks"]
+      opportunities:
+        DashboardData["opportunities"]
     }) => {
       dashboardContentMock(props)
 
@@ -119,6 +121,26 @@ const dashboardData: DashboardData = {
     },
   ],
   pipeline: [],
+  opportunities: [
+    {
+      id: "journey-1",
+      title: "Oportunidade",
+      origin: "client",
+      originName: "Cliente",
+      consultantName: "Rafael",
+      priority: "NORMAL",
+      score: 50,
+      phaseName: "Contato",
+      stateName: "Em andamento",
+      consortiumType:
+        "real_estate",
+      lastInteractionAt: null,
+      updatedAt:
+        "2026-07-26T18:00:00.000Z",
+      status: "open",
+      outcome: null,
+    },
+  ],
 }
 
 describe("DashboardShell", () => {
@@ -522,6 +544,26 @@ describe("DashboardShell", () => {
         tasks:
           dashboardData.tasks,
       })
+    )
+  })
+
+  it("deve encaminhar as oportunidades para o DashboardContent", () => {
+    render(
+      <DashboardShell
+        {...dashboardData}
+      />,
+    )
+
+    const receivedProps =
+      dashboardContentMock.mock
+        .calls[0]?.[0]
+
+    expect(
+      receivedProps
+        ?.opportunities,
+    ).toBe(
+      dashboardData
+        .opportunities,
     )
   })
 

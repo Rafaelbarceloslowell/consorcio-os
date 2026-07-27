@@ -1,12 +1,13 @@
 import { DashboardHeader } from "@/components/dashboard/dashboard-header"
 import { MetricsGrid } from "@/components/dashboard/metrics-grid"
 import { UpcomingTasks } from "@/components/dashboard/upcoming-tasks"
+import { OpportunityList } from "@/components/dashboard/opportunity-list"
 import { formatCurrency } from "@/lib/formatters"
 import type { DashboardData } from "@/types/dashboard"
 
 type DashboardContentProps = Pick<
   DashboardData,
-  "user" | "summary" | "metrics" | "tasks" | "intelligence"
+  "user" | "summary" | "metrics" | "tasks" | "opportunities" | "intelligence"
 >
 
 export function DashboardContent({
@@ -14,6 +15,7 @@ export function DashboardContent({
   summary,
   metrics,
   tasks,
+  opportunities = [],
   intelligence,
 }: DashboardContentProps) {
   const criticalCount =
@@ -139,6 +141,12 @@ export function DashboardContent({
             </div>
           </aside>
         </section>
+
+        <OpportunityList
+          opportunities={
+            opportunities
+          }
+        />
       </div>
     </main>
   )

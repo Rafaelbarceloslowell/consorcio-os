@@ -15,6 +15,10 @@ import type {
 } from "@/types/dashboard"
 
 import {
+  ListOpportunitiesAsync,
+} from "@/application/opportunity/list-opportunities-async"
+
+import {
   getNextBestActions,
 } from "../decision/get-next-best-actions"
 
@@ -23,6 +27,7 @@ import {
 } from "./mapper"
 
 export type GetAsyncDashboardDataInput = {
+  workspaceId: string
   consultantId?: string
   now?: Date
 }
@@ -163,12 +168,22 @@ function hoursSince(
 
 export async function getAsyncDashboardData(
   {
+    workspaceId,
     consultantId,
     now = new Date(),
   }: GetAsyncDashboardDataInput,
   dependencies:
     GetAsyncDashboardDataDependencies,
 ): Promise<DashboardData> {
+  const normalizedWorkspaceId =
+    workspaceId.trim()
+
+  if (!normalizedWorkspaceId) {
+    throw new Error(
+      "O workspace é obrigatório para carregar o Mission Control.",
+    )
+  }
+
   const consultants =
     await dependencies
       .crmRepository
@@ -196,6 +211,7 @@ export async function getAsyncDashboardData(
     selectedConsultant?.id
 
   const [
+    listedOpportunities,
     operationalActions,
     leads,
     clients,
@@ -203,7 +219,21 @@ export async function getAsyncDashboardData(
     sales,
     pipelineStages,
     tasks,
+    phases,
+    states,
   ] = await Promise.all([
+    new ListOpportunitiesAsync({
+      journeys:
+        dependencies
+          .commercialRepository
+          .journeys,
+    }).execute({
+      workspaceId:
+        normalizedWorkspaceId,
+      consultantId:
+        resolvedConsultantId,
+    }),
+
     getNextBestActions({
       commercialRepository:
         dependencies
@@ -244,6 +274,16 @@ export async function getAsyncDashboardData(
       .crmRepository
       .tasks
       .findAll(),
+
+    dependencies
+      .commercialRepository
+      .phases
+      .findAll(),
+
+    dependencies
+      .commercialRepository
+      .states
+      .findAll(),
   ])
 
   const baseDashboardData: DashboardData = {
@@ -271,6 +311,7 @@ export async function getAsyncDashboardData(
     meetings: [],
     tasks: [],
     pipeline: [],
+    opportunities: [],
   }
 
   const dashboardData =
@@ -403,6 +444,113 @@ export async function getAsyncDashboardData(
         client,
       ]),
     )
+
+  const consultantsById =
+    new Map(
+      consultants.map(
+        (consultant) => [
+          consultant.id,
+          consultant,
+        ],
+      ),
+    )
+
+  const phasesById =
+    new Map(
+      phases.map((phase) => [
+        phase.id,
+        phase,
+      ]),
+    )
+
+  const statesById =
+    new Map(
+      states.map((state) => [
+        state.id,
+        state,
+      ]),
+    )
+
+  const opportunities =
+    listedOpportunities
+      .opportunities
+      .map((opportunity) => {
+        const lead =
+          opportunity.leadId
+            ? leadsById.get(
+                opportunity.leadId,
+              )
+            : undefined
+        const client =
+          opportunity.clientId
+            ? clientsById.get(
+                opportunity.clientId,
+              )
+            : undefined
+        const consultant =
+          consultantsById.get(
+            opportunity.consultantId,
+          )
+        const phase =
+          phasesById.get(
+            opportunity
+              .currentPhaseId,
+          )
+        const state =
+          statesById.get(
+            opportunity
+              .currentStateId,
+          )
+
+        return {
+          id: opportunity.id,
+          title: opportunity.title,
+          origin:
+            opportunity.leadId
+              ? "lead" as const
+              : "client" as const,
+          originName:
+            opportunity.leadId
+              ? (
+                  lead?.name ??
+                  "Lead não identificado"
+                )
+              : (
+                  client?.name ??
+                  "Cliente não identificado"
+                ),
+          consultantName:
+            consultant?.name ??
+            "Consultor não identificado",
+          priority:
+            opportunity.priority,
+          score:
+            opportunity.score,
+          phaseName:
+            phase?.name ??
+            "Fase indisponível",
+          stateName:
+            state?.name ??
+            "Estado indisponível",
+          consortiumType:
+            opportunity
+              .consortiumType,
+          lastInteractionAt:
+            opportunity
+              .lastInteractionAt,
+          updatedAt:
+            opportunity.updatedAt,
+          status:
+            opportunity.closedAt !==
+              null ||
+            opportunity.outcome !==
+              null
+              ? "closed" as const
+              : "open" as const,
+          outcome:
+            opportunity.outcome,
+        }
+      })
 
   const dashboardMeetings =
     consultantMeetings
@@ -600,6 +748,8 @@ export async function getAsyncDashboardData(
 
     tasks:
       prioritizedTasks,
+
+    opportunities,
 
     pipeline,
 

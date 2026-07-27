@@ -33,6 +33,33 @@ export type PipelineStage = {
   value: number
 }
 
+export type MissionControlOpportunityView = {
+  id: string
+  title: string
+  origin: "lead" | "client"
+  originName: string
+  consultantName: string
+  priority:
+    | "LOW"
+    | "NORMAL"
+    | "HIGH"
+    | "URGENT"
+  score: number
+  phaseName: string
+  stateName: string
+  consortiumType:
+    | "real_estate"
+    | "vehicle"
+    | "heavy_vehicle"
+    | "services"
+    | "other"
+  lastInteractionAt: string | null
+  updatedAt: string
+  status: "open" | "closed"
+  outcome:
+    CommercialJourneyOutcome | null
+}
+
 export type DashboardPriorityLevel =
   | "critical"
   | "important"
@@ -62,5 +89,10 @@ export type DashboardData = {
   meetings: Meeting[]
   tasks: Task[]
   pipeline: PipelineStage[]
+  opportunities?:
+    MissionControlOpportunityView[]
   intelligence?: DashboardIntelligence
 }
+import type {
+  CommercialJourneyOutcome,
+} from "@/types/domain"
