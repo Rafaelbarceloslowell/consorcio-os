@@ -54,6 +54,45 @@ describe(
   "OpportunityList",
   () => {
     it(
+      "oferece acesso para criar nova oportunidade",
+      () => {
+        render(
+          <OpportunityList
+            opportunities={[]}
+          />,
+        )
+
+        expect(
+          screen.getByRole(
+            "link",
+            {
+              name:
+                "Nova oportunidade",
+            },
+          ),
+        ).toHaveAttribute(
+          "href",
+          "/opportunities/new",
+        )
+        expect(
+          screen.getByText(
+            "Nenhuma oportunidade encontrada.",
+          ),
+        ).toBeInTheDocument()
+        expect(
+          screen.queryByRole(
+            "form",
+          ),
+        ).not.toBeInTheDocument()
+        expect(
+          screen.queryByRole(
+            "button",
+          ),
+        ).not.toBeInTheDocument()
+      },
+    )
+
+    it(
       "renderiza os dados operacionais da oportunidade",
       () => {
         render(
@@ -283,13 +322,15 @@ describe(
           "Segunda",
         ])
         expect(
-          screen.getAllByRole(
-            "link",
-          ).map(
-            (link) =>
-              link.getAttribute(
-                "href",
-              ),
+          items.map(
+            (item) =>
+              item
+                .querySelector(
+                  "a",
+                )
+                ?.getAttribute(
+                  "href",
+                ),
           ),
         ).toEqual([
           "/opportunities/journey-z",

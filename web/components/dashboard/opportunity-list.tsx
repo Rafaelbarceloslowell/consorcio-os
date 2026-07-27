@@ -41,16 +41,24 @@ export function OpportunityList({
       aria-labelledby="opportunity-list-title"
       className="gorila-material overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#15191F]/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_22px_48px_rgba(0,0,0,0.2)]"
     >
-      <header className="border-b border-white/[0.06] px-5 py-5 sm:px-6">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#697384]">
-          Pipeline comercial
-        </p>
-        <h2
-          id="opportunity-list-title"
-          className="mt-2 text-lg font-semibold tracking-[-0.035em] text-[#F5F7FA]"
+      <header className="flex items-end justify-between gap-4 border-b border-white/[0.06] px-5 py-5 sm:px-6">
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#697384]">
+            Pipeline comercial
+          </p>
+          <h2
+            id="opportunity-list-title"
+            className="mt-2 text-lg font-semibold tracking-[-0.035em] text-[#F5F7FA]"
+          >
+            Oportunidades
+          </h2>
+        </div>
+        <Link
+          href="/opportunities/new"
+          className="shrink-0 rounded-lg border border-[#43A972]/40 px-3 py-2 text-sm font-medium text-[#63C68C] hover:bg-[#43A972]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
         >
-          Oportunidades
-        </h2>
+          Nova oportunidade
+        </Link>
       </header>
 
       {opportunities.length === 0 ? (
