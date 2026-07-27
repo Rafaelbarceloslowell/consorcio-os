@@ -67,7 +67,15 @@ export function ClientList({
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div>
                       <h2 className="text-sm font-semibold text-[#F5F7FA]">
-                        {client.name}
+                        <Link
+                          href={`/clients/${encodeURIComponent(
+                            client.id,
+                          )}`}
+                          aria-label={`Abrir cliente ${client.name}`}
+                          className="underline-offset-4 hover:text-[#43A972] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+                        >
+                          {client.name}
+                        </Link>
                       </h2>
                       <p className="mt-1 text-xs text-[#697384]">
                         {client.typeLabel}

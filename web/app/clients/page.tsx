@@ -7,6 +7,11 @@ import {
 } from "@/components/client/client-list"
 
 import {
+  CLIENT_PERSON_TYPE_LABELS,
+  CLIENT_STATUS_LABELS,
+} from "@/components/client/client-labels"
+
+import {
   prisma,
 } from "@/infrastructure/prisma/client"
 
@@ -15,26 +20,8 @@ import {
 } from "@/infrastructure/prisma/repositories/prisma-crm-repositories"
 
 import type {
-  ClientStatus,
-  PersonType,
-} from "@/types/domain"
-
-import type {
   ClientListView,
 } from "@/types/client-list"
-
-const PERSON_TYPE_LABELS:
-  Record<PersonType, string> = {
-    individual: "Pessoa física",
-    company: "Pessoa jurídica",
-  }
-
-const CLIENT_STATUS_LABELS:
-  Record<ClientStatus, string> = {
-    active: "Ativo",
-    inactive: "Inativo",
-    blocked: "Bloqueado",
-  }
 
 export default async function ClientsPage() {
   const workspace =
@@ -70,7 +57,7 @@ export default async function ClientsPage() {
         id: client.id,
         name: client.name,
         typeLabel:
-          PERSON_TYPE_LABELS[
+          CLIENT_PERSON_TYPE_LABELS[
             client.type
           ],
         email: client.email,

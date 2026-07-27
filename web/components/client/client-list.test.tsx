@@ -72,6 +72,15 @@ describe("ClientList", () => {
       ),
     ).toBeInTheDocument()
     expect(
+      screen.getByRole("link", {
+        name:
+          "Abrir cliente Empresa Alfa",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/clients/client-2",
+    )
+    expect(
       screen.getByText(
         "Pessoa jurídica",
       ),
@@ -159,7 +168,7 @@ describe("ClientList", () => {
     )
     expect(
       screen.getAllByRole("link"),
-    ).toHaveLength(1)
+    ).toHaveLength(3)
     expect(
       screen.queryByRole("form"),
     ).not.toBeInTheDocument()
