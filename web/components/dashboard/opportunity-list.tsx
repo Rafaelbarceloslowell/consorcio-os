@@ -1,57 +1,18 @@
+import Link from "next/link"
+
 import type {
   MissionControlOpportunityView,
 } from "@/types/dashboard"
 
+import {
+  OPPORTUNITY_CONSORTIUM_LABELS,
+  OPPORTUNITY_OUTCOME_LABELS,
+  OPPORTUNITY_PRIORITY_LABELS,
+} from "@/components/opportunity/opportunity-labels"
+
 type OpportunityListProps = {
   opportunities:
     MissionControlOpportunityView[]
-}
-
-const PRIORITY_LABELS: Record<
-  MissionControlOpportunityView["priority"],
-  string
-> = {
-  LOW: "Baixa",
-  NORMAL: "Normal",
-  HIGH: "Alta",
-  URGENT: "Urgente",
-}
-
-const CONSORTIUM_LABELS: Record<
-  MissionControlOpportunityView["consortiumType"],
-  string
-> = {
-  real_estate: "Imóvel",
-  vehicle: "Veículo",
-  heavy_vehicle: "Veículo pesado",
-  services: "Serviços",
-  other: "Outro",
-}
-
-const OUTCOME_LABELS: Record<
-  NonNullable<
-    MissionControlOpportunityView[
-      "outcome"
-    ]
-  >,
-  string
-> = {
-  WON: "Venda concluída",
-  LOST_TO_COMPETITOR:
-    "Perdida para concorrente",
-  NO_FINANCIAL_CAPACITY:
-    "Sem capacidade financeira",
-  NO_RESPONSE: "Sem resposta",
-  POSTPONED: "Adiada",
-  PRODUCT_NOT_SUITABLE:
-    "Produto inadequado",
-  TRUST_CONCERN:
-    "Questão de confiança",
-  CLIENT_WITHDREW:
-    "Cliente desistiu",
-  CANCELLED_BY_CONSULTANT:
-    "Cancelada pelo consultor",
-  OTHER: "Outro motivo",
 }
 
 function formatDateTime(
@@ -107,14 +68,21 @@ export function OpportunityList({
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="truncate text-sm font-semibold text-[#F5F7FA]">
+                      <Link
+                        href={`/opportunities/${encodeURIComponent(
+                          opportunity.id,
+                        )}`}
+                        className="underline-offset-4 hover:text-[#43A972] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+                      >
                       {opportunity.title}
+                      </Link>
                     </h3>
                     <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#96A0AF]">
                       {opportunity.status ===
                       "closed"
                         ? (
                             opportunity.outcome
-                              ? OUTCOME_LABELS[
+                              ? OPPORTUNITY_OUTCOME_LABELS[
                                   opportunity
                                     .outcome
                                 ]
@@ -130,14 +98,14 @@ export function OpportunityList({
                   </p>
                   <p className="mt-1 text-xs text-[#697384]">
                     {
-                      CONSORTIUM_LABELS[
+                      OPPORTUNITY_CONSORTIUM_LABELS[
                         opportunity
                           .consortiumType
                       ]
                     }
                     {" · "}
                     {
-                      PRIORITY_LABELS[
+                      OPPORTUNITY_PRIORITY_LABELS[
                         opportunity
                           .priority
                       ]

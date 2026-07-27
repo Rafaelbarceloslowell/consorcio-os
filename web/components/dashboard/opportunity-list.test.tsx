@@ -70,6 +70,18 @@ describe(
           ),
         ).toBeInTheDocument()
         expect(
+          screen.getByRole(
+            "link",
+            {
+              name:
+                "Consórcio imobiliário",
+            },
+          ),
+        ).toHaveAttribute(
+          "href",
+          "/opportunities/journey-1",
+        )
+        expect(
           screen.getByText(
             /Marina Costa · Rafael/,
           ),
@@ -269,6 +281,20 @@ describe(
           "Terceira",
           "Primeira",
           "Segunda",
+        ])
+        expect(
+          screen.getAllByRole(
+            "link",
+          ).map(
+            (link) =>
+              link.getAttribute(
+                "href",
+              ),
+          ),
+        ).toEqual([
+          "/opportunities/journey-z",
+          "/opportunities/journey-a",
+          "/opportunities/journey-m",
         ])
       },
     )
