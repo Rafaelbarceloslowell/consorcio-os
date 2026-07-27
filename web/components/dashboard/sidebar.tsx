@@ -48,7 +48,7 @@ const primaryMenuItems: MenuItem[] = [
   {
     label: "Clientes",
     icon: Users,
-    href: "#clientes",
+    href: "/clients",
   },
   {
     label: "Agenda",

@@ -84,6 +84,15 @@ describe("Sidebar", () => {
     expect(
       screen.getAllByRole("link")
     ).toHaveLength(8)
+
+    expect(
+      screen.getByRole("link", {
+        name: "Clientes",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/clients",
+    )
   })
 
   it("deve marcar Dashboard como item ativo", () => {
