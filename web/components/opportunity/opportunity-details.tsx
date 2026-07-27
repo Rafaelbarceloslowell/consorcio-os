@@ -77,6 +77,12 @@ export function OpportunityDetails({
               <span className="rounded-full border border-[var(--gorila-line)] bg-[var(--gorila-surface-strong)] px-3 py-1 text-xs font-semibold">
                 {statusLabel}
               </span>
+              <Link
+                href={`/opportunities/${encodeURIComponent(opportunity.id)}/edit`}
+                className="ml-auto rounded-lg border border-[var(--gorila-line)] px-3 py-2 text-sm font-medium text-[#43A972] hover:bg-[var(--gorila-surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+              >
+                Editar oportunidade
+              </Link>
             </div>
           </header>
 

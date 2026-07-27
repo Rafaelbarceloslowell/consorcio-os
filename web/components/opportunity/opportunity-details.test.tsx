@@ -212,7 +212,7 @@ describe(
     )
 
     it(
-      "renderiza fallbacks, datas e nenhuma ação de escrita",
+      "renderiza fallbacks, datas e somente acesso à edição",
       () => {
         const view = createView()
         view.originName =
@@ -262,10 +262,49 @@ describe(
           ),
         ).not.toBeInTheDocument()
         expect(
+          screen.getByRole(
+            "link",
+            {
+              name:
+                "Editar oportunidade",
+            },
+          ),
+        ).toHaveAttribute(
+          "href",
+          "/opportunities/journey-1/edit",
+        )
+        expect(
           screen.queryByText(
-            /editar|excluir|alterar fase/i,
+            /excluir|alterar fase/i,
           ),
         ).not.toBeInTheDocument()
+      },
+    )
+
+    it(
+      "codifica ID especial no link de edição",
+      () => {
+        const view = createView()
+        view.id = "journey/a b"
+
+        render(
+          <OpportunityDetails
+            opportunity={view}
+          />,
+        )
+
+        expect(
+          screen.getByRole(
+            "link",
+            {
+              name:
+                "Editar oportunidade",
+            },
+          ),
+        ).toHaveAttribute(
+          "href",
+          "/opportunities/journey%2Fa%20b/edit",
+        )
       },
     )
   },
