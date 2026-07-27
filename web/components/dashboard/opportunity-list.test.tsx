@@ -93,6 +93,52 @@ describe(
     )
 
     it(
+      "oferece acesso para criar cliente sem alterar a lista",
+      () => {
+        render(
+          <OpportunityList
+            opportunities={[]}
+          />,
+        )
+
+        expect(
+          screen.getByRole(
+            "link",
+            {
+              name: "Novo cliente",
+            },
+          ),
+        ).toHaveAttribute(
+          "href",
+          "/clients/new",
+        )
+        expect(
+          screen.getByRole(
+            "link",
+            {
+              name:
+                "Nova oportunidade",
+            },
+          ),
+        ).toHaveAttribute(
+          "href",
+          "/opportunities/new",
+        )
+        expect(
+          screen.getByText(
+            "Nenhuma oportunidade encontrada.",
+          ),
+        ).toBeInTheDocument()
+        expect(
+          screen.queryByRole("form"),
+        ).not.toBeInTheDocument()
+        expect(
+          screen.queryByRole("button"),
+        ).not.toBeInTheDocument()
+      },
+    )
+
+    it(
       "renderiza os dados operacionais da oportunidade",
       () => {
         render(

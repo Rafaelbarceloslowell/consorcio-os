@@ -53,12 +53,20 @@ export function OpportunityList({
             Oportunidades
           </h2>
         </div>
-        <Link
-          href="/opportunities/new"
-          className="shrink-0 rounded-lg border border-[#43A972]/40 px-3 py-2 text-sm font-medium text-[#63C68C] hover:bg-[#43A972]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
-        >
-          Nova oportunidade
-        </Link>
+        <div className="flex flex-wrap justify-end gap-2">
+          <Link
+            href="/clients/new"
+            className="shrink-0 rounded-lg border border-white/[0.10] px-3 py-2 text-sm font-medium text-[#D6DBE3] hover:bg-white/[0.05] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+          >
+            Novo cliente
+          </Link>
+          <Link
+            href="/opportunities/new"
+            className="shrink-0 rounded-lg border border-[#43A972]/40 px-3 py-2 text-sm font-medium text-[#63C68C] hover:bg-[#43A972]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+          >
+            Nova oportunidade
+          </Link>
+        </div>
       </header>
 
       {opportunities.length === 0 ? (
