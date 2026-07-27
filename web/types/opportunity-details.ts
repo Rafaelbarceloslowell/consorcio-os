@@ -1,4 +1,4 @@
-import type {
+﻿import type {
   CommercialJourneyOutcome,
   CommercialJourneyPriority,
   ConsortiumType,
@@ -12,6 +12,15 @@ export type OpportunityDetailsOrigin =
 export type OpportunityDetailsStatus =
   | "open"
   | "closed"
+
+export type OpportunityTimelineItemView = {
+  id: EntityId
+  title: string
+  description: string | null
+  actorLabel: string
+  occurredAt: string
+  createdAt: string
+}
 
 type OpportunityDetailsCommon = {
   id: EntityId
@@ -35,6 +44,7 @@ type OpportunityDetailsCommon = {
   version: number
   createdAt: string
   updatedAt: string
+  timeline: OpportunityTimelineItemView[]
 }
 
 export type OpportunityDetailsView =
@@ -43,8 +53,7 @@ export type OpportunityDetailsView =
       | {
           origin: "lead"
           leadId: EntityId
-          clientId:
-            EntityId | null
+          clientId: EntityId | null
         }
       | {
           origin: "client"

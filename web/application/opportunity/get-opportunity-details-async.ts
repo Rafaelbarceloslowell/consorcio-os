@@ -1,4 +1,9 @@
+﻿import {
+  presentCommercialEvent,
+} from "@/lib/commercial-event-presenter"
+
 import type {
+  AsyncCommercialEventRepository,
   AsyncCommercialJourneyRepository,
   AsyncJourneyPhaseRepository,
   AsyncJourneyStateRepository,
@@ -49,6 +54,11 @@ export type GetOpportunityDetailsAsyncDependencies =
   {
     journeys:
       AsyncCommercialJourneyRepository
+    events:
+      Pick<
+        AsyncCommercialEventRepository,
+        "findByJourneyId"
+      >
     phases:
       Pick<
         AsyncJourneyPhaseRepository,
@@ -95,8 +105,10 @@ export class GetOpportunityDetailsAsync {
       opportunity.leadId !== null
         ? "lead"
         : "client"
+
     const leadId =
       opportunity.leadId
+
     const clientId =
       opportunity.clientId
 
@@ -128,6 +140,7 @@ export class GetOpportunityDetailsAsync {
       phase,
       state,
       originEntity,
+      events,
     ] = await Promise.all([
       this.dependencies.consultants
         .findById(
@@ -152,7 +165,33 @@ export class GetOpportunityDetailsAsync {
                 clientId,
               )
           : Promise.resolve(undefined),
+      this.dependencies.events
+        .findByJourneyId(
+          opportunity.id,
+        ),
     ])
+
+    const timeline =
+      events.map((event) => {
+        const presentation =
+          presentCommercialEvent(
+            event,
+          )
+
+        return {
+          id: event.id,
+          title:
+            presentation.title,
+          description:
+            presentation.description,
+          actorLabel:
+            presentation.actorLabel,
+          occurredAt:
+            event.occurredAt,
+          createdAt:
+            event.createdAt,
+        }
+      })
 
     return {
       opportunity: {
@@ -175,7 +214,8 @@ export class GetOpportunityDetailsAsync {
           "Consultor não identificado",
         priority:
           opportunity.priority,
-        score: opportunity.score,
+        score:
+          opportunity.score,
         consortiumType:
           opportunity.consortiumType,
         phaseId:
@@ -188,7 +228,8 @@ export class GetOpportunityDetailsAsync {
         stateName:
           state?.name ??
           "Estado indisponível",
-        outcome: opportunity.outcome,
+        outcome:
+          opportunity.outcome,
         status:
           opportunity.closedAt !== null ||
           opportunity.outcome !== null
@@ -200,11 +241,13 @@ export class GetOpportunityDetailsAsync {
           opportunity.lastInteractionAt,
         closedAt:
           opportunity.closedAt,
-        version: opportunity.version,
+        version:
+          opportunity.version,
         createdAt:
           opportunity.createdAt,
         updatedAt:
           opportunity.updatedAt,
+        timeline,
       },
     }
   }

@@ -55,7 +55,7 @@ export default async function OpportunityEditPage({
 
   if (!workspace) {
     throw new Error(
-      'Workspace "consorcio-os" não encontrado.',
+      'Workspace "consorcio-os" nÃ£o encontrado.',
     )
   }
 
@@ -79,6 +79,8 @@ export default async function OpportunityEditPage({
       new GetOpportunityDetailsAsync({
         journeys:
           commercialRepository.journeys,
+        events:
+          commercialRepository.events,
         leads: crmRepository.leads,
         clients:
           crmRepository.clients,
@@ -130,7 +132,7 @@ export default async function OpportunityEditPage({
     if (
       error instanceof Error &&
       error.message ===
-        `Oportunidade comercial não encontrada para o ID "${normalizedOpportunityId}".`
+        `Oportunidade comercial nÃ£o encontrada para o ID "${normalizedOpportunityId}".`
     ) {
       notFound()
     }

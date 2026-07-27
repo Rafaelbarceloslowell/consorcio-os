@@ -1,4 +1,4 @@
-import {
+﻿import {
   describe,
   expect,
   it,
@@ -234,6 +234,10 @@ function createDependencies({
       findByClientId:
         vi.fn(async () => []),
       findByConsultantId:
+        vi.fn(async () => []),
+    },
+    events: {
+      findByJourneyId:
         vi.fn(async () => []),
     },
     leads:

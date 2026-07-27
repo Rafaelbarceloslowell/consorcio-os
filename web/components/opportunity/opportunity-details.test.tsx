@@ -1,4 +1,4 @@
-// @vitest-environment jsdom
+﻿// @vitest-environment jsdom
 
 import {
   render,
@@ -66,6 +66,7 @@ function createView(
       "2026-07-26T12:00:00.000Z",
     updatedAt:
       "2026-07-27T14:00:00.000Z",
+    timeline: [],
   }
 
   return origin === "lead"
@@ -176,8 +177,7 @@ describe(
       {
         status: "closed",
         outcome: "WON",
-        label:
-          "Venda concluída",
+        label: "Venda concluída",
       },
     ] as const)(
       "renderiza status $label",
@@ -212,7 +212,7 @@ describe(
     )
 
     it(
-      "renderiza fallbacks, datas e somente acesso à edição",
+      "renderiza fallbacks, datas e somente acesso Ã  ediÃ§Ã£o",
       () => {
         const view = createView()
         view.originName =
@@ -220,9 +220,9 @@ describe(
         view.consultantName =
           "Consultor não identificado"
         view.phaseName =
-          "Fase indisponível"
+          "Fase indisponÃ­vel"
         view.stateName =
-          "Estado indisponível"
+          "Estado indisponÃ­vel"
         view.lastInteractionAt = null
 
         render(
@@ -243,12 +243,12 @@ describe(
         ).toBeInTheDocument()
         expect(
           screen.getByText(
-            "Fase indisponível",
+            "Fase indisponÃ­vel",
           ),
         ).toBeInTheDocument()
         expect(
           screen.getByText(
-            "Estado indisponível",
+            "Estado indisponÃ­vel",
           ),
         ).toBeInTheDocument()
         expect(
