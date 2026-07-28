@@ -50,7 +50,7 @@ function buildRecommendation(
     return intelligence.nextAction
   }
 
-  return "Continue acompanhando suas próximas oportunidades."
+  return "Priorize os próximos contatos e mantenha o pipeline avançando."
 }
 
 function buildReason(
