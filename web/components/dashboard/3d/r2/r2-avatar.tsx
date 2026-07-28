@@ -3,6 +3,7 @@
 import type { R2Behavior } from "../r2-behavior"
 import { R2Body } from "./r2-body"
 import { R2Face } from "./r2-face"
+import { R2Head } from "./head/r2-head"
 import { useFrame } from "@react-three/fiber"
 import { useRef } from "react"
 import * as THREE from "three"
@@ -64,7 +65,10 @@ export function R2Avatar({
 
       <R2Body />
 
-      <group position={[0,1.25,0]}>
+      <group
+        position={[0,1.55,0]}
+        scale={1.6}
+      >
         <R2Face
           behavior={behavior}
         />
