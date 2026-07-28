@@ -2,7 +2,6 @@ import {
   Bell,
   CheckCircle2,
   ChevronDown,
-  Command,
   Search,
   Sparkles,
 } from "lucide-react"
@@ -83,25 +82,15 @@ export function DashboardHeader({
             </div>
           </div>
 
-          <div className="flex min-w-0 flex-1 flex-col gap-3 lg:max-w-[760px] lg:flex-row lg:items-center lg:justify-end">
-            <label className="group relative block min-w-0 flex-1 lg:max-w-[420px]">
-              <span className="sr-only">
-                Pesquisar clientes, oportunidades e ações
-              </span>
-
-              <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#747A76] transition-colors duration-200 group-focus-within:text-[#43A972]" />
-
-              <input
-                type="search"
-                onClick={() => setSearchOpen(true)}
-                placeholder="Pesquisar no Gorila OS..."
-                className="h-11 w-full rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] pl-11 pr-14 text-sm text-[var(--gorila-text)] shadow-[inset_0_2px_5px_rgba(0,0,0,0.22),inset_0_-1px_0_rgba(255,255,255,0.08)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-200 placeholder:text-[var(--gorila-text-muted)] hover:-translate-y-px hover:border-[#2F8F5B]/30 hover:shadow-[inset_0_2px_5px_rgba(0,0,0,0.24),inset_0_-1px_0_rgba(255,255,255,0.12),0_4px_6px_rgba(0,0,0,0.18),0_12px_26px_rgba(0,0,0,0.17)] focus:border-[#2F8F5B]/45 focus:shadow-[inset_0_2px_5px_rgba(0,0,0,0.24),0_5px_8px_rgba(0,0,0,0.18),0_16px_30px_rgba(0,0,0,0.18),0_0_0_4px_rgba(47,143,91,0.10)]"
-              />
-
-              <span className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 items-center gap-1 rounded-lg border border-white/[0.06] bg-white/[0.035] px-2 py-1 text-[10px] font-medium text-[#697384] sm:inline-flex">
-                <Command className="size-3" />K
-              </span>
-            </label>
+          <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              aria-label="Abrir pesquisa global"
+              className="group flex size-11 shrink-0 items-center justify-center rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-subtle)] text-[var(--gorila-text-soft)] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-2px_1px_rgba(0,0,0,0.24),0_2px_3px_rgba(0,0,0,0.24),0_8px_18px_rgba(0,0,0,0.16)] transition-all duration-200 hover:border-[#2F8F5B]/30 hover:text-[#43A972]"
+            >
+              <Search className="size-[18px]" />
+            </button>
 
             <div className="flex items-center gap-2">
 
