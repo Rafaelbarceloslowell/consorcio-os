@@ -81,14 +81,14 @@ export function DashboardHeader({
           <div className="flex min-w-0 flex-1 flex-col gap-3 lg:max-w-[760px] lg:flex-row lg:items-center lg:justify-end">
             <label className="group relative block min-w-0 flex-1 lg:max-w-[420px]">
               <span className="sr-only">
-                Buscar clientes, leads, grupos ou cotas
+                Pesquisar clientes, oportunidades e ações
               </span>
 
               <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#747A76] transition-colors duration-200 group-focus-within:text-[#43A972]" />
 
               <input
                 type="search"
-                placeholder="Buscar clientes, leads, grupos, cotas..."
+                placeholder="Pesquisar no Gorila OS..."
                 className="h-11 w-full rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] pl-11 pr-14 text-sm text-[var(--gorila-text)] shadow-[inset_0_2px_5px_rgba(0,0,0,0.22),inset_0_-1px_0_rgba(255,255,255,0.08)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-200 placeholder:text-[var(--gorila-text-muted)] hover:-translate-y-px hover:border-[#2F8F5B]/30 hover:shadow-[inset_0_2px_5px_rgba(0,0,0,0.24),inset_0_-1px_0_rgba(255,255,255,0.12),0_4px_6px_rgba(0,0,0,0.18),0_12px_26px_rgba(0,0,0,0.17)] focus:border-[#2F8F5B]/45 focus:shadow-[inset_0_2px_5px_rgba(0,0,0,0.24),0_5px_8px_rgba(0,0,0,0.18),0_16px_30px_rgba(0,0,0,0.18),0_0_0_4px_rgba(47,143,91,0.10)]"
               />
 
