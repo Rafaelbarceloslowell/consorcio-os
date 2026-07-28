@@ -42,9 +42,10 @@ export function DashboardHeader({
   const initials = getUserInitials(user.name)
 
   const operationalContext =
-    priorityCount === 1
-      ? "Hoje existe 1 aÃ§Ã£o prioritÃ¡ria na operaÃ§Ã£o."
-      : `Hoje existem ${priorityCount} aÃ§Ãµes prioritÃ¡rias na operaÃ§Ã£o.`
+    gorilaR2?.analysis ??
+    (priorityCount === 1
+      ? "Hoje existe 1 ação prioritária na operação."
+      : `Hoje existem ${priorityCount} ações prioritárias na operação.`)
 
   return (
     <header className="gorila-material relative overflow-hidden rounded-[28px] border border-white/[0.065] bg-[#15191F]/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.13),inset_0_-1px_0_rgba(0,0,0,0.24),0_4px_7px_rgba(0,0,0,0.20),0_24px_56px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
