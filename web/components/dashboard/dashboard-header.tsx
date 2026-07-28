@@ -8,7 +8,6 @@ import {
 } from "lucide-react"
 
 import { formatGreeting } from "@/lib/formatters"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { GorilaR2Avatar } from "@/components/dashboard/gorila-r2-avatar"
 import type { GorilaR2Briefing, User } from "@/types/dashboard"
 
