@@ -1,4 +1,4 @@
-import { DashboardHeader } from "@/components/dashboard/dashboard-header"
+﻿import { DashboardHeader } from "@/components/dashboard/dashboard-header"
 import { MetricsGrid } from "@/components/dashboard/metrics-grid"
 import { UpcomingTasks } from "@/components/dashboard/upcoming-tasks"
 import { OpportunityList } from "@/components/dashboard/opportunity-list"
@@ -7,7 +7,13 @@ import type { DashboardData } from "@/types/dashboard"
 
 type DashboardContentProps = Pick<
   DashboardData,
-  "user" | "summary" | "metrics" | "tasks" | "opportunities" | "intelligence"
+  | "user"
+  | "summary"
+  | "metrics"
+  | "tasks"
+  | "opportunities"
+  | "intelligence"
+  | "gorilaR2"
 >
 
 export function DashboardContent({
@@ -17,6 +23,7 @@ export function DashboardContent({
   tasks,
   opportunities = [],
   intelligence,
+  gorilaR2,
 }: DashboardContentProps) {
   const criticalCount =
     intelligence?.criticalCount ??
@@ -31,9 +38,16 @@ export function DashboardContent({
     tasks.filter((task) => task.priority === "low").length
 
   const nextAction =
+    gorilaR2?.nextAction?.title ??
     intelligence?.nextAction ??
     tasks[0]?.title ??
     "Revisar o pipeline comercial"
+
+  const confidenceLabel = {
+    high: "Alta confiança",
+    medium: "Confiança média",
+    low: "Baixa confiança",
+  }[gorilaR2?.confidence ?? "medium"]
 
   return (
     <main className="min-h-screen">
@@ -42,6 +56,7 @@ export function DashboardContent({
           user={user}
           summary={summary}
           priorityCount={criticalCount}
+          gorilaR2={gorilaR2}
         />
 
         <MetricsGrid metrics={metrics} />
@@ -72,19 +87,25 @@ export function DashboardContent({
                     id="r2-operational-title"
                     className="mt-2 text-lg font-semibold tracking-[-0.035em] text-[#F5F7FA]"
                   >
-                    R2 em atividade
+                    {gorilaR2?.greeting ?? "R2 em atividade"}
                   </h2>
                 </div>
 
-                <span className="relative mt-1 flex size-2.5">
-                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#3FB980] opacity-30" />
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.1em] text-[#697384]">
+                    {confidenceLabel}
+                  </span>
 
-                  <span className="relative inline-flex size-2.5 rounded-full bg-[#3FB980]" />
-                </span>
+                  <span className="relative flex size-2.5">
+                    <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#3FB980] opacity-30" />
+                    <span className="relative inline-flex size-2.5 rounded-full bg-[#3FB980]" />
+                  </span>
+                </div>
               </div>
 
               <p className="mt-4 text-sm leading-6 text-[#96A0AF]">
-                O copiloto organizou seu dia por urgência e potencial de avanço.
+                {gorilaR2?.analysis ??
+                  "O copiloto organizou seu dia por urgência e potencial de avanço."}
               </p>
 
               <div className="mt-6 grid grid-cols-3 gap-2">
@@ -118,23 +139,42 @@ export function DashboardContent({
 
               <div className="mt-5 rounded-2xl border border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.08] p-4">
                 <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#43A972]">
-                  Faça primeiro
+                  Recomendação
                 </p>
+
                 <p className="mt-2 text-sm font-medium leading-6 text-[#F5F7FA]">
-                  Comece por: {nextAction}
+                  {gorilaR2?.recommendation ?? `Comece por: ${nextAction}`}
                 </p>
+
+                {gorilaR2?.reason ? (
+                  <p className="mt-2 text-xs leading-5 text-[#96A0AF]">
+                    {gorilaR2.reason}
+                  </p>
+                ) : null}
               </div>
 
               <div className="mt-auto pt-4">
                 <div className="rounded-2xl border border-white/[0.055] bg-black/[0.12] p-4">
                   <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#697384]">
+                    Próxima ação
+                  </p>
+
+                  <p className="mt-2 text-sm font-medium leading-6 text-[#D6DBE3]">
+                    {nextAction}
+                  </p>
+
+                  <p className="mt-3 text-xs font-medium uppercase tracking-[0.14em] text-[#697384]">
                     Maior potencial
                   </p>
 
                   <p className="mt-2 text-sm leading-6 text-[#D6DBE3]">
                     {intelligence?.topOpportunity
-                      ? `${intelligence.topOpportunity.name} · ${formatCurrency(intelligence.topOpportunity.value)} · score ${intelligence.topOpportunity.score}`
-                      : `${formatCurrency(intelligence?.pipelineValue ?? 0)} em oportunidades ativas`}
+                      ? `${intelligence.topOpportunity.name} · ${formatCurrency(
+                          intelligence.topOpportunity.value,
+                        )} · score ${intelligence.topOpportunity.score}`
+                      : `${formatCurrency(
+                          intelligence?.pipelineValue ?? 0,
+                        )} em oportunidades ativas`}
                   </p>
                 </div>
               </div>
@@ -142,12 +182,9 @@ export function DashboardContent({
           </aside>
         </section>
 
-        <OpportunityList
-          opportunities={
-            opportunities
-          }
-        />
+        <OpportunityList opportunities={opportunities} />
       </div>
     </main>
   )
 }
+

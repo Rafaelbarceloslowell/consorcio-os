@@ -26,6 +26,10 @@ import {
   mapOperationalDashboardData,
 } from "./mapper"
 
+import {
+  buildGorilaR2Briefing,
+} from "./build-gorilar2-briefing"
+
 export type GetAsyncDashboardDataInput = {
   workspaceId: string
   consultantId?: string
@@ -732,8 +736,44 @@ export async function getAsyncDashboardData(
       (task) => task.priority === "low",
     ).length
 
+  const intelligence = {
+    criticalCount,
+    importantCount,
+    monitoringCount,
+    unpreparedMeetings,
+    staleOpportunities,
+    pipelineValue:
+      activeLeads.reduce(
+        (total, lead) =>
+          total +
+          lead.desiredCreditValue,
+        0,
+      ),
+    nextAction:
+      prioritizedTasks[0]?.title,
+    topOpportunity:
+      topOpportunity
+        ? {
+            id: topOpportunity.id,
+            name: topOpportunity.name,
+            value:
+              topOpportunity
+                .desiredCreditValue,
+            score:
+              topOpportunity.score,
+          }
+        : undefined,
+  }
+
+  const gorilaR2 =
+    buildGorilaR2Briefing({
+      intelligence,
+    })
+
   return {
     ...dashboardData,
+
+    gorilaR2,
 
     metrics: {
       newLeads,
@@ -762,33 +802,6 @@ export async function getAsyncDashboardData(
             ? `${staleOpportunities} oportunidades aguardam retomada há mais de 48 horas.`
             : "Sua operação está organizada. Comece pela próxima ação recomendada.",
 
-    intelligence: {
-      criticalCount,
-      importantCount,
-      monitoringCount,
-      unpreparedMeetings,
-      staleOpportunities,
-      pipelineValue:
-        activeLeads.reduce(
-          (total, lead) =>
-            total +
-            lead.desiredCreditValue,
-          0,
-        ),
-      nextAction:
-        prioritizedTasks[0]?.title,
-      topOpportunity:
-        topOpportunity
-          ? {
-              id: topOpportunity.id,
-              name: topOpportunity.name,
-              value:
-                topOpportunity
-                  .desiredCreditValue,
-              score:
-                topOpportunity.score,
-            }
-          : undefined,
-    },
+    intelligence,
   }
 }

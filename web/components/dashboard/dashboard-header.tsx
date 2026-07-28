@@ -10,12 +10,13 @@ import {
 
 import { formatGreeting } from "@/lib/formatters"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
-import type { User } from "@/types/dashboard"
+import type { GorilaR2Briefing, User } from "@/types/dashboard"
 
 type DashboardHeaderProps = {
   user: User
   summary: string
   priorityCount?: number
+  gorilaR2?: GorilaR2Briefing
 }
 
 function getUserInitials(name: string) {
@@ -36,13 +37,14 @@ export function DashboardHeader({
   user,
   summary,
   priorityCount = 0,
+  gorilaR2,
 }: DashboardHeaderProps) {
   const initials = getUserInitials(user.name)
 
   const operationalContext =
     priorityCount === 1
-      ? "Hoje existe 1 ação prioritária na operação."
-      : `Hoje existem ${priorityCount} ações prioritárias na operação.`
+      ? "Hoje existe 1 aÃ§Ã£o prioritÃ¡ria na operaÃ§Ã£o."
+      : `Hoje existem ${priorityCount} aÃ§Ãµes prioritÃ¡rias na operaÃ§Ã£o.`
 
   return (
     <header className="gorila-material relative overflow-hidden rounded-[28px] border border-white/[0.065] bg-[#15191F]/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.13),inset_0_-1px_0_rgba(0,0,0,0.24),0_4px_7px_rgba(0,0,0,0.20),0_24px_56px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
@@ -62,7 +64,7 @@ export function DashboardHeader({
             <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#697384]">
               <Sparkles className="size-3.5 text-[#43A972]" />
 
-              Operação comercial
+              OperaÃ§Ã£o comercial
             </div>
 
             <div className="mt-2 flex flex-col gap-1">
@@ -99,7 +101,7 @@ export function DashboardHeader({
               <ThemeToggle />
               <button
                 type="button"
-                aria-label="Abrir notificações"
+                aria-label="Abrir notificaÃ§Ãµes"
                 className="group relative flex size-11 shrink-0 items-center justify-center rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-subtle)] text-[var(--gorila-text-soft)] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-2px_1px_rgba(0,0,0,0.24),0_2px_3px_rgba(0,0,0,0.24),0_8px_18px_rgba(0,0,0,0.16)] outline-none transition-[border-color,background-color,box-shadow,color,transform] duration-200 hover:-translate-y-0.5 hover:scale-[1.015] hover:border-[#2F8F5B]/30 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.23),inset_0_-3px_2px_rgba(0,0,0,0.26),0_4px_4px_rgba(0,0,0,0.28),0_16px_30px_rgba(0,0,0,0.22)] focus-visible:border-[#2F8F5B]/50 focus-visible:shadow-[0_0_0_4px_rgba(47,143,91,0.12)] active:translate-y-px active:scale-[0.985] active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.28),0_1px_2px_rgba(0,0,0,0.18)]"
               >
                 <Bell className="size-[18px]" />
@@ -127,7 +129,7 @@ export function DashboardHeader({
 
               <button
                 type="button"
-                aria-label="Abrir menu do usuário"
+                aria-label="Abrir menu do usuÃ¡rio"
                 className="group flex h-11 min-w-0 flex-1 items-center gap-3 rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-subtle)] px-2.5 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-2px_1px_rgba(0,0,0,0.24),0_2px_3px_rgba(0,0,0,0.24),0_8px_18px_rgba(0,0,0,0.16)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:scale-[1.015] hover:border-[#2F8F5B]/30 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.23),inset_0_-3px_2px_rgba(0,0,0,0.26),0_4px_4px_rgba(0,0,0,0.28),0_16px_30px_rgba(0,0,0,0.22)] focus-visible:border-[#2F8F5B]/50 focus-visible:shadow-[0_0_0_4px_rgba(47,143,91,0.12)] active:translate-y-px active:scale-[0.985] active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.28),0_1px_2px_rgba(0,0,0,0.18)] sm:flex-none"
               >
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-xl border border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10] text-[11px] font-semibold text-[#43A972]">
@@ -157,12 +159,12 @@ export function DashboardHeader({
             </p>
 
             <h2 className="mt-2 max-w-3xl text-2xl font-semibold leading-tight tracking-[-0.045em] text-[#F5F7FA] sm:text-3xl lg:text-[34px]">
-              O R2 organizou o que merece sua atenção hoje.
+              O R2 organizou o que merece sua atenÃ§Ã£o hoje.
             </h2>
 
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[#96A0AF] sm:text-[15px]">
-              Consulte os indicadores, priorize os próximos movimentos e
-              acompanhe o ritmo da operação em um único ambiente.
+              Consulte os indicadores, priorize os prÃ³ximos movimentos e
+              acompanhe o ritmo da operaÃ§Ã£o em um Ãºnico ambiente.
             </p>
           </div>
 

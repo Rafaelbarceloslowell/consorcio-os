@@ -1,4 +1,4 @@
-export type User = {
+﻿export type User = {
   id: string
   name: string
 }
@@ -82,6 +82,26 @@ export type DashboardIntelligence = {
   }
 }
 
+
+export type GorilaR2Confidence =
+  | "high"
+  | "medium"
+  | "low"
+
+export type GorilaR2Briefing = {
+  greeting: string
+  analysis: string
+  recommendation: string
+  reason: string
+  confidence: GorilaR2Confidence
+
+  nextAction?: {
+    title: string
+    priority: TaskPriority
+  }
+
+  generatedAt: string
+}
 export type DashboardData = {
   user: User
   summary: string
@@ -92,7 +112,10 @@ export type DashboardData = {
   opportunities?:
     MissionControlOpportunityView[]
   intelligence?: DashboardIntelligence
+
+  gorilaR2?: GorilaR2Briefing
 }
 import type {
   CommercialJourneyOutcome,
 } from "@/types/domain"
+

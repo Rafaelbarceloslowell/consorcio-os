@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Menu } from "lucide-react"
 import { useState } from "react"
@@ -19,6 +19,7 @@ export function DashboardShell({
   tasks,
   opportunities = [],
   intelligence,
+  gorilaR2,
 }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
@@ -81,9 +82,12 @@ export function DashboardShell({
               opportunities
             }
             intelligence={intelligence}
+            gorilaR2={gorilaR2}
           />
         </main>
       </div>
     </div>
   )
 }
+
+
