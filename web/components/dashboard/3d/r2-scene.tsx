@@ -2,15 +2,7 @@
 
 import { Canvas } from "@react-three/fiber"
 import { OrbitControls } from "@react-three/drei"
-
-function R2Placeholder() {
-  return (
-    <mesh position={[0,0,0]}>
-      <sphereGeometry args={[1,32,32]} />
-      <meshStandardMaterial color="#2F8F5B" />
-    </mesh>
-  )
-}
+import { R2Controller } from "./r2-controller"
 
 export function R2Scene() {
   return (
@@ -23,7 +15,7 @@ export function R2Scene() {
           intensity={2}
         />
 
-        <R2Placeholder />
+        <R2Controller event="dashboard_open" />
 
         <OrbitControls />
       </Canvas>
