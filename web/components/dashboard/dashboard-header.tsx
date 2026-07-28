@@ -52,7 +52,6 @@ export function DashboardHeader({
 
   return (
     <>
-    <>
     <header className="gorila-material relative overflow-hidden rounded-[28px] border border-white/[0.065] bg-[#15191F]/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.13),inset_0_-1px_0_rgba(0,0,0,0.24),0_4px_7px_rgba(0,0,0,0.20),0_24px_56px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
       <div
         aria-hidden="true"
