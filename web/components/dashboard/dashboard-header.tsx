@@ -150,7 +150,7 @@ export function DashboardHeader({
         <div className="px-5 py-6 sm:px-6 lg:px-7 lg:py-7">
           <div className="flex items-center gap-5">
             <GorilaR2Avatar
-              size="xl"
+              size="hero"
               status={
                 gorilaR2?.confidence === "low"
                   ? "alert"

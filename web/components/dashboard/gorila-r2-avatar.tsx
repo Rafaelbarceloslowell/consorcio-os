@@ -1,8 +1,10 @@
 import Image from "next/image"
+import { gorilaR2Images, type GorilaR2Mood } from "@/components/dashboard/gorila-r2-moods"
 
 type GorilaR2AvatarProps = {
-  size?: "sm" | "md" | "lg" | "xl"
+  size?: "sm" | "md" | "lg" | "xl" | "hero"
   status?: "online" | "thinking" | "alert"
+  mood?: GorilaR2Mood
   className?: string
 }
 
@@ -11,13 +13,17 @@ const sizeClasses = {
   md: "size-16",
   lg: "size-24",
   xl: "size-32",
+  hero: "size-80",
 }
 
 export function GorilaR2Avatar({
   size = "md",
   status = "online",
+  mood = "idle",
   className = "",
 }: GorilaR2AvatarProps) {
+  const characterImage = gorilaR2Images[mood]
+
   const statusLabel = {
     online: "R2 online",
     thinking: "R2 analisando",
@@ -40,17 +46,18 @@ export function GorilaR2Avatar({
 
       <div
         className={[
-          "relative size-full overflow-hidden rounded-3xl",
-          "border border-[#2F8F5B]/25 bg-[#2F8F5B]/[0.12]",
-          "shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_18px_40px_rgba(47,143,91,0.18)]",
+          "relative size-full animate-[pulse_4s_ease-in-out_infinite]",
+          "",
+          "drop-shadow-[0_20px_30px_rgba(47,143,91,0.25)]",
         ].join(" ")}
       >
         <Image
-          src="/brand/GorillaMark_Light.svg"
+          src={characterImage}
           alt="GorilaR2"
           fill
-          sizes="128px"
-          className="object-contain p-3"
+          sizes="320px"
+          className="object-contain scale-[1.6] translate-y-4"
+
           priority
         />
 
