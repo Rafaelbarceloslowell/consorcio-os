@@ -1,5 +1,6 @@
 "use client"
 
+import type { R2Behavior } from "./r2-behavior"
 import { R2Avatar } from "./r2/r2-avatar"
 import { R2RealModel } from "./r2/real/r2-real-model"
 import { decideR2Behavior } from "./r2-behavior"
@@ -22,6 +23,7 @@ export function R2Controller({
       <R2RealModel
         scale={1.5}
         position={[0,-1,0]}
+        behavior={behavior}
       />
     )
   }
