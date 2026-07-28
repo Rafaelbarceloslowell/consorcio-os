@@ -19,7 +19,7 @@ export function R2RealModel({
 }: R2RealModelProps) {
 
 
-  const { scene } = useGLTF(
+  const { scene, animations } = useGLTF(
     "/models/r2/r2-gorilla.glb"
   )
 
