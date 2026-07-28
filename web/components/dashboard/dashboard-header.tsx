@@ -9,6 +9,7 @@ import {
 import { formatGreeting } from "@/lib/formatters"
 import { useState } from "react"
 import { GorilaR2Avatar } from "@/components/dashboard/gorila-r2-avatar"
+import { R2Status } from "@/components/dashboard/3d/r2-status"
 import { GlobalSearch } from "@/components/search/global-search"
 import type { GorilaR2Briefing, User } from "@/types/dashboard"
 
