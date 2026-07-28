@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { R2Scene } from "./r2-scene"
+import { decideR2Behavior } from "./r2-behavior"
 
 const events = [
   {
@@ -27,6 +28,9 @@ export function R2Lab() {
     "dashboard_open"
   )
 
+  const behavior =
+    decideR2Behavior(event)
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 bg-[#15191F]">
 
@@ -43,6 +47,34 @@ export function R2Lab() {
       </div>
 
       <R2Scene event={event} />
+
+      <div className="w-96 rounded-2xl border border-[#2F8F5B]/30 bg-black/20 p-6 text-white">
+
+        <h2 className="mb-4 text-lg font-bold">
+          🦍 R2 Brain
+        </h2>
+
+        <div className="space-y-2 text-sm">
+          <p>
+            Humor:
+            <span className="ml-2 text-[#3FB980]">
+              {behavior.mood}
+            </span>
+          </p>
+
+          <p>
+            Animação:
+            <span className="ml-2 text-[#E8B04A]">
+              {behavior.animation}
+            </span>
+          </p>
+
+          <p className="mt-4 text-gray-300">
+            "{behavior.message}"
+          </p>
+        </div>
+
+      </div>
 
     </div>
   )
