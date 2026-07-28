@@ -1,6 +1,5 @@
 import {
   Bell,
-  Bot,
   CheckCircle2,
   ChevronDown,
   Command,
@@ -10,6 +9,7 @@ import {
 
 import { formatGreeting } from "@/lib/formatters"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
+import { GorilaR2Avatar } from "@/components/dashboard/gorila-r2-avatar"
 import type { GorilaR2Briefing, User } from "@/types/dashboard"
 
 type DashboardHeaderProps = {
@@ -155,24 +155,32 @@ export function DashboardHeader({
         <div className="grid gap-6 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.42fr)] lg:px-7 lg:py-7">
           <div>
             <p className="text-sm font-medium text-[#43A972]">
-              {formatGreeting(user.name)}
+              {gorilaR2?.greeting ?? formatGreeting(user.name)}
             </p>
 
             <h2 className="mt-2 max-w-3xl text-2xl font-semibold leading-tight tracking-[-0.045em] text-[#F5F7FA] sm:text-3xl lg:text-[34px]">
-              O R2 organizou o que merece sua atenÃ§Ã£o hoje.
+              {gorilaR2?.recommendation ??
+                "O R2 organizou o que merece sua atenção hoje."}
             </h2>
 
             <p className="mt-3 max-w-2xl text-sm leading-6 text-[#96A0AF] sm:text-[15px]">
-              Consulte os indicadores, priorize os prÃ³ximos movimentos e
-              acompanhe o ritmo da operaÃ§Ã£o em um Ãºnico ambiente.
+              {gorilaR2?.analysis ??
+                "Consulte os indicadores, priorize os próximos movimentos e acompanhe o ritmo da operação em um único ambiente."}
             </p>
           </div>
 
           <div className="group relative overflow-hidden rounded-[20px] border border-white/[0.08] bg-black/[0.13] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.28),0_3px_4px_rgba(0,0,0,0.22),0_16px_34px_rgba(0,0,0,0.18)] transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-white/[0.12] hover:bg-black/[0.13] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-2px_1px_rgba(0,0,0,0.28),0_5px_6px_rgba(0,0,0,0.26),0_24px_46px_rgba(0,0,0,0.24)] sm:p-5">
             <div className="flex items-start gap-3.5">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-2xl border border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10] text-[#43A972]">
-                <Bot className="size-[18px]" />
-              </div>
+              <GorilaR2Avatar
+                size="sm"
+                status={
+                  gorilaR2?.confidence === "low"
+                    ? "alert"
+                    : gorilaR2
+                      ? "online"
+                      : "thinking"
+                }
+              />
 
               <div className="min-w-0">
                 <div className="flex flex-wrap items-center gap-2">
@@ -187,7 +195,7 @@ export function DashboardHeader({
                 </div>
 
                 <p className="mt-2 text-sm leading-6 text-[#D6DBE3]">
-                  {summary}
+                  {gorilaR2?.reason ?? summary}
                 </p>
               </div>
             </div>
