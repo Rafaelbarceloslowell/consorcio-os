@@ -8,7 +8,9 @@ import {
 } from "lucide-react"
 
 import { formatGreeting } from "@/lib/formatters"
+import { useState } from "react"
 import { GorilaR2Avatar } from "@/components/dashboard/gorila-r2-avatar"
+import { GlobalSearch } from "@/components/search/global-search"
 import type { GorilaR2Briefing, User } from "@/types/dashboard"
 
 type DashboardHeaderProps = {
@@ -38,6 +40,8 @@ export function DashboardHeader({
   priorityCount = 0,
   gorilaR2,
 }: DashboardHeaderProps) {
+  const [searchOpen, setSearchOpen] = useState(false)
+
   const initials = getUserInitials(user.name)
 
   const operationalContext =
@@ -47,6 +51,8 @@ export function DashboardHeader({
       : `Hoje existem ${priorityCount} ações prioritárias na operação.`)
 
   return (
+    <>
+    <>
     <header className="gorila-material relative overflow-hidden rounded-[28px] border border-white/[0.065] bg-[#15191F]/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.13),inset_0_-1px_0_rgba(0,0,0,0.24),0_4px_7px_rgba(0,0,0,0.20),0_24px_56px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
       <div
         aria-hidden="true"
@@ -88,6 +94,7 @@ export function DashboardHeader({
 
               <input
                 type="search"
+                onClick={() => setSearchOpen(true)}
                 placeholder="Pesquisar no Gorila OS..."
                 className="h-11 w-full rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] pl-11 pr-14 text-sm text-[var(--gorila-text)] shadow-[inset_0_2px_5px_rgba(0,0,0,0.22),inset_0_-1px_0_rgba(255,255,255,0.08)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-200 placeholder:text-[var(--gorila-text-muted)] hover:-translate-y-px hover:border-[#2F8F5B]/30 hover:shadow-[inset_0_2px_5px_rgba(0,0,0,0.24),inset_0_-1px_0_rgba(255,255,255,0.12),0_4px_6px_rgba(0,0,0,0.18),0_12px_26px_rgba(0,0,0,0.17)] focus:border-[#2F8F5B]/45 focus:shadow-[inset_0_2px_5px_rgba(0,0,0,0.24),0_5px_8px_rgba(0,0,0,0.18),0_16px_30px_rgba(0,0,0,0.18),0_0_0_4px_rgba(47,143,91,0.10)]"
               />
@@ -203,5 +210,11 @@ export function DashboardHeader({
         </div>
       </div>
     </header>
+
+    <GlobalSearch
+      open={searchOpen}
+      onClose={() => setSearchOpen(false)}
+    />
+    </>
   )
 }
