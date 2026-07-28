@@ -5,6 +5,7 @@ import type { R2Behavior } from "../../r2-behavior"
 import { useEffect, useMemo } from "react"
 import * as THREE from "three"
 import { SkeletonUtils } from "three-stdlib"
+import { R2Customization } from "./r2-customization"
 
 type R2RealModelProps = {
   scale?: number
@@ -80,12 +81,17 @@ export function R2RealModel({
 
 
   return (
-    <primitive
-      object={model}
-      scale={scale}
-      position={position}
-      rotation={rotation}
-    />
+    <>
+      <primitive
+        object={model}
+        scale={scale}
+        position={position}
+        rotation={rotation}
+      />
+
+      <R2Customization />
+
+    </>
   )
 }
 
