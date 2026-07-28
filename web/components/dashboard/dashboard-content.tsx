@@ -1,7 +1,8 @@
-﻿import { DashboardHeader } from "@/components/dashboard/dashboard-header"
+import { DashboardHeader } from "@/components/dashboard/dashboard-header"
 import { MetricsGrid } from "@/components/dashboard/metrics-grid"
 import { UpcomingTasks } from "@/components/dashboard/upcoming-tasks"
 import { OpportunityList } from "@/components/dashboard/opportunity-list"
+import { GorilaR2Panel } from "@/components/dashboard/gorila-r2-panel"
 import { formatCurrency } from "@/lib/formatters"
 import type { DashboardData } from "@/types/dashboard"
 
@@ -60,6 +61,11 @@ export function DashboardContent({
         />
 
         <MetricsGrid metrics={metrics} />
+
+        <GorilaR2Panel
+          gorilaR2={gorilaR2}
+          intelligence={intelligence}
+        />
 
         <section
           aria-label="Próximas tarefas"
