@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   DashboardIntelligence,
   GorilaR2Briefing,
 } from "@/types/dashboard"
@@ -40,7 +40,7 @@ function buildAnalysis(
     return `${intelligence.staleOpportunities} oportunidade(s) estão paradas há mais de 48 horas.`
   }
 
-  return "A operação está organizada e sem indicadores críticos."
+  return "Nenhum alerta crítico identificado. A operação está estável e pronta para acelerar novas conversões."
 }
 
 function buildRecommendation(
@@ -70,7 +70,12 @@ export function buildGorilaR2Briefing(
   const { intelligence } = input
 
   return {
-    greeting: "Olá! Aqui está seu panorama comercial.",
+    greeting:
+      intelligence.criticalCount > 0
+        ? "Atenção. Identifiquei pontos que precisam de decisão hoje."
+        : intelligence.staleOpportunities > 0
+          ? "Encontrei oportunidades que precisam voltar para o radar."
+          : "Operação estável. Vamos buscar o próximo avanço comercial.",
 
     analysis: buildAnalysis(intelligence),
 
