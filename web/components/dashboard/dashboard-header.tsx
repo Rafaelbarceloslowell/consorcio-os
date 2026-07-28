@@ -99,7 +99,7 @@ export function DashboardHeader({
             </label>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle />
+
               <button
                 type="button"
                 aria-label="Abrir notificaÃ§Ãµes"

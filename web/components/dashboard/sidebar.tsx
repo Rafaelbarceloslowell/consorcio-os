@@ -16,6 +16,7 @@ import {
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { BrandIdentity } from "@/components/brand/brand-identity"
 import { cn } from "@/lib/utils"
 
@@ -261,6 +262,12 @@ export function Sidebar({
                 />
               ))}
             </div>
+
+            {!collapsed && (
+              <div className="mt-3 px-1">
+                <ThemeToggle />
+              </div>
+            )}
           </nav>
 
           <div
