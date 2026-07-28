@@ -147,7 +147,18 @@ export function DashboardHeader({
           </div>
         </div>
 
-        <div className="grid gap-6 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.42fr)] lg:px-7 lg:py-7">
+        <div className="px-5 py-6 sm:px-6 lg:px-7 lg:py-7">
+          <div className="flex items-center gap-5">
+            <GorilaR2Avatar
+              size="xl"
+              status={
+                gorilaR2?.confidence === "low"
+                  ? "alert"
+                  : gorilaR2
+                    ? "online"
+                    : "thinking"
+              }
+            />
           <div>
             <p className="text-sm font-medium text-[#43A972]">
               {gorilaR2?.greeting ?? formatGreeting(user.name)}
@@ -164,36 +175,6 @@ export function DashboardHeader({
             </p>
           </div>
 
-          <div className="group relative overflow-hidden rounded-[20px] border border-white/[0.08] bg-black/[0.13] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.28),0_3px_4px_rgba(0,0,0,0.22),0_16px_34px_rgba(0,0,0,0.18)] transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-white/[0.12] hover:bg-black/[0.13] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-2px_1px_rgba(0,0,0,0.28),0_5px_6px_rgba(0,0,0,0.26),0_24px_46px_rgba(0,0,0,0.24)] sm:p-5">
-            <div className="flex items-start gap-3.5">
-              <GorilaR2Avatar
-                size="sm"
-                status={
-                  gorilaR2?.confidence === "low"
-                    ? "alert"
-                    : gorilaR2
-                      ? "online"
-                      : "thinking"
-                }
-              />
-
-              <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-sm font-semibold tracking-[-0.02em] text-[#F5F7FA]">
-                    Resumo do R2
-                  </h3>
-
-                  <span className="inline-flex items-center gap-1 text-[11px] text-[#697384]">
-                    <CheckCircle2 className="size-3.5 text-[#3FB980]" />
-                    atualizado agora
-                  </span>
-                </div>
-
-                <p className="mt-2 text-sm leading-6 text-[#D6DBE3]">
-                  {gorilaR2?.reason ?? summary}
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

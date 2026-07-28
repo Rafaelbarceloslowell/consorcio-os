@@ -1,7 +1,7 @@
-﻿import Image from "next/image"
+import Image from "next/image"
 
 type GorilaR2AvatarProps = {
-  size?: "sm" | "md" | "lg"
+  size?: "sm" | "md" | "lg" | "xl"
   status?: "online" | "thinking" | "alert"
   className?: string
 }
@@ -10,6 +10,7 @@ const sizeClasses = {
   sm: "size-10",
   md: "size-16",
   lg: "size-24",
+  xl: "size-32",
 }
 
 export function GorilaR2Avatar({
@@ -26,34 +27,45 @@ export function GorilaR2Avatar({
   return (
     <div
       className={[
-        "relative shrink-0 overflow-hidden rounded-2xl",
-        "border border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10]",
-        "shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_8px_24px_rgba(0,0,0,0.16)]",
+        "relative flex shrink-0 items-center justify-center",
         sizeClasses[size],
         className,
       ].join(" ")}
       aria-label={statusLabel}
     >
-      <Image
-        src="/brand/GorillaMark_Light.svg"
-        alt="GorilaR2"
-        fill
-        sizes="96px"
-        className="object-contain p-2"
-        priority
+      <div
+        aria-hidden="true"
+        className="absolute inset-[-18%] rounded-full bg-[#2F8F5B]/20 blur-2xl"
       />
 
-      <span
-        aria-hidden="true"
+      <div
         className={[
-          "absolute right-1.5 top-1.5 size-2.5 rounded-full border-2 border-[#15191F]",
-          status === "online"
-            ? "bg-[#3FB980]"
-            : status === "thinking"
-              ? "bg-[#E8B04A]"
-              : "bg-[#E16A6A]",
+          "relative size-full overflow-hidden rounded-3xl",
+          "border border-[#2F8F5B]/25 bg-[#2F8F5B]/[0.12]",
+          "shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_18px_40px_rgba(47,143,91,0.18)]",
         ].join(" ")}
-      />
+      >
+        <Image
+          src="/brand/GorillaMark_Light.svg"
+          alt="GorilaR2"
+          fill
+          sizes="128px"
+          className="object-contain p-3"
+          priority
+        />
+
+        <span
+          aria-hidden="true"
+          className={[
+            "absolute right-2 top-2 size-3 rounded-full border-2 border-[#15191F]",
+            status === "online"
+              ? "bg-[#3FB980]"
+              : status === "thinking"
+                ? "bg-[#E8B04A]"
+                : "bg-[#E16A6A]",
+          ].join(" ")}
+        />
+      </div>
     </div>
   )
 }
