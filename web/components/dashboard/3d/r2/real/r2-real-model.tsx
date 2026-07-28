@@ -6,6 +6,7 @@ import { useEffect, useMemo } from "react"
 import * as THREE from "three"
 import { SkeletonUtils } from "three-stdlib"
 import { R2Customization } from "./r2-customization"
+import { R2FaceController } from "./r2-face-controller"
 
 type R2RealModelProps = {
   scale?: number
@@ -90,6 +91,10 @@ export function R2RealModel({
       />
 
       <R2Customization />
+
+      <R2FaceController
+        behavior={behavior}
+      />
 
     </>
   )
