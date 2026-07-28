@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   AsyncCommercialRepositories,
 } from "@/repositories/commercial/async-commercial-repositories"
 

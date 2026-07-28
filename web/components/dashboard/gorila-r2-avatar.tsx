@@ -1,10 +1,13 @@
 import Image from "next/image"
 import { gorilaR2Images, type GorilaR2Mood } from "@/components/dashboard/gorila-r2-moods"
+import type { R2Behavior } from "@/components/dashboard/3d/r2-behavior"
+import { getR2AnimationClass } from "@/components/dashboard/3d/r2-animation"
 
 type GorilaR2AvatarProps = {
   size?: "sm" | "md" | "lg" | "xl" | "hero"
   status?: "online" | "thinking" | "alert"
   mood?: GorilaR2Mood
+  behavior?: R2Behavior
   className?: string
 }
 
@@ -21,8 +24,11 @@ export function GorilaR2Avatar({
   status = "online",
   mood = "idle",
   className = "",
+  behavior,
 }: GorilaR2AvatarProps) {
-  const characterImage = gorilaR2Images[mood]
+  const activeMood = behavior?.mood ?? mood
+
+  const characterImage = gorilaR2Images[activeMood]
 
   const statusLabel = {
     online: "R2 online",
@@ -46,7 +52,10 @@ export function GorilaR2Avatar({
 
       <div
         className={[
-          "relative size-full animate-[pulse_4s_ease-in-out_infinite]",
+          "relative size-full",
+          getR2AnimationClass(
+            behavior?.animation ?? "breathing"
+          ),
           "",
           "drop-shadow-[0_20px_30px_rgba(47,143,91,0.25)]",
         ].join(" ")}

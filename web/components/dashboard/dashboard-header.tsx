@@ -12,6 +12,7 @@ import { GorilaR2Avatar } from "@/components/dashboard/gorila-r2-avatar"
 import { R2Status } from "@/components/dashboard/3d/r2-status"
 import { GlobalSearch } from "@/components/search/global-search"
 import type { GorilaR2Briefing, User } from "@/types/dashboard"
+import type { R2Behavior } from "@/components/dashboard/3d/r2-behavior"
 
 type DashboardHeaderProps = {
   user: User

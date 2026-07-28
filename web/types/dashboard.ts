@@ -1,4 +1,4 @@
-﻿export type User = {
+export type User = {
   id: string
   name: string
 }
@@ -114,8 +114,13 @@ export type DashboardData = {
   intelligence?: DashboardIntelligence
 
   gorilaR2?: GorilaR2Briefing
+  gorilaR2Behavior?: R2Behavior
 }
 import type {
   CommercialJourneyOutcome,
 } from "@/types/domain"
+
+import type {
+  R2Behavior,
+} from "@/components/dashboard/3d/r2-behavior"
 
