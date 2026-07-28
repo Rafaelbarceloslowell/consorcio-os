@@ -1,10 +1,11 @@
 "use client"
 
-import { useGLTF } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import { useRef } from "react"
 import * as THREE from "three"
+
 import type { R2Behavior } from "./r2-behavior"
+import { R2Placeholder } from "./r2-placeholder"
 
 type R2ModelProps = {
   scale?: number
@@ -19,10 +20,6 @@ export function R2Model({
   rotation = [0, 0, 0],
   behavior,
 }: R2ModelProps) {
-  const { scene } = useGLTF(
-    "/models/gorila-r2/gorila-r2.glb"
-  )
-
   const modelRef = useRef<THREE.Group>(null)
 
   useFrame((state) => {
@@ -52,16 +49,16 @@ export function R2Model({
   })
 
   return (
-    <primitive
+    <group
       ref={modelRef}
-      object={scene}
-      scale={scale}
       position={position}
       rotation={rotation}
-    />
+    >
+      <R2Placeholder
+        scale={scale}
+        position={[0, 0, 0]}
+        behavior={behavior}
+      />
+    </group>
   )
 }
-
-useGLTF.preload(
-  "/models/gorila-r2/gorila-r2.glb"
-)
