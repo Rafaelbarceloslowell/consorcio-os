@@ -43,44 +43,27 @@ export function R2Placeholder({
   useFrame((state) => {
     if (!ref.current) return
 
-    const time =
-      state.clock.elapsedTime
+    const time = state.clock.elapsedTime
 
-    ref.current.position.y =
-      position[1]
-
-    if (
-      behavior?.animation === "breathing"
-    ) {
+    if (behavior?.animation === "breathing") {
       ref.current.scale.y =
         scale + Math.sin(time * 2) * 0.03
     }
 
-    if (
-      behavior?.animation === "thinking"
-    ) {
+    if (behavior?.animation === "thinking") {
       ref.current.rotation.y =
         Math.sin(time) * 0.25
-
-      ref.current.rotation.z =
-        Math.sin(time) * 0.05
     }
 
-    if (
-      behavior?.animation === "warning"
-    ) {
+    if (behavior?.animation === "warning") {
       ref.current.rotation.z =
         Math.sin(time * 15) * 0.08
     }
 
-    if (
-      behavior?.animation === "celebrating"
-    ) {
+    if (behavior?.animation === "celebrating") {
       ref.current.position.y =
         position[1] +
-        Math.abs(
-          Math.sin(time * 4)
-        ) * 0.25
+        Math.abs(Math.sin(time * 4)) * 0.25
     }
   })
 
@@ -96,42 +79,71 @@ export function R2Placeholder({
       scale={scale}
     >
 
-      {/* aura */}
-      <mesh scale={1.4}>
-        <sphereGeometry args={[1, 32, 32]} />
+      {/* energia */}
+      <mesh scale={1.6}>
+        <sphereGeometry args={[1,32,32]} />
         <meshStandardMaterial
           color={aura}
           transparent
-          opacity={0.12}
+          opacity={0.08}
         />
       </mesh>
 
 
-      {/* corpo */}
+      {/* tronco */}
       <mesh position={[0,0,0]}>
-        <sphereGeometry args={[0.8,32,32]} />
+        <sphereGeometry args={[0.9,32,32]} />
+        <meshStandardMaterial color="#214B35" />
+      </mesh>
+
+
+      {/* peito tecnológico */}
+      <mesh position={[0,0.15,0.75]}>
+        <sphereGeometry args={[0.22,32,32]} />
+        <meshStandardMaterial
+          color="#3FB980"
+          emissive="#3FB980"
+        />
+      </mesh>
+
+
+      {/* ombros */}
+      <mesh position={[-0.55,0.35,0]}>
+        <sphereGeometry args={[0.3,24,24]} />
+        <meshStandardMaterial color="#2F8F5B" />
+      </mesh>
+
+      <mesh position={[0.55,0.35,0]}>
+        <sphereGeometry args={[0.3,24,24]} />
         <meshStandardMaterial color="#2F8F5B" />
       </mesh>
 
 
       {/* cabeça */}
-      <mesh position={[0,1,0]}>
-        <sphereGeometry args={[0.42,32,32]} />
+      <mesh position={[0,1.15,0]}>
+        <sphereGeometry args={[0.5,32,32]} />
         <meshStandardMaterial color="#43A972" />
       </mesh>
 
 
+      {/* mandíbula */}
+      <mesh position={[0,0.95,0.35]}>
+        <sphereGeometry args={[0.25,24,24]} />
+        <meshStandardMaterial color="#256B46" />
+      </mesh>
+
+
       {/* olhos */}
-      <mesh position={[-0.14,1.05,0.36]}>
-        <sphereGeometry args={[0.06,16,16]} />
+      <mesh position={[-0.18,1.25,0.42]}>
+        <sphereGeometry args={[0.07,16,16]} />
         <meshStandardMaterial
           color="#FFFFFF"
           emissive="#FFFFFF"
         />
       </mesh>
 
-      <mesh position={[0.14,1.05,0.36]}>
-        <sphereGeometry args={[0.06,16,16]} />
+      <mesh position={[0.18,1.25,0.42]}>
+        <sphereGeometry args={[0.07,16,16]} />
         <meshStandardMaterial
           color="#FFFFFF"
           emissive="#FFFFFF"
@@ -140,14 +152,26 @@ export function R2Placeholder({
 
 
       {/* braços */}
-      <mesh position={[-0.85,0,0]}>
-        <sphereGeometry args={[0.18,16,16]} />
-        <meshStandardMaterial color="#256B46" />
+      <mesh position={[-1,0,0]}>
+        <sphereGeometry args={[0.2,20,20]} />
+        <meshStandardMaterial color="#183C2A" />
       </mesh>
 
-      <mesh position={[0.85,0,0]}>
-        <sphereGeometry args={[0.18,16,16]} />
-        <meshStandardMaterial color="#256B46" />
+      <mesh position={[1,0,0]}>
+        <sphereGeometry args={[0.2,20,20]} />
+        <meshStandardMaterial color="#183C2A" />
+      </mesh>
+
+
+      {/* mãos */}
+      <mesh position={[-1.05,-0.45,0]}>
+        <sphereGeometry args={[0.18,20,20]} />
+        <meshStandardMaterial color="#214B35" />
+      </mesh>
+
+      <mesh position={[1.05,-0.45,0]}>
+        <sphereGeometry args={[0.18,20,20]} />
+        <meshStandardMaterial color="#214B35" />
       </mesh>
 
     </group>
