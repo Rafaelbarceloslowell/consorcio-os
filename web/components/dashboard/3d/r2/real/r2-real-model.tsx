@@ -7,6 +7,8 @@ import * as THREE from "three"
 import { SkeletonUtils } from "three-stdlib"
 import { R2Customization } from "./r2-customization"
 import { R2FaceController } from "./r2-face-controller"
+import { findR2Rig } from "./r2-rig"
+import { R2EyeController } from "./r2-eye-controller"
 
 type R2RealModelProps = {
   scale?: number
@@ -81,6 +83,11 @@ export function R2RealModel({
   }, [scene])
 
 
+  const rig = useMemo(() => {
+    return findR2Rig(model)
+  }, [model])
+
+
   return (
     <>
       <primitive
@@ -94,6 +101,10 @@ export function R2RealModel({
 
       <R2FaceController
         behavior={behavior}
+      />
+
+      <R2EyeController
+        rig={rig}
       />
 
     </>
