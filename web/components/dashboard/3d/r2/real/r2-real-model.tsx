@@ -105,6 +105,7 @@ export function R2RealModel({
 
       <R2EyeController
         rig={rig}
+        behavior={behavior}
       />
 
     </>
