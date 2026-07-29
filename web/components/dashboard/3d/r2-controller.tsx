@@ -2,7 +2,7 @@
 
 import type { R2Behavior } from "./r2-behavior"
 import { R2Avatar } from "./r2/r2-avatar"
-import { R2RealModel } from "./r2/real/r2-real-model"
+import { R2DashboardAvatar } from "./r2/r2-dashboard-avatar"
 import { decideR2Behavior } from "./r2-behavior"
 
 type R2ControllerProps = {
@@ -20,9 +20,7 @@ export function R2Controller({
 
   if (realModel) {
     return (
-      <R2RealModel
-        scale={1.5}
-        position={[0,-1,0]}
+      <R2DashboardAvatar
         behavior={behavior}
       />
     )
