@@ -3,6 +3,7 @@ export type R2IntroState =
   | "curious"
   | "laughing"
   | "revealing"
+  | "welcoming"
   | "complete"
 
 
@@ -64,6 +65,17 @@ export function nextR2IntroState(
 
 
     case "revealing":
+
+      if (
+        event === "finished"
+      ) {
+        return "welcoming"
+      }
+
+      return state
+
+
+    case "welcoming":
 
       if (
         event === "finished"
