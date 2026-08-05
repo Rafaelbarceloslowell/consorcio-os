@@ -1,0 +1,58 @@
+
+============================================================
+ R2 OPPORTUNITY_CREATED ATOMIC INTEGRATION V1
+============================================================
+GENERATED_AT=2026-08-03T00:22:38.251Z
+WORKSPACE=C:\Projetos\consorcio-os\web
+MODE=WRITE_WITH_PREDEPLOY_ROLLBACK
+DATABASE_CHANGE=ADD_ENUM_VALUE_AND_DEPLOY_MIGRATION
+MODEL_OR_GLB_CHANGE_AUTHORIZED=False
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_BASELINE_MATCH=true
+STAGED_FILE_COUNT=0
+SCHEMA_SHA256=B568D1DAD16A91B41B3DC8171EB73CECA40465A027984A310C4CD39898CDC1CE
+SCHEMA_BASELINE_MATCH=true
+ACTION_SHA256=BE50480D5DB83310336F59D405D8489B7FF19C7EFBAEF3EAB735E2C405185D77
+ACTION_BASELINE_MATCH=true
+USE_CASE_SHA256=AFDCFD5ACE091A8520D953725703299FD68F49A3B575CFFDEF79A42D7C41DFBA
+USE_CASE_BASELINE_MATCH=true
+USE_CASE_TEST_SHA256=927046D5C4A8D402C2C962464AFEB9EA857DB2046D869A809734B25BDD2B7009
+USE_CASE_TEST_BASELINE_MATCH=true
+NORMALIZER_SHA256=B6EBC6F331133E7E18D5BD448F256CF6C784EF023D745E085F655E9A69EC31ED
+NORMALIZER_BASELINE_MATCH=true
+GLB_SHA256=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_BASELINE_MATCH=true
+
+============================================================
+ PRISMA MIGRATE STATUS BEFORE
+============================================================
+COMMAND=npx prisma migrate status
+EXIT_CODE=1
+PROCESS_ERROR=spawnSync npx.cmd EINVAL
+
+============================================================
+ FAILURE
+============================================================
+ERROR=PRISMA MIGRATE STATUS BEFORE falhou com exit code 1: spawnSync npx.cmd EINVAL.
+MIGRATION_DEPLOY_STARTED=false
+MIGRATION_DEPLOY_SUCCEEDED=false
+
+============================================================
+ ROLLBACK PRE-MIGRAÇÃO
+============================================================
+GENERATED_CLIENT_REMOVED=True
+
+============================================================
+ FINAL RESULT
+============================================================
+ROLLBACK_PERFORMED=true
+POST_MIGRATION_FAILURE=false
+VEREDITO=REPROVADO_COM_ROLLBACK_PRE_MIGRACAO
+NEXT_STEP=ANALISAR_RELATORIO_E_CORRIGIR_PACOTE
+
+============================================================
+ PACOTE FINALIZADO
+============================================================
+REPORT_PATH=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-opportunity-created-atomic-integration-v1\R2_OPPORTUNITY_CREATED_ATOMIC_INTEGRATION_V1_REPORT.txt
+JSON_REPORT_PATH=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-opportunity-created-atomic-integration-v1\R2_OPPORTUNITY_CREATED_ATOMIC_INTEGRATION_V1_REPORT.json
+UPLOAD_THIS_FILE=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-opportunity-created-atomic-integration-v1\R2_OPPORTUNITY_CREATED_ATOMIC_INTEGRATION_V1_REPORT.txt

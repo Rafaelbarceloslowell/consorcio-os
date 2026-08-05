@@ -1,0 +1,3053 @@
+{
+  "audit": "R2 v36 Head Surface Foundation v3 read-only audit",
+  "blender_version": "4.5.10 LTS",
+  "blend_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\.__r2_v36_head_foundation_build_efb23a28d81f41f7a3a7fdc03628522c\\r2-rig-v36-head-surface-foundation-v3.blend",
+  "blend_saved": false,
+  "mesh_objects": 15,
+  "armature_objects": 1,
+  "preserved_original_objects": {
+    "R2_Arm_Fur_R": {
+      "expected": {
+        "name": "R2_Arm_Fur_R",
+        "vertices": 137,
+        "edges": 354,
+        "faces": 218,
+        "mesh_topology_sha256": "AF9EE387946088302C1E719D7612E2BE6C11C2F8BC38F9C0A4615E4E1B5E48CE",
+        "weights_sha256": "8AD1609CF84D6DF383F03B79AE46D32A5D37357B8793E1402BA65343EA6C57EC",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Arm_Fur_R",
+        "vertices": 137,
+        "edges": 354,
+        "faces": 218,
+        "mesh_topology_sha256": "AF9EE387946088302C1E719D7612E2BE6C11C2F8BC38F9C0A4615E4E1B5E48CE",
+        "weights_sha256": "8AD1609CF84D6DF383F03B79AE46D32A5D37357B8793E1402BA65343EA6C57EC",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Hand_L": {
+      "expected": {
+        "name": "R2_Hand_L",
+        "vertices": 9586,
+        "edges": 27603,
+        "faces": 17980,
+        "mesh_topology_sha256": "1247170DCC8C502D66BB55B25061FB7C610F3661594029D6F4F81CCDC144055E",
+        "weights_sha256": "902789584EB360EBB31565E5FBC8596F92117CFB71640E9D98A538554581429C",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Hand_L",
+        "vertices": 9586,
+        "edges": 27603,
+        "faces": 17980,
+        "mesh_topology_sha256": "1247170DCC8C502D66BB55B25061FB7C610F3661594029D6F4F81CCDC144055E",
+        "weights_sha256": "902789584EB360EBB31565E5FBC8596F92117CFB71640E9D98A538554581429C",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Hand_R": {
+      "expected": {
+        "name": "R2_Hand_R",
+        "vertices": 10588,
+        "edges": 30467,
+        "faces": 19837,
+        "mesh_topology_sha256": "F0C3C74BBAF554FAC7DDC3794E920F2A4587CE45EC9372211604C0F96882952D",
+        "weights_sha256": "6A14F91EBCFB08F6928BAE0ADB2DFB6A953487D3E354A9AC49E64A99C9E63C56",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Hand_R",
+        "vertices": 10588,
+        "edges": 30467,
+        "faces": 19837,
+        "mesh_topology_sha256": "F0C3C74BBAF554FAC7DDC3794E920F2A4587CE45EC9372211604C0F96882952D",
+        "weights_sha256": "6A14F91EBCFB08F6928BAE0ADB2DFB6A953487D3E354A9AC49E64A99C9E63C56",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Head_Face": {
+      "expected": {
+        "name": "R2_Head_Face",
+        "vertices": 3697,
+        "edges": 10806,
+        "faces": 7086,
+        "mesh_topology_sha256": "6903376494A7DA85BD24ECFD938421733B26900881D6493DB35817294F9A7CCB",
+        "weights_sha256": "461E28983E338C6A9B95F9BB64B2D4A0EF668B8153870A291DDB6ECAE30A3A6E",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Head_Face",
+        "vertices": 3697,
+        "edges": 10806,
+        "faces": 7086,
+        "mesh_topology_sha256": "6903376494A7DA85BD24ECFD938421733B26900881D6493DB35817294F9A7CCB",
+        "weights_sha256": "461E28983E338C6A9B95F9BB64B2D4A0EF668B8153870A291DDB6ECAE30A3A6E",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Head_Fur": {
+      "expected": {
+        "name": "R2_Head_Fur",
+        "vertices": 18673,
+        "edges": 53788,
+        "faces": 35015,
+        "mesh_topology_sha256": "C41451C95D792E33B713F14047BBED51ECCC1AD81279024329BBC762C21C71C5",
+        "weights_sha256": "43E40BD97672F285E864372E8CC70332C301BE79A98822338A12C0AAF518E4D1",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Head_Fur",
+        "vertices": 18673,
+        "edges": 53788,
+        "faces": 35015,
+        "mesh_topology_sha256": "C41451C95D792E33B713F14047BBED51ECCC1AD81279024329BBC762C21C71C5",
+        "weights_sha256": "43E40BD97672F285E864372E8CC70332C301BE79A98822338A12C0AAF518E4D1",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Hood": {
+      "expected": {
+        "name": "R2_Hood",
+        "vertices": 18418,
+        "edges": 53562,
+        "faces": 35120,
+        "mesh_topology_sha256": "000268B0FCCB99337E04E33FC32361711AACDCB4775104E5A3263126FA5ED5EB",
+        "weights_sha256": "0DDC1385439B2A6765B7917F0A8B798FFDAB6B93F361A05D98D05E7F18D91F26",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Hood",
+        "vertices": 18418,
+        "edges": 53562,
+        "faces": 35120,
+        "mesh_topology_sha256": "000268B0FCCB99337E04E33FC32361711AACDCB4775104E5A3263126FA5ED5EB",
+        "weights_sha256": "0DDC1385439B2A6765B7917F0A8B798FFDAB6B93F361A05D98D05E7F18D91F26",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Hood_Cord_L": {
+      "expected": {
+        "name": "R2_Hood_Cord_L",
+        "vertices": 162,
+        "edges": 425,
+        "faces": 265,
+        "mesh_topology_sha256": "8F09F0BEAC843D85D81B4459F5088B7764970678CE39328076B20660DF0C24D6",
+        "weights_sha256": "5D88D827653BB987A4831E832F3E9C6BF1D945C0085DE4214F2737BA3E4CD77E",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Hood_Cord_L",
+        "vertices": 162,
+        "edges": 425,
+        "faces": 265,
+        "mesh_topology_sha256": "8F09F0BEAC843D85D81B4459F5088B7764970678CE39328076B20660DF0C24D6",
+        "weights_sha256": "5D88D827653BB987A4831E832F3E9C6BF1D945C0085DE4214F2737BA3E4CD77E",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Hood_Cord_R": {
+      "expected": {
+        "name": "R2_Hood_Cord_R",
+        "vertices": 132,
+        "edges": 339,
+        "faces": 208,
+        "mesh_topology_sha256": "862F5B0947FA83A012C73D16F6E775BAF9E0DAB25EE7B6748A39EC75E67A08AF",
+        "weights_sha256": "99A974B5661CE284E844698449FC8AAE84150F9ADBDE56D17EC1150837571DE8",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Hood_Cord_R",
+        "vertices": 132,
+        "edges": 339,
+        "faces": 208,
+        "mesh_topology_sha256": "862F5B0947FA83A012C73D16F6E775BAF9E0DAB25EE7B6748A39EC75E67A08AF",
+        "weights_sha256": "99A974B5661CE284E844698449FC8AAE84150F9ADBDE56D17EC1150837571DE8",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Hoodie_Sleeve_L": {
+      "expected": {
+        "name": "R2_Hoodie_Sleeve_L",
+        "vertices": 7290,
+        "edges": 21137,
+        "faces": 13841,
+        "mesh_topology_sha256": "363A5F9665259AD5A36160C7FA38AE9486724F029264D80682F72F88F13522E5",
+        "weights_sha256": "DBE716B2C81144A5DDDC3DF1D45E538074B002F7EA10D20EA0A2C2F6159775CE",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Hoodie_Sleeve_L",
+        "vertices": 7290,
+        "edges": 21137,
+        "faces": 13841,
+        "mesh_topology_sha256": "363A5F9665259AD5A36160C7FA38AE9486724F029264D80682F72F88F13522E5",
+        "weights_sha256": "DBE716B2C81144A5DDDC3DF1D45E538074B002F7EA10D20EA0A2C2F6159775CE",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Hoodie_Sleeve_R": {
+      "expected": {
+        "name": "R2_Hoodie_Sleeve_R",
+        "vertices": 14274,
+        "edges": 41548,
+        "faces": 27266,
+        "mesh_topology_sha256": "63AAB271F089FAFBD76B6B6702808EF1DB960F775172F66A260DE2804FD1DD7F",
+        "weights_sha256": "E66C732E3F6CB65FE12896AF4AD5353C73CAE676F5FDF713FA7EA427B0C8194E",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Hoodie_Sleeve_R",
+        "vertices": 14274,
+        "edges": 41548,
+        "faces": 27266,
+        "mesh_topology_sha256": "63AAB271F089FAFBD76B6B6702808EF1DB960F775172F66A260DE2804FD1DD7F",
+        "weights_sha256": "E66C732E3F6CB65FE12896AF4AD5353C73CAE676F5FDF713FA7EA427B0C8194E",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Hoodie_Torso": {
+      "expected": {
+        "name": "R2_Hoodie_Torso",
+        "vertices": 37815,
+        "edges": 110166,
+        "faces": 72344,
+        "mesh_topology_sha256": "FA8945230A6A825C9A702145E8A41C51D2B0BF996C830C6A72D6C30B638B9E77",
+        "weights_sha256": "245FB16E95EC2275D007A04F538E0568E4E37E9027997F3CEAD1FCAB9B39D6D8",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Hoodie_Torso",
+        "vertices": 37815,
+        "edges": 110166,
+        "faces": 72344,
+        "mesh_topology_sha256": "FA8945230A6A825C9A702145E8A41C51D2B0BF996C830C6A72D6C30B638B9E77",
+        "weights_sha256": "245FB16E95EC2275D007A04F538E0568E4E37E9027997F3CEAD1FCAB9B39D6D8",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Pants": {
+      "expected": {
+        "name": "R2_Pants",
+        "vertices": 54599,
+        "edges": 158981,
+        "faces": 104307,
+        "mesh_topology_sha256": "7E5DCD95A95A3BA7EF7F45EE36BDC2798BDAFC990955E5C67D9076463AC3A59D",
+        "weights_sha256": "F2A141B275FC3ACC4B1D034DA66340F2826CB833364E1175DEC9EF28B546A2FF",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Pants",
+        "vertices": 54599,
+        "edges": 158981,
+        "faces": 104307,
+        "mesh_topology_sha256": "7E5DCD95A95A3BA7EF7F45EE36BDC2798BDAFC990955E5C67D9076463AC3A59D",
+        "weights_sha256": "F2A141B275FC3ACC4B1D034DA66340F2826CB833364E1175DEC9EF28B546A2FF",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Shoe_L": {
+      "expected": {
+        "name": "R2_Shoe_L",
+        "vertices": 11144,
+        "edges": 32577,
+        "faces": 21399,
+        "mesh_topology_sha256": "A99A2BA4336B9ECB8B34189C443B7000D9DDAF91BD3C3193785D6AE4072D2BE8",
+        "weights_sha256": "5A26E6B9BCF0D00D0412670D24AB5E9EE430C717D1A37A19314D19AA1B20C5B4",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Shoe_L",
+        "vertices": 11144,
+        "edges": 32577,
+        "faces": 21399,
+        "mesh_topology_sha256": "A99A2BA4336B9ECB8B34189C443B7000D9DDAF91BD3C3193785D6AE4072D2BE8",
+        "weights_sha256": "5A26E6B9BCF0D00D0412670D24AB5E9EE430C717D1A37A19314D19AA1B20C5B4",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    },
+    "R2_Shoe_R": {
+      "expected": {
+        "name": "R2_Shoe_R",
+        "vertices": 10911,
+        "edges": 32014,
+        "faces": 21071,
+        "mesh_topology_sha256": "6B0A0743262DDB44AED45999B9208B85611D19A1535BEA3B3FBAC4D5F57785C4",
+        "weights_sha256": "7281683E4ECA8C0D440B46408E7439605FEB7868F30CA3C572A42244EA27CC83",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "actual": {
+        "name": "R2_Shoe_R",
+        "vertices": 10911,
+        "edges": 32014,
+        "faces": 21071,
+        "mesh_topology_sha256": "6B0A0743262DDB44AED45999B9208B85611D19A1535BEA3B3FBAC4D5F57785C4",
+        "weights_sha256": "7281683E4ECA8C0D440B46408E7439605FEB7868F30CA3C572A42244EA27CC83",
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": []
+      },
+      "equal": true
+    }
+  },
+  "rig": {
+    "expected": {
+      "name": "R2_Rig",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "bones": [
+        {
+          "name": "chest",
+          "parent": "spine_02",
+          "head_local": [
+            0.0,
+            -0.03999999910593033,
+            0.2199999988079071
+          ],
+          "tail_local": [
+            0.0,
+            -0.019999999552965164,
+            0.5
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "clavicle.L",
+          "parent": "chest",
+          "head_local": [
+            0.0,
+            -0.019999999552965164,
+            0.5
+          ],
+          "tail_local": [
+            0.30000001192092896,
+            -0.014999999664723873,
+            0.5600000023841858
+          ],
+          "roll": -1.5155984163284302,
+          "use_deform": true
+        },
+        {
+          "name": "clavicle.R",
+          "parent": "chest",
+          "head_local": [
+            0.0,
+            -0.019999999552965164,
+            0.5
+          ],
+          "tail_local": [
+            -0.30000001192092896,
+            -0.014999999664723873,
+            0.5600000023841858
+          ],
+          "roll": 1.5155984163284302,
+          "use_deform": true
+        },
+        {
+          "name": "foot.L",
+          "parent": "shin.L",
+          "head_local": [
+            0.25,
+            -0.07500000298023224,
+            -0.8399999737739563
+          ],
+          "tail_local": [
+            0.27000001072883606,
+            -0.20000000298023224,
+            -0.9549999833106995
+          ],
+          "roll": -0.12258104234933853,
+          "use_deform": true
+        },
+        {
+          "name": "foot.R",
+          "parent": "shin.R",
+          "head_local": [
+            -0.25,
+            -0.07500000298023224,
+            -0.8399999737739563
+          ],
+          "tail_local": [
+            -0.27000001072883606,
+            -0.20000000298023224,
+            -0.9549999833106995
+          ],
+          "roll": 0.12258104234933853,
+          "use_deform": true
+        },
+        {
+          "name": "forearm.L",
+          "parent": "upper_arm.L",
+          "head_local": [
+            0.4000000059604645,
+            -0.05999999865889549,
+            0.23999999463558197
+          ],
+          "tail_local": [
+            0.4000000059604645,
+            -0.1550000011920929,
+            -0.11999999731779099
+          ],
+          "roll": 1.4901161193847656e-07,
+          "use_deform": true
+        },
+        {
+          "name": "forearm.R",
+          "parent": "upper_arm.R",
+          "head_local": [
+            -0.4000000059604645,
+            -0.05999999865889549,
+            0.23999999463558197
+          ],
+          "tail_local": [
+            -0.4000000059604645,
+            -0.1550000011920929,
+            -0.11999999731779099
+          ],
+          "roll": -1.4901161193847656e-07,
+          "use_deform": true
+        },
+        {
+          "name": "hand.L",
+          "parent": "forearm.L",
+          "head_local": [
+            0.4000000059604645,
+            -0.1550000011920929,
+            -0.11999999731779099
+          ],
+          "tail_local": [
+            0.4000000059604645,
+            -0.18000000715255737,
+            -0.25
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "hand.R",
+          "parent": "forearm.R",
+          "head_local": [
+            -0.4000000059604645,
+            -0.1550000011920929,
+            -0.11999999731779099
+          ],
+          "tail_local": [
+            -0.4000000059604645,
+            -0.18000000715255737,
+            -0.25
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "head",
+          "parent": "neck",
+          "head_local": [
+            0.0,
+            -0.009999999776482582,
+            0.6100000143051147
+          ],
+          "tail_local": [
+            0.0,
+            0.0,
+            0.8999999761581421
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "index_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.37299999594688416,
+            -0.15800000727176666,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            0.37299999594688416,
+            -0.16099999845027924,
+            -0.17900000512599945
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.37299999594688416,
+            -0.15800000727176666,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            -0.37299999594688416,
+            -0.16099999845027924,
+            -0.17900000512599945
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_02.L",
+          "parent": "index_01.L",
+          "head_local": [
+            0.37299999594688416,
+            -0.16099999845027924,
+            -0.17900000512599945
+          ],
+          "tail_local": [
+            0.37299999594688416,
+            -0.16500000655651093,
+            -0.21299999952316284
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_02.R",
+          "parent": "index_01.R",
+          "head_local": [
+            -0.37299999594688416,
+            -0.16099999845027924,
+            -0.17900000512599945
+          ],
+          "tail_local": [
+            -0.37299999594688416,
+            -0.16500000655651093,
+            -0.21299999952316284
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_03.L",
+          "parent": "index_02.L",
+          "head_local": [
+            0.37299999594688416,
+            -0.16500000655651093,
+            -0.21299999952316284
+          ],
+          "tail_local": [
+            0.37299999594688416,
+            -0.16899999976158142,
+            -0.24500000476837158
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_03.R",
+          "parent": "index_02.R",
+          "head_local": [
+            -0.37299999594688416,
+            -0.16500000655651093,
+            -0.21299999952316284
+          ],
+          "tail_local": [
+            -0.37299999594688416,
+            -0.16899999976158142,
+            -0.24500000476837158
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.3889999985694885,
+            -0.16599999368190765,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            0.3889999985694885,
+            -0.16899999976158142,
+            -0.18172000348567963
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.3889999985694885,
+            -0.16599999368190765,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            -0.3889999985694885,
+            -0.16899999976158142,
+            -0.18172000348567963
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_02.L",
+          "parent": "middle_01.L",
+          "head_local": [
+            0.3889999985694885,
+            -0.16899999976158142,
+            -0.18172000348567963
+          ],
+          "tail_local": [
+            0.3889999985694885,
+            -0.17299999296665192,
+            -0.2184399962425232
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_02.R",
+          "parent": "middle_01.R",
+          "head_local": [
+            -0.3889999985694885,
+            -0.16899999976158142,
+            -0.18172000348567963
+          ],
+          "tail_local": [
+            -0.3889999985694885,
+            -0.17299999296665192,
+            -0.2184399962425232
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_03.L",
+          "parent": "middle_02.L",
+          "head_local": [
+            0.3889999985694885,
+            -0.17299999296665192,
+            -0.2184399962425232
+          ],
+          "tail_local": [
+            0.3889999985694885,
+            -0.1770000010728836,
+            -0.2529999911785126
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_03.R",
+          "parent": "middle_02.R",
+          "head_local": [
+            -0.3889999985694885,
+            -0.17299999296665192,
+            -0.2184399962425232
+          ],
+          "tail_local": [
+            -0.3889999985694885,
+            -0.1770000010728836,
+            -0.2529999911785126
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "neck",
+          "parent": "chest",
+          "head_local": [
+            0.0,
+            -0.019999999552965164,
+            0.5
+          ],
+          "tail_local": [
+            0.0,
+            -0.009999999776482582,
+            0.6100000143051147
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "pelvis",
+          "parent": "root",
+          "head_local": [
+            0.0,
+            -0.06499999761581421,
+            -0.3400000035762787
+          ],
+          "tail_local": [
+            0.0,
+            -0.06499999761581421,
+            -0.18000000715255737
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.41999998688697815,
+            -0.18199999630451202,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            0.41999998688697815,
+            -0.1850000023841858,
+            -0.174919992685318
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.41999998688697815,
+            -0.18199999630451202,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            -0.41999998688697815,
+            -0.1850000023841858,
+            -0.174919992685318
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_02.L",
+          "parent": "pinky_01.L",
+          "head_local": [
+            0.41999998688697815,
+            -0.1850000023841858,
+            -0.174919992685318
+          ],
+          "tail_local": [
+            0.41999998688697815,
+            -0.1889999955892563,
+            -0.20484000444412231
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_02.R",
+          "parent": "pinky_01.R",
+          "head_local": [
+            -0.41999998688697815,
+            -0.1850000023841858,
+            -0.174919992685318
+          ],
+          "tail_local": [
+            -0.41999998688697815,
+            -0.1889999955892563,
+            -0.20484000444412231
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_03.L",
+          "parent": "pinky_02.L",
+          "head_local": [
+            0.41999998688697815,
+            -0.1889999955892563,
+            -0.20484000444412231
+          ],
+          "tail_local": [
+            0.41999998688697815,
+            -0.19300000369548798,
+            -0.2329999953508377
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_03.R",
+          "parent": "pinky_02.R",
+          "head_local": [
+            -0.41999998688697815,
+            -0.1889999955892563,
+            -0.20484000444412231
+          ],
+          "tail_local": [
+            -0.41999998688697815,
+            -0.19300000369548798,
+            -0.2329999953508377
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.4050000011920929,
+            -0.17399999499320984,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            0.4050000011920929,
+            -0.1770000010728836,
+            -0.17900000512599945
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.4050000011920929,
+            -0.17399999499320984,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            -0.4050000011920929,
+            -0.1770000010728836,
+            -0.17900000512599945
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_02.L",
+          "parent": "ring_01.L",
+          "head_local": [
+            0.4050000011920929,
+            -0.1770000010728836,
+            -0.17900000512599945
+          ],
+          "tail_local": [
+            0.4050000011920929,
+            -0.1809999942779541,
+            -0.21299999952316284
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_02.R",
+          "parent": "ring_01.R",
+          "head_local": [
+            -0.4050000011920929,
+            -0.1770000010728836,
+            -0.17900000512599945
+          ],
+          "tail_local": [
+            -0.4050000011920929,
+            -0.1809999942779541,
+            -0.21299999952316284
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_03.L",
+          "parent": "ring_02.L",
+          "head_local": [
+            0.4050000011920929,
+            -0.1809999942779541,
+            -0.21299999952316284
+          ],
+          "tail_local": [
+            0.4050000011920929,
+            -0.1850000023841858,
+            -0.24500000476837158
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_03.R",
+          "parent": "ring_02.R",
+          "head_local": [
+            -0.4050000011920929,
+            -0.1809999942779541,
+            -0.21299999952316284
+          ],
+          "tail_local": [
+            -0.4050000011920929,
+            -0.1850000023841858,
+            -0.24500000476837158
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "root",
+          "parent": null,
+          "head_local": [
+            0.0,
+            -0.05999999865889549,
+            -1.0
+          ],
+          "tail_local": [
+            0.0,
+            -0.05999999865889549,
+            -0.8500000238418579
+          ],
+          "roll": 0.0,
+          "use_deform": false
+        },
+        {
+          "name": "shin.L",
+          "parent": "thigh.L",
+          "head_local": [
+            0.20999999344348907,
+            0.009999999776482582,
+            -0.5699999928474426
+          ],
+          "tail_local": [
+            0.25,
+            -0.07500000298023224,
+            -0.8399999737739563
+          ],
+          "roll": -0.14294639229774475,
+          "use_deform": true
+        },
+        {
+          "name": "shin.R",
+          "parent": "thigh.R",
+          "head_local": [
+            -0.20999999344348907,
+            0.009999999776482582,
+            -0.5699999928474426
+          ],
+          "tail_local": [
+            -0.25,
+            -0.07500000298023224,
+            -0.8399999737739563
+          ],
+          "roll": 0.14294639229774475,
+          "use_deform": true
+        },
+        {
+          "name": "spine_01",
+          "parent": "pelvis",
+          "head_local": [
+            0.0,
+            -0.06499999761581421,
+            -0.18000000715255737
+          ],
+          "tail_local": [
+            0.0,
+            -0.05999999865889549,
+            -0.05000000074505806
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "spine_02",
+          "parent": "spine_01",
+          "head_local": [
+            0.0,
+            -0.05999999865889549,
+            -0.05000000074505806
+          ],
+          "tail_local": [
+            0.0,
+            -0.03999999910593033,
+            0.2199999988079071
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "thigh.L",
+          "parent": "pelvis",
+          "head_local": [
+            0.18000000715255737,
+            -0.05999999865889549,
+            -0.3199999928474426
+          ],
+          "tail_local": [
+            0.20999999344348907,
+            0.009999999776482582,
+            -0.5699999928474426
+          ],
+          "roll": -0.11547839641571045,
+          "use_deform": true
+        },
+        {
+          "name": "thigh.R",
+          "parent": "pelvis",
+          "head_local": [
+            -0.18000000715255737,
+            -0.05999999865889549,
+            -0.3199999928474426
+          ],
+          "tail_local": [
+            -0.20999999344348907,
+            0.009999999776482582,
+            -0.5699999928474426
+          ],
+          "roll": 0.11547839641571045,
+          "use_deform": true
+        },
+        {
+          "name": "thumb_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.3720000088214874,
+            -0.14499999582767487,
+            -0.15000000596046448
+          ],
+          "tail_local": [
+            0.35199999809265137,
+            -0.17800000309944153,
+            -0.19499999284744263
+          ],
+          "roll": 0.4261344373226166,
+          "use_deform": true
+        },
+        {
+          "name": "thumb_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.3720000088214874,
+            -0.14499999582767487,
+            -0.15000000596046448
+          ],
+          "tail_local": [
+            -0.35199999809265137,
+            -0.17800000309944153,
+            -0.19499999284744263
+          ],
+          "roll": -0.4261344373226166,
+          "use_deform": true
+        },
+        {
+          "name": "thumb_02.L",
+          "parent": "thumb_01.L",
+          "head_local": [
+            0.35199999809265137,
+            -0.17800000309944153,
+            -0.19499999284744263
+          ],
+          "tail_local": [
+            0.34200000762939453,
+            -0.20499999821186066,
+            -0.23499999940395355
+          ],
+          "roll": 0.21962566673755646,
+          "use_deform": true
+        },
+        {
+          "name": "thumb_02.R",
+          "parent": "thumb_01.R",
+          "head_local": [
+            -0.35199999809265137,
+            -0.17800000309944153,
+            -0.19499999284744263
+          ],
+          "tail_local": [
+            -0.34200000762939453,
+            -0.20499999821186066,
+            -0.23499999940395355
+          ],
+          "roll": -0.21962566673755646,
+          "use_deform": true
+        },
+        {
+          "name": "toe.L",
+          "parent": "foot.L",
+          "head_local": [
+            0.27000001072883606,
+            -0.20000000298023224,
+            -0.9549999833106995
+          ],
+          "tail_local": [
+            0.27000001072883606,
+            -0.28999999165534973,
+            -0.9549999833106995
+          ],
+          "roll": -3.1415903568267822,
+          "use_deform": true
+        },
+        {
+          "name": "toe.R",
+          "parent": "foot.R",
+          "head_local": [
+            -0.27000001072883606,
+            -0.20000000298023224,
+            -0.9549999833106995
+          ],
+          "tail_local": [
+            -0.27000001072883606,
+            -0.28999999165534973,
+            -0.9549999833106995
+          ],
+          "roll": 3.1415903568267822,
+          "use_deform": true
+        },
+        {
+          "name": "upper_arm.L",
+          "parent": "clavicle.L",
+          "head_local": [
+            0.30000001192092896,
+            -0.014999999664723873,
+            0.5600000023841858
+          ],
+          "tail_local": [
+            0.4000000059604645,
+            -0.05999999865889549,
+            0.23999999463558197
+          ],
+          "roll": -0.3176328241825104,
+          "use_deform": true
+        },
+        {
+          "name": "upper_arm.R",
+          "parent": "clavicle.R",
+          "head_local": [
+            -0.30000001192092896,
+            -0.014999999664723873,
+            0.5600000023841858
+          ],
+          "tail_local": [
+            -0.4000000059604645,
+            -0.05999999865889549,
+            0.23999999463558197
+          ],
+          "roll": 0.3176328241825104,
+          "use_deform": true
+        }
+      ],
+      "sha256": "36B270285F420233AD9FC722EE030A8C8FF389C2CDD8D24A79B7423BF92CCFBB"
+    },
+    "actual": {
+      "name": "R2_Rig",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "bones": [
+        {
+          "name": "chest",
+          "parent": "spine_02",
+          "head_local": [
+            0.0,
+            -0.03999999910593033,
+            0.2199999988079071
+          ],
+          "tail_local": [
+            0.0,
+            -0.019999999552965164,
+            0.5
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "clavicle.L",
+          "parent": "chest",
+          "head_local": [
+            0.0,
+            -0.019999999552965164,
+            0.5
+          ],
+          "tail_local": [
+            0.30000001192092896,
+            -0.014999999664723873,
+            0.5600000023841858
+          ],
+          "roll": -1.5155984163284302,
+          "use_deform": true
+        },
+        {
+          "name": "clavicle.R",
+          "parent": "chest",
+          "head_local": [
+            0.0,
+            -0.019999999552965164,
+            0.5
+          ],
+          "tail_local": [
+            -0.30000001192092896,
+            -0.014999999664723873,
+            0.5600000023841858
+          ],
+          "roll": 1.5155984163284302,
+          "use_deform": true
+        },
+        {
+          "name": "foot.L",
+          "parent": "shin.L",
+          "head_local": [
+            0.25,
+            -0.07500000298023224,
+            -0.8399999737739563
+          ],
+          "tail_local": [
+            0.27000001072883606,
+            -0.20000000298023224,
+            -0.9549999833106995
+          ],
+          "roll": -0.12258104234933853,
+          "use_deform": true
+        },
+        {
+          "name": "foot.R",
+          "parent": "shin.R",
+          "head_local": [
+            -0.25,
+            -0.07500000298023224,
+            -0.8399999737739563
+          ],
+          "tail_local": [
+            -0.27000001072883606,
+            -0.20000000298023224,
+            -0.9549999833106995
+          ],
+          "roll": 0.12258104234933853,
+          "use_deform": true
+        },
+        {
+          "name": "forearm.L",
+          "parent": "upper_arm.L",
+          "head_local": [
+            0.4000000059604645,
+            -0.05999999865889549,
+            0.23999999463558197
+          ],
+          "tail_local": [
+            0.4000000059604645,
+            -0.1550000011920929,
+            -0.11999999731779099
+          ],
+          "roll": 1.4901161193847656e-07,
+          "use_deform": true
+        },
+        {
+          "name": "forearm.R",
+          "parent": "upper_arm.R",
+          "head_local": [
+            -0.4000000059604645,
+            -0.05999999865889549,
+            0.23999999463558197
+          ],
+          "tail_local": [
+            -0.4000000059604645,
+            -0.1550000011920929,
+            -0.11999999731779099
+          ],
+          "roll": -1.4901161193847656e-07,
+          "use_deform": true
+        },
+        {
+          "name": "hand.L",
+          "parent": "forearm.L",
+          "head_local": [
+            0.4000000059604645,
+            -0.1550000011920929,
+            -0.11999999731779099
+          ],
+          "tail_local": [
+            0.4000000059604645,
+            -0.18000000715255737,
+            -0.25
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "hand.R",
+          "parent": "forearm.R",
+          "head_local": [
+            -0.4000000059604645,
+            -0.1550000011920929,
+            -0.11999999731779099
+          ],
+          "tail_local": [
+            -0.4000000059604645,
+            -0.18000000715255737,
+            -0.25
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "head",
+          "parent": "neck",
+          "head_local": [
+            0.0,
+            -0.009999999776482582,
+            0.6100000143051147
+          ],
+          "tail_local": [
+            0.0,
+            0.0,
+            0.8999999761581421
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "index_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.37299999594688416,
+            -0.15800000727176666,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            0.37299999594688416,
+            -0.16099999845027924,
+            -0.17900000512599945
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.37299999594688416,
+            -0.15800000727176666,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            -0.37299999594688416,
+            -0.16099999845027924,
+            -0.17900000512599945
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_02.L",
+          "parent": "index_01.L",
+          "head_local": [
+            0.37299999594688416,
+            -0.16099999845027924,
+            -0.17900000512599945
+          ],
+          "tail_local": [
+            0.37299999594688416,
+            -0.16500000655651093,
+            -0.21299999952316284
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_02.R",
+          "parent": "index_01.R",
+          "head_local": [
+            -0.37299999594688416,
+            -0.16099999845027924,
+            -0.17900000512599945
+          ],
+          "tail_local": [
+            -0.37299999594688416,
+            -0.16500000655651093,
+            -0.21299999952316284
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_03.L",
+          "parent": "index_02.L",
+          "head_local": [
+            0.37299999594688416,
+            -0.16500000655651093,
+            -0.21299999952316284
+          ],
+          "tail_local": [
+            0.37299999594688416,
+            -0.16899999976158142,
+            -0.24500000476837158
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "index_03.R",
+          "parent": "index_02.R",
+          "head_local": [
+            -0.37299999594688416,
+            -0.16500000655651093,
+            -0.21299999952316284
+          ],
+          "tail_local": [
+            -0.37299999594688416,
+            -0.16899999976158142,
+            -0.24500000476837158
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.3889999985694885,
+            -0.16599999368190765,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            0.3889999985694885,
+            -0.16899999976158142,
+            -0.18172000348567963
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.3889999985694885,
+            -0.16599999368190765,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            -0.3889999985694885,
+            -0.16899999976158142,
+            -0.18172000348567963
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_02.L",
+          "parent": "middle_01.L",
+          "head_local": [
+            0.3889999985694885,
+            -0.16899999976158142,
+            -0.18172000348567963
+          ],
+          "tail_local": [
+            0.3889999985694885,
+            -0.17299999296665192,
+            -0.2184399962425232
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_02.R",
+          "parent": "middle_01.R",
+          "head_local": [
+            -0.3889999985694885,
+            -0.16899999976158142,
+            -0.18172000348567963
+          ],
+          "tail_local": [
+            -0.3889999985694885,
+            -0.17299999296665192,
+            -0.2184399962425232
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_03.L",
+          "parent": "middle_02.L",
+          "head_local": [
+            0.3889999985694885,
+            -0.17299999296665192,
+            -0.2184399962425232
+          ],
+          "tail_local": [
+            0.3889999985694885,
+            -0.1770000010728836,
+            -0.2529999911785126
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "middle_03.R",
+          "parent": "middle_02.R",
+          "head_local": [
+            -0.3889999985694885,
+            -0.17299999296665192,
+            -0.2184399962425232
+          ],
+          "tail_local": [
+            -0.3889999985694885,
+            -0.1770000010728836,
+            -0.2529999911785126
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "neck",
+          "parent": "chest",
+          "head_local": [
+            0.0,
+            -0.019999999552965164,
+            0.5
+          ],
+          "tail_local": [
+            0.0,
+            -0.009999999776482582,
+            0.6100000143051147
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "pelvis",
+          "parent": "root",
+          "head_local": [
+            0.0,
+            -0.06499999761581421,
+            -0.3400000035762787
+          ],
+          "tail_local": [
+            0.0,
+            -0.06499999761581421,
+            -0.18000000715255737
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.41999998688697815,
+            -0.18199999630451202,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            0.41999998688697815,
+            -0.1850000023841858,
+            -0.174919992685318
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.41999998688697815,
+            -0.18199999630451202,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            -0.41999998688697815,
+            -0.1850000023841858,
+            -0.174919992685318
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_02.L",
+          "parent": "pinky_01.L",
+          "head_local": [
+            0.41999998688697815,
+            -0.1850000023841858,
+            -0.174919992685318
+          ],
+          "tail_local": [
+            0.41999998688697815,
+            -0.1889999955892563,
+            -0.20484000444412231
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_02.R",
+          "parent": "pinky_01.R",
+          "head_local": [
+            -0.41999998688697815,
+            -0.1850000023841858,
+            -0.174919992685318
+          ],
+          "tail_local": [
+            -0.41999998688697815,
+            -0.1889999955892563,
+            -0.20484000444412231
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_03.L",
+          "parent": "pinky_02.L",
+          "head_local": [
+            0.41999998688697815,
+            -0.1889999955892563,
+            -0.20484000444412231
+          ],
+          "tail_local": [
+            0.41999998688697815,
+            -0.19300000369548798,
+            -0.2329999953508377
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "pinky_03.R",
+          "parent": "pinky_02.R",
+          "head_local": [
+            -0.41999998688697815,
+            -0.1889999955892563,
+            -0.20484000444412231
+          ],
+          "tail_local": [
+            -0.41999998688697815,
+            -0.19300000369548798,
+            -0.2329999953508377
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.4050000011920929,
+            -0.17399999499320984,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            0.4050000011920929,
+            -0.1770000010728836,
+            -0.17900000512599945
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.4050000011920929,
+            -0.17399999499320984,
+            -0.14499999582767487
+          ],
+          "tail_local": [
+            -0.4050000011920929,
+            -0.1770000010728836,
+            -0.17900000512599945
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_02.L",
+          "parent": "ring_01.L",
+          "head_local": [
+            0.4050000011920929,
+            -0.1770000010728836,
+            -0.17900000512599945
+          ],
+          "tail_local": [
+            0.4050000011920929,
+            -0.1809999942779541,
+            -0.21299999952316284
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_02.R",
+          "parent": "ring_01.R",
+          "head_local": [
+            -0.4050000011920929,
+            -0.1770000010728836,
+            -0.17900000512599945
+          ],
+          "tail_local": [
+            -0.4050000011920929,
+            -0.1809999942779541,
+            -0.21299999952316284
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_03.L",
+          "parent": "ring_02.L",
+          "head_local": [
+            0.4050000011920929,
+            -0.1809999942779541,
+            -0.21299999952316284
+          ],
+          "tail_local": [
+            0.4050000011920929,
+            -0.1850000023841858,
+            -0.24500000476837158
+          ],
+          "roll": 1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "ring_03.R",
+          "parent": "ring_02.R",
+          "head_local": [
+            -0.4050000011920929,
+            -0.1809999942779541,
+            -0.21299999952316284
+          ],
+          "tail_local": [
+            -0.4050000011920929,
+            -0.1850000023841858,
+            -0.24500000476837158
+          ],
+          "roll": -1.7782748784611613e-07,
+          "use_deform": true
+        },
+        {
+          "name": "root",
+          "parent": null,
+          "head_local": [
+            0.0,
+            -0.05999999865889549,
+            -1.0
+          ],
+          "tail_local": [
+            0.0,
+            -0.05999999865889549,
+            -0.8500000238418579
+          ],
+          "roll": 0.0,
+          "use_deform": false
+        },
+        {
+          "name": "shin.L",
+          "parent": "thigh.L",
+          "head_local": [
+            0.20999999344348907,
+            0.009999999776482582,
+            -0.5699999928474426
+          ],
+          "tail_local": [
+            0.25,
+            -0.07500000298023224,
+            -0.8399999737739563
+          ],
+          "roll": -0.14294639229774475,
+          "use_deform": true
+        },
+        {
+          "name": "shin.R",
+          "parent": "thigh.R",
+          "head_local": [
+            -0.20999999344348907,
+            0.009999999776482582,
+            -0.5699999928474426
+          ],
+          "tail_local": [
+            -0.25,
+            -0.07500000298023224,
+            -0.8399999737739563
+          ],
+          "roll": 0.14294639229774475,
+          "use_deform": true
+        },
+        {
+          "name": "spine_01",
+          "parent": "pelvis",
+          "head_local": [
+            0.0,
+            -0.06499999761581421,
+            -0.18000000715255737
+          ],
+          "tail_local": [
+            0.0,
+            -0.05999999865889549,
+            -0.05000000074505806
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "spine_02",
+          "parent": "spine_01",
+          "head_local": [
+            0.0,
+            -0.05999999865889549,
+            -0.05000000074505806
+          ],
+          "tail_local": [
+            0.0,
+            -0.03999999910593033,
+            0.2199999988079071
+          ],
+          "roll": 0.0,
+          "use_deform": true
+        },
+        {
+          "name": "thigh.L",
+          "parent": "pelvis",
+          "head_local": [
+            0.18000000715255737,
+            -0.05999999865889549,
+            -0.3199999928474426
+          ],
+          "tail_local": [
+            0.20999999344348907,
+            0.009999999776482582,
+            -0.5699999928474426
+          ],
+          "roll": -0.11547839641571045,
+          "use_deform": true
+        },
+        {
+          "name": "thigh.R",
+          "parent": "pelvis",
+          "head_local": [
+            -0.18000000715255737,
+            -0.05999999865889549,
+            -0.3199999928474426
+          ],
+          "tail_local": [
+            -0.20999999344348907,
+            0.009999999776482582,
+            -0.5699999928474426
+          ],
+          "roll": 0.11547839641571045,
+          "use_deform": true
+        },
+        {
+          "name": "thumb_01.L",
+          "parent": "hand.L",
+          "head_local": [
+            0.3720000088214874,
+            -0.14499999582767487,
+            -0.15000000596046448
+          ],
+          "tail_local": [
+            0.35199999809265137,
+            -0.17800000309944153,
+            -0.19499999284744263
+          ],
+          "roll": 0.4261344373226166,
+          "use_deform": true
+        },
+        {
+          "name": "thumb_01.R",
+          "parent": "hand.R",
+          "head_local": [
+            -0.3720000088214874,
+            -0.14499999582767487,
+            -0.15000000596046448
+          ],
+          "tail_local": [
+            -0.35199999809265137,
+            -0.17800000309944153,
+            -0.19499999284744263
+          ],
+          "roll": -0.4261344373226166,
+          "use_deform": true
+        },
+        {
+          "name": "thumb_02.L",
+          "parent": "thumb_01.L",
+          "head_local": [
+            0.35199999809265137,
+            -0.17800000309944153,
+            -0.19499999284744263
+          ],
+          "tail_local": [
+            0.34200000762939453,
+            -0.20499999821186066,
+            -0.23499999940395355
+          ],
+          "roll": 0.21962566673755646,
+          "use_deform": true
+        },
+        {
+          "name": "thumb_02.R",
+          "parent": "thumb_01.R",
+          "head_local": [
+            -0.35199999809265137,
+            -0.17800000309944153,
+            -0.19499999284744263
+          ],
+          "tail_local": [
+            -0.34200000762939453,
+            -0.20499999821186066,
+            -0.23499999940395355
+          ],
+          "roll": -0.21962566673755646,
+          "use_deform": true
+        },
+        {
+          "name": "toe.L",
+          "parent": "foot.L",
+          "head_local": [
+            0.27000001072883606,
+            -0.20000000298023224,
+            -0.9549999833106995
+          ],
+          "tail_local": [
+            0.27000001072883606,
+            -0.28999999165534973,
+            -0.9549999833106995
+          ],
+          "roll": -3.1415903568267822,
+          "use_deform": true
+        },
+        {
+          "name": "toe.R",
+          "parent": "foot.R",
+          "head_local": [
+            -0.27000001072883606,
+            -0.20000000298023224,
+            -0.9549999833106995
+          ],
+          "tail_local": [
+            -0.27000001072883606,
+            -0.28999999165534973,
+            -0.9549999833106995
+          ],
+          "roll": 3.1415903568267822,
+          "use_deform": true
+        },
+        {
+          "name": "upper_arm.L",
+          "parent": "clavicle.L",
+          "head_local": [
+            0.30000001192092896,
+            -0.014999999664723873,
+            0.5600000023841858
+          ],
+          "tail_local": [
+            0.4000000059604645,
+            -0.05999999865889549,
+            0.23999999463558197
+          ],
+          "roll": -0.3176328241825104,
+          "use_deform": true
+        },
+        {
+          "name": "upper_arm.R",
+          "parent": "clavicle.R",
+          "head_local": [
+            -0.30000001192092896,
+            -0.014999999664723873,
+            0.5600000023841858
+          ],
+          "tail_local": [
+            -0.4000000059604645,
+            -0.05999999865889549,
+            0.23999999463558197
+          ],
+          "roll": 0.3176328241825104,
+          "use_deform": true
+        }
+      ],
+      "sha256": "36B270285F420233AD9FC722EE030A8C8FF389C2CDD8D24A79B7423BF92CCFBB"
+    },
+    "equal": true
+  },
+  "foundation": {
+    "topology": {
+      "vertices": 30152,
+      "edges": 61232,
+      "faces": 30616,
+      "boundary_edges": 0,
+      "wire_edges": 0,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "connected_islands": 1,
+      "island_vertex_sizes": [
+        30152
+      ]
+    },
+    "weights_sha256": "F7F7246392A179C51D9FB16512DA336380ED64AA700E79C47E0D14C4B4E4289A",
+    "unweighted_vertices": 0,
+    "parent": "R2_Rig",
+    "modifiers": [
+      {
+        "name": "R2_Armature",
+        "type": "ARMATURE",
+        "show_viewport": true,
+        "show_render": true,
+        "object": "R2_Rig"
+      }
+    ]
+  },
+  "source_visibility": {
+    "R2_Head_Face": {
+      "hide_render": true,
+      "hide_viewport": true,
+      "hide_get": true
+    },
+    "R2_Head_Fur": {
+      "hide_render": true,
+      "hide_viewport": true,
+      "hide_get": true
+    }
+  },
+  "errors": [],
+  "audit_passed": true
+}

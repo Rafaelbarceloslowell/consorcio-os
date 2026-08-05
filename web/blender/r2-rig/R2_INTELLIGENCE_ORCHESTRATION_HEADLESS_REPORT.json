@@ -1,0 +1,36 @@
+{
+  "SchemaVersion": 1,
+  "Audit": "R2_INTELLIGENCE_ORCHESTRATION_HEADLESS",
+  "AssetPath": "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-runtime-ready-v1.glb",
+  "OfficialGLBSHA256": "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+  "RuntimeStateCount": 10,
+  "AnimationCount": 9,
+  "StateSequence": [
+    "working",
+    "celebrating_sale",
+    "alert",
+    "error_attention",
+    "speaking",
+    "neutral"
+  ],
+  "Decisions": [
+    "EXECUTE:working",
+    "EXECUTE:celebrating_sale",
+    "INTERRUPT:alert",
+    "INTERRUPT:error_attention",
+    "QUEUE:speaking",
+    "EXECUTE:neutral"
+  ],
+  "AppliedReceiptCount": 8,
+  "InterruptedReceiptCount": 7,
+  "OrchestratorInterruptionCount": 2,
+  "NeutralFingerprintBefore": "DA1919B6932FDBC0B8D72D902C920C16014F465C0E812BF4E21702D9E59260B7",
+  "NeutralFingerprintAfter": "DA1919B6932FDBC0B8D72D902C920C16014F465C0E812BF4E21702D9E59260B7",
+  "NeutralResetExact": true,
+  "FirstControllerDisposed": true,
+  "RemountReceiptStatus": "APPLIED",
+  "RemountedControllerDisposed": true,
+  "RuntimeConsoleErrors": 0,
+  "CreatedImages": 0,
+  "Passed": true
+}

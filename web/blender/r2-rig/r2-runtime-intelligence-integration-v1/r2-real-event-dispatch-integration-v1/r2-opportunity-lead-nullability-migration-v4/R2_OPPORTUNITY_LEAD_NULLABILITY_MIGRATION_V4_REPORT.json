@@ -1,0 +1,67 @@
+{
+    "schemaVersion":  4,
+    "generatedAt":  "2026-08-02T16:22:43.6171125-03:00",
+    "verdict":  "REPROVADO_COM_ROLLBACK_PRE_MIGRACAO",
+    "nextStep":  "ANALISAR_FALHA_ANTES_DE_APLICAR_MIGRATION",
+    "error":  "Arquivos não autorizados foram alterados antes da aplicação da migration.",
+    "rollbackError":  "",
+    "databaseChange":  "APPLY_EXISTING_PENDING_MIGRATION",
+    "newMigrationFileCreated":  false,
+    "schemaWriteAttempted":  true,
+    "schemaWritten":  true,
+    "schemaRollbackPerformed":  true,
+    "preMigrationRollbackPerformed":  true,
+    "migrationParserSelfTestPassed":  true,
+    "statusDeltaSelfTestPassed":  true,
+    "preDeployIntegrityPassed":  false,
+    "schemaNullableContractPreDeploy":  true,
+    "schemaNullableContractFinal":  false,
+    "generatedClient":  {
+                            "path":  "C:\\Projetos\\consorcio-os\\web\\lib\\generated\\prisma",
+                            "relativePath":  "lib/generated/prisma",
+                            "existedBefore":  true,
+                            "backupCreated":  true,
+                            "backupCaptured":  true,
+                            "rollbackPerformed":  true,
+                            "hashBefore":  "6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3",
+                            "backupHash":  "6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3",
+                            "hashFinal":  "6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3"
+                        },
+    "migrationDeployStarted":  false,
+    "migrationDeploySucceeded":  false,
+    "postMigrationFailure":  false,
+    "validation":  {
+                       "prismaValidateExitCode":  0,
+                       "prismaGenerateExitCode":  0,
+                       "typescriptExitCode":  0,
+                       "targetedTestsExitCode":  0,
+                       "migrateStatusBeforeExitCode":  1,
+                       "migrateDeployExitCode":  -1,
+                       "migrateStatusAfterExitCode":  -1,
+                       "dbPullAfterExitCode":  -1
+                   },
+    "database":  {
+                     "pendingMigrationCountBefore":  1,
+                     "pendingMigrationCountAfter":  -1,
+                     "leadIdColumnFoundAfter":  false,
+                     "leadIdNullableAfter":  null,
+                     "leadRelationNullableAfter":  null
+                 },
+    "git":  {
+                "headBefore":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "headFinal":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "headUnchanged":  true,
+                "stagedFileCountFinal":  0
+            },
+    "hashes":  {
+                   "discoveryReport":  "04B1FEA561A9F2D5E1B3A2EA3BD486500204778F2240142A79D8A46F15D85C4A",
+                   "schemaBefore":  "A548E79BBE190060066B15866707C1715FD8FBC829F10395E894D22CF10A8F48",
+                   "schemaFinal":  "A548E79BBE190060066B15866707C1715FD8FBC829F10395E894D22CF10A8F48",
+                   "generatedOutputBefore":  "6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3",
+                   "generatedOutputFinal":  "6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3",
+                   "migrationBefore":  "9E83401A2CDDFB9F7D999A306D21AB99004D06361069AD8704D3B3DC738E6DCA",
+                   "migrationFinal":  "9E83401A2CDDFB9F7D999A306D21AB99004D06361069AD8704D3B3DC738E6DCA",
+                   "glbBefore":  "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE",
+                   "glbFinal":  "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE"
+               }
+}

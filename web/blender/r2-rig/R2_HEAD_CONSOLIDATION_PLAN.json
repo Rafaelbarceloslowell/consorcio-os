@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "phase": "HEAD_CONSOLIDATION_AND_RIG_PREPARATION",
+  "source_sha256": "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+  "inventory_sha256": "5381A26B8AA549E5745841E5F0C38A76DC2324C62E99B819FD39D28C64B81447",
+  "strategy": "SEMANTIC_CONSOLIDATION_WITH_IDENTITY_MAPPING_AND_ADDITIVE_ROLE_METADATA",
+  "geometry_changes_authorized": false,
+  "weight_changes_authorized": false,
+  "material_changes_authorized": false,
+  "modifier_changes_authorized": false,
+  "hierarchy_changes_authorized": false,
+  "object_join_authorized": false,
+  "object_deletion_authorized": false,
+  "canonical_object_mapping": {
+    "R2_Head_Face_Foundation": "R2_Head_Face_Foundation",
+    "R2_Head_Fur": "R2_Head_Fur",
+    "R2_Head_Face": "R2_Head_Face",
+    "R2_Rig": "R2_Rig"
+  },
+  "canonical_mesh_mapping": {
+    "R2_Head_Face_Foundation_Mesh": "R2_Head_Face_Foundation_Mesh",
+    "R2_Head_Fur_Mesh": "R2_Head_Fur_Mesh",
+    "R2_Head_Face_Mesh": "R2_Head_Face_Mesh"
+  },
+  "canonical_material_mapping": {},
+  "canonical_vertex_group_mapping": {
+    "mode": "IDENTITY_ALL_EXISTING_GROUPS",
+    "R2_Head_Face_Foundation": {"neck": "neck", "head": "head"},
+    "R2_Head_Fur": {"rule": "source group name equals output group name", "exceptions": []},
+    "R2_Head_Face": {"rule": "source group name equals output group name", "exceptions": []}
+  },
+  "authorized_metadata_additions": {
+    "scene:R2_Master_v35": {
+      "r2_head_consolidation_phase": "HEAD_CONSOLIDATION_AND_RIG_PREPARATION",
+      "r2_head_consolidation_status": "RIG_READY_FOUNDATION",
+      "r2_head_consolidation_source_sha256": "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+      "r2_head_consolidation_plan_sha256": "SET_FROM_APPROVED_PLAN_FILE"
+    },
+    "object:R2_Head_Face_Foundation": {"r2_head_foundation_role": "PRIMARY_DEFORMABLE_HEAD_SURFACE", "r2_head_rig_preparation_status": "READY_FOR_ANATOMICAL_RIG_PLAN"},
+    "object:R2_Head_Fur": {"r2_head_foundation_role": "SEMANTIC_FUR_LAYER_PRESERVED"},
+    "object:R2_Head_Face": {"r2_head_foundation_role": "LEGACY_REFERENCE_PRESERVED_HIDDEN"},
+    "object:R2_Rig": {"r2_head_foundation_role": "EXISTING_BODY_ARMATURE_REFERENCE"}
+  },
+  "objects": [
+    {"source_object":"R2_Head_Face_Foundation","action":"KEEP_SEPARATE","justification":"Official active single-island retopologized facial foundation; canonical name and data name already valid.","expected_output_object":"R2_Head_Face_Foundation","materials_affected":[],"vertex_groups_affected":[],"modifiers_affected":[],"parent_relationships_affected":[],"risk":"LOW","rollback":"Discard transactional candidate.","audit_gates":["GeometryExact","WeightsExact","FaceAttributesExact","ModifierOrderExact","ParentExact"]},
+    {"source_object":"R2_Head_Fur","action":"KEEP_SEPARATE","justification":"Fourteen semantic fur components have different ownership from facial skin and must not be joined.","expected_output_object":"R2_Head_Fur","materials_affected":[],"vertex_groups_affected":[],"modifiers_affected":[],"parent_relationships_affected":[],"risk":"LOW","rollback":"Discard transactional candidate.","audit_gates":["GeometryExact","WeightsExact","ModifierOrderExact","ParentExact","IslandCountExact"]},
+    {"source_object":"R2_Head_Face","action":"PRESERVE_REFERENCE","justification":"Hidden historical/reference surface with different topology from the active foundation; deletion or joining is not authorized.","expected_output_object":"R2_Head_Face","materials_affected":[],"vertex_groups_affected":[],"modifiers_affected":[],"parent_relationships_affected":[],"risk":"LOW","rollback":"Discard transactional candidate.","audit_gates":["GeometryExact","VisibilityExact","WeightsExact","ModifierOrderExact","ParentExact"]},
+    {"source_object":"R2_Rig","action":"PRESERVE_REFERENCE","justification":"Existing 51-bone body armature is required by all current Armature modifiers; no facial bones are invented in this phase.","expected_output_object":"R2_Rig","materials_affected":[],"vertex_groups_affected":[],"modifiers_affected":[],"parent_relationships_affected":[],"risk":"LOW","rollback":"Discard transactional candidate.","audit_gates":["BoneHierarchyExact","ArmatureRelationshipsExact","CustomPropertiesPreserved"]},
+    {"source_object":"R2_Arm_Fur_R","action":"EXCLUDE_FROM_HEAD","justification":"Body-part asset outside head scope.","expected_output_object":"R2_Arm_Fur_R","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Hand_L","action":"EXCLUDE_FROM_HEAD","justification":"Body-part asset outside head scope.","expected_output_object":"R2_Hand_L","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Hand_R","action":"EXCLUDE_FROM_HEAD","justification":"Body-part asset outside head scope.","expected_output_object":"R2_Hand_R","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Hood","action":"EXCLUDE_FROM_HEAD","justification":"Clothing remains semantically separate from the head.","expected_output_object":"R2_Hood","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Hood_Cord_L","action":"EXCLUDE_FROM_HEAD","justification":"Accessory remains semantically separate from the head.","expected_output_object":"R2_Hood_Cord_L","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Hood_Cord_R","action":"EXCLUDE_FROM_HEAD","justification":"Accessory remains semantically separate from the head.","expected_output_object":"R2_Hood_Cord_R","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Hoodie_Sleeve_L","action":"EXCLUDE_FROM_HEAD","justification":"Clothing outside head scope.","expected_output_object":"R2_Hoodie_Sleeve_L","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Hoodie_Sleeve_R","action":"EXCLUDE_FROM_HEAD","justification":"Clothing outside head scope.","expected_output_object":"R2_Hoodie_Sleeve_R","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Hoodie_Torso","action":"EXCLUDE_FROM_HEAD","justification":"Clothing outside head scope.","expected_output_object":"R2_Hoodie_Torso","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Pants","action":"EXCLUDE_FROM_HEAD","justification":"Clothing outside head scope.","expected_output_object":"R2_Pants","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Shoe_L","action":"EXCLUDE_FROM_HEAD","justification":"Footwear outside head scope.","expected_output_object":"R2_Shoe_L","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]},
+    {"source_object":"R2_Shoe_R","action":"EXCLUDE_FROM_HEAD","justification":"Footwear outside head scope.","expected_output_object":"R2_Shoe_R","risk":"NONE","rollback":"No action.","audit_gates":["ObjectExact"]}
+  ],
+  "approval_gates": ["SourceHashExact","ObjectSetExact","ObjectNamesExact","DataBlockNamesExact","GeometryExact","NormalsExact","WeightsExact","MaterialsExact","UVMapsExact","FaceAttributesExact","VertexGroupsExact","CustomPropertiesPreservedWithOnlyAuthorizedAdditions","ArmatureRelationshipsExact","ModifierOrderExact","ImagesCreatedZero"]
+}

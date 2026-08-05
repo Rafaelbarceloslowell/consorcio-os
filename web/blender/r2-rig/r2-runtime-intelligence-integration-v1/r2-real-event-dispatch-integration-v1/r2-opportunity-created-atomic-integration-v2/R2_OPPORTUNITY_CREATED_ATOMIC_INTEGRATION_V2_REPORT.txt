@@ -1,0 +1,201 @@
+
+============================================================
+ R2 OPPORTUNITY_CREATED ATOMIC INTEGRATION V2
+============================================================
+GENERATED_AT=2026-08-02T21:41:39.8825863-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+COMMAND_EXECUTION=NATIVE_POWERSHELL
+NODE_EXTERNAL_COMMAND_EXECUTION=False
+DATABASE_CHANGE=ADD_OPPORTUNITY_CREATED_ENUM
+MODEL_OR_GLB_CHANGE_AUTHORIZED=False
+
+============================================================
+ PREFLIGHT
+============================================================
+HELPER_SHA256=18C0C53A2727DDF99C620BA4EAA8AF253D22F9BA68CCDC498A6C9EA0F792CBE7
+HELPER_HASH_MATCH=True
+SNAPSHOT_SHA256=686ECB0FD88770EF61CF20E5D2C31AEDCDA5994921BCFF9C88455C296C58DF6E
+SNAPSHOT_HASH_MATCH=True
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_BASELINE_MATCH=True
+STAGED_FILE_COUNT=0
+GLB_SHA256=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_BASELINE_MATCH=True
+TARGET_MIGRATION_EXISTS=False
+
+============================================================
+ HELPER SYNTAX CHECK
+============================================================
+COMMAND=node --check C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v2-584a71967f0b4ad5aa0d463bc935a4de\r2-opportunity-created-atomic-transform-v2.cjs
+----- STDOUT -----
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ HELPER SELF TEST
+============================================================
+COMMAND=node C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v2-584a71967f0b4ad5aa0d463bc935a4de\r2-opportunity-created-atomic-transform-v2.cjs self-test
+----- STDOUT -----
+
+============================================================
+ HELPER SELF TEST
+============================================================
+BACKUP_SELF_TEST=True
+ROLLBACK_SELF_TEST=True
+TRANSFORM_SELF_TEST=True
+SELF_TEST_VERDICT=APROVADO
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ PRISMA MIGRATE STATUS BEFORE
+============================================================
+COMMAND=npx prisma migrate status
+----- STDOUT -----
+Datasource "db": PostgreSQL database "consorcio_os", schema "public" at "localhost:5432"
+
+2 migrations found in prisma/migrations
+
+Database schema is up to date!
+----- STDERR -----
+node.exe : Loaded Prisma config from prisma.config.ts.
+No linha:1 caractere:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Loaded Prisma c...isma.config.ts.: 
+   String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ APPLY TRANSFORMATIONS WITH VERIFIED BACKUP
+============================================================
+COMMAND=node C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v2-584a71967f0b4ad5aa0d463bc935a4de\r2-opportunity-created-atomic-transform-v2.cjs apply
+----- STDOUT -----
+
+============================================================
+ R2 OPPORTUNITY_CREATED ATOMIC TRANSFORM V2
+============================================================
+ROOT=C:\Projetos\consorcio-os\web
+EXTERNAL_COMMAND_EXECUTION=False
+DATABASE_WRITE=False
+SCHEMA_SHA256=B568D1DAD16A91B41B3DC8171EB73CECA40465A027984A310C4CD39898CDC1CE
+ACTION_SHA256=BE50480D5DB83310336F59D405D8489B7FF19C7EFBAEF3EAB735E2C405185D77
+USE_CASE_SHA256=AFDCFD5ACE091A8520D953725703299FD68F49A3B575CFFDEF79A42D7C41DFBA
+USE_CASE_TEST_SHA256=927046D5C4A8D402C2C962464AFEB9EA857DB2046D869A809734B25BDD2B7009
+NORMALIZER_SHA256=B6EBC6F331133E7E18D5BD448F256CF6C784EF023D745E085F655E9A69EC31ED
+GLB_SHA256=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+SNAPSHOT_SHA256=686ECB0FD88770EF61CF20E5D2C31AEDCDA5994921BCFF9C88455C296C58DF6E
+BACKUP_MANIFEST=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-opportunity-created-atomic-integration-v2\R2_OPPORTUNITY_CREATED_ATOMIC_INTEGRATION_V2_BACKUP_MANIFEST.json
+BACKUP_FILE_COUNT=14
+GENERATED_BACKUP_HASH=0857D6AC42B6C2491E3ACB3EB7B74EAD51CC6403E9EB681A9DE93CA0FB8424AB
+BACKUP_COMPLETE=True
+BACKUP_MANIFEST_VERIFIED=True
+
+============================================================
+ APLICA├ç├âO DAS TRANSFORMA├ç├òES
+============================================================
+TRANSFORMED=types/domain/commercial-event.ts
+TRANSFORMED_SHA256=C1847E505A11B59227877377A962A6A6BBC9FE80D50DB68EBF16666944980BB8
+TRANSFORMED=repositories/commercial/commercial-repository.ts
+TRANSFORMED_SHA256=AC8CF70BAF4A46C3484259F4BF5568982790F255EB8E20292AC287924C7FC66E
+----- STDERR -----
+node.exe : HELPER_ERROR=├éncora n├úo encontrada: imports CommitJourneyCreation 
+async
+No C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v2-584a71967f0b4ad5a
+a0d463bc935a4de\r2-opportunity-created-atomic-integration-v2.ps1:172 caractere:9
++         & $Command @Arguments 1> $stdoutPath 2> $stderrPath
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (HELPER_ERROR=├é...yCreation async: 
+   String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+EXIT_CODE=1
+
+============================================================
+ FAILURE
+============================================================
+ERROR=APPLY TRANSFORMATIONS WITH VERIFIED BACKUP falhou com exit code 1.
+APPLY_ATTEMPTED=True
+MIGRATION_DEPLOY_STARTED=False
+MIGRATION_DEPLOY_SUCCEEDED=False
+
+============================================================
+ ROLLBACK PRE MIGRATION
+============================================================
+COMMAND=node C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v2-584a71967f0b4ad5aa0d463bc935a4de\r2-opportunity-created-atomic-transform-v2.cjs rollback
+----- STDOUT -----
+
+============================================================
+ ROLLBACK V2
+============================================================
+BACKUP_MANIFEST_VERIFIED=True
+RESTORED=types/domain/commercial-event.ts
+RESTORED=repositories/commercial/commercial-repository.ts
+RESTORED=repositories/commercial/async-commercial-repositories.ts
+RESTORED=infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts
+RESTORED=infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts
+RESTORED=prisma/schema.prisma
+RESTORED=infrastructure/prisma/mappers/commercial-event-mapper.ts
+RESTORED=application/r2/normalize-r2-event.ts
+RESTORED=application/r2/r2-intelligence-orchestration.test.ts
+RESTORED=lib/commercial-event-presenter.ts
+RESTORED=lib/commercial-event-presenter.test.ts
+RESTORED=application/opportunity/create-opportunity-async.ts
+RESTORED=application/opportunity/create-opportunity-async.test.ts
+RESTORED=app/opportunities/new/actions.ts
+GENERATED_CLIENT_RESTORED_HASH=0857D6AC42B6C2491E3ACB3EB7B74EAD51CC6403E9EB681A9DE93CA0FB8424AB
+ROLLBACK_COMPLETE=True
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ ROLLBACK PRISMA VALIDATE
+============================================================
+COMMAND=npx prisma validate
+----- STDOUT -----
+The schema at prisma\schema.prisma is valid ­ƒÜÇ
+----- STDERR -----
+node.exe : Loaded Prisma config from prisma.config.ts.
+No linha:1 caractere:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Loaded Prisma c...isma.config.ts.: 
+   String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ ROLLBACK TYPESCRIPT VALIDATION
+============================================================
+COMMAND=npx tsc --noEmit --pretty false
+----- STDOUT -----
+blender/r2-rig/r2-runtime-intelligence-integration-v1/r2-real-event-dispatch-integration-v1/r2-opportunity-created-atomic-integration-v2/backup-before-v2/files/application/r2/r2-intelligence-orchestration.test.ts(12,28): error TS2307: Cannot find module '../../blender/r2-rig/R2_EVENT_TO_RUNTIME_MAPPING.json' or its corresponding type declarations.
+blender/r2-rig/r2-runtime-intelligence-integration-v1/r2-real-event-dispatch-integration-v1/r2-opportunity-created-atomic-integration-v2/backup-before-v2/files/application/r2/r2-intelligence-orchestration.test.ts(18,45): error TS2307: Cannot find module './r2-deterministic-intelligence' or its corresponding type declarations.
+blender/r2-rig/r2-runtime-intelligence-integration-v1/r2-real-event-dispatch-integration-v1/r2-opportunity-created-atomic-integration-v2/backup-before-v2/files/application/r2/r2-intelligence-orchestration.test.ts(19,61): error TS2307: Cannot find module './r2-orchestrator' or its corresponding type declarations.
+blender/r2-rig/r2-runtime-intelligence-integration-v1/r2-real-event-dispatch-integration-v1/r2-opportunity-created-atomic-integration-v2/backup-before-v2/files/types/domain/commercial-event.ts(1,43): error TS2307: Cannot find module './common' or its corresponding type declarations.
+blender/r2-rig/r2-runtime-intelligence-integration-v1/r2-real-event-dispatch-integration-v1/r2-opportunity-created-atomic-integration-v2/backup-before-v2/files/types/domain/commercial-event.ts(2,42): error TS2307: Cannot find module './commercial-actor' or its corresponding type declarations.
+----- STDERR -----
+EXIT_CODE=2
+ROLLBACK_ERROR=ROLLBACK TYPESCRIPT VALIDATION falhou com exit code 2.
+
+============================================================
+ FINAL RESULT
+============================================================
+ROLLBACK_PERFORMED=True
+MIGRATION_DEPLOY_STARTED=False
+MIGRATION_DEPLOY_SUCCEEDED=False
+POST_MIGRATION_FAILURE=False
+HEAD_UNCHANGED=True
+STAGED_FILE_COUNT_FINAL=0
+GLB_UNCHANGED=True
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+VEREDITO=REPROVADO_ROLLBACK_INCOMPLETO
+NEXT_STEP=PARAR_E_ANALISAR_RELATORIO

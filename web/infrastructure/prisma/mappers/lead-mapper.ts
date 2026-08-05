@@ -1,5 +1,6 @@
 import {
     ConsortiumType as PrismaConsortiumType,
+    LeadApproachType as PrismaLeadApproachType,
     LeadSource as PrismaLeadSource,
     LeadStatus as PrismaLeadStatus,
   } from "@/lib/generated/prisma/client"
@@ -12,6 +13,7 @@ import {
   import type {
     ConsortiumType,
     Lead,
+    LeadApproachType,
     LeadSource,
     LeadStatus,
   } from "@/types/domain"
@@ -44,6 +46,24 @@ import {
     [PrismaLeadSource.OTHER]: "other",
   }
   
+  const leadApproachTypeToPrisma: Record<
+    LeadApproachType,
+    PrismaLeadApproachType
+  > = {
+    new: PrismaLeadApproachType.NEW,
+    reactivation:
+      PrismaLeadApproachType.REACTIVATION,
+  }
+
+  const leadApproachTypeToDomain: Record<
+    PrismaLeadApproachType,
+    LeadApproachType
+  > = {
+    [PrismaLeadApproachType.NEW]:
+      "new",
+    [PrismaLeadApproachType.REACTIVATION]:
+      "reactivation",
+  }
   const leadStatusToPrisma: Record<
     LeadStatus,
     PrismaLeadStatus
@@ -122,6 +142,12 @@ import {
           leadSourceToDomain[raw.source],
         status:
           leadStatusToDomain[raw.status],
+        approachType:
+          raw.approachType
+            ? leadApproachTypeToDomain[
+                raw.approachType
+              ]
+            : undefined,
         consortiumType:
           consortiumTypeToDomain[
             raw.consortiumType
@@ -169,6 +195,12 @@ import {
           leadSourceToPrisma[lead.source],
         status:
           leadStatusToPrisma[lead.status],
+        approachType:
+          lead.approachType
+            ? leadApproachTypeToPrisma[
+                lead.approachType
+              ]
+            : null,
         consortiumType:
           consortiumTypeToPrisma[
             lead.consortiumType

@@ -1,0 +1,17 @@
+{
+  "approved": true,
+  "aspect_limit": 6.0,
+  "aspect_p95": 3.48115398941193,
+  "blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\.__r2_v46_build_0b246b76a50d4c948fb7125c2c2e3b7d\\r2-rig-v46-positive-x-lower-mid-depth-retopology-v1.blend",
+  "candidate": "DISSOLVE_15",
+  "inverted_faces": 0,
+  "normal_p05": 0.9999999407911673,
+  "patch_faces": 47,
+  "patch_triangles": 48,
+  "reduction_percent": 18.96551724137931,
+  "removed_vertex_count": 2,
+  "removed_vertices": [
+    1443,
+    1554
+  ]
+}

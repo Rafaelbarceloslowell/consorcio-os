@@ -68,7 +68,7 @@ import {
     pipelineStageId: "pipeline-stage-1",
     score: 85,
     lostReason: undefined,
-    notes: "Lead interessado em imóvel.",
+    notes: "Lead interessado em imÃƒÆ’Ã‚Â³vel.",
     convertedClientId: undefined,
     lastContactAt: "2026-07-23T15:00:00.000Z",
     createdAt: "2026-07-23T14:00:00.000Z",
@@ -85,6 +85,7 @@ import {
     companyName: "Seals Consultoria",
     source: PrismaLeadSource.SOCIAL_MEDIA,
     status: PrismaLeadStatus.QUALIFIED,
+    approachType: null,
     consortiumType:
       PrismaConsortiumType.REAL_ESTATE,
     desiredCreditValue:
@@ -94,7 +95,7 @@ import {
     pipelineStageId: "pipeline-stage-1",
     score: 85,
     lostReason: null,
-    notes: "Lead interessado em imóvel.",
+    notes: "Lead interessado em imÃƒÆ’Ã‚Â³vel.",
     convertedClientId: null,
     lastContactAt:
       new Date("2026-07-23T15:00:00.000Z"),
@@ -231,7 +232,7 @@ import {
       ).not.toHaveBeenCalled()
     })
   
-    it("deve retornar undefined quando o lead não existir", async () => {
+    it("deve retornar undefined quando o lead nÃƒÆ’Ã‚Â£o existir", async () => {
       databaseMock.lead.findFirst.mockResolvedValue(
         null,
       )
@@ -244,7 +245,7 @@ import {
       expect(result).toBeUndefined()
     })
   
-    it("deve criar um lead no workspace do repositório", async () => {
+    it("deve criar um lead no workspace do repositÃƒÆ’Ã‚Â³rio", async () => {
       databaseMock.lead.create.mockResolvedValue(
         prismaLead,
       )
@@ -269,6 +270,7 @@ import {
             PrismaLeadSource.SOCIAL_MEDIA,
           status:
             PrismaLeadStatus.QUALIFIED,
+    approachType: null,
           consortiumType:
             PrismaConsortiumType.REAL_ESTATE,
           desiredCreditValue: 350000,
@@ -279,7 +281,7 @@ import {
           score: 85,
           lostReason: null,
           notes:
-            "Lead interessado em imóvel.",
+            "Lead interessado em imÃƒÆ’Ã‚Â³vel.",
           convertedClientId: null,
           lastContactAt:
             new Date(
@@ -374,7 +376,7 @@ import {
       })
     })
   
-    it("deve retornar false quando nenhum lead for excluído", async () => {
+    it("deve retornar false quando nenhum lead for excluÃƒÆ’Ã‚Â­do", async () => {
       databaseMock.lead.deleteMany.mockResolvedValue({
         count: 0,
       })
@@ -387,7 +389,7 @@ import {
       expect(result).toBe(false)
     })
   
-    it("deve retornar false sem consultar o banco quando o ID de exclusão estiver vazio", async () => {
+    it("deve retornar false sem consultar o banco quando o ID de exclusÃƒÆ’Ã‚Â£o estiver vazio", async () => {
       const result =
         await repository.delete("   ")
   

@@ -1,0 +1,397 @@
+{
+    "schema_version":  1,
+    "phase":  "FULL_CHARACTER_RIG_INTEGRATION_AND_WEB_RUNTIME",
+    "execution_status":  "COMPLETED",
+    "technical_verdict":  "APROVADO",
+    "recoverable":  false,
+    "current_checkpoint":  "CHECKPOINT_16_ATOMIC_PUBLICATION_APPROVED",
+    "checkpoints":  {
+                        "checkpoint_1_read_only_inventory":  {
+                                                                 "status":  "APPROVED",
+                                                                 "blend_saved":  false,
+                                                                 "images_created":  0,
+                                                                 "body_source_certified":  true
+                                                             },
+                        "checkpoint_2_architecture":  {
+                                                          "status":  "APPROVED",
+                                                          "spec":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_HEAD_BODY_INTEGRATION_SPEC.json"
+                                                      },
+                        "checkpoint_3_transaction":  {
+                                                         "status":  "APPROVED",
+                                                         "candidate_sha256":  "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97"
+                                                     },
+                        "checkpoint_4_head_body_integration":  {
+                                                                   "status":  "APPROVED",
+                                                                   "architecture":  "SINGLE_EXISTING_ARMATURE_NO_MERGE",
+                                                                   "body_bones_preserved":  51,
+                                                                   "facial_bones_preserved":  14,
+                                                                   "head_body_attachment_stable":  true,
+                                                                   "geometry_changes":  0,
+                                                                   "weight_changes":  0
+                                                               },
+                        "checkpoint_5_runtime_state_system":  {
+                                                                  "status":  "APPROVED",
+                                                                  "states":  10,
+                                                                  "state_map":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FULL_CHARACTER_RUNTIME_STATE_MAP.json",
+                                                                  "neutral_reset_exact":  true
+                                                              },
+                        "checkpoint_6_animation_clips":  {
+                                                             "status":  "APPROVED",
+                                                             "clips":  9,
+                                                             "clip_map":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FULL_CHARACTER_ANIMATION_CLIP_MAP.json",
+                                                             "loop_continuity_exact":  true,
+                                                             "root_motion":  "NONE"
+                                                         },
+                        "checkpoint_7_combined_runtime_tests":  {
+                                                                    "status":  "APPROVED",
+                                                                    "expression_channels_preserved":  24,
+                                                                    "expression_level_samples":  120,
+                                                                    "all_pair_transitions":  100,
+                                                                    "neutral_reset_exact":  true,
+                                                                    "wire_edges":  0,
+                                                                    "invalid_non_manifold":  0,
+                                                                    "unweighted_deform_vertices":  0,
+                                                                    "inverted_faces":  0,
+                                                                    "zero_area_faces":  0,
+                                                                    "unexpected_geometry_changes":  0,
+                                                                    "unexpected_weight_changes":  0,
+                                                                    "unexpected_material_changes":  0
+                                                                },
+                        "checkpoint_8_official_glb_export":  {
+                                                                 "status":  "APPROVED",
+                                                                 "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352\\r2-full-character-runtime-ready-v1.candidate.glb",
+                                                                 "sha256":  "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+                                                                 "file_size_bytes":  13189856,
+                                                                 "node_count":  97,
+                                                                 "mesh_count":  26,
+                                                                 "primitive_count":  30,
+                                                                 "material_count":  8,
+                                                                 "bone_count":  65,
+                                                                 "skin_count":  1,
+                                                                 "morph_target_count":  24,
+                                                                 "animation_count":  9,
+                                                                 "external_dependencies":  0
+                                                             },
+                        "checkpoint_9_glb_round_trip":  {
+                                                            "status":  "APPROVED",
+                                                            "glb_round_trip_approved":  true,
+                                                            "skeleton_round_trip_exact":  true,
+                                                            "morph_targets_round_trip_confirmed":  true,
+                                                            "animation_clips_round_trip_confirmed":  true,
+                                                            "neutral_reset_exact":  true
+                                                        },
+                        "checkpoint_10_web_runtime_architecture":  {
+                                                                        "status":  "APPROVED",
+                                                                        "typed_controller":  true,
+                                                                        "runtime_states":  10,
+                                                                        "expression_channels":  18,
+                                                                        "visemes":  6,
+                                                                        "strict_mode_safe":  true
+                                                                    },
+                        "checkpoint_11_gorillaos_component_integration":  {
+                                                                              "status":  "APPROVED",
+                                                                              "official_model_path":  "/models/r2/r2-full-character-runtime-ready-v1.glb",
+                                                                              "rollback_path":  "/models/r2/r2-gorilla-geometry-only.glb",
+                                                                              "fail_safe":  true
+                                                                          },
+                        "checkpoint_12_web_tests":  {
+                                                           "status":  "APPROVED",
+                                                           "focused_test_files":  2,
+                                                           "focused_tests_passed":  15,
+                                                           "focused_tests_failed":  0,
+                                                           "typescript_exit_code":  0,
+                                                           "eslint_exit_code":  0,
+                                                           "full_suite_passed":  1476,
+                                                           "full_suite_unrelated_failures":  13,
+                                                           "regressions_introduced":  0
+                                                       },
+                        "checkpoint_13_headless_web_runtime":  {
+                                                                       "status":  "APPROVED",
+                                                                       "glb_parse_approved":  true,
+                                                                       "pairwise_transitions":  100,
+                                                                       "neutral_reset_exact":  true,
+                                                                       "unmount_cleanup_approved":  true,
+                                                                       "remount_approved":  true,
+                                                                       "runtime_console_errors":  0
+                                                                   },
+                        "checkpoint_14_performance_and_web_safety":  {
+                                                                          "status":  "APPROVED",
+                                                                          "file_size_bytes":  13189856,
+                                                                          "parse_attempts":  3,
+                                                                          "parse_median_ms":  87.599,
+                                                                          "node_count":  104,
+                                                                          "draw_call_estimate":  30,
+                                                                          "material_count_runtime":  9,
+                                                                          "bone_count":  65,
+                                                                          "morph_target_count":  24
+                                                                      },
+                        "checkpoint_15_independent_audit":  {
+                                                                    "status":  "APPROVED",
+                                                                    "blender_audit_approved":  true,
+                                                                    "web_glb_audit_approved":  true,
+                                                                    "failed_gates":  [
+
+                                                                                     ]
+                                                               },
+                        "checkpoint_16_atomic_publication":  {
+                                                                     "status":  "APPROVED",
+                                                                     "official_blend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-runtime-ready-v1\\r2-full-character-runtime-ready-v1.blend",
+                                                                     "official_blend_sha256":  "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269",
+                                                                     "official_glb":  "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-runtime-ready-v1.glb",
+                                                                     "official_glb_sha256":  "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+                                                                     "published_blend_reopened":  true,
+                                                                     "published_glb_reloaded":  true,
+                                                                     "post_publication_round_trip_approved":  true,
+                                                                     "temporary_directories_remaining":  0
+                                                        }
+                    },
+    "approved_head_source":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-rig-expression-ready-v1\\r2-head-rig-expression-ready-v1.blend",
+    "approved_head_sha256":  "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97",
+    "approved_anatomical_source":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-facial-ocular-oral-assets-ready-v1\\r2-facial-ocular-oral-assets-ready-v1.blend",
+    "approved_anatomical_sha256":  "50D04CFBAEC2A431D96D4060E2AE82045AFBC56A0E74AD1759D156C0222825B3",
+    "approved_body_source":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-rig-v13-weights-refined.blend",
+    "approved_body_sha256":  "392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1",
+    "body_armature_identity":  "R2_Rig",
+    "facial_armature_identity":  "R2_Rig",
+    "body_hierarchy_fingerprint":  "357DE2348FCD85B15C859E55729819CCED6D419DEF96DEACCD83CA3513120547",
+    "body_rest_pose_fingerprint":  "775C86423BA4FFC9F552558E44AC07E7841153E31828438618E5F318860000DF",
+    "integration_architecture":  "SINGLE_EXISTING_ARMATURE_NO_MERGE",
+    "bone_mappings":  {
+                          "body":  "IDENTITY_51",
+                          "facial":  "IDENTITY_14",
+                          "head_attachment":  "neck -\u003e head"
+                      },
+    "mesh_mappings":  "IDENTITY_ALL_27_SOURCE_MESHES",
+    "vertex_group_mappings":  "IDENTITY_NO_WEIGHT_CHANGES",
+    "material_mappings":  "IDENTITY_NO_MATERIAL_CHANGES",
+    "morph_target_mappings":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FULL_CHARACTER_MORPH_TARGET_MAP.json",
+    "animation_clip_mappings":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FULL_CHARACTER_ANIMATION_CLIP_MAP.json",
+    "runtime_state_mappings":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FULL_CHARACTER_RUNTIME_STATE_MAP.json",
+    "transactional_directory":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352",
+    "transactional_candidate_path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352\\r2-full-character-runtime-ready-v1.candidate.blend",
+    "transactional_candidate_initial_sha256":  "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97",
+    "glb_candidate_path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352\\r2-full-character-runtime-ready-v1.candidate.glb",
+    "glb_sha256":  "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+    "web_files_changed":  [
+                               "C:\\Projetos\\consorcio-os\\web\\types\\r2-full-character-runtime.ts",
+                               "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                               "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                               "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.test.ts",
+                               "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.test.tsx",
+                               "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\r2-dashboard-avatar.tsx",
+                               "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx"
+                          ],
+    "test_results":  {
+                         "build":  {
+                                       "execution_status":  "COMPLETED",
+                                       "technical_verdict":  "APROVADO",
+                                       "candidate_sha256":  "D1D7C203ACAF61DA48A14990A5A50FB782B9A0B2440F6074F22777211B368C2E",
+                                       "neutral_reset_exact":  true,
+                                       "failed_gates":  [
+
+                                                        ]
+                                   },
+                         "combined_runtime":  {
+                                                  "execution_status":  "COMPLETED",
+                                                  "technical_verdict":  "APROVADO",
+                                                  "report":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FULL_CHARACTER_RUNTIME_TESTS.json",
+                                                  "failed_gates":  [
+
+                                                                   ]
+                                              },
+                         "glb_export":  {
+                                            "execution_status":  "COMPLETED",
+                                            "technical_verdict":  "APROVADO",
+                                            "report":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FULL_CHARACTER_GLB_EXPORT_REPORT.json",
+                                            "failed_gates":  [
+
+                                                             ]
+                                        },
+                         "glb_round_trip":  {
+                                                "execution_status":  "COMPLETED",
+                                                "technical_verdict":  "APROVADO",
+                                                "report":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FULL_CHARACTER_GLB_ROUNDTRIP_AUDIT.json",
+                                                "failed_gates":  [
+
+                                                                 ]
+                                            },
+                         "web_focused":  {
+                                               "execution_status":  "COMPLETED",
+                                               "technical_verdict":  "APROVADO",
+                                               "test_files_passed":  2,
+                                               "tests_passed":  15,
+                                               "tests_failed":  0,
+                                               "typescript_exit_code":  0,
+                                               "eslint_exit_code":  0
+                                           },
+                         "web_headless":  {
+                                                "execution_status":  "COMPLETED",
+                                                "technical_verdict":  "APROVADO",
+                                                "report":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352\\R2_FULL_CHARACTER_WEB_RUNTIME_AUDIT.json",
+                                                "failed_gates":  [
+
+                                                                 ]
+                                            },
+                         "independent_audit":  {
+                                                   "execution_status":  "COMPLETED",
+                                                   "technical_verdict":  "APROVADO",
+                                                   "blender_report":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352\\R2_FULL_CHARACTER_INDEPENDENT_BLENDER_AUDIT.json",
+                                                   "web_report":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352\\R2_FULL_CHARACTER_INDEPENDENT_WEB_AUDIT.json",
+                                                   "failed_gates":  [
+
+                                                                    ]
+                                            }
+                     },
+    "failed_attempts":  [
+                            {
+                                "checkpoint":  "CHECKPOINT_3_TRANSACTIONAL_CANDIDATE",
+                                "attempt":  1,
+                                "command":  "powershell.exe -NoProfile -ExecutionPolicy Bypass -File R2_INIT_FULL_CHARACTER_INTEGRATION.ps1",
+                                "error_type":  "PowerShellParameterBindingException",
+                                "message":  "New-Item does not expose -LiteralPath in Windows PowerShell 5.1",
+                                "root_cause":  "The initialization script used a parameter available on other filesystem cmdlets but not New-Item in PowerShell 5.1.",
+                                "candidate_created":  false,
+                                "official_sources_unchanged":  true
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_7_APPROVAL",
+                                "attempt":  1,
+                                "error_type":  "PowerShellParserError",
+                                "root_cause":  "A colon immediately after an interpolated variable name was parsed as a drive qualifier.",
+                                "correction":  "Delimited the variable as ${Field} before the colon.",
+                                "candidate_saved":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_7",
+                                "attempt":  1,
+                                "error_type":  "IndependentRuntimeAuditFailure",
+                                "failed_gates":  [
+                                                     "CombinedDeformationRuntimeTests",
+                                                     "WireEdges"
+                                                 ],
+                                "root_cause":  "Blink state loop omitted armature.update_tag; wire audit exposed 16 legacy source loose edges.",
+                                "candidate_saved":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_7",
+                                "attempt":  2,
+                                "error_type":  "IndependentRuntimeAuditFailure",
+                                "failed_gates":  [
+                                                     "WireEdges"
+                                                 ],
+                                "root_cause":  "Correct driver invalidation fixed blink; canonical source comparison was still pending.",
+                                "candidate_saved":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_7",
+                                "attempt":  3,
+                                "error_type":  "LegacyAuditDefectConfirmed",
+                                "failed_gates":  [
+                                                     "WireEdges"
+                                                 ],
+                                "root_cause":  "Prior auditor defaultdict omitted edges not referenced by polygons; direct source audit proved the legacy false approval mechanism.",
+                                "candidate_saved":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_7_REPAIR",
+                                "attempt":  1,
+                                "error_type":  "PreservationGateRejection",
+                                "root_cause":  "Whole-mesh BMesh round-trip reordered or removed protected data.",
+                                "candidate_saved":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_7_REPAIR",
+                                "attempt":  2,
+                                "error_type":  "PreservationGateRejection",
+                                "root_cause":  "Edit-mode EDGE delete affected protected mesh elements.",
+                                "candidate_saved":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_7_REPAIR",
+                                "attempt":  3,
+                                "error_type":  "OperationNoOp",
+                                "root_cause":  "dissolve_edges with use_verts=False intentionally retained loose edges.",
+                                "candidate_saved":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_7_REPAIR",
+                                "attempt":  4,
+                                "execution_status":  "COMPLETED",
+                                "technical_verdict":  "APROVADO",
+                                "correction":  "Direct BMEdge removal preserved all protected data and removed exactly 16 loose edges.",
+                                "candidate_saved":  true
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_9",
+                                "attempt":  1,
+                                "error_type":  "RoundTripAuditFalseNegative",
+                                "root_cause":  "Imported actions were evaluated at rounded integer frames in a 24 FPS scene.",
+                                "candidate_changed":  false,
+                                "glb_changed":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_9",
+                                "attempt":  2,
+                                "error_type":  "RoundTripAuditFalseNegative",
+                                "root_cause":  "GLB accessors were byte-exact, but integer-frame evaluation still omitted the fractional final subframe.",
+                                "candidate_changed":  false,
+                                "glb_changed":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_9",
+                                "attempt":  3,
+                                "execution_status":  "COMPLETED",
+                                "technical_verdict":  "APROVADO",
+                                "correction":  "Audited accessor endpoints byte-for-byte and evaluated imported action endpoints at exact subframes."
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_13",
+                                "attempt":  1,
+                                "error_type":  "ThreeGLTFNodeNameSanitizationMismatch",
+                                "root_cause":  "GLTFLoader removes periods from runtime Object3D names while preserving the Blender names in raw GLB JSON.",
+                                "correction":  "Resolve exact Blender names first and deterministic period-free runtime names second; required-asset validation remains strict.",
+                                "candidate_changed":  false,
+                                "glb_changed":  false
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_12_FULL_SUITE",
+                                "attempt":  1,
+                                "error_type":  "PreExistingUnrelatedTestExpectations",
+                                "root_cause":  "Dashboard header/content tests expect text and structure that differ from pre-existing modified dashboard source; 1476 tests pass and 13 unrelated assertions remain.",
+                                "correction":  "Added a capability-gated 3D fallback that eliminated all 21 Canvas ResizeObserver failures caused by jsdom; did not modify unrelated dashboard expectations."
+                            },
+                            {
+                                "checkpoint":  "CHECKPOINT_15_WEB_AUDIT",
+                                "attempt":  1,
+                                "error_type":  "PowerShellNullArrayCountFalsePositive",
+                                "root_cause":  "PowerShell 5.1 counted a missing GLB images property as one element after array wrapping.",
+                                "correction":  "Count missing images explicitly as zero; raw GLB JSON and GLTFLoader independently confirm zero images.",
+                                "candidate_changed":  false,
+                                "glb_changed":  false
+                            }
+                        ],
+    "corrections":  [
+                        "Replaced New-Item -LiteralPath with the PowerShell 5.1-compatible -Path parameter before any transaction was created.",
+                        "Added armature dependency invalidation before combined blink evaluation.",
+                        "Replaced the legacy sparse edge-face audit with a complete preinitialized edge table.",
+                        "Certified and removed only the 16 source-proven loose edges using direct BMEdge removal.",
+                        "Rejected three repair operations before save when exact preservation could not be proven.",
+                        "Added byte-level glTF animation accessor continuity audit and exact imported-action subframe evaluation."
+                        ,"Added deterministic Blender-to-Three node-name resolution for GLTFLoader period sanitization."
+                        ,"Added a ResizeObserver capability fallback before Canvas creation for safe non-WebGL/test environments."
+                        ,"Corrected the independent PowerShell GLB auditor's null-property counting without changing any gate."
+                    ],
+    "published_blend_path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-runtime-ready-v1\\r2-full-character-runtime-ready-v1.blend",
+    "published_blend_sha256":  "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269",
+    "published_glb_path":  "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-runtime-ready-v1.glb",
+    "published_glb_sha256":  "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+    "official_sources_unchanged":  true,
+    "previous_official_versions_unchanged":  true,
+    "created_images":  0,
+    "temporary_directories_remaining":  0,
+    "git_baseline":  "main...origin/main [ahead 63]; pre-existing modified and untracked files recorded in runtime logs",
+    "next_phase":  "GORILLAOS_R2_INTELLIGENCE_AND_EVENT_ORCHESTRATION",
+    "next_action":  "PHASE_COMPLETE",
+    "local_datetime":  "2026-08-01T15:52:28.3550489-03:00",
+    "transactional_candidate_sha256":  "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269"
+}

@@ -1,0 +1,110 @@
+============================================================
+ R2-TEST FORENSIC — SOMENTE LEITURA
+============================================================
+
+===== app/r2-test/page.tsx COMPLETO =====
+
+   1: import { R2Lab } from "@/components/dashboard/3d/r2-lab"
+   2: 
+   3: export default function R2TestPage() {
+   4:   return <R2Lab />
+   5: }
+
+===== CANVAS, HOOKS R3F E IMPORTS DINÂMICOS =====
+
+components\dashboard\3d\r2\r2-avatar.tsx:1: "use client"
+components\dashboard\3d\r2\r2-avatar.tsx:7: import { useFrame } from "@react-three/fiber"
+components\dashboard\3d\r2\r2-avatar.tsx:39: useFrame((state) => {
+components\dashboard\3d\r2\r2-body.tsx:1: "use client"
+components\dashboard\3d\r2\r2-dashboard-avatar.tsx:1: "use client"
+components\dashboard\3d\r2\r2-face.tsx:1: "use client"
+components\dashboard\3d\r2\r2-neck.tsx:1: "use client"
+components\dashboard\3d\r2\dialogue\r2-dialogue-bubble.tsx:1: "use client"
+components\dashboard\3d\r2\dialogue\r2-dialogue-controller.tsx:1: "use client"
+components\dashboard\3d\r2\head\r2-head.tsx:1: "use client"
+components\dashboard\3d\r2\intro\r2-first-login.tsx:1: "use client"
+components\dashboard\3d\r2\intro\r2-intro-controller.tsx:1: "use client"
+components\dashboard\3d\r2\intro\r2-intro-face.tsx:1: "use client"
+components\dashboard\3d\r2\intro\r2-intro-face.tsx:3: import { useFrame } from "@react-three/fiber"
+components\dashboard\3d\r2\intro\r2-intro-face.tsx:28: useFrame(() => {
+components\dashboard\3d\r2\intro\r2-intro-look.tsx:1: "use client"
+components\dashboard\3d\r2\intro\r2-intro-look.tsx:3: import { useFrame, useThree } from "@react-three/fiber"
+components\dashboard\3d\r2\intro\r2-intro-look.tsx:18: useThree(
+components\dashboard\3d\r2\intro\r2-intro-look.tsx:30: useFrame(() => {
+components\dashboard\3d\r2\intro\r2-reveal-animation.tsx:1: "use client"
+components\dashboard\3d\r2\intro\r2-reveal-animation.tsx:3: import { useFrame } from "@react-three/fiber"
+components\dashboard\3d\r2\intro\r2-reveal-animation.tsx:23: useFrame(() => {
+components\dashboard\3d\r2\memory\r2-memory-provider.tsx:1: "use client"
+components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-animation-controller.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-core.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-core.tsx:3: import { useFrame } from "@react-three/fiber"
+components\dashboard\3d\r2\real\r2-core.tsx:17: useFrame((state) => {
+components\dashboard\3d\r2\real\r2-customization.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-expression.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-eye-controller.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-eye-controller.tsx:3: import { useFrame } from "@react-three/fiber"
+components\dashboard\3d\r2\real\r2-eye-controller.tsx:21: useFrame((state) => {
+components\dashboard\3d\r2\real\r2-face-controller.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-face-controller.tsx:3: import { useFrame } from "@react-three/fiber"
+components\dashboard\3d\r2\real\r2-face-controller.tsx:18: useFrame((state) => {
+components\dashboard\3d\r2\real\r2-full-character-model.test.tsx:35: useGLTF: Object.assign(
+components\dashboard\3d\r2\real\r2-full-character-model.test.tsx:42: useFrame: (callback: (state: unknown, delta: number) => void) => {
+components\dashboard\3d\r2\real\r2-full-character-model.test.tsx:45: useThree: (
+components\dashboard\3d\r2\real\r2-full-character-model.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-full-character-model.tsx:14: useGLTF,
+components\dashboard\3d\r2\real\r2-full-character-model.tsx:17: useFrame,
+components\dashboard\3d\r2\real\r2-full-character-model.tsx:18: useThree,
+components\dashboard\3d\r2\real\r2-full-character-model.tsx:97: } = useThree((state) => ({
+components\dashboard\3d\r2\real\r2-full-character-model.tsx:144: } = useGLTF(
+components\dashboard\3d\r2\real\r2-full-character-model.tsx:293: useFrame((_, delta) => {
+components\dashboard\3d\r2\real\r2-full-character-model.tsx:365: useGLTF.preload(
+components\dashboard\3d\r2\real\r2-fur.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-fur.tsx:3: import { useFrame } from "@react-three/fiber"
+components\dashboard\3d\r2\real\r2-fur.tsx:17: useFrame((state) => {
+components\dashboard\3d\r2\real\r2-geometry-smoke-test.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-geometry-smoke-test.tsx:4: useGLTF,
+components\dashboard\3d\r2\real\r2-geometry-smoke-test.tsx:24: } = useGLTF(
+components\dashboard\3d\r2\real\r2-hoodie.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-life-controller.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-life-controller.tsx:3: import { useFrame } from "@react-three/fiber"
+components\dashboard\3d\r2\real\r2-life-controller.tsx:28: useFrame((state) => {
+components\dashboard\3d\r2\real\r2-material.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-model-smoke-test.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-model-smoke-test.tsx:3: import { useGLTF } from "@react-three/drei"
+components\dashboard\3d\r2\real\r2-model-smoke-test.tsx:17: const { scene } = useGLTF("/models/r2/r2-gorilla.glb")
+components\dashboard\3d\r2\real\r2-model-smoke-test.tsx:29: useGLTF.preload("/models/r2/r2-gorilla.glb")
+components\dashboard\3d\r2\real\r2-real-model.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-real-model.tsx:3: import { useGLTF, useAnimations } from "@react-three/drei"
+components\dashboard\3d\r2\real\r2-real-model.tsx:30: const { scene, animations } = useGLTF(
+components\dashboard\3d\r2\real\r2-real-model.tsx:35: useAnimations(
+components\dashboard\3d\r2\real\r2-real-model.tsx:126: useGLTF.preload(
+components\dashboard\3d\r2\real\r2-stable-model.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-stable-model.tsx:10: useFrame,
+components\dashboard\3d\r2\real\r2-stable-model.tsx:14: useGLTF,
+components\dashboard\3d\r2\real\r2-stable-model.tsx:455: } = useGLTF(
+components\dashboard\3d\r2\real\r2-stable-model.tsx:558: useFrame((state) => {
+components\dashboard\3d\r2\real\r2-stable-model.tsx:806: useGLTF.preload(
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-115825.bak:1: "use client"
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-115825.bak:9: useGLTF,
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-115825.bak:65: } = useGLTF(
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-123325.bak:1: "use client"
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-123325.bak:9: useGLTF,
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-123325.bak:71: } = useGLTF(
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-123325.bak:157: useGLTF.preload(
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-124749.bak:1: "use client"
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-124749.bak:10: useFrame,
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-124749.bak:14: useGLTF,
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-124749.bak:455: } = useGLTF(
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-124749.bak:558: useFrame((state) => {
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-124749.bak:806: useGLTF.preload(
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-125151.bak:1: "use client"
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-125151.bak:10: useFrame,
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-125151.bak:14: useGLTF,
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-125151.bak:455: } = useGLTF(
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-125151.bak:558: useFrame((state) => {
+components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-125151.bak:806: useGLTF.preload(
+components\dashboard\3d\r2\real\r2-web-model.tsx:1: "use client"
+components\dashboard\3d\r2\real\r2-web-model.tsx:4: useGLTF,
+components\dashboard\3d\r2\real\r2-web-model.tsx:24: } = useGLTF(
+components\dashboard\3d\r2\real\r2-webgl-smoke-test.tsx:1: "use client"

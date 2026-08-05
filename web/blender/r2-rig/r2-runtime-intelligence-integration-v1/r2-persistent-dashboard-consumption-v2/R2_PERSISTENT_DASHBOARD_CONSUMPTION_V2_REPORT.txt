@@ -1,0 +1,159 @@
+
+============================================================
+ R2 PERSISTENT DASHBOARD CONSUMPTION V2
+============================================================
+GENERATED_AT=2026-08-02T23:27:09.4021556-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+NODE_MAX_OLD_SPACE_SIZE_MB=4096
+NODE_OPTIONS_EFFECTIVE=--max-old-space-size=4096
+IMPLEMENTATION_MODE=FULL_FILE_REPLACEMENTS
+TEST_TYPE_FIX=EXPLICIT_COMMERCIAL_EVENT_CALLBACK_WITH_RECEIVED_IDS
+BACKUP_LOCATION=OUTSIDE_PROJECT
+DATABASE_WRITE=False
+PRISMA_GENERATE=False
+MIGRATION_DEPLOY=False
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+MANIFEST_SHA256=70EE4C65A801EB5054DC215A560C4813F720AB2D2565ADD336FC48A0DAC25839
+MANIFEST_HASH_MATCH=True
+
+============================================================
+ PREFLIGHT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_BASELINE_MATCH=True
+STAGED_FILE_COUNT=0
+GLB_SHA256=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_BASELINE_MATCH=True
+SCHEMA_SHA256=89F4AE2D2E4392016D3DF805E28ABC00355EBDF0FA9EDC9D7C8DB0C3063B2F80
+SCHEMA_BASELINE_MATCH=True
+OPPORTUNITY_MIGRATION_SHA256=01FD0F1049FCDCCC19CC712B8CB046A1CF7B257804AA3B50AB46F4A15A7164EB
+OPPORTUNITY_MIGRATION_MATCH=True
+DISPATCHER_SHA256=13BD007CA7A787AB63CF21E4CD60CB8C01C1AAFA2BC2F454C93208FA2E230258
+DISPATCHER_BASELINE_MATCH=True
+PAYLOAD_FILE_COUNT=11
+PAYLOAD_AND_BASELINE_HASHES_VERIFIED=True
+PERSISTENT_ROUTE_NEW=True
+DATABASE_SCHEMA_CHANGE=False
+GENERATED_CLIENT_HASH_BEFORE=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+
+============================================================
+ VERIFIED BACKUP OUTSIDE PROJECT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-persistent-dashboard-consumption-v2-backup-f8aebe95033f45eca3472e91f299c5b4
+GENERATED_CLIENT_BACKUP_HASH=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+BACKUP_COMPLETE=True
+
+============================================================
+ APPLY FULL FILE REPLACEMENTS
+============================================================
+APPLIED=components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx
+APPLIED=components/dashboard/gorila-r2-avatar-3d.tsx
+APPLIED=components/dashboard/gorila-r2-avatar-3d.test.tsx
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.ts
+APPLIED=types/r2-persistent-commercial-events.ts
+APPLIED=components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-poller.ts
+APPLIED=app/api/r2/commercial-events/route.ts
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.cursor.test.ts
+APPLIED=app/api/r2/commercial-events/route.test.ts
+APPLIED=components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-poller.test.ts
+APPLIED=components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-provider.test.tsx
+FULL_FILE_REPLACEMENTS_VERIFIED=True
+
+============================================================
+ TYPESCRIPT
+============================================================
+COMMAND=npx tsc --noEmit --pretty false
+----- STDOUT -----
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ PERSISTENT CONSUMPTION TARGETED TESTS
+============================================================
+COMMAND=npx vitest run app/api/r2/commercial-events/route.test.ts infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.cursor.test.ts components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-poller.test.ts components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-provider.test.tsx components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx components/dashboard/gorila-r2-avatar-3d.test.tsx application/r2/r2-intelligence-orchestration.test.ts
+----- STDOUT -----
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Projetos/consorcio-os/web[39m
+
+ [32mâœ“[39m app/api/r2/commercial-events/route.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 55[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-poller.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 91[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 536[2mms[22m[39m
+     [33m[2mâœ“[22m[39m does not present a queued command before the active presentation completes [33m 522[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/gorila-r2-avatar-3d.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 155[2mms[22m[39m
+ [32mâœ“[39m application/r2/r2-intelligence-orchestration.test.ts [2m([22m[2m68 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32mâœ“[39m infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.cursor.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 116[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-provider.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 69[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m8 passed[39m[22m[90m (8)[39m
+[2m      Tests [22m [1m[32m85 passed[39m[22m[90m (85)[39m
+[2m   Start at [22m 23:27:29
+[2m   Duration [22m 11.79s[2m (transform 624ms, setup 6.02s, import 1.29s, tests 1.06s, environment 17.03s)[22m
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ GIT DIFF CHECK
+============================================================
+COMMAND=git diff --check
+----- STDOUT -----
+----- STDERR -----
+warning: in the working copy of 'web/app/opportunities/new/actions.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/app/opportunities/new/actions.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/application/dashboard/get-async-dashboard-data.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/application/opportunity/create-opportunity-async.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/application/opportunity/create-opportunity-async.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/gorila-r2-3d.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2-controller.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2-scene.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2/r2-dashboard-avatar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2/real/r2-life-controller.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2/real/r2-real-model.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/dashboard-content.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/dashboard-header.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/dashboard-shell.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/infrastructure/prisma/mappers/commercial-event-mapper.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/lib/commercial-event-presenter.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/lib/commercial-event-presenter.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/prisma/schema.prisma', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/repositories/commercial/async-commercial-repositories.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/repositories/commercial/commercial-repository.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/types/dashboard.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/types/domain/commercial-event.ts', LF will be replaced by CRLF the next time Git touches it
+EXIT_CODE=0
+
+============================================================
+ FINAL INTEGRITY
+============================================================
+HEAD_UNCHANGED=True
+STAGED_FILE_COUNT_FINAL=0
+GLB_UNCHANGED=True
+SCHEMA_UNCHANGED=True
+MIGRATION_UNCHANGED=True
+GENERATED_CLIENT_HASH_FINAL=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+GENERATED_CLIENT_UNCHANGED=True
+
+============================================================
+ FINAL RESULT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-persistent-dashboard-consumption-v2-backup-f8aebe95033f45eca3472e91f299c5b4
+BACKUP_COMPLETE=True
+SOURCE_WRITE_STARTED=True
+ROLLBACK_PERFORMED=False
+ROLLBACK_COMPLETE=False
+DATABASE_WRITE=False
+PRISMA_GENERATE=False
+MIGRATION_DEPLOY=False
+GENERATED_CLIENT_HASH_BEFORE=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+GENERATED_CLIENT_HASH_FINAL=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+ERROR=
+ROLLBACK_ERROR=
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+VEREDITO=APROVADO_R2_PERSISTENT_DASHBOARD_CONSUMPTION_V2
+NEXT_STEP=VALIDAR_REACAO_VISUAL_COM_CRIACAO_REAL_DE_OPORTUNIDADE
+NODE_OPTIONS_RESTORED=True

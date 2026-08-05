@@ -1,0 +1,10 @@
+R2_CELEBRATION_TEST_OK
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v15-celebration-test.blend
+bones=51
+source=v13-weights-refined
+clavicles=raised
+upper_arms=100_degrees
+elbows=28_degrees
+chest_extension=4_degrees
+head_up=7_degrees
+status=celebration_range_test

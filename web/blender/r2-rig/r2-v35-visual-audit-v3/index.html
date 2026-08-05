@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R2 v35 - Auditoria Visual Read-Only v3</title>
+<style>
+:root { color-scheme: dark; font-family: Inter,Segoe UI,Arial,sans-serif; }
+body { margin:0; background:#07100d; color:#f3f7f5; }
+main { max-width:1800px; margin:auto; padding:24px; }
+h1 { margin:0 0 8px; }
+.notice { border:1px solid #426957; background:#0d1b15; padding:14px 16px; border-radius:12px; margin:18px 0 26px; }
+.grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+article { border:1px solid #315443; background:#0c1712; padding:14px; border-radius:14px; }
+article h2 { margin:0 0 6px; }
+article p { margin:0 0 12px; color:#bad0c5; }
+img { display:block; width:100%; height:auto; border-radius:10px; background:#000; }
+table { width:100%; border-collapse:collapse; margin-top:24px; background:#0c1712; }
+th,td { text-align:left; padding:10px; border:1px solid #315443; }
+@media (max-width:900px) { .grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body><main>
+<h1>R2 v35 - Auditoria Visual Read-Only v3</h1>
+<div class="notice">
+<strong>Objetivo:</strong> validar o v35 sem alterar ou salvar qualquer blend. As comparacoes usam corpo inteiro e as imagens semanticas usam cores totalmente opacas.
+<br><strong>Blender:</strong> 4.5.10 LTS
+<br><strong>SHA-256 v34:</strong> 329E852634EE77246ED1B4171FB0A56AC6A06A3007CD6165599C4D25F0371D9F
+<br><strong>SHA-256 v35:</strong> 9BDAE28936686773708FCE9E8D6A3F0CDFECC7F5CA753D1EF65D0D6957F7909F
+</div>
+<h2>Comparacao de integridade</h2><div class="grid"><article><h2>Comparacao front</h2><p>v34 a esquerda | v35 a direita | corpo inteiro</p><a href="comparison-front-fullbody.png" target="_blank"><img src="comparison-front-fullbody.png" alt="Comparacao front"></a></article>
+<article><h2>Comparacao back</h2><p>v34 a esquerda | v35 a direita | corpo inteiro</p><a href="comparison-back-fullbody.png" target="_blank"><img src="comparison-back-fullbody.png" alt="Comparacao back"></a></article>
+<article><h2>Comparacao left</h2><p>v34 a esquerda | v35 a direita | corpo inteiro</p><a href="comparison-left-fullbody.png" target="_blank"><img src="comparison-left-fullbody.png" alt="Comparacao left"></a></article>
+<article><h2>Comparacao right</h2><p>v34 a esquerda | v35 a direita | corpo inteiro</p><a href="comparison-right-fullbody.png" target="_blank"><img src="comparison-right-fullbody.png" alt="Comparacao right"></a></article></div>
+<h2>Separacao semantica opaca</h2><div class="grid"><article><h2>Separacao front</h2><p>14 objetos | cores opacas | corpo inteiro</p><a href="semantic-front-opaque-fullbody.png" target="_blank"><img src="semantic-front-opaque-fullbody.png" alt="Separacao front"></a></article>
+<article><h2>Separacao back</h2><p>14 objetos | cores opacas | corpo inteiro</p><a href="semantic-back-opaque-fullbody.png" target="_blank"><img src="semantic-back-opaque-fullbody.png" alt="Separacao back"></a></article>
+<article><h2>Separacao left</h2><p>14 objetos | cores opacas | corpo inteiro</p><a href="semantic-left-opaque-fullbody.png" target="_blank"><img src="semantic-left-opaque-fullbody.png" alt="Separacao left"></a></article>
+<article><h2>Separacao right</h2><p>14 objetos | cores opacas | corpo inteiro</p><a href="semantic-right-opaque-fullbody.png" target="_blank"><img src="semantic-right-opaque-fullbody.png" alt="Separacao right"></a></article></div>
+<h2>Inventario do v35</h2>
+<table><thead><tr><th>Objeto</th><th>Vertices</th><th>Arestas</th><th>Faces</th></tr></thead><tbody><tr><td>R2_Arm_Fur_R</td><td>137</td><td>354</td><td>218</td></tr>
+<tr><td>R2_Hand_L</td><td>9586</td><td>27603</td><td>17980</td></tr>
+<tr><td>R2_Hand_R</td><td>10588</td><td>30467</td><td>19837</td></tr>
+<tr><td>R2_Head_Face</td><td>3697</td><td>10806</td><td>7086</td></tr>
+<tr><td>R2_Head_Fur</td><td>18673</td><td>53788</td><td>35015</td></tr>
+<tr><td>R2_Hood</td><td>18418</td><td>53562</td><td>35120</td></tr>
+<tr><td>R2_Hood_Cord_L</td><td>162</td><td>425</td><td>265</td></tr>
+<tr><td>R2_Hood_Cord_R</td><td>132</td><td>339</td><td>208</td></tr>
+<tr><td>R2_Hoodie_Sleeve_L</td><td>7290</td><td>21137</td><td>13841</td></tr>
+<tr><td>R2_Hoodie_Sleeve_R</td><td>14274</td><td>41548</td><td>27266</td></tr>
+<tr><td>R2_Hoodie_Torso</td><td>37815</td><td>110166</td><td>72344</td></tr>
+<tr><td>R2_Pants</td><td>54599</td><td>158981</td><td>104307</td></tr>
+<tr><td>R2_Shoe_L</td><td>11144</td><td>32577</td><td>21399</td></tr>
+<tr><td>R2_Shoe_R</td><td>10911</td><td>32014</td><td>21071</td></tr></tbody></table>
+</main></body></html>

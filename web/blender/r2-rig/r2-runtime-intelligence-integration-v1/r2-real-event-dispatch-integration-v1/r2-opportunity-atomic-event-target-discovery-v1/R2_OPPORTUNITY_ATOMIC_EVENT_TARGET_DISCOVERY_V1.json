@@ -1,0 +1,1317 @@
+{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-08-02T15:31:49.7749918-03:00",
+    "mode":  "READ_ONLY",
+    "architectureDecision":  "PERSISTED_EVENT_FIRST",
+    "git":  {
+                "head":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "stagedFileCount":  0
+            },
+    "approvedTransportDiscovery":  {
+                                       "exists":  true,
+                                       "sha256":  "2EBD7691DC78F4D47733E666B2A1EBD9B907BD489127030D6C1C82BEC602DA84",
+                                       "hashMatches":  true
+                                   },
+    "targets":  [
+                    {
+                        "path":  "types/domain/commercial-journey.ts",
+                        "exists":  true,
+                        "sha256":  "5133404851F703BEB70E6F6CB0C56FDA08D6CD4CBBD0F647D0B4903762F1E84A",
+                        "bytes":  2219,
+                        "lines":  95
+                    },
+                    {
+                        "path":  "types/domain/commercial-event.ts",
+                        "exists":  true,
+                        "sha256":  "1769E97025270FC3B48EF9E1FC49E7EB2A1699D0E5DBB667680802AE647DAB90",
+                        "bytes":  1335,
+                        "lines":  53
+                    },
+                    {
+                        "path":  "types/domain/index.ts",
+                        "exists":  true,
+                        "sha256":  "ABFC2A6B786CC9644881D91E399A4DFEDD00CA366504BB1A4C6D2A6C76635274",
+                        "bytes":  2517,
+                        "lines":  105
+                    },
+                    {
+                        "path":  "prisma/schema.prisma",
+                        "exists":  true,
+                        "sha256":  "A548E79BBE190060066B15866707C1715FD8FBC829F10395E894D22CF10A8F48",
+                        "bytes":  39408,
+                        "lines":  880
+                    },
+                    {
+                        "path":  "repositories/commercial/async-commercial-repositories.ts",
+                        "exists":  true,
+                        "sha256":  "818C824842C45F7674B9D206DA8758E36BAC96FBBDF7701CD906646EE4B7F5FE",
+                        "bytes":  5050,
+                        "lines":  216
+                    },
+                    {
+                        "path":  "repositories/commercial/commercial-repository.ts",
+                        "exists":  true,
+                        "sha256":  "6DA56D624594995C5BEBEC1912A9163FF38C8C7D4C1756FB26EC154082215758",
+                        "bytes":  2549,
+                        "lines":  110
+                    },
+                    {
+                        "path":  "infrastructure/prisma/mappers/commercial-journey-mapper.ts",
+                        "exists":  true,
+                        "sha256":  "2655F4E1964CB2D902863160C30FE1C81F9B02C7FE6DF3FDDE38CDF6E3DFDD1B",
+                        "bytes":  7605,
+                        "lines":  346
+                    },
+                    {
+                        "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                        "exists":  true,
+                        "sha256":  "3888280B926E7F5DC9824E6EEEC21B428BCBA60234A7FB06ABDF511B1F54537A",
+                        "bytes":  6015,
+                        "lines":  270
+                    },
+                    {
+                        "path":  "infrastructure/prisma/repositories/prisma-commercial-repositories.ts",
+                        "exists":  true,
+                        "sha256":  "6309C96EDE9DCCC03B765BE0FA7144A22BBEFA9A51C5E13073EF0B09B9DA823A",
+                        "bytes":  2663,
+                        "lines":  109
+                    },
+                    {
+                        "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.ts",
+                        "exists":  true,
+                        "sha256":  "C0D6F578A94F708B92B47AAAD95AC579139F00CA254832C19514AC27C7271E30",
+                        "bytes":  4673,
+                        "lines":  208
+                    },
+                    {
+                        "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts",
+                        "exists":  true,
+                        "sha256":  "4B372036BF61784B5734665F33DFF2D61B8D5D1CF52F1B0278187E9F6A2085BC",
+                        "bytes":  14956,
+                        "lines":  586
+                    },
+                    {
+                        "path":  "application/opportunity/create-opportunity-async.ts",
+                        "exists":  true,
+                        "sha256":  "AFDCFD5ACE091A8520D953725703299FD68F49A3B575CFFDEF79A42D7C41DFBA",
+                        "bytes":  5379,
+                        "lines":  266
+                    },
+                    {
+                        "path":  "application/opportunity/create-opportunity-async.test.ts",
+                        "exists":  true,
+                        "sha256":  "927046D5C4A8D402C2C962464AFEB9EA857DB2046D869A809734B25BDD2B7009",
+                        "bytes":  27563,
+                        "lines":  1291
+                    },
+                    {
+                        "path":  "app/opportunities/new/actions.ts",
+                        "exists":  true,
+                        "sha256":  "BE50480D5DB83310336F59D405D8489B7FF19C7EFBAEF3EAB735E2C405185D77",
+                        "bytes":  5570,
+                        "lines":  285
+                    },
+                    {
+                        "path":  "app/opportunities/new/actions.test.ts",
+                        "exists":  true,
+                        "sha256":  "3512D8B7388CFFC1E3B89051504ADC9BB11DDC75C8B700DA689749C342809E8B",
+                        "bytes":  13193,
+                        "lines":  626
+                    },
+                    {
+                        "path":  "application/r2/normalize-r2-event.ts",
+                        "exists":  true,
+                        "sha256":  "B6EBC6F331133E7E18D5BD448F256CF6C784EF023D745E085F655E9A69EC31ED",
+                        "bytes":  8126,
+                        "lines":  288
+                    },
+                    {
+                        "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                        "exists":  true,
+                        "sha256":  "B9545B1A53474A61E386618838DB0C850F7302A6F8AA42A172C9AA018BD8566B",
+                        "bytes":  16770,
+                        "lines":  378
+                    }
+                ],
+    "migrations":  [
+                       {
+                           "path":  "prisma/migrations/20260723231155_init_consorcio_os/migration.sql",
+                           "mentionsCommercialJourneys":  true,
+                           "mentionsLeadId":  true,
+                           "mentionsCommercialEventType":  true
+                       },
+                       {
+                           "path":  "prisma/migrations/20260726180000_support_client_originated_opportunities/migration.sql",
+                           "mentionsCommercialJourneys":  true,
+                           "mentionsLeadId":  true,
+                           "mentionsCommercialEventType":  false
+                       }
+                   ],
+    "metrics":  {
+                    "domainLeadLine":  "leadId: EntityId | null",
+                    "prismaLeadLine":  "leadId            String                    @map(\"lead_id\")",
+                    "domainLeadIdNullable":  true,
+                    "prismaLeadIdNullable":  false,
+                    "leadIdNullabilityMatch":  false,
+                    "asyncEventRepositoryPresent":  true,
+                    "asyncEventCreatePresent":  true,
+                    "prismaFactoryExposesEvents":  true,
+                    "eventRepositoryCreatePresent":  true,
+                    "transactionRepositoryPresent":  true,
+                    "transactionRepositoryUsesTransaction":  true,
+                    "transactionRepositoryCreatesJourney":  true,
+                    "transactionRepositoryCreatesEvent":  true,
+                    "migrationFileCount":  2,
+                    "missingTargetFileCount":  0,
+                    "stagedFileCount":  0
+                },
+    "patternResults":  {
+                           "$transaction":  [
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-action-repository.ts",
+                                                    "line":  208,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-journey-repository.ts",
+                                                    "line":  179,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                    "line":  200,
+                                                    "text":  "$transaction:"
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                    "line":  343,
+                                                    "text":  "$transaction:"
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                    "line":  438,
+                                                    "text":  "databaseMock.$transaction,"
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                    "line":  463,
+                                                    "text":  "databaseMock.$transaction,"
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                    "line":  488,
+                                                    "text":  "databaseMock.$transaction,"
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                    "line":  513,
+                                                    "text":  "databaseMock.$transaction,"
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts",
+                                                    "line":  128,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts",
+                                                    "line":  375,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-journey-phase-repository.ts",
+                                                    "line":  90,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-journey-state-repository.ts",
+                                                    "line":  95,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-next-best-action-repository.ts",
+                                                    "line":  261,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/commercial/prisma-workflow-rule-repository.ts",
+                                                    "line":  152,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-client-repository.ts",
+                                                    "line":  111,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-lead-repository.test.ts",
+                                                    "line":  50,
+                                                    "text":  "$transaction: ReturnType\u003ctypeof vi.fn\u003e"
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-lead-repository.test.ts",
+                                                    "line":  130,
+                                                    "text":  "$transaction: vi.fn("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-lead-repository.ts",
+                                                    "line":  86,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-meeting-repository.ts",
+                                                    "line":  76,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-meeting-repository.ts",
+                                                    "line":  102,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-proposal-repository.ts",
+                                                    "line":  76,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-proposal-repository.ts",
+                                                    "line":  102,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-sale-repository.ts",
+                                                    "line":  74,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-sale-repository.ts",
+                                                    "line":  100,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-task-repository.ts",
+                                                    "line":  79,
+                                                    "text":  "return this.database.$transaction("
+                                                },
+                                                {
+                                                    "path":  "infrastructure/prisma/repositories/prisma-task-repository.ts",
+                                                    "line":  105,
+                                                    "text":  "return this.database.$transaction("
+                                                }
+                                            ],
+                           "PrismaCommercialTransactionRepository":  [
+                                                                         {
+                                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                                             "line":  169,
+                                                                             "text":  "PrismaCommercialTransactionRepository,"
+                                                                         },
+                                                                         {
+                                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                                             "line":  367,
+                                                                             "text":  "\"PrismaCommercialTransactionRepository\","
+                                                                         },
+                                                                         {
+                                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                                             "line":  379,
+                                                                             "text":  "PrismaCommercialTransactionRepository"
+                                                                         },
+                                                                         {
+                                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                                             "line":  397,
+                                                                             "text":  "new PrismaCommercialTransactionRepository("
+                                                                         },
+                                                                         {
+                                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                                             "line":  408,
+                                                                             "text":  "new PrismaCommercialTransactionRepository("
+                                                                         },
+                                                                         {
+                                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts",
+                                                                             "line":  61,
+                                                                             "text":  "export class PrismaCommercialTransactionRepository"
+                                                                         },
+                                                                         {
+                                                                             "path":  "infrastructure/prisma/repositories/prisma-commercial-repositories.ts",
+                                                                             "line":  26,
+                                                                             "text":  "PrismaCommercialTransactionRepository,"
+                                                                         },
+                                                                         {
+                                                                             "path":  "infrastructure/prisma/repositories/prisma-commercial-repositories.ts",
+                                                                             "line":  104,
+                                                                             "text":  "new PrismaCommercialTransactionRepository("
+                                                                         }
+                                                                     ],
+                           "createTransaction":  [
+                                                     {
+                                                         "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                         "line":  298,
+                                                         "text":  "function createTransactionMock(): TransactionMock {"
+                                                     },
+                                                     {
+                                                         "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                         "line":  340,
+                                                         "text":  "createTransactionMock()"
+                                                     }
+                                                 ],
+                           "transactionRepository":  [
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                             "line":  169,
+                                                             "text":  "PrismaCommercialTransactionRepository,"
+                                                         },
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                             "line":  367,
+                                                             "text":  "\"PrismaCommercialTransactionRepository\","
+                                                         },
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                             "line":  379,
+                                                             "text":  "PrismaCommercialTransactionRepository"
+                                                         },
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                             "line":  397,
+                                                             "text":  "new PrismaCommercialTransactionRepository("
+                                                         },
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                                             "line":  408,
+                                                             "text":  "new PrismaCommercialTransactionRepository("
+                                                         },
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts",
+                                                             "line":  7,
+                                                             "text":  "AsyncCommercialTransactionRepository,"
+                                                         },
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts",
+                                                             "line":  61,
+                                                             "text":  "export class PrismaCommercialTransactionRepository"
+                                                         },
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts",
+                                                             "line":  62,
+                                                             "text":  "implements AsyncCommercialTransactionRepository"
+                                                         },
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/prisma-commercial-repositories.ts",
+                                                             "line":  26,
+                                                             "text":  "PrismaCommercialTransactionRepository,"
+                                                         },
+                                                         {
+                                                             "path":  "infrastructure/prisma/repositories/prisma-commercial-repositories.ts",
+                                                             "line":  104,
+                                                             "text":  "new PrismaCommercialTransactionRepository("
+                                                         },
+                                                         {
+                                                             "path":  "repositories/commercial/async-commercial-repositories.ts",
+                                                             "line":  197,
+                                                             "text":  "export interface AsyncCommercialTransactionRepository {"
+                                                         },
+                                                         {
+                                                             "path":  "repositories/commercial/async-commercial-repositories.ts",
+                                                             "line":  215,
+                                                             "text":  "transactions: AsyncCommercialTransactionRepository"
+                                                         }
+                                                     ],
+                           "AsyncCommercialEventRepository":  [
+                                                                  {
+                                                                      "path":  "application/opportunity/get-opportunity-details-async.ts",
+                                                                      "line":  6,
+                                                                      "text":  "AsyncCommercialEventRepository,"
+                                                                  },
+                                                                  {
+                                                                      "path":  "application/opportunity/get-opportunity-details-async.ts",
+                                                                      "line":  59,
+                                                                      "text":  "AsyncCommercialEventRepository,"
+                                                                  },
+                                                                  {
+                                                                      "path":  "repositories/commercial/async-commercial-repositories.ts",
+                                                                      "line":  51,
+                                                                      "text":  "export interface AsyncCommercialEventRepository {"
+                                                                  },
+                                                                  {
+                                                                      "path":  "repositories/commercial/async-commercial-repositories.ts",
+                                                                      "line":  209,
+                                                                      "text":  "events: AsyncCommercialEventRepository"
+                                                                  }
+                                                              ],
+                           "events:":  [
+                                           {
+                                               "path":  "application/commercial/crm-synchronizer.test.ts",
+                                               "line":  151,
+                                               "text":  "commercialEvents: [],"
+                                           },
+                                           {
+                                               "path":  "application/decision/get-next-best-actions.test.ts",
+                                               "line":  93,
+                                               "text":  "events: [],"
+                                           },
+                                           {
+                                               "path":  "application/decision/refresh-next-best-actions.test.ts",
+                                               "line":  118,
+                                               "text":  "commercialEvents: [],"
+                                           },
+                                           {
+                                               "path":  "application/decision/run-commercial-decision-cycle.test.ts",
+                                               "line":  138,
+                                               "text":  "commercialEvents:"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-details-async.test.ts",
+                                               "line":  239,
+                                               "text":  "events: {"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-details-async.ts",
+                                               "line":  57,
+                                               "text":  "events:"
+                                           },
+                                           {
+                                               "path":  "application/sale/close-sale.test.ts",
+                                               "line":  72,
+                                               "text":  "commercialEvents: ["
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-commercial-repositories.ts",
+                                               "line":  67,
+                                               "text":  "events:"
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/async-commercial-repositories.ts",
+                                               "line":  209,
+                                               "text":  "events: AsyncCommercialEventRepository"
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-async-commercial-repositories.ts",
+                                               "line":  144,
+                                               "text":  "events: {"
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-commercial-repository.ts",
+                                               "line":  49,
+                                               "text":  "private readonly events: CommercialEvent[]"
+                                           },
+                                           {
+                                               "path":  "types/domain/index.ts",
+                                               "line":  101,
+                                               "text":  "commercialEvents: import(\"./commercial-event\").CommercialEvent[]"
+                                           }
+                                       ],
+                           ".events":  [
+                                           {
+                                               "path":  "application/commercial/commercial-event-service.ts",
+                                               "line":  84,
+                                               "text":  ".events"
+                                           },
+                                           {
+                                               "path":  "application/commercial/commercial-event-service.ts",
+                                               "line":  239,
+                                               "text":  ".events"
+                                           },
+                                           {
+                                               "path":  "application/decision/run-decision-engine.ts",
+                                               "line":  213,
+                                               "text":  "commercialRepository.events.findByJourneyId("
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-details-async.ts",
+                                               "line":  168,
+                                               "text":  "this.dependencies.events"
+                                           },
+                                           {
+                                               "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                               "line":  208,
+                                               "text":  "expect(Object.keys(runtimeMapping.events).sort()).toEqual([...R2_EVENT_TYPES].sort())"
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-async-commercial-repositories.ts",
+                                               "line":  42,
+                                               "text":  "[...(data.events ?? [])]"
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-async-commercial-repositories.ts",
+                                               "line":  146,
+                                               "text":  "return [...events]"
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-commercial-repository.ts",
+                                               "line":  70,
+                                               "text":  "this.events = ["
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-commercial-repository.ts",
+                                               "line":  189,
+                                               "text":  "this.events.some("
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-commercial-repository.ts",
+                                               "line":  229,
+                                               "text":  "this.events.push("
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-commercial-repository.ts",
+                                               "line":  268,
+                                               "text":  "return this.events.filter("
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-commercial-repository.ts",
+                                               "line":  279,
+                                               "text":  "this.events.some("
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-commercial-repository.ts",
+                                               "line":  311,
+                                               "text":  "this.events.push("
+                                           }
+                                       ],
+                           "commercialEvent.create":  [
+                                                          {
+                                                              "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.ts",
+                                                              "line":  145,
+                                                              "text":  "await this.database.commercialEvent.create({"
+                                                          }
+                                                      ],
+                           "OPPORTUNITY_CREATED":  [
+
+                                                   ],
+                           "opportunity.created":  [
+                                                       {
+                                                           "path":  "application/opportunity/get-opportunity-details-async.test.ts",
+                                                           "line":  580,
+                                                           "text":  "result.opportunity.createdAt,"
+                                                       },
+                                                       {
+                                                           "path":  "application/opportunity/get-opportunity-details-async.ts",
+                                                           "line":  247,
+                                                           "text":  "opportunity.createdAt,"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/r2-deterministic-intelligence.ts",
+                                                           "line":  67,
+                                                           "text":  "\"opportunity.created\": { state: \"working\", title: \"Oportunidade criada\", summary: \"Uma nova oportunidade entrou no fluxo comercial.\", rationale: \"A criaÃ§Ã£o confirmada inicia o acompanhamento operacional.\", durationMs: 4000, minimumDisplayMs: 900 },"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                           "line":  143,
+                                                           "text":  "[\"opportunity.created\", \"normal\", \"working\"],"
+                                                       },
+                                                       {
+                                                           "path":  "types/r2-intelligence-orchestration.ts",
+                                                           "line":  10,
+                                                           "text":  "\"client.created\", \"opportunity.created\", \"opportunity.updated\", \"opportunity.stage_changed\", \"opportunity.stagnant\", \"opportunity.at_risk\", \"opportunity.won\", \"opportunity.lost\", \"opportunity.note_added\","
+                                                       }
+                                                   ],
+                           "leadId:":  [
+                                           {
+                                               "path":  "application/client/create-client.test.ts",
+                                               "line":  129,
+                                               "text":  "leadId: undefined,"
+                                           },
+                                           {
+                                               "path":  "application/client/create-client.ts",
+                                               "line":  203,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/client/create-client-async.test.ts",
+                                               "line":  235,
+                                               "text":  "leadId: undefined,"
+                                           },
+                                           {
+                                               "path":  "application/client/create-client-async.ts",
+                                               "line":  189,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/client/get-client-opportunities-summary-async.test.ts",
+                                               "line":  26,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/client/update-client.test.ts",
+                                               "line":  889,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/client/update-client-async.test.ts",
+                                               "line":  37,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/client/update-client-async.test.ts",
+                                               "line":  168,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/commercial/crm-synchronizer.test.ts",
+                                               "line":  124,
+                                               "text":  "leadId: \"crm-sync-lead\","
+                                           },
+                                           {
+                                               "path":  "application/commercial/crm-synchronizer.test.ts",
+                                               "line":  619,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/commercial/crm-synchronizer.test.ts",
+                                               "line":  727,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/commercial/process-commercial-transition.test.ts",
+                                               "line":  56,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/dashboard/get-async-dashboard-data.test.ts",
+                                               "line":  205,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/dashboard/get-async-dashboard-data.test.ts",
+                                               "line":  280,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/dashboard/get-async-dashboard-data.test.ts",
+                                               "line":  496,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/dashboard/get-async-dashboard-data.test.ts",
+                                               "line":  693,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/dashboard/get-async-dashboard-data.test.ts",
+                                               "line":  711,
+                                               "text":  "leadId: \"lead-missing\","
+                                           },
+                                           {
+                                               "path":  "application/dashboard/mapper.test.ts",
+                                               "line":  58,
+                                               "text":  "leadId: \"lead-test\","
+                                           },
+                                           {
+                                               "path":  "application/dashboard/mapper.test.ts",
+                                               "line":  130,
+                                               "text":  "leadId: \"lead-test\","
+                                           },
+                                           {
+                                               "path":  "application/decision/get-next-best-actions.test.ts",
+                                               "line":  33,
+                                               "text":  "leadId: \"lead-test\","
+                                           },
+                                           {
+                                               "path":  "application/decision/get-next-best-actions.test.ts",
+                                               "line":  138,
+                                               "text":  "leadId: journey.leadId,"
+                                           },
+                                           {
+                                               "path":  "application/decision/get-next-best-actions.test.ts",
+                                               "line":  153,
+                                               "text":  "leadId: \"lead-first\","
+                                           },
+                                           {
+                                               "path":  "application/decision/get-next-best-actions.test.ts",
+                                               "line":  162,
+                                               "text":  "leadId: \"lead-second\","
+                                           },
+                                           {
+                                               "path":  "application/decision/get-next-best-actions.test.ts",
+                                               "line":  296,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/decision/get-next-best-actions.ts",
+                                               "line":  24,
+                                               "text":  "leadId: string | null"
+                                           },
+                                           {
+                                               "path":  "application/decision/get-next-best-actions.ts",
+                                               "line":  292,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/decision/get-next-best-actions.ts",
+                                               "line":  363,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/decision/refresh-next-best-actions.test.ts",
+                                               "line":  55,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.test.ts",
+                                               "line":  44,
+                                               "text":  "leadId: \"lead-2\","
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.test.ts",
+                                               "line":  144,
+                                               "text":  "leadId: \"lead-2\","
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.test.ts",
+                                               "line":  208,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.test.ts",
+                                               "line":  238,
+                                               "text":  "leadId: \"lead-4\","
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.test.ts",
+                                               "line":  267,
+                                               "text":  "leadId: \"lead-5\","
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.test.ts",
+                                               "line":  298,
+                                               "text":  "leadId: \"lead-2\","
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.test.ts",
+                                               "line":  330,
+                                               "text":  "leadId: \"lead-2\","
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.test.ts",
+                                               "line":  361,
+                                               "text":  "leadId: \"lead-2\","
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.ts",
+                                               "line":  22,
+                                               "text":  "leadId: string"
+                                           },
+                                           {
+                                               "path":  "application/lead/convert-lead.ts",
+                                               "line":  556,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/create-lead.test.ts",
+                                               "line":  85,
+                                               "text":  "leadId: \"lead-created-1\","
+                                           },
+                                           {
+                                               "path":  "application/lead/create-lead.ts",
+                                               "line":  454,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/get-lead.test.ts",
+                                               "line":  38,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/get-lead.test.ts",
+                                               "line":  66,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/get-lead.test.ts",
+                                               "line":  92,
+                                               "text":  "leadId: \"\","
+                                           },
+                                           {
+                                               "path":  "application/lead/get-lead.test.ts",
+                                               "line":  114,
+                                               "text":  "leadId: \"   \","
+                                           },
+                                           {
+                                               "path":  "application/lead/get-lead.test.ts",
+                                               "line":  136,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/get-lead.ts",
+                                               "line":  6,
+                                               "text":  "leadId: string"
+                                           },
+                                           {
+                                               "path":  "application/lead/qualify-lead.test.ts",
+                                               "line":  60,
+                                               "text":  "leadId: lead.id,"
+                                           },
+                                           {
+                                               "path":  "application/lead/qualify-lead.test.ts",
+                                               "line":  119,
+                                               "text":  "leadId: lead.id,"
+                                           },
+                                           {
+                                               "path":  "application/lead/qualify-lead.test.ts",
+                                               "line":  174,
+                                               "text":  "leadId: lead.id,"
+                                           },
+                                           {
+                                               "path":  "application/lead/qualify-lead.test.ts",
+                                               "line":  203,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/qualify-lead.test.ts",
+                                               "line":  230,
+                                               "text":  "leadId: lead.id,"
+                                           },
+                                           {
+                                               "path":  "application/lead/qualify-lead.test.ts",
+                                               "line":  261,
+                                               "text":  "leadId: lead.id,"
+                                           },
+                                           {
+                                               "path":  "application/lead/qualify-lead.test.ts",
+                                               "line":  298,
+                                               "text":  "leadId: lead.id,"
+                                           },
+                                           {
+                                               "path":  "application/lead/qualify-lead.ts",
+                                               "line":  10,
+                                               "text":  "leadId: string"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  137,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  232,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  281,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  339,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  383,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  425,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  448,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  465,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  491,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  520,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  549,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  578,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  607,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  636,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  686,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  736,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  789,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.test.ts",
+                                               "line":  859,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/lead/update-lead.ts",
+                                               "line":  12,
+                                               "text":  "leadId: string"
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  39,
+                                               "text":  "leadId: \"lead-2\","
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  152,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  227,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  258,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  288,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  318,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  348,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  378,
+                                               "text":  "leadId: \"lead-3\","
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  408,
+                                               "text":  "leadId: \"lead-6\","
+                                           },
+                                           {
+                                               "path":  "application/meeting/schedule-meeting.test.ts",
+                                               "line":  438,
+                                               "text":  "leadId: \"lead-2\","
+                                           },
+                                           {
+                                               "path":  "application/opportunity/create-opportunity-async.test.ts",
+                                               "line":  269,
+                                               "text":  "findByLeadId:"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/create-opportunity-async.test.ts",
+                                               "line":  375,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/create-opportunity-async.ts",
+                                               "line":  229,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-async.test.ts",
+                                               "line":  27,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-async.test.ts",
+                                               "line":  62,
+                                               "text":  "findByLeadId:"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-details-async.test.ts",
+                                               "line":  45,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-details-async.test.ts",
+                                               "line":  232,
+                                               "text":  "findByLeadId:"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-details-async.test.ts",
+                                               "line":  276,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-details-async.test.ts",
+                                               "line":  468,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/opportunity/get-opportunity-details-async.ts",
+                                               "line":  133,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/list-opportunities-async.test.ts",
+                                               "line":  28,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/list-opportunities-async.test.ts",
+                                               "line":  80,
+                                               "text":  "findByLeadId:"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/list-opportunities-async.test.ts",
+                                               "line":  493,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/opportunity/update-opportunity-async.test.ts",
+                                               "line":  34,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/update-opportunity-async.test.ts",
+                                               "line":  129,
+                                               "text":  "findByLeadId:"
+                                           },
+                                           {
+                                               "path":  "application/opportunity/update-opportunity-async.test.ts",
+                                               "line":  354,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "application/use-cases/lead/receive-lead-reply.test.ts",
+                                               "line":  53,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/use-cases/meeting/complete-meeting.test.ts",
+                                               "line":  53,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/use-cases/meeting/schedule-meeting.test.ts",
+                                               "line":  53,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/use-cases/proposal/accept-proposal.test.ts",
+                                               "line":  53,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/use-cases/proposal/send-proposal.test.ts",
+                                               "line":  54,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "application/use-cases/proposal/send-proposal.test.ts",
+                                               "line":  117,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/client-mapper.ts",
+                                               "line":  109,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/commercial-journey-mapper.ts",
+                                               "line":  170,
+                                               "text":  "leadId: string | null,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/commercial-journey-mapper.ts",
+                                               "line":  197,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/commercial-journey-mapper.ts",
+                                               "line":  275,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/meeting-mapper.ts",
+                                               "line":  139,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/meeting-mapper.ts",
+                                               "line":  188,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/proposal-mapper.test.ts",
+                                               "line":  40,
+                                               "text":  "leadId: undefined,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/proposal-mapper.test.ts",
+                                               "line":  69,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/proposal-mapper.test.ts",
+                                               "line":  128,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/proposal-mapper.test.ts",
+                                               "line":  167,
+                                               "text":  "leadId: null,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/proposal-mapper.test.ts",
+                                               "line":  211,
+                                               "text":  "leadId: undefined,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/proposal-mapper.test.ts",
+                                               "line":  329,
+                                               "text":  "leadId: \"lead-1\","
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/proposal-mapper.ts",
+                                               "line":  56,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/proposal-mapper.ts",
+                                               "line":  107,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/task-mapper.ts",
+                                               "line":  113,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/mappers/task-mapper.ts",
+                                               "line":  156,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-journey-repository.ts",
+                                               "line":  78,
+                                               "text":  "leadId: string,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                               "line":  41,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts",
+                                               "line":  213,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-client-repository.ts",
+                                               "line":  209,
+                                               "text":  "leadId: string | undefined,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-lead-repository.ts",
+                                               "line":  46,
+                                               "text":  "leadId: string,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-lead-repository.ts",
+                                               "line":  124,
+                                               "text":  "leadId: string,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-meeting-repository.ts",
+                                               "line":  178,
+                                               "text":  "leadId: meeting.leadId,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-meeting-repository.ts",
+                                               "line":  230,
+                                               "text":  "leadId: string | undefined"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-proposal-repository.ts",
+                                               "line":  172,
+                                               "text":  "leadId: proposal.leadId,"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-proposal-repository.ts",
+                                               "line":  199,
+                                               "text":  "leadId: string | undefined"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-task-repository.ts",
+                                               "line":  181,
+                                               "text":  "leadId:"
+                                           },
+                                           {
+                                               "path":  "infrastructure/prisma/repositories/prisma-task-repository.ts",
+                                               "line":  241,
+                                               "text":  "leadId: string | undefined"
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/async-commercial-repositories.ts",
+                                               "line":  27,
+                                               "text":  "leadId: string,"
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-async-commercial-repositories.ts",
+                                               "line":  75,
+                                               "text":  "leadId: string,"
+                                           },
+                                           {
+                                               "path":  "repositories/commercial/mock-commercial-repository.test.ts",
+                                               "line":  35,
+                                               "text":  "leadId: \"lead-test\","
+                                           },
+                                           {
+                                               "path":  "repositories/crm/crm-repository.ts",
+                                               "line":  16,
+                                               "text":  "leadId: string,"
+                                           },
+                                           {
+                                               "path":  "repositories/crm/mock-crm-repository.ts",
+                                               "line":  86,
+                                               "text":  "leadId: string,"
+                                           },
+                                           {
+                                               "path":  "types/domain/commercial-journey.ts",
+                                               "line":  42,
+                                               "text":  "leadId: EntityId | null"
+                                           },
+                                           {
+                                               "path":  "types/opportunity-details.ts",
+                                               "line":  55,
+                                               "text":  "leadId: EntityId"
+                                           },
+                                           {
+                                               "path":  "types/opportunity-details.ts",
+                                               "line":  60,
+                                               "text":  "leadId: null"
+                                           }
+                                       ],
+                           "leadId String":  [
+
+                                             ]
+                       },
+    "verdict":  "BLOQUEADO_POR_DIVERGENCIA_DE_NULLABILITY_LEAD_ID"
+}

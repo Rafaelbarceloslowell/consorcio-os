@@ -1,0 +1,63 @@
+{
+  "audit_kind": "INDEPENDENT_READ_ONLY_FEASIBILITY_AUDIT",
+  "blend_saved": false,
+  "blocker_confirmed": true,
+  "candidate_created": false,
+  "execution_status": "COMPLETED",
+  "gate_evidence": {
+    "approved_preparation_requires_landmark_certificates": true,
+    "automatic_symmetry_authorized": false,
+    "certified_eye_assets_present": false,
+    "certified_oral_assets_present": false,
+    "drivers_present": false,
+    "facial_bones_present": false,
+    "facial_vertex_groups_present": false,
+    "shape_keys_present": false
+  },
+  "images_created": 0,
+  "mandatory_channels_blocked": [
+    "BLINK_LEFT",
+    "BLINK_RIGHT",
+    "BLINK_BOTH",
+    "BROW_RAISE",
+    "BROW_FROWN",
+    "CHEEK_RAISE",
+    "SMILE",
+    "FROWN",
+    "JAW_OPEN",
+    "LIPS_CLOSED",
+    "MOUTH_NARROW",
+    "MOUTH_WIDE",
+    "MOUTH_O",
+    "MOUTH_E"
+  ],
+  "missing_prerequisites": [
+    "certified bilateral ocular centers and eye surfaces",
+    "certified upper/lower eyelid loops and ownership",
+    "certified jaw hinge, chin, oral boundary, and mouth-interior ownership",
+    "certified upper/lower lip loops and mouth corners",
+    "certified bilateral brow, cheek, muzzle, and ear deformation ownership",
+    "approved neutral landmark map and regression signature for facial shape keys"
+  ],
+  "official_source_unchanged": true,
+  "phase": "HEAD_RIGGING_AND_EXPRESSION_SYSTEM",
+  "publication_authorized": false,
+  "recoverable": false,
+  "safe_conclusion": "Required semantic information cannot be determined from the approved preparation specification or actual blend. Implementing the mandatory facial rig would require guessed anatomical ownership and, for eye/oral behavior, missing assets or topology work outside this phase.",
+  "scene_counts": {
+    "armatures": 1,
+    "drivers": 0,
+    "eye_objects": 0,
+    "facial_bones": 0,
+    "facial_vertex_groups": 0,
+    "meshes": 15,
+    "objects": 16,
+    "oral_objects": 0,
+    "shape_keys": 0
+  },
+  "schema_version": 1,
+  "source_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-consolidated-rig-ready-v1\\r2-head-consolidated-rig-ready-v1.blend",
+  "source_sha256_after": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "source_sha256_before": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "technical_verdict": "REPROVADO"
+}

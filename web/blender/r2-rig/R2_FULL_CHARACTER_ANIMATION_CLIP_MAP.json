@@ -1,0 +1,96 @@
+{
+  "clips": [
+    {
+      "duration_frames": 30,
+      "duration_seconds": 1.0,
+      "first_last_continuity": true,
+      "loop": true,
+      "name": "R2_NEUTRAL",
+      "root_motion": "NONE",
+      "scale_animation": "NONE",
+      "state": "neutral"
+    },
+    {
+      "duration_frames": 120,
+      "duration_seconds": 4.0,
+      "first_last_continuity": true,
+      "loop": true,
+      "name": "R2_IDLE",
+      "root_motion": "NONE",
+      "scale_animation": "NONE",
+      "state": "idle"
+    },
+    {
+      "duration_frames": 72,
+      "duration_seconds": 2.4,
+      "first_last_continuity": true,
+      "loop": true,
+      "name": "R2_WORKING",
+      "root_motion": "NONE",
+      "scale_animation": "NONE",
+      "state": "working"
+    },
+    {
+      "duration_frames": 90,
+      "duration_seconds": 3.0,
+      "first_last_continuity": true,
+      "loop": true,
+      "name": "R2_LISTENING",
+      "root_motion": "NONE",
+      "scale_animation": "NONE",
+      "state": "listening"
+    },
+    {
+      "duration_frames": 90,
+      "duration_seconds": 3.0,
+      "first_last_continuity": true,
+      "loop": true,
+      "name": "R2_THINKING",
+      "root_motion": "NONE",
+      "scale_animation": "NONE",
+      "state": "thinking"
+    },
+    {
+      "duration_frames": 75,
+      "duration_seconds": 2.5,
+      "first_last_continuity": true,
+      "loop": true,
+      "name": "R2_AWAITING_ACTION",
+      "root_motion": "NONE",
+      "scale_animation": "NONE",
+      "state": "awaiting_action"
+    },
+    {
+      "duration_frames": 36,
+      "duration_seconds": 1.2,
+      "first_last_continuity": true,
+      "loop": true,
+      "name": "R2_ALERT",
+      "root_motion": "NONE",
+      "scale_animation": "NONE",
+      "state": "alert"
+    },
+    {
+      "duration_frames": 72,
+      "duration_seconds": 2.4,
+      "first_last_continuity": true,
+      "loop": true,
+      "name": "R2_CELEBRATING_SALE",
+      "root_motion": "NONE",
+      "scale_animation": "NONE",
+      "state": "celebrating_sale"
+    },
+    {
+      "duration_frames": 60,
+      "duration_seconds": 2.0,
+      "first_last_continuity": true,
+      "loop": true,
+      "name": "R2_ERROR_ATTENTION",
+      "root_motion": "NONE",
+      "scale_animation": "NONE",
+      "state": "error_attention"
+    }
+  ],
+  "fps": 30,
+  "schema_version": 1
+}

@@ -1,0 +1,16 @@
+R2_BONES_ALIGNED_OK
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v4-aligned.blend
+bones=51
+body_unchanged=true
+weights_applied=false
+status=bones_aligned
+
+adjusted=spine
+adjusted=head
+adjusted=shoulders
+adjusted=elbows
+adjusted=wrists
+adjusted=fingers
+adjusted=knees
+adjusted=ankles
+adjusted=feet

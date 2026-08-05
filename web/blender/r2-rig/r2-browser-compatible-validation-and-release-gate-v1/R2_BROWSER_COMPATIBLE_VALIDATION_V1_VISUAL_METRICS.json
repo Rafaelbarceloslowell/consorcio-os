@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "metrics": [
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "width": 426,
+      "height": 360,
+      "meanLuminance": 24.92129831514517,
+      "luminanceVariance": 70.09455299439878,
+      "blackScreen": false,
+      "nonDarkPixelRatio": 0.9915753781950966,
+      "approximateForegroundBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 426,
+        "height": 360
+      },
+      "usefulHeightCoverage": 1,
+      "palettePixelCounts": {
+        "fur": 151712,
+        "hoodie": 4415,
+        "pants": 20647,
+        "boots": 150404
+      },
+      "paletteBandsPresent": true
+    },
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "width": 395,
+      "height": 360,
+      "meanLuminance": 25.566692526085646,
+      "luminanceVariance": 97.21122656350383,
+      "blackScreen": false,
+      "nonDarkPixelRatio": 0.9881223628691983,
+      "approximateForegroundBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 395,
+        "height": 360
+      },
+      "usefulHeightCoverage": 1,
+      "palettePixelCounts": {
+        "fur": 140054,
+        "hoodie": 5788,
+        "pants": 23176,
+        "boots": 138362
+      },
+      "paletteBandsPresent": true
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "width": 599,
+      "height": 320,
+      "meanLuminance": 24.666335940130505,
+      "luminanceVariance": 58.73583076509374,
+      "blackScreen": false,
+      "nonDarkPixelRatio": 0.9931552587646076,
+      "approximateForegroundBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 599,
+        "height": 320
+      },
+      "usefulHeightCoverage": 1,
+      "palettePixelCounts": {
+        "fur": 189986,
+        "hoodie": 4552,
+        "pants": 15236,
+        "boots": 188653
+      },
+      "paletteBandsPresent": true
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "width": 655,
+      "height": 320,
+      "meanLuminance": 24.242047936069092,
+      "luminanceVariance": 53.47825815284375,
+      "blackScreen": false,
+      "nonDarkPixelRatio": 0.9937404580152672,
+      "approximateForegroundBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 655,
+        "height": 320
+      },
+      "usefulHeightCoverage": 1,
+      "palettePixelCounts": {
+        "fur": 207906,
+        "hoodie": 4552,
+        "pants": 9621,
+        "boots": 206573
+      },
+      "paletteBandsPresent": true
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "width": 301,
+      "height": 288,
+      "meanLuminance": 25.297639996299036,
+      "luminanceVariance": 100.80133900568558,
+      "blackScreen": false,
+      "nonDarkPixelRatio": 0.9880260243632336,
+      "approximateForegroundBounds": {
+        "x": 0,
+        "y": 0,
+        "width": 301,
+        "height": 288
+      },
+      "usefulHeightCoverage": 1,
+      "palettePixelCounts": {
+        "fur": 85325,
+        "hoodie": 3673,
+        "pants": 7030,
+        "boots": 84282
+      },
+      "paletteBandsPresent": true
+    }
+  ],
+  "transitionFrameMeanAbsoluteDifference": 0.000517301338897583,
+  "movementDetected": false,
+  "blackScreens": 0,
+  "paletteBands": {
+    "fur": "#2D312E/#303431",
+    "hoodie": "#4F5C3A",
+    "pants": "#363A3E",
+    "boots": "#141718"
+  }
+}

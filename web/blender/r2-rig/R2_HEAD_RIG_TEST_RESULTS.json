@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "phase": "HEAD_RIGGING_AND_EXPRESSION_SYSTEM",
+  "execution_status": "NOT_EXECUTED_NON_RECOVERABLE_BLOCKER",
+  "technical_verdict": "REPROVADO",
+  "source_identity_test": "PASS",
+  "read_only_discovery_test": "PASS",
+  "independent_feasibility_audit": "PASS_BLOCKER_CONFIRMED",
+  "candidate_created": false,
+  "candidate_runtime_tests_executed": false,
+  "expression_samples_executed": false,
+  "combined_pose_tests_executed": false,
+  "glb_round_trip_executed": false,
+  "neutral_existing_rest_pose_verified": true,
+  "mandatory_channels_supported": false,
+  "test_levels_not_executed": [0, 25, 50, 75, 100],
+  "reason_not_executed": "No anatomically certified expression target can be constructed. Running channel tests against no-op, guessed, or topologically unauthorized deformations would fabricate approval.",
+  "source_sha256_before": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "source_sha256_after": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "official_source_unchanged": true,
+  "previous_official_versions_unchanged": true,
+  "created_images": 0,
+  "failed_gates": [
+    "MANDATORY_FACIAL_SEMANTIC_OWNERSHIP",
+    "CERTIFIED_OCULAR_ASSETS",
+    "CERTIFIED_JAW_ORAL_LIP_LANDMARKS",
+    "CERTIFIED_BILATERAL_DEFORMATION_ZONES"
+  ]
+}

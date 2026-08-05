@@ -1,0 +1,380 @@
+{
+  "CreatedImages": 0,
+  "ExecutionStatus": "COMPLETED",
+  "ExternalDependencies": 0,
+  "FailedGates": "NONE",
+  "GLBParseErrors": [],
+  "MissingMaterials": 0,
+  "RenderableMeshesWithoutMaterial": 0,
+  "TechnicalVerdict": "APROVADO",
+  "animation_count": 9,
+  "animation_names": [
+    "R2_ALERT",
+    "R2_AWAITING_ACTION",
+    "R2_CELEBRATING_SALE",
+    "R2_ERROR_ATTENTION",
+    "R2_IDLE",
+    "R2_LISTENING",
+    "R2_NEUTRAL",
+    "R2_THINKING",
+    "R2_WORKING"
+  ],
+  "binary_chunk_bytes": 12755512,
+  "bone_count": 65,
+  "bounds": {
+    "maximum": [
+      0.5331111550331116,
+      1,
+      0.3060470521450043
+    ],
+    "minimum": [
+      -0.5331111550331116,
+      -1,
+      -0.30578985810279846
+    ]
+  },
+  "branding_material_assignments": {
+    "R2_Brand_LeftArm_GorillaMark_R2_Patch": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Brand_RightChest_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Brand_UpperBack_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ]
+  },
+  "branding_node_names": [
+    "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+    "R2_Brand_RightChest_GorillaMark",
+    "R2_Brand_UpperBack_GorillaMark"
+  ],
+  "candidate_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_color_v2_20260802_010409\\r2-full-character-color-readable-ready-v2.candidate.blend",
+  "candidate_blend_sha256": "2EEC504BFC6F3C0D0B1BF6B1EFA932445142DCB61527E94A64F9C4A3A5EE491D",
+  "duplicate_material_names": [],
+  "duplicate_node_names": [],
+  "export_settings": {
+    "check_existing": false,
+    "export_all_influences": false,
+    "export_anim_scene_split_object": false,
+    "export_anim_single_armature": true,
+    "export_animation_mode": "ACTIONS",
+    "export_animations": true,
+    "export_apply": false,
+    "export_cameras": false,
+    "export_def_bones": false,
+    "export_draco_mesh_compression_enable": false,
+    "export_extra_animations": false,
+    "export_extras": true,
+    "export_force_sampling": true,
+    "export_format": "GLB",
+    "export_frame_range": true,
+    "export_frame_step": 1,
+    "export_image_format": "NONE",
+    "export_lights": false,
+    "export_materials": "EXPORT",
+    "export_morph": true,
+    "export_morph_animation": false,
+    "export_morph_normal": false,
+    "export_morph_tangent": false,
+    "export_nla_strips": false,
+    "export_optimize_animation_size": false,
+    "export_sampling_interpolation_fallback": "LINEAR",
+    "export_skins": true,
+    "export_yup": true,
+    "use_mesh_edges": false,
+    "use_mesh_vertices": false,
+    "use_renderable": false,
+    "use_selection": true,
+    "use_visible": false
+  },
+  "external_dependencies": 0,
+  "external_uris": [],
+  "file_size_bytes": 13160568,
+  "glb_candidate_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_color_v2_20260802_010409\\r2-full-character-color-readable-ready-v2.candidate.glb",
+  "glb_sha256": "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE",
+  "image_count": 0,
+  "material_assignments": {
+    "R2_Arm_Fur_R": [
+      "R2_Mat_Fur_MidGraphite"
+    ],
+    "R2_Brand_LeftArm_GorillaMark_R2_Patch": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Brand_RightChest_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Brand_UpperBack_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Eye.L": [
+      "R2_Mat_EyeSclera",
+      "R2_Mat_IrisTechGreen",
+      "R2_Mat_Pupil"
+    ],
+    "R2_Eye.R": [
+      "R2_Mat_EyeSclera",
+      "R2_Mat_IrisTechGreen",
+      "R2_Mat_Pupil"
+    ],
+    "R2_Hand_L": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Hand_R": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Head_Face_Foundation": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Head_Fur": [
+      "R2_Mat_Fur_DarkGraphite"
+    ],
+    "R2_Hood": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_Hood_Cord_L": [
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "R2_Hood_Cord_R": [
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "R2_Hoodie_Sleeve_L": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_Hoodie_Sleeve_R": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_Hoodie_Torso": [
+      "R2_Mat_Hoodie_Black",
+      "R2_Mat_Pants_Charcoal"
+    ],
+    "R2_LipLower": [
+      "R2_Mat_Lip"
+    ],
+    "R2_LipUpper": [
+      "R2_Mat_Lip"
+    ],
+    "R2_LowerEyelid.L": [
+      "R2_Mat_Eyelid"
+    ],
+    "R2_LowerEyelid.R": [
+      "R2_Mat_Eyelid"
+    ],
+    "R2_MouthInterior": [
+      "R2_Mat_MouthInterior"
+    ],
+    "R2_Pants": [
+      "R2_Mat_Pants_Charcoal"
+    ],
+    "R2_Shoe_L": [
+      "R2_Mat_Shoes_Black"
+    ],
+    "R2_Shoe_R": [
+      "R2_Mat_Shoes_Black"
+    ],
+    "R2_TeethLower": [
+      "R2_Mat_Teeth"
+    ],
+    "R2_TeethUpper": [
+      "R2_Mat_Teeth"
+    ],
+    "R2_Tongue": [
+      "R2_Mat_Tongue"
+    ],
+    "R2_UpperEyelid.L": [
+      "R2_Mat_Eyelid"
+    ],
+    "R2_UpperEyelid.R": [
+      "R2_Mat_Eyelid"
+    ]
+  },
+  "material_count": 17,
+  "material_names": [
+    "R2_Mat_Fur_MidGraphite",
+    "R2_Mat_Embroidery_Gray",
+    "R2_Mat_Embroidery_White",
+    "R2_Mat_EyeSclera",
+    "R2_Mat_IrisTechGreen",
+    "R2_Mat_Pupil",
+    "R2_Mat_Skin_Anthracite",
+    "R2_Mat_Fur_DarkGraphite",
+    "R2_Mat_Hoodie_Black",
+    "R2_Mat_GorillaOS_Green",
+    "R2_Mat_Pants_Charcoal",
+    "R2_Mat_Lip",
+    "R2_Mat_Teeth",
+    "R2_Mat_Tongue",
+    "R2_Mat_Eyelid",
+    "R2_Mat_MouthInterior",
+    "R2_Mat_Shoes_Black"
+  ],
+  "mesh_count": 29,
+  "missing_materials": [],
+  "morph_target_count": 24,
+  "morph_target_names": [
+    "EXP_BLINK",
+    "EXP_BROW_FROWN",
+    "EXP_BROW_RAISE",
+    "EXP_CHEEK_RAISE",
+    "EXP_FROWN",
+    "EXP_LIPS_CLOSED",
+    "EXP_MOUTH_E",
+    "EXP_MOUTH_NARROW",
+    "EXP_MOUTH_O",
+    "EXP_MOUTH_WIDE",
+    "EXP_MUZZLE",
+    "EXP_SMILE",
+    "EXP_VISEME_FV",
+    "EXP_VISEME_L"
+  ],
+  "node_count": 100,
+  "node_names": [
+    "CTRL-face-eye.L",
+    "CTRL-face-eye.R",
+    "CTRL-face-jaw",
+    "CTRL-face-brow.L",
+    "CTRL-face-cheek.L",
+    "CTRL-face-mouth-corner.L",
+    "CTRL-face-brow.R",
+    "CTRL-face-cheek.R",
+    "CTRL-face-mouth-corner.R",
+    "CTRL-face-muzzle",
+    "CTRL-face-lip-upper",
+    "CTRL-face-lip-lower",
+    "CTRL-face-root",
+    "DEF-face-jaw",
+    "head",
+    "neck",
+    "thumb_02.L",
+    "thumb_01.L",
+    "index_03.L",
+    "index_02.L",
+    "index_01.L",
+    "middle_03.L",
+    "middle_02.L",
+    "middle_01.L",
+    "ring_03.L",
+    "ring_02.L",
+    "ring_01.L",
+    "pinky_03.L",
+    "pinky_02.L",
+    "pinky_01.L",
+    "hand.L",
+    "forearm.L",
+    "upper_arm.L",
+    "clavicle.L",
+    "thumb_02.R",
+    "thumb_01.R",
+    "index_03.R",
+    "index_02.R",
+    "index_01.R",
+    "middle_03.R",
+    "middle_02.R",
+    "middle_01.R",
+    "ring_03.R",
+    "ring_02.R",
+    "ring_01.R",
+    "pinky_03.R",
+    "pinky_02.R",
+    "pinky_01.R",
+    "hand.R",
+    "forearm.R",
+    "upper_arm.R",
+    "clavicle.R",
+    "chest",
+    "spine_02",
+    "spine_01",
+    "toe.L",
+    "foot.L",
+    "shin.L",
+    "thigh.L",
+    "toe.R",
+    "foot.R",
+    "shin.R",
+    "thigh.R",
+    "pelvis",
+    "root",
+    "R2_Arm_Fur_R",
+    "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+    "R2_Brand_RightChest_GorillaMark",
+    "R2_Brand_UpperBack_GorillaMark",
+    "R2_Eye.L",
+    "R2_EyePivot.L",
+    "R2_Eye.R",
+    "R2_EyePivot.R",
+    "R2_Hand_L",
+    "R2_Hand_R",
+    "R2_Head_Face_Foundation",
+    "R2_Head_Fur",
+    "R2_Hood",
+    "R2_Hood_Cord_L",
+    "R2_Hood_Cord_R",
+    "R2_Hoodie_Sleeve_L",
+    "R2_Hoodie_Sleeve_R",
+    "R2_Hoodie_Torso",
+    "R2_LipLower",
+    "R2_TeethLower",
+    "R2_Tongue",
+    "R2_JawDriver",
+    "R2_JawPivot.L",
+    "R2_JawPivot.R",
+    "R2_LipUpper",
+    "R2_LowerEyelid.L",
+    "R2_LowerEyelid.R",
+    "R2_MouthInterior",
+    "R2_Pants",
+    "R2_Shoe_L",
+    "R2_Shoe_R",
+    "R2_TeethUpper",
+    "R2_UpperEyelid.L",
+    "R2_UpperEyelid.R",
+    "R2_Rig"
+  ],
+  "primitive_count": 37,
+  "schema_version": 1,
+  "selected_objects": [
+    "R2_Brand_RightChest_GorillaMark",
+    "R2_Brand_UpperBack_GorillaMark",
+    "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+    "R2_Head_Fur",
+    "R2_Head_Face_Foundation",
+    "R2_Hood",
+    "R2_Hoodie_Torso",
+    "R2_Hoodie_Sleeve_L",
+    "R2_Hoodie_Sleeve_R",
+    "R2_Pants",
+    "R2_Hand_L",
+    "R2_Hand_R",
+    "R2_Arm_Fur_R",
+    "R2_Shoe_L",
+    "R2_Shoe_R",
+    "R2_Hood_Cord_L",
+    "R2_Hood_Cord_R",
+    "R2_Rig",
+    "R2_EyePivot.L",
+    "R2_Eye.L",
+    "R2_UpperEyelid.L",
+    "R2_LowerEyelid.L",
+    "R2_EyePivot.R",
+    "R2_Eye.R",
+    "R2_UpperEyelid.R",
+    "R2_LowerEyelid.R",
+    "R2_LipUpper",
+    "R2_LipLower",
+    "R2_MouthInterior",
+    "R2_TeethUpper",
+    "R2_TeethLower",
+    "R2_Tongue",
+    "R2_JawPivot.L",
+    "R2_JawPivot.R",
+    "R2_JawDriver"
+  ],
+  "skin_count": 1,
+  "texture_count": 0
+}

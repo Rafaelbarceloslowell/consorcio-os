@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R2 v36 - Diagnóstico Read-Only dos Candidatos V2</title>
+<style>
+:root {
+  color-scheme: dark;
+  font-family: Inter,Segoe UI,Arial,sans-serif;
+}
+body {
+  margin:0;
+  background:#07100d;
+  color:#f3f7f5;
+}
+main {
+  max-width:2200px;
+  margin:auto;
+  padding:24px;
+}
+.notice {
+  border:1px solid #426957;
+  background:#0d1b15;
+  padding:16px 18px;
+  border-radius:12px;
+  margin:18px 0 28px;
+  line-height:1.55;
+}
+.warning {
+  border-color:#806c36;
+  background:#211b0b;
+}
+section {
+  margin:30px 0 42px;
+}
+.comparison-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+article {
+  border:1px solid #315443;
+  background:#0c1712;
+  padding:12px;
+  border-radius:12px;
+}
+article h3 {
+  margin:0 0 10px;
+  font-size:16px;
+}
+img {
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:8px;
+  background:#111;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin:18px 0 32px;
+  font-size:14px;
+}
+th, td {
+  border:1px solid #315443;
+  padding:8px 10px;
+  text-align:left;
+  vertical-align:top;
+}
+th {
+  background:#102219;
+  position:sticky;
+  top:0;
+}
+a {
+  color:#9fe1be;
+}
+@media (max-width:1200px) {
+  .comparison-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media (max-width:700px) {
+  .comparison-grid {
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+<body><main>
+<h1>R2 v36 — Diagnóstico Read-Only dos Quatro Candidatos</h1>
+
+<div class="notice">
+<strong>Origem:</strong> v35 oficial, somente leitura.<br>
+<strong>Objetos comparados:</strong> fonte recortada, positivo reparado,
+negativo reparado e full remesh.<br>
+<strong>Rig/pesos:</strong> ausentes em todos os objetos renderizados.<br>
+<strong>Enquadramento:</strong> centralização individual e escala de câmera
+idêntica em todas as imagens.<br>
+<strong>Blends criados:</strong> 0.<br>
+<strong>Validação visual:</strong> pendente.
+</div>
+
+<div class="notice warning">
+As imagens não aprovam nenhum candidato automaticamente. Elas existem para
+separar três causas possíveis: geometria quebrada, deformação por pesos e
+erro de câmera. Aqui o rig e os pesos foram eliminados da equação.
+</div>
+
+<h2>Métricas técnicas</h2>
+<table>
+<thead>
+<tr>
+<th>Candidato</th>
+<th>Vértices</th>
+<th>Faces</th>
+<th>Abertas</th>
+<th>Não manifold</th>
+<th>Ilhas</th>
+<th>Fonte→candidato p95</th>
+<th>Candidato→fonte p95</th>
+<th>Simetria p95</th>
+<th>Erro de bbox</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Fonte recortada</td><td>19278</td><td>36304</td><td>2466</td><td>2466</td><td>17</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Positivo reparado</td><td>33882</td><td>34470</td><td>0</td><td>0</td><td>1</td><td>0.23197272792562598</td><td>0.042909201956606684</td><td>0.0003513834403536772</td><td>0.313068183497882</td></tr><tr><td>Negativo reparado</td><td>20521</td><td>20805</td><td>0</td><td>0</td><td>1</td><td>0.20451261114105515</td><td>0.006218058564805969</td><td>0.00032717752483603233</td><td>0.41064304145517516</td></tr><tr><td>Full remesh</td><td>83518</td><td>85392</td><td>0</td><td>0</td><td>1</td><td>0.003330439777193987</td><td>5.621374962808454e-05</td><td>0.027094430699935987</td><td>0.017451047676087905</td></tr>
+</tbody>
+</table>
+
+<section><h2>SOLID — FRONT</h2><div class="comparison-grid"><article><h3>Fonte recortada</h3><a href="solid-front-cropped-source.png" target="_blank"><img src="solid-front-cropped-source.png" alt="Fonte recortada solid front"></a></article><article><h3>Positivo reparado</h3><a href="solid-front-positive-repaired.png" target="_blank"><img src="solid-front-positive-repaired.png" alt="Positivo reparado solid front"></a></article><article><h3>Negativo reparado</h3><a href="solid-front-negative-repaired.png" target="_blank"><img src="solid-front-negative-repaired.png" alt="Negativo reparado solid front"></a></article><article><h3>Full remesh</h3><a href="solid-front-full-remesh.png" target="_blank"><img src="solid-front-full-remesh.png" alt="Full remesh solid front"></a></article></div></section><section><h2>SOLID — BACK</h2><div class="comparison-grid"><article><h3>Fonte recortada</h3><a href="solid-back-cropped-source.png" target="_blank"><img src="solid-back-cropped-source.png" alt="Fonte recortada solid back"></a></article><article><h3>Positivo reparado</h3><a href="solid-back-positive-repaired.png" target="_blank"><img src="solid-back-positive-repaired.png" alt="Positivo reparado solid back"></a></article><article><h3>Negativo reparado</h3><a href="solid-back-negative-repaired.png" target="_blank"><img src="solid-back-negative-repaired.png" alt="Negativo reparado solid back"></a></article><article><h3>Full remesh</h3><a href="solid-back-full-remesh.png" target="_blank"><img src="solid-back-full-remesh.png" alt="Full remesh solid back"></a></article></div></section><section><h2>SOLID — LEFT</h2><div class="comparison-grid"><article><h3>Fonte recortada</h3><a href="solid-left-cropped-source.png" target="_blank"><img src="solid-left-cropped-source.png" alt="Fonte recortada solid left"></a></article><article><h3>Positivo reparado</h3><a href="solid-left-positive-repaired.png" target="_blank"><img src="solid-left-positive-repaired.png" alt="Positivo reparado solid left"></a></article><article><h3>Negativo reparado</h3><a href="solid-left-negative-repaired.png" target="_blank"><img src="solid-left-negative-repaired.png" alt="Negativo reparado solid left"></a></article><article><h3>Full remesh</h3><a href="solid-left-full-remesh.png" target="_blank"><img src="solid-left-full-remesh.png" alt="Full remesh solid left"></a></article></div></section><section><h2>SOLID — RIGHT</h2><div class="comparison-grid"><article><h3>Fonte recortada</h3><a href="solid-right-cropped-source.png" target="_blank"><img src="solid-right-cropped-source.png" alt="Fonte recortada solid right"></a></article><article><h3>Positivo reparado</h3><a href="solid-right-positive-repaired.png" target="_blank"><img src="solid-right-positive-repaired.png" alt="Positivo reparado solid right"></a></article><article><h3>Negativo reparado</h3><a href="solid-right-negative-repaired.png" target="_blank"><img src="solid-right-negative-repaired.png" alt="Negativo reparado solid right"></a></article><article><h3>Full remesh</h3><a href="solid-right-full-remesh.png" target="_blank"><img src="solid-right-full-remesh.png" alt="Full remesh solid right"></a></article></div></section><section><h2>WIRE — FRONT</h2><div class="comparison-grid"><article><h3>Fonte recortada</h3><a href="wire-front-cropped-source.png" target="_blank"><img src="wire-front-cropped-source.png" alt="Fonte recortada wire front"></a></article><article><h3>Positivo reparado</h3><a href="wire-front-positive-repaired.png" target="_blank"><img src="wire-front-positive-repaired.png" alt="Positivo reparado wire front"></a></article><article><h3>Negativo reparado</h3><a href="wire-front-negative-repaired.png" target="_blank"><img src="wire-front-negative-repaired.png" alt="Negativo reparado wire front"></a></article><article><h3>Full remesh</h3><a href="wire-front-full-remesh.png" target="_blank"><img src="wire-front-full-remesh.png" alt="Full remesh wire front"></a></article></div></section><section><h2>WIRE — BACK</h2><div class="comparison-grid"><article><h3>Fonte recortada</h3><a href="wire-back-cropped-source.png" target="_blank"><img src="wire-back-cropped-source.png" alt="Fonte recortada wire back"></a></article><article><h3>Positivo reparado</h3><a href="wire-back-positive-repaired.png" target="_blank"><img src="wire-back-positive-repaired.png" alt="Positivo reparado wire back"></a></article><article><h3>Negativo reparado</h3><a href="wire-back-negative-repaired.png" target="_blank"><img src="wire-back-negative-repaired.png" alt="Negativo reparado wire back"></a></article><article><h3>Full remesh</h3><a href="wire-back-full-remesh.png" target="_blank"><img src="wire-back-full-remesh.png" alt="Full remesh wire back"></a></article></div></section><section><h2>WIRE — LEFT</h2><div class="comparison-grid"><article><h3>Fonte recortada</h3><a href="wire-left-cropped-source.png" target="_blank"><img src="wire-left-cropped-source.png" alt="Fonte recortada wire left"></a></article><article><h3>Positivo reparado</h3><a href="wire-left-positive-repaired.png" target="_blank"><img src="wire-left-positive-repaired.png" alt="Positivo reparado wire left"></a></article><article><h3>Negativo reparado</h3><a href="wire-left-negative-repaired.png" target="_blank"><img src="wire-left-negative-repaired.png" alt="Negativo reparado wire left"></a></article><article><h3>Full remesh</h3><a href="wire-left-full-remesh.png" target="_blank"><img src="wire-left-full-remesh.png" alt="Full remesh wire left"></a></article></div></section><section><h2>WIRE — RIGHT</h2><div class="comparison-grid"><article><h3>Fonte recortada</h3><a href="wire-right-cropped-source.png" target="_blank"><img src="wire-right-cropped-source.png" alt="Fonte recortada wire right"></a></article><article><h3>Positivo reparado</h3><a href="wire-right-positive-repaired.png" target="_blank"><img src="wire-right-positive-repaired.png" alt="Positivo reparado wire right"></a></article><article><h3>Negativo reparado</h3><a href="wire-right-negative-repaired.png" target="_blank"><img src="wire-right-negative-repaired.png" alt="Negativo reparado wire right"></a></article><article><h3>Full remesh</h3><a href="wire-right-full-remesh.png" target="_blank"><img src="wire-right-full-remesh.png" alt="Full remesh wire right"></a></article></div></section>
+
+<p>
+<a href="diagnostic-report.json" target="_blank">
+Abrir diagnostic-report.json
+</a>
+</p>
+</main></body></html>

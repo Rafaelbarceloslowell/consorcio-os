@@ -1,0 +1,59 @@
+{
+    "schemaVersion":  2,
+    "generatedAt":  "2026-08-02T15:38:28.8887598-03:00",
+    "mode":  "READ_ONLY",
+    "databaseInspectionMethod":  "PRISMA_DB_PULL_PRINT",
+    "git":  {
+                "head":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "stagedFileCount":  0
+            },
+    "baseline":  {
+                     "atomicReportExists":  true,
+                     "atomicReportSha256":  "3D067BC3540B07D89A42C7FAA7C608D99BE96BD29964CBC9039CC16DD31FF3A5",
+                     "atomicReportHashMatches":  true
+                 },
+    "prisma":  {
+                   "generatorProvider":  "prisma-client",
+                   "datasourceProvider":  "postgresql",
+                   "configPath":  "C:\\Projetos\\consorcio-os\\web\\prisma.config.ts",
+                   "configSha256":  "8F1C76D029CBE28460B90B2A026856A5AB5CCDF6F4F5E1FAE672BC23574C765C",
+                   "schemaSha256":  "A548E79BBE190060066B15866707C1715FD8FBC829F10395E894D22CF10A8F48",
+                   "schemaLeadIdNullable":  false,
+                   "validateExitCode":  0,
+                   "migrateStatusExitCode":  1,
+                   "dbPullPrintExitCode":  0
+               },
+    "domain":  {
+                   "leadLine":  "leadId: EntityId | null",
+                   "leadIdNullable":  true
+               },
+    "migrations":  {
+                       "count":  2,
+                       "definesLeadIdNotNull":  true,
+                       "makesLeadIdNullable":  true,
+                       "files":  [
+                                     {
+                                         "path":  "prisma/migrations/20260723231155_init_consorcio_os/migration.sql",
+                                         "sha256":  "A1CF1EA47480F891392EB0733BEB193CBC8D0B00D97527E66FB732340D043335",
+                                         "mentionsCommercialJourneys":  true,
+                                         "mentionsLeadId":  true,
+                                         "mentionsCommercialEventType":  true
+                                     },
+                                     {
+                                         "path":  "prisma/migrations/20260726180000_support_client_originated_opportunities/migration.sql",
+                                         "sha256":  "9E83401A2CDDFB9F7D999A306D21AB99004D06361069AD8704D3B3DC738E6DCA",
+                                         "mentionsCommercialJourneys":  true,
+                                         "mentionsLeadId":  true,
+                                         "mentionsCommercialEventType":  false
+                                     }
+                                 ]
+                   },
+    "database":  {
+                     "commercialJourneyModelFound":  true,
+                     "leadIdColumnFound":  true,
+                     "leadLine":  "leadId            String                    @map(\"lead_id\")",
+                     "leadIdNullable":  false
+                 },
+    "verdict":  "APROVADO_PARA_CORRIGIR_SCHEMA_E_CRIAR_MIGRACAO_NULLABLE",
+    "nextStep":  "GERAR_PACOTE_ATOMICO_DE_CORRECAO_LEAD_ID_NULLABLE"
+}

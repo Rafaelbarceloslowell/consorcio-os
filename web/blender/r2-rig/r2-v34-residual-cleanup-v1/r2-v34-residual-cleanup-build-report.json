@@ -1,0 +1,195 @@
+{
+  "generated_at_utc": "2026-07-30T00:57:26.929759+00:00",
+  "source": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-rig-v13-weights-refined.blend",
+  "source_sha256_before": "392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1",
+  "output_directory": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v34-residual-cleanup-v1",
+  "output_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v34-residual-cleanup-v1\\r2-rig-v34-residual-cleanup.blend",
+  "delete_component_ids": [
+    25,
+    40,
+    41,
+    43,
+    55,
+    56,
+    60,
+    71,
+    72,
+    83,
+    84,
+    88,
+    90,
+    92,
+    99,
+    101,
+    102
+  ],
+  "removed_component_count": 17,
+  "removed_vertices": 79,
+  "removed_edges": 112,
+  "removed_faces": 50,
+  "source_counts": {
+    "vertices": 197505,
+    "edges": 573879,
+    "faces": 376007,
+    "components": 110
+  },
+  "result_counts": {
+    "vertices": 197426,
+    "edges": 573767,
+    "faces": 375957,
+    "components": 93
+  },
+  "remaining_weight_fingerprint_before": "E00EF29BA8633924E85C6203B23E23794816AF15ADD526DBC1F98E78ECC1E66C",
+  "remaining_weight_fingerprint_after": "E00EF29BA8633924E85C6203B23E23794816AF15ADD526DBC1F98E78ECC1E66C",
+  "remaining_topology_fingerprint_before": "89505905680D8195760D7E368F30B4DCB59DE54CE1EA451DD5F3DD20388F09B1",
+  "remaining_topology_fingerprint_after": "89505905680D8195760D7E368F30B4DCB59DE54CE1EA451DD5F3DD20388F09B1",
+  "armature_fingerprint_before": "91D9F57BAB5D043C9260DEDBE221AFC3470312EA92A6E8AB2E1A4C30B6E63372",
+  "armature_fingerprint_after": "91D9F57BAB5D043C9260DEDBE221AFC3470312EA92A6E8AB2E1A4C30B6E63372",
+  "modifier_fingerprint_before": "318B4E9E92F169BA8648D58469D2CCAF41C469F3C73DC10182F709998FE700AC",
+  "modifier_fingerprint_after": "318B4E9E92F169BA8648D58469D2CCAF41C469F3C73DC10182F709998FE700AC",
+  "source_saved": false,
+  "semantic_manifest_applied": true,
+  "visual_validation_completed": false,
+  "removals": [
+    {
+      "component_id": 25,
+      "stable_key": "C025-V035147",
+      "semantic_name": "Triângulo residual solto na região da cabeça",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 40,
+      "stable_key": "C040-V051674",
+      "semantic_name": "Triângulo residual solto na cabeça",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 41,
+      "stable_key": "C041-V053474",
+      "semantic_name": "Triângulo residual solto no braço direito",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 43,
+      "stable_key": "C043-V055315",
+      "semantic_name": "Triângulo residual solto na cabeça",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 55,
+      "stable_key": "C055-V080937",
+      "semantic_name": "Fragmento residual oculto na costura interna da axila esquerda",
+      "vertex_count": 20,
+      "edge_count": 40,
+      "face_count": 21
+    },
+    {
+      "component_id": 56,
+      "stable_key": "C056-V082354",
+      "semantic_name": "Triângulo residual solto no tronco",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 60,
+      "stable_key": "C060-V090276",
+      "semantic_name": "Triângulo residual solto na perna direita",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 71,
+      "stable_key": "C071-V107569",
+      "semantic_name": "Triângulo residual solto no braço esquerdo",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 72,
+      "stable_key": "C072-V107930",
+      "semantic_name": "Triângulo residual solto no pé esquerdo",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 83,
+      "stable_key": "C083-V123842",
+      "semantic_name": "Fragmento residual do polegar esquerdo",
+      "vertex_count": 11,
+      "edge_count": 21,
+      "face_count": 11
+    },
+    {
+      "component_id": 84,
+      "stable_key": "C084-V126227",
+      "semantic_name": "Fragmento poligonal residual do polegar esquerdo",
+      "vertex_count": 5,
+      "edge_count": 7,
+      "face_count": 3
+    },
+    {
+      "component_id": 88,
+      "stable_key": "C088-V128680",
+      "semantic_name": "Triângulo residual do polegar esquerdo",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 90,
+      "stable_key": "C090-V133696",
+      "semantic_name": "Triângulo residual entre os dedos médio e indicador esquerdos",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 92,
+      "stable_key": "C092-V140831",
+      "semantic_name": "Triângulo residual solto no antebraço direito",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 99,
+      "stable_key": "C099-V148810",
+      "semantic_name": "Triângulo residual solto no indicador esquerdo",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    },
+    {
+      "component_id": 101,
+      "stable_key": "C101-V151564",
+      "semantic_name": "Fragmento plano residual na região da cabeça",
+      "vertex_count": 4,
+      "edge_count": 5,
+      "face_count": 2
+    },
+    {
+      "component_id": 102,
+      "stable_key": "C102-V161362",
+      "semantic_name": "Triângulo residual solto no antebraço esquerdo",
+      "vertex_count": 3,
+      "edge_count": 3,
+      "face_count": 1
+    }
+  ],
+  "source_sha256_after": "392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1",
+  "source_unchanged": true,
+  "output_blend_sha256": "329E852634EE77246ED1B4171FB0A56AC6A06A3007CD6165599C4D25F0371D9F",
+  "output_blend_size_bytes": 34477603
+}

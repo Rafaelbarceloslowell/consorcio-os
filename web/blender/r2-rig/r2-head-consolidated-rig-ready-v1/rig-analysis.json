@@ -1,0 +1,59 @@
+{
+  "blend_saved": false,
+  "blender_version": "4.5.10 LTS",
+  "bounds_local": {
+    "x": {
+      "max": 0.11104054749011993,
+      "median": 0.0399691928178072,
+      "min": -0.043171923607587814,
+      "p05": -0.026690810825675725,
+      "p95": 0.10263608060777188
+    },
+    "y": {
+      "max": -0.10961980372667313,
+      "median": -0.21659497916698456,
+      "min": -0.30559760332107544,
+      "p05": -0.29509949684143066,
+      "p95": -0.14319822937250137
+    },
+    "z": {
+      "max": 0.9505565762519836,
+      "median": 0.7683653831481934,
+      "min": 0.6516481637954712,
+      "p05": 0.6595176219940185,
+      "p95": 0.915432658791542
+    }
+  },
+  "centerline_tolerance": 0.0003855311777442694,
+  "centerline_vertex_count": 6,
+  "execution_status": "COMPLETED",
+  "existing_facial_bones": [],
+  "existing_head_chain": [
+    "root",
+    "pelvis",
+    "spine_01",
+    "spine_02",
+    "chest",
+    "neck",
+    "head"
+  ],
+  "failed_gates": [],
+  "foundation_mesh": "R2_Head_Face_Foundation_Mesh",
+  "foundation_object": "R2_Head_Face_Foundation",
+  "foundation_vertex_groups": [
+    "neck",
+    "head"
+  ],
+  "images_created": 0,
+  "materials": [],
+  "mirror_distance_median": 0.010320368688553572,
+  "mirror_distance_p95": 0.09803689830005168,
+  "mirror_match_count": 66,
+  "mirror_match_percent": 1.80623973727422,
+  "mirror_tolerance": 0.0003855311777442694,
+  "shape_keys": [],
+  "source_sha256": "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+  "technical_verdict": "APROVADO",
+  "uv_maps": [],
+  "v57_unchanged": true
+}

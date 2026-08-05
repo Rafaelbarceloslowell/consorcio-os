@@ -1,0 +1,254 @@
+{
+  "audit": "R2 v35 visual read-only v3",
+  "blender_version": "4.5.10 LTS",
+  "source_v34": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v34-residual-cleanup-v1\\r2-rig-v34-residual-cleanup.blend",
+  "source_v35": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v35-logical-separation-v1\\r2-rig-v35-logical-separation.blend",
+  "source_v34_sha256": "329E852634EE77246ED1B4171FB0A56AC6A06A3007CD6165599C4D25F0371D9F",
+  "source_v35_sha256": "9BDAE28936686773708FCE9E8D6A3F0CDFECC7F5CA753D1EF65D0D6957F7909F",
+  "blend_saved": false,
+  "source_unchanged": true,
+  "comparison_images": [
+    {
+      "file": "comparison-front-fullbody.png",
+      "sha256": "950E98DCF9A9E036B5A8363F306CB012264DAB8654759859BF1578D4CD6EDE67",
+      "width": 1600,
+      "height": 1000,
+      "view": "front",
+      "layout": "v34-left-v35-right"
+    },
+    {
+      "file": "comparison-back-fullbody.png",
+      "sha256": "7D98D979E8164398CD9436699982BE3901DE85648354A7E005FD472D72F9395B",
+      "width": 1600,
+      "height": 1000,
+      "view": "back",
+      "layout": "v34-left-v35-right"
+    },
+    {
+      "file": "comparison-left-fullbody.png",
+      "sha256": "57C0770C314DAC5F8DCBA3C80135714766832A0722111ECE8964D6067B395EB1",
+      "width": 1600,
+      "height": 1000,
+      "view": "left",
+      "layout": "v34-left-v35-right"
+    },
+    {
+      "file": "comparison-right-fullbody.png",
+      "sha256": "6DB19317935BFDF0533B8B8630E3FAD97BE2869D6D8FC204310C5DA34038FA87",
+      "width": 1600,
+      "height": 1000,
+      "view": "right",
+      "layout": "v34-left-v35-right"
+    }
+  ],
+  "semantic_images": [
+    {
+      "file": "semantic-front-opaque-fullbody.png",
+      "sha256": "958BE65F4F5B8BADF8F0143C65EC6C7EC5170D4CD6609978ED419E3164295348",
+      "width": 1200,
+      "height": 1200,
+      "view": "front",
+      "opacity": "opaque"
+    },
+    {
+      "file": "semantic-back-opaque-fullbody.png",
+      "sha256": "9060AA9FAEBE0EF47BA94B430CB510EB0A72B9D98F47DFFF2CD68E6AA530B279",
+      "width": 1200,
+      "height": 1200,
+      "view": "back",
+      "opacity": "opaque"
+    },
+    {
+      "file": "semantic-left-opaque-fullbody.png",
+      "sha256": "1B2FB2D837D3ACECF2A40C606CC70D3079539232DDB043BF2D59CCA0BCD95CC9",
+      "width": 1200,
+      "height": 1200,
+      "view": "left",
+      "opacity": "opaque"
+    },
+    {
+      "file": "semantic-right-opaque-fullbody.png",
+      "sha256": "3430E7BD891BBC2EEDE4F47955FFA0DD877A52BAF910CCABD8248CE4848E41A3",
+      "width": 1200,
+      "height": 1200,
+      "view": "right",
+      "opacity": "opaque"
+    }
+  ],
+  "inventory": [
+    {
+      "object": "R2_Arm_Fur_R",
+      "vertices": 137,
+      "edges": 354,
+      "faces": 218,
+      "color_rgba": [
+        0.44,
+        0.24,
+        0.18,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Hand_L",
+      "vertices": 9586,
+      "edges": 27603,
+      "faces": 17980,
+      "color_rgba": [
+        0.96,
+        0.72,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Hand_R",
+      "vertices": 10588,
+      "edges": 30467,
+      "faces": 19837,
+      "color_rgba": [
+        0.9,
+        0.48,
+        0.3,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Head_Face",
+      "vertices": 3697,
+      "edges": 10806,
+      "faces": 7086,
+      "color_rgba": [
+        0.95,
+        0.62,
+        0.38,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Head_Fur",
+      "vertices": 18673,
+      "edges": 53788,
+      "faces": 35015,
+      "color_rgba": [
+        0.24,
+        0.14,
+        0.1,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Hood",
+      "vertices": 18418,
+      "edges": 53562,
+      "faces": 35120,
+      "color_rgba": [
+        0.33,
+        0.63,
+        0.42,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Hood_Cord_L",
+      "vertices": 162,
+      "edges": 425,
+      "faces": 265,
+      "color_rgba": [
+        0.95,
+        0.82,
+        0.2,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Hood_Cord_R",
+      "vertices": 132,
+      "edges": 339,
+      "faces": 208,
+      "color_rgba": [
+        0.95,
+        0.5,
+        0.12,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Hoodie_Sleeve_L",
+      "vertices": 7290,
+      "edges": 21137,
+      "faces": 13841,
+      "color_rgba": [
+        0.2,
+        0.58,
+        0.7,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Hoodie_Sleeve_R",
+      "vertices": 14274,
+      "edges": 41548,
+      "faces": 27266,
+      "color_rgba": [
+        0.2,
+        0.38,
+        0.78,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Hoodie_Torso",
+      "vertices": 37815,
+      "edges": 110166,
+      "faces": 72344,
+      "color_rgba": [
+        0.18,
+        0.48,
+        0.28,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Pants",
+      "vertices": 54599,
+      "edges": 158981,
+      "faces": 104307,
+      "color_rgba": [
+        0.28,
+        0.32,
+        0.4,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Shoe_L",
+      "vertices": 11144,
+      "edges": 32577,
+      "faces": 21399,
+      "color_rgba": [
+        0.46,
+        0.27,
+        0.62,
+        1.0
+      ]
+    },
+    {
+      "object": "R2_Shoe_R",
+      "vertices": 10911,
+      "edges": 32014,
+      "faces": 21071,
+      "color_rgba": [
+        0.67,
+        0.32,
+        0.66,
+        1.0
+      ]
+    }
+  ],
+  "totals": {
+    "mesh_objects": 14,
+    "vertices": 197426,
+    "edges": 573767,
+    "faces": 375957
+  }
+}

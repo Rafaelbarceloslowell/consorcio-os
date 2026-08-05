@@ -1,0 +1,3039 @@
+
+============================================================
+ R2 SINGLE DISPATCH POINT CONTRACT DISCOVERY V1
+============================================================
+GENERATED_AT=2026-08-02T14:24:39-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+PHASE=R2_REAL_EVENT_DISPATCH_INTEGRATION_V1
+MODE=READ_ONLY_CONTRACT_DISCOVERY
+
+============================================================
+ GIT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+GIT_BRANCH=main
+STAGED_FILE_COUNT=0
+WORKTREE_ENTRY_COUNT=33
+
+============================================================
+ FULL CONTRACT FILES
+============================================================
+
+FILE=.\application\use-cases\common\commercial-event-use-case.ts
+EXISTS=True
+BYTES=9034
+SHA256=17C2AF84AF7E166AD23E2AF187EC201226172F0C19A1673F2D05AC40AC905EE5
+----------------------------------------
+   1: import type {
+   2:   ProcessCommercialTransitionInput,
+   3:   ProcessCommercialTransitionResult,
+   4: } from "@/application/commercial/process-commercial-transition"
+   5: 
+   6: import {
+   7:   processCommercialTransition,
+   8: } from "@/application/commercial/process-commercial-transition"
+   9: 
+  10: import type {
+  11:   RecordCommercialEventInput,
+  12: } from "@/application/commercial/commercial-event-service"
+  13: 
+  14: import {
+  15:   recordCommercialEvent,
+  16: } from "@/application/commercial/commercial-event-service"
+  17: 
+  18: import type {
+  19:   RunCommercialDecisionCycleLegacyInput,
+  20:   RunCommercialDecisionCycleResult,
+  21: } from "@/application/decision/run-commercial-decision-cycle"
+  22: 
+  23: import {
+  24:   runCommercialDecisionCycle,
+  25: } from "@/application/decision/run-commercial-decision-cycle"
+  26: 
+  27: import {
+  28:   normalizeOptionalId,
+  29:   resolveCommercialJourney,
+  30: } from "@/application/use-cases/common/commercial-use-case-validation"
+  31: 
+  32: import type {
+  33:   WorkflowTransitionOrigin,
+  34: } from "@/engine/decision/workflow/types"
+  35: 
+  36: import type {
+  37:   CommercialRepository,
+  38: } from "@/repositories/commercial/commercial-repository"
+  39: 
+  40: import type {
+  41:   CrmRepository,
+  42: } from "@/repositories/crm/crm-repository"
+  43: 
+  44: import type {
+  45:   DecisionAutomationRepository,
+  46: } from "@/repositories/decision/decision-automation-repository"
+  47: 
+  48: import type {
+  49:   CommercialActorType,
+  50:   CommercialEvent,
+  51:   CommercialEventType,
+  52:   CommercialJourney,
+  53: } from "@/types/domain"
+  54: 
+  55: export type CommercialEventUseCaseDependencies = {
+  56:   recordCommercialEvent: (
+  57:     input: RecordCommercialEventInput,
+  58: 
+  59:     dependencies: {
+  60:       commercialRepository:
+  61:         CommercialRepository
+  62: 
+  63:       now?: Date
+  64: 
+  65:       generateId?: () => string
+  66: 
+  67:       touchJourney?: boolean
+  68:     },
+  69:   ) => CommercialEvent
+  70: 
+  71:   processCommercialTransition: (
+  72:     input: ProcessCommercialTransitionInput,
+  73:   ) => ProcessCommercialTransitionResult
+  74: 
+  75:   runCommercialDecisionCycle: (
+  76:     input: RunCommercialDecisionCycleLegacyInput,
+  77:   ) => RunCommercialDecisionCycleResult
+  78: }
+  79: 
+  80: export type CommercialEventUseCaseMessages = {
+  81:   operationDescription: string
+  82: 
+  83:   eventRegistered: (
+  84:     event: CommercialEvent,
+  85:   ) => string
+  86: 
+  87:   journeyTransitioned: (
+  88:     journey: CommercialJourney,
+  89:   ) => string
+  90: 
+  91:   journeyNotTransitioned: (
+  92:     journey: CommercialJourney,
+  93:   ) => string
+  94: 
+  95:   journeyMissingAfterEvent: (
+  96:     journeyId: string,
+  97:   ) => string
+  98: 
+  99:   journeyMissingAfterProcessing: (
+ 100:     journeyId: string,
+ 101:   ) => string
+ 102: }
+ 103: 
+ 104: export type ExecuteCommercialEventUseCaseInput = {
+ 105:   commercialRepository:
+ 106:     CommercialRepository
+ 107: 
+ 108:   crmRepository:
+ 109:     CrmRepository
+ 110: 
+ 111:   decisionAutomationRepository:
+ 112:     DecisionAutomationRepository
+ 113: 
+ 114:   workspaceId: string
+ 115: 
+ 116:   journeyId: string
+ 117: 
+ 118:   eventType:
+ 119:     CommercialEventType
+ 120: 
+ 121:   actorType:
+ 122:     CommercialActorType
+ 123: 
+ 124:   actorId:
+ 125:     string | null
+ 126: 
+ 127:   targetStateId?: string
+ 128: 
+ 129:   origin?:
+ 130:     WorkflowTransitionOrigin
+ 131: 
+ 132:   payload?: Record<string, unknown>
+ 133: 
+ 134:   expectedVersion?: number
+ 135: 
+ 136:   now?: Date
+ 137: 
+ 138:   executionLimit?: number
+ 139: 
+ 140:   generateEventId?: () => string
+ 141: 
+ 142:   messages:
+ 143:     CommercialEventUseCaseMessages
+ 144: 
+ 145:   dependencies?:
+ 146:     Partial<CommercialEventUseCaseDependencies>
+ 147: }
+ 148: 
+ 149: export type ExecuteCommercialEventUseCaseResult = {
+ 150:   journeyId: string
+ 151: 
+ 152:   workspaceId: string
+ 153: 
+ 154:   journey:
+ 155:     CommercialJourney
+ 156: 
+ 157:   event:
+ 158:     CommercialEvent
+ 159: 
+ 160:   transition:
+ 161:     ProcessCommercialTransitionResult | null
+ 162: 
+ 163:   decisionCycle:
+ 164:     RunCommercialDecisionCycleResult
+ 165: 
+ 166:   transitioned: boolean
+ 167: 
+ 168:   diagnostics: string[]
+ 169: 
+ 170:   warnings: string[]
+ 171: }
+ 172: 
+ 173: const defaultDependencies:
+ 174:   CommercialEventUseCaseDependencies = {
+ 175:     recordCommercialEvent,
+ 176: 
+ 177:     processCommercialTransition,
+ 178: 
+ 179:     runCommercialDecisionCycle,
+ 180:   }
+ 181: 
+ 182: function resolveDependencies(
+ 183:   dependencies:
+ 184:     Partial<CommercialEventUseCaseDependencies> = {},
+ 185: ): CommercialEventUseCaseDependencies {
+ 186:   return {
+ 187:     recordCommercialEvent:
+ 188:       dependencies.recordCommercialEvent ??
+ 189:       defaultDependencies
+ 190:         .recordCommercialEvent,
+ 191: 
+ 192:     processCommercialTransition:
+ 193:       dependencies.processCommercialTransition ??
+ 194:       defaultDependencies
+ 195:         .processCommercialTransition,
+ 196: 
+ 197:     runCommercialDecisionCycle:
+ 198:       dependencies.runCommercialDecisionCycle ??
+ 199:       defaultDependencies
+ 200:         .runCommercialDecisionCycle,
+ 201:   }
+ 202: }
+ 203: 
+ 204: export function executeCommercialEventUseCase({
+ 205:   commercialRepository,
+ 206:   crmRepository,
+ 207:   decisionAutomationRepository,
+ 208:   workspaceId,
+ 209:   journeyId,
+ 210:   eventType,
+ 211:   actorType,
+ 212:   actorId,
+ 213:   targetStateId,
+ 214:   origin = "SYSTEM",
+ 215:   payload = {},
+ 216:   expectedVersion,
+ 217:   now = new Date(),
+ 218:   executionLimit,
+ 219:   generateEventId,
+ 220:   messages,
+ 221:   dependencies,
+ 222: }: ExecuteCommercialEventUseCaseInput):
+ 223:   ExecuteCommercialEventUseCaseResult {
+ 224:   const {
+ 225:     journeyId:
+ 226:       normalizedJourneyId,
+ 227: 
+ 228:     workspaceId:
+ 229:       normalizedWorkspaceId,
+ 230:   } = resolveCommercialJourney({
+ 231:     commercialRepository,
+ 232: 
+ 233:     journeyId,
+ 234: 
+ 235:     workspaceId,
+ 236: 
+ 237:     expectedVersion,
+ 238: 
+ 239:     operationDescription:
+ 240:       messages.operationDescription,
+ 241:   })
+ 242: 
+ 243:   const normalizedTargetStateId =
+ 244:     normalizeOptionalId(
+ 245:       targetStateId,
+ 246:     )
+ 247: 
+ 248:   const resolvedDependencies =
+ 249:     resolveDependencies(
+ 250:       dependencies,
+ 251:     )
+ 252: 
+ 253:   const event =
+ 254:     resolvedDependencies
+ 255:       .recordCommercialEvent(
+ 256:         {
+ 257:           workspaceId:
+ 258:             normalizedWorkspaceId,
+ 259: 
+ 260:           journeyId:
+ 261:             normalizedJourneyId,
+ 262: 
+ 263:           type:
+ 264:             eventType,
+ 265: 
+ 266:           actorType,
+ 267: 
+ 268:           actorId,
+ 269: 
+ 270:           payload,
+ 271:         },
+ 272:         {
+ 273:           commercialRepository,
+ 274: 
+ 275:           now,
+ 276: 
+ 277:           generateId:
+ 278:             generateEventId,
+ 279: 
+ 280:           touchJourney:
+ 281:             true,
+ 282:         },
+ 283:       )
+ 284: 
+ 285:   const journeyAfterEvent =
+ 286:     commercialRepository.getJourneyById(
+ 287:       normalizedJourneyId,
+ 288:     )
+ 289: 
+ 290:   if (!journeyAfterEvent) {
+ 291:     throw new Error(
+ 292:       messages.journeyMissingAfterEvent(
+ 293:         normalizedJourneyId,
+ 294:       ),
+ 295:     )
+ 296:   }
+ 297: 
+ 298:   let transition:
+ 299:     ProcessCommercialTransitionResult | null =
+ 300:       null
+ 301: 
+ 302:   let decisionCycle:
+ 303:     RunCommercialDecisionCycleResult
+ 304: 
+ 305:   if (normalizedTargetStateId) {
+ 306:     transition =
+ 307:       resolvedDependencies
+ 308:         .processCommercialTransition({
+ 309:           commercialRepository,
+ 310: 
+ 311:           crmRepository,
+ 312: 
+ 313:           decisionAutomationRepository,
+ 314: 
+ 315:           journeyId:
+ 316:             journeyAfterEvent.id,
+ 317: 
+ 318:           targetStateId:
+ 319:             normalizedTargetStateId,
+ 320: 
+ 321:           actorType,
+ 322: 
+ 323:           actorId,
+ 324: 
+ 325:           origin,
+ 326: 
+ 327:           workspaceId:
+ 328:             normalizedWorkspaceId,
+ 329: 
+ 330:           eventType,
+ 331: 
+ 332:           payload: {
+ 333:             ...payload,
+ 334: 
+ 335:             sourceEventId:
+ 336:               event.id,
+ 337:           },
+ 338: 
+ 339:           expectedVersion:
+ 340:             journeyAfterEvent.version,
+ 341: 
+ 342:           now,
+ 343: 
+ 344:           executionLimit,
+ 345:         })
+ 346: 
+ 347:     if (
+ 348:       transition.changed &&
+ 349:       transition.decisionCycle !== null
+ 350:     ) {
+ 351:       decisionCycle =
+ 352:         transition.decisionCycle
+ 353:     } else {
+ 354:       decisionCycle =
+ 355:         resolvedDependencies
+ 356:           .runCommercialDecisionCycle({
+ 357:             commercialRepository,
+ 358: 
+ 359:             crmRepository,
+ 360: 
+ 361:             decisionAutomationRepository,
+ 362: 
+ 363:             journeyId:
+ 364:               journeyAfterEvent.id,
+ 365: 
+ 366:             workspaceId:
+ 367:               normalizedWorkspaceId,
+ 368: 
+ 369:             now,
+ 370: 
+ 371:             executionLimit,
+ 372:           })
+ 373:     }
+ 374:   } else {
+ 375:     decisionCycle =
+ 376:       resolvedDependencies
+ 377:         .runCommercialDecisionCycle({
+ 378:           commercialRepository,
+ 379: 
+ 380:           crmRepository,
+ 381: 
+ 382:           decisionAutomationRepository,
+ 383: 
+ 384:           journeyId:
+ 385:             journeyAfterEvent.id,
+ 386: 
+ 387:           workspaceId:
+ 388:             normalizedWorkspaceId,
+ 389: 
+ 390:           now,
+ 391: 
+ 392:           executionLimit,
+ 393:         })
+ 394:   }
+ 395: 
+ 396:   const finalJourney =
+ 397:     commercialRepository.getJourneyById(
+ 398:       normalizedJourneyId,
+ 399:     )
+ 400: 
+ 401:   if (!finalJourney) {
+ 402:     throw new Error(
+ 403:       messages.journeyMissingAfterProcessing(
+ 404:         normalizedJourneyId,
+ 405:       ),
+ 406:     )
+ 407:   }
+ 408: 
+ 409:   const transitioned =
+ 410:     transition?.changed === true
+ 411: 
+ 412:   const diagnostics = [
+ 413:     messages.eventRegistered(
+ 414:       event,
+ 415:     ),
+ 416: 
+ 417:     transitioned
+ 418:       ? messages.journeyTransitioned(
+ 419:           finalJourney,
+ 420:         )
+ 421:       : messages.journeyNotTransitioned(
+ 422:           finalJourney,
+ 423:         ),
+ 424: 
+ 425:     ...(transition?.diagnostics ?? []),
+ 426: 
+ 427:     ...(
+ 428:       transition?.decisionCycle ===
+ 429:       decisionCycle
+ 430:         ? []
+ 431:         : decisionCycle.diagnostics
+ 432:     ),
+ 433:   ]
+ 434: 
+ 435:   const warnings = [
+ 436:     ...(transition?.warnings ?? []),
+ 437: 
+ 438:     ...(
+ 439:       transition?.decisionCycle ===
+ 440:       decisionCycle
+ 441:         ? []
+ 442:         : decisionCycle.warnings
+ 443:     ),
+ 444:   ]
+ 445: 
+ 446:   return {
+ 447:     journeyId:
+ 448:       finalJourney.id,
+ 449: 
+ 450:     workspaceId:
+ 451:       finalJourney.workspaceId,
+ 452: 
+ 453:     journey:
+ 454:       finalJourney,
+ 455: 
+ 456:     event,
+ 457: 
+ 458:     transition,
+ 459: 
+ 460:     decisionCycle,
+ 461: 
+ 462:     transitioned,
+ 463: 
+ 464:     diagnostics,
+ 465: 
+ 466:     warnings,
+ 467:   }
+ 468: }
+----------------------------------------
+TOTAL_LINES=468
+
+FILE=.\application\r2\index.ts
+EXISTS=True
+BYTES=432
+SHA256=54F699EDDF738B4E92440C73DF9E03FC26E778F9F45B01A5285D47E26F71178E
+----------------------------------------
+   1: export {
+   2:   normalizeAutomationTrigger,
+   3:   normalizeCommercialEvent,
+   4:   normalizeDashboardBriefing,
+   5:   resolveR2EventContext,
+   6: } from "./normalize-r2-event"
+   7: export {
+   8:   R2DeterministicIntelligence,
+   9: } from "./r2-deterministic-intelligence"
+  10: export {
+  11:   R2InMemoryObservabilitySink,
+  12:   R2Orchestrator,
+  13: } from "./r2-orchestrator"
+  14: export {
+  15:   createR2PresentationPlan,
+  16:   createR2RuntimeCommand,
+  17:   priorityRank,
+  18: } from "./r2-presentation-planner"
+----------------------------------------
+TOTAL_LINES=18
+
+FILE=.\application\r2\normalize-r2-event.ts
+EXISTS=True
+BYTES=8126
+SHA256=B6EBC6F331133E7E18D5BD448F256CF6C784EF023D745E085F655E9A69EC31ED
+----------------------------------------
+   1: import type {
+   2:   CommercialEvent,
+   3:   CommercialEventType,
+   4: } from "@/types/domain"
+   5: import type {
+   6:   AutomationTrigger,
+   7: } from "@/engine/decision/automation/types"
+   8: import type {
+   9:   GorilaR2Briefing,
+  10: } from "@/types/dashboard"
+  11: import type {
+  12:   R2DomainEvent,
+  13:   R2EntityType,
+  14:   R2EventContext,
+  15:   R2EventType,
+  16:   R2Urgency,
+  17: } from "@/types/r2-intelligence-orchestration"
+  18: import type {
+  19:   R2RuntimeState,
+  20: } from "@/types/r2-full-character-runtime"
+  21: import {
+  22:   R2OrchestrationError,
+  23: } from "@/types/r2-intelligence-orchestration"
+  24: 
+  25: const COMMERCIAL_EVENT_MAP: Readonly<
+  26:   Record<CommercialEventType, R2EventType>
+  27: > = {
+  28:   LEAD_CREATED: "lead.created",
+  29:   LEAD_REPLIED: "lead.replied",
+  30:   MEETING_SCHEDULED: "meeting.scheduled",
+  31:   MEETING_COMPLETED: "meeting.completed",
+  32:   PROPOSAL_SENT: "proposal.sent",
+  33:   PROPOSAL_ACCEPTED: "proposal.accepted",
+  34:   DOCUMENT_REQUESTED: "sale.documentation_requested",
+  35:   DOCUMENT_RECEIVED: "sale.documentation_received",
+  36:   PAYMENT_CONFIRMED: "sale.payment_confirmed",
+  37:   SALE_COMPLETED: "sale.completed",
+  38:   STATE_CHANGED: "opportunity.stage_changed",
+  39:   NOTE_ADDED: "opportunity.note_added",
+  40:   TASK_CREATED: "task.created",
+  41:   TASK_COMPLETED: "task.completed",
+  42: }
+  43: 
+  44: const ENTITY_BY_COMMERCIAL_EVENT: Readonly<
+  45:   Record<CommercialEventType, R2EntityType>
+  46: > = {
+  47:   LEAD_CREATED: "lead",
+  48:   LEAD_REPLIED: "lead",
+  49:   MEETING_SCHEDULED: "meeting",
+  50:   MEETING_COMPLETED: "meeting",
+  51:   PROPOSAL_SENT: "proposal",
+  52:   PROPOSAL_ACCEPTED: "proposal",
+  53:   DOCUMENT_REQUESTED: "sale",
+  54:   DOCUMENT_RECEIVED: "sale",
+  55:   PAYMENT_CONFIRMED: "sale",
+  56:   SALE_COMPLETED: "sale",
+  57:   STATE_CHANGED: "opportunity",
+  58:   NOTE_ADDED: "opportunity",
+  59:   TASK_CREATED: "task",
+  60:   TASK_COMPLETED: "task",
+  61: }
+  62: 
+  63: const URGENCY_BY_COMMERCIAL_EVENT: Readonly<
+  64:   Record<CommercialEventType, R2Urgency>
+  65: > = {
+  66:   LEAD_CREATED: "normal",
+  67:   LEAD_REPLIED: "normal",
+  68:   MEETING_SCHEDULED: "attention",
+  69:   MEETING_COMPLETED: "normal",
+  70:   PROPOSAL_SENT: "normal",
+  71:   PROPOSAL_ACCEPTED: "attention",
+  72:   DOCUMENT_REQUESTED: "attention",
+  73:   DOCUMENT_RECEIVED: "normal",
+  74:   PAYMENT_CONFIRMED: "normal",
+  75:   SALE_COMPLETED: "celebration",
+  76:   STATE_CHANGED: "normal",
+  77:   NOTE_ADDED: "background",
+  78:   TASK_CREATED: "normal",
+  79:   TASK_COMPLETED: "background",
+  80: }
+  81: 
+  82: function requiredText(
+  83:   value: string,
+  84:   field: string,
+  85: ) {
+  86:   const normalized = value.trim()
+  87:   if (!normalized) {
+  88:     throw new R2OrchestrationError(
+  89:       "INVALID_EVENT",
+  90:       `${field} is required for an R2 event.`,
+  91:       false,
+  92:     )
+  93:   }
+  94:   return normalized
+  95: }
+  96: 
+  97: function validDate(
+  98:   value: string,
+  99:   field: string,
+ 100: ) {
+ 101:   if (!Number.isFinite(new Date(value).getTime())) {
+ 102:     throw new R2OrchestrationError(
+ 103:       "INVALID_EVENT",
+ 104:       `${field} must be a valid ISO date.`,
+ 105:       false,
+ 106:     )
+ 107:   }
+ 108:   return value
+ 109: }
+ 110: 
+ 111: function payloadText(
+ 112:   payload: Readonly<Record<string, unknown>>,
+ 113:   keys: readonly string[],
+ 114: ) {
+ 115:   for (const key of keys) {
+ 116:     const value = payload[key]
+ 117:     if (typeof value === "string" && value.trim()) {
+ 118:       return value.trim()
+ 119:     }
+ 120:   }
+ 121:   return null
+ 122: }
+ 123: 
+ 124: export type NormalizeCommercialEventOptions = Readonly<{
+ 125:   userId?: string | null
+ 126:   correlationId?: string | null
+ 127:   causationId?: string | null
+ 128:   expiresAt?: string | null
+ 129:   urgency?: R2Urgency
+ 130: }>
+ 131: 
+ 132: export function normalizeCommercialEvent(
+ 133:   event: CommercialEvent,
+ 134:   options: NormalizeCommercialEventOptions = {},
+ 135: ): R2DomainEvent {
+ 136:   const workspaceId = requiredText(event.workspaceId, "workspaceId")
+ 137:   const eventId = requiredText(event.id, "eventId")
+ 138:   const occurredAt = validDate(event.occurredAt, "occurredAt")
+ 139:   const entityType = ENTITY_BY_COMMERCIAL_EVENT[event.type]
+ 140:   const entityId = payloadText(event.payload, [
+ 141:     `${entityType}Id`,
+ 142:     "entityId",
+ 143:   ]) ?? (entityType === "opportunity" ? event.journeyId : null)
+ 144:   const expiresAt = options.expiresAt ?? payloadText(event.payload, ["expiresAt"])
+ 145: 
+ 146:   if (expiresAt) validDate(expiresAt, "expiresAt")
+ 147: 
+ 148:   return {
+ 149:     eventId,
+ 150:     eventType: COMMERCIAL_EVENT_MAP[event.type],
+ 151:     occurredAt,
+ 152:     workspaceId,
+ 153:     actorId: event.actorId,
+ 154:     userId: options.userId ?? null,
+ 155:     entityType,
+ 156:     entityId,
+ 157:     correlationId: options.correlationId ?? payloadText(event.payload, ["correlationId"]),
+ 158:     causationId: options.causationId ?? payloadText(event.payload, ["causationId"]),
+ 159:     source: "commercial_event",
+ 160:     payload: { ...event.payload, journeyId: event.journeyId },
+ 161:     metadata: {
+ 162:       schema: "gorillaos.commercial-event",
+ 163:       sourceVersion: "1",
+ 164:     },
+ 165:     urgency: options.urgency ?? URGENCY_BY_COMMERCIAL_EVENT[event.type],
+ 166:     expiresAt: expiresAt ?? null,
+ 167:     schemaVersion: 1,
+ 168:   }
+ 169: }
+ 170: 
+ 171: export function normalizeAutomationTrigger(
+ 172:   trigger: AutomationTrigger,
+ 173:   eventType: R2EventType,
+ 174:   options: Readonly<{
+ 175:     urgency?: R2Urgency
+ 176:     entityType?: R2EntityType
+ 177:     expiresAt?: string | null
+ 178:   }> = {},
+ 179: ): R2DomainEvent {
+ 180:   const workspaceId = requiredText(trigger.workspaceId, "workspaceId")
+ 181:   return {
+ 182:     eventId: requiredText(trigger.id, "eventId"),
+ 183:     eventType,
+ 184:     occurredAt: validDate(trigger.occurredAt, "occurredAt"),
+ 185:     workspaceId,
+ 186:     actorId: null,
+ 187:     userId: null,
+ 188:     entityType: options.entityType ?? "automation",
+ 189:     entityId: trigger.journeyId,
+ 190:     correlationId: trigger.journeyId,
+ 191:     causationId: null,
+ 192:     source: "automation_trigger",
+ 193:     payload: { ...trigger.payload, triggerType: trigger.type },
+ 194:     metadata: {
+ 195:       schema: "gorillaos.automation-trigger",
+ 196:       sourceVersion: "1",
+ 197:     },
+ 198:     urgency: options.urgency ?? "normal",
+ 199:     expiresAt: options.expiresAt ?? null,
+ 200:     schemaVersion: 1,
+ 201:   }
+ 202: }
+ 203: 
+ 204: export function normalizeDashboardBriefing(
+ 205:   input: Readonly<{
+ 206:     workspaceId: string
+ 207:     userId: string
+ 208:     briefing: GorilaR2Briefing
+ 209:   }>,
+ 210: ): R2DomainEvent {
+ 211:   const workspaceId = requiredText(input.workspaceId, "workspaceId")
+ 212:   const userId = requiredText(input.userId, "userId")
+ 213:   const occurredAt = validDate(input.briefing.generatedAt, "generatedAt")
+ 214:   const urgency: R2Urgency =
+ 215:     input.briefing.confidence === "low"
+ 216:       ? "high"
+ 217:       : input.briefing.nextAction?.priority === "high"
+ 218:         ? "attention"
+ 219:         : "normal"
+ 220: 
+ 221:   return {
+ 222:     eventId: `dashboard-briefing:${workspaceId}:${userId}:${occurredAt}`,
+ 223:     eventType: "intelligence.recommendation_ready",
+ 224:     occurredAt,
+ 225:     workspaceId,
+ 226:     actorId: "gorillaos-dashboard",
+ 227:     userId,
+ 228:     entityType: "recommendation",
+ 229:     entityId: null,
+ 230:     correlationId: `dashboard:${workspaceId}`,
+ 231:     causationId: null,
+ 232:     source: "dashboard",
+ 233:     payload: {
+ 234:       title: input.briefing.nextAction?.title ?? input.briefing.recommendation,
+ 235:       summary: input.briefing.analysis,
+ 236:       recommendation: input.briefing.recommendation,
+ 237:       confidence: input.briefing.confidence,
+ 238:     },
+ 239:     metadata: {
+ 240:       schema: "gorillaos.dashboard-briefing",
+ 241:       sourceVersion: "1",
+ 242:     },
+ 243:     urgency,
+ 244:     expiresAt: null,
+ 245:     schemaVersion: 1,
+ 246:   }
+ 247: }
+ 248: 
+ 249: export function resolveR2EventContext(
+ 250:   event: R2DomainEvent,
+ 251:   input: Readonly<{
+ 252:     workspaceId: string
+ 253:     userId?: string | null
+ 254:     currentRuntimeState?: R2RuntimeState
+ 255:     lastStableRuntimeState?: R2RuntimeState
+ 256:     availableInformation?: readonly string[]
+ 257:     missingInformation?: readonly string[]
+ 258:     entitySnapshot?: Readonly<Record<string, unknown>>
+ 259:     now?: Date
+ 260:   }>,
+ 261: ): R2EventContext {
+ 262:   const workspaceId = requiredText(input.workspaceId, "workspaceId")
+ 263:   if (event.workspaceId !== workspaceId) {
+ 264:     throw new R2OrchestrationError(
+ 265:       "WORKSPACE_MISMATCH",
+ 266:       "The event does not belong to the resolved workspace.",
+ 267:       false,
+ 268:     )
+ 269:   }
+ 270:   if (event.userId && input.userId && event.userId !== input.userId) {
+ 271:     throw new R2OrchestrationError(
+ 272:       "USER_MISMATCH",
+ 273:       "The event does not belong to the resolved user context.",
+ 274:       false,
+ 275:     )
+ 276:   }
+ 277: 
+ 278:   return {
+ 279:     workspaceId,
+ 280:     userId: input.userId ?? event.userId,
+ 281:     currentRuntimeState: input.currentRuntimeState ?? "idle",
+ 282:     lastStableRuntimeState: input.lastStableRuntimeState ?? "idle",
+ 283:     resolvedAt: (input.now ?? new Date()).toISOString(),
+ 284:     availableInformation: [...(input.availableInformation ?? [])],
+ 285:     missingInformation: [...(input.missingInformation ?? [])],
+ 286:     entitySnapshot: { ...(input.entitySnapshot ?? {}) },
+ 287:   }
+ 288: }
+----------------------------------------
+TOTAL_LINES=288
+
+FILE=.\types\r2-intelligence-orchestration.ts
+EXISTS=True
+BYTES=9504
+SHA256=82E51D5280735096B35BEBD37AB0954CA5ED97FD82F8D216B19B8FC4946D3D69
+----------------------------------------
+   1: import type {
+   2:   R2ExpressionChannel,
+   3:   R2EyeTarget,
+   4:   R2RuntimeState,
+   5:   R2Viseme,
+   6: } from "@/types/r2-full-character-runtime"
+   7: 
+   8: export const R2_EVENT_TYPES = [
+   9:   "lead.received", "lead.created", "lead.qualified", "lead.disqualified", "lead.no_response", "lead.replied", "lead.converted", "lead.action_required", "lead.at_risk",
+  10:   "client.created", "opportunity.created", "opportunity.updated", "opportunity.stage_changed", "opportunity.stagnant", "opportunity.at_risk", "opportunity.won", "opportunity.lost", "opportunity.note_added",
+  11:   "meeting.scheduled", "meeting.upcoming", "meeting.started", "meeting.completed", "meeting.cancelled", "meeting.summary_missing", "meeting.follow_up_pending",
+  12:   "proposal.prepared", "proposal.review_ready", "proposal.sent", "proposal.viewed", "proposal.accepted", "proposal.rejected", "proposal.expired",
+  13:   "sale.started", "sale.documentation_requested", "sale.documentation_received", "sale.payment_confirmed", "sale.awaiting_documentation", "sale.completed", "sale.cancelled", "sale.pending", "sale.celebration_ready",
+  14:   "task.created", "task.due_soon", "task.overdue", "task.completed", "automation.started", "automation.completed", "automation.failed", "workflow.blocked", "queue.failed", "integration.unavailable",
+  15:   "intelligence.analysis_started", "intelligence.analysis_completed", "intelligence.recommendation_ready", "intelligence.next_best_action_ready", "intelligence.confirmation_required", "intelligence.recommendation_accepted", "intelligence.recommendation_rejected", "intelligence.insufficient_context", "intelligence.provider_error",
+  16:   "runtime.speaking_requested", "runtime.neutral_requested",
+  17: ] as const
+  18: 
+  19: export type R2EventType =
+  20:   (typeof R2_EVENT_TYPES)[number]
+  21: 
+  22: export type R2EventSource =
+  23:   | "commercial_event"
+  24:   | "automation_trigger"
+  25:   | "dashboard"
+  26:   | "user"
+  27:   | "system"
+  28:   | "integration"
+  29:   | "intelligence_provider"
+  30: 
+  31: export type R2EntityType =
+  32:   | "lead"
+  33:   | "client"
+  34:   | "opportunity"
+  35:   | "meeting"
+  36:   | "proposal"
+  37:   | "sale"
+  38:   | "task"
+  39:   | "automation"
+  40:   | "workflow"
+  41:   | "integration"
+  42:   | "recommendation"
+  43:   | "system"
+  44: 
+  45: export type R2Urgency =
+  46:   | "background"
+  47:   | "normal"
+  48:   | "attention"
+  49:   | "high"
+  50:   | "critical"
+  51:   | "celebration"
+  52: 
+  53: export const R2_PRIORITIES = [
+  54:   "BACKGROUND",
+  55:   "NORMAL",
+  56:   "ATTENTION",
+  57:   "CELEBRATION",
+  58:   "HIGH",
+  59:   "CRITICAL",
+  60: ] as const
+  61: 
+  62: export type R2Priority =
+  63:   (typeof R2_PRIORITIES)[number]
+  64: 
+  65: export type R2InterruptionPolicy =
+  66:   | "NEVER"
+  67:   | "HIGHER_PRIORITY"
+  68:   | "ALERT_OR_CRITICAL"
+  69:   | "ALWAYS"
+  70: 
+  71: export type R2EventMetadata = Readonly<{
+  72:   schema?: string
+  73:   traceId?: string
+  74:   sourceVersion?: string
+  75:   tags?: readonly string[]
+  76: }>
+  77: 
+  78: export type R2DomainEvent = Readonly<{
+  79:   eventId: string
+  80:   eventType: R2EventType
+  81:   occurredAt: string
+  82:   workspaceId: string
+  83:   actorId: string | null
+  84:   userId: string | null
+  85:   entityType: R2EntityType
+  86:   entityId: string | null
+  87:   correlationId: string | null
+  88:   causationId: string | null
+  89:   source: R2EventSource
+  90:   payload: Readonly<Record<string, unknown>>
+  91:   metadata: R2EventMetadata
+  92:   urgency: R2Urgency
+  93:   expiresAt: string | null
+  94:   schemaVersion: 1
+  95: }>
+  96: 
+  97: export type R2EventContext = Readonly<{
+  98:   workspaceId: string
+  99:   userId: string | null
+ 100:   currentRuntimeState: R2RuntimeState
+ 101:   lastStableRuntimeState: R2RuntimeState
+ 102:   resolvedAt: string
+ 103:   availableInformation: readonly string[]
+ 104:   missingInformation: readonly string[]
+ 105:   entitySnapshot: Readonly<Record<string, unknown>>
+ 106: }>
+ 107: 
+ 108: export type R2IntelligenceOperation =
+ 109:   | "summarize_context"
+ 110:   | "classify_urgency"
+ 111:   | "generate_recommendation"
+ 112:   | "choose_next_best_action"
+ 113:   | "prepare_short_message"
+ 114:   | "explain_decision"
+ 115: 
+ 116: export type R2IntelligenceRequest = Readonly<{
+ 117:   requestId: string
+ 118:   operation: R2IntelligenceOperation
+ 119:   event: R2DomainEvent
+ 120:   context: R2EventContext
+ 121: }>
+ 122: 
+ 123: export type R2Recommendation = Readonly<{
+ 124:   recommendationType: string
+ 125:   title: string
+ 126:   summary: string
+ 127:   rationale: string
+ 128:   confidence: number
+ 129:   urgency: R2Urgency
+ 130:   suggestedActions: readonly Readonly<{
+ 131:     actionId: string
+ 132:     label: string
+ 133:     requiresConfirmation: boolean
+ 134:   }>[]
+ 135:   missingInformation: readonly string[]
+ 136:   expiresAt: string | null
+ 137: }>
+ 138: 
+ 139: export type R2PresentationHints = Readonly<{
+ 140:   runtimeState: R2RuntimeState
+ 141:   expression?: R2ExpressionChannel
+ 142:   expressionIntensity?: number
+ 143:   viseme?: R2Viseme
+ 144:   speakingIntensity?: number
+ 145:   eyeTarget?: R2EyeTarget
+ 146:   durationMs: number
+ 147:   minimumDisplayMs: number
+ 148:   transitionMs: number
+ 149:   interruptionPolicy: R2InterruptionPolicy
+ 150:   fallbackState: R2RuntimeState
+ 151: }>
+ 152: 
+ 153: export type R2IntelligenceResult = Readonly<{
+ 154:   result: "REACT" | "IGNORE" | "REQUEST_CONTEXT"
+ 155:   recommendation: R2Recommendation | null
+ 156:   confidence: number
+ 157:   urgency: R2Urgency
+ 158:   reasons: readonly R2DecisionReason[]
+ 159:   missingInformation: readonly string[]
+ 160:   presentationHints: R2PresentationHints | null
+ 161:   expiresAt: string | null
+ 162: }>
+ 163: 
+ 164: export interface R2IntelligencePort {
+ 165:   readonly provider: string
+ 166:   evaluate(
+ 167:     request: R2IntelligenceRequest,
+ 168:   ): Promise<R2IntelligenceResult>
+ 169: }
+ 170: 
+ 171: export type R2DecisionReason =
+ 172:   | "EVENT_ACCEPTED"
+ 173:   | "EVENT_DUPLICATE"
+ 174:   | "EVENT_EXPIRED"
+ 175:   | "WORKSPACE_MISMATCH"
+ 176:   | "USER_MISMATCH"
+ 177:   | "COOLDOWN_ACTIVE"
+ 178:   | "DEBOUNCED"
+ 179:   | "LOWER_PRIORITY"
+ 180:   | "QUEUE_FULL"
+ 181:   | "INTERRUPTED_CURRENT"
+ 182:   | "QUEUED_FOR_LATER"
+ 183:   | "NO_REACTION_REQUIRED"
+ 184:   | "INSUFFICIENT_CONTEXT"
+ 185:   | "INTELLIGENCE_FAILURE"
+ 186:   | "RUNTIME_FAILURE"
+ 187:   | "FALLBACK_APPLIED"
+ 188:   | "PRESENTATION_COMPLETED"
+ 189:   | "CONFIRMATION_REQUIRED"
+ 190: 
+ 191: export type R2PresentationPlan = Readonly<{
+ 192:   planId: string
+ 193:   eventId: string
+ 194:   workspaceId: string
+ 195:   runtimeState: R2RuntimeState
+ 196:   expression?: R2ExpressionChannel
+ 197:   expressionIntensity?: number
+ 198:   viseme?: R2Viseme
+ 199:   speakingIntensity?: number
+ 200:   eyeTarget?: R2EyeTarget
+ 201:   durationMs: number
+ 202:   minimumDisplayMs: number
+ 203:   transitionMs: number
+ 204:   interruptibility: R2InterruptionPolicy
+ 205:   priority: R2Priority
+ 206:   message: string | null
+ 207:   actionLabel: string | null
+ 208:   actionId: string | null
+ 209:   expiresAt: string | null
+ 210:   fallbackState: R2RuntimeState
+ 211:   requiresConfirmation: boolean
+ 212: }>
+ 213: 
+ 214: export type R2RuntimeCommand = Readonly<{
+ 215:   commandId: string
+ 216:   eventId: string
+ 217:   workspaceId: string
+ 218:   runtimeState: R2RuntimeState
+ 219:   expression?: R2ExpressionChannel
+ 220:   expressionIntensity?: number
+ 221:   viseme?: R2Viseme
+ 222:   speakingIntensity?: number
+ 223:   eyeTarget?: R2EyeTarget
+ 224:   durationMs: number
+ 225:   minimumDisplayMs: number
+ 226:   transitionMs: number
+ 227:   priority: R2Priority
+ 228:   message: string | null
+ 229:   actionLabel: string | null
+ 230:   actionId: string | null
+ 231:   expiresAt: string | null
+ 232:   fallbackState: R2RuntimeState
+ 233:   requiresConfirmation: boolean
+ 234: }>
+ 235: 
+ 236: export type R2OrchestrationDecisionType =
+ 237:   | "EXECUTE"
+ 238:   | "INTERRUPT"
+ 239:   | "QUEUE"
+ 240:   | "DISCARD"
+ 241:   | "REJECT"
+ 242:   | "IGNORE"
+ 243:   | "FALLBACK"
+ 244:   | "FAIL"
+ 245: 
+ 246: export type R2OrchestrationDecision = Readonly<{
+ 247:   decisionId: string
+ 248:   decision: R2OrchestrationDecisionType
+ 249:   eventId: string
+ 250:   eventType: R2EventType
+ 251:   workspaceId: string
+ 252:   reason: R2DecisionReason
+ 253:   priority: R2Priority
+ 254:   runtimeState: R2RuntimeState | null
+ 255:   command: R2RuntimeCommand | null
+ 256:   interruptedEventId: string | null
+ 257:   discardedReason: string | null
+ 258:   decidedAt: string
+ 259: }>
+ 260: 
+ 261: export type R2ExecutionReceipt = Readonly<{
+ 262:   receiptId: string
+ 263:   commandId: string
+ 264:   eventId: string
+ 265:   workspaceId: string
+ 266:   status: "APPLIED" | "COMPLETED" | "INTERRUPTED" | "FAILED" | "SKIPPED"
+ 267:   runtimeState: R2RuntimeState
+ 268:   startedAt: string
+ 269:   completedAt: string | null
+ 270:   durationMs: number | null
+ 271:   interruptedBy: string | null
+ 272:   fallbackUsed: boolean
+ 273:   errorCode: string | null
+ 274: }>
+ 275: 
+ 276: export type R2OrchestrationErrorCode =
+ 277:   | "INVALID_EVENT"
+ 278:   | "WORKSPACE_MISMATCH"
+ 279:   | "USER_MISMATCH"
+ 280:   | "INTELLIGENCE_FAILED"
+ 281:   | "INVALID_PRESENTATION"
+ 282:   | "RUNTIME_DISPOSED"
+ 283:   | "RUNTIME_COMMAND_FAILED"
+ 284: 
+ 285: export class R2OrchestrationError extends Error {
+ 286:   constructor(
+ 287:     readonly code: R2OrchestrationErrorCode,
+ 288:     message: string,
+ 289:     readonly recoverable: boolean,
+ 290:   ) {
+ 291:     super(message)
+ 292:     this.name = "R2OrchestrationError"
+ 293:   }
+ 294: }
+ 295: 
+ 296: export type R2QueuedPresentation = Readonly<{
+ 297:   event: R2DomainEvent
+ 298:   plan: R2PresentationPlan
+ 299:   command: R2RuntimeCommand
+ 300:   queuedAt: string
+ 301: }>
+ 302: 
+ 303: export type R2ActivePresentation = Readonly<{
+ 304:   event: R2DomainEvent
+ 305:   plan: R2PresentationPlan
+ 306:   command: R2RuntimeCommand
+ 307:   startedAt: string
+ 308:   minimumUntil: string
+ 309:   completesAt: string
+ 310: }>
+ 311: 
+ 312: export type R2InterruptionRecord = Readonly<{
+ 313:   interruptedEventId: string
+ 314:   interruptedByEventId: string
+ 315:   occurredAt: string
+ 316:   fromState: R2RuntimeState
+ 317:   toState: R2RuntimeState
+ 318: }>
+ 319: 
+ 320: export type R2FailureRecord = Readonly<{
+ 321:   eventId: string
+ 322:   commandId: string | null
+ 323:   errorCode: R2OrchestrationErrorCode
+ 324:   occurredAt: string
+ 325: }>
+ 326: 
+ 327: export type R2OrchestrationState = Readonly<{
+ 328:   workspaceId: string
+ 329:   current: R2ActivePresentation | null
+ 330:   queue: readonly R2QueuedPresentation[]
+ 331:   lastStableState: R2RuntimeState
+ 332:   processedEventIds: readonly string[]
+ 333:   cooldowns: Readonly<Record<string, string>>
+ 334:   interruptions: readonly R2InterruptionRecord[]
+ 335:   receipts: readonly R2ExecutionReceipt[]
+ 336:   failures: readonly R2FailureRecord[]
+ 337: }>
+ 338: 
+ 339: export type R2ObservabilityEntry = Readonly<{
+ 340:   eventId: string
+ 341:   eventType: R2EventType
+ 342:   decision: R2OrchestrationDecisionType
+ 343:   reason: R2DecisionReason
+ 344:   priority: R2Priority
+ 345:   runtimeState: R2RuntimeState | null
+ 346:   startedAt: string
+ 347:   completedAt: string | null
+ 348:   durationMs: number | null
+ 349:   interruptedBy: string | null
+ 350:   discardedReason: string | null
+ 351:   fallbackUsed: boolean
+ 352:   errorCode: string | null
+ 353: }>
+ 354: 
+ 355: export interface R2ObservabilitySink {
+ 356:   record(entry: R2ObservabilityEntry): void
+ 357: }
+----------------------------------------
+TOTAL_LINES=357
+
+FILE=.\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx
+EXISTS=True
+BYTES=5030
+SHA256=0C336441A929096C00DE7AAE3D56560671C892E46EEA13F96B297701C9C5E473
+----------------------------------------
+   1: "use client"
+   2: 
+   3: import {
+   4:   createContext,
+   5:   useContext,
+   6:   useEffect,
+   7:   useState,
+   8:   useSyncExternalStore,
+   9: } from "react"
+  10: import type {
+  11:   ReactNode,
+  12: } from "react"
+  13: 
+  14: import {
+  15:   R2DeterministicIntelligence,
+  16:   R2Orchestrator,
+  17:   resolveR2EventContext,
+  18: } from "@/application/r2"
+  19: import type {
+  20:   R2DomainEvent,
+  21:   R2ExecutionReceipt,
+  22:   R2OrchestrationDecision,
+  23:   R2OrchestrationState,
+  24:   R2RuntimeCommand,
+  25: } from "@/types/r2-intelligence-orchestration"
+  26: 
+  27: type R2OrchestrationSnapshot = Readonly<{
+  28:   command: R2RuntimeCommand | null
+  29:   decision: R2OrchestrationDecision | null
+  30:   state: R2OrchestrationState
+  31: }>
+  32: 
+  33: class R2OrchestrationStore {
+  34:   private readonly orchestrator: R2Orchestrator
+  35:   private readonly listeners = new Set<() => void>()
+  36:   private snapshot: R2OrchestrationSnapshot
+  37:   private timer: ReturnType<typeof setTimeout> | null = null
+  38:   private generation = 0
+  39:   private disposed = false
+  40: 
+  41:   constructor(
+  42:     readonly workspaceId: string,
+  43:     private readonly userId: string | null,
+  44:   ) {
+  45:     this.orchestrator = new R2Orchestrator({
+  46:       workspaceId,
+  47:       intelligence: new R2DeterministicIntelligence(),
+  48:     })
+  49:     this.snapshot = {
+  50:       command: null,
+  51:       decision: null,
+  52:       state: this.orchestrator.getState(),
+  53:     }
+  54:   }
+  55: 
+  56:   getSnapshot = () => this.snapshot
+  57: 
+  58:   subscribe = (listener: () => void) => {
+  59:     this.listeners.add(listener)
+  60:     return () => this.listeners.delete(listener)
+  61:   }
+  62: 
+  63:   activate() {
+  64:     this.generation += 1
+  65:     const generation = this.generation
+  66:     return () => {
+  67:       queueMicrotask(() => {
+  68:         if (this.generation === generation) this.dispose()
+  69:       })
+  70:     }
+  71:   }
+  72: 
+  73:   async dispatch(event: R2DomainEvent) {
+  74:     if (this.disposed) return null
+  75:     const state = this.orchestrator.getState()
+  76:     const context = resolveR2EventContext(event, {
+  77:       workspaceId: this.workspaceId,
+  78:       userId: this.userId,
+  79:       currentRuntimeState: state.current?.command.runtimeState ?? state.lastStableState,
+  80:       lastStableRuntimeState: state.lastStableState,
+  81:     })
+  82:     const decision = await this.orchestrator.dispatch(event, context)
+  83:     this.publish(decision)
+  84:     return decision
+  85:   }
+  86: 
+  87:   recordReceipt(receipt: R2ExecutionReceipt) {
+  88:     if (this.orchestrator.recordExecutionReceipt(receipt)) {
+  89:       this.snapshot = { ...this.snapshot, state: this.orchestrator.getState() }
+  90:       this.emit()
+  91:     }
+  92:   }
+  93: 
+  94:   private publish(decision: R2OrchestrationDecision) {
+  95:     if (this.timer) clearTimeout(this.timer)
+  96:     this.timer = null
+  97:     const presentsCommand =
+  98:       decision.decision === "EXECUTE" ||
+  99:       decision.decision === "INTERRUPT" ||
+ 100:       decision.decision === "FALLBACK" ||
+ 101:       decision.decision === "FAIL"
+ 102:     this.snapshot = {
+ 103:       command: presentsCommand && decision.command
+ 104:         ? decision.command
+ 105:         : this.snapshot.command,
+ 106:       decision,
+ 107:       state: this.orchestrator.getState(),
+ 108:     }
+ 109:     this.emit()
+ 110:     if (decision.command && decision.command.durationMs > 0 && decision.decision !== "QUEUE") {
+ 111:       this.timer = setTimeout(() => {
+ 112:         this.timer = null
+ 113:         const next = this.orchestrator.advance()
+ 114:         if (next) this.publish(next)
+ 115:       }, decision.command.durationMs)
+ 116:     }
+ 117:   }
+ 118: 
+ 119:   private emit() {
+ 120:     for (const listener of this.listeners) listener()
+ 121:   }
+ 122: 
+ 123:   private dispose() {
+ 124:     if (this.disposed) return
+ 125:     this.disposed = true
+ 126:     if (this.timer) clearTimeout(this.timer)
+ 127:     this.timer = null
+ 128:     this.orchestrator.dispose()
+ 129:     this.listeners.clear()
+ 130:   }
+ 131: }
+ 132: 
+ 133: type R2OrchestrationContextValue = Readonly<{
+ 134:   store: R2OrchestrationStore
+ 135:   snapshot: R2OrchestrationSnapshot
+ 136: }>
+ 137: 
+ 138: const R2OrchestrationContext = createContext<R2OrchestrationContextValue | null>(null)
+ 139: 
+ 140: function R2OrchestrationProviderScope({
+ 141:   workspaceId,
+ 142:   userId,
+ 143:   initialEvent,
+ 144:   children,
+ 145: }: Readonly<{
+ 146:   workspaceId: string
+ 147:   userId?: string | null
+ 148:   initialEvent?: R2DomainEvent | null
+ 149:   children: ReactNode
+ 150: }>) {
+ 151:   const [store] = useState(() => new R2OrchestrationStore(workspaceId, userId ?? null))
+ 152:   const snapshot = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getSnapshot)
+ 153: 
+ 154:   useEffect(() => store.activate(), [store])
+ 155: 
+ 156:   useEffect(() => {
+ 157:     if (initialEvent) void store.dispatch(initialEvent)
+ 158:   }, [initialEvent, store])
+ 159: 
+ 160:   return (
+ 161:     <R2OrchestrationContext.Provider value={{ store, snapshot }}>
+ 162:       {children}
+ 163:     </R2OrchestrationContext.Provider>
+ 164:   )
+ 165: }
+ 166: 
+ 167: export function R2OrchestrationProvider(props: Readonly<{
+ 168:   workspaceId: string
+ 169:   userId?: string | null
+ 170:   initialEvent?: R2DomainEvent | null
+ 171:   children: ReactNode
+ 172: }>) {
+ 173:   return (
+ 174:     <R2OrchestrationProviderScope
+ 175:       key={`${props.workspaceId}:${props.userId ?? "anonymous"}`}
+ 176:       {...props}
+ 177:     />
+ 178:   )
+ 179: }
+ 180: 
+ 181: export function useR2Orchestration() {
+ 182:   const value = useContext(R2OrchestrationContext)
+ 183:   if (!value) throw new Error("useR2Orchestration must be used inside R2OrchestrationProvider.")
+ 184:   return {
+ 185:     ...value.snapshot,
+ 186:     dispatch: (event: R2DomainEvent) => value.store.dispatch(event),
+ 187:     recordReceipt: (receipt: R2ExecutionReceipt) => value.store.recordReceipt(receipt),
+ 188:   }
+ 189: }
+----------------------------------------
+TOTAL_LINES=189
+
+FILE=.\components\dashboard\gorila-r2-avatar-3d.tsx
+EXISTS=True
+BYTES=1757
+SHA256=68D37404656FE9673C8700B43078C8F284714C6D32BBE9024D94FF5254240B59
+----------------------------------------
+   1: "use client"
+   2: 
+   3: import { useMemo } from "react"
+   4: 
+   5: import { normalizeDashboardBriefing } from "@/application/r2"
+   6: import { GorilaR23D } from "./3d/gorila-r2-3d"
+   7: import {
+   8:   R2OrchestrationProvider,
+   9:   useR2Orchestration,
+  10: } from "./3d/r2/orchestration/r2-orchestration-provider"
+  11: import type { GorilaR2Briefing } from "@/types/dashboard"
+  12: 
+  13: type GorilaR2Avatar3DProps = {
+  14:   size?: "hero" | "compact"
+  15:   status?: "online" | "alert" | "thinking"
+  16:   workspaceId?: string
+  17:   userId?: string
+  18:   briefing?: GorilaR2Briefing
+  19: }
+  20: 
+  21: function OrchestratedR2({ workspaceId }: Readonly<{ workspaceId: string }>) {
+  22:   const { command, recordReceipt } = useR2Orchestration()
+  23:   return (
+  24:     <GorilaR23D
+  25:       workspaceId={workspaceId}
+  26:       runtimeCommand={command}
+  27:       onRuntimeReceipt={recordReceipt}
+  28:     />
+  29:   )
+  30: }
+  31: 
+  32: export function GorilaR2Avatar3D({
+  33:   size = "hero",
+  34:   workspaceId,
+  35:   userId,
+  36:   briefing,
+  37: }: GorilaR2Avatar3DProps) {
+  38:   const initialEvent = useMemo(() => {
+  39:     if (!workspaceId || !userId || !briefing) return null
+  40:     return normalizeDashboardBriefing({ workspaceId, userId, briefing })
+  41:   }, [briefing, userId, workspaceId])
+  42: 
+  43:   return (
+  44:     <div
+  45:       data-testid={size === "hero" ? "r2-hero-canvas-container" : undefined}
+  46:       className={
+  47:         size === "hero"
+  48:           ? "h-72 min-h-72 w-full min-w-0 sm:h-80 sm:min-h-80 xl:h-[360px] xl:min-h-[360px] 2xl:h-[400px] 2xl:min-h-[400px]"
+  49:           : "h-32 w-32"
+  50:       }
+  51:     >
+  52:       {workspaceId && userId && initialEvent ? (
+  53:         <R2OrchestrationProvider
+  54:           workspaceId={workspaceId}
+  55:           userId={userId}
+  56:           initialEvent={initialEvent}
+  57:         >
+  58:           <OrchestratedR2 workspaceId={workspaceId} />
+  59:         </R2OrchestrationProvider>
+  60:       ) : (
+  61:         <GorilaR23D />
+  62:       )}
+  63:     </div>
+  64:   )
+  65: 
+  66: }
+----------------------------------------
+TOTAL_LINES=66
+
+============================================================
+ PRODUCER CALL CONTEXT
+============================================================
+
+FILE=.\application\use-cases\lead\receive-lead-reply.ts
+EXISTS=True
+
+PATTERN=executeCommercialEventUseCase(
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=92
+CONTEXT_START=80
+CONTEXT_END=114
+      80:     journeyId,
+      81:     actorType,
+      82:     actorId,
+      83:     targetStateId,
+      84:     origin = "SYSTEM",
+      85:     payload = {},
+      86:     expectedVersion,
+      87:     now = new Date(),
+      88:     executionLimit,
+      89:     generateEventId,
+      90:     dependencies,
+      91:   }: ReceiveLeadReplyInput): ReceiveLeadReplyResult {
+>>>   92:     return executeCommercialEventUseCase({
+      93:       commercialRepository,
+      94:       crmRepository,
+      95:       decisionAutomationRepository,
+      96:       workspaceId,
+      97:       journeyId,
+      98:       eventType:
+      99:         "LEAD_REPLIED",
+     100:       actorType,
+     101:       actorId,
+     102:       targetStateId,
+     103:       origin,
+     104:       payload,
+     105:       expectedVersion,
+     106:       now,
+     107:       executionLimit,
+     108:       generateEventId,
+     109:       dependencies,
+     110:   
+     111:       messages: {
+     112:         operationDescription:
+     113:           "processar a resposta do lead",
+     114:   
+
+PATTERN=eventType:
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=98
+CONTEXT_START=86
+CONTEXT_END=120
+      86:     expectedVersion,
+      87:     now = new Date(),
+      88:     executionLimit,
+      89:     generateEventId,
+      90:     dependencies,
+      91:   }: ReceiveLeadReplyInput): ReceiveLeadReplyResult {
+      92:     return executeCommercialEventUseCase({
+      93:       commercialRepository,
+      94:       crmRepository,
+      95:       decisionAutomationRepository,
+      96:       workspaceId,
+      97:       journeyId,
+>>>   98:       eventType:
+      99:         "LEAD_REPLIED",
+     100:       actorType,
+     101:       actorId,
+     102:       targetStateId,
+     103:       origin,
+     104:       payload,
+     105:       expectedVersion,
+     106:       now,
+     107:       executionLimit,
+     108:       generateEventId,
+     109:       dependencies,
+     110:   
+     111:       messages: {
+     112:         operationDescription:
+     113:           "processar a resposta do lead",
+     114:   
+     115:         eventRegistered:
+     116:           (event) =>
+     117:             `A resposta do lead foi registrada no evento comercial "${event.id}".`,
+     118:   
+     119:         journeyTransitioned:
+     120:           (journey) =>
+
+PATTERN=dependencies:
+MATCH_COUNT=0
+
+FILE=.\application\use-cases\meeting\schedule-meeting.ts
+EXISTS=True
+
+PATTERN=executeCommercialEventUseCase(
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=92
+CONTEXT_START=80
+CONTEXT_END=114
+      80:     journeyId,
+      81:     actorType,
+      82:     actorId,
+      83:     targetStateId,
+      84:     origin = "SYSTEM",
+      85:     payload = {},
+      86:     expectedVersion,
+      87:     now = new Date(),
+      88:     executionLimit,
+      89:     generateEventId,
+      90:     dependencies,
+      91:   }: ScheduleMeetingInput): ScheduleMeetingResult {
+>>>   92:     return executeCommercialEventUseCase({
+      93:       commercialRepository,
+      94:       crmRepository,
+      95:       decisionAutomationRepository,
+      96:       workspaceId,
+      97:       journeyId,
+      98:       eventType:
+      99:         "MEETING_SCHEDULED",
+     100:       actorType,
+     101:       actorId,
+     102:       targetStateId,
+     103:       origin,
+     104:       payload,
+     105:       expectedVersion,
+     106:       now,
+     107:       executionLimit,
+     108:       generateEventId,
+     109:       dependencies,
+     110:   
+     111:       messages: {
+     112:         operationDescription:
+     113:           "agendar a reuniÃ£o",
+     114:   
+
+PATTERN=eventType:
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=98
+CONTEXT_START=86
+CONTEXT_END=120
+      86:     expectedVersion,
+      87:     now = new Date(),
+      88:     executionLimit,
+      89:     generateEventId,
+      90:     dependencies,
+      91:   }: ScheduleMeetingInput): ScheduleMeetingResult {
+      92:     return executeCommercialEventUseCase({
+      93:       commercialRepository,
+      94:       crmRepository,
+      95:       decisionAutomationRepository,
+      96:       workspaceId,
+      97:       journeyId,
+>>>   98:       eventType:
+      99:         "MEETING_SCHEDULED",
+     100:       actorType,
+     101:       actorId,
+     102:       targetStateId,
+     103:       origin,
+     104:       payload,
+     105:       expectedVersion,
+     106:       now,
+     107:       executionLimit,
+     108:       generateEventId,
+     109:       dependencies,
+     110:   
+     111:       messages: {
+     112:         operationDescription:
+     113:           "agendar a reuniÃ£o",
+     114:   
+     115:         eventRegistered:
+     116:           (event) =>
+     117:             `O agendamento da reuniÃ£o foi registrado no evento comercial "${event.id}".`,
+     118:   
+     119:         journeyTransitioned:
+     120:           (journey) =>
+
+PATTERN=dependencies:
+MATCH_COUNT=0
+
+FILE=.\application\use-cases\meeting\complete-meeting.ts
+EXISTS=True
+
+PATTERN=executeCommercialEventUseCase(
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=92
+CONTEXT_START=80
+CONTEXT_END=114
+      80:     journeyId,
+      81:     actorType,
+      82:     actorId,
+      83:     targetStateId,
+      84:     origin = "SYSTEM",
+      85:     payload = {},
+      86:     expectedVersion,
+      87:     now = new Date(),
+      88:     executionLimit,
+      89:     generateEventId,
+      90:     dependencies,
+      91:   }: CompleteMeetingInput): CompleteMeetingResult {
+>>>   92:     return executeCommercialEventUseCase({
+      93:       commercialRepository,
+      94:       crmRepository,
+      95:       decisionAutomationRepository,
+      96:       workspaceId,
+      97:       journeyId,
+      98:       eventType:
+      99:         "MEETING_COMPLETED",
+     100:       actorType,
+     101:       actorId,
+     102:       targetStateId,
+     103:       origin,
+     104:       payload,
+     105:       expectedVersion,
+     106:       now,
+     107:       executionLimit,
+     108:       generateEventId,
+     109:       dependencies,
+     110:   
+     111:       messages: {
+     112:         operationDescription:
+     113:           "concluir a reuniÃ£o",
+     114:   
+
+PATTERN=eventType:
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=98
+CONTEXT_START=86
+CONTEXT_END=120
+      86:     expectedVersion,
+      87:     now = new Date(),
+      88:     executionLimit,
+      89:     generateEventId,
+      90:     dependencies,
+      91:   }: CompleteMeetingInput): CompleteMeetingResult {
+      92:     return executeCommercialEventUseCase({
+      93:       commercialRepository,
+      94:       crmRepository,
+      95:       decisionAutomationRepository,
+      96:       workspaceId,
+      97:       journeyId,
+>>>   98:       eventType:
+      99:         "MEETING_COMPLETED",
+     100:       actorType,
+     101:       actorId,
+     102:       targetStateId,
+     103:       origin,
+     104:       payload,
+     105:       expectedVersion,
+     106:       now,
+     107:       executionLimit,
+     108:       generateEventId,
+     109:       dependencies,
+     110:   
+     111:       messages: {
+     112:         operationDescription:
+     113:           "concluir a reuniÃ£o",
+     114:   
+     115:         eventRegistered:
+     116:           (event) =>
+     117:             `A conclusÃ£o da reuniÃ£o foi registrada no evento comercial "${event.id}".`,
+     118:   
+     119:         journeyTransitioned:
+     120:           (journey) =>
+
+PATTERN=dependencies:
+MATCH_COUNT=0
+
+FILE=.\application\use-cases\proposal\send-proposal.ts
+EXISTS=True
+
+PATTERN=executeCommercialEventUseCase(
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=223
+CONTEXT_START=211
+CONTEXT_END=245
+     211:         undefined,
+     212:   
+     213:       updatedAt:
+     214:         sentAtTimestamp,
+     215:     }
+     216:   
+     217:     crmRepository.updateProposal(
+     218:       updatedProposal,
+     219:     )
+     220:   
+     221:     try {
+     222:       const result =
+>>>  223:         executeCommercialEventUseCase({
+     224:           commercialRepository,
+     225:           crmRepository,
+     226:           decisionAutomationRepository,
+     227:           workspaceId,
+     228:           journeyId,
+     229:   
+     230:           eventType:
+     231:             "PROPOSAL_SENT",
+     232:   
+     233:           actorType,
+     234:           actorId,
+     235:           targetStateId,
+     236:           origin,
+     237:   
+     238:           payload: {
+     239:             ...payload,
+     240:   
+     241:             proposalId:
+     242:               normalizedProposalId,
+     243:   
+     244:             sentAt:
+     245:               sentAtTimestamp,
+
+PATTERN=eventType:
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=230
+CONTEXT_START=218
+CONTEXT_END=252
+     218:       updatedProposal,
+     219:     )
+     220:   
+     221:     try {
+     222:       const result =
+     223:         executeCommercialEventUseCase({
+     224:           commercialRepository,
+     225:           crmRepository,
+     226:           decisionAutomationRepository,
+     227:           workspaceId,
+     228:           journeyId,
+     229:   
+>>>  230:           eventType:
+     231:             "PROPOSAL_SENT",
+     232:   
+     233:           actorType,
+     234:           actorId,
+     235:           targetStateId,
+     236:           origin,
+     237:   
+     238:           payload: {
+     239:             ...payload,
+     240:   
+     241:             proposalId:
+     242:               normalizedProposalId,
+     243:   
+     244:             sentAt:
+     245:               sentAtTimestamp,
+     246:           },
+     247:   
+     248:           expectedVersion,
+     249:           now:
+     250:             sentAt,
+     251:   
+     252:           executionLimit,
+
+PATTERN=dependencies:
+MATCH_COUNT=0
+
+FILE=.\application\use-cases\proposal\accept-proposal.ts
+EXISTS=True
+
+PATTERN=executeCommercialEventUseCase(
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=92
+CONTEXT_START=80
+CONTEXT_END=114
+      80:     journeyId,
+      81:     actorType,
+      82:     actorId,
+      83:     targetStateId,
+      84:     origin = "SYSTEM",
+      85:     payload = {},
+      86:     expectedVersion,
+      87:     now = new Date(),
+      88:     executionLimit,
+      89:     generateEventId,
+      90:     dependencies,
+      91:   }: AcceptProposalInput): AcceptProposalResult {
+>>>   92:     return executeCommercialEventUseCase({
+      93:       commercialRepository,
+      94:       crmRepository,
+      95:       decisionAutomationRepository,
+      96:       workspaceId,
+      97:       journeyId,
+      98:       eventType:
+      99:         "PROPOSAL_ACCEPTED",
+     100:       actorType,
+     101:       actorId,
+     102:       targetStateId,
+     103:       origin,
+     104:       payload,
+     105:       expectedVersion,
+     106:       now,
+     107:       executionLimit,
+     108:       generateEventId,
+     109:       dependencies,
+     110:   
+     111:       messages: {
+     112:         operationDescription:
+     113:           "aceitar a proposta comercial",
+     114:   
+
+PATTERN=eventType:
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=98
+CONTEXT_START=86
+CONTEXT_END=120
+      86:     expectedVersion,
+      87:     now = new Date(),
+      88:     executionLimit,
+      89:     generateEventId,
+      90:     dependencies,
+      91:   }: AcceptProposalInput): AcceptProposalResult {
+      92:     return executeCommercialEventUseCase({
+      93:       commercialRepository,
+      94:       crmRepository,
+      95:       decisionAutomationRepository,
+      96:       workspaceId,
+      97:       journeyId,
+>>>   98:       eventType:
+      99:         "PROPOSAL_ACCEPTED",
+     100:       actorType,
+     101:       actorId,
+     102:       targetStateId,
+     103:       origin,
+     104:       payload,
+     105:       expectedVersion,
+     106:       now,
+     107:       executionLimit,
+     108:       generateEventId,
+     109:       dependencies,
+     110:   
+     111:       messages: {
+     112:         operationDescription:
+     113:           "aceitar a proposta comercial",
+     114:   
+     115:         eventRegistered:
+     116:           (event) =>
+     117:             `A aceitaÃ§Ã£o da proposta comercial foi registrada no evento "${event.id}".`,
+     118:   
+     119:         journeyTransitioned:
+     120:           (journey) =>
+
+PATTERN=dependencies:
+MATCH_COUNT=0
+
+FILE=.\application\use-cases\sale\close-sale.ts
+EXISTS=True
+
+PATTERN=executeCommercialEventUseCase(
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=250
+CONTEXT_START=238
+CONTEXT_END=272
+     238:             generateSaleId,
+     239:   
+     240:           /**
+     241:            * A jornada serÃ¡ encerrada abaixo pelo Workflow Engine.
+     242:            */
+     243:           updateJourney:
+     244:             false,
+     245:         },
+     246:       )
+     247:   
+     248:     try {
+     249:       const result =
+>>>  250:         executeCommercialEventUseCase({
+     251:           commercialRepository,
+     252:           crmRepository,
+     253:           decisionAutomationRepository,
+     254:           workspaceId:
+     255:             normalizedWorkspaceId,
+     256:           journeyId:
+     257:             normalizedJourneyId,
+     258:   
+     259:           eventType:
+     260:             "SALE_COMPLETED",
+     261:   
+     262:           actorType,
+     263:           actorId,
+     264:   
+     265:           targetStateId:
+     266:             wonStateId,
+     267:   
+     268:           origin,
+     269:   
+     270:           payload: {
+     271:             ...payload,
+     272:   
+
+PATTERN=eventType:
+MATCH_COUNT=1
+----------------------------------------
+MATCH_LINE=259
+CONTEXT_START=247
+CONTEXT_END=281
+     247:   
+     248:     try {
+     249:       const result =
+     250:         executeCommercialEventUseCase({
+     251:           commercialRepository,
+     252:           crmRepository,
+     253:           decisionAutomationRepository,
+     254:           workspaceId:
+     255:             normalizedWorkspaceId,
+     256:           journeyId:
+     257:             normalizedJourneyId,
+     258:   
+>>>  259:           eventType:
+     260:             "SALE_COMPLETED",
+     261:   
+     262:           actorType,
+     263:           actorId,
+     264:   
+     265:           targetStateId:
+     266:             wonStateId,
+     267:   
+     268:           origin,
+     269:   
+     270:           payload: {
+     271:             ...payload,
+     272:   
+     273:             saleId:
+     274:               sale.id,
+     275:   
+     276:             proposalId:
+     277:               sale.proposalId,
+     278:   
+     279:             clientId:
+     280:               sale.clientId,
+     281:   
+
+PATTERN=dependencies:
+MATCH_COUNT=0
+
+============================================================
+ WIRING CONTEXT
+============================================================
+
+FILE=.\components\dashboard\dashboard-content.tsx
+EXISTS=True
+
+PATTERN=R2OrchestrationProvider
+MATCH_COUNT=0
+
+PATTERN=useR2Orchestration
+MATCH_COUNT=0
+
+PATTERN=GorilaR2Avatar3D
+MATCH_COUNT=0
+
+PATTERN=runtimeCommand
+MATCH_COUNT=0
+
+PATTERN=workspaceId
+MATCH_COUNT=3
+----------------------------------------
+MATCH_LINE=11
+CONTEXT_START=1
+CONTEXT_END=35
+       1: import { DashboardHeader } from "@/components/dashboard/dashboard-header"
+       2: import { MetricsGrid } from "@/components/dashboard/metrics-grid"
+       3: import { UpcomingTasks } from "@/components/dashboard/upcoming-tasks"
+       4: import { OpportunityList } from "@/components/dashboard/opportunity-list"
+       5: 
+       6: import { formatCurrency } from "@/lib/formatters"
+       7: import type { DashboardData } from "@/types/dashboard"
+       8: 
+       9: type DashboardContentProps = Pick<
+      10:   DashboardData,
+>>>   11:   | "workspaceId"
+      12:   | "user"
+      13:   | "summary"
+      14:   | "metrics"
+      15:   | "tasks"
+      16:   | "opportunities"
+      17:   | "intelligence"
+      18:   | "gorilaR2"
+      19: >
+      20: 
+      21: export function DashboardContent({
+      22:   workspaceId,
+      23:   user,
+      24:   summary,
+      25:   metrics,
+      26:   tasks,
+      27:   opportunities = [],
+      28:   intelligence,
+      29:   gorilaR2,
+      30: }: DashboardContentProps) {
+      31:   const criticalCount =
+      32:     intelligence?.criticalCount ??
+      33:     tasks.filter((task) => task.priority === "high").length
+      34: 
+      35:   const importantCount =
+----------------------------------------
+MATCH_LINE=22
+CONTEXT_START=12
+CONTEXT_END=46
+      12:   | "user"
+      13:   | "summary"
+      14:   | "metrics"
+      15:   | "tasks"
+      16:   | "opportunities"
+      17:   | "intelligence"
+      18:   | "gorilaR2"
+      19: >
+      20: 
+      21: export function DashboardContent({
+>>>   22:   workspaceId,
+      23:   user,
+      24:   summary,
+      25:   metrics,
+      26:   tasks,
+      27:   opportunities = [],
+      28:   intelligence,
+      29:   gorilaR2,
+      30: }: DashboardContentProps) {
+      31:   const criticalCount =
+      32:     intelligence?.criticalCount ??
+      33:     tasks.filter((task) => task.priority === "high").length
+      34: 
+      35:   const importantCount =
+      36:     intelligence?.importantCount ??
+      37:     tasks.filter((task) => task.priority === "medium").length
+      38: 
+      39:   const monitoringCount =
+      40:     intelligence?.monitoringCount ??
+      41:     tasks.filter((task) => task.priority === "low").length
+      42: 
+      43:   const nextAction =
+      44:     gorilaR2?.nextAction?.title ??
+      45:     intelligence?.nextAction ??
+      46:     tasks[0]?.title ??
+----------------------------------------
+MATCH_LINE=59
+CONTEXT_START=49
+CONTEXT_END=83
+      49:   const confidenceLabel = {
+      50:     high: "Alta confianÃ§a",
+      51:     medium: "ConfianÃ§a mÃ©dia",
+      52:     low: "Baixa confianÃ§a",
+      53:   }[gorilaR2?.confidence ?? "medium"]
+      54: 
+      55:   return (
+      56:     <main className="min-h-screen">
+      57:       <div className="mx-auto flex w-full max-w-[1680px] flex-col gap-7 px-4 py-4 sm:px-6 sm:py-6 lg:gap-8 lg:px-8 lg:py-8 2xl:px-10">
+      58:         <DashboardHeader
+>>>   59:           workspaceId={workspaceId}
+      60:           user={user}
+      61:           summary={summary}
+      62:           priorityCount={criticalCount}
+      63:           gorilaR2={gorilaR2}
+      64:         />
+      65: 
+      66:         <MetricsGrid metrics={metrics} />
+      67: 
+      68: 
+      69:         <section
+      70:           aria-label="PrÃ³ximas tarefas"
+      71:           className="grid gap-6 xl:grid-cols-[minmax(0,1.5fr)_minmax(340px,0.5fr)]"
+      72:         >
+      73:           <UpcomingTasks tasks={tasks} />
+      74: 
+      75:           <aside
+      76:             aria-labelledby="r2-operational-title"
+      77:             className="gorila-material relative overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#15191F]/88 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.15),inset_0_-2px_1px_rgba(0,0,0,0.26),0_4px_6px_rgba(0,0,0,0.24),0_22px_48px_rgba(0,0,0,0.23)] backdrop-blur-xl sm:p-6"
+      78:           >
+      79:             <div
+      80:               aria-hidden="true"
+      81:               className="pointer-events-none absolute -right-16 -top-20 size-48 rounded-full bg-[#2F8F5B]/[0.09] blur-3xl"
+      82:             />
+      83: 
+
+PATTERN=commercialEvent
+MATCH_COUNT=0
+
+FILE=.\components\dashboard\dashboard-shell.tsx
+EXISTS=True
+
+PATTERN=R2OrchestrationProvider
+MATCH_COUNT=0
+
+PATTERN=useR2Orchestration
+MATCH_COUNT=0
+
+PATTERN=GorilaR2Avatar3D
+MATCH_COUNT=0
+
+PATTERN=runtimeCommand
+MATCH_COUNT=0
+
+PATTERN=workspaceId
+MATCH_COUNT=2
+----------------------------------------
+MATCH_LINE=16
+CONTEXT_START=6
+CONTEXT_END=40
+       6: import { DashboardContent } from "@/components/dashboard/dashboard-content"
+       7: import { Sidebar } from "@/components/dashboard/sidebar"
+       8: import { BrandIdentity } from "@/components/brand/brand-identity"
+       9: import { Button } from "@/components/ui/button"
+      10: import { cn } from "@/lib/utils"
+      11: import type { DashboardData } from "@/types/dashboard"
+      12: 
+      13: type DashboardShellProps = DashboardData
+      14: 
+      15: export function DashboardShell({
+>>>   16:   workspaceId,
+      17:   user,
+      18:   summary,
+      19:   metrics,
+      20:   tasks,
+      21:   opportunities = [],
+      22:   intelligence,
+      23:   gorilaR2,
+      24: }: DashboardShellProps) {
+      25:   const [sidebarOpen, setSidebarOpen] = useState(false)
+      26:   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+      27: 
+      28:   return (
+      29:     <div className="min-h-screen bg-[var(--gorila-canvas)] text-[var(--gorila-text)]">
+      30:       <Sidebar
+      31:         open={sidebarOpen}
+      32:         collapsed={sidebarCollapsed}
+      33:         onClose={() => setSidebarOpen(false)}
+      34:         onCollapsedChange={setSidebarCollapsed}
+      35:       />
+      36: 
+      37:       <div
+      38:         className={cn(
+      39:           "min-h-screen transition-[padding-left] duration-250 ease-out",
+      40:           sidebarCollapsed ? "lg:pl-[88px]" : "lg:pl-[288px]"
+----------------------------------------
+MATCH_LINE=78
+CONTEXT_START=68
+CONTEXT_END=95
+      68:             >
+      69:               <Menu className="size-5" />
+      70:             </Button>
+      71: 
+      72:             <BrandIdentity markClassName="hidden" />
+      73:           </div>
+      74:         </header>
+      75: 
+      76:         <main className="min-h-screen">
+      77:           <DashboardContent
+>>>   78:             workspaceId={workspaceId}
+      79:             user={user}
+      80:             summary={summary}
+      81:             metrics={metrics}
+      82:             tasks={tasks}
+      83:             opportunities={
+      84:               opportunities
+      85:             }
+      86:             intelligence={intelligence}
+      87:             gorilaR2={gorilaR2}
+      88:           />
+      89:         </main>
+      90:       </div>
+      91:     </div>
+      92:   )
+      93: }
+      94: 
+      95: 
+
+PATTERN=commercialEvent
+MATCH_COUNT=0
+
+FILE=.\components\dashboard\3d\gorila-r2-3d.tsx
+EXISTS=True
+
+PATTERN=R2OrchestrationProvider
+MATCH_COUNT=0
+
+PATTERN=useR2Orchestration
+MATCH_COUNT=0
+
+PATTERN=GorilaR2Avatar3D
+MATCH_COUNT=0
+
+PATTERN=runtimeCommand
+MATCH_COUNT=4
+----------------------------------------
+MATCH_LINE=25
+CONTEXT_START=15
+CONTEXT_END=49
+      15:   R2FullCharacterModel,
+      16: } from "./r2/real/r2-full-character-model"
+      17: import {
+      18:   R2_CAMERA_FOV,
+      19:   R2_LIGHTING,
+      20:   R2_MODEL_PRESENTATION_SCALE,
+      21:   R2_RENDERER,
+      22: } from "./r2/real/r2-character-presentation"
+      23: import type {
+      24:   R2ExecutionReceipt,
+>>>   25:   R2RuntimeCommand,
+      26: } from "@/types/r2-intelligence-orchestration"
+      27: 
+      28: export function GorilaR23D({
+      29:   workspaceId,
+      30:   runtimeCommand,
+      31:   onRuntimeReceipt,
+      32: }: Readonly<{
+      33:   workspaceId?: string
+      34:   runtimeCommand?: R2RuntimeCommand | null
+      35:   onRuntimeReceipt?: (receipt: R2ExecutionReceipt) => void
+      36: }>) {
+      37:   const [canRenderCanvas, setCanRenderCanvas] =
+      38:     useState(false)
+      39: 
+      40:   useEffect(() => {
+      41:     let active = true
+      42: 
+      43:     queueMicrotask(() => {
+      44:       if (active) {
+      45:         setCanRenderCanvas(
+      46:           typeof globalThis.ResizeObserver !==
+      47:             "undefined",
+      48:         )
+      49:       }
+----------------------------------------
+MATCH_LINE=30
+CONTEXT_START=20
+CONTEXT_END=54
+      20:   R2_MODEL_PRESENTATION_SCALE,
+      21:   R2_RENDERER,
+      22: } from "./r2/real/r2-character-presentation"
+      23: import type {
+      24:   R2ExecutionReceipt,
+      25:   R2RuntimeCommand,
+      26: } from "@/types/r2-intelligence-orchestration"
+      27: 
+      28: export function GorilaR23D({
+      29:   workspaceId,
+>>>   30:   runtimeCommand,
+      31:   onRuntimeReceipt,
+      32: }: Readonly<{
+      33:   workspaceId?: string
+      34:   runtimeCommand?: R2RuntimeCommand | null
+      35:   onRuntimeReceipt?: (receipt: R2ExecutionReceipt) => void
+      36: }>) {
+      37:   const [canRenderCanvas, setCanRenderCanvas] =
+      38:     useState(false)
+      39: 
+      40:   useEffect(() => {
+      41:     let active = true
+      42: 
+      43:     queueMicrotask(() => {
+      44:       if (active) {
+      45:         setCanRenderCanvas(
+      46:           typeof globalThis.ResizeObserver !==
+      47:             "undefined",
+      48:         )
+      49:       }
+      50:     })
+      51: 
+      52:     return () => {
+      53:       active = false
+      54:     }
+----------------------------------------
+MATCH_LINE=34
+CONTEXT_START=24
+CONTEXT_END=58
+      24:   R2ExecutionReceipt,
+      25:   R2RuntimeCommand,
+      26: } from "@/types/r2-intelligence-orchestration"
+      27: 
+      28: export function GorilaR23D({
+      29:   workspaceId,
+      30:   runtimeCommand,
+      31:   onRuntimeReceipt,
+      32: }: Readonly<{
+      33:   workspaceId?: string
+>>>   34:   runtimeCommand?: R2RuntimeCommand | null
+      35:   onRuntimeReceipt?: (receipt: R2ExecutionReceipt) => void
+      36: }>) {
+      37:   const [canRenderCanvas, setCanRenderCanvas] =
+      38:     useState(false)
+      39: 
+      40:   useEffect(() => {
+      41:     let active = true
+      42: 
+      43:     queueMicrotask(() => {
+      44:       if (active) {
+      45:         setCanRenderCanvas(
+      46:           typeof globalThis.ResizeObserver !==
+      47:             "undefined",
+      48:         )
+      49:       }
+      50:     })
+      51: 
+      52:     return () => {
+      53:       active = false
+      54:     }
+      55:   }, [])
+      56: 
+      57:   if (!canRenderCanvas) {
+      58:     return (
+----------------------------------------
+MATCH_LINE=148
+CONTEXT_START=138
+CONTEXT_END=158
+     138:         <directionalLight
+     139:           name="r2-rim-light"
+     140:           color={R2_LIGHTING.rim.color}
+     141:           intensity={R2_LIGHTING.rim.intensity}
+     142:           position={R2_LIGHTING.rim.position}
+     143:         />
+     144:         <Suspense fallback={null}>
+     145:           <R2FullCharacterErrorBoundary>
+     146:             <R2FullCharacterModel
+     147:               runtimeWorkspaceId={workspaceId}
+>>>  148:               runtimeCommand={runtimeCommand}
+     149:               onRuntimeReceipt={onRuntimeReceipt}
+     150:               scale={R2_MODEL_PRESENTATION_SCALE}
+     151:               autoFrame
+     152:             />
+     153:           </R2FullCharacterErrorBoundary>
+     154:         </Suspense>
+     155:       </Canvas>
+     156:     </div>
+     157:   )
+     158: }
+
+PATTERN=workspaceId
+MATCH_COUNT=3
+----------------------------------------
+MATCH_LINE=29
+CONTEXT_START=19
+CONTEXT_END=53
+      19:   R2_LIGHTING,
+      20:   R2_MODEL_PRESENTATION_SCALE,
+      21:   R2_RENDERER,
+      22: } from "./r2/real/r2-character-presentation"
+      23: import type {
+      24:   R2ExecutionReceipt,
+      25:   R2RuntimeCommand,
+      26: } from "@/types/r2-intelligence-orchestration"
+      27: 
+      28: export function GorilaR23D({
+>>>   29:   workspaceId,
+      30:   runtimeCommand,
+      31:   onRuntimeReceipt,
+      32: }: Readonly<{
+      33:   workspaceId?: string
+      34:   runtimeCommand?: R2RuntimeCommand | null
+      35:   onRuntimeReceipt?: (receipt: R2ExecutionReceipt) => void
+      36: }>) {
+      37:   const [canRenderCanvas, setCanRenderCanvas] =
+      38:     useState(false)
+      39: 
+      40:   useEffect(() => {
+      41:     let active = true
+      42: 
+      43:     queueMicrotask(() => {
+      44:       if (active) {
+      45:         setCanRenderCanvas(
+      46:           typeof globalThis.ResizeObserver !==
+      47:             "undefined",
+      48:         )
+      49:       }
+      50:     })
+      51: 
+      52:     return () => {
+      53:       active = false
+----------------------------------------
+MATCH_LINE=33
+CONTEXT_START=23
+CONTEXT_END=57
+      23: import type {
+      24:   R2ExecutionReceipt,
+      25:   R2RuntimeCommand,
+      26: } from "@/types/r2-intelligence-orchestration"
+      27: 
+      28: export function GorilaR23D({
+      29:   workspaceId,
+      30:   runtimeCommand,
+      31:   onRuntimeReceipt,
+      32: }: Readonly<{
+>>>   33:   workspaceId?: string
+      34:   runtimeCommand?: R2RuntimeCommand | null
+      35:   onRuntimeReceipt?: (receipt: R2ExecutionReceipt) => void
+      36: }>) {
+      37:   const [canRenderCanvas, setCanRenderCanvas] =
+      38:     useState(false)
+      39: 
+      40:   useEffect(() => {
+      41:     let active = true
+      42: 
+      43:     queueMicrotask(() => {
+      44:       if (active) {
+      45:         setCanRenderCanvas(
+      46:           typeof globalThis.ResizeObserver !==
+      47:             "undefined",
+      48:         )
+      49:       }
+      50:     })
+      51: 
+      52:     return () => {
+      53:       active = false
+      54:     }
+      55:   }, [])
+      56: 
+      57:   if (!canRenderCanvas) {
+----------------------------------------
+MATCH_LINE=147
+CONTEXT_START=137
+CONTEXT_END=158
+     137:         />
+     138:         <directionalLight
+     139:           name="r2-rim-light"
+     140:           color={R2_LIGHTING.rim.color}
+     141:           intensity={R2_LIGHTING.rim.intensity}
+     142:           position={R2_LIGHTING.rim.position}
+     143:         />
+     144:         <Suspense fallback={null}>
+     145:           <R2FullCharacterErrorBoundary>
+     146:             <R2FullCharacterModel
+>>>  147:               runtimeWorkspaceId={workspaceId}
+     148:               runtimeCommand={runtimeCommand}
+     149:               onRuntimeReceipt={onRuntimeReceipt}
+     150:               scale={R2_MODEL_PRESENTATION_SCALE}
+     151:               autoFrame
+     152:             />
+     153:           </R2FullCharacterErrorBoundary>
+     154:         </Suspense>
+     155:       </Canvas>
+     156:     </div>
+     157:   )
+     158: }
+
+PATTERN=commercialEvent
+MATCH_COUNT=0
+
+FILE=.\application\dashboard\get-async-dashboard-data.ts
+EXISTS=True
+
+PATTERN=R2OrchestrationProvider
+MATCH_COUNT=0
+
+PATTERN=useR2Orchestration
+MATCH_COUNT=0
+
+PATTERN=GorilaR2Avatar3D
+MATCH_COUNT=0
+
+PATTERN=runtimeCommand
+MATCH_COUNT=0
+
+PATTERN=workspaceId
+MATCH_COUNT=8
+----------------------------------------
+MATCH_LINE=34
+CONTEXT_START=24
+CONTEXT_END=58
+      24: 
+      25: import {
+      26:   mapOperationalDashboardData,
+      27: } from "./mapper"
+      28: 
+      29: import {
+      30:   buildGorilaR2Briefing,
+      31: } from "./build-gorilar2-briefing"
+      32: 
+      33: export type GetAsyncDashboardDataInput = {
+>>>   34:   workspaceId: string
+      35:   consultantId?: string
+      36:   now?: Date
+      37: }
+      38: 
+      39: export type GetAsyncDashboardDataDependencies = {
+      40:   commercialRepository:
+      41:     AsyncCommercialRepositories
+      42: 
+      43:   crmRepository:
+      44:     AsyncCrmRepositories
+      45: }
+      46: 
+      47: const DASHBOARD_TIME_ZONE =
+      48:   "America/Sao_Paulo"
+      49: 
+      50: const taskPriorityOrder: Record<
+      51:   DashboardTaskPriority,
+      52:   number
+      53: > = {
+      54:   high: 0,
+      55:   medium: 1,
+      56:   low: 2,
+      57: }
+      58: 
+----------------------------------------
+MATCH_LINE=175
+CONTEXT_START=165
+CONTEXT_END=199
+     165: ): number {
+     166:   return Math.max(
+     167:     0,
+     168:     (now.getTime() - new Date(value).getTime()) /
+     169:       (1000 * 60 * 60),
+     170:   )
+     171: }
+     172: 
+     173: export async function getAsyncDashboardData(
+     174:   {
+>>>  175:     workspaceId,
+     176:     consultantId,
+     177:     now = new Date(),
+     178:   }: GetAsyncDashboardDataInput,
+     179:   dependencies:
+     180:     GetAsyncDashboardDataDependencies,
+     181: ): Promise<DashboardData> {
+     182:   const normalizedWorkspaceId =
+     183:     workspaceId.trim()
+     184: 
+     185:   if (!normalizedWorkspaceId) {
+     186:     throw new Error(
+     187:       "O workspace Ã© obrigatÃ³rio para carregar o Mission Control.",
+     188:     )
+     189:   }
+     190: 
+     191:   const consultants =
+     192:     await dependencies
+     193:       .crmRepository
+     194:       .consultants
+     195:       .findAll()
+     196: 
+     197:   const selectedConsultant =
+     198:     consultantId
+     199:       ? consultants.find(
+----------------------------------------
+MATCH_LINE=182
+CONTEXT_START=172
+CONTEXT_END=206
+     172: 
+     173: export async function getAsyncDashboardData(
+     174:   {
+     175:     workspaceId,
+     176:     consultantId,
+     177:     now = new Date(),
+     178:   }: GetAsyncDashboardDataInput,
+     179:   dependencies:
+     180:     GetAsyncDashboardDataDependencies,
+     181: ): Promise<DashboardData> {
+>>>  182:   const normalizedWorkspaceId =
+     183:     workspaceId.trim()
+     184: 
+     185:   if (!normalizedWorkspaceId) {
+     186:     throw new Error(
+     187:       "O workspace Ã© obrigatÃ³rio para carregar o Mission Control.",
+     188:     )
+     189:   }
+     190: 
+     191:   const consultants =
+     192:     await dependencies
+     193:       .crmRepository
+     194:       .consultants
+     195:       .findAll()
+     196: 
+     197:   const selectedConsultant =
+     198:     consultantId
+     199:       ? consultants.find(
+     200:           (consultant) =>
+     201:             consultant.id ===
+     202:             consultantId,
+     203:         )
+     204:       : (
+     205:           consultants.find(
+     206:             (consultant) =>
+----------------------------------------
+MATCH_LINE=183
+CONTEXT_START=173
+CONTEXT_END=207
+     173: export async function getAsyncDashboardData(
+     174:   {
+     175:     workspaceId,
+     176:     consultantId,
+     177:     now = new Date(),
+     178:   }: GetAsyncDashboardDataInput,
+     179:   dependencies:
+     180:     GetAsyncDashboardDataDependencies,
+     181: ): Promise<DashboardData> {
+     182:   const normalizedWorkspaceId =
+>>>  183:     workspaceId.trim()
+     184: 
+     185:   if (!normalizedWorkspaceId) {
+     186:     throw new Error(
+     187:       "O workspace Ã© obrigatÃ³rio para carregar o Mission Control.",
+     188:     )
+     189:   }
+     190: 
+     191:   const consultants =
+     192:     await dependencies
+     193:       .crmRepository
+     194:       .consultants
+     195:       .findAll()
+     196: 
+     197:   const selectedConsultant =
+     198:     consultantId
+     199:       ? consultants.find(
+     200:           (consultant) =>
+     201:             consultant.id ===
+     202:             consultantId,
+     203:         )
+     204:       : (
+     205:           consultants.find(
+     206:             (consultant) =>
+     207:               consultant.status ===
+----------------------------------------
+MATCH_LINE=185
+CONTEXT_START=175
+CONTEXT_END=209
+     175:     workspaceId,
+     176:     consultantId,
+     177:     now = new Date(),
+     178:   }: GetAsyncDashboardDataInput,
+     179:   dependencies:
+     180:     GetAsyncDashboardDataDependencies,
+     181: ): Promise<DashboardData> {
+     182:   const normalizedWorkspaceId =
+     183:     workspaceId.trim()
+     184: 
+>>>  185:   if (!normalizedWorkspaceId) {
+     186:     throw new Error(
+     187:       "O workspace Ã© obrigatÃ³rio para carregar o Mission Control.",
+     188:     )
+     189:   }
+     190: 
+     191:   const consultants =
+     192:     await dependencies
+     193:       .crmRepository
+     194:       .consultants
+     195:       .findAll()
+     196: 
+     197:   const selectedConsultant =
+     198:     consultantId
+     199:       ? consultants.find(
+     200:           (consultant) =>
+     201:             consultant.id ===
+     202:             consultantId,
+     203:         )
+     204:       : (
+     205:           consultants.find(
+     206:             (consultant) =>
+     207:               consultant.status ===
+     208:               "active",
+     209:           ) ??
+----------------------------------------
+MATCH_LINE=235
+CONTEXT_START=225
+CONTEXT_END=259
+     225:     tasks,
+     226:     phases,
+     227:     states,
+     228:   ] = await Promise.all([
+     229:     new ListOpportunitiesAsync({
+     230:       journeys:
+     231:         dependencies
+     232:           .commercialRepository
+     233:           .journeys,
+     234:     }).execute({
+>>>  235:       workspaceId:
+     236:         normalizedWorkspaceId,
+     237:       consultantId:
+     238:         resolvedConsultantId,
+     239:     }),
+     240: 
+     241:     getNextBestActions({
+     242:       commercialRepository:
+     243:         dependencies
+     244:           .commercialRepository,
+     245: 
+     246:       consultantId:
+     247:         resolvedConsultantId,
+     248: 
+     249:       now,
+     250:     }),
+     251: 
+     252:     dependencies
+     253:       .crmRepository
+     254:       .leads
+     255:       .findAll(),
+     256: 
+     257:     dependencies
+     258:       .crmRepository
+     259:       .clients
+----------------------------------------
+MATCH_LINE=236
+CONTEXT_START=226
+CONTEXT_END=260
+     226:     phases,
+     227:     states,
+     228:   ] = await Promise.all([
+     229:     new ListOpportunitiesAsync({
+     230:       journeys:
+     231:         dependencies
+     232:           .commercialRepository
+     233:           .journeys,
+     234:     }).execute({
+     235:       workspaceId:
+>>>  236:         normalizedWorkspaceId,
+     237:       consultantId:
+     238:         resolvedConsultantId,
+     239:     }),
+     240: 
+     241:     getNextBestActions({
+     242:       commercialRepository:
+     243:         dependencies
+     244:           .commercialRepository,
+     245: 
+     246:       consultantId:
+     247:         resolvedConsultantId,
+     248: 
+     249:       now,
+     250:     }),
+     251: 
+     252:     dependencies
+     253:       .crmRepository
+     254:       .leads
+     255:       .findAll(),
+     256: 
+     257:     dependencies
+     258:       .crmRepository
+     259:       .clients
+     260:       .findAll(),
+----------------------------------------
+MATCH_LINE=775
+CONTEXT_START=765
+CONTEXT_END=799
+     765:         : undefined,
+     766:   }
+     767: 
+     768:   const gorilaR2 =
+     769:     buildGorilaR2Briefing({
+     770:       intelligence,
+     771:     })
+     772: 
+     773:   return {
+     774:     ...dashboardData,
+>>>  775:     workspaceId: normalizedWorkspaceId,
+     776: 
+     777:     gorilaR2,
+     778: 
+     779:     metrics: {
+     780:       newLeads,
+     781:       meetingsToday,
+     782:       monthlySales,
+     783:       pendingTasks:
+     784:         prioritizedTasks.length,
+     785:     },
+     786: 
+     787:     meetings:
+     788:       dashboardMeetings,
+     789: 
+     790:     tasks:
+     791:       prioritizedTasks,
+     792: 
+     793:     opportunities,
+     794: 
+     795:     pipeline,
+     796: 
+     797:     summary:
+     798:       criticalCount > 0
+     799:         ? `Hoje existem ${criticalCount} oportunidades crÃ­ticas. Resolver a primeira aÃ§Ã£o aumenta sua chance de avanÃ§ar ainda hoje.`
+
+PATTERN=commercialEvent
+MATCH_COUNT=0
+
+FILE=.\application\dashboard\r2-adapter.ts
+EXISTS=True
+
+PATTERN=R2OrchestrationProvider
+MATCH_COUNT=0
+
+PATTERN=useR2Orchestration
+MATCH_COUNT=0
+
+PATTERN=GorilaR2Avatar3D
+MATCH_COUNT=0
+
+PATTERN=runtimeCommand
+MATCH_COUNT=0
+
+PATTERN=workspaceId
+MATCH_COUNT=0
+
+PATTERN=commercialEvent
+MATCH_COUNT=0
+
+============================================================
+ GLOBAL DEPENDENCY INJECTION SEARCH
+============================================================
+
+PATTERN=executeCommercialEventUseCase
+MATCH_COUNT=39
+FILE_COUNT=8
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:104: export type ExecuteCommercialEventUseCaseInput = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:149: export type ExecuteCommercialEventUseCaseResult = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:204: export function executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:222: }: ExecuteCommercialEventUseCaseInput):
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:223: ExecuteCommercialEventUseCaseResult {
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:76: ExecuteCommercialEventUseCaseResult & {
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:223: executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:10: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:14: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:53: executeCommercialEventUseCase:
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:203: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:210: } as unknown as ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:288: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:308: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:345: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:426: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:529: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:81: ExecuteCommercialEventUseCaseResult & {
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:250: executeCommercialEventUseCase({
+
+PATTERN=CommercialEventUseCaseDependencies
+MATCH_COUNT=17
+FILE_COUNT=7
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:55: export type CommercialEventUseCaseDependencies = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:146: Partial<CommercialEventUseCaseDependencies>
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:174: CommercialEventUseCaseDependencies = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:184: Partial<CommercialEventUseCaseDependencies> = {},
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:185: ): CommercialEventUseCaseDependencies {
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:32: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:40: CommercialEventUseCaseDependencies
+
+PATTERN=recordCommercialEvent:
+MATCH_COUNT=3
+FILE_COUNT=2
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:56: recordCommercialEvent: (
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:187: recordCommercialEvent:
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:952: recordCommercialEvent:
+
+PATTERN=normalizeCommercialEvent
+MATCH_COUNT=8
+FILE_COUNT=3
+C:\Projetos\consorcio-os\web\application\r2\index.ts:3: normalizeCommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:124: export type NormalizeCommercialEventOptions = Readonly<{
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:132: export function normalizeCommercialEvent(
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:134: options: NormalizeCommercialEventOptions = {},
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:14: normalizeCommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:89: expect(normalizeCommercialEvent(commercial(source as CommercialEventType)).eventType).toBe(canonical)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:94: expect(() => normalizeCommercialEvent({ ...commercial("LEAD_CREATED"), workspaceId: " " })).toThrow(/workspaceId/)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:95: const canonical = normalizeCommercialEvent(commercial("LEAD_CREATED"))
+
+PATTERN=R2Orchestrator
+MATCH_COUNT=9
+FILE_COUNT=4
+C:\Projetos\consorcio-os\web\application\r2\index.ts:12: R2Orchestrator,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:19: import { R2InMemoryObservabilitySink, R2Orchestrator } from "./r2-orchestrator"
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:216: const orchestrator = new R2Orchestrator({
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:28: export type R2OrchestratorConfig = Readonly<{
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:67: export class R2Orchestrator {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:93: constructor(config: R2OrchestratorConfig) {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:16: R2Orchestrator,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:34: private readonly orchestrator: R2Orchestrator
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:45: this.orchestrator = new R2Orchestrator({
+
+PATTERN=dispatch(event
+MATCH_COUNT=5
+FILE_COUNT=2
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:36: <button type="button" onClick={() => void dispatch(event("lead.created", "provider-working"))}>working</button>
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:37: <button type="button" onClick={() => void dispatch(event("task.created", "provider-queued"))}>queue</button>
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:73: async dispatch(event: R2DomainEvent) {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:82: const decision = await this.orchestrator.dispatch(event, context)
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:186: dispatch: (event: R2DomainEvent) => value.store.dispatch(event),
+
+PATTERN=dispatch(canonical
+MATCH_COUNT=0
+FILE_COUNT=0
+
+PATTERN=R2OrchestrationProvider
+MATCH_COUNT=11
+FILE_COUNT=3
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:7: import { R2OrchestrationProvider, useR2Orchestration } from "./r2-orchestration-provider"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:42: describe("R2OrchestrationProvider", () => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:45: <R2OrchestrationProvider workspaceId="workspace-a" userId="user-a">
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:47: </R2OrchestrationProvider>,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:140: function R2OrchestrationProviderScope({
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:167: export function R2OrchestrationProvider(props: Readonly<{
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:174: <R2OrchestrationProviderScope
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:183: if (!value) throw new Error("useR2Orchestration must be used inside R2OrchestrationProvider.")
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:8: R2OrchestrationProvider,
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:53: <R2OrchestrationProvider
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:59: </R2OrchestrationProvider>
+
+PATTERN=useR2Orchestration
+MATCH_COUNT=6
+FILE_COUNT=3
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:7: import { R2OrchestrationProvider, useR2Orchestration } from "./r2-orchestration-provider"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:31: const { command, decision, dispatch } = useR2Orchestration()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:181: export function useR2Orchestration() {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:183: if (!value) throw new Error("useR2Orchestration must be used inside R2OrchestrationProvider.")
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:9: useR2Orchestration,
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:22: const { command, recordReceipt } = useR2Orchestration()
+
+============================================================
+ BASELINE VALIDATION
+============================================================
+TYPESCRIPT_EXIT_CODE=0
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Projetos/consorcio-os/web[39m
+
+ [32mÔ£ô[39m application/r2/r2-intelligence-orchestration.test.ts [2m([22m[2m68 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/proposal/send-proposal.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/meeting/schedule-meeting.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/meeting/complete-meeting.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/lead/receive-lead-reply.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/proposal/accept-proposal.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32mÔ£ô[39m components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 434[2mms[22m[39m
+     [33m[2mÔ£ô[22m[39m does not present a queued command before the active presentation completes [33m 430[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/sale/close-sale.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m8 passed[39m[22m[90m (8)[39m
+[2m      Tests [22m [1m[32m117 passed[39m[22m[90m (117)[39m
+[2m   Start at [22m 14:25:06
+[2m   Duration [22m 5.88s[2m (transform 1.19s, setup 6.00s, import 1.79s, tests 580ms, environment 3.75s)[22m
+
+TARGETED_TEST_EXIT_CODE=0
+
+============================================================
+ CONTRACT METRICS
+============================================================
+FULL_FILE_COUNT=6
+PRODUCER_FILE_COUNT=6
+WIRING_FILE_COUNT=5
+SOURCE_FILE_COUNT=342
+HAS_SINGLE_COMMON_USE_CASE=True
+HAS_EVENT_RESULT=True
+HAS_OPTIONAL_DEPENDENCY_PATTERN=True
+HAS_R2_DEPENDENCY_TODAY=False
+PROVIDER_FILE_COUNT=3
+ORCHESTRATION_HOOK_FILE_COUNT=3
+TARGETED_TEST_FILE_COUNT=8
+TYPESCRIPT_EXIT_CODE=0
+TARGETED_TEST_EXIT_CODE=0
+STAGED_FILE_COUNT=0
+
+============================================================
+ FINAL VERDICT
+============================================================
+VEREDITO=APROVADO_PARA_DESENHO_DO_DISPATCHER_UNICO
+NEXT_STEP=IMPLEMENTAR_CONTRATO_DE_DISPATCH_DESACOPLADO_NO_PONTO_COMUM

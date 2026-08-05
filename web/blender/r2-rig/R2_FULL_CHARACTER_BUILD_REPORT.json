@@ -1,0 +1,131 @@
+{
+    "anatomical_source_sha256":  "50D04CFBAEC2A431D96D4060E2AE82045AFBC56A0E74AD1759D156C0222825B3",
+    "animation_clip_count":  9,
+    "animation_clips":  [
+                            {
+                                "duration_frames":  30,
+                                "duration_seconds":  1.0,
+                                "first_last_continuity":  true,
+                                "loop":  true,
+                                "name":  "R2_NEUTRAL",
+                                "root_motion":  "NONE",
+                                "scale_animation":  "NONE",
+                                "state":  "neutral"
+                            },
+                            {
+                                "duration_frames":  120,
+                                "duration_seconds":  4.0,
+                                "first_last_continuity":  true,
+                                "loop":  true,
+                                "name":  "R2_IDLE",
+                                "root_motion":  "NONE",
+                                "scale_animation":  "NONE",
+                                "state":  "idle"
+                            },
+                            {
+                                "duration_frames":  72,
+                                "duration_seconds":  2.4,
+                                "first_last_continuity":  true,
+                                "loop":  true,
+                                "name":  "R2_WORKING",
+                                "root_motion":  "NONE",
+                                "scale_animation":  "NONE",
+                                "state":  "working"
+                            },
+                            {
+                                "duration_frames":  90,
+                                "duration_seconds":  3.0,
+                                "first_last_continuity":  true,
+                                "loop":  true,
+                                "name":  "R2_LISTENING",
+                                "root_motion":  "NONE",
+                                "scale_animation":  "NONE",
+                                "state":  "listening"
+                            },
+                            {
+                                "duration_frames":  90,
+                                "duration_seconds":  3.0,
+                                "first_last_continuity":  true,
+                                "loop":  true,
+                                "name":  "R2_THINKING",
+                                "root_motion":  "NONE",
+                                "scale_animation":  "NONE",
+                                "state":  "thinking"
+                            },
+                            {
+                                "duration_frames":  75,
+                                "duration_seconds":  2.5,
+                                "first_last_continuity":  true,
+                                "loop":  true,
+                                "name":  "R2_AWAITING_ACTION",
+                                "root_motion":  "NONE",
+                                "scale_animation":  "NONE",
+                                "state":  "awaiting_action"
+                            },
+                            {
+                                "duration_frames":  36,
+                                "duration_seconds":  1.2,
+                                "first_last_continuity":  true,
+                                "loop":  true,
+                                "name":  "R2_ALERT",
+                                "root_motion":  "NONE",
+                                "scale_animation":  "NONE",
+                                "state":  "alert"
+                            },
+                            {
+                                "duration_frames":  72,
+                                "duration_seconds":  2.4,
+                                "first_last_continuity":  true,
+                                "loop":  true,
+                                "name":  "R2_CELEBRATING_SALE",
+                                "root_motion":  "NONE",
+                                "scale_animation":  "NONE",
+                                "state":  "celebrating_sale"
+                            },
+                            {
+                                "duration_frames":  60,
+                                "duration_seconds":  2.0,
+                                "first_last_continuity":  true,
+                                "loop":  true,
+                                "name":  "R2_ERROR_ATTENTION",
+                                "root_motion":  "NONE",
+                                "scale_animation":  "NONE",
+                                "state":  "error_attention"
+                            }
+                        ],
+    "armature":  "R2_Rig",
+    "attribute_changes":  0,
+    "body_bones_preserved":  51,
+    "body_source_sha256":  "392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1",
+    "candidate":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352\\r2-full-character-runtime-ready-v1.candidate.blend",
+    "candidate_sha256":  "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269",
+    "created_images":  0,
+    "execution_status":  "COMPLETED",
+    "facial_bones_preserved":  14,
+    "failed_gates":  [
+
+                     ],
+    "geometry_changes":  16,
+    "head_body_attachment_stable":  true,
+    "material_changes":  0,
+    "neutral_reset_exact":  true,
+    "official_sources_unchanged":  true,
+    "phase":  "FULL_CHARACTER_RIG_INTEGRATION_AND_WEB_RUNTIME",
+    "runtime_state_count":  10,
+    "schema_version":  1,
+    "single_armature":  true,
+    "source_sha256":  "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97",
+    "technical_verdict":  "APROVADO",
+    "uv_changes":  0,
+    "weight_changes":  0,
+    "authorized_geometry_change":  {
+                                       "object":  "R2_Head_Face_Foundation",
+                                       "operation":  "remove 16 source-proven loose edges",
+                                       "map":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_AUTHORIZED_FULL_CHARACTER_GEOMETRY_CHANGE_MAP.json",
+                                       "vertices_changed":  0,
+                                       "faces_changed":  0
+                                   },
+    "unexpected_geometry_changes":  0,
+    "unexpected_weight_changes":  0,
+    "unexpected_material_changes":  0
+}

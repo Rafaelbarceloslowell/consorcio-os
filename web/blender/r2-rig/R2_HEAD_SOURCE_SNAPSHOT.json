@@ -1,0 +1,11 @@
+{
+  "snapshot_type": "READ_ONLY_SOURCE_IDENTITY",
+  "official_version": "V57",
+  "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v57-negative-x-middle-mid-depth-retopology-v1\\r2-rig-v57-negative-x-middle-mid-depth-retopology-v1.blend",
+  "sha256": "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+  "size_bytes": 37081119,
+  "creation_time_local": "2026-08-01T01:40:52.5791526-03:00",
+  "last_write_time_local": "2026-08-01T01:40:52.7627259-03:00",
+  "snapshot_created_local": "2026-08-01T02:28:26.4631608-03:00",
+  "source_must_remain_immutable": true
+}

@@ -41,3 +41,32 @@ yarn-error.log*
 next-env.d.ts
 
 /lib/generated/prisma
+
+# Ambiente e credenciais
+.env
+.env.*
+!.env.example
+*.key
+*.p12
+*.pfx
+credentials*.json
+client_secret*.json
+service-account*.json
+
+# Dependências
+node_modules/
+
+# Builds e relatórios
+.next/
+out/
+dist/
+build/
+coverage/
+
+# Bancos locais
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+prisma/*.db
+data/*.db

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "appPort": 49428,
+  "cdpPort": 49429,
+  "appUrl": "http://localhost:49428/",
+  "serverPid": 15152,
+  "browserPid": 9624,
+  "profilePath": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-browser-compatible-validation-and-release-gate-v1\\.edge-profile-temp",
+  "initialHttpStatus": 200,
+  "browserArguments": [
+    "--headless=new",
+    "--remote-debugging-port=49429",
+    "--remote-debugging-address=127.0.0.1",
+    "--remote-allow-origins=*",
+    "--disable-background-networking",
+    "--disable-component-update",
+    "--disable-default-apps",
+    "--disable-sync",
+    "--metrics-recording-only",
+    "--no-first-run",
+    "--no-default-browser-check",
+    "--enable-webgl",
+    "--ignore-gpu-blocklist",
+    "--force-device-scale-factor=1",
+    "--window-size=1440,900",
+    "--user-data-dir=C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-browser-compatible-validation-and-release-gate-v1\\.edge-profile-temp",
+    "about:blank"
+  ],
+  "browserVersion": {
+    "protocolVersion": "1.3",
+    "product": "Edg/151.0.4129.59",
+    "revision": "@400e1a29bee558c0c1dec28b2d8b3506a7302ce3",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+    "jsVersion": "15.1.23.5"
+  },
+  "finishedAt": "2026-08-02T15:08:28.868Z",
+  "result": {
+    "capabilitiesPassed": false,
+    "statesPassed": false,
+    "transitionsPassed": true,
+    "reducedMotionPassed": true,
+    "viewportsPassed": false,
+    "networkPassed": true,
+    "consolePassed": true
+  }
+}

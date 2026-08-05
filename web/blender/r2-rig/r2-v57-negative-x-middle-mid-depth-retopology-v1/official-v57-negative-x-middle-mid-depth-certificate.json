@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source_v56_sha256": "FB374635A16B5305AAF316726BA1AA0BB4A75B21F33A3225A49B3CDEEF504BB8",
+  "source_v56_certificate_sha256": "0EAF9F46BE19E0E720CF362A40B9EFC9B7EBB13EEA21F0B5F3735F90D9C4F043",
+  "location": "NEGATIVE_X_MIDDLE_MID_DEPTH",
+  "seed_face_count": 6,
+  "face_count": 6,
+  "face_indices": [3129, 3131, 3145, 3146, 3401, 3402],
+  "face_indices_sha256": "B456B78F2D2B408D18B90B6B5E5F5DB12EECDEB881E5A93954E7B5C98E2947D3",
+  "vertex_count": 7,
+  "vertex_indices": [1587, 1702, 1705, 1706, 1713, 1845, 1853],
+  "vertex_indices_sha256": "9801DB6329222AD61811678E7E24145923A82B6BD983BC4D82E59F3CABBFB8CD",
+  "certificate_sha256": "9A60D374659F7383911397DC8C928BD7FE64736940FAB0C5C5B0EA567ADB2A5A",
+  "source_aspect_p95": 4.007414,
+  "source_roughness_p95": 0.735626,
+  "boundary_components": 1,
+  "boundary_closed": 1,
+  "boundary_branched": 0,
+  "global_boundary_touch": 0,
+  "treated_overlap": 0
+}

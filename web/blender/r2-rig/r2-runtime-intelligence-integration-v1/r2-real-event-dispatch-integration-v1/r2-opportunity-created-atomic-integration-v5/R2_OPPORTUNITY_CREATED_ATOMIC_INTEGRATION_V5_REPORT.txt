@@ -1,0 +1,1560 @@
+
+============================================================
+ R2 OPPORTUNITY_CREATED ATOMIC INTEGRATION V5
+============================================================
+GENERATED_AT=2026-08-02T22:43:02.9245499-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+NODE_MAX_OLD_SPACE_SIZE_MB=4096
+NODE_OPTIONS_EFFECTIVE=--max-old-space-size=4096
+IMPLEMENTATION_MODE=FULL_FILE_REPLACEMENTS
+TYPE_INFERENCE_FIX=DOMAIN_TYPED_CREATED_NEXT_BEST_ACTIONS
+PATHOLOGICAL_CREATED_RECORDS_INFERENCE=False
+BACKUP_LOCATION=OUTSIDE_PROJECT
+NODE_TRANSFORMER=False
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+MANIFEST_SHA256=3AABBD9CBD66108A6E753EFF2F3AD0F121C0B4677B358CB9236B7FB7AA279752
+MANIFEST_HASH_MATCH=True
+MIGRATION_PARSER_SELF_TEST=True
+
+============================================================
+ PREFLIGHT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_BASELINE_MATCH=True
+STAGED_FILE_COUNT=0
+GLB_SHA256=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_BASELINE_MATCH=True
+DISPATCHER_SHA256=13BD007CA7A787AB63CF21E4CD60CB8C01C1AAFA2BC2F454C93208FA2E230258
+DISPATCHER_BASELINE_MATCH=True
+DATABASE_ENUM_TYPE_CONFIRMED=True
+PAYLOAD_FILE_COUNT=17
+PAYLOAD_AND_BASELINE_HASHES_VERIFIED=True
+GENERATED_CLIENT_HASH_BEFORE=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+
+============================================================
+ PRISMA MIGRATE STATUS BEFORE
+============================================================
+COMMAND=npx prisma migrate status
+----- STDOUT -----
+Datasource "db": PostgreSQL database "consorcio_os", schema "public" at "localhost:5432"
+
+2 migrations found in prisma/migrations
+
+Database schema is up to date!
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ VERIFIED BACKUP OUTSIDE PROJECT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v5-backup-c9ebc68bc7a84ceb853f0bdf9eec4be5
+GENERATED_CLIENT_BACKUP_HASH=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+BACKUP_COMPLETE=True
+
+============================================================
+ APPLY FULL FILE REPLACEMENTS
+============================================================
+APPLIED=app/opportunities/new/actions.test.ts
+APPLIED=app/opportunities/new/actions.ts
+APPLIED=application/opportunity/create-opportunity-async.test.ts
+APPLIED=application/opportunity/create-opportunity-async.ts
+APPLIED=application/r2/normalize-r2-event.ts
+APPLIED=application/r2/r2-intelligence-orchestration.test.ts
+APPLIED=infrastructure/prisma/mappers/commercial-event-mapper.opportunity-created.test.ts
+APPLIED=infrastructure/prisma/mappers/commercial-event-mapper.ts
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts
+APPLIED=lib/commercial-event-presenter.test.ts
+APPLIED=lib/commercial-event-presenter.ts
+APPLIED=prisma/migrations/20260802220000_add_opportunity_created_commercial_event/migration.sql
+APPLIED=prisma/schema.prisma
+APPLIED=repositories/commercial/async-commercial-repositories.ts
+APPLIED=repositories/commercial/commercial-repository.ts
+APPLIED=types/domain/commercial-event.ts
+FULL_FILE_REPLACEMENTS_VERIFIED=True
+
+============================================================
+ PRISMA VALIDATE
+============================================================
+COMMAND=npx prisma validate
+----- STDOUT -----
+The schema at prisma\schema.prisma is valid ðŸš€
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ PRISMA GENERATE
+============================================================
+COMMAND=npx prisma generate
+----- STDOUT -----
+
+âœ” Generated Prisma Client (7.9.0) to .\lib\generated\prisma in 504ms
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ TYPESCRIPT
+============================================================
+COMMAND=npx tsc --noEmit --pretty false
+----- STDOUT -----
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ TARGETED AND BRIDGE TESTS
+============================================================
+COMMAND=npx vitest run application/opportunity/create-opportunity-async.test.ts app/opportunities/new/actions.test.ts infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts infrastructure/prisma/mappers/commercial-event-mapper.opportunity-created.test.ts lib/commercial-event-presenter.test.ts application/r2/r2-intelligence-orchestration.test.ts application/use-cases/common/commercial-event-dispatcher.test.ts components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx
+----- STDOUT -----
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Projetos/consorcio-os/web[39m
+
+ [32mâœ“[39m app/opportunities/new/actions.test.ts [2m([22m[2m24 tests[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32mâœ“[39m application/opportunity/create-opportunity-async.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 241[2mms[22m[39m
+ [32mâœ“[39m application/r2/r2-intelligence-orchestration.test.ts [2m([22m[2m68 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32mâœ“[39m infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32mâœ“[39m lib/commercial-event-presenter.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32mâœ“[39m infrastructure/prisma/mappers/commercial-event-mapper.opportunity-created.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 67[2mms[22m[39m
+ [32mâœ“[39m application/use-cases/common/commercial-event-dispatcher.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m8 passed[39m[22m[90m (8)[39m
+[2m      Tests [22m [1m[32m173 passed[39m[22m[90m (173)[39m
+[2m   Start at [22m 22:43:46
+[2m   Duration [22m 6.12s[2m (transform 916ms, setup 6.06s, import 1.33s, tests 442ms, environment 3.74s)[22m
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ GIT DIFF CHECK
+============================================================
+COMMAND=git diff --check
+----- STDOUT -----
+----- STDERR -----
+warning: in the working copy of 'web/app/opportunities/new/actions.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/app/opportunities/new/actions.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/application/dashboard/get-async-dashboard-data.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/application/opportunity/create-opportunity-async.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/application/opportunity/create-opportunity-async.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/gorila-r2-3d.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2-controller.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2-scene.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2/r2-dashboard-avatar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2/real/r2-life-controller.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2/real/r2-real-model.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/dashboard-content.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/dashboard-header.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/dashboard-shell.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/infrastructure/prisma/mappers/commercial-event-mapper.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/lib/commercial-event-presenter.test.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/lib/commercial-event-presenter.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/prisma/schema.prisma', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/repositories/commercial/async-commercial-repositories.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/repositories/commercial/commercial-repository.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/types/dashboard.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/types/domain/commercial-event.ts', LF will be replaced by CRLF the next time Git touches it
+EXIT_CODE=0
+
+============================================================
+ PRISMA MIGRATE STATUS PRE-DEPLOY
+============================================================
+COMMAND=npx prisma migrate status
+----- STDOUT -----
+Datasource "db": PostgreSQL database "consorcio_os", schema "public" at "localhost:5432"
+
+3 migrations found in prisma/migrations
+Following migration have not yet been applied:
+20260802220000_add_opportunity_created_commercial_event
+
+To apply migrations in development run prisma migrate dev.
+To apply migrations in production run prisma migrate deploy.
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=1
+PENDING_MIGRATION_COUNT_PRE_DEPLOY=1
+
+============================================================
+ PRE-DEPLOY INTEGRITY
+============================================================
+PRE_DEPLOY_INTEGRITY_PASSED=True
+
+============================================================
+ PRISMA MIGRATE DEPLOY
+============================================================
+COMMAND=npx prisma migrate deploy
+----- STDOUT -----
+Datasource "db": PostgreSQL database "consorcio_os", schema "public" at "localhost:5432"
+
+3 migrations found in prisma/migrations
+
+Applying migration `20260802220000_add_opportunity_created_commercial_event`
+
+The following migration(s) have been applied:
+
+migrations/
+  â””â”€ 20260802220000_add_opportunity_created_commercial_event/
+    â””â”€ migration.sql
+
+All migrations have been successfully applied.
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ PRISMA MIGRATE STATUS AFTER
+============================================================
+COMMAND=npx prisma migrate status
+----- STDOUT -----
+Datasource "db": PostgreSQL database "consorcio_os", schema "public" at "localhost:5432"
+
+3 migrations found in prisma/migrations
+
+Database schema is up to date!
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ PRISMA DB PULL PRINT AFTER
+============================================================
+COMMAND=npx prisma db pull --print
+----- STDOUT -----
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Workspace {
+  id                 String              @id @default(cuid())
+  name               String
+  slug               String              @unique
+  status             WorkspaceStatus     @default(ACTIVE)
+  createdAt          DateTime            @default(now()) @map("created_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+  clients            Client[]
+  commercialActions  CommercialAction[]
+  commercialEvents   CommercialEvent[]
+  commercialJourneys CommercialJourney[]
+  consortiums        Consortium[]
+  consultants        Consultant[]
+  journeyPhases      JourneyPhase[]
+  journeyStates      JourneyState[]
+  leads              Lead[]
+  meetings           Meeting[]
+  nextBestActions    NextBestAction[]
+  pipelineStages     PipelineStage[]
+  proposals          Proposal[]
+  sales              Sale[]
+  tasks              Task[]
+  workflowRules      WorkflowRule[]
+
+  @@index([status])
+  @@map("workspaces")
+}
+
+model Consultant {
+  id                 String              @id @default(cuid())
+  workspaceId        String              @map("workspace_id")
+  name               String
+  email              String
+  phone              String
+  document           String
+  role               ConsultantRole      @default(CONSULTANT)
+  team               String
+  region             String
+  avatarUrl          String?             @map("avatar_url")
+  status             ConsultantStatus    @default(ACTIVE)
+  monthlySalesTarget Decimal             @default(0) @map("monthly_sales_target") @db.Decimal(18, 2)
+  monthlyLeadsTarget Int                 @default(0) @map("monthly_leads_target")
+  createdAt          DateTime            @default(now()) @map("created_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+  clients            Client[]
+  commercialJourneys CommercialJourney[]
+  workspace          Workspace           @relation(fields: [workspaceId], references: [id])
+  leads              Lead[]
+  meetings           Meeting[]
+  proposals          Proposal[]
+  sales              Sale[]
+  assignedTasks      Task[]
+
+  @@unique([workspaceId, email], map: "consultants_workspace_email_key")
+  @@unique([workspaceId, document], map: "consultants_workspace_document_key")
+  @@index([workspaceId], map: "consultants_workspace_idx")
+  @@index([workspaceId, status], map: "consultants_workspace_status_idx")
+  @@index([workspaceId, role], map: "consultants_workspace_role_idx")
+  @@map("consultants")
+}
+
+model Consortium {
+  id                       String           @id @default(cuid())
+  workspaceId              String           @map("workspace_id")
+  name                     String
+  administrator            String
+  type                     ConsortiumType
+  groupNumber              String           @map("group_number")
+  minCreditValue           Decimal          @map("min_credit_value") @db.Decimal(18, 2)
+  maxCreditValue           Decimal          @map("max_credit_value") @db.Decimal(18, 2)
+  defaultTermMonths        Int              @map("default_term_months")
+  administrationFeePercent Decimal          @map("administration_fee_percent") @db.Decimal(8, 4)
+  reserveFundPercent       Decimal          @map("reserve_fund_percent") @db.Decimal(8, 4)
+  totalQuotas              Int              @map("total_quotas")
+  availableQuotas          Int              @map("available_quotas")
+  status                   ConsortiumStatus @default(FORMING)
+  description              String?
+  createdAt                DateTime         @default(now()) @map("created_at")
+  updatedAt                DateTime         @updatedAt @map("updated_at")
+  workspace                Workspace        @relation(fields: [workspaceId], references: [id])
+  proposals                Proposal[]
+  sales                    Sale[]
+
+  @@unique([workspaceId, administrator, groupNumber], map: "consortiums_workspace_administrator_group_key")
+  @@index([workspaceId], map: "consortiums_workspace_idx")
+  @@index([workspaceId, status], map: "consortiums_workspace_status_idx")
+  @@index([workspaceId, type], map: "consortiums_workspace_type_idx")
+  @@index([workspaceId, administrator], map: "consortiums_workspace_administrator_idx")
+  @@map("consortiums")
+}
+
+model PipelineStage {
+  id             String            @id @default(cuid())
+  workspaceId    String            @map("workspace_id")
+  name           String
+  order          Int
+  type           PipelineStageType
+  color          String
+  description    String?
+  winProbability Decimal           @map("win_probability") @db.Decimal(5, 2)
+  isClosedStage  Boolean           @default(false) @map("is_closed_stage")
+  isWonStage     Boolean           @default(false) @map("is_won_stage")
+  createdAt      DateTime          @default(now()) @map("created_at")
+  updatedAt      DateTime          @updatedAt @map("updated_at")
+  leads          Lead[]
+  workspace      Workspace         @relation(fields: [workspaceId], references: [id])
+
+  @@unique([workspaceId, type, order], map: "pipeline_stages_workspace_type_order_key")
+  @@index([workspaceId], map: "pipeline_stages_workspace_idx")
+  @@index([workspaceId, type], map: "pipeline_stages_workspace_type_idx")
+  @@index([workspaceId, isClosedStage], map: "pipeline_stages_workspace_closed_idx")
+  @@index([workspaceId, isWonStage], map: "pipeline_stages_workspace_won_idx")
+  @@map("pipeline_stages")
+}
+
+model Lead {
+  id                 String              @id @default(cuid())
+  workspaceId        String              @map("workspace_id")
+  name               String
+  email              String
+  phone              String
+  document           String?
+  companyName        String?             @map("company_name")
+  source             LeadSource
+  status             LeadStatus          @default(NEW)
+  consortiumType     ConsortiumType      @map("consortium_type")
+  desiredCreditValue Decimal             @map("desired_credit_value") @db.Decimal(18, 2)
+  desiredTermMonths  Int                 @map("desired_term_months")
+  consultantId       String              @map("consultant_id")
+  pipelineStageId    String              @map("pipeline_stage_id")
+  score              Int                 @default(0)
+  lostReason         String?             @map("lost_reason")
+  notes              String?
+  convertedClientId  String?             @unique(map: "leads_converted_client_key") @map("converted_client_id")
+  lastContactAt      DateTime?           @map("last_contact_at")
+  createdAt          DateTime            @default(now()) @map("created_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+  commercialJourneys CommercialJourney[]
+  consultant         Consultant          @relation(fields: [consultantId], references: [id])
+  convertedClient    Client?             @relation("LeadConversion", fields: [convertedClientId], references: [id])
+  pipelineStage      PipelineStage       @relation(fields: [pipelineStageId], references: [id])
+  workspace          Workspace           @relation(fields: [workspaceId], references: [id])
+  meetings           Meeting[]
+  proposals          Proposal[]
+  tasks              Task[]
+
+  @@index([workspaceId], map: "leads_workspace_idx")
+  @@index([workspaceId, status], map: "leads_workspace_status_idx")
+  @@index([workspaceId, source], map: "leads_workspace_source_idx")
+  @@index([workspaceId, consultantId], map: "leads_workspace_consultant_idx")
+  @@index([workspaceId, pipelineStageId], map: "leads_workspace_pipeline_stage_idx")
+  @@index([workspaceId, consortiumType], map: "leads_workspace_consortium_type_idx")
+  @@index([workspaceId, createdAt], map: "leads_workspace_created_at_idx")
+  @@map("leads")
+}
+
+model Client {
+  id                  String              @id @default(cuid())
+  workspaceId         String              @map("workspace_id")
+  type                PersonType
+  name                String
+  email               String
+  phone               String
+  document            String
+  birthDate           DateTime?           @map("birth_date") @db.Date
+  companyName         String?             @map("company_name")
+  tradeName           String?             @map("trade_name")
+  stateRegistration   String?             @map("state_registration")
+  addressStreet       String              @map("address_street")
+  addressNumber       String              @map("address_number")
+  addressComplement   String?             @map("address_complement")
+  addressNeighborhood String              @map("address_neighborhood")
+  addressCity         String              @map("address_city")
+  addressState        String              @map("address_state")
+  addressZipCode      String              @map("address_zip_code")
+  consultantId        String              @map("consultant_id")
+  status              ClientStatus        @default(ACTIVE)
+  tags                String[]            @default([])
+  notes               String?
+  createdAt           DateTime            @default(now()) @map("created_at")
+  updatedAt           DateTime            @updatedAt @map("updated_at")
+  consultant          Consultant          @relation(fields: [consultantId], references: [id])
+  workspace           Workspace           @relation(fields: [workspaceId], references: [id])
+  commercialJourneys  CommercialJourney[]
+  convertedFromLead   Lead?               @relation("LeadConversion")
+  meetings            Meeting[]
+  proposals           Proposal[]
+  sales               Sale[]
+  tasks               Task[]
+
+  @@unique([workspaceId, document], map: "clients_workspace_document_key")
+  @@index([workspaceId], map: "clients_workspace_idx")
+  @@index([workspaceId, status], map: "clients_workspace_status_idx")
+  @@index([workspaceId, type], map: "clients_workspace_type_idx")
+  @@index([workspaceId, consultantId], map: "clients_workspace_consultant_idx")
+  @@index([workspaceId, name], map: "clients_workspace_name_idx")
+  @@index([workspaceId, email], map: "clients_workspace_email_idx")
+  @@index([workspaceId, createdAt], map: "clients_workspace_created_at_idx")
+  @@map("clients")
+}
+
+model Proposal {
+  id                       String         @id @default(cuid())
+  workspaceId              String         @map("workspace_id")
+  code                     String
+  clientId                 String?        @map("client_id")
+  leadId                   String?        @map("lead_id")
+  consultantId             String         @map("consultant_id")
+  consortiumId             String         @map("consortium_id")
+  creditValue              Decimal        @map("credit_value") @db.Decimal(18, 2)
+  installmentValue         Decimal        @map("installment_value") @db.Decimal(18, 2)
+  termMonths               Int            @map("term_months")
+  administrationFeePercent Decimal        @map("administration_fee_percent") @db.Decimal(8, 4)
+  reserveFundPercent       Decimal        @map("reserve_fund_percent") @db.Decimal(8, 4)
+  status                   ProposalStatus @default(DRAFT)
+  sentAt                   DateTime?      @map("sent_at")
+  validUntil               DateTime       @map("valid_until")
+  acceptedAt               DateTime?      @map("accepted_at")
+  rejectedAt               DateTime?      @map("rejected_at")
+  rejectionReason          String?        @map("rejection_reason")
+  notes                    String?
+  createdAt                DateTime       @default(now()) @map("created_at")
+  updatedAt                DateTime       @updatedAt @map("updated_at")
+  meetings                 Meeting[]
+  client                   Client?        @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  consortium               Consortium     @relation(fields: [consortiumId], references: [id])
+  consultant               Consultant     @relation(fields: [consultantId], references: [id])
+  lead                     Lead?          @relation(fields: [leadId], references: [id], onDelete: Restrict)
+  workspace                Workspace      @relation(fields: [workspaceId], references: [id])
+  sale                     Sale?
+  tasks                    Task[]
+
+  @@unique([workspaceId, code], map: "proposals_workspace_code_key")
+  @@index([workspaceId], map: "proposals_workspace_idx")
+  @@index([workspaceId, status], map: "proposals_workspace_status_idx")
+  @@index([workspaceId, consultantId], map: "proposals_workspace_consultant_idx")
+  @@index([workspaceId, consortiumId], map: "proposals_workspace_consortium_idx")
+  @@index([workspaceId, leadId], map: "proposals_workspace_lead_idx")
+  @@index([workspaceId, clientId], map: "proposals_workspace_client_idx")
+  @@index([workspaceId, validUntil], map: "proposals_workspace_valid_until_idx")
+  @@index([workspaceId, createdAt], map: "proposals_workspace_created_at_idx")
+  @@map("proposals")
+}
+
+model Meeting {
+  id           String          @id @default(cuid())
+  workspaceId  String          @map("workspace_id")
+  title        String
+  description  String?
+  type         MeetingType
+  status       MeetingStatus   @default(SCHEDULED)
+  startAt      DateTime        @map("start_at")
+  endAt        DateTime        @map("end_at")
+  location     String?
+  meetingUrl   String?         @map("meeting_url")
+  consultantId String          @map("consultant_id")
+  leadId       String?         @map("lead_id")
+  clientId     String?         @map("client_id")
+  proposalId   String?         @map("proposal_id")
+  outcome      MeetingOutcome?
+  notes        String?
+  createdAt    DateTime        @default(now()) @map("created_at")
+  updatedAt    DateTime        @updatedAt @map("updated_at")
+  client       Client?         @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  consultant   Consultant      @relation(fields: [consultantId], references: [id])
+  lead         Lead?           @relation(fields: [leadId], references: [id], onDelete: Restrict)
+  proposal     Proposal?       @relation(fields: [proposalId], references: [id], onDelete: Restrict)
+  workspace    Workspace       @relation(fields: [workspaceId], references: [id])
+  tasks        Task[]
+
+  @@index([workspaceId], map: "meetings_workspace_idx")
+  @@index([workspaceId, status], map: "meetings_workspace_status_idx")
+  @@index([workspaceId, type], map: "meetings_workspace_type_idx")
+  @@index([workspaceId, consultantId], map: "meetings_workspace_consultant_idx")
+  @@index([workspaceId, leadId], map: "meetings_workspace_lead_idx")
+  @@index([workspaceId, clientId], map: "meetings_workspace_client_idx")
+  @@index([workspaceId, proposalId], map: "meetings_workspace_proposal_idx")
+  @@index([workspaceId, startAt], map: "meetings_workspace_start_at_idx")
+  @@index([workspaceId, consultantId, startAt], map: "meetings_consultant_start_at_idx")
+  @@map("meetings")
+}
+
+model Sale {
+  id                       String        @id @default(cuid())
+  workspaceId              String        @map("workspace_id")
+  contractNumber           String        @map("contract_number")
+  proposalId               String        @unique(map: "sales_proposal_key") @map("proposal_id")
+  clientId                 String        @map("client_id")
+  consultantId             String        @map("consultant_id")
+  consortiumId             String        @map("consortium_id")
+  groupNumber              String        @map("group_number")
+  quotaNumber              Int           @map("quota_number")
+  creditValue              Decimal       @map("credit_value") @db.Decimal(18, 2)
+  installmentValue         Decimal       @map("installment_value") @db.Decimal(18, 2)
+  termMonths               Int           @map("term_months")
+  administrationFeePercent Decimal       @map("administration_fee_percent") @db.Decimal(8, 4)
+  reserveFundPercent       Decimal       @map("reserve_fund_percent") @db.Decimal(8, 4)
+  commissionValue          Decimal       @map("commission_value") @db.Decimal(18, 2)
+  commissionPercent        Decimal       @map("commission_percent") @db.Decimal(8, 4)
+  status                   SaleStatus    @default(PENDING_SIGNATURE)
+  quotaStatus              QuotaStatus   @default(NOT_CONTEMPLATED) @map("quota_status")
+  paymentMethod            PaymentMethod @map("payment_method")
+  saleDate                 DateTime      @map("sale_date")
+  firstInstallmentDate     DateTime      @map("first_installment_date") @db.Date
+  contemplatedAt           DateTime?     @map("contemplated_at")
+  paidOffAt                DateTime?     @map("paid_off_at")
+  cancelledAt              DateTime?     @map("cancelled_at")
+  cancellationReason       String?       @map("cancellation_reason")
+  notes                    String?
+  createdAt                DateTime      @default(now()) @map("created_at")
+  updatedAt                DateTime      @updatedAt @map("updated_at")
+  client                   Client        @relation(fields: [clientId], references: [id])
+  consortium               Consortium    @relation(fields: [consortiumId], references: [id])
+  consultant               Consultant    @relation(fields: [consultantId], references: [id])
+  proposal                 Proposal      @relation(fields: [proposalId], references: [id])
+  workspace                Workspace     @relation(fields: [workspaceId], references: [id])
+
+  @@unique([workspaceId, contractNumber], map: "sales_workspace_contract_number_key")
+  @@unique([workspaceId, consortiumId, groupNumber, quotaNumber], map: "sales_workspace_group_quota_key")
+  @@index([workspaceId], map: "sales_workspace_idx")
+  @@index([workspaceId, status], map: "sales_workspace_status_idx")
+  @@index([workspaceId, quotaStatus], map: "sales_workspace_quota_status_idx")
+  @@index([workspaceId, consultantId], map: "sales_workspace_consultant_idx")
+  @@index([workspaceId, clientId], map: "sales_workspace_client_idx")
+  @@index([workspaceId, consortiumId], map: "sales_workspace_consortium_idx")
+  @@index([workspaceId, paymentMethod], map: "sales_workspace_payment_method_idx")
+  @@index([workspaceId, saleDate], map: "sales_workspace_sale_date_idx")
+  @@index([workspaceId, firstInstallmentDate], map: "sales_workspace_first_installment_idx")
+  @@map("sales")
+}
+
+model Task {
+  id           String       @id @default(cuid())
+  workspaceId  String       @map("workspace_id")
+  title        String
+  description  String?
+  type         TaskType
+  status       TaskStatus   @default(PENDING)
+  priority     TaskPriority @default(MEDIUM)
+  dueAt        DateTime     @map("due_at")
+  assignedToId String       @map("assigned_to_id")
+  leadId       String?      @map("lead_id")
+  clientId     String?      @map("client_id")
+  meetingId    String?      @map("meeting_id")
+  proposalId   String?      @map("proposal_id")
+  completedAt  DateTime?    @map("completed_at")
+  createdAt    DateTime     @default(now()) @map("created_at")
+  updatedAt    DateTime     @updatedAt @map("updated_at")
+  assignedTo   Consultant   @relation(fields: [assignedToId], references: [id])
+  client       Client?      @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  lead         Lead?        @relation(fields: [leadId], references: [id], onDelete: Restrict)
+  meeting      Meeting?     @relation(fields: [meetingId], references: [id], onDelete: Restrict)
+  proposal     Proposal?    @relation(fields: [proposalId], references: [id], onDelete: Restrict)
+  workspace    Workspace    @relation(fields: [workspaceId], references: [id])
+
+  @@index([workspaceId], map: "tasks_workspace_idx")
+  @@index([workspaceId, status], map: "tasks_workspace_status_idx")
+  @@index([workspaceId, priority], map: "tasks_workspace_priority_idx")
+  @@index([workspaceId, type], map: "tasks_workspace_type_idx")
+  @@index([workspaceId, assignedToId], map: "tasks_workspace_assigned_to_idx")
+  @@index([workspaceId, assignedToId, status], map: "tasks_assigned_to_status_idx")
+  @@index([workspaceId, dueAt], map: "tasks_workspace_due_at_idx")
+  @@index([workspaceId, status, dueAt], map: "tasks_status_due_at_idx")
+  @@index([workspaceId, leadId], map: "tasks_workspace_lead_idx")
+  @@index([workspaceId, clientId], map: "tasks_workspace_client_idx")
+  @@index([workspaceId, meetingId], map: "tasks_workspace_meeting_idx")
+  @@index([workspaceId, proposalId], map: "tasks_workspace_proposal_idx")
+  @@map("tasks")
+}
+
+model JourneyPhase {
+  id                 String              @id @default(cuid())
+  workspaceId        String              @map("workspace_id")
+  code               String
+  name               String
+  description        String?
+  order              Int
+  isActive           Boolean             @default(true) @map("is_active")
+  createdAt          DateTime            @default(now()) @map("created_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+  commercialJourneys CommercialJourney[]
+  workspace          Workspace           @relation(fields: [workspaceId], references: [id])
+  states             JourneyState[]
+
+  @@unique([workspaceId, code], map: "journey_phases_workspace_code_key")
+  @@unique([workspaceId, order], map: "journey_phases_workspace_order_key")
+  @@index([workspaceId], map: "journey_phases_workspace_idx")
+  @@index([workspaceId, isActive], map: "journey_phases_workspace_active_idx")
+  @@map("journey_phases")
+}
+
+model JourneyState {
+  id                  String              @id @default(cuid())
+  workspaceId         String              @map("workspace_id")
+  phaseId             String              @map("phase_id")
+  code                String
+  name                String
+  description         String?
+  order               Int
+  color               String?
+  icon                String?
+  isInitial           Boolean             @default(false) @map("is_initial")
+  isFinal             Boolean             @default(false) @map("is_final")
+  isWon               Boolean             @default(false) @map("is_won")
+  isLost              Boolean             @default(false) @map("is_lost")
+  allowReopen         Boolean             @default(false) @map("allow_reopen")
+  isActive            Boolean             @default(true) @map("is_active")
+  createdAt           DateTime            @default(now()) @map("created_at")
+  updatedAt           DateTime            @updatedAt @map("updated_at")
+  commercialJourneys  CommercialJourney[]
+  phase               JourneyPhase        @relation(fields: [phaseId], references: [id])
+  workspace           Workspace           @relation(fields: [workspaceId], references: [id])
+  sourceWorkflowRules WorkflowRule[]      @relation("WorkflowRuleSourceState")
+  targetWorkflowRules WorkflowRule[]      @relation("WorkflowRuleTargetState")
+
+  @@unique([workspaceId, code], map: "journey_states_workspace_code_key")
+  @@unique([phaseId, order], map: "journey_states_phase_order_key")
+  @@index([workspaceId], map: "journey_states_workspace_idx")
+  @@index([workspaceId, phaseId], map: "journey_states_workspace_phase_idx")
+  @@index([workspaceId, isActive], map: "journey_states_workspace_active_idx")
+  @@index([workspaceId, isInitial], map: "journey_states_workspace_initial_idx")
+  @@index([workspaceId, isFinal], map: "journey_states_workspace_final_idx")
+  @@map("journey_states")
+}
+
+model CommercialJourney {
+  id                String                    @id @default(cuid())
+  workspaceId       String                    @map("workspace_id")
+  leadId            String?                   @map("lead_id")
+  clientId          String?                   @map("client_id")
+  consultantId      String                    @map("consultant_id")
+  title             String
+  consortiumType    ConsortiumType            @map("consortium_type")
+  currentPhaseId    String                    @map("current_phase_id")
+  currentStateId    String                    @map("current_state_id")
+  priority          CommercialJourneyPriority @default(NORMAL)
+  score             Int                       @default(0)
+  outcome           CommercialJourneyOutcome?
+  stateEnteredAt    DateTime                  @map("state_entered_at")
+  lastInteractionAt DateTime?                 @map("last_interaction_at")
+  closedAt          DateTime?                 @map("closed_at")
+  version           Int                       @default(1)
+  createdAt         DateTime                  @default(now()) @map("created_at")
+  updatedAt         DateTime                  @updatedAt @map("updated_at")
+  commercialActions CommercialAction[]
+  commercialEvents  CommercialEvent[]
+  client            Client?                   @relation(fields: [clientId], references: [id])
+  consultant        Consultant                @relation(fields: [consultantId], references: [id])
+  currentPhase      JourneyPhase              @relation(fields: [currentPhaseId], references: [id])
+  currentState      JourneyState              @relation(fields: [currentStateId], references: [id])
+  lead              Lead?                     @relation(fields: [leadId], references: [id], onDelete: Restrict)
+  workspace         Workspace                 @relation(fields: [workspaceId], references: [id])
+  nextBestActions   NextBestAction[]
+
+  @@index([workspaceId], map: "commercial_journeys_workspace_idx")
+  @@index([workspaceId, leadId], map: "commercial_journeys_workspace_lead_idx")
+  @@index([workspaceId, clientId], map: "commercial_journeys_workspace_client_idx")
+  @@index([workspaceId, consultantId], map: "commercial_journeys_workspace_consultant_idx")
+  @@index([workspaceId, currentPhaseId], map: "commercial_journeys_workspace_phase_idx")
+  @@index([workspaceId, currentStateId], map: "commercial_journeys_workspace_state_idx")
+  @@index([workspaceId, priority], map: "commercial_journeys_workspace_priority_idx")
+  @@index([workspaceId, outcome], map: "commercial_journeys_workspace_outcome_idx")
+  @@index([workspaceId, lastInteractionAt], map: "commercial_journeys_workspace_last_interaction_idx")
+  @@index([workspaceId, closedAt], map: "commercial_journeys_workspace_closed_at_idx")
+  @@map("commercial_journeys")
+}
+
+model CommercialEvent {
+  id          String              @id @default(cuid())
+  workspaceId String              @map("workspace_id")
+  journeyId   String              @map("journey_id")
+  type        CommercialEventType
+  actorType   CommercialActorType @map("actor_type")
+  actorId     String?             @map("actor_id")
+  payload     Json                @default("{}")
+  occurredAt  DateTime            @map("occurred_at")
+  createdAt   DateTime            @default(now()) @map("created_at")
+  updatedAt   DateTime            @updatedAt @map("updated_at")
+  journey     CommercialJourney   @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  workspace   Workspace           @relation(fields: [workspaceId], references: [id])
+
+  @@index([workspaceId], map: "commercial_events_workspace_idx")
+  @@index([workspaceId, journeyId], map: "commercial_events_workspace_journey_idx")
+  @@index([workspaceId, type], map: "commercial_events_workspace_type_idx")
+  @@index([workspaceId, actorType], map: "commercial_events_workspace_actor_type_idx")
+  @@index([workspaceId, occurredAt], map: "commercial_events_workspace_occurred_at_idx")
+  @@map("commercial_events")
+}
+
+model CommercialAction {
+  id                     String                 @id @default(cuid())
+  workspaceId            String                 @map("workspace_id")
+  journeyId              String                 @map("journey_id")
+  type                   CommercialActionType
+  status                 CommercialActionStatus @default(PENDING)
+  origin                 CommercialActionOrigin
+  actorType              CommercialActorType    @map("actor_type")
+  actorId                String?                @map("actor_id")
+  title                  String
+  description            String?
+  payload                Json                   @default("{}")
+  scheduledFor           DateTime?              @map("scheduled_for")
+  startedAt              DateTime?              @map("started_at")
+  completedAt            DateTime?              @map("completed_at")
+  failedAt               DateTime?              @map("failed_at")
+  failureReason          String?                @map("failure_reason")
+  createdBy              String?                @map("created_by")
+  createdAt              DateTime               @default(now()) @map("created_at")
+  updatedAt              DateTime               @updatedAt @map("updated_at")
+  journey                CommercialJourney      @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  workspace              Workspace              @relation(fields: [workspaceId], references: [id])
+  executedNextBestAction NextBestAction?
+
+  @@index([workspaceId], map: "commercial_actions_workspace_idx")
+  @@index([workspaceId, journeyId], map: "commercial_actions_workspace_journey_idx")
+  @@index([workspaceId, status], map: "commercial_actions_workspace_status_idx")
+  @@index([workspaceId, type], map: "commercial_actions_workspace_type_idx")
+  @@index([workspaceId, origin], map: "commercial_actions_workspace_origin_idx")
+  @@index([workspaceId, scheduledFor], map: "commercial_actions_workspace_scheduled_for_idx")
+  @@map("commercial_actions")
+}
+
+model WorkflowRule {
+  id                       String        @id @default(cuid())
+  workspaceId              String?       @map("workspace_id")
+  name                     String
+  description              String?
+  eventType                String        @map("event_type")
+  sourceStateId            String?       @map("source_state_id")
+  targetStateId            String?       @map("target_state_id")
+  conditions               Json          @default("[]")
+  actions                  Json          @default("[]")
+  priority                 Int           @default(0)
+  stopProcessingAfterMatch Boolean       @default(false) @map("stop_processing_after_match")
+  isActive                 Boolean       @default(true) @map("is_active")
+  createdAt                DateTime      @default(now()) @map("created_at")
+  updatedAt                DateTime      @updatedAt @map("updated_at")
+  sourceState              JourneyState? @relation("WorkflowRuleSourceState", fields: [sourceStateId], references: [id])
+  targetState              JourneyState? @relation("WorkflowRuleTargetState", fields: [targetStateId], references: [id])
+  workspace                Workspace?    @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId], map: "workflow_rules_workspace_idx")
+  @@index([workspaceId, eventType], map: "workflow_rules_workspace_event_type_idx")
+  @@index([workspaceId, isActive], map: "workflow_rules_workspace_active_idx")
+  @@index([workspaceId, priority], map: "workflow_rules_workspace_priority_idx")
+  @@index([sourceStateId], map: "workflow_rules_source_state_idx")
+  @@index([targetStateId], map: "workflow_rules_target_state_idx")
+  @@map("workflow_rules")
+}
+
+model NextBestAction {
+  id               String                 @id @default(cuid())
+  workspaceId      String                 @map("workspace_id")
+  journeyId        String                 @map("journey_id")
+  actionType       CommercialActionType   @map("action_type")
+  title            String
+  description      String?
+  reason           String
+  confidence       Decimal                @db.Decimal(5, 4)
+  priority         NextBestActionPriority @default(NORMAL)
+  source           NextBestActionSource
+  expiresAt        DateTime?              @map("expires_at")
+  acceptedAt       DateTime?              @map("accepted_at")
+  rejectedAt       DateTime?              @map("rejected_at")
+  executedActionId String?                @unique(map: "next_best_actions_executed_action_key") @map("executed_action_id")
+  createdAt        DateTime               @default(now()) @map("created_at")
+  updatedAt        DateTime               @updatedAt @map("updated_at")
+  executedAction   CommercialAction?      @relation(fields: [executedActionId], references: [id])
+  journey          CommercialJourney      @relation(fields: [journeyId], references: [id], onDelete: Cascade)
+  workspace        Workspace              @relation(fields: [workspaceId], references: [id])
+
+  @@index([workspaceId], map: "next_best_actions_workspace_idx")
+  @@index([workspaceId, journeyId], map: "next_best_actions_workspace_journey_idx")
+  @@index([workspaceId, priority], map: "next_best_actions_workspace_priority_idx")
+  @@index([workspaceId, source], map: "next_best_actions_workspace_source_idx")
+  @@index([workspaceId, actionType], map: "next_best_actions_workspace_action_type_idx")
+  @@index([workspaceId, expiresAt], map: "next_best_actions_workspace_expires_at_idx")
+  @@index([workspaceId, acceptedAt], map: "next_best_actions_workspace_accepted_at_idx")
+  @@index([workspaceId, rejectedAt], map: "next_best_actions_workspace_rejected_at_idx")
+  @@map("next_best_actions")
+}
+
+enum WorkspaceStatus {
+  ACTIVE   @map("active")
+  INACTIVE @map("inactive")
+
+  @@map("workspace_status")
+}
+
+enum ConsultantRole {
+  CONSULTANT @map("consultant")
+  MANAGER    @map("manager")
+  ADMIN      @map("admin")
+
+  @@map("consultant_role")
+}
+
+enum ConsultantStatus {
+  ACTIVE   @map("active")
+  INACTIVE @map("inactive")
+  ON_LEAVE @map("on_leave")
+
+  @@map("consultant_status")
+}
+
+enum ConsortiumType {
+  REAL_ESTATE   @map("real_estate")
+  VEHICLE       @map("vehicle")
+  HEAVY_VEHICLE @map("heavy_vehicle")
+  SERVICES      @map("services")
+  OTHER         @map("other")
+
+  @@map("consortium_type")
+}
+
+enum ConsortiumStatus {
+  FORMING @map("forming")
+  ACTIVE  @map("active")
+  CLOSED  @map("closed")
+
+  @@map("consortium_status")
+}
+
+enum PipelineStageType {
+  LEAD @map("lead")
+  DEAL @map("deal")
+
+  @@map("pipeline_stage_type")
+}
+
+enum LeadSource {
+  REFERRAL     @map("referral")
+  WEBSITE      @map("website")
+  SOCIAL_MEDIA @map("social_media")
+  COLD_CALL    @map("cold_call")
+  EVENT        @map("event")
+  PARTNER      @map("partner")
+  WALK_IN      @map("walk_in")
+  OTHER        @map("other")
+
+  @@map("lead_source")
+}
+
+enum LeadStatus {
+  NEW         @map("new")
+  CONTACTED   @map("contacted")
+  QUALIFIED   @map("qualified")
+  NEGOTIATING @map("negotiating")
+  CONVERTED   @map("converted")
+  LOST        @map("lost")
+
+  @@map("lead_status")
+}
+
+enum PersonType {
+  INDIVIDUAL @map("individual")
+  COMPANY    @map("company")
+
+  @@map("person_type")
+}
+
+enum ClientStatus {
+  ACTIVE   @map("active")
+  INACTIVE @map("inactive")
+  BLOCKED  @map("blocked")
+
+  @@map("client_status")
+}
+
+enum ProposalStatus {
+  DRAFT    @map("draft")
+  SENT     @map("sent")
+  ACCEPTED @map("accepted")
+  REJECTED @map("rejected")
+  EXPIRED  @map("expired")
+
+  @@map("proposal_status")
+}
+
+enum MeetingType {
+  IN_PERSON @map("in_person")
+  ONLINE    @map("online")
+  PHONE     @map("phone")
+
+  @@map("meeting_type")
+}
+
+enum MeetingStatus {
+  SCHEDULED @map("scheduled")
+  COMPLETED @map("completed")
+  CANCELLED @map("cancelled")
+  NO_SHOW   @map("no_show")
+
+  @@map("meeting_status")
+}
+
+enum MeetingOutcome {
+  PROPOSAL_SENT       @map("proposal_sent")
+  FOLLOW_UP_SCHEDULED @map("follow_up_scheduled")
+  NOT_INTERESTED      @map("not_interested")
+  CONVERTED           @map("converted")
+  NO_ANSWER           @map("no_answer")
+  OTHER               @map("other")
+
+  @@map("meeting_outcome")
+}
+
+enum SaleStatus {
+  PENDING_SIGNATURE @map("pending_signature")
+  ACTIVE            @map("active")
+  CANCELLED         @map("cancelled")
+
+  @@map("sale_status")
+}
+
+enum QuotaStatus {
+  NOT_CONTEMPLATED @map("not_contemplated")
+  CONTEMPLATED     @map("contemplated")
+  PAID_OFF         @map("paid_off")
+  CANCELLED        @map("cancelled")
+
+  @@map("quota_status")
+}
+
+enum PaymentMethod {
+  BANK_SLIP    @map("bank_slip")
+  DIRECT_DEBIT @map("direct_debit")
+  CREDIT_CARD  @map("credit_card")
+  PIX          @map("pix")
+
+  @@map("payment_method")
+}
+
+enum TaskPriority {
+  HIGH   @map("high")
+  MEDIUM @map("medium")
+  LOW    @map("low")
+
+  @@map("task_priority")
+}
+
+enum TaskStatus {
+  PENDING     @map("pending")
+  IN_PROGRESS @map("in_progress")
+  COMPLETED   @map("completed")
+  CANCELLED   @map("cancelled")
+
+  @@map("task_status")
+}
+
+enum TaskType {
+  CALL            @map("call")
+  EMAIL           @map("email")
+  FOLLOW_UP       @map("follow_up")
+  DOCUMENT        @map("document")
+  MEETING_PREP    @map("meeting_prep")
+  PROPOSAL_REVIEW @map("proposal_review")
+  OTHER           @map("other")
+
+  @@map("task_type")
+}
+
+enum CommercialJourneyPriority {
+  LOW    @map("low")
+  NORMAL @map("normal")
+  HIGH   @map("high")
+  URGENT @map("urgent")
+
+  @@map("commercial_journey_priority")
+}
+
+enum CommercialJourneyOutcome {
+  WON                     @map("won")
+  LOST_TO_COMPETITOR      @map("lost_to_competitor")
+  NO_FINANCIAL_CAPACITY   @map("no_financial_capacity")
+  NO_RESPONSE             @map("no_response")
+  POSTPONED               @map("postponed")
+  PRODUCT_NOT_SUITABLE    @map("product_not_suitable")
+  TRUST_CONCERN           @map("trust_concern")
+  CLIENT_WITHDREW         @map("client_withdrew")
+  CANCELLED_BY_CONSULTANT @map("cancelled_by_consultant")
+  OTHER                   @map("other")
+
+  @@map("commercial_journey_outcome")
+}
+
+enum CommercialActorType {
+  LEAD          @map("lead")
+  CLIENT        @map("client")
+  CONSULTANT    @map("consultant")
+  AI            @map("ai")
+  SYSTEM        @map("system")
+  AUTOMATION    @map("automation")
+  ADMINISTRATOR @map("administrator")
+
+  @@map("commercial_actor_type")
+}
+
+enum CommercialEventType {
+  LEAD_CREATED        @map("lead_created")
+  LEAD_REPLIED        @map("lead_replied")
+  MEETING_SCHEDULED   @map("meeting_scheduled")
+  MEETING_COMPLETED   @map("meeting_completed")
+  PROPOSAL_SENT       @map("proposal_sent")
+  PROPOSAL_ACCEPTED   @map("proposal_accepted")
+  DOCUMENT_REQUESTED  @map("document_requested")
+  DOCUMENT_RECEIVED   @map("document_received")
+  PAYMENT_CONFIRMED   @map("payment_confirmed")
+  SALE_COMPLETED      @map("sale_completed")
+  STATE_CHANGED       @map("state_changed")
+  NOTE_ADDED          @map("note_added")
+  TASK_CREATED        @map("task_created")
+  TASK_COMPLETED      @map("task_completed")
+  OPPORTUNITY_CREATED @map("opportunity_created")
+
+  @@map("commercial_event_type")
+}
+
+enum CommercialActionType {
+  CHANGE_STATE       @map("change_state")
+  CREATE_TASK        @map("create_task")
+  COMPLETE_TASK      @map("complete_task")
+  ADD_NOTE           @map("add_note")
+  UPDATE_PRIORITY    @map("update_priority")
+  UPDATE_SCORE       @map("update_score")
+  ASSIGN_CONSULTANT  @map("assign_consultant")
+  SEND_NOTIFICATION  @map("send_notification")
+  SEND_MESSAGE       @map("send_message")
+  REQUEST_DOCUMENT   @map("request_document")
+  CREATE_PROPOSAL    @map("create_proposal")
+  TRIGGER_AUTOMATION @map("trigger_automation")
+
+  @@map("commercial_action_type")
+}
+
+enum CommercialActionStatus {
+  PENDING     @map("pending")
+  IN_PROGRESS @map("in_progress")
+  COMPLETED   @map("completed")
+  FAILED      @map("failed")
+  CANCELLED   @map("cancelled")
+
+  @@map("commercial_action_status")
+}
+
+enum CommercialActionOrigin {
+  MANUAL           @map("manual")
+  WORKFLOW_RULE    @map("workflow_rule")
+  NEXT_BEST_ACTION @map("next_best_action")
+  AI               @map("ai")
+  SYSTEM           @map("system")
+
+  @@map("commercial_action_origin")
+}
+
+enum NextBestActionSource {
+  RULE_ENGINE @map("rule_engine")
+  AI          @map("ai")
+  SYSTEM      @map("system")
+  CONSULTANT  @map("consultant")
+
+  @@map("next_best_action_source")
+}
+
+enum NextBestActionPriority {
+  LOW    @map("low")
+  NORMAL @map("normal")
+  HIGH   @map("high")
+  URGENT @map("urgent")
+
+  @@map("next_best_action_priority")
+}
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+
+// *** WARNING ***
+// 
+// These fields were enriched with `@map` information taken from the previous Prisma schema:
+//   - Model: "Client", field: "workspaceId"
+//   - Model: "Client", field: "birthDate"
+//   - Model: "Client", field: "companyName"
+//   - Model: "Client", field: "tradeName"
+//   - Model: "Client", field: "stateRegistration"
+//   - Model: "Client", field: "addressStreet"
+//   - Model: "Client", field: "addressNumber"
+//   - Model: "Client", field: "addressComplement"
+//   - Model: "Client", field: "addressNeighborhood"
+//   - Model: "Client", field: "addressCity"
+//   - Model: "Client", field: "addressState"
+//   - Model: "Client", field: "addressZipCode"
+//   - Model: "Client", field: "consultantId"
+//   - Model: "Client", field: "createdAt"
+//   - Model: "Client", field: "updatedAt"
+//   - Model: "CommercialAction", field: "workspaceId"
+//   - Model: "CommercialAction", field: "journeyId"
+//   - Model: "CommercialAction", field: "actorType"
+//   - Model: "CommercialAction", field: "actorId"
+//   - Model: "CommercialAction", field: "scheduledFor"
+//   - Model: "CommercialAction", field: "startedAt"
+//   - Model: "CommercialAction", field: "completedAt"
+//   - Model: "CommercialAction", field: "failedAt"
+//   - Model: "CommercialAction", field: "failureReason"
+//   - Model: "CommercialAction", field: "createdBy"
+//   - Model: "CommercialAction", field: "createdAt"
+//   - Model: "CommercialAction", field: "updatedAt"
+//   - Model: "CommercialEvent", field: "workspaceId"
+//   - Model: "CommercialEvent", field: "journeyId"
+//   - Model: "CommercialEvent", field: "actorType"
+//   - Model: "CommercialEvent", field: "actorId"
+//   - Model: "CommercialEvent", field: "occurredAt"
+//   - Model: "CommercialEvent", field: "createdAt"
+//   - Model: "CommercialEvent", field: "updatedAt"
+//   - Model: "CommercialJourney", field: "workspaceId"
+//   - Model: "CommercialJourney", field: "leadId"
+//   - Model: "CommercialJourney", field: "clientId"
+//   - Model: "CommercialJourney", field: "consultantId"
+//   - Model: "CommercialJourney", field: "consortiumType"
+//   - Model: "CommercialJourney", field: "currentPhaseId"
+//   - Model: "CommercialJourney", field: "currentStateId"
+//   - Model: "CommercialJourney", field: "stateEnteredAt"
+//   - Model: "CommercialJourney", field: "lastInteractionAt"
+//   - Model: "CommercialJourney", field: "closedAt"
+//   - Model: "CommercialJourney", field: "createdAt"
+//   - Model: "CommercialJourney", field: "updatedAt"
+//   - Model: "Consortium", field: "workspaceId"
+//   - Model: "Consortium", field: "groupNumber"
+//   - Model: "Consortium", field: "minCreditValue"
+//   - Model: "Consortium", field: "maxCreditValue"
+//   - Model: "Consortium", field: "defaultTermMonths"
+//   - Model: "Consortium", field: "administrationFeePercent"
+//   - Model: "Consortium", field: "reserveFundPercent"
+//   - Model: "Consortium", field: "totalQuotas"
+//   - Model: "Consortium", field: "availableQuotas"
+//   - Model: "Consortium", field: "createdAt"
+//   - Model: "Consortium", field: "updatedAt"
+//   - Model: "Consultant", field: "workspaceId"
+//   - Model: "Consultant", field: "avatarUrl"
+//   - Model: "Consultant", field: "monthlySalesTarget"
+//   - Model: "Consultant", field: "monthlyLeadsTarget"
+//   - Model: "Consultant", field: "createdAt"
+//   - Model: "Consultant", field: "updatedAt"
+//   - Model: "JourneyPhase", field: "workspaceId"
+//   - Model: "JourneyPhase", field: "isActive"
+//   - Model: "JourneyPhase", field: "createdAt"
+//   - Model: "JourneyPhase", field: "updatedAt"
+//   - Model: "JourneyState", field: "workspaceId"
+//   - Model: "JourneyState", field: "phaseId"
+//   - Model: "JourneyState", field: "isInitial"
+//   - Model: "JourneyState", field: "isFinal"
+//   - Model: "JourneyState", field: "isWon"
+//   - Model: "JourneyState", field: "isLost"
+//   - Model: "JourneyState", field: "allowReopen"
+//   - Model: "JourneyState", field: "isActive"
+//   - Model: "JourneyState", field: "createdAt"
+//   - Model: "JourneyState", field: "updatedAt"
+//   - Model: "Lead", field: "workspaceId"
+//   - Model: "Lead", field: "companyName"
+//   - Model: "Lead", field: "consortiumType"
+//   - Model: "Lead", field: "desiredCreditValue"
+//   - Model: "Lead", field: "desiredTermMonths"
+//   - Model: "Lead", field: "consultantId"
+//   - Model: "Lead", field: "pipelineStageId"
+//   - Model: "Lead", field: "lostReason"
+//   - Model: "Lead", field: "convertedClientId"
+//   - Model: "Lead", field: "lastContactAt"
+//   - Model: "Lead", field: "createdAt"
+//   - Model: "Lead", field: "updatedAt"
+//   - Model: "Meeting", field: "workspaceId"
+//   - Model: "Meeting", field: "startAt"
+//   - Model: "Meeting", field: "endAt"
+//   - Model: "Meeting", field: "meetingUrl"
+//   - Model: "Meeting", field: "consultantId"
+//   - Model: "Meeting", field: "leadId"
+//   - Model: "Meeting", field: "clientId"
+//   - Model: "Meeting", field: "proposalId"
+//   - Model: "Meeting", field: "createdAt"
+//   - Model: "Meeting", field: "updatedAt"
+//   - Model: "NextBestAction", field: "workspaceId"
+//   - Model: "NextBestAction", field: "journeyId"
+//   - Model: "NextBestAction", field: "actionType"
+//   - Model: "NextBestAction", field: "expiresAt"
+//   - Model: "NextBestAction", field: "acceptedAt"
+//   - Model: "NextBestAction", field: "rejectedAt"
+//   - Model: "NextBestAction", field: "executedActionId"
+//   - Model: "NextBestAction", field: "createdAt"
+//   - Model: "NextBestAction", field: "updatedAt"
+//   - Model: "PipelineStage", field: "workspaceId"
+//   - Model: "PipelineStage", field: "winProbability"
+//   - Model: "PipelineStage", field: "isClosedStage"
+//   - Model: "PipelineStage", field: "isWonStage"
+//   - Model: "PipelineStage", field: "createdAt"
+//   - Model: "PipelineStage", field: "updatedAt"
+//   - Model: "Proposal", field: "workspaceId"
+//   - Model: "Proposal", field: "clientId"
+//   - Model: "Proposal", field: "leadId"
+//   - Model: "Proposal", field: "consultantId"
+//   - Model: "Proposal", field: "consortiumId"
+//   - Model: "Proposal", field: "creditValue"
+//   - Model: "Proposal", field: "installmentValue"
+//   - Model: "Proposal", field: "termMonths"
+//   - Model: "Proposal", field: "administrationFeePercent"
+//   - Model: "Proposal", field: "reserveFundPercent"
+//   - Model: "Proposal", field: "sentAt"
+//   - Model: "Proposal", field: "validUntil"
+//   - Model: "Proposal", field: "acceptedAt"
+//   - Model: "Proposal", field: "rejectedAt"
+//   - Model: "Proposal", field: "rejectionReason"
+//   - Model: "Proposal", field: "createdAt"
+//   - Model: "Proposal", field: "updatedAt"
+//   - Model: "Sale", field: "workspaceId"
+//   - Model: "Sale", field: "contractNumber"
+//   - Model: "Sale", field: "proposalId"
+//   - Model: "Sale", field: "clientId"
+//   - Model: "Sale", field: "consultantId"
+//   - Model: "Sale", field: "consortiumId"
+//   - Model: "Sale", field: "groupNumber"
+//   - Model: "Sale", field: "quotaNumber"
+//   - Model: "Sale", field: "creditValue"
+//   - Model: "Sale", field: "installmentValue"
+//   - Model: "Sale", field: "termMonths"
+//   - Model: "Sale", field: "administrationFeePercent"
+//   - Model: "Sale", field: "reserveFundPercent"
+//   - Model: "Sale", field: "commissionValue"
+//   - Model: "Sale", field: "commissionPercent"
+//   - Model: "Sale", field: "quotaStatus"
+//   - Model: "Sale", field: "paymentMethod"
+//   - Model: "Sale", field: "saleDate"
+//   - Model: "Sale", field: "firstInstallmentDate"
+//   - Model: "Sale", field: "contemplatedAt"
+//   - Model: "Sale", field: "paidOffAt"
+//   - Model: "Sale", field: "cancelledAt"
+//   - Model: "Sale", field: "cancellationReason"
+//   - Model: "Sale", field: "createdAt"
+//   - Model: "Sale", field: "updatedAt"
+//   - Model: "Task", field: "workspaceId"
+//   - Model: "Task", field: "dueAt"
+//   - Model: "Task", field: "assignedToId"
+//   - Model: "Task", field: "leadId"
+//   - Model: "Task", field: "clientId"
+//   - Model: "Task", field: "meetingId"
+//   - Model: "Task", field: "proposalId"
+//   - Model: "Task", field: "completedAt"
+//   - Model: "Task", field: "createdAt"
+//   - Model: "Task", field: "updatedAt"
+//   - Model: "WorkflowRule", field: "workspaceId"
+//   - Model: "WorkflowRule", field: "eventType"
+//   - Model: "WorkflowRule", field: "sourceStateId"
+//   - Model: "WorkflowRule", field: "targetStateId"
+//   - Model: "WorkflowRule", field: "stopProcessingAfterMatch"
+//   - Model: "WorkflowRule", field: "isActive"
+//   - Model: "WorkflowRule", field: "createdAt"
+//   - Model: "WorkflowRule", field: "updatedAt"
+//   - Model: "Workspace", field: "createdAt"
+//   - Model: "Workspace", field: "updatedAt"
+// 
+// These models were enriched with `@@map` information taken from the previous Prisma schema:
+//   - "Client"
+//   - "CommercialAction"
+//   - "CommercialEvent"
+//   - "CommercialJourney"
+//   - "Consortium"
+//   - "Consultant"
+//   - "JourneyPhase"
+//   - "JourneyState"
+//   - "Lead"
+//   - "Meeting"
+//   - "NextBestAction"
+//   - "PipelineStage"
+//   - "Proposal"
+//   - "Sale"
+//   - "Task"
+//   - "WorkflowRule"
+//   - "Workspace"
+// 
+// These enum values were enriched with `@map` information taken from the previous Prisma schema:
+//   - Enum: "ClientStatus", value: "ACTIVE"
+//   - Enum: "ClientStatus", value: "INACTIVE"
+//   - Enum: "ClientStatus", value: "BLOCKED"
+//   - Enum: "CommercialActionOrigin", value: "MANUAL"
+//   - Enum: "CommercialActionOrigin", value: "WORKFLOW_RULE"
+//   - Enum: "CommercialActionOrigin", value: "NEXT_BEST_ACTION"
+//   - Enum: "CommercialActionOrigin", value: "AI"
+//   - Enum: "CommercialActionOrigin", value: "SYSTEM"
+//   - Enum: "CommercialActionStatus", value: "PENDING"
+//   - Enum: "CommercialActionStatus", value: "IN_PROGRESS"
+//   - Enum: "CommercialActionStatus", value: "COMPLETED"
+//   - Enum: "CommercialActionStatus", value: "FAILED"
+//   - Enum: "CommercialActionStatus", value: "CANCELLED"
+//   - Enum: "CommercialActionType", value: "CHANGE_STATE"
+//   - Enum: "CommercialActionType", value: "CREATE_TASK"
+//   - Enum: "CommercialActionType", value: "COMPLETE_TASK"
+//   - Enum: "CommercialActionType", value: "ADD_NOTE"
+//   - Enum: "CommercialActionType", value: "UPDATE_PRIORITY"
+//   - Enum: "CommercialActionType", value: "UPDATE_SCORE"
+//   - Enum: "CommercialActionType", value: "ASSIGN_CONSULTANT"
+//   - Enum: "CommercialActionType", value: "SEND_NOTIFICATION"
+//   - Enum: "CommercialActionType", value: "SEND_MESSAGE"
+//   - Enum: "CommercialActionType", value: "REQUEST_DOCUMENT"
+//   - Enum: "CommercialActionType", value: "CREATE_PROPOSAL"
+//   - Enum: "CommercialActionType", value: "TRIGGER_AUTOMATION"
+//   - Enum: "CommercialActorType", value: "LEAD"
+//   - Enum: "CommercialActorType", value: "CLIENT"
+//   - Enum: "CommercialActorType", value: "CONSULTANT"
+//   - Enum: "CommercialActorType", value: "AI"
+//   - Enum: "CommercialActorType", value: "SYSTEM"
+//   - Enum: "CommercialActorType", value: "AUTOMATION"
+//   - Enum: "CommercialActorType", value: "ADMINISTRATOR"
+//   - Enum: "CommercialEventType", value: "LEAD_CREATED"
+//   - Enum: "CommercialEventType", value: "LEAD_REPLIED"
+//   - Enum: "CommercialEventType", value: "MEETING_SCHEDULED"
+//   - Enum: "CommercialEventType", value: "MEETING_COMPLETED"
+//   - Enum: "CommercialEventType", value: "PROPOSAL_SENT"
+//   - Enum: "CommercialEventType", value: "PROPOSAL_ACCEPTED"
+//   - Enum: "CommercialEventType", value: "DOCUMENT_REQUESTED"
+//   - Enum: "CommercialEventType", value: "DOCUMENT_RECEIVED"
+//   - Enum: "CommercialEventType", value: "PAYMENT_CONFIRMED"
+//   - Enum: "CommercialEventType", value: "SALE_COMPLETED"
+//   - Enum: "CommercialEventType", value: "STATE_CHANGED"
+//   - Enum: "CommercialEventType", value: "NOTE_ADDED"
+//   - Enum: "CommercialEventType", value: "TASK_CREATED"
+//   - Enum: "CommercialEventType", value: "TASK_COMPLETED"
+//   - Enum: "CommercialEventType", value: "OPPORTUNITY_CREATED"
+//   - Enum: "CommercialJourneyOutcome", value: "WON"
+//   - Enum: "CommercialJourneyOutcome", value: "LOST_TO_COMPETITOR"
+//   - Enum: "CommercialJourneyOutcome", value: "NO_FINANCIAL_CAPACITY"
+//   - Enum: "CommercialJourneyOutcome", value: "NO_RESPONSE"
+//   - Enum: "CommercialJourneyOutcome", value: "POSTPONED"
+//   - Enum: "CommercialJourneyOutcome", value: "PRODUCT_NOT_SUITABLE"
+//   - Enum: "CommercialJourneyOutcome", value: "TRUST_CONCERN"
+//   - Enum: "CommercialJourneyOutcome", value: "CLIENT_WITHDREW"
+//   - Enum: "CommercialJourneyOutcome", value: "CANCELLED_BY_CONSULTANT"
+//   - Enum: "CommercialJourneyOutcome", value: "OTHER"
+//   - Enum: "CommercialJourneyPriority", value: "LOW"
+//   - Enum: "CommercialJourneyPriority", value: "NORMAL"
+//   - Enum: "CommercialJourneyPriority", value: "HIGH"
+//   - Enum: "CommercialJourneyPriority", value: "URGENT"
+//   - Enum: "ConsortiumStatus", value: "FORMING"
+//   - Enum: "ConsortiumStatus", value: "ACTIVE"
+//   - Enum: "ConsortiumStatus", value: "CLOSED"
+//   - Enum: "ConsortiumType", value: "REAL_ESTATE"
+//   - Enum: "ConsortiumType", value: "VEHICLE"
+//   - Enum: "ConsortiumType", value: "HEAVY_VEHICLE"
+//   - Enum: "ConsortiumType", value: "SERVICES"
+//   - Enum: "ConsortiumType", value: "OTHER"
+//   - Enum: "ConsultantRole", value: "CONSULTANT"
+//   - Enum: "ConsultantRole", value: "MANAGER"
+//   - Enum: "ConsultantRole", value: "ADMIN"
+//   - Enum: "ConsultantStatus", value: "ACTIVE"
+//   - Enum: "ConsultantStatus", value: "INACTIVE"
+//   - Enum: "ConsultantStatus", value: "ON_LEAVE"
+//   - Enum: "LeadSource", value: "REFERRAL"
+//   - Enum: "LeadSource", value: "WEBSITE"
+//   - Enum: "LeadSource", value: "SOCIAL_MEDIA"
+//   - Enum: "LeadSource", value: "COLD_CALL"
+//   - Enum: "LeadSource", value: "EVENT"
+//   - Enum: "LeadSource", value: "PARTNER"
+//   - Enum: "LeadSource", value: "WALK_IN"
+//   - Enum: "LeadSource", value: "OTHER"
+//   - Enum: "LeadStatus", value: "NEW"
+//   - Enum: "LeadStatus", value: "CONTACTED"
+//   - Enum: "LeadStatus", value: "QUALIFIED"
+//   - Enum: "LeadStatus", value: "NEGOTIATING"
+//   - Enum: "LeadStatus", value: "CONVERTED"
+//   - Enum: "LeadStatus", value: "LOST"
+//   - Enum: "MeetingOutcome", value: "PROPOSAL_SENT"
+//   - Enum: "MeetingOutcome", value: "FOLLOW_UP_SCHEDULED"
+//   - Enum: "MeetingOutcome", value: "NOT_INTERESTED"
+//   - Enum: "MeetingOutcome", value: "CONVERTED"
+//   - Enum: "MeetingOutcome", value: "NO_ANSWER"
+//   - Enum: "MeetingOutcome", value: "OTHER"
+//   - Enum: "MeetingStatus", value: "SCHEDULED"
+//   - Enum: "MeetingStatus", value: "COMPLETED"
+//   - Enum: "MeetingStatus", value: "CANCELLED"
+//   - Enum: "MeetingStatus", value: "NO_SHOW"
+//   - Enum: "MeetingType", value: "IN_PERSON"
+//   - Enum: "MeetingType", value: "ONLINE"
+//   - Enum: "MeetingType", value: "PHONE"
+//   - Enum: "NextBestActionPriority", value: "LOW"
+//   - Enum: "NextBestActionPriority", value: "NORMAL"
+//   - Enum: "NextBestActionPriority", value: "HIGH"
+//   - Enum: "NextBestActionPriority", value: "URGENT"
+//   - Enum: "NextBestActionSource", value: "RULE_ENGINE"
+//   - Enum: "NextBestActionSource", value: "AI"
+//   - Enum: "NextBestActionSource", value: "SYSTEM"
+//   - Enum: "NextBestActionSource", value: "CONSULTANT"
+//   - Enum: "PaymentMethod", value: "BANK_SLIP"
+//   - Enum: "PaymentMethod", value: "DIRECT_DEBIT"
+//   - Enum: "PaymentMethod", value: "CREDIT_CARD"
+//   - Enum: "PaymentMethod", value: "PIX"
+//   - Enum: "PersonType", value: "INDIVIDUAL"
+//   - Enum: "PersonType", value: "COMPANY"
+//   - Enum: "PipelineStageType", value: "LEAD"
+//   - Enum: "PipelineStageType", value: "DEAL"
+//   - Enum: "ProposalStatus", value: "DRAFT"
+//   - Enum: "ProposalStatus", value: "SENT"
+//   - Enum: "ProposalStatus", value: "ACCEPTED"
+//   - Enum: "ProposalStatus", value: "REJECTED"
+//   - Enum: "ProposalStatus", value: "EXPIRED"
+//   - Enum: "QuotaStatus", value: "NOT_CONTEMPLATED"
+//   - Enum: "QuotaStatus", value: "CONTEMPLATED"
+//   - Enum: "QuotaStatus", value: "PAID_OFF"
+//   - Enum: "QuotaStatus", value: "CANCELLED"
+//   - Enum: "SaleStatus", value: "PENDING_SIGNATURE"
+//   - Enum: "SaleStatus", value: "ACTIVE"
+//   - Enum: "SaleStatus", value: "CANCELLED"
+//   - Enum: "TaskPriority", value: "HIGH"
+//   - Enum: "TaskPriority", value: "MEDIUM"
+//   - Enum: "TaskPriority", value: "LOW"
+//   - Enum: "TaskStatus", value: "PENDING"
+//   - Enum: "TaskStatus", value: "IN_PROGRESS"
+//   - Enum: "TaskStatus", value: "COMPLETED"
+//   - Enum: "TaskStatus", value: "CANCELLED"
+//   - Enum: "TaskType", value: "CALL"
+//   - Enum: "TaskType", value: "EMAIL"
+//   - Enum: "TaskType", value: "FOLLOW_UP"
+//   - Enum: "TaskType", value: "DOCUMENT"
+//   - Enum: "TaskType", value: "MEETING_PREP"
+//   - Enum: "TaskType", value: "PROPOSAL_REVIEW"
+//   - Enum: "TaskType", value: "OTHER"
+//   - Enum: "WorkspaceStatus", value: "ACTIVE"
+//   - Enum: "WorkspaceStatus", value: "INACTIVE"
+// 
+// These enums were enriched with `@@map` information taken from the previous Prisma schema:
+//   - "ClientStatus"
+//   - "CommercialActionOrigin"
+//   - "CommercialActionStatus"
+//   - "CommercialActionType"
+//   - "CommercialActorType"
+//   - "CommercialEventType"
+//   - "CommercialJourneyOutcome"
+//   - "CommercialJourneyPriority"
+//   - "ConsortiumStatus"
+//   - "ConsortiumType"
+//   - "ConsultantRole"
+//   - "ConsultantStatus"
+//   - "LeadSource"
+//   - "LeadStatus"
+//   - "MeetingOutcome"
+//   - "MeetingStatus"
+//   - "MeetingType"
+//   - "NextBestActionPriority"
+//   - "NextBestActionSource"
+//   - "PaymentMethod"
+//   - "PersonType"
+//   - "PipelineStageType"
+//   - "ProposalStatus"
+//   - "QuotaStatus"
+//   - "SaleStatus"
+//   - "TaskPriority"
+//   - "TaskStatus"
+//   - "TaskType"
+//   - "WorkspaceStatus"
+// 
+// These constraints are not supported by Prisma Client, because Prisma currently does not fully support check constraints. Read more: https://pris.ly/d/check-constraints
+//   - Model: "CommercialJourney", constraint: "commercial_journeys_origin_check"
+//
+EXIT_CODE=0
+DATABASE_OPPORTUNITY_CREATED_CONFIRMED=True
+
+============================================================
+ POST-DEPLOY TARGETED TESTS
+============================================================
+COMMAND=npx vitest run application/opportunity/create-opportunity-async.test.ts app/opportunities/new/actions.test.ts infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts infrastructure/prisma/mappers/commercial-event-mapper.opportunity-created.test.ts lib/commercial-event-presenter.test.ts application/r2/r2-intelligence-orchestration.test.ts application/use-cases/common/commercial-event-dispatcher.test.ts components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx
+----- STDOUT -----
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Projetos/consorcio-os/web[39m
+
+ [32mâœ“[39m app/opportunities/new/actions.test.ts [2m([22m[2m24 tests[22m[2m)[22m[32m 52[2mms[22m[39m
+ [32mâœ“[39m application/opportunity/create-opportunity-async.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 235[2mms[22m[39m
+ [32mâœ“[39m application/r2/r2-intelligence-orchestration.test.ts [2m([22m[2m68 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+ [32mâœ“[39m infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32mâœ“[39m lib/commercial-event-presenter.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32mâœ“[39m application/use-cases/common/commercial-event-dispatcher.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 62[2mms[22m[39m
+ [32mâœ“[39m infrastructure/prisma/mappers/commercial-event-mapper.opportunity-created.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m8 passed[39m[22m[90m (8)[39m
+[2m      Tests [22m [1m[32m173 passed[39m[22m[90m (173)[39m
+[2m   Start at [22m 22:44:16
+[2m   Duration [22m 3.73s[2m (transform 639ms, setup 3.67s, import 1.00s, tests 432ms, environment 1.91s)[22m
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ FINAL INTEGRITY
+============================================================
+HEAD_UNCHANGED=True
+STAGED_FILE_COUNT_FINAL=0
+GLB_UNCHANGED=True
+GENERATED_CLIENT_HASH_FINAL=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+
+============================================================
+ FINAL RESULT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v5-backup-c9ebc68bc7a84ceb853f0bdf9eec4be5
+BACKUP_COMPLETE=True
+SOURCE_WRITE_STARTED=True
+ROLLBACK_PERFORMED=False
+ROLLBACK_COMPLETE=False
+PRE_DEPLOY_INTEGRITY_PASSED=True
+MIGRATION_DEPLOY_STARTED=True
+MIGRATION_DEPLOY_SUCCEEDED=True
+POST_MIGRATION_FAILURE=False
+GENERATED_CLIENT_HASH_BEFORE=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+GENERATED_CLIENT_HASH_FINAL=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+ERROR=
+ROLLBACK_ERROR=
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+VEREDITO=APROVADO_OPPORTUNITY_CREATED_ATOMIC_INTEGRATION_V5
+NEXT_STEP=IMPLEMENTAR_CONSUMO_PERSISTENTE_DO_EVENTO_NO_DASHBOARD
+NODE_OPTIONS_RESTORED=True

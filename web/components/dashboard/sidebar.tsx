@@ -16,15 +16,16 @@ import {
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { BrandIdentity } from "@/components/brand/brand-identity"
 import { cn } from "@/lib/utils"
+import type { User } from "@/types/dashboard"
 
 type MenuItem = {
   label: string
   icon: LucideIcon
   href: string
   active?: boolean
-  badge?: string
 }
 
 const primaryMenuItems: MenuItem[] = [
@@ -42,29 +43,27 @@ const primaryMenuItems: MenuItem[] = [
   {
     label: "Leads",
     icon: UserCircle,
-    href: "#leads",
-    badge: "12",
+    href: "/leads",
   },
   {
     label: "Clientes",
     icon: Users,
-    href: "#clientes",
+    href: "/clients",
   },
   {
     label: "Agenda",
     icon: CalendarDays,
-    href: "#agenda",
-    badge: "4",
+    href: "/agenda",
   },
   {
     label: "Propostas",
     icon: FileText,
-    href: "#propostas",
+    href: "/proposals",
   },
   {
     label: "Financeiro",
     icon: CircleDollarSign,
-    href: "#financeiro",
+    href: "/finance",
   },
 ]
 
@@ -72,13 +71,14 @@ const secondaryMenuItems: MenuItem[] = [
   {
     label: "Configurações",
     icon: Settings,
-    href: "#configuracoes",
+    href: "/settings",
   },
 ]
 
 type SidebarProps = {
   open: boolean
   onClose: () => void
+  user?: User
   collapsed?: boolean
   onCollapsedChange?: (collapsed: boolean) => void
 }
@@ -139,30 +139,44 @@ function SidebarNavigationItem({
             {item.label}
           </span>
 
-          {item.badge && (
-            <span
-              className={cn(
-                "inline-flex min-w-6 items-center justify-center rounded-full border px-1.5 py-0.5 text-[10px] font-semibold leading-none",
-                item.active
-                  ? "border-[#2F8F5B]/25 bg-[#2F8F5B]/[0.11] text-[#43A972]"
-                  : "border-white/[0.06] bg-white/[0.035] text-[#96A0AF]"
-              )}
-            >
-              {item.badge}
-            </span>
-          )}
         </>
       )}
     </a>
   )
 }
 
+function getUserInitials(
+  name: string,
+): string {
+  const initials =
+    name
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map(
+        (part) =>
+          part.charAt(0).toUpperCase(),
+      )
+      .join("")
+
+  return initials || "US"
+}
+
 export function Sidebar({
   open,
   onClose,
+  user,
   collapsed = false,
   onCollapsedChange = () => {},
 }: SidebarProps) {
+  const resolvedUser =
+    user ?? {
+      id: "current-user",
+      name: "Rafael Ramos Barcelos",
+      positionTitle:
+        "Consultor Sênior",
+    }
   function handleNavigation() {
     onClose()
   }
@@ -261,6 +275,12 @@ export function Sidebar({
                 />
               ))}
             </div>
+
+            {!collapsed && (
+              <div className="mt-3 px-1">
+                <ThemeToggle />
+              </div>
+            )}
           </nav>
 
           <div
@@ -323,17 +343,20 @@ export function Sidebar({
               )}
             >
               <div className="flex size-9 shrink-0 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.035] text-xs font-semibold text-[#D6DBE3]">
-                RR
+                {getUserInitials(
+                  resolvedUser.name,
+                )}
               </div>
 
               {!collapsed && (
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium text-[#F5F7FA]">
-                    Rafael Ramos
+                    {resolvedUser.name}
                   </p>
 
                   <p className="mt-0.5 truncate text-xs text-[#697384]">
-                    Supervisor
+                    {resolvedUser.positionTitle ??
+                      "Consultor Sênior"}
                   </p>
                 </div>
               )}

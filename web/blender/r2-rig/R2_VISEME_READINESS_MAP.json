@@ -1,0 +1,56 @@
+{
+  "VISEME_A": {
+    "property": "VISEME_A",
+    "runtime_test": {
+      "observed": 0.550000011920929,
+      "passed": true,
+      "property": "VISEME_A"
+    },
+    "status": "READY"
+  },
+  "VISEME_E": {
+    "property": "VISEME_E",
+    "runtime_test": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_E"
+    },
+    "status": "READY"
+  },
+  "VISEME_FV": {
+    "property": "VISEME_FV",
+    "runtime_test": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_FV"
+    },
+    "status": "READY"
+  },
+  "VISEME_L": {
+    "property": "VISEME_L",
+    "runtime_test": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_L"
+    },
+    "status": "READY"
+  },
+  "VISEME_MBP": {
+    "property": "VISEME_MBP",
+    "runtime_test": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_MBP"
+    },
+    "status": "READY"
+  },
+  "VISEME_O": {
+    "property": "VISEME_O",
+    "runtime_test": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_O"
+    },
+    "status": "READY"
+  }
+}

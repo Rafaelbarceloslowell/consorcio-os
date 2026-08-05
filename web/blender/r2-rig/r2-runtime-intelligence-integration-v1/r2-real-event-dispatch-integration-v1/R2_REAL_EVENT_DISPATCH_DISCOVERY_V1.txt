@@ -1,0 +1,1534 @@
+
+============================================================
+ R2 REAL EVENT DISPATCH DISCOVERY V1
+============================================================
+GENERATED_AT=2026-08-02T14:21:53-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+PHASE=R2_REAL_EVENT_DISPATCH_INTEGRATION_V1
+MODE=READ_ONLY_DISCOVERY
+
+============================================================
+ GIT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+GIT_BRANCH=main
+STAGED_FILE_COUNT=0
+WORKTREE_ENTRY_COUNT=33
+
+============================================================
+ TARGET FILES
+============================================================
+TARGET_EXISTS=True PATH=.\application\r2\index.ts
+TARGET_EXISTS=True PATH=.\application\r2\normalize-r2-event.ts
+TARGET_EXISTS=True PATH=.\application\r2\r2-orchestrator.ts
+TARGET_EXISTS=True PATH=.\application\r2\r2-deterministic-intelligence.ts
+TARGET_EXISTS=True PATH=.\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx
+TARGET_EXISTS=True PATH=.\components\dashboard\gorila-r2-avatar-3d.tsx
+TARGET_EXISTS=True PATH=.\components\dashboard\dashboard-content.tsx
+TARGET_EXISTS=True PATH=.\components\dashboard\dashboard-shell.tsx
+TARGET_EXISTS=True PATH=.\application\use-cases\common\commercial-event-use-case.ts
+TARGET_EXISTS=True PATH=.\application\use-cases\lead\receive-lead-reply.ts
+TARGET_EXISTS=True PATH=.\application\use-cases\meeting\schedule-meeting.ts
+TARGET_EXISTS=True PATH=.\application\use-cases\meeting\complete-meeting.ts
+TARGET_EXISTS=True PATH=.\application\use-cases\proposal\send-proposal.ts
+TARGET_EXISTS=True PATH=.\application\use-cases\proposal\accept-proposal.ts
+TARGET_EXISTS=True PATH=.\application\use-cases\sale\close-sale.ts
+TARGET_EXISTS=True PATH=.\application\commercial\commercial-event-service.ts
+TARGET_EXISTS=True PATH=.\application\decision\run-commercial-decision-cycle.ts
+TARGET_EXISTS=True PATH=.\application\decision\run-decision-automation-pipeline.ts
+
+============================================================
+ SOURCE INDEX
+============================================================
+
+FILE=.\application\r2\index.ts
+EXISTS=True
+SHA256=54F699EDDF738B4E92440C73DF9E03FC26E778F9F45B01A5285D47E26F71178E
+PATTERN=normalizeCommercialEvent MATCH_COUNT=1
+3: normalizeCommercialEvent,
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=1
+2: normalizeAutomationTrigger,
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=1
+16: createR2RuntimeCommand,
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=1
+3: normalizeCommercialEvent,
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\r2\normalize-r2-event.ts
+EXISTS=True
+SHA256=B6EBC6F331133E7E18D5BD448F256CF6C784EF023D745E085F655E9A69EC31ED
+PATTERN=normalizeCommercialEvent MATCH_COUNT=3
+124: export type NormalizeCommercialEventOptions = Readonly<{
+132: export function normalizeCommercialEvent(
+134: options: NormalizeCommercialEventOptions = {},
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=1
+171: export function normalizeAutomationTrigger(
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=9
+2: CommercialEvent,
+3: CommercialEventType,
+26: Record<CommercialEventType, R2EventType>
+45: Record<CommercialEventType, R2EntityType>
+64: Record<CommercialEventType, R2Urgency>
+124: export type NormalizeCommercialEventOptions = Readonly<{
+132: export function normalizeCommercialEvent(
+133: event: CommercialEvent,
+134: options: NormalizeCommercialEventOptions = {},
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\r2\r2-orchestrator.ts
+EXISTS=True
+SHA256=B03DDC269BA91B6653AFD0F4E49B02EE2BD01247B204721491AA8C2F67277873
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=1
+124: dispatch(
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=9
+17: R2RuntimeCommand,
+24: createR2RuntimeCommand,
+162: command?: R2RuntimeCommand | null
+211: command: R2RuntimeCommand,
+234: incoming: R2RuntimeCommand,
+336: const command: R2RuntimeCommand = {
+380: const command = createR2RuntimeCommand(plan)
+407: command: R2RuntimeCommand,
+452: const fallbackCommand: R2RuntimeCommand = {
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=0
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\r2\r2-deterministic-intelligence.ts
+EXISTS=True
+SHA256=241A0DAEA717B48A818E7CF56F01386D1F1DDED295D1D7D2D1A6A4A6F519AFFE
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=0
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx
+EXISTS=True
+SHA256=0C336441A929096C00DE7AAE3D56560671C892E46EEA13F96B297701C9C5E473
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=4
+73: async dispatch(event: R2DomainEvent) {
+82: const decision = await this.orchestrator.dispatch(event, context)
+157: if (initialEvent) void store.dispatch(initialEvent)
+186: dispatch: (event: R2DomainEvent) => value.store.dispatch(event),
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=4
+140: function R2OrchestrationProviderScope({
+167: export function R2OrchestrationProvider(props: Readonly<{
+174: <R2OrchestrationProviderScope
+183: if (!value) throw new Error("useR2Orchestration must be used inside R2OrchestrationProvider.")
+PATTERN=useR2Orchestration MATCH_COUNT=2
+181: export function useR2Orchestration() {
+183: if (!value) throw new Error("useR2Orchestration must be used inside R2OrchestrationProvider.")
+PATTERN=runtimeCommand MATCH_COUNT=2
+24: R2RuntimeCommand,
+28: command: R2RuntimeCommand | null
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=0
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=3
+90: this.emit()
+109: this.emit()
+119: private emit() {
+PATTERN=publish MATCH_COUNT=3
+83: this.publish(decision)
+94: private publish(decision: R2OrchestrationDecision) {
+114: if (next) this.publish(next)
+
+FILE=.\components\dashboard\gorila-r2-avatar-3d.tsx
+EXISTS=True
+SHA256=68D37404656FE9673C8700B43078C8F284714C6D32BBE9024D94FF5254240B59
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=3
+8: R2OrchestrationProvider,
+53: <R2OrchestrationProvider
+59: </R2OrchestrationProvider>
+PATTERN=useR2Orchestration MATCH_COUNT=2
+9: useR2Orchestration,
+22: const { command, recordReceipt } = useR2Orchestration()
+PATTERN=runtimeCommand MATCH_COUNT=1
+26: runtimeCommand={command}
+PATTERN=onRuntimeReceipt MATCH_COUNT=1
+27: onRuntimeReceipt={recordReceipt}
+PATTERN=CommercialEvent MATCH_COUNT=0
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\components\dashboard\dashboard-content.tsx
+EXISTS=True
+SHA256=66C38B61BBACDE28E0EE4BCDFE97376927F71EF7B03BF878E50F7CA7B20E2726
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=0
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\components\dashboard\dashboard-shell.tsx
+EXISTS=True
+SHA256=F83C19EB733F3A45948DC19682EC046E19377B4F8716E85064D10362A9C7B88F
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=0
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\use-cases\common\commercial-event-use-case.ts
+EXISTS=True
+SHA256=17C2AF84AF7E166AD23E2AF187EC201226172F0C19A1673F2D05AC40AC905EE5
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=27
+11: RecordCommercialEventInput,
+15: recordCommercialEvent,
+50: CommercialEvent,
+51: CommercialEventType,
+55: export type CommercialEventUseCaseDependencies = {
+56: recordCommercialEvent: (
+57: input: RecordCommercialEventInput,
+69: ) => CommercialEvent
+80: export type CommercialEventUseCaseMessages = {
+84: event: CommercialEvent,
+104: export type ExecuteCommercialEventUseCaseInput = {
+119: CommercialEventType
+143: CommercialEventUseCaseMessages
+146: Partial<CommercialEventUseCaseDependencies>
+149: export type ExecuteCommercialEventUseCaseResult = {
+158: CommercialEvent
+174: CommercialEventUseCaseDependencies = {
+175: recordCommercialEvent,
+184: Partial<CommercialEventUseCaseDependencies> = {},
+185: ): CommercialEventUseCaseDependencies {
+187: recordCommercialEvent:
+188: dependencies.recordCommercialEvent ??
+190: .recordCommercialEvent,
+204: export function executeCommercialEventUseCase({
+222: }: ExecuteCommercialEventUseCaseInput):
+223: ExecuteCommercialEventUseCaseResult {
+255: .recordCommercialEvent(
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\use-cases\lead\receive-lead-reply.ts
+EXISTS=True
+SHA256=4A1279855D303C1B5C2A4DFB8194D6D05A1F13851556B77940D29EE086A5A0FD
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=6
+2: CommercialEventUseCaseDependencies,
+3: ExecuteCommercialEventUseCaseResult,
+7: executeCommercialEventUseCase,
+31: CommercialEventUseCaseDependencies
+73: ExecuteCommercialEventUseCaseResult
+92: return executeCommercialEventUseCase({
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\use-cases\meeting\schedule-meeting.ts
+EXISTS=True
+SHA256=57ED77310938093842452709FEB703E22A48904CEFFB0F5DF341F2882BABC311
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=6
+2: CommercialEventUseCaseDependencies,
+3: ExecuteCommercialEventUseCaseResult,
+7: executeCommercialEventUseCase,
+31: CommercialEventUseCaseDependencies
+73: ExecuteCommercialEventUseCaseResult
+92: return executeCommercialEventUseCase({
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\use-cases\meeting\complete-meeting.ts
+EXISTS=True
+SHA256=F89F2BA2AFB051293923EC067C678EEA81BAC4BDA977B989F8D7367B5490485D
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=6
+2: CommercialEventUseCaseDependencies,
+3: ExecuteCommercialEventUseCaseResult,
+7: executeCommercialEventUseCase,
+31: CommercialEventUseCaseDependencies
+73: ExecuteCommercialEventUseCaseResult
+92: return executeCommercialEventUseCase({
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\use-cases\proposal\send-proposal.ts
+EXISTS=True
+SHA256=D5F0E3AE5A5DC7CC2958AD10EA0B80E3030C1136972DF7621D06DCA0FEA7DD7A
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=6
+2: CommercialEventUseCaseDependencies,
+3: ExecuteCommercialEventUseCaseResult,
+7: executeCommercialEventUseCase,
+32: CommercialEventUseCaseDependencies
+76: ExecuteCommercialEventUseCaseResult & {
+223: executeCommercialEventUseCase({
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\use-cases\proposal\accept-proposal.ts
+EXISTS=True
+SHA256=65C4F9B33428555B67DB4FB16A8975E32D1E9D261CA968B2CDF351566936841A
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=6
+2: CommercialEventUseCaseDependencies,
+3: ExecuteCommercialEventUseCaseResult,
+7: executeCommercialEventUseCase,
+31: CommercialEventUseCaseDependencies
+73: ExecuteCommercialEventUseCaseResult
+92: return executeCommercialEventUseCase({
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\use-cases\sale\close-sale.ts
+EXISTS=True
+SHA256=34683C7F1C86C0796A949923A9D7AB67CEF1ECDC1139234C4A5ECE93051EB33E
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=6
+2: CommercialEventUseCaseDependencies,
+3: ExecuteCommercialEventUseCaseResult,
+7: executeCommercialEventUseCase,
+40: CommercialEventUseCaseDependencies
+81: ExecuteCommercialEventUseCaseResult & {
+250: executeCommercialEventUseCase({
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\commercial\commercial-event-service.ts
+EXISTS=True
+SHA256=E4FD406A41CFB9E1CBF14DCFACE2D08209BB7E6A253A53285688099EC4F8CA3B
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=43
+3: CommercialEvent,
+4: CommercialEventType,
+15: export type RecordCommercialEventInput = {
+20: type: CommercialEventType
+29: export type BuildCommercialEventDependencies = {
+35: export type CommercialEventServiceCommonDependencies =
+36: BuildCommercialEventDependencies & {
+40: export type CommercialEventServiceLegacyDependencies =
+41: CommercialEventServiceCommonDependencies & {
+46: export type CommercialEventServiceAsyncDependencies =
+47: CommercialEventServiceCommonDependencies & {
+52: export type CommercialEventServiceDependencies =
+53: | CommercialEventServiceLegacyDependencies
+54: | CommercialEventServiceAsyncDependencies
+90: export function buildCommercialEvent(
+91: input: RecordCommercialEventInput,
+95: }: BuildCommercialEventDependencies = {},
+96: ): CommercialEvent {
+133: function recordLegacyCommercialEvent(
+134: input: RecordCommercialEventInput,
+140: }: CommercialEventServiceLegacyDependencies,
+141: ): CommercialEvent {
+163: buildCommercialEvent(
+198: async function recordAsyncCommercialEvent(
+199: input: RecordCommercialEventInput,
+205: }: CommercialEventServiceAsyncDependencies,
+206: ): Promise<CommercialEvent> {
+230: buildCommercialEvent(
+269: export function recordCommercialEvent(
+270: input: RecordCommercialEventInput,
+272: CommercialEventServiceAsyncDependencies,
+273: ): Promise<CommercialEvent>
+275: export function recordCommercialEvent(
+276: input: RecordCommercialEventInput,
+278: CommercialEventServiceLegacyDependencies,
+279: ): CommercialEvent
+281: export function recordCommercialEvent(
+282: input: RecordCommercialEventInput,
+284: CommercialEventServiceDependencies,
+286: | CommercialEvent
+287: | Promise<CommercialEvent> {
+293: return recordAsyncCommercialEvent(
+304: return recordLegacyCommercialEvent(
+PATTERN=createEvent MATCH_COUNT=1
+171: commercialRepository.createEvent(
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\decision\run-commercial-decision-cycle.ts
+EXISTS=True
+SHA256=88B0D4698E6B73EF9B6EA7090C2BF8705102CC2F666BC54B975ADD7DF830E15B
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=0
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+FILE=.\application\decision\run-decision-automation-pipeline.ts
+EXISTS=True
+SHA256=2C0F5E326EDD815A459755B81C18DBA13968A7BE7B439B0B0395EFD3AF8301FB
+PATTERN=normalizeCommercialEvent MATCH_COUNT=0
+PATTERN=normalizeAutomationTrigger MATCH_COUNT=0
+PATTERN=dispatch( MATCH_COUNT=0
+PATTERN=dispatchEvent MATCH_COUNT=0
+PATTERN=R2OrchestrationProvider MATCH_COUNT=0
+PATTERN=useR2Orchestration MATCH_COUNT=0
+PATTERN=runtimeCommand MATCH_COUNT=0
+PATTERN=onRuntimeReceipt MATCH_COUNT=0
+PATTERN=CommercialEvent MATCH_COUNT=0
+PATTERN=createEvent MATCH_COUNT=0
+PATTERN=save( MATCH_COUNT=0
+PATTERN=emit MATCH_COUNT=0
+PATTERN=publish MATCH_COUNT=0
+
+============================================================
+ GLOBAL DISPATCH SEARCH
+============================================================
+
+PATTERN=normalizeCommercialEvent(
+MATCH_COUNT=4
+FILE_COUNT=2
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:132: export function normalizeCommercialEvent(
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:89: expect(normalizeCommercialEvent(commercial(source as CommercialEventType)).eventType).toBe(canonical)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:94: expect(() => normalizeCommercialEvent({ ...commercial("LEAD_CREATED"), workspaceId: " " })).toThrow(/workspaceId/)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:95: const canonical = normalizeCommercialEvent(commercial("LEAD_CREATED"))
+
+PATTERN=normalizeAutomationTrigger(
+MATCH_COUNT=1
+FILE_COUNT=1
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:171: export function normalizeAutomationTrigger(
+
+PATTERN=.dispatch(
+MATCH_COUNT=25
+FILE_COUNT=2
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:236: const decision = await test.orchestrator.dispatch(source, context(source))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:244: expect((await first.orchestrator.dispatch(sale, context(sale))).runtimeState).toBe("celebrating_sale")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:246: expect(await first.orchestrator.dispatch(meeting, context(meeting))).toMatchObject({
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:252: await second.orchestrator.dispatch(speaking, context(speaking))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:254: expect(await second.orchestrator.dispatch(failure, context(failure))).toMatchObject({
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:270: const decision = await test.orchestrator.dispatch(source, context(source))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:287: expect(await test.orchestrator.dispatch(source, mismatchedContext)).toMatchObject({
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:295: await test.orchestrator.dispatch(critical, context(critical))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:298: expect((await test.orchestrator.dispatch(celebration, context(celebration))).decision).toBe("QUEUE")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:305: await test.orchestrator.dispatch(alert, context(alert, "listening"))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:307: expect((await test.orchestrator.dispatch(task, context(task))).decision).toBe("QUEUE")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:320: await test.orchestrator.dispatch(base, context(base))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:321: expect((await test.orchestrator.dispatch(base, context(base))).reason).toBe("EVENT_DUPLICATE")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:324: expect((await test.orchestrator.dispatch(expired, context(expired))).reason).toBe("EVENT_EXPIRED")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:327: expect((await test.orchestrator.dispatch(foreign, { ...context(foreign), workspaceId: "workspace-b" })).reason).toBe("WORKSPACE_MISMATCH")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:331: expect((await test.orchestrator.dispatch(debounced, context(debounced))).reason).toBe("DEBOUNCED")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:335: expect((await test.orchestrator.dispatch(cooldown, context(cooldown))).reason).toBe("COOLDOWN_ACTIVE")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:341: await test.orchestrator.dispatch(active, context(active))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:343: expect((await test.orchestrator.dispatch(firstQueued, context(firstQueued))).decision).toBe("QUEUE")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:345: expect(await test.orchestrator.dispatch(overflow, context(overflow))).toMatchObject({
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:357: const decision = await test.orchestrator.dispatch(source, context(source))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:366: const decision = await test.orchestrator.dispatch(source, context(source))
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:82: const decision = await this.orchestrator.dispatch(event, context)
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:157: if (initialEvent) void store.dispatch(initialEvent)
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:186: dispatch: (event: R2DomainEvent) => value.store.dispatch(event),
+
+PATTERN=useR2Orchestration(
+MATCH_COUNT=3
+FILE_COUNT=3
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:31: const { command, decision, dispatch } = useR2Orchestration()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:181: export function useR2Orchestration() {
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:22: const { command, recordReceipt } = useR2Orchestration()
+
+PATTERN=<R2OrchestrationProvider
+MATCH_COUNT=3
+FILE_COUNT=3
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:45: <R2OrchestrationProvider workspaceId="workspace-a" userId="user-a">
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:174: <R2OrchestrationProviderScope
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:53: <R2OrchestrationProvider
+
+PATTERN=runtimeCommand=
+MATCH_COUNT=4
+FILE_COUNT=3
+C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx:148: runtimeCommand={runtimeCommand}
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.test.tsx:223: runtimeCommand={baseCommand}
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.test.tsx:236: runtimeCommand={{
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:26: runtimeCommand={command}
+
+PATTERN=onRuntimeReceipt=
+MATCH_COUNT=4
+FILE_COUNT=3
+C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx:149: onRuntimeReceipt={onRuntimeReceipt}
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.test.tsx:224: onRuntimeReceipt={receipt}
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.test.tsx:244: onRuntimeReceipt={receipt}
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:27: onRuntimeReceipt={recordReceipt}
+
+PATTERN=commercialEvent
+MATCH_COUNT=423
+FILE_COUNT=47
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.test.ts:29: | "commercialEvents"
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.test.ts:930: .commercialEvents[0]
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:18: buildCommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:71: CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:379: }): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:380: return buildCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.test.ts:30: | "commercialEvents"
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.ts:4: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.ts:123: CommercialEvent | null
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.ts:508: CommercialEvent | null =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.ts:720: CommercialEvent | null =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:14: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:18: "recordCommercialEvent",
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:44: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:102: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:146: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:181: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:227: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:265: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:298: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:347: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:4: CommercialEventType,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:15: export type RecordCommercialEventInput = {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:20: type: CommercialEventType
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:29: export type BuildCommercialEventDependencies = {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:35: export type CommercialEventServiceCommonDependencies =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:36: BuildCommercialEventDependencies & {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:40: export type CommercialEventServiceLegacyDependencies =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:41: CommercialEventServiceCommonDependencies & {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:46: export type CommercialEventServiceAsyncDependencies =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:47: CommercialEventServiceCommonDependencies & {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:52: export type CommercialEventServiceDependencies =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:53: | CommercialEventServiceLegacyDependencies
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:54: | CommercialEventServiceAsyncDependencies
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:90: export function buildCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:91: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:95: }: BuildCommercialEventDependencies = {},
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:96: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:133: function recordLegacyCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:134: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:140: }: CommercialEventServiceLegacyDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:141: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:163: buildCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:198: async function recordAsyncCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:199: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:205: }: CommercialEventServiceAsyncDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:206: ): Promise<CommercialEvent> {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:230: buildCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:269: export function recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:270: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:272: CommercialEventServiceAsyncDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:273: ): Promise<CommercialEvent>
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:275: export function recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:276: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:278: CommercialEventServiceLegacyDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:279: ): CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:281: export function recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:282: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:284: CommercialEventServiceDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:286: | CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:287: | Promise<CommercialEvent> {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:293: return recordAsyncCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:304: return recordLegacyCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\crm-synchronizer.test.ts:151: commercialEvents: [],
+C:\Projetos\consorcio-os\web\application\commercial\process-commercial-transition.test.ts:27: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\process-commercial-transition.test.ts:111: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\process-commercial-transition.ts:35: CommercialEventType,
+C:\Projetos\consorcio-os\web\application\commercial\process-commercial-transition.ts:87: eventType?: CommercialEventType
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.test.ts:11: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.test.ts:29: | "commercialEvents"
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.test.ts:78: overrides: Partial<CommercialEvent> = {},
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.test.ts:79: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:23: CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:69: CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:301: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:417: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:537: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\decision\refresh-next-best-actions.test.ts:118: commercialEvents: [],
+C:\Projetos\consorcio-os\web\application\decision\run-commercial-decision-cycle.test.ts:138: commercialEvents:
+C:\Projetos\consorcio-os\web\application\decision\run-commercial-decision-cycle.test.ts:140: .commercialEvents
+C:\Projetos\consorcio-os\web\application\opportunity\get-opportunity-details-async.ts:2: presentCommercialEvent,
+C:\Projetos\consorcio-os\web\application\opportunity\get-opportunity-details-async.ts:6: AsyncCommercialEventRepository,
+C:\Projetos\consorcio-os\web\application\opportunity\get-opportunity-details-async.ts:59: AsyncCommercialEventRepository,
+C:\Projetos\consorcio-os\web\application\opportunity\get-opportunity-details-async.ts:177: presentCommercialEvent(
+C:\Projetos\consorcio-os\web\application\r2\index.ts:3: normalizeCommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:2: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:3: CommercialEventType,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:26: Record<CommercialEventType, R2EventType>
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:45: Record<CommercialEventType, R2EntityType>
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:64: Record<CommercialEventType, R2Urgency>
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:124: export type NormalizeCommercialEventOptions = Readonly<{
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:132: export function normalizeCommercialEvent(
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:133: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:134: options: NormalizeCommercialEventOptions = {},
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:3: import type { CommercialEvent, CommercialEventType } from "@/types/domain"
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:14: normalizeCommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:23: function commercial(type: CommercialEventType, id = `event-${type}`): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:79: const mapping: Record<CommercialEventType, R2DomainEvent["eventType"]> = {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:89: expect(normalizeCommercialEvent(commercial(source as CommercialEventType)).eventType).toBe(canonical)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:94: expect(() => normalizeCommercialEvent({ ...commercial("LEAD_CREATED"), workspaceId: " " })).toThrow(/workspaceId/)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:95: const canonical = normalizeCommercialEvent(commercial("LEAD_CREATED"))
+C:\Projetos\consorcio-os\web\application\sale\close-sale.test.ts:72: commercialEvents: [
+C:\Projetos\consorcio-os\web\application\sale\close-sale.test.ts:74: .commercialEvents,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:11: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:15: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:50: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:51: CommercialEventType,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:55: export type CommercialEventUseCaseDependencies = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:56: recordCommercialEvent: (
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:57: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:69: ) => CommercialEvent
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:80: export type CommercialEventUseCaseMessages = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:84: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:104: export type ExecuteCommercialEventUseCaseInput = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:119: CommercialEventType
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:143: CommercialEventUseCaseMessages
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:146: Partial<CommercialEventUseCaseDependencies>
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:149: export type ExecuteCommercialEventUseCaseResult = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:158: CommercialEvent
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:174: CommercialEventUseCaseDependencies = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:175: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:184: Partial<CommercialEventUseCaseDependencies> = {},
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:185: ): CommercialEventUseCaseDependencies {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:187: recordCommercialEvent:
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:188: dependencies.recordCommercialEvent ??
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:190: .recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:204: export function executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:222: }: ExecuteCommercialEventUseCaseInput):
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:223: ExecuteCommercialEventUseCaseResult {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:255: .recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:29: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:107: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:270: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:320: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:327: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:477: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:543: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:676: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:727: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:770: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:796: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:804: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:820: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:846: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:854: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:865: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:891: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:899: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:915: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:941: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:949: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:968: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:997: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:1005: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:22: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:107: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:273: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:326: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:333: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:486: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:555: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:691: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:742: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:785: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:811: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:819: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:835: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:861: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:869: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:880: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:906: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:914: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:930: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:956: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:964: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:983: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:1012: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:1020: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:29: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:107: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:273: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:326: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:333: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:486: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:555: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:691: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:742: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:785: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:811: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:819: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:835: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:861: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:869: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:880: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:906: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:914: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:930: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:956: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:964: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:983: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:1012: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:1020: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:22: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:107: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:273: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:326: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:333: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:486: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:552: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:685: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:736: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:779: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:805: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:813: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:829: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:855: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:863: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:874: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:900: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:908: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:924: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:950: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:958: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:977: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:1006: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:1014: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:22: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:159: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:371: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:422: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:447: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:599: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:658: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:952: recordCommercialEvent:
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:32: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:76: ExecuteCommercialEventUseCaseResult & {
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:223: executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:10: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:14: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:53: executeCommercialEventUseCase:
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:203: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:210: } as unknown as ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:288: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:308: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:345: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:426: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:529: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:40: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:81: ExecuteCommercialEventUseCaseResult & {
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:250: executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\engine\decision\context\enricher.ts:1: import type { CommercialEvent } from "@/types/domain"
+C:\Projetos\consorcio-os\web\engine\decision\context\enricher.ts:54: events: CommercialEvent[],
+C:\Projetos\consorcio-os\web\engine\decision\context\enricher.ts:55: eventType: CommercialEvent["type"],
+C:\Projetos\consorcio-os\web\engine\decision\context\types.ts:4: CommercialEvent,
+C:\Projetos\consorcio-os\web\engine\decision\context\types.ts:26: events: CommercialEvent[]
+C:\Projetos\consorcio-os\web\engine\decision\context\types.ts:48: events: CommercialEvent[]
+C:\Projetos\consorcio-os\web\engine\decision\workflow\transition.ts:2: CommercialEvent,
+C:\Projetos\consorcio-os\web\engine\decision\workflow\transition.ts:108: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:4: CommercialEventType,
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:58: eventType?: CommercialEventType
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:131: event: CommercialEvent | null
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:151: eventType?: CommercialEventType
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:176: event: CommercialEvent | null
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:3: CommercialEventType as PrismaCommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:7: CommercialEvent as PrismaCommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:13: CommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:14: CommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:69: const commercialEventTypeToPrisma: Record<
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:70: CommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:71: PrismaCommercialEventType
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:74: PrismaCommercialEventType.LEAD_CREATED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:77: PrismaCommercialEventType.LEAD_REPLIED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:80: PrismaCommercialEventType.MEETING_SCHEDULED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:83: PrismaCommercialEventType.MEETING_COMPLETED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:86: PrismaCommercialEventType.PROPOSAL_SENT,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:89: PrismaCommercialEventType.PROPOSAL_ACCEPTED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:92: PrismaCommercialEventType.DOCUMENT_REQUESTED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:95: PrismaCommercialEventType.DOCUMENT_RECEIVED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:98: PrismaCommercialEventType.PAYMENT_CONFIRMED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:101: PrismaCommercialEventType.SALE_COMPLETED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:104: PrismaCommercialEventType.STATE_CHANGED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:107: PrismaCommercialEventType.NOTE_ADDED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:110: PrismaCommercialEventType.TASK_CREATED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:113: PrismaCommercialEventType.TASK_COMPLETED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:116: const commercialEventTypeToDomain: Record<
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:117: PrismaCommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:118: CommercialEventType
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:120: [PrismaCommercialEventType.LEAD_CREATED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:123: [PrismaCommercialEventType.LEAD_REPLIED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:126: [PrismaCommercialEventType.MEETING_SCHEDULED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:129: [PrismaCommercialEventType.MEETING_COMPLETED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:132: [PrismaCommercialEventType.PROPOSAL_SENT]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:135: [PrismaCommercialEventType.PROPOSAL_ACCEPTED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:138: [PrismaCommercialEventType.DOCUMENT_REQUESTED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:141: [PrismaCommercialEventType.DOCUMENT_RECEIVED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:144: [PrismaCommercialEventType.PAYMENT_CONFIRMED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:147: [PrismaCommercialEventType.SALE_COMPLETED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:150: [PrismaCommercialEventType.STATE_CHANGED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:153: [PrismaCommercialEventType.NOTE_ADDED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:156: [PrismaCommercialEventType.TASK_CREATED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:159: [PrismaCommercialEventType.TASK_COMPLETED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:177: export type CommercialEventPersistenceInput = {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:179: event: CommercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:182: export class CommercialEventMapper {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:184: raw: PrismaCommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:185: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:197: commercialEventTypeToDomain[
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:228: }: CommercialEventPersistenceInput): Prisma.CommercialEventUncheckedCreateInput {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:239: commercialEventTypeToPrisma[
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:2: CommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:7: CommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:15: CommercialEventMapper,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:18: export class PrismaCommercialEventRepository {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:30: async findAll(): Promise<CommercialEvent[]> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:32: await this.database.commercialEvent.findMany({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:47: CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:55: ): Promise<CommercialEvent | undefined> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:61: await this.database.commercialEvent.findFirst({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:72: return CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:79: ): Promise<CommercialEvent[]> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:85: await this.database.commercialEvent.findMany({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:101: CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:108: type: CommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:109: ): Promise<CommercialEvent[]> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:111: await this.database.commercialEvent.findMany({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:127: CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:134: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:135: ): Promise<CommercialEvent> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:145: await this.database.commercialEvent.create({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:146: data: CommercialEventMapper.toPersistence({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:152: return CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:165: await this.database.commercialEvent.deleteMany({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:176: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:116: CommercialEventMapper: {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:177: type CommercialEventDelegateMock = {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:192: commercialEvent:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:193: CommercialEventDelegateMock
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:308: commercialEvent: {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:546: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:561: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:604: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:637: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:663: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:692: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:740: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:26: CommercialEventMapper,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:168: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:264: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:267: CommercialEventMapper.toPersistence({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:298: CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\prisma-commercial-repositories.ts:18: PrismaCommercialEventRepository,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\prisma-commercial-repositories.ts:68: new PrismaCommercialEventRepository(
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:4: CommercialEventType,
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:51: export interface AsyncCommercialEventRepository {
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:52: findAll(): Promise<CommercialEvent[]>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:56: ): Promise<CommercialEvent | undefined>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:60: ): Promise<CommercialEvent[]>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:63: type: CommercialEventType,
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:64: ): Promise<CommercialEvent[]>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:67: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:68: ): Promise<CommercialEvent>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:209: events: AsyncCommercialEventRepository
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:13: event: CommercialEvent
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:18: event: CommercialEvent
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:67: ): CommercialEvent[]
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:70: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:71: ): CommercialEvent
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-async-commercial-repositories.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-async-commercial-repositories.ts:17: events?: CommercialEvent[]
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-async-commercial-repositories.ts:169: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-async-commercial-repositories.ts:559: event: CommercialEvent
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.test.ts:11: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.test.ts:60: overrides: Partial<CommercialEvent> = {},
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.test.ts:61: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:6: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:27: | "commercialEvents"
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:49: private readonly events: CommercialEvent[]
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:71: ...data.commercialEvents,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:267: ): CommercialEvent[] {
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:276: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:277: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\types\domain\commercial-event.ts:4: export type CommercialEventType =
+C:\Projetos\consorcio-os\web\types\domain\commercial-event.ts:20: export type CommercialEvent = {
+C:\Projetos\consorcio-os\web\types\domain\commercial-event.ts:31: type: CommercialEventType
+C:\Projetos\consorcio-os\web\types\domain\index.ts:52: CommercialEvent,
+C:\Projetos\consorcio-os\web\types\domain\index.ts:53: CommercialEventType,
+C:\Projetos\consorcio-os\web\types\domain\index.ts:101: commercialEvents: import("./commercial-event").CommercialEvent[]
+
+PATTERN=CommercialEvent
+MATCH_COUNT=423
+FILE_COUNT=47
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.test.ts:29: | "commercialEvents"
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.test.ts:930: .commercialEvents[0]
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:18: buildCommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:71: CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:379: }): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\advance-journey.ts:380: return buildCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.test.ts:30: | "commercialEvents"
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.ts:4: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.ts:123: CommercialEvent | null
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.ts:508: CommercialEvent | null =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-action-executor.ts:720: CommercialEvent | null =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:14: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:18: "recordCommercialEvent",
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:44: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:102: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:146: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:181: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:227: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:265: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:298: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.test.ts:347: recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:4: CommercialEventType,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:15: export type RecordCommercialEventInput = {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:20: type: CommercialEventType
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:29: export type BuildCommercialEventDependencies = {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:35: export type CommercialEventServiceCommonDependencies =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:36: BuildCommercialEventDependencies & {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:40: export type CommercialEventServiceLegacyDependencies =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:41: CommercialEventServiceCommonDependencies & {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:46: export type CommercialEventServiceAsyncDependencies =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:47: CommercialEventServiceCommonDependencies & {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:52: export type CommercialEventServiceDependencies =
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:53: | CommercialEventServiceLegacyDependencies
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:54: | CommercialEventServiceAsyncDependencies
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:90: export function buildCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:91: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:95: }: BuildCommercialEventDependencies = {},
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:96: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:133: function recordLegacyCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:134: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:140: }: CommercialEventServiceLegacyDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:141: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:163: buildCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:198: async function recordAsyncCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:199: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:205: }: CommercialEventServiceAsyncDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:206: ): Promise<CommercialEvent> {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:230: buildCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:269: export function recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:270: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:272: CommercialEventServiceAsyncDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:273: ): Promise<CommercialEvent>
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:275: export function recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:276: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:278: CommercialEventServiceLegacyDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:279: ): CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:281: export function recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:282: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:284: CommercialEventServiceDependencies,
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:286: | CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:287: | Promise<CommercialEvent> {
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:293: return recordAsyncCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\commercial-event-service.ts:304: return recordLegacyCommercialEvent(
+C:\Projetos\consorcio-os\web\application\commercial\crm-synchronizer.test.ts:151: commercialEvents: [],
+C:\Projetos\consorcio-os\web\application\commercial\process-commercial-transition.test.ts:27: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\process-commercial-transition.test.ts:111: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\process-commercial-transition.ts:35: CommercialEventType,
+C:\Projetos\consorcio-os\web\application\commercial\process-commercial-transition.ts:87: eventType?: CommercialEventType
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.test.ts:11: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.test.ts:29: | "commercialEvents"
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.test.ts:78: overrides: Partial<CommercialEvent> = {},
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.test.ts:79: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:23: CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:69: CommercialEvent
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:301: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:417: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\commercial\workflow-executor.ts:537: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\decision\refresh-next-best-actions.test.ts:118: commercialEvents: [],
+C:\Projetos\consorcio-os\web\application\decision\run-commercial-decision-cycle.test.ts:138: commercialEvents:
+C:\Projetos\consorcio-os\web\application\decision\run-commercial-decision-cycle.test.ts:140: .commercialEvents
+C:\Projetos\consorcio-os\web\application\opportunity\get-opportunity-details-async.ts:2: presentCommercialEvent,
+C:\Projetos\consorcio-os\web\application\opportunity\get-opportunity-details-async.ts:6: AsyncCommercialEventRepository,
+C:\Projetos\consorcio-os\web\application\opportunity\get-opportunity-details-async.ts:59: AsyncCommercialEventRepository,
+C:\Projetos\consorcio-os\web\application\opportunity\get-opportunity-details-async.ts:177: presentCommercialEvent(
+C:\Projetos\consorcio-os\web\application\r2\index.ts:3: normalizeCommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:2: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:3: CommercialEventType,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:26: Record<CommercialEventType, R2EventType>
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:45: Record<CommercialEventType, R2EntityType>
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:64: Record<CommercialEventType, R2Urgency>
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:124: export type NormalizeCommercialEventOptions = Readonly<{
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:132: export function normalizeCommercialEvent(
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:133: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:134: options: NormalizeCommercialEventOptions = {},
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:3: import type { CommercialEvent, CommercialEventType } from "@/types/domain"
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:14: normalizeCommercialEvent,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:23: function commercial(type: CommercialEventType, id = `event-${type}`): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:79: const mapping: Record<CommercialEventType, R2DomainEvent["eventType"]> = {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:89: expect(normalizeCommercialEvent(commercial(source as CommercialEventType)).eventType).toBe(canonical)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:94: expect(() => normalizeCommercialEvent({ ...commercial("LEAD_CREATED"), workspaceId: " " })).toThrow(/workspaceId/)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:95: const canonical = normalizeCommercialEvent(commercial("LEAD_CREATED"))
+C:\Projetos\consorcio-os\web\application\sale\close-sale.test.ts:72: commercialEvents: [
+C:\Projetos\consorcio-os\web\application\sale\close-sale.test.ts:74: .commercialEvents,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:11: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:15: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:50: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:51: CommercialEventType,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:55: export type CommercialEventUseCaseDependencies = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:56: recordCommercialEvent: (
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:57: input: RecordCommercialEventInput,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:69: ) => CommercialEvent
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:80: export type CommercialEventUseCaseMessages = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:84: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:104: export type ExecuteCommercialEventUseCaseInput = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:119: CommercialEventType
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:143: CommercialEventUseCaseMessages
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:146: Partial<CommercialEventUseCaseDependencies>
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:149: export type ExecuteCommercialEventUseCaseResult = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:158: CommercialEvent
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:174: CommercialEventUseCaseDependencies = {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:175: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:184: Partial<CommercialEventUseCaseDependencies> = {},
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:185: ): CommercialEventUseCaseDependencies {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:187: recordCommercialEvent:
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:188: dependencies.recordCommercialEvent ??
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:190: .recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:204: export function executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:222: }: ExecuteCommercialEventUseCaseInput):
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:223: ExecuteCommercialEventUseCaseResult {
+C:\Projetos\consorcio-os\web\application\use-cases\common\commercial-event-use-case.ts:255: .recordCommercialEvent(
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:29: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:107: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:270: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:320: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:327: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:477: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:543: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:676: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:727: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:770: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:796: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:804: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:820: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:846: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:854: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:865: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:891: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:899: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:915: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:941: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:949: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:968: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:997: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.test.ts:1005: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\lead\receive-lead-reply.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:22: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:107: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:273: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:326: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:333: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:486: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:555: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:691: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:742: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:785: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:811: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:819: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:835: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:861: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:869: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:880: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:906: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:914: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:930: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:956: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:964: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:983: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:1012: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.test.ts:1020: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\complete-meeting.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:29: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:107: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:273: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:326: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:333: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:486: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:555: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:691: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:742: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:785: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:811: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:819: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:835: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:861: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:869: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:880: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:906: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:914: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:930: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:956: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:964: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:983: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:1012: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.test.ts:1020: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\meeting\schedule-meeting.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:22: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:107: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:273: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:326: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:333: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:486: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:552: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:685: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:736: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:779: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:805: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:813: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:829: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:855: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:863: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:874: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:900: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:908: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:924: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:950: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:958: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:977: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:1006: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.test.ts:1014: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:31: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:73: ExecuteCommercialEventUseCaseResult
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\accept-proposal.ts:92: return executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:22: CommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:159: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:371: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:422: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:447: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:599: const recordCommercialEvent =
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:658: recordCommercialEvent,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.test.ts:952: recordCommercialEvent:
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:32: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:76: ExecuteCommercialEventUseCaseResult & {
+C:\Projetos\consorcio-os\web\application\use-cases\proposal\send-proposal.ts:223: executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:10: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:14: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:53: executeCommercialEventUseCase:
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:203: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:210: } as unknown as ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:288: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:308: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:345: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:426: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.test.ts:529: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:2: CommercialEventUseCaseDependencies,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:3: ExecuteCommercialEventUseCaseResult,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:7: executeCommercialEventUseCase,
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:40: CommercialEventUseCaseDependencies
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:81: ExecuteCommercialEventUseCaseResult & {
+C:\Projetos\consorcio-os\web\application\use-cases\sale\close-sale.ts:250: executeCommercialEventUseCase({
+C:\Projetos\consorcio-os\web\engine\decision\context\enricher.ts:1: import type { CommercialEvent } from "@/types/domain"
+C:\Projetos\consorcio-os\web\engine\decision\context\enricher.ts:54: events: CommercialEvent[],
+C:\Projetos\consorcio-os\web\engine\decision\context\enricher.ts:55: eventType: CommercialEvent["type"],
+C:\Projetos\consorcio-os\web\engine\decision\context\types.ts:4: CommercialEvent,
+C:\Projetos\consorcio-os\web\engine\decision\context\types.ts:26: events: CommercialEvent[]
+C:\Projetos\consorcio-os\web\engine\decision\context\types.ts:48: events: CommercialEvent[]
+C:\Projetos\consorcio-os\web\engine\decision\workflow\transition.ts:2: CommercialEvent,
+C:\Projetos\consorcio-os\web\engine\decision\workflow\transition.ts:108: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:4: CommercialEventType,
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:58: eventType?: CommercialEventType
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:131: event: CommercialEvent | null
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:151: eventType?: CommercialEventType
+C:\Projetos\consorcio-os\web\engine\decision\workflow\types.ts:176: event: CommercialEvent | null
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:3: CommercialEventType as PrismaCommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:7: CommercialEvent as PrismaCommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:13: CommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:14: CommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:69: const commercialEventTypeToPrisma: Record<
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:70: CommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:71: PrismaCommercialEventType
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:74: PrismaCommercialEventType.LEAD_CREATED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:77: PrismaCommercialEventType.LEAD_REPLIED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:80: PrismaCommercialEventType.MEETING_SCHEDULED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:83: PrismaCommercialEventType.MEETING_COMPLETED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:86: PrismaCommercialEventType.PROPOSAL_SENT,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:89: PrismaCommercialEventType.PROPOSAL_ACCEPTED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:92: PrismaCommercialEventType.DOCUMENT_REQUESTED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:95: PrismaCommercialEventType.DOCUMENT_RECEIVED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:98: PrismaCommercialEventType.PAYMENT_CONFIRMED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:101: PrismaCommercialEventType.SALE_COMPLETED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:104: PrismaCommercialEventType.STATE_CHANGED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:107: PrismaCommercialEventType.NOTE_ADDED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:110: PrismaCommercialEventType.TASK_CREATED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:113: PrismaCommercialEventType.TASK_COMPLETED,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:116: const commercialEventTypeToDomain: Record<
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:117: PrismaCommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:118: CommercialEventType
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:120: [PrismaCommercialEventType.LEAD_CREATED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:123: [PrismaCommercialEventType.LEAD_REPLIED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:126: [PrismaCommercialEventType.MEETING_SCHEDULED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:129: [PrismaCommercialEventType.MEETING_COMPLETED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:132: [PrismaCommercialEventType.PROPOSAL_SENT]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:135: [PrismaCommercialEventType.PROPOSAL_ACCEPTED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:138: [PrismaCommercialEventType.DOCUMENT_REQUESTED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:141: [PrismaCommercialEventType.DOCUMENT_RECEIVED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:144: [PrismaCommercialEventType.PAYMENT_CONFIRMED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:147: [PrismaCommercialEventType.SALE_COMPLETED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:150: [PrismaCommercialEventType.STATE_CHANGED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:153: [PrismaCommercialEventType.NOTE_ADDED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:156: [PrismaCommercialEventType.TASK_CREATED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:159: [PrismaCommercialEventType.TASK_COMPLETED]:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:177: export type CommercialEventPersistenceInput = {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:179: event: CommercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:182: export class CommercialEventMapper {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:184: raw: PrismaCommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:185: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:197: commercialEventTypeToDomain[
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:228: }: CommercialEventPersistenceInput): Prisma.CommercialEventUncheckedCreateInput {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\commercial-event-mapper.ts:239: commercialEventTypeToPrisma[
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:2: CommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:7: CommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:15: CommercialEventMapper,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:18: export class PrismaCommercialEventRepository {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:30: async findAll(): Promise<CommercialEvent[]> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:32: await this.database.commercialEvent.findMany({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:47: CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:55: ): Promise<CommercialEvent | undefined> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:61: await this.database.commercialEvent.findFirst({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:72: return CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:79: ): Promise<CommercialEvent[]> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:85: await this.database.commercialEvent.findMany({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:101: CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:108: type: CommercialEventType,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:109: ): Promise<CommercialEvent[]> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:111: await this.database.commercialEvent.findMany({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:127: CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:134: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:135: ): Promise<CommercialEvent> {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:145: await this.database.commercialEvent.create({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:146: data: CommercialEventMapper.toPersistence({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:152: return CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:165: await this.database.commercialEvent.deleteMany({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-event-repository.ts:176: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:116: CommercialEventMapper: {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:177: type CommercialEventDelegateMock = {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:192: commercialEvent:
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:193: CommercialEventDelegateMock
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:308: commercialEvent: {
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:546: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:561: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:604: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:637: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:663: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:692: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.test.ts:740: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:26: CommercialEventMapper,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:168: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:264: .commercialEvent
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:267: CommercialEventMapper.toPersistence({
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\commercial\prisma-commercial-transaction-repository.ts:298: CommercialEventMapper.toDomain(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\prisma-commercial-repositories.ts:18: PrismaCommercialEventRepository,
+C:\Projetos\consorcio-os\web\infrastructure\prisma\repositories\prisma-commercial-repositories.ts:68: new PrismaCommercialEventRepository(
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:4: CommercialEventType,
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:51: export interface AsyncCommercialEventRepository {
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:52: findAll(): Promise<CommercialEvent[]>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:56: ): Promise<CommercialEvent | undefined>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:60: ): Promise<CommercialEvent[]>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:63: type: CommercialEventType,
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:64: ): Promise<CommercialEvent[]>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:67: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:68: ): Promise<CommercialEvent>
+C:\Projetos\consorcio-os\web\repositories\commercial\async-commercial-repositories.ts:209: events: AsyncCommercialEventRepository
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:13: event: CommercialEvent
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:18: event: CommercialEvent
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:67: ): CommercialEvent[]
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:70: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\commercial-repository.ts:71: ): CommercialEvent
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-async-commercial-repositories.ts:3: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-async-commercial-repositories.ts:17: events?: CommercialEvent[]
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-async-commercial-repositories.ts:169: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-async-commercial-repositories.ts:559: event: CommercialEvent
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.test.ts:11: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.test.ts:60: overrides: Partial<CommercialEvent> = {},
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.test.ts:61: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:6: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:27: | "commercialEvents"
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:49: private readonly events: CommercialEvent[]
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:71: ...data.commercialEvents,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:267: ): CommercialEvent[] {
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:276: event: CommercialEvent,
+C:\Projetos\consorcio-os\web\repositories\commercial\mock-commercial-repository.ts:277: ): CommercialEvent {
+C:\Projetos\consorcio-os\web\types\domain\commercial-event.ts:4: export type CommercialEventType =
+C:\Projetos\consorcio-os\web\types\domain\commercial-event.ts:20: export type CommercialEvent = {
+C:\Projetos\consorcio-os\web\types\domain\commercial-event.ts:31: type: CommercialEventType
+C:\Projetos\consorcio-os\web\types\domain\index.ts:52: CommercialEvent,
+C:\Projetos\consorcio-os\web\types\domain\index.ts:53: CommercialEventType,
+C:\Projetos\consorcio-os\web\types\domain\index.ts:101: commercialEvents: import("./commercial-event").CommercialEvent[]
+
+============================================================
+ REAL PRODUCER COVERAGE
+============================================================
+EVENT=lead.replied
+FILE=.\application\use-cases\lead\receive-lead-reply.ts
+EXISTS=True
+SOURCE_EVENT_PRESENT=True
+NORMALIZER_PRESENT=False
+DIRECT_R2_DISPATCH_PRESENT=False
+
+EVENT=meeting.scheduled
+FILE=.\application\use-cases\meeting\schedule-meeting.ts
+EXISTS=True
+SOURCE_EVENT_PRESENT=True
+NORMALIZER_PRESENT=False
+DIRECT_R2_DISPATCH_PRESENT=False
+
+EVENT=meeting.completed
+FILE=.\application\use-cases\meeting\complete-meeting.ts
+EXISTS=True
+SOURCE_EVENT_PRESENT=True
+NORMALIZER_PRESENT=False
+DIRECT_R2_DISPATCH_PRESENT=False
+
+EVENT=proposal.sent
+FILE=.\application\use-cases\proposal\send-proposal.ts
+EXISTS=True
+SOURCE_EVENT_PRESENT=True
+NORMALIZER_PRESENT=False
+DIRECT_R2_DISPATCH_PRESENT=False
+
+EVENT=proposal.accepted
+FILE=.\application\use-cases\proposal\accept-proposal.ts
+EXISTS=True
+SOURCE_EVENT_PRESENT=True
+NORMALIZER_PRESENT=False
+DIRECT_R2_DISPATCH_PRESENT=False
+
+EVENT=sale.completed
+FILE=.\application\use-cases\sale\close-sale.ts
+EXISTS=True
+SOURCE_EVENT_PRESENT=True
+NORMALIZER_PRESENT=False
+DIRECT_R2_DISPATCH_PRESENT=False
+
+
+============================================================
+ VALIDATION
+============================================================
+TYPESCRIPT_EXIT_CODE=0
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Projetos/consorcio-os/web[39m
+
+ [32mÔ£ô[39m application/r2/r2-intelligence-orchestration.test.ts [2m([22m[2m68 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/proposal/send-proposal.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/meeting/complete-meeting.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32mÔ£ô[39m components/dashboard/gorila-r2-avatar-3d.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 67[2mms[22m[39m
+ [32mÔ£ô[39m components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 309[2mms[22m[39m
+     [33m[2mÔ£ô[22m[39m does not present a queued command before the active presentation completes [33m 306[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/meeting/schedule-meeting.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/lead/receive-lead-reply.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/proposal/accept-proposal.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32mÔ£ô[39m components/dashboard/3d/r2/orchestration/r2-runtime-command-adapter.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32mÔ£ô[39m application/use-cases/sale/close-sale.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m10 passed[39m[22m[90m (10)[39m
+[2m      Tests [22m [1m[32m126 passed[39m[22m[90m (126)[39m
+[2m   Start at [22m 14:22:19
+[2m   Duration [22m 6.56s[2m (transform 1.06s, setup 5.60s, import 1.82s, tests 541ms, environment 6.37s)[22m
+
+TARGETED_TEST_EXIT_CODE=0
+
+============================================================
+ DISCOVERY METRICS
+============================================================
+TARGET_FILE_COUNT=18
+ALL_TARGET_FILES_PRESENT=True
+SOURCE_FILE_COUNT=426
+PRODUCER_CONTRACT_COUNT=6
+SOURCE_PRODUCER_COUNT=6
+NORMALIZED_PRODUCER_COUNT=0
+DIRECT_DISPATCH_PRODUCER_COUNT=0
+PROVIDER_FILE_COUNT=3
+ORCHESTRATION_HOOK_FILE_COUNT=3
+NORMALIZER_USAGE_FILE_COUNT=2
+R2_DISPATCH_USAGE_FILE_COUNT=2
+TARGETED_TEST_FILE_COUNT=10
+TYPESCRIPT_EXIT_CODE=0
+TARGETED_TEST_EXIT_CODE=0
+STAGED_FILE_COUNT=0
+
+============================================================
+ FINAL VERDICT
+============================================================
+VEREDITO=APROVADO_PARA_PLANEJAMENTO_DA_PONTE
+NEXT_STEP=DEFINIR_PONTO_UNICO_DE_DISPATCH_E_INTEGRAR_PRODUTORES_REAIS

@@ -10,6 +10,10 @@ export type LeadSource =
   | "walk_in"
   | "other"
 
+export type LeadApproachType =
+  | "new"
+  | "reactivation"
+
 export type LeadStatus =
   | "new"
   | "contacted"
@@ -27,6 +31,7 @@ export type Lead = {
   companyName?: string
   source: LeadSource
   status: LeadStatus
+  approachType?: LeadApproachType
   consortiumType: ConsortiumType
   desiredCreditValue: number
   desiredTermMonths: number

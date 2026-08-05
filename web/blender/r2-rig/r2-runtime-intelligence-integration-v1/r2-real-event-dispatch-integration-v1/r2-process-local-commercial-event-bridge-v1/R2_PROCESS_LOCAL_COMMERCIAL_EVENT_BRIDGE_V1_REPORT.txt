@@ -1,0 +1,212 @@
+
+============================================================
+ R2 PROCESS LOCAL COMMERCIAL EVENT BRIDGE V1 - PACKAGE V5
+============================================================
+GENERATED_AT=2026-08-02T15:00:44-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+BRIDGE_SCOPE=PROCESS_LOCAL_LIVE_EVENTS
+CROSS_PROCESS_TRANSPORT=False
+PERSISTED_EVENT_REPLAY=False
+MODEL_OR_GLB_CHANGE_AUTHORIZED=False
+
+============================================================
+ PREFLIGHT
+============================================================
+GIT_HEAD_BEFORE=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+STAGED_FILE_COUNT_BEFORE=0
+TARGET_REPORT_PATH=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\R2_SINGLE_DISPATCH_IMPLEMENTATION_TARGET_V1.txt
+TARGET_REPORT_SHA256=49EB3489FDC530B43A8A703C836BBF94E9E58A434DBEBD66E35465C75801F25B
+TARGET_REPORT_HASH_MATCH=True
+COMMON_STATUS_BEFORE=CLEAN
+PROVIDER_STATUS_BEFORE=?? components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx
+EXPECTED_COMMON_SHA256=17C2AF84AF7E166AD23E2AF187EC201226172F0C19A1673F2D05AC40AC905EE5
+COMMON_SHA256_BEFORE=17C2AF84AF7E166AD23E2AF187EC201226172F0C19A1673F2D05AC40AC905EE5
+COMMON_BASELINE_MATCH=True
+EXPECTED_PROVIDER_SHA256=0C336441A929096C00DE7AAE3D56560671C892E46EEA13F96B297701C9C5E473
+PROVIDER_SHA256_BEFORE=0C336441A929096C00DE7AAE3D56560671C892E46EEA13F96B297701C9C5E473
+PROVIDER_BASELINE_MATCH=True
+GLB_SHA256_BEFORE=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_BASELINE_MATCH=True
+BACKUP_COMMON=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-process-local-commercial-event-bridge-v1\commercial-event-use-case.before-v1.ts.bak
+BACKUP_PROVIDER=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-process-local-commercial-event-bridge-v1\r2-orchestration-provider.before-v1.tsx.bak
+
+============================================================
+ CREATE GENERIC DISPATCHER
+============================================================
+CREATED=application\use-cases\common\commercial-event-dispatcher.ts
+CREATED=application\use-cases\common\commercial-event-dispatcher.test.ts
+CREATED=components\dashboard\3d\r2\orchestration\r2-commercial-event-provider-bridge.test.tsx
+
+============================================================
+ TRANSFORM APPROVED TARGETS
+============================================================
+
+----- transformer STDOUT -----
+{"commonPath":"C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts","providerPath":"C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx","transformed":true}
+
+----- transformer STDERR -----
+
+transformer_EXIT_CODE=0
+
+============================================================
+ STATIC CONTRACT VALIDATION
+============================================================
+COMMON_DISPATCH_INTEGRATED=True
+PROVIDER_SUBSCRIBED=True
+NORMALIZER_CONNECTED=True
+
+============================================================
+ TYPESCRIPT VALIDATION
+============================================================
+
+----- typescript STDOUT -----
+
+----- typescript STDERR -----
+
+typescript_EXIT_CODE=0
+
+============================================================
+ NEW BRIDGE TESTS
+============================================================
+
+----- new-bridge-tests STDOUT -----
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Projetos/consorcio-os/web[39m
+
+ [32mâœ“[39m application/use-cases/common/commercial-event-dispatcher.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 175[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m4 passed[39m[22m[90m (4)[39m
+[2m   Start at [22m 15:01:08
+[2m   Duration [22m 5.56s[2m (transform 345ms, setup 1.83s, import 461ms, tests 183ms, environment 3.33s)[22m
+
+
+----- new-bridge-tests STDERR -----
+
+new-bridge-tests_EXIT_CODE=0
+
+============================================================
+ RELEVANT REGRESSION TESTS
+============================================================
+
+----- relevant-tests STDOUT -----
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Projetos/consorcio-os/web[39m
+
+ [32mâœ“[39m components/dashboard/gorila-r2-avatar-3d.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 95[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 53[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 542[2mms[22m[39m
+     [33m[2mâœ“[22m[39m does not present a queued command before the active presentation completes [33m 538[2mms[22m[39m
+ [32mâœ“[39m application/r2/r2-intelligence-orchestration.test.ts [2m([22m[2m68 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+ [32mâœ“[39m application/use-cases/proposal/send-proposal.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32mâœ“[39m application/use-cases/meeting/complete-meeting.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32mâœ“[39m application/use-cases/proposal/accept-proposal.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32mâœ“[39m components/dashboard/3d/r2/orchestration/r2-runtime-command-adapter.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32mâœ“[39m application/use-cases/meeting/schedule-meeting.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32mâœ“[39m application/use-cases/sale/close-sale.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32mâœ“[39m application/use-cases/common/commercial-event-dispatcher.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32mâœ“[39m application/use-cases/lead/receive-lead-reply.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m12 passed[39m[22m[90m (12)[39m
+[2m      Tests [22m [1m[32m130 passed[39m[22m[90m (130)[39m
+[2m   Start at [22m 15:01:20
+[2m   Duration [22m 8.48s[2m (transform 1.50s, setup 7.54s, import 2.43s, tests 873ms, environment 8.67s)[22m
+
+
+----- relevant-tests STDERR -----
+
+relevant-tests_EXIT_CODE=0
+
+============================================================
+ PRODUCER AND ASSET INTEGRITY
+============================================================
+PRODUCER=application\use-cases\lead\receive-lead-reply.ts
+PRODUCER_HASH_MATCH=True
+PRODUCER_SHA256=4A1279855D303C1B5C2A4DFB8194D6D05A1F13851556B77940D29EE086A5A0FD
+PRODUCER=application\use-cases\meeting\schedule-meeting.ts
+PRODUCER_HASH_MATCH=True
+PRODUCER_SHA256=57ED77310938093842452709FEB703E22A48904CEFFB0F5DF341F2882BABC311
+PRODUCER=application\use-cases\meeting\complete-meeting.ts
+PRODUCER_HASH_MATCH=True
+PRODUCER_SHA256=F89F2BA2AFB051293923EC067C678EEA81BAC4BDA977B989F8D7367B5490485D
+PRODUCER=application\use-cases\proposal\send-proposal.ts
+PRODUCER_HASH_MATCH=True
+PRODUCER_SHA256=D5F0E3AE5A5DC7CC2958AD10EA0B80E3030C1136972DF7621D06DCA0FEA7DD7A
+PRODUCER=application\use-cases\proposal\accept-proposal.ts
+PRODUCER_HASH_MATCH=True
+PRODUCER_SHA256=65C4F9B33428555B67DB4FB16A8975E32D1E9D261CA968B2CDF351566936841A
+PRODUCER=application\use-cases\sale\close-sale.ts
+PRODUCER_HASH_MATCH=True
+PRODUCER_SHA256=34683C7F1C86C0796A949923A9D7AB67CEF1ECDC1139234C4A5ECE93051EB33E
+PRODUCER_FILES_UNCHANGED=True
+GLB_SHA256_FINAL=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_UNCHANGED=True
+
+============================================================
+ GIT DIFF CHECK
+============================================================
+
+----- git-diff-check STDOUT -----
+
+----- git-diff-check STDERR -----
+warning: in the working copy of 'web/application/dashboard/get-async-dashboard-data.ts', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/gorila-r2-3d.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2-controller.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2-scene.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2/r2-dashboard-avatar.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2/real/r2-life-controller.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/3d/r2/real/r2-real-model.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/dashboard-content.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/dashboard-header.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/components/dashboard/dashboard-shell.tsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'web/types/dashboard.ts', LF will be replaced by CRLF the next time Git touches it
+
+git-diff-check_EXIT_CODE=0
+
+============================================================
+ FINAL AUTHORIZATION GATE
+============================================================
+GIT_HEAD_FINAL=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_UNCHANGED=True
+STAGED_FILE_COUNT_FINAL=0
+COMMON_STATUS_FINAL= M application/use-cases/common/commercial-event-use-case.ts
+PROVIDER_STATUS_FINAL=?? components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx
+DISPATCHER_STATUS_FINAL=?? application/use-cases/common/commercial-event-dispatcher.ts
+DISPATCHER_TEST_STATUS_FINAL=?? application/use-cases/common/commercial-event-dispatcher.test.ts
+PROVIDER_BRIDGE_TEST_STATUS_FINAL=?? components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx
+
+============================================================
+ FINAL RESULT
+============================================================
+APPLIED_NOW=True
+ROLLBACK_PERFORMED=False
+BRIDGE_SCOPE=PROCESS_LOCAL_LIVE_EVENTS
+CROSS_PROCESS_TRANSPORT=False
+PERSISTED_EVENT_REPLAY=False
+PRODUCER_FILE_COUNT=6
+PRODUCER_FILES_UNCHANGED=True
+COMMON_DISPATCH_INTEGRATED=True
+PROVIDER_SUBSCRIBED=True
+NORMALIZER_CONNECTED=True
+TYPESCRIPT_EXIT_CODE=0
+NEW_BRIDGE_TEST_EXIT_CODE=0
+RELEVANT_TEST_EXIT_CODE=0
+DIFF_CHECK_EXIT_CODE=0
+GIT_HEAD_BEFORE=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+GIT_HEAD_FINAL=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_UNCHANGED=True
+STAGED_FILE_COUNT_FINAL=0
+TARGET_REPORT_SHA256=49EB3489FDC530B43A8A703C836BBF94E9E58A434DBEBD66E35465C75801F25B
+COMMON_SHA256_BEFORE=17C2AF84AF7E166AD23E2AF187EC201226172F0C19A1673F2D05AC40AC905EE5
+COMMON_SHA256_FINAL=272EEC2E85355CC62383B1D361E8C583D5433D5076AB52CD576C001A96824EDB
+PROVIDER_SHA256_BEFORE=0C336441A929096C00DE7AAE3D56560671C892E46EEA13F96B297701C9C5E473
+PROVIDER_SHA256_FINAL=624B276DE9F59B632EC048B9851BA6698F8800917E67EC1C5C4F4665848537D0
+DISPATCHER_SHA256_FINAL=13BD007CA7A787AB63CF21E4CD60CB8C01C1AAFA2BC2F454C93208FA2E230258
+DISPATCHER_TEST_SHA256_FINAL=C7EBC2B338734EB5DF2475183E554BEC6E4FE59B4C1CACC9332CCE1509A86EC2
+PROVIDER_BRIDGE_TEST_SHA256_FINAL=6500A666836E3B123CB7537257A1C69CB17E8D9769D160450FCF60C8C3702165
+GLB_SHA256_BEFORE=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_SHA256_FINAL=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_UNCHANGED=True
+VEREDITO=APROVADO_PROCESS_LOCAL_BRIDGE_V1
+NEXT_STEP=AUDITAR_AMBIENTE_REAL_DOS_CHAMADORES_E_DEFINIR_TRANSPORTE_SERVER_BROWSER

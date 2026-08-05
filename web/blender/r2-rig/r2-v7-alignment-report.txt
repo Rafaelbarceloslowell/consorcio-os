@@ -1,0 +1,14 @@
+R2_MEASURED_ALIGNMENT_OK
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v7-measured-alignment.blend
+bones=51
+body_unchanged=true
+weights_applied=false
+shoulder_height=0.430
+shoulder_x=0.340
+elbow_x=0.395
+wrist_x=0.391
+hip_x=0.250
+knee_x=0.219
+knee_z=-0.640
+ankle_z=-0.885
+status=geometry_measured_alignment

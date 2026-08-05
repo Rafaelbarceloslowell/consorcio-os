@@ -13,11 +13,14 @@ import type { DashboardData } from "@/types/dashboard"
 type DashboardShellProps = DashboardData
 
 export function DashboardShell({
+  workspaceId,
   user,
   summary,
   metrics,
   tasks,
+  opportunities = [],
   intelligence,
+  gorilaR2,
 }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
@@ -26,6 +29,7 @@ export function DashboardShell({
     <div className="min-h-screen bg-[var(--gorila-canvas)] text-[var(--gorila-text)]">
       <Sidebar
         open={sidebarOpen}
+        user={user}
         collapsed={sidebarCollapsed}
         onClose={() => setSidebarOpen(false)}
         onCollapsedChange={setSidebarCollapsed}
@@ -72,14 +76,21 @@ export function DashboardShell({
 
         <main className="min-h-screen">
           <DashboardContent
+            workspaceId={workspaceId}
             user={user}
             summary={summary}
             metrics={metrics}
             tasks={tasks}
+            opportunities={
+              opportunities
+            }
             intelligence={intelligence}
+            gorilaR2={gorilaR2}
           />
         </main>
       </div>
     </div>
   )
 }
+
+

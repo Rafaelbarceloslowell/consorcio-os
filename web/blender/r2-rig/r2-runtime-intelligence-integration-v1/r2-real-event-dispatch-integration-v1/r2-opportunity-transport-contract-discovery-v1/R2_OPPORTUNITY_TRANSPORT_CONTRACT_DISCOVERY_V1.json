@@ -1,0 +1,941 @@
+{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-08-02T15:27:49.4505093-03:00",
+    "mode":  "READ_ONLY",
+    "git":  {
+                "head":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "stagedFileCount":  0
+            },
+    "approvedBridge":  {
+                           "exists":  true,
+                           "sha256":  "C6B644165763EDA92769E6D8EEE74025C7B40CAE3BADB6EA5F5C4AC3E544F427"
+                       },
+    "targetFiles":  [
+                        {
+                            "path":  "types/opportunity-create.ts",
+                            "exists":  true,
+                            "sha256":  "A9F38E6F8FF776F4ABA0E605B38EF7C91E5666E5F1E8EBE99D6BDFBCCA1F08FF"
+                        },
+                        {
+                            "path":  "types/domain/commercial-event.ts",
+                            "exists":  true,
+                            "sha256":  "1769E97025270FC3B48EF9E1FC49E7EB2A1699D0E5DBB667680802AE647DAB90"
+                        },
+                        {
+                            "path":  "types/domain/index.ts",
+                            "exists":  true,
+                            "sha256":  "ABFC2A6B786CC9644881D91E399A4DFEDD00CA366504BB1A4C6D2A6C76635274"
+                        },
+                        {
+                            "path":  "repositories/commercial/async-commercial-repositories.ts",
+                            "exists":  true,
+                            "sha256":  "818C824842C45F7674B9D206DA8758E36BAC96FBBDF7701CD906646EE4B7F5FE"
+                        },
+                        {
+                            "path":  "repositories/commercial/commercial-repository.ts",
+                            "exists":  true,
+                            "sha256":  "6DA56D624594995C5BEBEC1912A9163FF38C8C7D4C1756FB26EC154082215758"
+                        },
+                        {
+                            "path":  "infrastructure/prisma/repositories/prisma-commercial-repositories.ts",
+                            "exists":  true,
+                            "sha256":  "6309C96EDE9DCCC03B765BE0FA7144A22BBEFA9A51C5E13073EF0B09B9DA823A"
+                        },
+                        {
+                            "path":  "application/opportunity/create-opportunity-async.ts",
+                            "exists":  true,
+                            "sha256":  "AFDCFD5ACE091A8520D953725703299FD68F49A3B575CFFDEF79A42D7C41DFBA"
+                        },
+                        {
+                            "path":  "application/opportunity/create-opportunity-async.test.ts",
+                            "exists":  true,
+                            "sha256":  "927046D5C4A8D402C2C962464AFEB9EA857DB2046D869A809734B25BDD2B7009"
+                        },
+                        {
+                            "path":  "app/opportunities/new/actions.ts",
+                            "exists":  true,
+                            "sha256":  "BE50480D5DB83310336F59D405D8489B7FF19C7EFBAEF3EAB735E2C405185D77"
+                        },
+                        {
+                            "path":  "app/opportunities/new/page.tsx",
+                            "exists":  true,
+                            "sha256":  "3BE7427BBFD8FA2872975323D0C1C54883614D7F3632895F85B16000993F5C98"
+                        },
+                        {
+                            "path":  "components/opportunity/opportunity-create-form.tsx",
+                            "exists":  true,
+                            "sha256":  "5BC34A46EF86E21D73E7394777FB86216DBDF221053D0B8D579BFB1BF6E542D2"
+                        },
+                        {
+                            "path":  "app/layout.tsx",
+                            "exists":  true,
+                            "sha256":  "9F9BFDF3142A7AD2A86694163A868B60A05DEB3802768F7364A6447614DB8425"
+                        },
+                        {
+                            "path":  "app/page.tsx",
+                            "exists":  true,
+                            "sha256":  "7A3FBE5574977AD92BD636FF73F631DD15234D60CDB9BDB8AED8F3F0383CE566"
+                        },
+                        {
+                            "path":  "app/opportunities/[opportunityId]/page.tsx",
+                            "exists":  true,
+                            "sha256":  "32FC27F3C1CDB33307AE3BA5FC5BEE8C1A35209BB19A8610C36B78F5F51C44B7"
+                        },
+                        {
+                            "path":  "components/dashboard/dashboard-shell.tsx",
+                            "exists":  true,
+                            "sha256":  "F83C19EB733F3A45948DC19682EC046E19377B4F8716E85064D10362A9C7B88F"
+                        },
+                        {
+                            "path":  "components/dashboard/dashboard-header.tsx",
+                            "exists":  true,
+                            "sha256":  "E28E0ADF7FC95FE1E5BD83944744AF4D71091692CE2B380F699DB8FFB7CF6E6A"
+                        },
+                        {
+                            "path":  "components/dashboard/gorila-r2-avatar-3d.tsx",
+                            "exists":  true,
+                            "sha256":  "68D37404656FE9673C8700B43078C8F284714C6D32BBE9024D94FF5254240B59"
+                        },
+                        {
+                            "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx",
+                            "exists":  true,
+                            "sha256":  "624B276DE9F59B632EC048B9851BA6698F8800917E67EC1C5C4F4665848537D0"
+                        },
+                        {
+                            "path":  "application/dashboard/build-gorilar2-briefing.ts",
+                            "exists":  true,
+                            "sha256":  "C67DB9463D20E5D2FB3F26264C53E2199671AAFA0127AB6491D37D5D0A7F51B8"
+                        },
+                        {
+                            "path":  "application/r2/normalize-r2-event.ts",
+                            "exists":  true,
+                            "sha256":  "B6EBC6F331133E7E18D5BD448F256CF6C784EF023D745E085F655E9A69EC31ED"
+                        },
+                        {
+                            "path":  "application/r2/index.ts",
+                            "exists":  true,
+                            "sha256":  "54F699EDDF738B4E92440C73DF9E03FC26E778F9F45B01A5285D47E26F71178E"
+                        },
+                        {
+                            "path":  "application/use-cases/common/commercial-event-dispatcher.ts",
+                            "exists":  true,
+                            "sha256":  "13BD007CA7A787AB63CF21E4CD60CB8C01C1AAFA2BC2F454C93208FA2E230258"
+                        }
+                    ],
+    "metrics":  {
+                    "commercialEventSupportsOpportunityCreated":  false,
+                    "opportunityActionStateHasSuccess":  false,
+                    "rootLayoutMountsR2":  false,
+                    "opportunityFormCanDispatchR2":  false,
+                    "opportunityActionRedirects":  true,
+                    "persistentTransportAlreadyExists":  true,
+                    "clientStorageSignalExists":  true,
+                    "missingTargetFileCount":  0,
+                    "stagedFileCount":  0
+                },
+    "patternResults":  {
+                           "OPPORTUNITY_CREATED":  [
+
+                                                   ],
+                           "opportunity.created":  [
+                                                       {
+                                                           "path":  "application/opportunity/get-opportunity-details-async.test.ts",
+                                                           "line":  580,
+                                                           "text":  "result.opportunity.createdAt,"
+                                                       },
+                                                       {
+                                                           "path":  "application/opportunity/get-opportunity-details-async.ts",
+                                                           "line":  247,
+                                                           "text":  "opportunity.createdAt,"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/r2-deterministic-intelligence.ts",
+                                                           "line":  67,
+                                                           "text":  "\"opportunity.created\": { state: \"working\", title: \"Oportunidade criada\", summary: \"Uma nova oportunidade entrou no fluxo comercial.\", rationale: \"A criaÃ§Ã£o confirmada inicia o acompanhamento operacional.\", durationMs: 4000, minimumDisplayMs: 900 },"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                           "line":  143,
+                                                           "text":  "[\"opportunity.created\", \"normal\", \"working\"],"
+                                                       },
+                                                       {
+                                                           "path":  "components/opportunity/opportunity-details.tsx",
+                                                           "line":  165,
+                                                           "text":  "opportunity.createdAt,"
+                                                       },
+                                                       {
+                                                           "path":  "types/r2-intelligence-orchestration.ts",
+                                                           "line":  10,
+                                                           "text":  "\"client.created\", \"opportunity.created\", \"opportunity.updated\", \"opportunity.stage_changed\", \"opportunity.stagnant\", \"opportunity.at_risk\", \"opportunity.won\", \"opportunity.lost\", \"opportunity.note_added\","
+                                                       }
+                                                   ],
+                           "CommercialEventType":  [
+                                                       {
+                                                           "path":  "application/commercial/commercial-event-service.ts",
+                                                           "line":  4,
+                                                           "text":  "CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "application/commercial/commercial-event-service.ts",
+                                                           "line":  20,
+                                                           "text":  "type: CommercialEventType"
+                                                       },
+                                                       {
+                                                           "path":  "application/commercial/process-commercial-transition.ts",
+                                                           "line":  35,
+                                                           "text":  "CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "application/commercial/process-commercial-transition.ts",
+                                                           "line":  87,
+                                                           "text":  "eventType?: CommercialEventType"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/normalize-r2-event.ts",
+                                                           "line":  3,
+                                                           "text":  "CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/normalize-r2-event.ts",
+                                                           "line":  26,
+                                                           "text":  "Record\u003cCommercialEventType, R2EventType\u003e"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/normalize-r2-event.ts",
+                                                           "line":  45,
+                                                           "text":  "Record\u003cCommercialEventType, R2EntityType\u003e"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/normalize-r2-event.ts",
+                                                           "line":  64,
+                                                           "text":  "Record\u003cCommercialEventType, R2Urgency\u003e"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                           "line":  3,
+                                                           "text":  "import type { CommercialEvent, CommercialEventType } from \"@/types/domain\""
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                           "line":  23,
+                                                           "text":  "function commercial(type: CommercialEventType, id = `event-${type}`): CommercialEvent {"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                           "line":  79,
+                                                           "text":  "const mapping: Record\u003cCommercialEventType, R2DomainEvent[\"eventType\"]\u003e = {"
+                                                       },
+                                                       {
+                                                           "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                           "line":  89,
+                                                           "text":  "expect(normalizeCommercialEvent(commercial(source as CommercialEventType)).eventType).toBe(canonical)"
+                                                       },
+                                                       {
+                                                           "path":  "application/use-cases/common/commercial-event-use-case.ts",
+                                                           "line":  56,
+                                                           "text":  "CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "application/use-cases/common/commercial-event-use-case.ts",
+                                                           "line":  128,
+                                                           "text":  "CommercialEventType"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  3,
+                                                           "text":  "CommercialEventType as PrismaCommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  14,
+                                                           "text":  "CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  69,
+                                                           "text":  "const commercialEventTypeToPrisma: Record\u003c"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  70,
+                                                           "text":  "CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  71,
+                                                           "text":  "PrismaCommercialEventType"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  74,
+                                                           "text":  "PrismaCommercialEventType.LEAD_CREATED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  77,
+                                                           "text":  "PrismaCommercialEventType.LEAD_REPLIED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  80,
+                                                           "text":  "PrismaCommercialEventType.MEETING_SCHEDULED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  83,
+                                                           "text":  "PrismaCommercialEventType.MEETING_COMPLETED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  86,
+                                                           "text":  "PrismaCommercialEventType.PROPOSAL_SENT,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  89,
+                                                           "text":  "PrismaCommercialEventType.PROPOSAL_ACCEPTED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  92,
+                                                           "text":  "PrismaCommercialEventType.DOCUMENT_REQUESTED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  95,
+                                                           "text":  "PrismaCommercialEventType.DOCUMENT_RECEIVED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  98,
+                                                           "text":  "PrismaCommercialEventType.PAYMENT_CONFIRMED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  101,
+                                                           "text":  "PrismaCommercialEventType.SALE_COMPLETED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  104,
+                                                           "text":  "PrismaCommercialEventType.STATE_CHANGED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  107,
+                                                           "text":  "PrismaCommercialEventType.NOTE_ADDED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  110,
+                                                           "text":  "PrismaCommercialEventType.TASK_CREATED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  113,
+                                                           "text":  "PrismaCommercialEventType.TASK_COMPLETED,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  116,
+                                                           "text":  "const commercialEventTypeToDomain: Record\u003c"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  117,
+                                                           "text":  "PrismaCommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  118,
+                                                           "text":  "CommercialEventType"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  120,
+                                                           "text":  "[PrismaCommercialEventType.LEAD_CREATED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  123,
+                                                           "text":  "[PrismaCommercialEventType.LEAD_REPLIED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  126,
+                                                           "text":  "[PrismaCommercialEventType.MEETING_SCHEDULED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  129,
+                                                           "text":  "[PrismaCommercialEventType.MEETING_COMPLETED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  132,
+                                                           "text":  "[PrismaCommercialEventType.PROPOSAL_SENT]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  135,
+                                                           "text":  "[PrismaCommercialEventType.PROPOSAL_ACCEPTED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  138,
+                                                           "text":  "[PrismaCommercialEventType.DOCUMENT_REQUESTED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  141,
+                                                           "text":  "[PrismaCommercialEventType.DOCUMENT_RECEIVED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  144,
+                                                           "text":  "[PrismaCommercialEventType.PAYMENT_CONFIRMED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  147,
+                                                           "text":  "[PrismaCommercialEventType.SALE_COMPLETED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  150,
+                                                           "text":  "[PrismaCommercialEventType.STATE_CHANGED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  153,
+                                                           "text":  "[PrismaCommercialEventType.NOTE_ADDED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  156,
+                                                           "text":  "[PrismaCommercialEventType.TASK_CREATED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  159,
+                                                           "text":  "[PrismaCommercialEventType.TASK_COMPLETED]:"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  197,
+                                                           "text":  "commercialEventTypeToDomain["
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/mappers/commercial-event-mapper.ts",
+                                                           "line":  239,
+                                                           "text":  "commercialEventTypeToPrisma["
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.ts",
+                                                           "line":  2,
+                                                           "text":  "CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.ts",
+                                                           "line":  108,
+                                                           "text":  "type: CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "prisma/schema.prisma",
+                                                           "line":  481,
+                                                           "text":  "type        CommercialEventType"
+                                                       },
+                                                       {
+                                                           "path":  "prisma/schema.prisma",
+                                                           "line":  808,
+                                                           "text":  "enum CommercialEventType {"
+                                                       },
+                                                       {
+                                                           "path":  "repositories/commercial/async-commercial-repositories.ts",
+                                                           "line":  4,
+                                                           "text":  "CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "repositories/commercial/async-commercial-repositories.ts",
+                                                           "line":  63,
+                                                           "text":  "type: CommercialEventType,"
+                                                       },
+                                                       {
+                                                           "path":  "types/domain/commercial-event.ts",
+                                                           "line":  4,
+                                                           "text":  "export type CommercialEventType ="
+                                                       },
+                                                       {
+                                                           "path":  "types/domain/commercial-event.ts",
+                                                           "line":  31,
+                                                           "text":  "type: CommercialEventType"
+                                                       },
+                                                       {
+                                                           "path":  "types/domain/index.ts",
+                                                           "line":  53,
+                                                           "text":  "CommercialEventType,"
+                                                       }
+                                                   ],
+                           "model CommercialEvent":  [
+                                                         {
+                                                             "path":  "prisma/schema.prisma",
+                                                             "line":  477,
+                                                             "text":  "model CommercialEvent {"
+                                                         }
+                                                     ],
+                           "enum CommercialEventType":  [
+                                                            {
+                                                                "path":  "prisma/schema.prisma",
+                                                                "line":  808,
+                                                                "text":  "enum CommercialEventType {"
+                                                            }
+                                                        ],
+                           "events.create":  [
+
+                                             ],
+                           "getEventsByJourneyId":  [
+                                                        {
+                                                            "path":  "application/commercial/advance-journey.test.ts",
+                                                            "line":  364,
+                                                            "text":  ".getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "application/commercial/advance-journey.test.ts",
+                                                            "line":  926,
+                                                            "text":  ".getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "application/commercial/advance-journey.test.ts",
+                                                            "line":  945,
+                                                            "text":  ".getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "application/commercial/advance-journey.test.ts",
+                                                            "line":  989,
+                                                            "text":  ".getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "application/commercial/commercial-action-executor.test.ts",
+                                                            "line":  912,
+                                                            "text":  ".getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "application/commercial/commercial-event-service.test.ts",
+                                                            "line":  125,
+                                                            "text":  ".getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "application/commercial/commercial-event-service.test.ts",
+                                                            "line":  332,
+                                                            "text":  ".getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "application/decision/run-decision-engine.ts",
+                                                            "line":  123,
+                                                            "text":  "commercialRepository.getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "repositories/commercial/commercial-repository.ts",
+                                                            "line":  65,
+                                                            "text":  "getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "repositories/commercial/mock-commercial-repository.test.ts",
+                                                            "line":  306,
+                                                            "text":  ".getEventsByJourneyId("
+                                                        },
+                                                        {
+                                                            "path":  "repositories/commercial/mock-commercial-repository.ts",
+                                                            "line":  265,
+                                                            "text":  "getEventsByJourneyId("
+                                                        }
+                                                    ],
+                           "R2OrchestrationProvider":  [
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx",
+                                                               "line":  27,
+                                                               "text":  "R2OrchestrationProvider,"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx",
+                                                               "line":  92,
+                                                               "text":  "\u003cR2OrchestrationProvider"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx",
+                                                               "line":  97,
+                                                               "text":  "\u003c/R2OrchestrationProvider\u003e,"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx",
+                                                               "line":  137,
+                                                               "text":  "\u003cR2OrchestrationProvider"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx",
+                                                               "line":  142,
+                                                               "text":  "\u003c/R2OrchestrationProvider\u003e,"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx",
+                                                               "line":  7,
+                                                               "text":  "import { R2OrchestrationProvider, useR2Orchestration } from \"./r2-orchestration-provider\""
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx",
+                                                               "line":  42,
+                                                               "text":  "describe(\"R2OrchestrationProvider\", () =\u003e {"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx",
+                                                               "line":  45,
+                                                               "text":  "\u003cR2OrchestrationProvider workspaceId=\"workspace-a\" userId=\"user-a\"\u003e"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx",
+                                                               "line":  47,
+                                                               "text":  "\u003c/R2OrchestrationProvider\u003e,"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx",
+                                                               "line":  150,
+                                                               "text":  "function R2OrchestrationProviderScope({"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx",
+                                                               "line":  202,
+                                                               "text":  "export function R2OrchestrationProvider(props: Readonly\u003c{"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx",
+                                                               "line":  209,
+                                                               "text":  "\u003cR2OrchestrationProviderScope"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx",
+                                                               "line":  218,
+                                                               "text":  "if (!value) throw new Error(\"useR2Orchestration must be used inside R2OrchestrationProvider.\")"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/gorila-r2-avatar-3d.tsx",
+                                                               "line":  8,
+                                                               "text":  "R2OrchestrationProvider,"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/gorila-r2-avatar-3d.tsx",
+                                                               "line":  53,
+                                                               "text":  "\u003cR2OrchestrationProvider"
+                                                           },
+                                                           {
+                                                               "path":  "components/dashboard/gorila-r2-avatar-3d.tsx",
+                                                               "line":  59,
+                                                               "text":  "\u003c/R2OrchestrationProvider\u003e"
+                                                           }
+                                                       ],
+                           "GorilaR2Avatar3D":  [
+                                                    {
+                                                        "path":  "components/dashboard/dashboard-header.r2-layout.test.tsx",
+                                                        "line":  9,
+                                                        "text":  "GorilaR2Avatar3D: () =\u003e \u003cdiv data-testid=\"r2-avatar\" /\u003e,"
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/dashboard-header.tsx",
+                                                        "line":  11,
+                                                        "text":  "import { GorilaR2Avatar3D } from \"@/components/dashboard/gorila-r2-avatar-3d\""
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/dashboard-header.tsx",
+                                                        "line":  159,
+                                                        "text":  "\u003cGorilaR2Avatar3D"
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/gorila-r2-avatar-3d.test.tsx",
+                                                        "line":  23,
+                                                        "text":  "import { GorilaR2Avatar3D } from \"./gorila-r2-avatar-3d\""
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/gorila-r2-avatar-3d.test.tsx",
+                                                        "line":  25,
+                                                        "text":  "describe(\"GorilaR2Avatar3D orchestration bridge\", () =\u003e {"
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/gorila-r2-avatar-3d.test.tsx",
+                                                        "line":  29,
+                                                        "text":  "\u003cGorilaR2Avatar3D"
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/gorila-r2-avatar-3d.test.tsx",
+                                                        "line":  52,
+                                                        "text":  "render(\u003cGorilaR2Avatar3D /\u003e)"
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/gorila-r2-avatar-3d.test.tsx",
+                                                        "line":  58,
+                                                        "text":  "render(\u003cGorilaR2Avatar3D size=\"hero\" /\u003e)"
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/gorila-r2-avatar-3d.test.tsx",
+                                                        "line":  70,
+                                                        "text":  "const { container } = render(\u003cGorilaR2Avatar3D size=\"compact\" /\u003e)"
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/gorila-r2-avatar-3d.tsx",
+                                                        "line":  13,
+                                                        "text":  "type GorilaR2Avatar3DProps = {"
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/gorila-r2-avatar-3d.tsx",
+                                                        "line":  32,
+                                                        "text":  "export function GorilaR2Avatar3D({"
+                                                    },
+                                                    {
+                                                        "path":  "components/dashboard/gorila-r2-avatar-3d.tsx",
+                                                        "line":  37,
+                                                        "text":  "}: GorilaR2Avatar3DProps) {"
+                                                    }
+                                                ],
+                           "redirect(":  [
+                                             {
+                                                 "path":  "app/clients/[clientId]/actions.ts",
+                                                 "line":  114,
+                                                 "text":  "redirect(detailsPath)"
+                                             },
+                                             {
+                                                 "path":  "app/clients/[clientId]/edit/actions.ts",
+                                                 "line":  235,
+                                                 "text":  "redirect(detailsPath)"
+                                             },
+                                             {
+                                                 "path":  "app/clients/new/actions.ts",
+                                                 "line":  273,
+                                                 "text":  "redirect(\"/\")"
+                                             },
+                                             {
+                                                 "path":  "app/opportunities/[opportunityId]/edit/actions.ts",
+                                                 "line":  212,
+                                                 "text":  "redirect(detailsPath)"
+                                             },
+                                             {
+                                                 "path":  "app/opportunities/new/actions.ts",
+                                                 "line":  282,
+                                                 "text":  "redirect("
+                                             }
+                                         ],
+                           "useActionState(":  [
+                                                   {
+                                                       "path":  "components/client/client-create-form.test.tsx",
+                                                       "line":  43,
+                                                       "text":  "mocks.useActionState("
+                                                   },
+                                                   {
+                                                       "path":  "components/client/client-create-form.tsx",
+                                                       "line":  59,
+                                                       "text":  "] = useActionState("
+                                                   },
+                                                   {
+                                                       "path":  "components/client/client-update-form.tsx",
+                                                       "line":  47,
+                                                       "text":  "] = useActionState("
+                                                   },
+                                                   {
+                                                       "path":  "components/opportunity/opportunity-create-form.test.tsx",
+                                                       "line":  46,
+                                                       "text":  "mocks.useActionState("
+                                                   },
+                                                   {
+                                                       "path":  "components/opportunity/opportunity-create-form.tsx",
+                                                       "line":  51,
+                                                       "text":  "] = useActionState("
+                                                   },
+                                                   {
+                                                       "path":  "components/opportunity/opportunity-update-form.test.tsx",
+                                                       "line":  46,
+                                                       "text":  "mocks.useActionState("
+                                                   },
+                                                   {
+                                                       "path":  "components/opportunity/opportunity-update-form.tsx",
+                                                       "line":  51,
+                                                       "text":  "] = useActionState("
+                                                   }
+                                               ],
+                           "sessionStorage":  [
+
+                                              ],
+                           "localStorage":  [
+                                                {
+                                                    "path":  "components/dashboard/3d/r2/intro/r2-intro-storage.ts",
+                                                    "line":  14,
+                                                    "text":  "localStorage.getItem(KEY)"
+                                                },
+                                                {
+                                                    "path":  "components/dashboard/3d/r2/intro/r2-intro-storage.ts",
+                                                    "line":  28,
+                                                    "text":  "localStorage.setItem("
+                                                },
+                                                {
+                                                    "path":  "components/dashboard/3d/r2/memory/r2-memory-storage.ts",
+                                                    "line":  23,
+                                                    "text":  "localStorage.setItem("
+                                                },
+                                                {
+                                                    "path":  "components/dashboard/3d/r2/memory/r2-memory-storage.ts",
+                                                    "line":  51,
+                                                    "text":  "localStorage.getItem(KEY)"
+                                                },
+                                                {
+                                                    "path":  "components/ui/theme-toggle.tsx",
+                                                    "line":  16,
+                                                    "text":  "const storedTheme = window.localStorage.getItem(THEME_STORAGE_KEY)"
+                                                },
+                                                {
+                                                    "path":  "components/ui/theme-toggle.tsx",
+                                                    "line":  33,
+                                                    "text":  "window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme)"
+                                                }
+                                            ],
+                           "cookies(":  [
+
+                                        ],
+                           "EventSource":  [
+                                               {
+                                                   "path":  "types/r2-intelligence-orchestration.ts",
+                                                   "line":  22,
+                                                   "text":  "export type R2EventSource ="
+                                               },
+                                               {
+                                                   "path":  "types/r2-intelligence-orchestration.ts",
+                                                   "line":  89,
+                                                   "text":  "source: R2EventSource"
+                                               }
+                                           ],
+                           "text/event-stream":  [
+
+                                                 ],
+                           "BroadcastChannel":  [
+
+                                                ],
+                           "route.ts":  [
+
+                                        ],
+                           "publishCommercialEvent":  [
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-dispatcher.test.ts",
+                                                              "line":  13,
+                                                              "text":  "publishCommercialEvent,"
+                                                          },
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-dispatcher.test.ts",
+                                                              "line":  65,
+                                                              "text":  "publishCommercialEvent("
+                                                          },
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-dispatcher.test.ts",
+                                                              "line":  77,
+                                                              "text":  "publishCommercialEvent("
+                                                          },
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-dispatcher.test.ts",
+                                                              "line":  113,
+                                                              "text":  "publishCommercialEvent("
+                                                          },
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-dispatcher.ts",
+                                                              "line":  12,
+                                                              "text":  "export function publishCommercialEvent("
+                                                          },
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-use-case.ts",
+                                                              "line":  2,
+                                                              "text":  "publishCommercialEvent as publishRecordedCommercialEvent,"
+                                                          },
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-use-case.ts",
+                                                              "line":  62,
+                                                              "text":  "publishCommercialEvent?: ("
+                                                          },
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-use-case.ts",
+                                                              "line":  197,
+                                                              "text":  "publishCommercialEvent:"
+                                                          },
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-use-case.ts",
+                                                              "line":  199,
+                                                              "text":  ".publishCommercialEvent ??"
+                                                          },
+                                                          {
+                                                              "path":  "application/use-cases/common/commercial-event-use-case.ts",
+                                                              "line":  302,
+                                                              "text":  ".publishCommercialEvent?.("
+                                                          },
+                                                          {
+                                                              "path":  "components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx",
+                                                              "line":  23,
+                                                              "text":  "publishCommercialEvent,"
+                                                          },
+                                                          {
+                                                              "path":  "components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx",
+                                                              "line":  101,
+                                                              "text":  "publishCommercialEvent("
+                                                          },
+                                                          {
+                                                              "path":  "components/dashboard/3d/r2/orchestration/r2-commercial-event-provider-bridge.test.tsx",
+                                                              "line":  146,
+                                                              "text":  "publishCommercialEvent("
+                                                          }
+                                                      ],
+                           "normalizeCommercialEvent":  [
+                                                            {
+                                                                "path":  "application/r2/index.ts",
+                                                                "line":  3,
+                                                                "text":  "normalizeCommercialEvent,"
+                                                            },
+                                                            {
+                                                                "path":  "application/r2/normalize-r2-event.ts",
+                                                                "line":  124,
+                                                                "text":  "export type NormalizeCommercialEventOptions = Readonly\u003c{"
+                                                            },
+                                                            {
+                                                                "path":  "application/r2/normalize-r2-event.ts",
+                                                                "line":  132,
+                                                                "text":  "export function normalizeCommercialEvent("
+                                                            },
+                                                            {
+                                                                "path":  "application/r2/normalize-r2-event.ts",
+                                                                "line":  134,
+                                                                "text":  "options: NormalizeCommercialEventOptions = {},"
+                                                            },
+                                                            {
+                                                                "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                                "line":  14,
+                                                                "text":  "normalizeCommercialEvent,"
+                                                            },
+                                                            {
+                                                                "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                                "line":  89,
+                                                                "text":  "expect(normalizeCommercialEvent(commercial(source as CommercialEventType)).eventType).toBe(canonical)"
+                                                            },
+                                                            {
+                                                                "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                                "line":  94,
+                                                                "text":  "expect(() =\u003e normalizeCommercialEvent({ ...commercial(\"LEAD_CREATED\"), workspaceId: \" \" })).toThrow(/workspaceId/)"
+                                                            },
+                                                            {
+                                                                "path":  "application/r2/r2-intelligence-orchestration.test.ts",
+                                                                "line":  95,
+                                                                "text":  "const canonical = normalizeCommercialEvent(commercial(\"LEAD_CREATED\"))"
+                                                            },
+                                                            {
+                                                                "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx",
+                                                                "line":  4,
+                                                                "text":  "normalizeCommercialEvent,"
+                                                            },
+                                                            {
+                                                                "path":  "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx",
+                                                                "line":  176,
+                                                                "text":  "normalizeCommercialEvent("
+                                                            }
+                                                        ]
+                       },
+    "verdict":  "APROVADO_PARA_DECISAO_DE_ARQUITETURA_COM_FONTES_EXATAS"
+}

@@ -1,0 +1,14 @@
+R2_WEIGHT_REFINEMENT_OK
+rest_blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend
+pose_blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v14-refined-pose-test.blend
+vertices=197505
+bones=51
+torso_vertices_refined=27040
+knee_vertices_refined=18167
+boot_vertices_refined=18358
+maximum_influences=4
+unweighted_vertices=0
+shoulder_weights=refined
+knee_weights=refined
+boot_weights=refined
+status=regional_weights_refined

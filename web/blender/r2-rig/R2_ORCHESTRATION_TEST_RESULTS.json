@@ -1,0 +1,109 @@
+{
+    "schema_version":  1,
+    "phase":  "GORILLAOS_R2_INTELLIGENCE_AND_EVENT_ORCHESTRATION",
+    "generated_at":  "2026-08-01T17:07:54.3050804-03:00",
+    "focused":  {
+                    "command":  ".\\\\node_modules\\\\.bin\\\\vitest.cmd run \u003c7 related files\u003e",
+                    "test_files_passed":  7,
+                    "tests_passed":  57,
+                    "tests_failed":  0,
+                    "exit_code":  0,
+                    "includes":  [
+                                     "canonical normalization and intelligence",
+                                     "orchestrator policies",
+                                     "runtime command adapter",
+                                     "React provider queue bridge",
+                                     "dashboard briefing bridge",
+                                     "official full-character runtime",
+                                     "StrictMode model lifecycle",
+                                     "workspace-scoped dashboard application data"
+                                 ],
+                    "non_failure_stderr":  "jsdom warns that the React Three Fiber primitive host tag is unrecognized; no assertion or runtime-headless error."
+                },
+    "typescript":  {
+                       "command":  ".\\\\node_modules\\\\.bin\\\\tsc.cmd -p .\\\\blender\\\\r2-rig\\\\tsconfig.r2-intelligence.tmp.json --pretty false",
+                       "scope":  "all repository TypeScript/TSX/MTS source excluding generated .next and node_modules",
+                       "exit_code":  0,
+                       "errors":  0,
+                       "generated_next_blocker":  ".next/dev/types/validator.ts is pre-existing and truncated; clean source config bypasses generated artifacts only."
+                   },
+    "lint":  {
+                 "phase_command":  ".\\\\node_modules\\\\.bin\\\\eslint.cmd --quiet \u003cphase files\u003e",
+                 "phase_exit_code":  0,
+                 "phase_errors":  0,
+                 "global_command":  ".\\\\node_modules\\\\.bin\\\\eslint.cmd . --quiet",
+                 "global_exit_code":  1,
+                 "preexisting_global_errors":  26,
+                 "preexisting_scopes":  [
+                                            "app/clients dynamic pages",
+                                            "app/opportunities dynamic pages",
+                                            "legacy components/dashboard/3d/r2 intro/real helpers",
+                                            "components/ui/dialog.tsx"
+                                        ],
+                 "regressions_introduced":  0
+             },
+    "full_suite":  {
+                       "command":  ".\\\\node_modules\\\\.bin\\\\vitest.cmd run --reporter=json",
+                       "duration_seconds":  209.3,
+                       "test_result_files":  121,
+                       "suites_total":  271,
+                       "suites_passed":  267,
+                       "suites_failed":  4,
+                       "tests_total":  1541,
+                       "tests_passed":  1528,
+                       "tests_failed":  13,
+                       "tests_pending":  0,
+                       "preexisting_failure_files":  {
+                                                         "components/dashboard/dashboard-content.test.tsx":  2,
+                                                         "components/dashboard/dashboard-header.test.tsx":  11
+                                                     },
+                       "baseline_match":  true,
+                       "new_failures":  0
+                   },
+    "headless_orchestration":  {
+                                   "report":  "R2_INTELLIGENCE_ORCHESTRATION_HEADLESS_REPORT.json",
+                                   "passed":  true,
+                                   "state_sequence":  [
+                                                          "working",
+                                                          "celebrating_sale",
+                                                          "alert",
+                                                          "error_attention",
+                                                          "speaking",
+                                                          "neutral"
+                                                      ],
+                                   "orchestrator_interruptions":  2,
+                                   "neutral_reset_exact":  true,
+                                   "dispose_and_remount":  true,
+                                   "runtime_console_errors":  0
+                               },
+    "official_glb_revalidation":  {
+                                      "report":  "R2_INTELLIGENCE_ORCHESTRATION_GLTF_REVALIDATION.json",
+                                      "passed":  true,
+                                      "parse_attempts":  3,
+                                      "runtime_states":  10,
+                                      "bones":  65,
+                                      "morph_targets":  24,
+                                      "animations":  9,
+                                      "pairwise_transitions":  100,
+                                      "neutral_reset_exact":  true
+                                  },
+    "production_build":  {
+                             "executed":  false,
+                             "reason":  "Not viable without writing generated .next output outside the authorized source/artifact scope; all source TypeScript and runtime headless gates were executed instead."
+                         },
+    "gate_summary":  {
+                         "TypeScriptExitCode":  0,
+                         "LintErrors":  0,
+                         "FocusedTestsFailed":  0,
+                         "R2OrchestrationTestsFailed":  0,
+                         "R2RuntimeTestsFailed":  0,
+                         "RegressionsIntroduced":  0
+                     },
+    "post_publication_revalidation":  {
+                                          "focused_tests":  "57/57",
+                                          "typescript_exit_code":  0,
+                                          "phase_lint_errors":  0,
+                                          "headless_validators":  "2/2",
+                                          "official_hashes_match":  true
+                                      }
+}

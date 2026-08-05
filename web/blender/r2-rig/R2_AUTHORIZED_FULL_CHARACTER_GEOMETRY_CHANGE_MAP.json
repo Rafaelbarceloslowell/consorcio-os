@@ -1,0 +1,343 @@
+{
+  "attributes_preserved_exact": true,
+  "candidate": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352\\r2-full-character-runtime-ready-v1.candidate.blend",
+  "candidate_sha256_after": "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269",
+  "candidate_sha256_before": "D1D7C203ACAF61DA48A14990A5A50FB782B9A0B2440F6074F22777211B368C2E",
+  "change_kind": "AUTHORIZED_WEB_SAFETY_LOOSE_EDGE_REMOVAL",
+  "counts_after": {
+    "edges": 10508,
+    "faces": 6832,
+    "vertices": 3654
+  },
+  "counts_before": {
+    "edges": 10524,
+    "faces": 6832,
+    "vertices": 3654
+  },
+  "created_images": 0,
+  "execution_status": "COMPLETED",
+  "failed_gates": [],
+  "immutable_source": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-rig-expression-ready-v1\\r2-head-rig-expression-ready-v1.blend",
+  "immutable_source_sha256": "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97",
+  "legacy_auditor_root_cause": "The previous edge-face defaultdict did not preinitialize all mesh edges, so truly loose edges were absent from the values iterated by its wire-edge gate.",
+  "materials_preserved_exact": true,
+  "official_sources_unchanged": true,
+  "polygon_topology_preserved_exact": true,
+  "removed_loose_edge_count": 16,
+  "removed_loose_edges": [
+    {
+      "edge_index": 481,
+      "vertex_coordinates": [
+        [
+          0.002410779241,
+          -0.303727716208,
+          0.716619133949
+        ],
+        [
+          0.00426262198,
+          -0.300429046154,
+          0.712022125721
+        ]
+      ],
+      "vertex_indices": [
+        3536,
+        3582
+      ]
+    },
+    {
+      "edge_index": 499,
+      "vertex_coordinates": [
+        [
+          -0.004632425494,
+          -0.304528862238,
+          0.712178051472
+        ],
+        [
+          -0.007448615041,
+          -0.303336054087,
+          0.706940293312
+        ]
+      ],
+      "vertex_indices": [
+        3576,
+        3613
+      ]
+    },
+    {
+      "edge_index": 500,
+      "vertex_coordinates": [
+        [
+          0.000904728135,
+          -0.301743358374,
+          0.709928095341
+        ],
+        [
+          0.00259021204,
+          -0.301400542259,
+          0.711805999279
+        ]
+      ],
+      "vertex_indices": [
+        3580,
+        3581
+      ]
+    },
+    {
+      "edge_index": 513,
+      "vertex_coordinates": [
+        [
+          0.010257360525,
+          -0.298333406448,
+          0.710194885731
+        ],
+        [
+          0.013002708554,
+          -0.297740459442,
+          0.712596774101
+        ]
+      ],
+      "vertex_indices": [
+        3620,
+        3621
+      ]
+    },
+    {
+      "edge_index": 3787,
+      "vertex_coordinates": [
+        [
+          -0.002828054596,
+          -0.304154187441,
+          0.71226811409
+        ],
+        [
+          -0.004343905486,
+          -0.303126275539,
+          0.707613408566
+        ]
+      ],
+      "vertex_indices": [
+        3577,
+        3614
+      ]
+    },
+    {
+      "edge_index": 3788,
+      "vertex_coordinates": [
+        [
+          0.00259021204,
+          -0.301400542259,
+          0.711805999279
+        ],
+        [
+          0.00426262198,
+          -0.300429046154,
+          0.712022125721
+        ]
+      ],
+      "vertex_indices": [
+        3581,
+        3582
+      ]
+    },
+    {
+      "edge_index": 3789,
+      "vertex_coordinates": [
+        [
+          0.00259021204,
+          -0.301400542259,
+          0.711805999279
+        ],
+        [
+          0.00404704269,
+          -0.299345910549,
+          0.706895589828
+        ]
+      ],
+      "vertex_indices": [
+        3581,
+        3618
+      ]
+    },
+    {
+      "edge_index": 7099,
+      "vertex_coordinates": [
+        [
+          0.000503193063,
+          -0.303953170776,
+          0.715771794319
+        ],
+        [
+          0.000904728135,
+          -0.301743358374,
+          0.709928095341
+        ]
+      ],
+      "vertex_indices": [
+        3534,
+        3580
+      ]
+    },
+    {
+      "edge_index": 7140,
+      "vertex_coordinates": [
+        [
+          -0.008507007733,
+          -0.305034220219,
+          0.714041054249
+        ],
+        [
+          -0.012885188684,
+          -0.304197221994,
+          0.710198163986
+        ]
+      ],
+      "vertex_indices": [
+        3574,
+        3611
+      ]
+    },
+    {
+      "edge_index": 7145,
+      "vertex_coordinates": [
+        [
+          0.00426262198,
+          -0.300429046154,
+          0.712022125721
+        ],
+        [
+          0.006801175885,
+          -0.300558567047,
+          0.713979065418
+        ]
+      ],
+      "vertex_indices": [
+        3582,
+        3583
+      ]
+    },
+    {
+      "edge_index": 7146,
+      "vertex_coordinates": [
+        [
+          0.00426262198,
+          -0.300429046154,
+          0.712022125721
+        ],
+        [
+          0.007319657132,
+          -0.298461914062,
+          0.706783890724
+        ]
+      ],
+      "vertex_indices": [
+        3582,
+        3619
+      ]
+    },
+    {
+      "edge_index": 10143,
+      "vertex_coordinates": [
+        [
+          0.001416542102,
+          -0.30397734046,
+          0.716603577137
+        ],
+        [
+          0.00259021204,
+          -0.301400542259,
+          0.711805999279
+        ]
+      ],
+      "vertex_indices": [
+        3535,
+        3581
+      ]
+    },
+    {
+      "edge_index": 10145,
+      "vertex_coordinates": [
+        [
+          0.003391861916,
+          -0.303800404072,
+          0.717545628548
+        ],
+        [
+          0.006801175885,
+          -0.300558567047,
+          0.713979065418
+        ]
+      ],
+      "vertex_indices": [
+        3539,
+        3583
+      ]
+    },
+    {
+      "edge_index": 10162,
+      "vertex_coordinates": [
+        [
+          -0.008813213557,
+          -0.304736107588,
+          0.711997628212
+        ],
+        [
+          -0.013712842949,
+          -0.302151113749,
+          0.706165134907
+        ]
+      ],
+      "vertex_indices": [
+        3575,
+        3612
+      ]
+    },
+    {
+      "edge_index": 10165,
+      "vertex_coordinates": [
+        [
+          0.006801175885,
+          -0.300558567047,
+          0.713979065418
+        ],
+        [
+          0.008724097162,
+          -0.301010966301,
+          0.715714037418
+        ]
+      ],
+      "vertex_indices": [
+        3583,
+        3584
+      ]
+    },
+    {
+      "edge_index": 10166,
+      "vertex_coordinates": [
+        [
+          0.006801175885,
+          -0.300558567047,
+          0.713979065418
+        ],
+        [
+          0.010257360525,
+          -0.298333406448,
+          0.710194885731
+        ]
+      ],
+      "vertex_indices": [
+        3583,
+        3620
+      ]
+    }
+  ],
+  "schema_version": 1,
+  "shape_keys_preserved_exact": true,
+  "source_defect_confirmed": true,
+  "target_object": "R2_Head_Face_Foundation",
+  "technical_verdict": "APROVADO",
+  "unexpected_geometry_changes": 0,
+  "unexpected_material_changes": 0,
+  "unexpected_weight_changes": 0,
+  "vertex_coordinates_preserved_exact": true,
+  "vertex_groups_preserved_exact": true
+}

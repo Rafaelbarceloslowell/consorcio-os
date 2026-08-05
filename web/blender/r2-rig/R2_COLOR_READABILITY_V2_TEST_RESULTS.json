@@ -1,0 +1,41 @@
+{
+    "schema_version":  1,
+    "ExecutionStatus":  "COMPLETED",
+    "TechnicalVerdict":  "APROVADO",
+    "FocusedVitest":  {
+                          "Files":  6,
+                          "Tests":  32,
+                          "Passed":  32,
+                          "Failed":  0,
+                          "Status":  "PASSED"
+                      },
+    "TypeScript":  {
+                       "Command":  "node_modules/.bin/tsc.cmd --noEmit",
+                       "Status":  "PASSED"
+                   },
+    "PhaseLint":  {
+                      "Errors":  0,
+                      "Warnings":  0,
+                      "Status":  "PASSED"
+                  },
+    "BlenderValidation":  {
+                              "Status":  "PASSED",
+                              "Clips":  9,
+                              "FramesPerClip":  3,
+                              "Clipping":  0,
+                              "ZFighting":  0,
+                              "Floating":  0
+                          },
+    "GLBRoundTrip":  {
+                         "Candidate":  "PASSED",
+                         "PostPublication":  "PASSED"
+                     },
+    "ThreeJsRuntime":  {
+                           "Status":  "PASSED",
+                           "Parses":  3,
+                           "States":  10,
+                           "PairwiseTransitions":  100,
+                           "ConsoleErrors":  0
+                       },
+    "FailedGates":  "NONE"
+}

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R2 v36 - Envelope Externo Read-Only V1</title>
+<style>
+:root {
+  color-scheme: dark;
+  font-family: Inter,Segoe UI,Arial,sans-serif;
+}
+body {
+  margin:0;
+  background:#07100d;
+  color:#f4f7f5;
+}
+main {
+  max-width:2200px;
+  margin:auto;
+  padding:24px;
+}
+.notice {
+  margin:18px 0;
+  padding:16px 18px;
+  border:1px solid #426957;
+  border-radius:12px;
+  background:#0d1b15;
+  line-height:1.55;
+}
+.warning {
+  border-color:#8a6c36;
+  background:#211b0b;
+}
+.legend {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin:20px 0;
+}
+.legend div {
+  padding:10px 12px;
+  border:1px solid #315443;
+  border-radius:10px;
+  background:#0c1712;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+article {
+  padding:12px;
+  border:1px solid #315443;
+  border-radius:12px;
+  background:#0c1712;
+}
+article h3 {
+  margin:0 0 10px;
+}
+img {
+  width:100%;
+  display:block;
+  border-radius:8px;
+  background:#000;
+}
+section {
+  margin:34px 0 44px;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin:18px 0 28px;
+}
+th,td {
+  border:1px solid #315443;
+  padding:8px 10px;
+  text-align:left;
+}
+th {
+  background:#102219;
+}
+a {
+  color:#9fe1be;
+}
+@media (max-width:1200px) {
+  .grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .legend {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media (max-width:700px) {
+  .grid,.legend {
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+<body><main>
+<h1>R2 v36 — Diagnostico Read-Only do Envelope Externo</h1>
+
+<div class="notice">
+<strong>Origem:</strong> v35 oficial, somente leitura.<br>
+<strong>Metodo:</strong> visibilidade por raios em 14 direcoes,
+sem voxel remesh.<br>
+<strong>Rig e pesos:</strong> fora dos renders.<br>
+<strong>Blends criados:</strong> 0.<br>
+<strong>Imagens:</strong> 16.<br>
+<strong>Validacao visual:</strong> pendente.
+</div>
+
+<div class="notice warning">
+Este diagnostico nao cria a nova cabeca. Ele identifica quais
+triangulos realmente pertencem ao envelope externo e quais sao
+internos, ocultos ou quase sobrepostos.
+</div>
+
+<div class="legend">
+<div><strong>Verde:</strong> face frontal externa</div>
+<div><strong>Azul:</strong> laterais externas</div>
+<div><strong>Roxo:</strong> traseira externa</div>
+<div><strong>Marrom:</strong> pelo externo</div>
+<div><strong>Vermelho:</strong> superficies internas invisiveis</div>
+<div><strong>Laranja com wire:</strong> sobreposicoes suspeitas</div>
+</div>
+
+<h2>Metricas por categoria</h2>
+<table>
+<thead>
+<tr>
+<th>Categoria</th>
+<th>Triangulos</th>
+<th>Area</th>
+<th>Origem</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Face frontal externa</td><td>5581</td><td>0.05433840</td><td>{'FACE': 5581}</td></tr><tr><td>Laterais externas</td><td>1482</td><td>0.01472431</td><td>{'FACE': 1482}</td></tr><tr><td>Traseira externa</td><td>23</td><td>0.00025797</td><td>{'FACE': 23}</td></tr><tr><td>Pelo externo</td><td>34965</td><td>0.35056846</td><td>{'FUR': 34965}</td></tr><tr><td>Internas invisiveis</td><td>50</td><td>0.00031097</td><td>{'FUR': 50}</td></tr><tr><td>Sobreposicoes suspeitas</td><td>646</td><td>0.00588771</td><td>{'FACE': 321, 'FUR': 325}</td></tr>
+</tbody>
+</table>
+
+<section><h2>Montagem neutra</h2><div class="grid"><article><h3>FRONT</h3><a href="neutral-front.png" target="_blank"><img src="neutral-front.png" alt="Montagem neutra front"></a></article><article><h3>BACK</h3><a href="neutral-back.png" target="_blank"><img src="neutral-back.png" alt="Montagem neutra back"></a></article><article><h3>LEFT</h3><a href="neutral-left.png" target="_blank"><img src="neutral-left.png" alt="Montagem neutra left"></a></article><article><h3>RIGHT</h3><a href="neutral-right.png" target="_blank"><img src="neutral-right.png" alt="Montagem neutra right"></a></article></div></section><section><h2>Classificacao semantica</h2><div class="grid"><article><h3>FRONT</h3><a href="semantic-front.png" target="_blank"><img src="semantic-front.png" alt="Classificacao semantica front"></a></article><article><h3>BACK</h3><a href="semantic-back.png" target="_blank"><img src="semantic-back.png" alt="Classificacao semantica back"></a></article><article><h3>LEFT</h3><a href="semantic-left.png" target="_blank"><img src="semantic-left.png" alt="Classificacao semantica left"></a></article><article><h3>RIGHT</h3><a href="semantic-right.png" target="_blank"><img src="semantic-right.png" alt="Classificacao semantica right"></a></article></div></section><section><h2>Somente envelope externo</h2><div class="grid"><article><h3>FRONT</h3><a href="external-only-front.png" target="_blank"><img src="external-only-front.png" alt="Somente envelope externo front"></a></article><article><h3>BACK</h3><a href="external-only-back.png" target="_blank"><img src="external-only-back.png" alt="Somente envelope externo back"></a></article><article><h3>LEFT</h3><a href="external-only-left.png" target="_blank"><img src="external-only-left.png" alt="Somente envelope externo left"></a></article><article><h3>RIGHT</h3><a href="external-only-right.png" target="_blank"><img src="external-only-right.png" alt="Somente envelope externo right"></a></article></div></section><section><h2>Internas e sobrepostas suspeitas</h2><div class="grid"><article><h3>FRONT</h3><a href="suspect-only-front.png" target="_blank"><img src="suspect-only-front.png" alt="Internas e sobrepostas suspeitas front"></a></article><article><h3>BACK</h3><a href="suspect-only-back.png" target="_blank"><img src="suspect-only-back.png" alt="Internas e sobrepostas suspeitas back"></a></article><article><h3>LEFT</h3><a href="suspect-only-left.png" target="_blank"><img src="suspect-only-left.png" alt="Internas e sobrepostas suspeitas left"></a></article><article><h3>RIGHT</h3><a href="suspect-only-right.png" target="_blank"><img src="suspect-only-right.png" alt="Internas e sobrepostas suspeitas right"></a></article></div></section>
+
+<p>
+<a href="envelope-report.json" target="_blank">
+Abrir envelope-report.json
+</a>
+</p>
+</main></body></html>

@@ -1,0 +1,87 @@
+import Image from "next/image"
+import { gorilaR2Images, type GorilaR2Mood } from "@/components/dashboard/gorila-r2-moods"
+import type { R2Behavior } from "@/components/dashboard/3d/r2-behavior"
+import { getR2AnimationClass } from "@/components/dashboard/3d/r2-animation"
+
+type GorilaR2AvatarProps = {
+  size?: "sm" | "md" | "lg" | "xl" | "hero"
+  status?: "online" | "thinking" | "alert"
+  mood?: GorilaR2Mood
+  behavior?: R2Behavior
+  className?: string
+}
+
+const sizeClasses = {
+  sm: "size-10",
+  md: "size-16",
+  lg: "size-24",
+  xl: "size-32",
+  hero: "size-80",
+}
+
+export function GorilaR2Avatar({
+  size = "md",
+  status = "online",
+  mood = "idle",
+  className = "",
+  behavior,
+}: GorilaR2AvatarProps) {
+  const activeMood = behavior?.mood ?? mood
+
+  const characterImage = gorilaR2Images[activeMood]
+
+  const statusLabel = {
+    online: "R2 online",
+    thinking: "R2 analisando",
+    alert: "R2 em alerta",
+  }[status]
+
+  return (
+    <div
+      className={[
+        "relative flex shrink-0 items-center justify-center",
+        sizeClasses[size],
+        className,
+      ].join(" ")}
+      aria-label={statusLabel}
+    >
+      <div
+        aria-hidden="true"
+        className="absolute inset-[-18%] rounded-full bg-[#2F8F5B]/20 blur-2xl"
+      />
+
+      <div
+        className={[
+          "relative size-full",
+          getR2AnimationClass(
+            behavior?.animation ?? "breathing"
+          ),
+          "",
+          "drop-shadow-[0_20px_30px_rgba(47,143,91,0.25)]",
+        ].join(" ")}
+      >
+        <Image
+          src={characterImage}
+          alt="GorilaR2"
+          fill
+          sizes="320px"
+          className="object-contain scale-[1.6] translate-y-4"
+
+          priority
+        />
+
+        <span
+          aria-hidden="true"
+          className={[
+            "absolute right-2 top-2 size-3 rounded-full border-2 border-[#15191F]",
+            status === "online"
+              ? "bg-[#3FB980]"
+              : status === "thinking"
+                ? "bg-[#E8B04A]"
+                : "bg-[#E16A6A]",
+          ].join(" ")}
+        />
+      </div>
+    </div>
+  )
+}

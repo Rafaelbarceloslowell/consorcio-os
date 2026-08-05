@@ -1,0 +1,47 @@
+{
+    "schemaVersion":  1,
+    "phase":  "R2_EVENT_REACTION_COMPLETION_V1_PACKAGE_V4",
+    "generatedAt":  "2026-08-02T14:19:05.1566263-03:00",
+    "verdict":  "APROVADO",
+    "appliedNow":  true,
+    "alreadyApplied":  false,
+    "rollbackPerformed":  false,
+    "fatalError":  null,
+    "git":  {
+                "headBefore":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "headFinal":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "stagedFinalCount":  0,
+                "targetStatusMode":  "PREEXISTING_UNTRACKED_BASELINE",
+                "gapReportSha256":  "7BA16A7831174E15234A8B3CABDF6E7D9C322C80B2CDA2DA33D1601A6EEE062D",
+                "baselineHashMatch":  true,
+                "legacyTypescriptBackupCount":  4
+            },
+    "files":  {
+                  "intelligence":  {
+                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-deterministic-intelligence.ts",
+                                       "sha256Before":  "734982A6475EF46A5FDAAACDA92559441C8A76496305950D78443C15AD4CA447",
+                                       "sha256Final":  "241A0DAEA717B48A818E7CF56F01386D1F1DDED295D1D7D2D1A6A4A6F519AFFE",
+                                       "backup":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-runtime-intelligence-integration-v1\\r2-event-reaction-completion-v1\\r2-deterministic-intelligence.before-20260802-141834.bak"
+                                   },
+                  "tests":  {
+                                "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-intelligence-orchestration.test.ts",
+                                "sha256Before":  "EA297EBCD7CE8A283AA8C3F932948069739A9201395E3EE3D4A14E57E8FC0D5D",
+                                "sha256Final":  "B9545B1A53474A61E386618838DB0C850F7302A6F8AA42A172C9AA018BD8566B",
+                                "backup":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-runtime-intelligence-integration-v1\\r2-event-reaction-completion-v1\\r2-intelligence-orchestration.before-20260802-141834.test.bak"
+                            }
+              },
+    "coverage":  {
+                     "canonicalEventCount":  61,
+                     "reactionEventCount":  61,
+                     "missingReactionEventCount":  0,
+                     "extraReactionEventCount":  0,
+                     "testMissingEventCount":  0,
+                     "coveragePercent":  100
+                 },
+    "validation":  {
+                       "typescriptExitCode":  0,
+                       "targetedTestExitCode":  0,
+                       "relevantTestExitCode":  0,
+                       "diffCheckExitCode":  0
+                   }
+}

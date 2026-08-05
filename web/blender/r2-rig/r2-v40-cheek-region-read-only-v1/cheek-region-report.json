@@ -1,0 +1,1000 @@
+{
+  "audit": "R2 V40 Cheek Region Read-Only V1",
+  "blender_version": "4.5.10 LTS",
+  "execution_status": "COMPLETED",
+  "technical_verdict": "APROVADO",
+  "audit_passed": true,
+  "source_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v39-nasal-bridge-region-retopology-v1\\r2-rig-v39-nasal-bridge-region-retopology-v1.blend",
+  "source_sha256": "0720E76A1CC9AD35DE4E398ED19272820374A31B7DAB715EB1F0ACDEAE4D9ECA",
+  "source_read_only": true,
+  "blend_saved": false,
+  "new_blends_created": 0,
+  "images_created": 0,
+  "visual_validation_required": false,
+  "json_serialization_safe": true,
+  "json_roundtrip_validated": true,
+  "foundation": {
+    "mesh_topology_sha256": "BC153C102A811BEFA6A9940A9A12A66F544FA62402D5614439EF730CE62CC6E4",
+    "topology": {
+      "vertices": 3701,
+      "edges": 10693,
+      "faces": 6969,
+      "boundary_edges": 354,
+      "invalid_non_manifold_edges": 0,
+      "wire_edges": 0,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "connected_islands": 1,
+      "island_vertex_sizes": [
+        3701
+      ]
+    },
+    "muzzle_patch_faces": 148,
+    "eye_patch_faces": 37,
+    "nasal_patch_faces": 28,
+    "unweighted_vertices": 0
+  },
+  "preflight": {
+    "source_faces": true,
+    "boundary_edges": true,
+    "one_island": true,
+    "invalid_non_manifold": true,
+    "wire_edges": true,
+    "loose_vertices": true,
+    "zero_area_faces": true,
+    "muzzle_patch_faces": true,
+    "eye_patch_faces": true,
+    "nasal_patch_faces": true,
+    "unweighted_vertices": true,
+    "used_groups": true,
+    "parent": true,
+    "armature_modifier": true
+  },
+  "bbox": {
+    "minimum": [
+      -0.043171923607587814,
+      -0.30559760332107544,
+      0.6516481637954712
+    ],
+    "maximum": [
+      0.11104054749011993,
+      -0.10961980372667313,
+      0.9505565762519836
+    ],
+    "diagonal": 0.3892749990257039,
+    "width": 0.15421247482299805,
+    "symmetry_plane_local_x": 0.0,
+    "center_guard": 0.0006168498992919922
+  },
+  "protected_faces": 213,
+  "blocked_faces": 293,
+  "positive_allowed_faces": 5308,
+  "negative_allowed_faces": 1303,
+  "muzzle_centroid": [
+    -9.993029379984364e-05,
+    -0.3009192943572998,
+    0.7221599817276001
+  ],
+  "eye_centroid": [
+    -0.0007877942989580333,
+    -0.22728900611400604,
+    0.8418607115745544
+  ],
+  "height_fractions": [
+    0.24,
+    0.36,
+    0.48
+  ],
+  "lateral_fractions": [
+    0.1,
+    0.14,
+    0.18,
+    0.22
+  ],
+  "radius_fractions": [
+    0.018,
+    0.022,
+    0.026,
+    0.03,
+    0.034
+  ],
+  "maximum_candidates": 60,
+  "seed_failures": [],
+  "target_candidates_tested": 60,
+  "passing_candidates": 1,
+  "selected_candidate": {
+    "height_fraction": 0.48,
+    "lateral_fraction": 0.1,
+    "radius_fraction": 0.03,
+    "radius": 0.011678249970771116,
+    "seeds": {
+      "positive_index": 2904,
+      "negative_index": 2776,
+      "positive_point": [
+        0.014039749279618263,
+        -0.2581881284713745,
+        0.7780168056488037
+      ],
+      "negative_point": [
+        -0.013686721213161945,
+        -0.24978840351104736,
+        0.7787476778030396
+      ],
+      "positive_target": [
+        0.015421247109770775,
+        -0.2655767500400543,
+        0.7796163558959961
+      ],
+      "negative_target": [
+        -0.015421247109770775,
+        -0.2655767500400543,
+        0.7796163558959961
+      ],
+      "mirror_error_normalized": 0.021678376001508137,
+      "target_error_normalized": 0.03030254997317326
+    },
+    "selected_faces": 46,
+    "selected_vertices": 38,
+    "selected_area": 0.0005007116527080493,
+    "selected_area_percent": 0.7223932197954822,
+    "face_components": 2,
+    "component_reports": [
+      {
+        "faces": [
+          5382,
+          5388,
+          5389,
+          5390,
+          5398,
+          5513,
+          5514,
+          5515,
+          5519,
+          5520,
+          5521,
+          5522,
+          5527,
+          5528,
+          5529,
+          5530,
+          5651,
+          5652,
+          5653,
+          5658,
+          5659,
+          5660,
+          5661,
+          5667,
+          5786,
+          5787,
+          5788
+        ],
+        "vertices": [
+          2780,
+          2781,
+          2784,
+          2841,
+          2842,
+          2844,
+          2845,
+          2847,
+          2848,
+          2900,
+          2904,
+          2905,
+          2907,
+          2908,
+          2909,
+          2913,
+          2973,
+          2977,
+          2981,
+          2982,
+          3042,
+          3046
+        ],
+        "face_count": 27,
+        "vertex_count": 22,
+        "area": 0.0002324195526026838,
+        "centroid": [
+          0.013569843024015427,
+          -0.2571682929992676,
+          0.7796926498413086
+        ],
+        "side": "positive",
+        "euler": 1
+      },
+      {
+        "faces": [
+          5123,
+          5126,
+          5127,
+          5245,
+          5250,
+          5251,
+          5255,
+          5256,
+          5261,
+          5262,
+          5373,
+          5380,
+          5381,
+          5386,
+          5387,
+          5391,
+          5511,
+          5512,
+          5517
+        ],
+        "vertices": [
+          2639,
+          2641,
+          2707,
+          2710,
+          2712,
+          2714,
+          2771,
+          2773,
+          2776,
+          2779,
+          2782,
+          2836,
+          2840,
+          2843,
+          2899,
+          2903
+        ],
+        "face_count": 19,
+        "vertex_count": 16,
+        "area": 0.0002682921001053657,
+        "centroid": [
+          -0.014429865404963493,
+          -0.2495645135641098,
+          0.7787590622901917
+        ],
+        "side": "negative",
+        "euler": 1
+      }
+    ],
+    "boundary": {
+      "edges": [
+        [
+          2639,
+          2641
+        ],
+        [
+          2639,
+          2707
+        ],
+        [
+          2641,
+          2712
+        ],
+        [
+          2707,
+          2771
+        ],
+        [
+          2712,
+          2714
+        ],
+        [
+          2714,
+          2782
+        ],
+        [
+          2771,
+          2836
+        ],
+        [
+          2780,
+          2781
+        ],
+        [
+          2780,
+          2842
+        ],
+        [
+          2781,
+          2784
+        ],
+        [
+          2782,
+          2843
+        ],
+        [
+          2784,
+          2844
+        ],
+        [
+          2836,
+          2899
+        ],
+        [
+          2842,
+          2900
+        ],
+        [
+          2843,
+          2903
+        ],
+        [
+          2844,
+          2845
+        ],
+        [
+          2845,
+          2848
+        ],
+        [
+          2847,
+          2848
+        ],
+        [
+          2847,
+          2913
+        ],
+        [
+          2899,
+          2903
+        ],
+        [
+          2900,
+          2973
+        ],
+        [
+          2913,
+          2981
+        ],
+        [
+          2973,
+          3042
+        ],
+        [
+          2981,
+          2982
+        ],
+        [
+          2982,
+          3046
+        ],
+        [
+          3042,
+          3046
+        ]
+      ],
+      "edge_count": 26,
+      "components": [
+        {
+          "vertices": [
+            2780,
+            2781,
+            2784,
+            2842,
+            2844,
+            2845,
+            2847,
+            2848,
+            2900,
+            2913,
+            2973,
+            2981,
+            2982,
+            3042,
+            3046
+          ],
+          "edge_count": 15,
+          "closed": true,
+          "branched": false,
+          "global_boundary_touch": 0,
+          "degree_histogram": {
+            "2": 15
+          }
+        },
+        {
+          "vertices": [
+            2639,
+            2641,
+            2707,
+            2712,
+            2714,
+            2771,
+            2782,
+            2836,
+            2843,
+            2899,
+            2903
+          ],
+          "edge_count": 11,
+          "closed": true,
+          "branched": false,
+          "global_boundary_touch": 0,
+          "degree_histogram": {
+            "2": 11
+          }
+        }
+      ],
+      "component_count": 2,
+      "closed_count": 2,
+      "branched_count": 0,
+      "global_boundary_touch": 0
+    },
+    "euler_total": 2,
+    "face_balance": 0.7037037037037037,
+    "area_balance": 0.8662929415789965,
+    "centroid_mirror_error": 0.019803481783544154,
+    "average_abs_x_fraction": 0.09078289049286194,
+    "average_z": 0.7792258560657501,
+    "between_muzzle_and_eyes": true,
+    "protected_overlap_faces": 0,
+    "blocked_overlap_faces": 0,
+    "non_outside_overlap_faces": 0,
+    "head_weight_average": 0.9326841486127753,
+    "head_weight_minimum": 0.9261965155601501,
+    "neck_weight_average": 0.0673158511911568,
+    "selected_face_indices": [
+      5123,
+      5126,
+      5127,
+      5245,
+      5250,
+      5251,
+      5255,
+      5256,
+      5261,
+      5262,
+      5373,
+      5380,
+      5381,
+      5382,
+      5386,
+      5387,
+      5388,
+      5389,
+      5390,
+      5391,
+      5398,
+      5511,
+      5512,
+      5513,
+      5514,
+      5515,
+      5517,
+      5519,
+      5520,
+      5521,
+      5522,
+      5527,
+      5528,
+      5529,
+      5530,
+      5651,
+      5652,
+      5653,
+      5658,
+      5659,
+      5660,
+      5661,
+      5667,
+      5786,
+      5787,
+      5788
+    ],
+    "selected_vertex_indices": [
+      2639,
+      2641,
+      2707,
+      2710,
+      2712,
+      2714,
+      2771,
+      2773,
+      2776,
+      2779,
+      2780,
+      2781,
+      2782,
+      2784,
+      2836,
+      2840,
+      2841,
+      2842,
+      2843,
+      2844,
+      2845,
+      2847,
+      2848,
+      2899,
+      2900,
+      2903,
+      2904,
+      2905,
+      2907,
+      2908,
+      2909,
+      2913,
+      2973,
+      2977,
+      2981,
+      2982,
+      3042,
+      3046
+    ],
+    "selection_sha256": "3B29C3EA10E8E086053F722B93FD55E15E540D5655B10590BF3F750359A6064C",
+    "gates": {
+      "face_count": true,
+      "area_percent": true,
+      "two_face_components": true,
+      "two_boundary_components": true,
+      "both_boundaries_closed": true,
+      "no_branched_boundaries": true,
+      "no_global_boundary_touch": true,
+      "component_side_assignment": true,
+      "disk_euler_each": true,
+      "disk_euler_total": true,
+      "face_balance": true,
+      "area_balance": true,
+      "seed_mirror_error": true,
+      "centroid_mirror_error": true,
+      "lateral_position_minimum": true,
+      "lateral_position_maximum": true,
+      "between_muzzle_and_eyes": true,
+      "no_protected_overlap": true,
+      "no_blocked_overlap": true,
+      "outside_region_only": true,
+      "head_weight_average": true,
+      "head_weight_minimum": true,
+      "neck_weight_average": true
+    },
+    "passed": true,
+    "score": 3.4967741240448214
+  },
+  "best_observed_candidate": {
+    "height_fraction": 0.48,
+    "lateral_fraction": 0.1,
+    "radius_fraction": 0.03,
+    "radius": 0.011678249970771116,
+    "seeds": {
+      "positive_index": 2904,
+      "negative_index": 2776,
+      "positive_point": [
+        0.014039749279618263,
+        -0.2581881284713745,
+        0.7780168056488037
+      ],
+      "negative_point": [
+        -0.013686721213161945,
+        -0.24978840351104736,
+        0.7787476778030396
+      ],
+      "positive_target": [
+        0.015421247109770775,
+        -0.2655767500400543,
+        0.7796163558959961
+      ],
+      "negative_target": [
+        -0.015421247109770775,
+        -0.2655767500400543,
+        0.7796163558959961
+      ],
+      "mirror_error_normalized": 0.021678376001508137,
+      "target_error_normalized": 0.03030254997317326
+    },
+    "selected_faces": 46,
+    "selected_vertices": 38,
+    "selected_area": 0.0005007116527080493,
+    "selected_area_percent": 0.7223932197954822,
+    "face_components": 2,
+    "component_reports": [
+      {
+        "faces": [
+          5382,
+          5388,
+          5389,
+          5390,
+          5398,
+          5513,
+          5514,
+          5515,
+          5519,
+          5520,
+          5521,
+          5522,
+          5527,
+          5528,
+          5529,
+          5530,
+          5651,
+          5652,
+          5653,
+          5658,
+          5659,
+          5660,
+          5661,
+          5667,
+          5786,
+          5787,
+          5788
+        ],
+        "vertices": [
+          2780,
+          2781,
+          2784,
+          2841,
+          2842,
+          2844,
+          2845,
+          2847,
+          2848,
+          2900,
+          2904,
+          2905,
+          2907,
+          2908,
+          2909,
+          2913,
+          2973,
+          2977,
+          2981,
+          2982,
+          3042,
+          3046
+        ],
+        "face_count": 27,
+        "vertex_count": 22,
+        "area": 0.0002324195526026838,
+        "centroid": [
+          0.013569843024015427,
+          -0.2571682929992676,
+          0.7796926498413086
+        ],
+        "side": "positive",
+        "euler": 1
+      },
+      {
+        "faces": [
+          5123,
+          5126,
+          5127,
+          5245,
+          5250,
+          5251,
+          5255,
+          5256,
+          5261,
+          5262,
+          5373,
+          5380,
+          5381,
+          5386,
+          5387,
+          5391,
+          5511,
+          5512,
+          5517
+        ],
+        "vertices": [
+          2639,
+          2641,
+          2707,
+          2710,
+          2712,
+          2714,
+          2771,
+          2773,
+          2776,
+          2779,
+          2782,
+          2836,
+          2840,
+          2843,
+          2899,
+          2903
+        ],
+        "face_count": 19,
+        "vertex_count": 16,
+        "area": 0.0002682921001053657,
+        "centroid": [
+          -0.014429865404963493,
+          -0.2495645135641098,
+          0.7787590622901917
+        ],
+        "side": "negative",
+        "euler": 1
+      }
+    ],
+    "boundary": {
+      "edges": [
+        [
+          2639,
+          2641
+        ],
+        [
+          2639,
+          2707
+        ],
+        [
+          2641,
+          2712
+        ],
+        [
+          2707,
+          2771
+        ],
+        [
+          2712,
+          2714
+        ],
+        [
+          2714,
+          2782
+        ],
+        [
+          2771,
+          2836
+        ],
+        [
+          2780,
+          2781
+        ],
+        [
+          2780,
+          2842
+        ],
+        [
+          2781,
+          2784
+        ],
+        [
+          2782,
+          2843
+        ],
+        [
+          2784,
+          2844
+        ],
+        [
+          2836,
+          2899
+        ],
+        [
+          2842,
+          2900
+        ],
+        [
+          2843,
+          2903
+        ],
+        [
+          2844,
+          2845
+        ],
+        [
+          2845,
+          2848
+        ],
+        [
+          2847,
+          2848
+        ],
+        [
+          2847,
+          2913
+        ],
+        [
+          2899,
+          2903
+        ],
+        [
+          2900,
+          2973
+        ],
+        [
+          2913,
+          2981
+        ],
+        [
+          2973,
+          3042
+        ],
+        [
+          2981,
+          2982
+        ],
+        [
+          2982,
+          3046
+        ],
+        [
+          3042,
+          3046
+        ]
+      ],
+      "edge_count": 26,
+      "components": [
+        {
+          "vertices": [
+            2780,
+            2781,
+            2784,
+            2842,
+            2844,
+            2845,
+            2847,
+            2848,
+            2900,
+            2913,
+            2973,
+            2981,
+            2982,
+            3042,
+            3046
+          ],
+          "edge_count": 15,
+          "closed": true,
+          "branched": false,
+          "global_boundary_touch": 0,
+          "degree_histogram": {
+            "2": 15
+          }
+        },
+        {
+          "vertices": [
+            2639,
+            2641,
+            2707,
+            2712,
+            2714,
+            2771,
+            2782,
+            2836,
+            2843,
+            2899,
+            2903
+          ],
+          "edge_count": 11,
+          "closed": true,
+          "branched": false,
+          "global_boundary_touch": 0,
+          "degree_histogram": {
+            "2": 11
+          }
+        }
+      ],
+      "component_count": 2,
+      "closed_count": 2,
+      "branched_count": 0,
+      "global_boundary_touch": 0
+    },
+    "euler_total": 2,
+    "face_balance": 0.7037037037037037,
+    "area_balance": 0.8662929415789965,
+    "centroid_mirror_error": 0.019803481783544154,
+    "average_abs_x_fraction": 0.09078289049286194,
+    "average_z": 0.7792258560657501,
+    "between_muzzle_and_eyes": true,
+    "protected_overlap_faces": 0,
+    "blocked_overlap_faces": 0,
+    "non_outside_overlap_faces": 0,
+    "head_weight_average": 0.9326841486127753,
+    "head_weight_minimum": 0.9261965155601501,
+    "neck_weight_average": 0.0673158511911568,
+    "selected_face_indices": [
+      5123,
+      5126,
+      5127,
+      5245,
+      5250,
+      5251,
+      5255,
+      5256,
+      5261,
+      5262,
+      5373,
+      5380,
+      5381,
+      5382,
+      5386,
+      5387,
+      5388,
+      5389,
+      5390,
+      5391,
+      5398,
+      5511,
+      5512,
+      5513,
+      5514,
+      5515,
+      5517,
+      5519,
+      5520,
+      5521,
+      5522,
+      5527,
+      5528,
+      5529,
+      5530,
+      5651,
+      5652,
+      5653,
+      5658,
+      5659,
+      5660,
+      5661,
+      5667,
+      5786,
+      5787,
+      5788
+    ],
+    "selected_vertex_indices": [
+      2639,
+      2641,
+      2707,
+      2710,
+      2712,
+      2714,
+      2771,
+      2773,
+      2776,
+      2779,
+      2780,
+      2781,
+      2782,
+      2784,
+      2836,
+      2840,
+      2841,
+      2842,
+      2843,
+      2844,
+      2845,
+      2847,
+      2848,
+      2899,
+      2900,
+      2903,
+      2904,
+      2905,
+      2907,
+      2908,
+      2909,
+      2913,
+      2973,
+      2977,
+      2981,
+      2982,
+      3042,
+      3046
+    ],
+    "selection_sha256": "3B29C3EA10E8E086053F722B93FD55E15E540D5655B10590BF3F750359A6064C",
+    "gates": {
+      "face_count": true,
+      "area_percent": true,
+      "two_face_components": true,
+      "two_boundary_components": true,
+      "both_boundaries_closed": true,
+      "no_branched_boundaries": true,
+      "no_global_boundary_touch": true,
+      "component_side_assignment": true,
+      "disk_euler_each": true,
+      "disk_euler_total": true,
+      "face_balance": true,
+      "area_balance": true,
+      "seed_mirror_error": true,
+      "centroid_mirror_error": true,
+      "lateral_position_minimum": true,
+      "lateral_position_maximum": true,
+      "between_muzzle_and_eyes": true,
+      "no_protected_overlap": true,
+      "no_blocked_overlap": true,
+      "outside_region_only": true,
+      "head_weight_average": true,
+      "head_weight_minimum": true,
+      "neck_weight_average": true
+    },
+    "passed": true,
+    "score": 3.4967741240448214
+  },
+  "next_step": "CREATE_V40_CHEEK_REGION_RETAPOLOGY"
+}

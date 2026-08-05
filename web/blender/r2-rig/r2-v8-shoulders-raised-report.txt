@@ -1,0 +1,12 @@
+R2_SHOULDERS_RAISED_OK
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v8-shoulders-raised.blend
+bones=51
+body_unchanged=true
+weights_applied=false
+clavicle_origin_z=0.490
+shoulder_x=0.370
+shoulder_y=-0.012
+shoulder_z=0.470
+elbows_unchanged=true
+wrists_unchanged=true
+status=shoulders_raised

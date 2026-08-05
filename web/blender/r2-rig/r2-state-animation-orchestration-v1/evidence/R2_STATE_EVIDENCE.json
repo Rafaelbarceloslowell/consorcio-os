@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 1,
+  "sourceBlend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\r2-full-character-color-readable-ready-v2.blend",
+  "sourceBlendSha256": "2EEC504BFC6F3C0D0B1BF6B1EFA932445142DCB61527E94A64F9C4A3A5EE491D",
+  "readOnly": true,
+  "renderer": "BLENDER_EEVEE_NEXT",
+  "outputs": [
+    {
+      "state": "neutral",
+      "clip": "R2_NEUTRAL",
+      "reducedMotion": false,
+      "frame": 16,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_neutral.png",
+      "sha256": "BAAA9665DA48BF81F8F70DD5B0039EB0EAFB3C02758F0BD529EB320E7C010301",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "idle",
+      "clip": "R2_IDLE",
+      "reducedMotion": false,
+      "frame": 60,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_idle.png",
+      "sha256": "64ABF59A448156D70C5500BE5C0B1655624CB2D83F358F5875C757B69C97D305",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "working",
+      "clip": "R2_WORKING",
+      "reducedMotion": false,
+      "frame": 36,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_working.png",
+      "sha256": "804586EE6090743BEBF513216CADF7EC5AF24D61C403FE21F8E2EC4D3F2C831C",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "listening",
+      "clip": "R2_LISTENING",
+      "reducedMotion": false,
+      "frame": 46,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_listening.png",
+      "sha256": "41C23431AED9AD9618A528482FD1DEEE9FB68AB7A655F8AB4A75078C6A4A2DC4",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "thinking",
+      "clip": "R2_THINKING",
+      "reducedMotion": false,
+      "frame": 46,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_thinking.png",
+      "sha256": "851B32203265DC163C4CDB44147685B4B48C7B4453BFE6E129B5B7AE66296459",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "awaiting_action",
+      "clip": "R2_AWAITING_ACTION",
+      "reducedMotion": false,
+      "frame": 38,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_awaiting_action.png",
+      "sha256": "B383FB522CE0C92AC62B35711100771047D97B2695C75C4EC8A279C614BE8BB8",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "alert",
+      "clip": "R2_ALERT",
+      "reducedMotion": false,
+      "frame": 18,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_alert.png",
+      "sha256": "94EA7779B3FBB914B3963BA26515113A18F3D291369C607135075283A511F4F3",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "speaking",
+      "clip": "R2_IDLE",
+      "reducedMotion": false,
+      "frame": 60,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_speaking.png",
+      "sha256": "3B3C961A34AD9A4E7E89578E3E16B73659E2D90FFBBA4EAE0AD1C6E10E0C8485",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "celebrating_sale",
+      "clip": "R2_CELEBRATING_SALE",
+      "reducedMotion": false,
+      "frame": 36,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_celebrating_sale.png",
+      "sha256": "978C678B14E94B91374ED7019569C80046D6BBCA0435809A49C22918A5F265B7",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "error_attention",
+      "clip": "R2_ERROR_ATTENTION",
+      "reducedMotion": false,
+      "frame": 30,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_error_attention.png",
+      "sha256": "847DAA5A44EF66225CE5ECE784975C88839055F5073AE559D4D2C48974D0319D",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "error_attention",
+      "clip": "R2_ERROR_ATTENTION",
+      "reducedMotion": true,
+      "frame": 1,
+      "resolution": [
+        640,
+        720
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_reduced_motion_error_attention.png",
+      "sha256": "9A2138144F8C7B155EA452DB5031C4E95918C09B63A9A3C9545285CD09CE5C9E",
+      "sizeBytes": 514162
+    },
+    {
+      "state": "working",
+      "clip": "R2_WORKING",
+      "reducedMotion": false,
+      "frame": 36,
+      "resolution": [
+        390,
+        844
+      ],
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-state-animation-orchestration-v1\\evidence\\R2_STATE_narrow_working.png",
+      "sha256": "FA1DC158A94FE68865CDD80C2482E2A54CCF16B3F39EC3ECC2895AC10C49BA4D",
+      "sizeBytes": 383770
+    }
+  ]
+}

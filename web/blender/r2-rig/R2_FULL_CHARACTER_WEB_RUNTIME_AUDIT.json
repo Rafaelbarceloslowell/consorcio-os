@@ -1,0 +1,42 @@
+{
+  "SchemaVersion": 1,
+  "Audit": "FULL_CHARACTER_WEB_RUNTIME_HEADLESS",
+  "AssetPath": "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-runtime-ready-v1.glb",
+  "SourceSha256": "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+  "FileSizeBytes": 13189856,
+  "Loader": "three/GLTFLoader.parseAsync",
+  "ParseAttempts": 3,
+  "ParseDurationsMs": [
+    224.438,
+    103.881,
+    113.869
+  ],
+  "ParseMedianMs": 113.869,
+  "NodeCount": 104,
+  "MeshCount": 30,
+  "BoneCount": 65,
+  "MaterialCount": 9,
+  "MorphTargetCount": 24,
+  "AnimationNames": [
+    "R2_ALERT",
+    "R2_AWAITING_ACTION",
+    "R2_CELEBRATING_SALE",
+    "R2_ERROR_ATTENTION",
+    "R2_IDLE",
+    "R2_LISTENING",
+    "R2_NEUTRAL",
+    "R2_THINKING",
+    "R2_WORKING"
+  ],
+  "RuntimeStateCount": 10,
+  "PairwiseTransitions": 100,
+  "RepeatedTransitionCycles": 25,
+  "ExpressionChannelCount": 18,
+  "VisemeCount": 6,
+  "NeutralFingerprintBefore": "DA1919B6932FDBC0B8D72D902C920C16014F465C0E812BF4E21702D9E59260B7",
+  "NeutralFingerprintAfter": "DA1919B6932FDBC0B8D72D902C920C16014F465C0E812BF4E21702D9E59260B7",
+  "NeutralResetExact": true,
+  "ControllerDisposed": true,
+  "CreatedImages": 0,
+  "Passed": true
+}

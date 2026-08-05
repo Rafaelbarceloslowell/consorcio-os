@@ -1,0 +1,344 @@
+{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-08-02T15:07:48.5991593-03:00",
+    "mode":  "READ_ONLY",
+    "git":  {
+                "head":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "stagedFileCount":  0
+            },
+    "metrics":  {
+                    "sourceFileCount":  186,
+                    "pageFileCount":  12,
+                    "actionFileCount":  5,
+                    "serverActionFileCount":  5,
+                    "routeHandlerFileCount":  0,
+                    "applicationImportMatchCount":  14,
+                    "totalRealProducerCallCount":  0,
+                    "totalMutationMatchCount":  20,
+                    "totalFormSignalCount":  21,
+                    "hasProductionEntrypoints":  true,
+                    "hasRealProducerCalls":  false,
+                    "serverBrowserTransportPremature":  true
+                },
+    "producers":  [
+                      {
+                          "producer":  "receiveLeadReply",
+                          "event":  "lead.replied",
+                          "realCallCount":  0,
+                          "calls":  [
+
+                                    ]
+                      },
+                      {
+                          "producer":  "scheduleMeeting",
+                          "event":  "meeting.scheduled",
+                          "realCallCount":  0,
+                          "calls":  [
+
+                                    ]
+                      },
+                      {
+                          "producer":  "completeMeeting",
+                          "event":  "meeting.completed",
+                          "realCallCount":  0,
+                          "calls":  [
+
+                                    ]
+                      },
+                      {
+                          "producer":  "sendProposal",
+                          "event":  "proposal.sent",
+                          "realCallCount":  0,
+                          "calls":  [
+
+                                    ]
+                      },
+                      {
+                          "producer":  "acceptProposal",
+                          "event":  "proposal.accepted",
+                          "realCallCount":  0,
+                          "calls":  [
+
+                                    ]
+                      },
+                      {
+                          "producer":  "closeSale",
+                          "event":  "sale.completed",
+                          "realCallCount":  0,
+                          "calls":  [
+
+                                    ]
+                      }
+                  ],
+    "mutationIndex":  {
+                          "createClient":  [
+                                               {
+                                                   "path":  "app/clients/new/actions.ts",
+                                                   "line":  6,
+                                                   "text":  "import { CreateClientAsync } from \"@/application/client/create-client-async\""
+                                               },
+                                               {
+                                                   "path":  "app/clients/new/actions.ts",
+                                                   "line":  135,
+                                                   "text":  "export async function createClientAction("
+                                               },
+                                               {
+                                                   "path":  "app/clients/new/actions.ts",
+                                                   "line":  219,
+                                                   "text":  "await new CreateClientAsync({"
+                                               }
+                                           ],
+                          "updateClient":  [
+                                               {
+                                                   "path":  "app/clients/[clientId]/edit/actions.ts",
+                                                   "line":  11,
+                                                   "text":  "UpdateClientAsync,"
+                                               },
+                                               {
+                                                   "path":  "app/clients/[clientId]/edit/actions.ts",
+                                                   "line":  127,
+                                                   "text":  "export async function updateClientAction("
+                                               },
+                                               {
+                                                   "path":  "app/clients/[clientId]/edit/actions.ts",
+                                                   "line":  171,
+                                                   "text":  "await new UpdateClientAsync({"
+                                               }
+                                           ],
+                          "createOpportunity":  [
+                                                    {
+                                                        "path":  "app/opportunities/new/actions.ts",
+                                                        "line":  11,
+                                                        "text":  "CreateOpportunityAsync,"
+                                                    },
+                                                    {
+                                                        "path":  "app/opportunities/new/actions.ts",
+                                                        "line":  96,
+                                                        "text":  "export async function createOpportunityAction("
+                                                    },
+                                                    {
+                                                        "path":  "app/opportunities/new/actions.ts",
+                                                        "line":  245,
+                                                        "text":  "} = await new CreateOpportunityAsync({"
+                                                    }
+                                                ],
+                          "updateOpportunity":  [
+                                                    {
+                                                        "path":  "app/opportunities/[opportunityId]/edit/actions.ts",
+                                                        "line":  11,
+                                                        "text":  "UpdateOpportunityAsync,"
+                                                    },
+                                                    {
+                                                        "path":  "app/opportunities/[opportunityId]/edit/actions.ts",
+                                                        "line":  80,
+                                                        "text":  "export async function updateOpportunityAction("
+                                                    },
+                                                    {
+                                                        "path":  "app/opportunities/[opportunityId]/edit/actions.ts",
+                                                        "line":  178,
+                                                        "text":  "await new UpdateOpportunityAsync({"
+                                                    }
+                                                ],
+                          "delete":  [
+
+                                     ],
+                          "archive":  [
+
+                                      ],
+                          "save":  [
+
+                                   ],
+                          "execute(":  [
+                                           {
+                                               "path":  "app/clients/[clientId]/actions.ts",
+                                               "line":  85,
+                                               "text":  ").execute(input)"
+                                           },
+                                           {
+                                               "path":  "app/clients/[clientId]/actions.ts",
+                                               "line":  91,
+                                               "text":  ").execute(input)"
+                                           },
+                                           {
+                                               "path":  "app/clients/[clientId]/actions.ts",
+                                               "line":  97,
+                                               "text":  ").execute(input)"
+                                           },
+                                           {
+                                               "path":  "app/clients/[clientId]/actions.ts",
+                                               "line":  103,
+                                               "text":  ").execute(input)"
+                                           },
+                                           {
+                                               "path":  "app/clients/[clientId]/edit/actions.ts",
+                                               "line":  178,
+                                               "text":  "}).execute({"
+                                           },
+                                           {
+                                               "path":  "app/clients/new/actions.ts",
+                                               "line":  223,
+                                               "text":  "}).execute({"
+                                           },
+                                           {
+                                               "path":  "app/opportunities/[opportunityId]/edit/actions.ts",
+                                               "line":  183,
+                                               "text":  "}).execute({"
+                                           },
+                                           {
+                                               "path":  "app/opportunities/new/actions.ts",
+                                               "line":  255,
+                                               "text":  "}).execute({"
+                                           }
+                                       ]
+                      },
+    "formIndex":  {
+                      "action={":  [
+                                       {
+                                           "path":  "app/clients/[clientId]/edit/page.tsx",
+                                           "line":  121,
+                                           "text":  "action={updateClientAction.bind("
+                                       },
+                                       {
+                                           "path":  "app/clients/[clientId]/page.tsx",
+                                           "line":  89,
+                                           "text":  "blockAction={"
+                                       },
+                                       {
+                                           "path":  "app/clients/[clientId]/page.tsx",
+                                           "line":  95,
+                                           "text":  "unblockAction={"
+                                       },
+                                       {
+                                           "path":  "app/clients/[clientId]/page.tsx",
+                                           "line":  101,
+                                           "text":  "deactivateAction={"
+                                       },
+                                       {
+                                           "path":  "app/clients/[clientId]/page.tsx",
+                                           "line":  107,
+                                           "text":  "reactivateAction={"
+                                       },
+                                       {
+                                           "path":  "app/clients/new/page.tsx",
+                                           "line":  46,
+                                           "text":  "action={createClientAction}"
+                                       },
+                                       {
+                                           "path":  "app/opportunities/[opportunityId]/edit/page.tsx",
+                                           "line":  122,
+                                           "text":  "action={updateOpportunityAction.bind("
+                                       },
+                                       {
+                                           "path":  "app/opportunities/new/page.tsx",
+                                           "line":  59,
+                                           "text":  "action={createOpportunityAction}"
+                                       },
+                                       {
+                                           "path":  "components/client/client-create-form.tsx",
+                                           "line":  120,
+                                           "text":  "action={formAction}"
+                                       },
+                                       {
+                                           "path":  "components/client/client-lifecycle-actions.tsx",
+                                           "line":  56,
+                                           "text":  "\u003cform action={blockAction}\u003e"
+                                       },
+                                       {
+                                           "path":  "components/client/client-lifecycle-actions.tsx",
+                                           "line":  65,
+                                           "text":  "\u003cform action={deactivateAction}\u003e"
+                                       },
+                                       {
+                                           "path":  "components/client/client-lifecycle-actions.tsx",
+                                           "line":  78,
+                                           "text":  "\u003cform action={unblockAction}\u003e"
+                                       },
+                                       {
+                                           "path":  "components/client/client-lifecycle-actions.tsx",
+                                           "line":  87,
+                                           "text":  "\u003cform action={deactivateAction}\u003e"
+                                       },
+                                       {
+                                           "path":  "components/client/client-lifecycle-actions.tsx",
+                                           "line":  99,
+                                           "text":  "\u003cform action={reactivateAction}\u003e"
+                                       },
+                                       {
+                                           "path":  "components/client/client-update-form.tsx",
+                                           "line":  84,
+                                           "text":  "action={formAction}"
+                                       },
+                                       {
+                                           "path":  "components/opportunity/opportunity-create-form.tsx",
+                                           "line":  106,
+                                           "text":  "action={formAction}"
+                                       },
+                                       {
+                                           "path":  "components/opportunity/opportunity-update-form.tsx",
+                                           "line":  97,
+                                           "text":  "action={formAction}"
+                                       }
+                                   ],
+                      "useActionState(":  [
+                                              {
+                                                  "path":  "components/client/client-create-form.tsx",
+                                                  "line":  59,
+                                                  "text":  "] = useActionState("
+                                              },
+                                              {
+                                                  "path":  "components/client/client-update-form.tsx",
+                                                  "line":  47,
+                                                  "text":  "] = useActionState("
+                                              },
+                                              {
+                                                  "path":  "components/opportunity/opportunity-create-form.tsx",
+                                                  "line":  51,
+                                                  "text":  "] = useActionState("
+                                              },
+                                              {
+                                                  "path":  "components/opportunity/opportunity-update-form.tsx",
+                                                  "line":  51,
+                                                  "text":  "] = useActionState("
+                                              }
+                                          ],
+                      "useFormState(":  [
+
+                                        ],
+                      "onSubmit={":  [
+
+                                     ],
+                      "startTransition(":  [
+
+                                           ],
+                      "formAction=":  [
+
+                                      ]
+                  },
+    "flows":  [
+                  {
+                      "flow":  "lead",
+                      "pathFileCount":  7,
+                      "uiContentMatchCount":  39,
+                      "uiContentFileCount":  21
+                  },
+                  {
+                      "flow":  "meeting",
+                      "pathFileCount":  3,
+                      "uiContentMatchCount":  2,
+                      "uiContentFileCount":  1
+                  },
+                  {
+                      "flow":  "proposal",
+                      "pathFileCount":  2,
+                      "uiContentMatchCount":  2,
+                      "uiContentFileCount":  2
+                  },
+                  {
+                      "flow":  "sale",
+                      "pathFileCount":  2,
+                      "uiContentMatchCount":  8,
+                      "uiContentFileCount":  4
+                  }
+              ],
+    "verdict":  "APROVADO_PARA_INTEGRACAO_DOS_ENTRYPOINTS_REAIS"
+}

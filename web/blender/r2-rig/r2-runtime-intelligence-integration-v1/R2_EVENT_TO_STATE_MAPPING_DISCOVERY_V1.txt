@@ -1,0 +1,2912 @@
+
+============================================================
+ R2 EVENT TO STATE MAPPING DISCOVERY V1
+============================================================
+GENERATED_AT=2026-08-02T13:53:36-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+PHASE=R2_RUNTIME_INTELLIGENCE_INTEGRATION_V1
+MODE=READ_ONLY
+
+============================================================
+ GIT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+GIT_BRANCH=main
+STAGED_FILE_COUNT=0
+WORKTREE_ENTRY_COUNT=33
+
+============================================================
+ TARGET FILES
+============================================================
+TARGET_EXISTS=True PATH=.\types\r2-intelligence-orchestration.ts
+TARGET_EXISTS=True PATH=.\application\r2\normalize-r2-event.ts
+TARGET_EXISTS=True PATH=.\application\r2\r2-deterministic-intelligence.ts
+TARGET_EXISTS=True PATH=.\application\r2\r2-orchestrator.ts
+TARGET_EXISTS=True PATH=.\application\r2\index.ts
+TARGET_EXISTS=True PATH=.\application\r2\r2-intelligence-orchestration.test.ts
+TARGET_EXISTS=True PATH=.\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx
+TARGET_EXISTS=True PATH=.\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+TARGET_EXISTS=True PATH=.\components\dashboard\gorila-r2-avatar-3d.tsx
+TARGET_EXISTS=True PATH=.\application\dashboard\r2-adapter.ts
+TARGET_EXISTS=True PATH=.\components\dashboard\3d\r2-intelligence.ts
+TARGET_EXISTS=True PATH=.\components\dashboard\3d\r2-service.ts
+
+============================================================
+ FULL SOURCE CONTENT
+============================================================
+
+FILE=.\types\r2-intelligence-orchestration.ts
+EXISTS=True
+BYTES=9504
+SHA256=82E51D5280735096B35BEBD37AB0954CA5ED97FD82F8D216B19B8FC4946D3D69
+----------------------------------------
+   1: import type {
+   2:   R2ExpressionChannel,
+   3:   R2EyeTarget,
+   4:   R2RuntimeState,
+   5:   R2Viseme,
+   6: } from "@/types/r2-full-character-runtime"
+   7: 
+   8: export const R2_EVENT_TYPES = [
+   9:   "lead.received", "lead.created", "lead.qualified", "lead.disqualified", "lead.no_response", "lead.replied", "lead.converted", "lead.action_required", "lead.at_risk",
+  10:   "client.created", "opportunity.created", "opportunity.updated", "opportunity.stage_changed", "opportunity.stagnant", "opportunity.at_risk", "opportunity.won", "opportunity.lost", "opportunity.note_added",
+  11:   "meeting.scheduled", "meeting.upcoming", "meeting.started", "meeting.completed", "meeting.cancelled", "meeting.summary_missing", "meeting.follow_up_pending",
+  12:   "proposal.prepared", "proposal.review_ready", "proposal.sent", "proposal.viewed", "proposal.accepted", "proposal.rejected", "proposal.expired",
+  13:   "sale.started", "sale.documentation_requested", "sale.documentation_received", "sale.payment_confirmed", "sale.awaiting_documentation", "sale.completed", "sale.cancelled", "sale.pending", "sale.celebration_ready",
+  14:   "task.created", "task.due_soon", "task.overdue", "task.completed", "automation.started", "automation.completed", "automation.failed", "workflow.blocked", "queue.failed", "integration.unavailable",
+  15:   "intelligence.analysis_started", "intelligence.analysis_completed", "intelligence.recommendation_ready", "intelligence.next_best_action_ready", "intelligence.confirmation_required", "intelligence.recommendation_accepted", "intelligence.recommendation_rejected", "intelligence.insufficient_context", "intelligence.provider_error",
+  16:   "runtime.speaking_requested", "runtime.neutral_requested",
+  17: ] as const
+  18: 
+  19: export type R2EventType =
+  20:   (typeof R2_EVENT_TYPES)[number]
+  21: 
+  22: export type R2EventSource =
+  23:   | "commercial_event"
+  24:   | "automation_trigger"
+  25:   | "dashboard"
+  26:   | "user"
+  27:   | "system"
+  28:   | "integration"
+  29:   | "intelligence_provider"
+  30: 
+  31: export type R2EntityType =
+  32:   | "lead"
+  33:   | "client"
+  34:   | "opportunity"
+  35:   | "meeting"
+  36:   | "proposal"
+  37:   | "sale"
+  38:   | "task"
+  39:   | "automation"
+  40:   | "workflow"
+  41:   | "integration"
+  42:   | "recommendation"
+  43:   | "system"
+  44: 
+  45: export type R2Urgency =
+  46:   | "background"
+  47:   | "normal"
+  48:   | "attention"
+  49:   | "high"
+  50:   | "critical"
+  51:   | "celebration"
+  52: 
+  53: export const R2_PRIORITIES = [
+  54:   "BACKGROUND",
+  55:   "NORMAL",
+  56:   "ATTENTION",
+  57:   "CELEBRATION",
+  58:   "HIGH",
+  59:   "CRITICAL",
+  60: ] as const
+  61: 
+  62: export type R2Priority =
+  63:   (typeof R2_PRIORITIES)[number]
+  64: 
+  65: export type R2InterruptionPolicy =
+  66:   | "NEVER"
+  67:   | "HIGHER_PRIORITY"
+  68:   | "ALERT_OR_CRITICAL"
+  69:   | "ALWAYS"
+  70: 
+  71: export type R2EventMetadata = Readonly<{
+  72:   schema?: string
+  73:   traceId?: string
+  74:   sourceVersion?: string
+  75:   tags?: readonly string[]
+  76: }>
+  77: 
+  78: export type R2DomainEvent = Readonly<{
+  79:   eventId: string
+  80:   eventType: R2EventType
+  81:   occurredAt: string
+  82:   workspaceId: string
+  83:   actorId: string | null
+  84:   userId: string | null
+  85:   entityType: R2EntityType
+  86:   entityId: string | null
+  87:   correlationId: string | null
+  88:   causationId: string | null
+  89:   source: R2EventSource
+  90:   payload: Readonly<Record<string, unknown>>
+  91:   metadata: R2EventMetadata
+  92:   urgency: R2Urgency
+  93:   expiresAt: string | null
+  94:   schemaVersion: 1
+  95: }>
+  96: 
+  97: export type R2EventContext = Readonly<{
+  98:   workspaceId: string
+  99:   userId: string | null
+ 100:   currentRuntimeState: R2RuntimeState
+ 101:   lastStableRuntimeState: R2RuntimeState
+ 102:   resolvedAt: string
+ 103:   availableInformation: readonly string[]
+ 104:   missingInformation: readonly string[]
+ 105:   entitySnapshot: Readonly<Record<string, unknown>>
+ 106: }>
+ 107: 
+ 108: export type R2IntelligenceOperation =
+ 109:   | "summarize_context"
+ 110:   | "classify_urgency"
+ 111:   | "generate_recommendation"
+ 112:   | "choose_next_best_action"
+ 113:   | "prepare_short_message"
+ 114:   | "explain_decision"
+ 115: 
+ 116: export type R2IntelligenceRequest = Readonly<{
+ 117:   requestId: string
+ 118:   operation: R2IntelligenceOperation
+ 119:   event: R2DomainEvent
+ 120:   context: R2EventContext
+ 121: }>
+ 122: 
+ 123: export type R2Recommendation = Readonly<{
+ 124:   recommendationType: string
+ 125:   title: string
+ 126:   summary: string
+ 127:   rationale: string
+ 128:   confidence: number
+ 129:   urgency: R2Urgency
+ 130:   suggestedActions: readonly Readonly<{
+ 131:     actionId: string
+ 132:     label: string
+ 133:     requiresConfirmation: boolean
+ 134:   }>[]
+ 135:   missingInformation: readonly string[]
+ 136:   expiresAt: string | null
+ 137: }>
+ 138: 
+ 139: export type R2PresentationHints = Readonly<{
+ 140:   runtimeState: R2RuntimeState
+ 141:   expression?: R2ExpressionChannel
+ 142:   expressionIntensity?: number
+ 143:   viseme?: R2Viseme
+ 144:   speakingIntensity?: number
+ 145:   eyeTarget?: R2EyeTarget
+ 146:   durationMs: number
+ 147:   minimumDisplayMs: number
+ 148:   transitionMs: number
+ 149:   interruptionPolicy: R2InterruptionPolicy
+ 150:   fallbackState: R2RuntimeState
+ 151: }>
+ 152: 
+ 153: export type R2IntelligenceResult = Readonly<{
+ 154:   result: "REACT" | "IGNORE" | "REQUEST_CONTEXT"
+ 155:   recommendation: R2Recommendation | null
+ 156:   confidence: number
+ 157:   urgency: R2Urgency
+ 158:   reasons: readonly R2DecisionReason[]
+ 159:   missingInformation: readonly string[]
+ 160:   presentationHints: R2PresentationHints | null
+ 161:   expiresAt: string | null
+ 162: }>
+ 163: 
+ 164: export interface R2IntelligencePort {
+ 165:   readonly provider: string
+ 166:   evaluate(
+ 167:     request: R2IntelligenceRequest,
+ 168:   ): Promise<R2IntelligenceResult>
+ 169: }
+ 170: 
+ 171: export type R2DecisionReason =
+ 172:   | "EVENT_ACCEPTED"
+ 173:   | "EVENT_DUPLICATE"
+ 174:   | "EVENT_EXPIRED"
+ 175:   | "WORKSPACE_MISMATCH"
+ 176:   | "USER_MISMATCH"
+ 177:   | "COOLDOWN_ACTIVE"
+ 178:   | "DEBOUNCED"
+ 179:   | "LOWER_PRIORITY"
+ 180:   | "QUEUE_FULL"
+ 181:   | "INTERRUPTED_CURRENT"
+ 182:   | "QUEUED_FOR_LATER"
+ 183:   | "NO_REACTION_REQUIRED"
+ 184:   | "INSUFFICIENT_CONTEXT"
+ 185:   | "INTELLIGENCE_FAILURE"
+ 186:   | "RUNTIME_FAILURE"
+ 187:   | "FALLBACK_APPLIED"
+ 188:   | "PRESENTATION_COMPLETED"
+ 189:   | "CONFIRMATION_REQUIRED"
+ 190: 
+ 191: export type R2PresentationPlan = Readonly<{
+ 192:   planId: string
+ 193:   eventId: string
+ 194:   workspaceId: string
+ 195:   runtimeState: R2RuntimeState
+ 196:   expression?: R2ExpressionChannel
+ 197:   expressionIntensity?: number
+ 198:   viseme?: R2Viseme
+ 199:   speakingIntensity?: number
+ 200:   eyeTarget?: R2EyeTarget
+ 201:   durationMs: number
+ 202:   minimumDisplayMs: number
+ 203:   transitionMs: number
+ 204:   interruptibility: R2InterruptionPolicy
+ 205:   priority: R2Priority
+ 206:   message: string | null
+ 207:   actionLabel: string | null
+ 208:   actionId: string | null
+ 209:   expiresAt: string | null
+ 210:   fallbackState: R2RuntimeState
+ 211:   requiresConfirmation: boolean
+ 212: }>
+ 213: 
+ 214: export type R2RuntimeCommand = Readonly<{
+ 215:   commandId: string
+ 216:   eventId: string
+ 217:   workspaceId: string
+ 218:   runtimeState: R2RuntimeState
+ 219:   expression?: R2ExpressionChannel
+ 220:   expressionIntensity?: number
+ 221:   viseme?: R2Viseme
+ 222:   speakingIntensity?: number
+ 223:   eyeTarget?: R2EyeTarget
+ 224:   durationMs: number
+ 225:   minimumDisplayMs: number
+ 226:   transitionMs: number
+ 227:   priority: R2Priority
+ 228:   message: string | null
+ 229:   actionLabel: string | null
+ 230:   actionId: string | null
+ 231:   expiresAt: string | null
+ 232:   fallbackState: R2RuntimeState
+ 233:   requiresConfirmation: boolean
+ 234: }>
+ 235: 
+ 236: export type R2OrchestrationDecisionType =
+ 237:   | "EXECUTE"
+ 238:   | "INTERRUPT"
+ 239:   | "QUEUE"
+ 240:   | "DISCARD"
+ 241:   | "REJECT"
+ 242:   | "IGNORE"
+ 243:   | "FALLBACK"
+ 244:   | "FAIL"
+ 245: 
+ 246: export type R2OrchestrationDecision = Readonly<{
+ 247:   decisionId: string
+ 248:   decision: R2OrchestrationDecisionType
+ 249:   eventId: string
+ 250:   eventType: R2EventType
+ 251:   workspaceId: string
+ 252:   reason: R2DecisionReason
+ 253:   priority: R2Priority
+ 254:   runtimeState: R2RuntimeState | null
+ 255:   command: R2RuntimeCommand | null
+ 256:   interruptedEventId: string | null
+ 257:   discardedReason: string | null
+ 258:   decidedAt: string
+ 259: }>
+ 260: 
+ 261: export type R2ExecutionReceipt = Readonly<{
+ 262:   receiptId: string
+ 263:   commandId: string
+ 264:   eventId: string
+ 265:   workspaceId: string
+ 266:   status: "APPLIED" | "COMPLETED" | "INTERRUPTED" | "FAILED" | "SKIPPED"
+ 267:   runtimeState: R2RuntimeState
+ 268:   startedAt: string
+ 269:   completedAt: string | null
+ 270:   durationMs: number | null
+ 271:   interruptedBy: string | null
+ 272:   fallbackUsed: boolean
+ 273:   errorCode: string | null
+ 274: }>
+ 275: 
+ 276: export type R2OrchestrationErrorCode =
+ 277:   | "INVALID_EVENT"
+ 278:   | "WORKSPACE_MISMATCH"
+ 279:   | "USER_MISMATCH"
+ 280:   | "INTELLIGENCE_FAILED"
+ 281:   | "INVALID_PRESENTATION"
+ 282:   | "RUNTIME_DISPOSED"
+ 283:   | "RUNTIME_COMMAND_FAILED"
+ 284: 
+ 285: export class R2OrchestrationError extends Error {
+ 286:   constructor(
+ 287:     readonly code: R2OrchestrationErrorCode,
+ 288:     message: string,
+ 289:     readonly recoverable: boolean,
+ 290:   ) {
+ 291:     super(message)
+ 292:     this.name = "R2OrchestrationError"
+ 293:   }
+ 294: }
+ 295: 
+ 296: export type R2QueuedPresentation = Readonly<{
+ 297:   event: R2DomainEvent
+ 298:   plan: R2PresentationPlan
+ 299:   command: R2RuntimeCommand
+ 300:   queuedAt: string
+ 301: }>
+ 302: 
+ 303: export type R2ActivePresentation = Readonly<{
+ 304:   event: R2DomainEvent
+ 305:   plan: R2PresentationPlan
+ 306:   command: R2RuntimeCommand
+ 307:   startedAt: string
+ 308:   minimumUntil: string
+ 309:   completesAt: string
+ 310: }>
+ 311: 
+ 312: export type R2InterruptionRecord = Readonly<{
+ 313:   interruptedEventId: string
+ 314:   interruptedByEventId: string
+ 315:   occurredAt: string
+ 316:   fromState: R2RuntimeState
+ 317:   toState: R2RuntimeState
+ 318: }>
+ 319: 
+ 320: export type R2FailureRecord = Readonly<{
+ 321:   eventId: string
+ 322:   commandId: string | null
+ 323:   errorCode: R2OrchestrationErrorCode
+ 324:   occurredAt: string
+ 325: }>
+ 326: 
+ 327: export type R2OrchestrationState = Readonly<{
+ 328:   workspaceId: string
+ 329:   current: R2ActivePresentation | null
+ 330:   queue: readonly R2QueuedPresentation[]
+ 331:   lastStableState: R2RuntimeState
+ 332:   processedEventIds: readonly string[]
+ 333:   cooldowns: Readonly<Record<string, string>>
+ 334:   interruptions: readonly R2InterruptionRecord[]
+ 335:   receipts: readonly R2ExecutionReceipt[]
+ 336:   failures: readonly R2FailureRecord[]
+ 337: }>
+ 338: 
+ 339: export type R2ObservabilityEntry = Readonly<{
+ 340:   eventId: string
+ 341:   eventType: R2EventType
+ 342:   decision: R2OrchestrationDecisionType
+ 343:   reason: R2DecisionReason
+ 344:   priority: R2Priority
+ 345:   runtimeState: R2RuntimeState | null
+ 346:   startedAt: string
+ 347:   completedAt: string | null
+ 348:   durationMs: number | null
+ 349:   interruptedBy: string | null
+ 350:   discardedReason: string | null
+ 351:   fallbackUsed: boolean
+ 352:   errorCode: string | null
+ 353: }>
+ 354: 
+ 355: export interface R2ObservabilitySink {
+ 356:   record(entry: R2ObservabilityEntry): void
+ 357: }
+----------------------------------------
+TOTAL_LINES=357
+
+FILE=.\application\r2\normalize-r2-event.ts
+EXISTS=True
+BYTES=8126
+SHA256=B6EBC6F331133E7E18D5BD448F256CF6C784EF023D745E085F655E9A69EC31ED
+----------------------------------------
+   1: import type {
+   2:   CommercialEvent,
+   3:   CommercialEventType,
+   4: } from "@/types/domain"
+   5: import type {
+   6:   AutomationTrigger,
+   7: } from "@/engine/decision/automation/types"
+   8: import type {
+   9:   GorilaR2Briefing,
+  10: } from "@/types/dashboard"
+  11: import type {
+  12:   R2DomainEvent,
+  13:   R2EntityType,
+  14:   R2EventContext,
+  15:   R2EventType,
+  16:   R2Urgency,
+  17: } from "@/types/r2-intelligence-orchestration"
+  18: import type {
+  19:   R2RuntimeState,
+  20: } from "@/types/r2-full-character-runtime"
+  21: import {
+  22:   R2OrchestrationError,
+  23: } from "@/types/r2-intelligence-orchestration"
+  24: 
+  25: const COMMERCIAL_EVENT_MAP: Readonly<
+  26:   Record<CommercialEventType, R2EventType>
+  27: > = {
+  28:   LEAD_CREATED: "lead.created",
+  29:   LEAD_REPLIED: "lead.replied",
+  30:   MEETING_SCHEDULED: "meeting.scheduled",
+  31:   MEETING_COMPLETED: "meeting.completed",
+  32:   PROPOSAL_SENT: "proposal.sent",
+  33:   PROPOSAL_ACCEPTED: "proposal.accepted",
+  34:   DOCUMENT_REQUESTED: "sale.documentation_requested",
+  35:   DOCUMENT_RECEIVED: "sale.documentation_received",
+  36:   PAYMENT_CONFIRMED: "sale.payment_confirmed",
+  37:   SALE_COMPLETED: "sale.completed",
+  38:   STATE_CHANGED: "opportunity.stage_changed",
+  39:   NOTE_ADDED: "opportunity.note_added",
+  40:   TASK_CREATED: "task.created",
+  41:   TASK_COMPLETED: "task.completed",
+  42: }
+  43: 
+  44: const ENTITY_BY_COMMERCIAL_EVENT: Readonly<
+  45:   Record<CommercialEventType, R2EntityType>
+  46: > = {
+  47:   LEAD_CREATED: "lead",
+  48:   LEAD_REPLIED: "lead",
+  49:   MEETING_SCHEDULED: "meeting",
+  50:   MEETING_COMPLETED: "meeting",
+  51:   PROPOSAL_SENT: "proposal",
+  52:   PROPOSAL_ACCEPTED: "proposal",
+  53:   DOCUMENT_REQUESTED: "sale",
+  54:   DOCUMENT_RECEIVED: "sale",
+  55:   PAYMENT_CONFIRMED: "sale",
+  56:   SALE_COMPLETED: "sale",
+  57:   STATE_CHANGED: "opportunity",
+  58:   NOTE_ADDED: "opportunity",
+  59:   TASK_CREATED: "task",
+  60:   TASK_COMPLETED: "task",
+  61: }
+  62: 
+  63: const URGENCY_BY_COMMERCIAL_EVENT: Readonly<
+  64:   Record<CommercialEventType, R2Urgency>
+  65: > = {
+  66:   LEAD_CREATED: "normal",
+  67:   LEAD_REPLIED: "normal",
+  68:   MEETING_SCHEDULED: "attention",
+  69:   MEETING_COMPLETED: "normal",
+  70:   PROPOSAL_SENT: "normal",
+  71:   PROPOSAL_ACCEPTED: "attention",
+  72:   DOCUMENT_REQUESTED: "attention",
+  73:   DOCUMENT_RECEIVED: "normal",
+  74:   PAYMENT_CONFIRMED: "normal",
+  75:   SALE_COMPLETED: "celebration",
+  76:   STATE_CHANGED: "normal",
+  77:   NOTE_ADDED: "background",
+  78:   TASK_CREATED: "normal",
+  79:   TASK_COMPLETED: "background",
+  80: }
+  81: 
+  82: function requiredText(
+  83:   value: string,
+  84:   field: string,
+  85: ) {
+  86:   const normalized = value.trim()
+  87:   if (!normalized) {
+  88:     throw new R2OrchestrationError(
+  89:       "INVALID_EVENT",
+  90:       `${field} is required for an R2 event.`,
+  91:       false,
+  92:     )
+  93:   }
+  94:   return normalized
+  95: }
+  96: 
+  97: function validDate(
+  98:   value: string,
+  99:   field: string,
+ 100: ) {
+ 101:   if (!Number.isFinite(new Date(value).getTime())) {
+ 102:     throw new R2OrchestrationError(
+ 103:       "INVALID_EVENT",
+ 104:       `${field} must be a valid ISO date.`,
+ 105:       false,
+ 106:     )
+ 107:   }
+ 108:   return value
+ 109: }
+ 110: 
+ 111: function payloadText(
+ 112:   payload: Readonly<Record<string, unknown>>,
+ 113:   keys: readonly string[],
+ 114: ) {
+ 115:   for (const key of keys) {
+ 116:     const value = payload[key]
+ 117:     if (typeof value === "string" && value.trim()) {
+ 118:       return value.trim()
+ 119:     }
+ 120:   }
+ 121:   return null
+ 122: }
+ 123: 
+ 124: export type NormalizeCommercialEventOptions = Readonly<{
+ 125:   userId?: string | null
+ 126:   correlationId?: string | null
+ 127:   causationId?: string | null
+ 128:   expiresAt?: string | null
+ 129:   urgency?: R2Urgency
+ 130: }>
+ 131: 
+ 132: export function normalizeCommercialEvent(
+ 133:   event: CommercialEvent,
+ 134:   options: NormalizeCommercialEventOptions = {},
+ 135: ): R2DomainEvent {
+ 136:   const workspaceId = requiredText(event.workspaceId, "workspaceId")
+ 137:   const eventId = requiredText(event.id, "eventId")
+ 138:   const occurredAt = validDate(event.occurredAt, "occurredAt")
+ 139:   const entityType = ENTITY_BY_COMMERCIAL_EVENT[event.type]
+ 140:   const entityId = payloadText(event.payload, [
+ 141:     `${entityType}Id`,
+ 142:     "entityId",
+ 143:   ]) ?? (entityType === "opportunity" ? event.journeyId : null)
+ 144:   const expiresAt = options.expiresAt ?? payloadText(event.payload, ["expiresAt"])
+ 145: 
+ 146:   if (expiresAt) validDate(expiresAt, "expiresAt")
+ 147: 
+ 148:   return {
+ 149:     eventId,
+ 150:     eventType: COMMERCIAL_EVENT_MAP[event.type],
+ 151:     occurredAt,
+ 152:     workspaceId,
+ 153:     actorId: event.actorId,
+ 154:     userId: options.userId ?? null,
+ 155:     entityType,
+ 156:     entityId,
+ 157:     correlationId: options.correlationId ?? payloadText(event.payload, ["correlationId"]),
+ 158:     causationId: options.causationId ?? payloadText(event.payload, ["causationId"]),
+ 159:     source: "commercial_event",
+ 160:     payload: { ...event.payload, journeyId: event.journeyId },
+ 161:     metadata: {
+ 162:       schema: "gorillaos.commercial-event",
+ 163:       sourceVersion: "1",
+ 164:     },
+ 165:     urgency: options.urgency ?? URGENCY_BY_COMMERCIAL_EVENT[event.type],
+ 166:     expiresAt: expiresAt ?? null,
+ 167:     schemaVersion: 1,
+ 168:   }
+ 169: }
+ 170: 
+ 171: export function normalizeAutomationTrigger(
+ 172:   trigger: AutomationTrigger,
+ 173:   eventType: R2EventType,
+ 174:   options: Readonly<{
+ 175:     urgency?: R2Urgency
+ 176:     entityType?: R2EntityType
+ 177:     expiresAt?: string | null
+ 178:   }> = {},
+ 179: ): R2DomainEvent {
+ 180:   const workspaceId = requiredText(trigger.workspaceId, "workspaceId")
+ 181:   return {
+ 182:     eventId: requiredText(trigger.id, "eventId"),
+ 183:     eventType,
+ 184:     occurredAt: validDate(trigger.occurredAt, "occurredAt"),
+ 185:     workspaceId,
+ 186:     actorId: null,
+ 187:     userId: null,
+ 188:     entityType: options.entityType ?? "automation",
+ 189:     entityId: trigger.journeyId,
+ 190:     correlationId: trigger.journeyId,
+ 191:     causationId: null,
+ 192:     source: "automation_trigger",
+ 193:     payload: { ...trigger.payload, triggerType: trigger.type },
+ 194:     metadata: {
+ 195:       schema: "gorillaos.automation-trigger",
+ 196:       sourceVersion: "1",
+ 197:     },
+ 198:     urgency: options.urgency ?? "normal",
+ 199:     expiresAt: options.expiresAt ?? null,
+ 200:     schemaVersion: 1,
+ 201:   }
+ 202: }
+ 203: 
+ 204: export function normalizeDashboardBriefing(
+ 205:   input: Readonly<{
+ 206:     workspaceId: string
+ 207:     userId: string
+ 208:     briefing: GorilaR2Briefing
+ 209:   }>,
+ 210: ): R2DomainEvent {
+ 211:   const workspaceId = requiredText(input.workspaceId, "workspaceId")
+ 212:   const userId = requiredText(input.userId, "userId")
+ 213:   const occurredAt = validDate(input.briefing.generatedAt, "generatedAt")
+ 214:   const urgency: R2Urgency =
+ 215:     input.briefing.confidence === "low"
+ 216:       ? "high"
+ 217:       : input.briefing.nextAction?.priority === "high"
+ 218:         ? "attention"
+ 219:         : "normal"
+ 220: 
+ 221:   return {
+ 222:     eventId: `dashboard-briefing:${workspaceId}:${userId}:${occurredAt}`,
+ 223:     eventType: "intelligence.recommendation_ready",
+ 224:     occurredAt,
+ 225:     workspaceId,
+ 226:     actorId: "gorillaos-dashboard",
+ 227:     userId,
+ 228:     entityType: "recommendation",
+ 229:     entityId: null,
+ 230:     correlationId: `dashboard:${workspaceId}`,
+ 231:     causationId: null,
+ 232:     source: "dashboard",
+ 233:     payload: {
+ 234:       title: input.briefing.nextAction?.title ?? input.briefing.recommendation,
+ 235:       summary: input.briefing.analysis,
+ 236:       recommendation: input.briefing.recommendation,
+ 237:       confidence: input.briefing.confidence,
+ 238:     },
+ 239:     metadata: {
+ 240:       schema: "gorillaos.dashboard-briefing",
+ 241:       sourceVersion: "1",
+ 242:     },
+ 243:     urgency,
+ 244:     expiresAt: null,
+ 245:     schemaVersion: 1,
+ 246:   }
+ 247: }
+ 248: 
+ 249: export function resolveR2EventContext(
+ 250:   event: R2DomainEvent,
+ 251:   input: Readonly<{
+ 252:     workspaceId: string
+ 253:     userId?: string | null
+ 254:     currentRuntimeState?: R2RuntimeState
+ 255:     lastStableRuntimeState?: R2RuntimeState
+ 256:     availableInformation?: readonly string[]
+ 257:     missingInformation?: readonly string[]
+ 258:     entitySnapshot?: Readonly<Record<string, unknown>>
+ 259:     now?: Date
+ 260:   }>,
+ 261: ): R2EventContext {
+ 262:   const workspaceId = requiredText(input.workspaceId, "workspaceId")
+ 263:   if (event.workspaceId !== workspaceId) {
+ 264:     throw new R2OrchestrationError(
+ 265:       "WORKSPACE_MISMATCH",
+ 266:       "The event does not belong to the resolved workspace.",
+ 267:       false,
+ 268:     )
+ 269:   }
+ 270:   if (event.userId && input.userId && event.userId !== input.userId) {
+ 271:     throw new R2OrchestrationError(
+ 272:       "USER_MISMATCH",
+ 273:       "The event does not belong to the resolved user context.",
+ 274:       false,
+ 275:     )
+ 276:   }
+ 277: 
+ 278:   return {
+ 279:     workspaceId,
+ 280:     userId: input.userId ?? event.userId,
+ 281:     currentRuntimeState: input.currentRuntimeState ?? "idle",
+ 282:     lastStableRuntimeState: input.lastStableRuntimeState ?? "idle",
+ 283:     resolvedAt: (input.now ?? new Date()).toISOString(),
+ 284:     availableInformation: [...(input.availableInformation ?? [])],
+ 285:     missingInformation: [...(input.missingInformation ?? [])],
+ 286:     entitySnapshot: { ...(input.entitySnapshot ?? {}) },
+ 287:   }
+ 288: }
+----------------------------------------
+TOTAL_LINES=288
+
+FILE=.\application\r2\r2-deterministic-intelligence.ts
+EXISTS=True
+BYTES=12967
+SHA256=734982A6475EF46A5FDAAACDA92559441C8A76496305950D78443C15AD4CA447
+----------------------------------------
+   1: import type {
+   2:   R2DomainEvent,
+   3:   R2IntelligencePort,
+   4:   R2IntelligenceRequest,
+   5:   R2IntelligenceResult,
+   6:   R2PresentationHints,
+   7:   R2Recommendation,
+   8:   R2Urgency,
+   9: } from "@/types/r2-intelligence-orchestration"
+  10: 
+  11: type ReactionDefinition = Readonly<{
+  12:   state: R2PresentationHints["runtimeState"]
+  13:   title: string
+  14:   summary: string
+  15:   rationale: string
+  16:   expression?: R2PresentationHints["expression"]
+  17:   expressionIntensity?: number
+  18:   durationMs: number
+  19:   minimumDisplayMs: number
+  20:   fallbackState?: R2PresentationHints["fallbackState"]
+  21: }>
+  22: 
+  23: const REACTIONS: Readonly<Partial<Record<R2DomainEvent["eventType"], ReactionDefinition>>> = {
+  24:   "lead.received": { state: "working", title: "Novo lead recebido", summary: "Um novo lead entrou na operaÃ§Ã£o.", rationale: "O evento confirmado requer acompanhamento discreto.", durationMs: 4000, minimumDisplayMs: 900 },
+  25:   "lead.created": { state: "working", title: "Lead registrado", summary: "Um lead foi registrado e estÃ¡ pronto para acompanhamento.", rationale: "O cadastro confirmado inicia o acompanhamento comercial.", durationMs: 4000, minimumDisplayMs: 900 },
+  26:   "lead.replied": { state: "listening", title: "Resposta recebida", summary: "O lead respondeu e o contexto pode ser analisado.", rationale: "Uma resposta confirmada merece atenÃ§Ã£o sem presumir intenÃ§Ã£o.", durationMs: 5000, minimumDisplayMs: 1200 },
+  27:   "lead.action_required": { state: "awaiting_action", title: "AÃ§Ã£o necessÃ¡ria", summary: "HÃ¡ uma aÃ§Ã£o pendente para este lead.", rationale: "O evento solicita decisÃ£o humana explÃ­cita.", durationMs: 7000, minimumDisplayMs: 1800 },
+  28:   "lead.at_risk": { state: "alert", title: "Lead em risco", summary: "Um lead confirmado apresenta risco de perda.", rationale: "O risco registrado justifica atenÃ§Ã£o elevada.", expression: "BROW_RAISE", expressionIntensity: 0.2, durationMs: 7000, minimumDisplayMs: 1600 },
+  29:   "opportunity.stage_changed": { state: "thinking", title: "Etapa atualizada", summary: "A oportunidade avanÃ§ou ou mudou de etapa.", rationale: "A mudanÃ§a confirmada requer reavaliaÃ§Ã£o do prÃ³ximo passo.", durationMs: 4500, minimumDisplayMs: 1000 },
+  30:   "opportunity.stagnant": { state: "awaiting_action", title: "Oportunidade estagnada", summary: "Uma oportunidade estÃ¡ sem avanÃ§o e requer revisÃ£o.", rationale: "A estagnaÃ§Ã£o registrada demanda uma prÃ³xima aÃ§Ã£o.", durationMs: 7000, minimumDisplayMs: 1800 },
+  31:   "opportunity.at_risk": { state: "alert", title: "Oportunidade em risco", summary: "Uma oportunidade requer atenÃ§Ã£o prioritÃ¡ria.", rationale: "O risco confirmado pode comprometer o avanÃ§o comercial.", durationMs: 7000, minimumDisplayMs: 1600 },
+  32:   "meeting.scheduled": { state: "listening", title: "ReuniÃ£o agendada", summary: "Uma reuniÃ£o foi agendada.", rationale: "O compromisso confirmado deve entrar no radar sem interromper alertas.", durationMs: 4500, minimumDisplayMs: 1000 },
+  33:   "meeting.upcoming": { state: "alert", title: "ReuniÃ£o prÃ³xima", summary: "Uma reuniÃ£o confirmada estÃ¡ prÃ³xima.", rationale: "A proximidade do compromisso requer atenÃ§Ã£o controlada.", expression: "BROW_RAISE", expressionIntensity: 0.18, durationMs: 6500, minimumDisplayMs: 1500 },
+  34:   "meeting.completed": { state: "working", title: "ReuniÃ£o concluÃ­da", summary: "A reuniÃ£o foi concluÃ­da e o acompanhamento pode continuar.", rationale: "O fato concluÃ­do permite organizar os prÃ³ximos passos.", durationMs: 4000, minimumDisplayMs: 900 },
+  35:   "meeting.summary_missing": { state: "awaiting_action", title: "Resumo pendente", summary: "Uma reuniÃ£o concluÃ­da ainda nÃ£o possui resumo.", rationale: "O contexto ausente exige aÃ§Ã£o antes de novas recomendaÃ§Ãµes.", durationMs: 7000, minimumDisplayMs: 1600 },
+  36:   "proposal.sent": { state: "working", title: "Proposta enviada", summary: "A proposta foi enviada e estÃ¡ em acompanhamento.", rationale: "O envio confirmado nÃ£o implica aprovaÃ§Ã£o e deve ser monitorado.", durationMs: 4500, minimumDisplayMs: 1000 },
+  37:   "proposal.accepted": { state: "awaiting_action", title: "Proposta aceita", summary: "A proposta foi aceita; valide os prÃ³ximos passos autorizados.", rationale: "AceitaÃ§Ã£o nÃ£o equivale Ã  conclusÃ£o da venda e requer continuidade controlada.", durationMs: 7500, minimumDisplayMs: 1800 },
+  38:   "sale.documentation_requested": { state: "awaiting_action", title: "DocumentaÃ§Ã£o solicitada", summary: "A venda aguarda documentaÃ§Ã£o confirmada.", rationale: "A pendÃªncia documental exige acompanhamento humano.", durationMs: 7000, minimumDisplayMs: 1600 },
+  39:   "sale.completed": { state: "celebrating_sale", title: "Venda concluÃ­da", summary: "A venda foi concluÃ­da.", rationale: "O evento comercial confirmado permite uma celebraÃ§Ã£o breve e controlada.", expression: "SMILE", expressionIntensity: 0.7, durationMs: 6000, minimumDisplayMs: 1800 },
+  40:   "sale.celebration_ready": { state: "celebrating_sale", title: "Venda comemorÃ¡vel", summary: "Uma venda confirmada estÃ¡ pronta para celebraÃ§Ã£o.", rationale: "A confirmaÃ§Ã£o explÃ­cita permite uma reaÃ§Ã£o positiva controlada.", expression: "SMILE", expressionIntensity: 0.7, durationMs: 6000, minimumDisplayMs: 1800 },
+  41:   "task.created": { state: "working", title: "Tarefa criada", summary: "Uma nova tarefa entrou na operaÃ§Ã£o.", rationale: "A tarefa confirmada deve ser acompanhada sem interrupÃ§Ã£o excessiva.", durationMs: 3500, minimumDisplayMs: 800 },
+  42:   "task.due_soon": { state: "awaiting_action", title: "Prazo prÃ³ximo", summary: "Uma tarefa estÃ¡ prÃ³xima do vencimento.", rationale: "O prazo exige decisÃ£o ou execuÃ§Ã£o do usuÃ¡rio.", durationMs: 6500, minimumDisplayMs: 1500 },
+  43:   "task.overdue": { state: "alert", title: "Tarefa vencida", summary: "Uma tarefa confirmada estÃ¡ vencida.", rationale: "O atraso requer atenÃ§Ã£o elevada.", durationMs: 7000, minimumDisplayMs: 1600 },
+  44:   "automation.started": { state: "working", title: "AutomaÃ§Ã£o iniciada", summary: "Uma automaÃ§Ã£o iniciou seu processamento.", rationale: "O processamento confirmado deve permanecer discreto.", durationMs: 3500, minimumDisplayMs: 700 },
+  45:   "automation.failed": { state: "error_attention", title: "Falha de automaÃ§Ã£o", summary: "Uma automaÃ§Ã£o falhou e requer verificaÃ§Ã£o.", rationale: "A falha confirmada tem precedÃªncia sobre estados normais.", expression: "BROW_FROWN", expressionIntensity: 0.45, durationMs: 8000, minimumDisplayMs: 1800 },
+  46:   "workflow.blocked": { state: "error_attention", title: "Workflow bloqueado", summary: "Um workflow estÃ¡ bloqueado.", rationale: "O bloqueio confirmado impede continuidade automÃ¡tica.", expression: "BROW_FROWN", expressionIntensity: 0.4, durationMs: 8000, minimumDisplayMs: 1800 },
+  47:   "queue.failed": { state: "error_attention", title: "Falha na fila", summary: "A fila operacional apresentou falha.", rationale: "A falha confirmada exige atenÃ§Ã£o tÃ©cnica.", expression: "BROW_FROWN", expressionIntensity: 0.45, durationMs: 8000, minimumDisplayMs: 1800 },
+  48:   "integration.unavailable": { state: "error_attention", title: "IntegraÃ§Ã£o indisponÃ­vel", summary: "Uma integraÃ§Ã£o necessÃ¡ria estÃ¡ indisponÃ­vel.", rationale: "A indisponibilidade confirmada pode interromper o fluxo.", expression: "BROW_FROWN", expressionIntensity: 0.4, durationMs: 8000, minimumDisplayMs: 1800 },
+  49:   "intelligence.analysis_started": { state: "thinking", title: "AnÃ¡lise em andamento", summary: "O R2 estÃ¡ analisando o contexto disponÃ­vel.", rationale: "A anÃ¡lise confirmada deve ser representada sem sugerir conclusÃ£o.", durationMs: 5000, minimumDisplayMs: 1000 },
+  50:   "intelligence.recommendation_ready": { state: "awaiting_action", title: "RecomendaÃ§Ã£o pronta", summary: "Uma recomendaÃ§Ã£o estruturada estÃ¡ pronta para revisÃ£o.", rationale: "A decisÃ£o final permanece com o usuÃ¡rio.", durationMs: 8000, minimumDisplayMs: 1800 },
+  51:   "intelligence.next_best_action_ready": { state: "awaiting_action", title: "PrÃ³xima aÃ§Ã£o pronta", summary: "Uma prÃ³xima melhor aÃ§Ã£o estÃ¡ pronta para revisÃ£o.", rationale: "A recomendaÃ§Ã£o organiza prioridade sem executar mutaÃ§Ãµes.", durationMs: 8000, minimumDisplayMs: 1800 },
+  52:   "intelligence.confirmation_required": { state: "awaiting_action", title: "ConfirmaÃ§Ã£o necessÃ¡ria", summary: "A continuidade depende de confirmaÃ§Ã£o explÃ­cita.", rationale: "Nenhuma aÃ§Ã£o externa deve ocorrer sem autorizaÃ§Ã£o.", durationMs: 9000, minimumDisplayMs: 2000 },
+  53:   "intelligence.provider_error": { state: "error_attention", title: "Falha de inteligÃªncia", summary: "O provedor de inteligÃªncia falhou; regras locais permanecem disponÃ­veis.", rationale: "A falha deve ser visÃ­vel e usar fallback determinÃ­stico.", durationMs: 8000, minimumDisplayMs: 1800 },
+  54:   "runtime.speaking_requested": { state: "speaking", title: "R2 falando", summary: "O R2 estÃ¡ apresentando uma mensagem preparada.", rationale: "A fala pode ser interrompida por alertas e erros.", durationMs: 5000, minimumDisplayMs: 800, fallbackState: "listening" },
+  55:   "runtime.neutral_requested": { state: "neutral", title: "Reset neutro", summary: "O runtime retornarÃ¡ ao estado neutro exato.", rationale: "O reset explÃ­cito restaura o baseline aprovado.", durationMs: 1000, minimumDisplayMs: 0, fallbackState: "idle" },
+  56: }
+  57: 
+  58: function textPayload(
+  59:   event: R2DomainEvent,
+  60:   key: string,
+  61: ) {
+  62:   const value = event.payload[key]
+  63:   return typeof value === "string" && value.trim()
+  64:     ? value.trim()
+  65:     : null
+  66: }
+  67: 
+  68: function interruptionPolicy(
+  69:   urgency: R2Urgency,
+  70: ): R2PresentationHints["interruptionPolicy"] {
+  71:   if (urgency === "critical") return "ALWAYS"
+  72:   if (urgency === "high") return "ALERT_OR_CRITICAL"
+  73:   return "HIGHER_PRIORITY"
+  74: }
+  75: 
+  76: function buildRecommendation(
+  77:   request: R2IntelligenceRequest,
+  78:   reaction: ReactionDefinition,
+  79: ): R2Recommendation {
+  80:   const event = request.event
+  81:   const suppliedTitle = textPayload(event, "title")
+  82:   const suppliedSummary = textPayload(event, "summary") ?? textPayload(event, "recommendation")
+  83:   const requiresConfirmation = reaction.state === "awaiting_action"
+  84:   return {
+  85:     recommendationType: event.eventType,
+  86:     title: suppliedTitle ?? reaction.title,
+  87:     summary: suppliedSummary ?? reaction.summary,
+  88:     rationale: reaction.rationale,
+  89:     confidence: request.context.missingInformation.length > 0 ? 0.65 : 0.9,
+  90:     urgency: event.urgency,
+  91:     suggestedActions: requiresConfirmation
+  92:       ? [{ actionId: `${event.eventId}:review`, label: "Revisar", requiresConfirmation: true }]
+  93:       : [],
+  94:     missingInformation: [...request.context.missingInformation],
+  95:     expiresAt: event.expiresAt,
+  96:   }
+  97: }
+  98: 
+  99: export class R2DeterministicIntelligence implements R2IntelligencePort {
+ 100:   readonly provider = "gorillaos-deterministic-local-v1"
+ 101: 
+ 102:   async evaluate(
+ 103:     request: R2IntelligenceRequest,
+ 104:   ): Promise<R2IntelligenceResult> {
+ 105:     if (request.event.workspaceId !== request.context.workspaceId) {
+ 106:       throw new Error("R2 intelligence workspace mismatch.")
+ 107:     }
+ 108: 
+ 109:     const reaction = REACTIONS[request.event.eventType]
+ 110:     if (!reaction) {
+ 111:       return {
+ 112:         result: "IGNORE",
+ 113:         recommendation: null,
+ 114:         confidence: 1,
+ 115:         urgency: request.event.urgency,
+ 116:         reasons: ["NO_REACTION_REQUIRED"],
+ 117:         missingInformation: [],
+ 118:         presentationHints: null,
+ 119:         expiresAt: request.event.expiresAt,
+ 120:       }
+ 121:     }
+ 122: 
+ 123:     const recommendation = buildRecommendation(request, reaction)
+ 124:     const urgency = request.event.urgency
+ 125:     const state =
+ 126:       request.event.eventType === "intelligence.recommendation_ready" &&
+ 127:       (urgency === "high" || urgency === "critical")
+ 128:         ? "alert"
+ 129:         : reaction.state
+ 130:     const viseme = request.event.eventType === "runtime.speaking_requested"
+ 131:       ? (request.event.payload.viseme === "VISEME_E" ||
+ 132:           request.event.payload.viseme === "VISEME_O" ||
+ 133:           request.event.payload.viseme === "VISEME_MBP" ||
+ 134:           request.event.payload.viseme === "VISEME_FV" ||
+ 135:           request.event.payload.viseme === "VISEME_L"
+ 136:           ? request.event.payload.viseme
+ 137:           : "VISEME_A")
+ 138:       : undefined
+ 139: 
+ 140:     return {
+ 141:       result: "REACT",
+ 142:       recommendation,
+ 143:       confidence: recommendation.confidence,
+ 144:       urgency,
+ 145:       reasons: reaction.state === "awaiting_action"
+ 146:         ? ["EVENT_ACCEPTED", "CONFIRMATION_REQUIRED"]
+ 147:         : ["EVENT_ACCEPTED"],
+ 148:       missingInformation: [...recommendation.missingInformation],
+ 149:       presentationHints: {
+ 150:         runtimeState: state,
+ 151:         expression: reaction.expression,
+ 152:         expressionIntensity: reaction.expressionIntensity,
+ 153:         viseme,
+ 154:         speakingIntensity: state === "speaking" ? 0.75 : undefined,
+ 155:         eyeTarget: state === "thinking" ? { yaw: 0.3, pitch: 0.25 } : undefined,
+ 156:         durationMs: reaction.durationMs,
+ 157:         minimumDisplayMs: reaction.minimumDisplayMs,
+ 158:         transitionMs: state === "error_attention" ? 120 : 250,
+ 159:         interruptionPolicy: interruptionPolicy(urgency),
+ 160:         fallbackState: reaction.fallbackState ?? request.context.lastStableRuntimeState,
+ 161:       },
+ 162:       expiresAt: request.event.expiresAt,
+ 163:     }
+ 164:   }
+ 165: }
+----------------------------------------
+TOTAL_LINES=165
+
+FILE=.\application\r2\r2-orchestrator.ts
+EXISTS=True
+BYTES=18890
+SHA256=B03DDC269BA91B6653AFD0F4E49B02EE2BD01247B204721491AA8C2F67277873
+----------------------------------------
+   1: import type {
+   2:   R2ActivePresentation,
+   3:   R2DecisionReason,
+   4:   R2DomainEvent,
+   5:   R2EventContext,
+   6:   R2ExecutionReceipt,
+   7:   R2FailureRecord,
+   8:   R2IntelligencePort,
+   9:   R2InterruptionRecord,
+  10:   R2ObservabilityEntry,
+  11:   R2ObservabilitySink,
+  12:   R2OrchestrationDecision,
+  13:   R2OrchestrationDecisionType,
+  14:   R2OrchestrationState,
+  15:   R2Priority,
+  16:   R2QueuedPresentation,
+  17:   R2RuntimeCommand,
+  18: } from "@/types/r2-intelligence-orchestration"
+  19: import type {
+  20:   R2RuntimeState,
+  21: } from "@/types/r2-full-character-runtime"
+  22: import {
+  23:   createR2PresentationPlan,
+  24:   createR2RuntimeCommand,
+  25:   priorityRank,
+  26: } from "./r2-presentation-planner"
+  27: 
+  28: export type R2OrchestratorConfig = Readonly<{
+  29:   workspaceId: string
+  30:   intelligence: R2IntelligencePort
+  31:   observability?: R2ObservabilitySink
+  32:   now?: () => Date
+  33:   queueLimit?: number
+  34:   processedEventTtlMs?: number
+  35:   defaultCooldownMs?: number
+  36:   cooldownMsByEventType?: Readonly<Record<string, number>>
+  37:   debounceMs?: number
+  38:   historyLimit?: number
+  39: }>
+  40: 
+  41: const NOOP_OBSERVABILITY: R2ObservabilitySink = {
+  42:   record: () => undefined,
+  43: }
+  44: 
+  45: const STABLE_STATES = new Set<R2RuntimeState>([
+  46:   "idle",
+  47:   "working",
+  48:   "listening",
+  49:   "thinking",
+  50: ])
+  51: 
+  52: function validTime(value: string | null) {
+  53:   if (!value) return null
+  54:   const parsed = new Date(value).getTime()
+  55:   return Number.isFinite(parsed) ? parsed : null
+  56: }
+  57: 
+  58: function milliseconds(
+  59:   value: number | undefined,
+  60:   fallback: number,
+  61: ) {
+  62:   return Number.isFinite(value) && value! >= 0
+  63:     ? value!
+  64:     : fallback
+  65: }
+  66: 
+  67: export class R2Orchestrator {
+  68:   readonly workspaceId: string
+  69: 
+  70:   private readonly intelligence: R2IntelligencePort
+  71:   private readonly observability: R2ObservabilitySink
+  72:   private readonly clock: () => Date
+  73:   private readonly queueLimit: number
+  74:   private readonly processedEventTtlMs: number
+  75:   private readonly defaultCooldownMs: number
+  76:   private readonly cooldownMsByEventType: Readonly<Record<string, number>>
+  77:   private readonly debounceMs: number
+  78:   private readonly historyLimit: number
+  79: 
+  80:   private current: R2ActivePresentation | null = null
+  81:   private queue: R2QueuedPresentation[] = []
+  82:   private lastStableState: R2RuntimeState = "idle"
+  83:   private readonly processed = new Map<string, number>()
+  84:   private readonly cooldowns = new Map<string, number>()
+  85:   private readonly recentEventType = new Map<string, number>()
+  86:   private interruptions: R2InterruptionRecord[] = []
+  87:   private receipts: R2ExecutionReceipt[] = []
+  88:   private failures: R2FailureRecord[] = []
+  89:   private sequence = 0
+  90:   private dispatchTail: Promise<void> = Promise.resolve()
+  91:   private disposed = false
+  92: 
+  93:   constructor(config: R2OrchestratorConfig) {
+  94:     const workspaceId = config.workspaceId.trim()
+  95:     if (!workspaceId) throw new Error("R2 orchestrator workspaceId is required.")
+  96:     this.workspaceId = workspaceId
+  97:     this.intelligence = config.intelligence
+  98:     this.observability = config.observability ?? NOOP_OBSERVABILITY
+  99:     this.clock = config.now ?? (() => new Date())
+ 100:     this.queueLimit = Math.max(1, Math.floor(config.queueLimit ?? 20))
+ 101:     this.processedEventTtlMs = milliseconds(config.processedEventTtlMs, 5 * 60_000)
+ 102:     this.defaultCooldownMs = milliseconds(config.defaultCooldownMs, 1_000)
+ 103:     this.cooldownMsByEventType = { ...(config.cooldownMsByEventType ?? {}) }
+ 104:     this.debounceMs = milliseconds(config.debounceMs, 250)
+ 105:     this.historyLimit = Math.max(10, Math.floor(config.historyLimit ?? 100))
+ 106:   }
+ 107: 
+ 108:   getState(): R2OrchestrationState {
+ 109:     return {
+ 110:       workspaceId: this.workspaceId,
+ 111:       current: this.current,
+ 112:       queue: [...this.queue],
+ 113:       lastStableState: this.lastStableState,
+ 114:       processedEventIds: [...this.processed.keys()],
+ 115:       cooldowns: Object.fromEntries(
+ 116:         [...this.cooldowns].map(([type, until]) => [type, new Date(until).toISOString()]),
+ 117:       ),
+ 118:       interruptions: [...this.interruptions],
+ 119:       receipts: [...this.receipts],
+ 120:       failures: [...this.failures],
+ 121:     }
+ 122:   }
+ 123: 
+ 124:   dispatch(
+ 125:     event: R2DomainEvent,
+ 126:     context: R2EventContext,
+ 127:   ): Promise<R2OrchestrationDecision> {
+ 128:     const task = this.dispatchTail.then(() => this.processEvent(event, context))
+ 129:     this.dispatchTail = task.then(() => undefined, () => undefined)
+ 130:     return task
+ 131:   }
+ 132: 
+ 133:   private nextId(prefix: string) {
+ 134:     this.sequence += 1
+ 135:     return `${prefix}:${this.sequence}`
+ 136:   }
+ 137: 
+ 138:   private cleanup(nowMs: number) {
+ 139:     for (const [eventId, expires] of this.processed) {
+ 140:       if (expires <= nowMs) this.processed.delete(eventId)
+ 141:     }
+ 142:     for (const [eventType, until] of this.cooldowns) {
+ 143:       if (until <= nowMs) this.cooldowns.delete(eventType)
+ 144:     }
+ 145:   }
+ 146: 
+ 147:   private markProcessed(event: R2DomainEvent, nowMs: number) {
+ 148:     this.processed.set(event.eventId, nowMs + this.processedEventTtlMs)
+ 149:     this.recentEventType.set(
+ 150:       `${event.eventType}:${event.correlationId ?? event.entityId ?? "global"}`,
+ 151:       nowMs,
+ 152:     )
+ 153:   }
+ 154: 
+ 155:   private decision(
+ 156:     input: Readonly<{
+ 157:       type: R2OrchestrationDecisionType
+ 158:       event: R2DomainEvent
+ 159:       reason: R2DecisionReason
+ 160:       priority: R2Priority
+ 161:       runtimeState: R2RuntimeState | null
+ 162:       command?: R2RuntimeCommand | null
+ 163:       interruptedEventId?: string | null
+ 164:       discardedReason?: string | null
+ 165:       fallbackUsed?: boolean
+ 166:       errorCode?: string | null
+ 167:       now: Date
+ 168:     }>,
+ 169:   ): R2OrchestrationDecision {
+ 170:     const result: R2OrchestrationDecision = {
+ 171:       decisionId: this.nextId("r2-decision"),
+ 172:       decision: input.type,
+ 173:       eventId: input.event.eventId,
+ 174:       eventType: input.event.eventType,
+ 175:       workspaceId: input.event.workspaceId,
+ 176:       reason: input.reason,
+ 177:       priority: input.priority,
+ 178:       runtimeState: input.runtimeState,
+ 179:       command: input.command ?? null,
+ 180:       interruptedEventId: input.interruptedEventId ?? null,
+ 181:       discardedReason: input.discardedReason ?? null,
+ 182:       decidedAt: input.now.toISOString(),
+ 183:     }
+ 184:     this.observability.record({
+ 185:       eventId: result.eventId,
+ 186:       eventType: result.eventType,
+ 187:       decision: result.decision,
+ 188:       reason: result.reason,
+ 189:       priority: result.priority,
+ 190:       runtimeState: result.runtimeState,
+ 191:       startedAt: result.decidedAt,
+ 192:       completedAt: null,
+ 193:       durationMs: null,
+ 194:       interruptedBy: null,
+ 195:       discardedReason: result.discardedReason,
+ 196:       fallbackUsed: input.fallbackUsed ?? result.decision === "FALLBACK",
+ 197:       errorCode: input.errorCode ?? (result.decision === "FAIL" ? result.reason : null),
+ 198:     })
+ 199:     return result
+ 200:   }
+ 201: 
+ 202:   private shouldDebounce(event: R2DomainEvent, nowMs: number) {
+ 203:     const key = `${event.eventType}:${event.correlationId ?? event.entityId ?? "global"}`
+ 204:     const previous = this.recentEventType.get(key)
+ 205:     return previous !== undefined && nowMs - previous < this.debounceMs
+ 206:   }
+ 207: 
+ 208:   private start(
+ 209:     event: R2DomainEvent,
+ 210:     plan: R2QueuedPresentation["plan"],
+ 211:     command: R2RuntimeCommand,
+ 212:     now: Date,
+ 213:   ) {
+ 214:     const startedMs = now.getTime()
+ 215:     this.current = {
+ 216:       event,
+ 217:       plan,
+ 218:       command,
+ 219:       startedAt: now.toISOString(),
+ 220:       minimumUntil: new Date(startedMs + plan.minimumDisplayMs).toISOString(),
+ 221:       completesAt: new Date(startedMs + plan.durationMs).toISOString(),
+ 222:     }
+ 223:     if (STABLE_STATES.has(command.runtimeState) && priorityRank(command.priority) <= 1) {
+ 224:       this.lastStableState = command.runtimeState
+ 225:     }
+ 226:     const cooldownMs = milliseconds(
+ 227:       this.cooldownMsByEventType[event.eventType],
+ 228:       this.defaultCooldownMs,
+ 229:     )
+ 230:     this.cooldowns.set(event.eventType, startedMs + cooldownMs)
+ 231:   }
+ 232: 
+ 233:   private canInterrupt(
+ 234:     incoming: R2RuntimeCommand,
+ 235:     nowMs: number,
+ 236:   ) {
+ 237:     if (!this.current) return true
+ 238:     const current = this.current
+ 239:     const incomingRank = priorityRank(incoming.priority)
+ 240:     const currentRank = priorityRank(current.command.priority)
+ 241:     if (incoming.priority === "CRITICAL") return true
+ 242:     if (current.command.priority === "CRITICAL") return false
+ 243:     if (incoming.priority === "HIGH") return true
+ 244:     if (nowMs < (validTime(current.minimumUntil) ?? Number.POSITIVE_INFINITY)) return false
+ 245:     if (current.plan.interruptibility === "NEVER") return false
+ 246:     if (current.plan.interruptibility === "ALERT_OR_CRITICAL") return incomingRank >= 4
+ 247:     if (current.plan.interruptibility === "ALWAYS") return true
+ 248:     return incomingRank > currentRank
+ 249:   }
+ 250: 
+ 251:   private enqueue(
+ 252:     item: R2QueuedPresentation,
+ 253:     now: Date,
+ 254:   ): R2OrchestrationDecision {
+ 255:     const incomingRank = priorityRank(item.command.priority)
+ 256:     if (this.queue.length >= this.queueLimit) {
+ 257:       const lowestIndex = this.queue.reduce(
+ 258:         (lowest, candidate, index, collection) =>
+ 259:           priorityRank(candidate.command.priority) < priorityRank(collection[lowest].command.priority)
+ 260:             ? index
+ 261:             : lowest,
+ 262:         0,
+ 263:       )
+ 264:       if (incomingRank <= priorityRank(this.queue[lowestIndex].command.priority)) {
+ 265:         return this.decision({
+ 266:           type: "DISCARD",
+ 267:           event: item.event,
+ 268:           reason: "QUEUE_FULL",
+ 269:           priority: item.command.priority,
+ 270:           runtimeState: item.command.runtimeState,
+ 271:           discardedReason: "Queue limit reached and no lower-priority item was available.",
+ 272:           now,
+ 273:         })
+ 274:       }
+ 275:       this.queue.splice(lowestIndex, 1)
+ 276:     }
+ 277:     this.queue.push(item)
+ 278:     this.queue.sort((first, second) =>
+ 279:       priorityRank(second.command.priority) - priorityRank(first.command.priority) ||
+ 280:       first.queuedAt.localeCompare(second.queuedAt),
+ 281:     )
+ 282:     return this.decision({
+ 283:       type: "QUEUE",
+ 284:       event: item.event,
+ 285:       reason: "QUEUED_FOR_LATER",
+ 286:       priority: item.command.priority,
+ 287:       runtimeState: item.command.runtimeState,
+ 288:       command: item.command,
+ 289:       now,
+ 290:     })
+ 291:   }
+ 292: 
+ 293:   private async processEvent(
+ 294:     event: R2DomainEvent,
+ 295:     context: R2EventContext,
+ 296:   ): Promise<R2OrchestrationDecision> {
+ 297:     const now = this.clock()
+ 298:     const nowMs = now.getTime()
+ 299:     this.cleanup(nowMs)
+ 300: 
+ 301:     if (this.disposed) {
+ 302:       return this.decision({ type: "REJECT", event, reason: "RUNTIME_FAILURE", priority: "CRITICAL", runtimeState: null, discardedReason: "Orchestrator disposed.", now })
+ 303:     }
+ 304:     if (!event.eventId.trim() || !event.workspaceId.trim()) {
+ 305:       return this.decision({ type: "REJECT", event, reason: "NO_REACTION_REQUIRED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Invalid canonical event.", now })
+ 306:     }
+ 307:     if (event.workspaceId !== this.workspaceId || context.workspaceId !== this.workspaceId) {
+ 308:       return this.decision({ type: "REJECT", event, reason: "WORKSPACE_MISMATCH", priority: "CRITICAL", runtimeState: null, discardedReason: "Workspace isolation rejected the event.", now })
+ 309:     }
+ 310:     if (event.userId && context.userId && event.userId !== context.userId) {
+ 311:       return this.decision({ type: "REJECT", event, reason: "USER_MISMATCH", priority: "CRITICAL", runtimeState: null, discardedReason: "User context isolation rejected the event.", now })
+ 312:     }
+ 313:     if (this.processed.has(event.eventId)) {
+ 314:       return this.decision({ type: "DISCARD", event, reason: "EVENT_DUPLICATE", priority: "BACKGROUND", runtimeState: null, discardedReason: "eventId was already processed.", now })
+ 315:     }
+ 316:     const eventExpiry = validTime(event.expiresAt)
+ 317:     if (eventExpiry !== null && eventExpiry <= nowMs) {
+ 318:       this.markProcessed(event, nowMs)
+ 319:       return this.decision({ type: "DISCARD", event, reason: "EVENT_EXPIRED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Event expired before presentation.", now })
+ 320:     }
+ 321:     if (this.shouldDebounce(event, nowMs)) {
+ 322:       this.markProcessed(event, nowMs)
+ 323:       return this.decision({ type: "DISCARD", event, reason: "DEBOUNCED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Equivalent correlated event arrived inside debounce window.", now })
+ 324:     }
+ 325: 
+ 326:     let intelligence
+ 327:     try {
+ 328:       intelligence = await this.intelligence.evaluate({
+ 329:         requestId: `${event.eventId}:intelligence:v1`,
+ 330:         operation: "generate_recommendation",
+ 331:         event,
+ 332:         context,
+ 333:       })
+ 334:     } catch {
+ 335:       this.markProcessed(event, nowMs)
+ 336:       const command: R2RuntimeCommand = {
+ 337:         commandId: `${event.eventId}:intelligence-fallback:v1`,
+ 338:         eventId: event.eventId,
+ 339:         workspaceId: event.workspaceId,
+ 340:         runtimeState: "error_attention",
+ 341:         expression: "BROW_FROWN",
+ 342:         expressionIntensity: 0.35,
+ 343:         durationMs: 6000,
+ 344:         minimumDisplayMs: 1200,
+ 345:         transitionMs: 120,
+ 346:         priority: "HIGH",
+ 347:         message: "A anÃ¡lise falhou; o modo determinÃ­stico seguro permanece ativo.",
+ 348:         actionLabel: null,
+ 349:         actionId: null,
+ 350:         expiresAt: null,
+ 351:         fallbackState: this.lastStableState,
+ 352:         requiresConfirmation: false,
+ 353:       }
+ 354:       this.failures = this.limited([...this.failures, {
+ 355:         eventId: event.eventId,
+ 356:         commandId: command.commandId,
+ 357:         errorCode: "INTELLIGENCE_FAILED",
+ 358:         occurredAt: now.toISOString(),
+ 359:       }])
+ 360:       if (!this.current || this.canInterrupt(command, nowMs)) {
+ 361:         if (this.current) {
+ 362:           this.interruptions = this.limited([...this.interruptions, {
+ 363:             interruptedEventId: this.current.event.eventId,
+ 364:             interruptedByEventId: event.eventId,
+ 365:             occurredAt: now.toISOString(),
+ 366:             fromState: this.current.command.runtimeState,
+ 367:             toState: command.runtimeState,
+ 368:           }])
+ 369:         }
+ 370:         this.startFallbackEvent(event, command, now)
+ 371:       }
+ 372:       return this.decision({ type: "FAIL", event, reason: "INTELLIGENCE_FAILURE", priority: command.priority, runtimeState: command.runtimeState, command, fallbackUsed: true, errorCode: "INTELLIGENCE_FAILED", now })
+ 373:     }
+ 374: 
+ 375:     const plan = createR2PresentationPlan(event, intelligence)
+ 376:     this.markProcessed(event, nowMs)
+ 377:     if (!plan) {
+ 378:       return this.decision({ type: "IGNORE", event, reason: intelligence.result === "REQUEST_CONTEXT" ? "INSUFFICIENT_CONTEXT" : "NO_REACTION_REQUIRED", priority: "BACKGROUND", runtimeState: null, now })
+ 379:     }
+ 380:     const command = createR2RuntimeCommand(plan)
+ 381:     const cooldownUntil = this.cooldowns.get(event.eventType)
+ 382:     if (cooldownUntil !== undefined && cooldownUntil > nowMs && command.priority !== "CRITICAL") {
+ 383:       return this.decision({ type: "DISCARD", event, reason: "COOLDOWN_ACTIVE", priority: command.priority, runtimeState: command.runtimeState, discardedReason: "Event type cooldown is active.", now })
+ 384:     }
+ 385: 
+ 386:     if (!this.current) {
+ 387:       this.start(event, plan, command, now)
+ 388:       return this.decision({ type: "EXECUTE", event, reason: "EVENT_ACCEPTED", priority: command.priority, runtimeState: command.runtimeState, command, now })
+ 389:     }
+ 390:     if (this.canInterrupt(command, nowMs)) {
+ 391:       const interrupted = this.current
+ 392:       this.interruptions = this.limited([...this.interruptions, {
+ 393:         interruptedEventId: interrupted.event.eventId,
+ 394:         interruptedByEventId: event.eventId,
+ 395:         occurredAt: now.toISOString(),
+ 396:         fromState: interrupted.command.runtimeState,
+ 397:         toState: command.runtimeState,
+ 398:       }])
+ 399:       this.start(event, plan, command, now)
+ 400:       return this.decision({ type: "INTERRUPT", event, reason: "INTERRUPTED_CURRENT", priority: command.priority, runtimeState: command.runtimeState, command, interruptedEventId: interrupted.event.eventId, now })
+ 401:     }
+ 402:     return this.enqueue({ event, plan, command, queuedAt: now.toISOString() }, now)
+ 403:   }
+ 404: 
+ 405:   private startFallbackEvent(
+ 406:     event: R2DomainEvent,
+ 407:     command: R2RuntimeCommand,
+ 408:     now: Date,
+ 409:   ) {
+ 410:     this.current = {
+ 411:       event,
+ 412:       plan: {
+ 413:         planId: `${event.eventId}:intelligence-fallback-plan:v1`,
+ 414:         eventId: event.eventId,
+ 415:         workspaceId: event.workspaceId,
+ 416:         runtimeState: command.runtimeState,
+ 417:         expression: command.expression,
+ 418:         expressionIntensity: command.expressionIntensity,
+ 419:         durationMs: command.durationMs,
+ 420:         minimumDisplayMs: command.minimumDisplayMs,
+ 421:         transitionMs: command.transitionMs,
+ 422:         interruptibility: "ALERT_OR_CRITICAL",
+ 423:         priority: command.priority,
+ 424:         message: command.message,
+ 425:         actionLabel: null,
+ 426:         actionId: null,
+ 427:         expiresAt: null,
+ 428:         fallbackState: command.fallbackState,
+ 429:         requiresConfirmation: false,
+ 430:       },
+ 431:       command,
+ 432:       startedAt: now.toISOString(),
+ 433:       minimumUntil: new Date(now.getTime() + command.minimumDisplayMs).toISOString(),
+ 434:       completesAt: new Date(now.getTime() + command.durationMs).toISOString(),
+ 435:     }
+ 436:   }
+ 437: 
+ 438:   advance(now = this.clock()): R2OrchestrationDecision | null {
+ 439:     if (this.disposed || !this.current) return null
+ 440:     const current = this.current
+ 441:     if ((validTime(current.completesAt) ?? Number.POSITIVE_INFINITY) > now.getTime()) return null
+ 442:     this.current = null
+ 443: 
+ 444:     while (this.queue.length > 0) {
+ 445:       const next = this.queue.shift()!
+ 446:       const expiresAt = validTime(next.event.expiresAt ?? next.command.expiresAt)
+ 447:       if (expiresAt !== null && expiresAt <= now.getTime()) continue
+ 448:       this.start(next.event, next.plan, next.command, now)
+ 449:       return this.decision({ type: "EXECUTE", event: next.event, reason: "EVENT_ACCEPTED", priority: next.command.priority, runtimeState: next.command.runtimeState, command: next.command, now })
+ 450:     }
+ 451: 
+ 452:     const fallbackCommand: R2RuntimeCommand = {
+ 453:       commandId: `${current.command.commandId}:fallback:${now.getTime()}`,
+ 454:       eventId: current.event.eventId,
+ 455:       workspaceId: this.workspaceId,
+ 456:       runtimeState: current.command.fallbackState || this.lastStableState || "idle",
+ 457:       durationMs: 0,
+ 458:       minimumDisplayMs: 0,
+ 459:       transitionMs: 250,
+ 460:       priority: "BACKGROUND",
+ 461:       message: null,
+ 462:       actionLabel: null,
+ 463:       actionId: null,
+ 464:       expiresAt: null,
+ 465:       fallbackState: "idle",
+ 466:       requiresConfirmation: false,
+ 467:     }
+ 468:     return this.decision({ type: "FALLBACK", event: current.event, reason: "PRESENTATION_COMPLETED", priority: "BACKGROUND", runtimeState: fallbackCommand.runtimeState, command: fallbackCommand, now })
+ 469:   }
+ 470: 
+ 471:   recordExecutionReceipt(receipt: R2ExecutionReceipt) {
+ 472:     if (receipt.workspaceId !== this.workspaceId) return false
+ 473:     this.receipts = this.limited([...this.receipts, receipt])
+ 474:     if (receipt.status === "FAILED") {
+ 475:       this.failures = this.limited([...this.failures, {
+ 476:         eventId: receipt.eventId,
+ 477:         commandId: receipt.commandId,
+ 478:         errorCode: "RUNTIME_COMMAND_FAILED",
+ 479:         occurredAt: receipt.completedAt ?? receipt.startedAt,
+ 480:       }])
+ 481:     }
+ 482:     return true
+ 483:   }
+ 484: 
+ 485:   private limited<T>(items: T[]) {
+ 486:     return items.slice(-this.historyLimit)
+ 487:   }
+ 488: 
+ 489:   dispose() {
+ 490:     this.disposed = true
+ 491:     this.current = null
+ 492:     this.queue = []
+ 493:     this.processed.clear()
+ 494:     this.cooldowns.clear()
+ 495:     this.recentEventType.clear()
+ 496:   }
+ 497: }
+ 498: 
+ 499: export class R2InMemoryObservabilitySink implements R2ObservabilitySink {
+ 500:   private entries: R2ObservabilityEntry[] = []
+ 501: 
+ 502:   record(entry: R2ObservabilityEntry) {
+ 503:     this.entries.push({ ...entry })
+ 504:   }
+ 505: 
+ 506:   snapshot() {
+ 507:     return this.entries.map((entry) => ({ ...entry }))
+ 508:   }
+ 509: }
+----------------------------------------
+TOTAL_LINES=509
+
+FILE=.\application\r2\index.ts
+EXISTS=True
+BYTES=432
+SHA256=54F699EDDF738B4E92440C73DF9E03FC26E778F9F45B01A5285D47E26F71178E
+----------------------------------------
+   1: export {
+   2:   normalizeAutomationTrigger,
+   3:   normalizeCommercialEvent,
+   4:   normalizeDashboardBriefing,
+   5:   resolveR2EventContext,
+   6: } from "./normalize-r2-event"
+   7: export {
+   8:   R2DeterministicIntelligence,
+   9: } from "./r2-deterministic-intelligence"
+  10: export {
+  11:   R2InMemoryObservabilitySink,
+  12:   R2Orchestrator,
+  13: } from "./r2-orchestrator"
+  14: export {
+  15:   createR2PresentationPlan,
+  16:   createR2RuntimeCommand,
+  17:   priorityRank,
+  18: } from "./r2-presentation-planner"
+----------------------------------------
+TOTAL_LINES=18
+
+FILE=.\application\r2\r2-intelligence-orchestration.test.ts
+EXISTS=True
+BYTES=14144
+SHA256=EA297EBCD7CE8A283AA8C3F932948069739A9201395E3EE3D4A14E57E8FC0D5D
+----------------------------------------
+   1: /// <reference types="vitest/globals" />
+   2: 
+   3: import type { CommercialEvent, CommercialEventType } from "@/types/domain"
+   4: import type {
+   5:   R2DomainEvent,
+   6:   R2EventContext,
+   7:   R2IntelligencePort,
+   8:   R2RuntimeCommand,
+   9:   R2Urgency,
+  10: } from "@/types/r2-intelligence-orchestration"
+  11: import { R2_EVENT_TYPES } from "@/types/r2-intelligence-orchestration"
+  12: import runtimeMapping from "../../blender/r2-rig/R2_EVENT_TO_RUNTIME_MAPPING.json"
+  13: import {
+  14:   normalizeCommercialEvent,
+  15:   normalizeDashboardBriefing,
+  16:   resolveR2EventContext,
+  17: } from "./normalize-r2-event"
+  18: import { R2DeterministicIntelligence } from "./r2-deterministic-intelligence"
+  19: import { R2InMemoryObservabilitySink, R2Orchestrator } from "./r2-orchestrator"
+  20: 
+  21: const NOW = "2026-08-01T15:00:00.000Z"
+  22: 
+  23: function commercial(type: CommercialEventType, id = `event-${type}`): CommercialEvent {
+  24:   return {
+  25:     id,
+  26:     workspaceId: "workspace-a",
+  27:     journeyId: "journey-1",
+  28:     type,
+  29:     actorType: "SYSTEM",
+  30:     actorId: "actor-1",
+  31:     payload: {},
+  32:     occurredAt: NOW,
+  33:     createdAt: NOW,
+  34:     updatedAt: NOW,
+  35:   }
+  36: }
+  37: 
+  38: function event(
+  39:   eventType: R2DomainEvent["eventType"],
+  40:   id: string,
+  41:   urgency: R2Urgency = "normal",
+  42:   overrides: Partial<R2DomainEvent> = {},
+  43: ): R2DomainEvent {
+  44:   return {
+  45:     eventId: id,
+  46:     eventType,
+  47:     occurredAt: NOW,
+  48:     workspaceId: "workspace-a",
+  49:     actorId: "system",
+  50:     userId: "user-1",
+  51:     entityType: "system",
+  52:     entityId: "entity-1",
+  53:     correlationId: id,
+  54:     causationId: null,
+  55:     source: "system",
+  56:     payload: {},
+  57:     metadata: {},
+  58:     urgency,
+  59:     expiresAt: null,
+  60:     schemaVersion: 1,
+  61:     ...overrides,
+  62:   }
+  63: }
+  64: 
+  65: function context(
+  66:   source: R2DomainEvent,
+  67:   lastStableRuntimeState: R2EventContext["lastStableRuntimeState"] = "idle",
+  68: ): R2EventContext {
+  69:   return resolveR2EventContext(source, {
+  70:     workspaceId: source.workspaceId,
+  71:     userId: "user-1",
+  72:     lastStableRuntimeState,
+  73:     now: new Date(NOW),
+  74:   })
+  75: }
+  76: 
+  77: describe("R2 canonical event and intelligence contracts", () => {
+  78:   it("normalizes every existing commercial event type exactly", () => {
+  79:     const mapping: Record<CommercialEventType, R2DomainEvent["eventType"]> = {
+  80:       LEAD_CREATED: "lead.created", LEAD_REPLIED: "lead.replied",
+  81:       MEETING_SCHEDULED: "meeting.scheduled", MEETING_COMPLETED: "meeting.completed",
+  82:       PROPOSAL_SENT: "proposal.sent", PROPOSAL_ACCEPTED: "proposal.accepted",
+  83:       DOCUMENT_REQUESTED: "sale.documentation_requested", DOCUMENT_RECEIVED: "sale.documentation_received",
+  84:       PAYMENT_CONFIRMED: "sale.payment_confirmed", SALE_COMPLETED: "sale.completed",
+  85:       STATE_CHANGED: "opportunity.stage_changed", NOTE_ADDED: "opportunity.note_added",
+  86:       TASK_CREATED: "task.created", TASK_COMPLETED: "task.completed",
+  87:     }
+  88:     for (const [source, canonical] of Object.entries(mapping)) {
+  89:       expect(normalizeCommercialEvent(commercial(source as CommercialEventType)).eventType).toBe(canonical)
+  90:     }
+  91:   })
+  92: 
+  93:   it("requires workspace scope and rejects context leakage", () => {
+  94:     expect(() => normalizeCommercialEvent({ ...commercial("LEAD_CREATED"), workspaceId: " " })).toThrow(/workspaceId/)
+  95:     const canonical = normalizeCommercialEvent(commercial("LEAD_CREATED"))
+  96:     expect(() => resolveR2EventContext(canonical, { workspaceId: "workspace-b" })).toThrow(/workspace/)
+  97:     expect(() => resolveR2EventContext({ ...canonical, userId: "user-a" }, {
+  98:       workspaceId: "workspace-a", userId: "user-b",
+  99:     })).toThrow(/user context/)
+ 100:   })
+ 101: 
+ 102:   it("normalizes the real dashboard briefing with resolved workspace and stable identity", () => {
+ 103:     const input = {
+ 104:       workspaceId: "workspace-a",
+ 105:       userId: "user-1",
+ 106:       briefing: {
+ 107:         greeting: "OlÃ¡",
+ 108:         analysis: "Fato confirmado",
+ 109:         recommendation: "Revisar a aÃ§Ã£o",
+ 110:         reason: "Prioridade calculada",
+ 111:         confidence: "high" as const,
+ 112:         generatedAt: NOW,
+ 113:       },
+ 114:     }
+ 115:     expect(normalizeDashboardBriefing(input)).toMatchObject({
+ 116:       eventId: `dashboard-briefing:workspace-a:user-1:${NOW}`,
+ 117:       eventType: "intelligence.recommendation_ready",
+ 118:       workspaceId: "workspace-a",
+ 119:       source: "dashboard",
+ 120:     })
+ 121:   })
+ 122: 
+ 123:   it.each([
+ 124:     ["lead.created", "normal", "working"],
+ 125:     ["opportunity.stage_changed", "normal", "thinking"],
+ 126:     ["intelligence.recommendation_ready", "attention", "awaiting_action"],
+ 127:     ["meeting.upcoming", "high", "alert"],
+ 128:     ["sale.completed", "celebration", "celebrating_sale"],
+ 129:     ["automation.failed", "critical", "error_attention"],
+ 130:     ["runtime.speaking_requested", "normal", "speaking"],
+ 131:   ] as const)("maps %s through the selected vertical flow", async (type, urgency, expectedState) => {
+ 132:     const source = event(type, `vertical-${type}`, urgency)
+ 133:     const result = await new R2DeterministicIntelligence().evaluate({
+ 134:       requestId: `request-${type}`,
+ 135:       operation: "generate_recommendation",
+ 136:       event: source,
+ 137:       context: context(source),
+ 138:     })
+ 139:     expect(result.result).toBe("REACT")
+ 140:     expect(result.presentationHints?.runtimeState).toBe(expectedState)
+ 141:   })
+ 142: 
+ 143:   it("defines a deterministic result for every canonical event", async () => {
+ 144:     const intelligence = new R2DeterministicIntelligence()
+ 145:     for (const type of R2_EVENT_TYPES) {
+ 146:       const source = event(type, `coverage-${type}`)
+ 147:       const result = await intelligence.evaluate({
+ 148:         requestId: `coverage-${type}`,
+ 149:         operation: "generate_recommendation",
+ 150:         event: source,
+ 151:         context: context(source),
+ 152:       })
+ 153:       expect(["REACT", "IGNORE", "REQUEST_CONTEXT"]).toContain(result.result)
+ 154:     }
+ 155:   })
+ 156: 
+ 157:   it("keeps the published event-to-runtime mapping exhaustive and duplicate-free", () => {
+ 158:     expect(R2_EVENT_TYPES).toHaveLength(62)
+ 159:     expect(new Set(R2_EVENT_TYPES).size).toBe(R2_EVENT_TYPES.length)
+ 160:     expect(Object.keys(runtimeMapping.events).sort()).toEqual([...R2_EVENT_TYPES].sort())
+ 161:   })
+ 162: })
+ 163: 
+ 164: describe("R2 deterministic orchestrator", () => {
+ 165:   function fixture(options: { queueLimit?: number; intelligence?: R2IntelligencePort } = {}) {
+ 166:     let nowMs = new Date(NOW).getTime()
+ 167:     const observability = new R2InMemoryObservabilitySink()
+ 168:     const orchestrator = new R2Orchestrator({
+ 169:       workspaceId: "workspace-a",
+ 170:       intelligence: options.intelligence ?? new R2DeterministicIntelligence(),
+ 171:       observability,
+ 172:       now: () => new Date(nowMs),
+ 173:       queueLimit: options.queueLimit,
+ 174:       defaultCooldownMs: 1000,
+ 175:       debounceMs: 250,
+ 176:     })
+ 177:     return {
+ 178:       orchestrator,
+ 179:       observability,
+ 180:       add(ms: number) { nowMs += ms },
+ 181:       current() { return new Date(nowMs) },
+ 182:     }
+ 183:   }
+ 184: 
+ 185:   it("executes idle to working and preserves exact command workspace", async () => {
+ 186:     const test = fixture()
+ 187:     const source = event("lead.created", "lead-1")
+ 188:     const decision = await test.orchestrator.dispatch(source, context(source))
+ 189:     expect(decision).toMatchObject({ decision: "EXECUTE", runtimeState: "working", workspaceId: "workspace-a" })
+ 190:     expect(decision.command?.workspaceId).toBe("workspace-a")
+ 191:   })
+ 192: 
+ 193:   it("interrupts celebration with alert and speaking with critical error", async () => {
+ 194:     const first = fixture()
+ 195:     const sale = event("sale.completed", "sale-1", "celebration")
+ 196:     expect((await first.orchestrator.dispatch(sale, context(sale))).runtimeState).toBe("celebrating_sale")
+ 197:     const meeting = event("meeting.upcoming", "meeting-1", "high")
+ 198:     expect(await first.orchestrator.dispatch(meeting, context(meeting))).toMatchObject({
+ 199:       decision: "INTERRUPT", interruptedEventId: "sale-1", runtimeState: "alert",
+ 200:     })
+ 201: 
+ 202:     const second = fixture()
+ 203:     const speaking = event("runtime.speaking_requested", "speech-1")
+ 204:     await second.orchestrator.dispatch(speaking, context(speaking))
+ 205:     const failure = event("automation.failed", "failure-1", "critical")
+ 206:     expect(await second.orchestrator.dispatch(failure, context(failure))).toMatchObject({
+ 207:       decision: "INTERRUPT", runtimeState: "error_attention",
+ 208:     })
+ 209:   })
+ 210: 
+ 211:   it("executes the required working to thinking to awaiting_action to alert progression", async () => {
+ 212:     const test = fixture()
+ 213:     const transitions = [
+ 214:       event("lead.created", "progress-working"),
+ 215:       event("opportunity.stage_changed", "progress-thinking"),
+ 216:       event("intelligence.recommendation_ready", "progress-awaiting", "attention"),
+ 217:       event("meeting.upcoming", "progress-alert", "high"),
+ 218:     ] as const
+ 219:     const expected = ["working", "thinking", "awaiting_action", "alert"]
+ 220:     for (let index = 0; index < transitions.length; index += 1) {
+ 221:       const source = transitions[index]
+ 222:       const decision = await test.orchestrator.dispatch(source, context(source))
+ 223:       expect(decision.runtimeState).toBe(expected[index])
+ 224:       if (decision.runtimeState === "awaiting_action") {
+ 225:         expect(decision.command?.requiresConfirmation).toBe(true)
+ 226:       }
+ 227:       if (index < transitions.length - 1) {
+ 228:         test.add(decision.command?.durationMs ?? 0)
+ 229:         test.orchestrator.advance(test.current())
+ 230:       }
+ 231:     }
+ 232:     expect(test.orchestrator.getState().current?.command.requiresConfirmation).toBe(false)
+ 233:   })
+ 234: 
+ 235:   it("rejects a mismatched user context inside the same workspace", async () => {
+ 236:     const test = fixture()
+ 237:     const source = event("lead.created", "user-isolation", "normal", { userId: "user-a" })
+ 238:     const mismatchedContext = { ...context({ ...source, userId: null }), userId: "user-b" }
+ 239:     expect(await test.orchestrator.dispatch(source, mismatchedContext)).toMatchObject({
+ 240:       decision: "REJECT", reason: "USER_MISMATCH",
+ 241:     })
+ 242:   })
+ 243: 
+ 244:   it("does not allow celebration or normal work to interrupt a critical error", async () => {
+ 245:     const test = fixture()
+ 246:     const critical = event("automation.failed", "critical-active", "critical")
+ 247:     await test.orchestrator.dispatch(critical, context(critical))
+ 248:     test.add(9000)
+ 249:     const celebration = event("sale.completed", "late-celebration", "celebration")
+ 250:     expect((await test.orchestrator.dispatch(celebration, context(celebration))).decision).toBe("QUEUE")
+ 251:     expect(test.orchestrator.getState().current?.event.eventId).toBe("critical-active")
+ 252:   })
+ 253: 
+ 254:   it("falls back after alert completion and executes queued work by priority", async () => {
+ 255:     const test = fixture()
+ 256:     const alert = event("meeting.upcoming", "alert-1", "high")
+ 257:     await test.orchestrator.dispatch(alert, context(alert, "listening"))
+ 258:     const task = event("task.created", "task-1")
+ 259:     expect((await test.orchestrator.dispatch(task, context(task))).decision).toBe("QUEUE")
+ 260:     test.add(7000)
+ 261:     const queued = test.orchestrator.advance(test.current())
+ 262:     expect(queued).toMatchObject({ decision: "EXECUTE", runtimeState: "working" })
+ 263:     test.add(4000)
+ 264:     expect(test.orchestrator.advance(test.current())).toMatchObject({
+ 265:       decision: "FALLBACK", runtimeState: "idle",
+ 266:     })
+ 267:   })
+ 268: 
+ 269:   it("enforces duplicate, expiry, workspace, debounce and cooldown gates", async () => {
+ 270:     const test = fixture()
+ 271:     const base = event("lead.created", "gate-1")
+ 272:     await test.orchestrator.dispatch(base, context(base))
+ 273:     expect((await test.orchestrator.dispatch(base, context(base))).reason).toBe("EVENT_DUPLICATE")
+ 274: 
+ 275:     const expired = event("task.created", "expired-1", "normal", { expiresAt: "2026-08-01T14:59:59.000Z" })
+ 276:     expect((await test.orchestrator.dispatch(expired, context(expired))).reason).toBe("EVENT_EXPIRED")
+ 277: 
+ 278:     const foreign = event("task.created", "foreign-1", "normal", { workspaceId: "workspace-b" })
+ 279:     expect((await test.orchestrator.dispatch(foreign, { ...context(foreign), workspaceId: "workspace-b" })).reason).toBe("WORKSPACE_MISMATCH")
+ 280: 
+ 281:     test.add(100)
+ 282:     const debounced = event("lead.created", "gate-2", "normal", { correlationId: base.correlationId })
+ 283:     expect((await test.orchestrator.dispatch(debounced, context(debounced))).reason).toBe("DEBOUNCED")
+ 284: 
+ 285:     test.add(300)
+ 286:     const cooldown = event("lead.created", "gate-3", "normal", { correlationId: "other" })
+ 287:     expect((await test.orchestrator.dispatch(cooldown, context(cooldown))).reason).toBe("COOLDOWN_ACTIVE")
+ 288:   })
+ 289: 
+ 290:   it("discards equal-priority work when the bounded queue is full", async () => {
+ 291:     const test = fixture({ queueLimit: 1 })
+ 292:     const active = event("lead.created", "active")
+ 293:     await test.orchestrator.dispatch(active, context(active))
+ 294:     const firstQueued = event("task.created", "queued-1")
+ 295:     expect((await test.orchestrator.dispatch(firstQueued, context(firstQueued))).decision).toBe("QUEUE")
+ 296:     const overflow = event("proposal.sent", "queued-2")
+ 297:     expect(await test.orchestrator.dispatch(overflow, context(overflow))).toMatchObject({
+ 298:       decision: "DISCARD", reason: "QUEUE_FULL",
+ 299:     })
+ 300:   })
+ 301: 
+ 302:   it("uses a safe fallback and records observability when intelligence fails", async () => {
+ 303:     const failing: R2IntelligencePort = {
+ 304:       provider: "failing-test",
+ 305:       evaluate: async () => { throw new Error("offline") },
+ 306:     }
+ 307:     const test = fixture({ intelligence: failing })
+ 308:     const source = event("lead.created", "failure")
+ 309:     const decision = await test.orchestrator.dispatch(source, context(source))
+ 310:     expect(decision).toMatchObject({ decision: "FAIL", reason: "INTELLIGENCE_FAILURE", runtimeState: "error_attention" })
+ 311:     expect(test.orchestrator.getState().failures).toHaveLength(1)
+ 312:     expect(test.observability.snapshot().at(-1)).toMatchObject({ fallbackUsed: true, errorCode: "INTELLIGENCE_FAILED" })
+ 313:   })
+ 314: 
+ 315:   it("records workspace-scoped execution receipts", async () => {
+ 316:     const test = fixture()
+ 317:     const source = event("runtime.neutral_requested", "neutral-1")
+ 318:     const decision = await test.orchestrator.dispatch(source, context(source))
+ 319:     const command = decision.command as R2RuntimeCommand
+ 320:     expect(command.runtimeState).toBe("neutral")
+ 321:     expect(command.requiresConfirmation).toBe(false)
+ 322:     expect(test.orchestrator.recordExecutionReceipt({
+ 323:       receiptId: "receipt-1", commandId: command.commandId, eventId: command.eventId,
+ 324:       workspaceId: "workspace-a", status: "APPLIED", runtimeState: command.runtimeState,
+ 325:       startedAt: NOW, completedAt: null, durationMs: null, interruptedBy: null,
+ 326:       fallbackUsed: false, errorCode: null,
+ 327:     })).toBe(true)
+ 328:     expect(test.orchestrator.getState().receipts).toHaveLength(1)
+ 329:   })
+ 330: })
+----------------------------------------
+TOTAL_LINES=330
+
+FILE=.\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx
+EXISTS=True
+BYTES=5030
+SHA256=0C336441A929096C00DE7AAE3D56560671C892E46EEA13F96B297701C9C5E473
+----------------------------------------
+   1: "use client"
+   2: 
+   3: import {
+   4:   createContext,
+   5:   useContext,
+   6:   useEffect,
+   7:   useState,
+   8:   useSyncExternalStore,
+   9: } from "react"
+  10: import type {
+  11:   ReactNode,
+  12: } from "react"
+  13: 
+  14: import {
+  15:   R2DeterministicIntelligence,
+  16:   R2Orchestrator,
+  17:   resolveR2EventContext,
+  18: } from "@/application/r2"
+  19: import type {
+  20:   R2DomainEvent,
+  21:   R2ExecutionReceipt,
+  22:   R2OrchestrationDecision,
+  23:   R2OrchestrationState,
+  24:   R2RuntimeCommand,
+  25: } from "@/types/r2-intelligence-orchestration"
+  26: 
+  27: type R2OrchestrationSnapshot = Readonly<{
+  28:   command: R2RuntimeCommand | null
+  29:   decision: R2OrchestrationDecision | null
+  30:   state: R2OrchestrationState
+  31: }>
+  32: 
+  33: class R2OrchestrationStore {
+  34:   private readonly orchestrator: R2Orchestrator
+  35:   private readonly listeners = new Set<() => void>()
+  36:   private snapshot: R2OrchestrationSnapshot
+  37:   private timer: ReturnType<typeof setTimeout> | null = null
+  38:   private generation = 0
+  39:   private disposed = false
+  40: 
+  41:   constructor(
+  42:     readonly workspaceId: string,
+  43:     private readonly userId: string | null,
+  44:   ) {
+  45:     this.orchestrator = new R2Orchestrator({
+  46:       workspaceId,
+  47:       intelligence: new R2DeterministicIntelligence(),
+  48:     })
+  49:     this.snapshot = {
+  50:       command: null,
+  51:       decision: null,
+  52:       state: this.orchestrator.getState(),
+  53:     }
+  54:   }
+  55: 
+  56:   getSnapshot = () => this.snapshot
+  57: 
+  58:   subscribe = (listener: () => void) => {
+  59:     this.listeners.add(listener)
+  60:     return () => this.listeners.delete(listener)
+  61:   }
+  62: 
+  63:   activate() {
+  64:     this.generation += 1
+  65:     const generation = this.generation
+  66:     return () => {
+  67:       queueMicrotask(() => {
+  68:         if (this.generation === generation) this.dispose()
+  69:       })
+  70:     }
+  71:   }
+  72: 
+  73:   async dispatch(event: R2DomainEvent) {
+  74:     if (this.disposed) return null
+  75:     const state = this.orchestrator.getState()
+  76:     const context = resolveR2EventContext(event, {
+  77:       workspaceId: this.workspaceId,
+  78:       userId: this.userId,
+  79:       currentRuntimeState: state.current?.command.runtimeState ?? state.lastStableState,
+  80:       lastStableRuntimeState: state.lastStableState,
+  81:     })
+  82:     const decision = await this.orchestrator.dispatch(event, context)
+  83:     this.publish(decision)
+  84:     return decision
+  85:   }
+  86: 
+  87:   recordReceipt(receipt: R2ExecutionReceipt) {
+  88:     if (this.orchestrator.recordExecutionReceipt(receipt)) {
+  89:       this.snapshot = { ...this.snapshot, state: this.orchestrator.getState() }
+  90:       this.emit()
+  91:     }
+  92:   }
+  93: 
+  94:   private publish(decision: R2OrchestrationDecision) {
+  95:     if (this.timer) clearTimeout(this.timer)
+  96:     this.timer = null
+  97:     const presentsCommand =
+  98:       decision.decision === "EXECUTE" ||
+  99:       decision.decision === "INTERRUPT" ||
+ 100:       decision.decision === "FALLBACK" ||
+ 101:       decision.decision === "FAIL"
+ 102:     this.snapshot = {
+ 103:       command: presentsCommand && decision.command
+ 104:         ? decision.command
+ 105:         : this.snapshot.command,
+ 106:       decision,
+ 107:       state: this.orchestrator.getState(),
+ 108:     }
+ 109:     this.emit()
+ 110:     if (decision.command && decision.command.durationMs > 0 && decision.decision !== "QUEUE") {
+ 111:       this.timer = setTimeout(() => {
+ 112:         this.timer = null
+ 113:         const next = this.orchestrator.advance()
+ 114:         if (next) this.publish(next)
+ 115:       }, decision.command.durationMs)
+ 116:     }
+ 117:   }
+ 118: 
+ 119:   private emit() {
+ 120:     for (const listener of this.listeners) listener()
+ 121:   }
+ 122: 
+ 123:   private dispose() {
+ 124:     if (this.disposed) return
+ 125:     this.disposed = true
+ 126:     if (this.timer) clearTimeout(this.timer)
+ 127:     this.timer = null
+ 128:     this.orchestrator.dispose()
+ 129:     this.listeners.clear()
+ 130:   }
+ 131: }
+ 132: 
+ 133: type R2OrchestrationContextValue = Readonly<{
+ 134:   store: R2OrchestrationStore
+ 135:   snapshot: R2OrchestrationSnapshot
+ 136: }>
+ 137: 
+ 138: const R2OrchestrationContext = createContext<R2OrchestrationContextValue | null>(null)
+ 139: 
+ 140: function R2OrchestrationProviderScope({
+ 141:   workspaceId,
+ 142:   userId,
+ 143:   initialEvent,
+ 144:   children,
+ 145: }: Readonly<{
+ 146:   workspaceId: string
+ 147:   userId?: string | null
+ 148:   initialEvent?: R2DomainEvent | null
+ 149:   children: ReactNode
+ 150: }>) {
+ 151:   const [store] = useState(() => new R2OrchestrationStore(workspaceId, userId ?? null))
+ 152:   const snapshot = useSyncExternalStore(store.subscribe, store.getSnapshot, store.getSnapshot)
+ 153: 
+ 154:   useEffect(() => store.activate(), [store])
+ 155: 
+ 156:   useEffect(() => {
+ 157:     if (initialEvent) void store.dispatch(initialEvent)
+ 158:   }, [initialEvent, store])
+ 159: 
+ 160:   return (
+ 161:     <R2OrchestrationContext.Provider value={{ store, snapshot }}>
+ 162:       {children}
+ 163:     </R2OrchestrationContext.Provider>
+ 164:   )
+ 165: }
+ 166: 
+ 167: export function R2OrchestrationProvider(props: Readonly<{
+ 168:   workspaceId: string
+ 169:   userId?: string | null
+ 170:   initialEvent?: R2DomainEvent | null
+ 171:   children: ReactNode
+ 172: }>) {
+ 173:   return (
+ 174:     <R2OrchestrationProviderScope
+ 175:       key={`${props.workspaceId}:${props.userId ?? "anonymous"}`}
+ 176:       {...props}
+ 177:     />
+ 178:   )
+ 179: }
+ 180: 
+ 181: export function useR2Orchestration() {
+ 182:   const value = useContext(R2OrchestrationContext)
+ 183:   if (!value) throw new Error("useR2Orchestration must be used inside R2OrchestrationProvider.")
+ 184:   return {
+ 185:     ...value.snapshot,
+ 186:     dispatch: (event: R2DomainEvent) => value.store.dispatch(event),
+ 187:     recordReceipt: (receipt: R2ExecutionReceipt) => value.store.recordReceipt(receipt),
+ 188:   }
+ 189: }
+----------------------------------------
+TOTAL_LINES=189
+
+FILE=.\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+EXISTS=True
+BYTES=6660
+SHA256=7D5655DF4B4B80EDEEB4DB4E827001DEA28BB8140B3521CA41D54C1D6F4DA4BE
+----------------------------------------
+   1: import {
+   2:   R2_EXPRESSION_CHANNELS,
+   3:   R2_RUNTIME_STATES,
+   4:   R2_VISEMES,
+   5: } from "@/types/r2-full-character-runtime"
+   6: import type {
+   7:   R2RuntimeControllerApi,
+   8: } from "@/types/r2-full-character-runtime"
+   9: import type {
+  10:   R2ExecutionReceipt,
+  11:   R2RuntimeCommand,
+  12: } from "@/types/r2-intelligence-orchestration"
+  13: 
+  14: export type R2RuntimeCommandAdapterConfig = Readonly<{
+  15:   controller: R2RuntimeControllerApi
+  16:   workspaceId: string
+  17:   now?: () => Date
+  18:   schedule?: (callback: () => void, delayMs: number) => ReturnType<typeof setTimeout>
+  19:   cancel?: (handle: ReturnType<typeof setTimeout>) => void
+  20:   onReceipt?: (receipt: R2ExecutionReceipt) => void
+  21: }>
+  22: 
+  23: function finiteUnit(value: number | undefined) {
+  24:   return value === undefined || (Number.isFinite(value) && value >= 0 && value <= 1)
+  25: }
+  26: 
+  27: export class R2RuntimeCommandAdapter {
+  28:   private readonly controller: R2RuntimeControllerApi
+  29:   private readonly workspaceId: string
+  30:   private readonly clock: () => Date
+  31:   private readonly schedule: NonNullable<R2RuntimeCommandAdapterConfig["schedule"]>
+  32:   private readonly cancel: NonNullable<R2RuntimeCommandAdapterConfig["cancel"]>
+  33:   private readonly onReceipt: NonNullable<R2RuntimeCommandAdapterConfig["onReceipt"]>
+  34:   private timer: ReturnType<typeof setTimeout> | null = null
+  35:   private active: Readonly<{ command: R2RuntimeCommand; startedAt: string }> | null = null
+  36:   private disposed = false
+  37: 
+  38:   constructor(config: R2RuntimeCommandAdapterConfig) {
+  39:     const workspaceId = config.workspaceId.trim()
+  40:     if (!workspaceId) throw new Error("R2 runtime adapter workspaceId is required.")
+  41:     this.controller = config.controller
+  42:     this.workspaceId = workspaceId
+  43:     this.clock = config.now ?? (() => new Date())
+  44:     this.schedule = config.schedule ?? ((callback, delayMs) => setTimeout(callback, delayMs))
+  45:     this.cancel = config.cancel ?? ((handle) => clearTimeout(handle))
+  46:     this.onReceipt = config.onReceipt ?? (() => undefined)
+  47:   }
+  48: 
+  49:   apply(command: R2RuntimeCommand): R2ExecutionReceipt {
+  50:     const startedAt = this.clock()
+  51:     if (this.disposed || this.controller.disposed) {
+  52:       return this.fail(command, startedAt, "RUNTIME_DISPOSED")
+  53:     }
+  54:     if (command.workspaceId !== this.workspaceId) {
+  55:       return this.fail(command, startedAt, "WORKSPACE_MISMATCH")
+  56:     }
+  57:     if (command.expiresAt && new Date(command.expiresAt).getTime() <= startedAt.getTime()) {
+  58:       return this.skip(command, startedAt, "COMMAND_EXPIRED")
+  59:     }
+  60:     if (
+  61:       !R2_RUNTIME_STATES.includes(command.runtimeState) ||
+  62:       (command.expression !== undefined && !R2_EXPRESSION_CHANNELS.includes(command.expression)) ||
+  63:       (command.viseme !== undefined && !R2_VISEMES.includes(command.viseme)) ||
+  64:       !finiteUnit(command.expressionIntensity) ||
+  65:       !finiteUnit(command.speakingIntensity) ||
+  66:       !Number.isFinite(command.durationMs) || command.durationMs < 0
+  67:     ) {
+  68:       return this.fail(command, startedAt, "INVALID_RUNTIME_COMMAND")
+  69:     }
+  70: 
+  71:     this.interruptActive(command.commandId, startedAt)
+  72:     try {
+  73:       this.controller.setState(command.runtimeState)
+  74:       if (command.expression) {
+  75:         this.controller.setExpression(command.expression, command.expressionIntensity ?? 1)
+  76:       }
+  77:       if (command.viseme) {
+  78:         this.controller.setViseme(command.viseme, command.speakingIntensity ?? 1)
+  79:       }
+  80:       if (command.eyeTarget) this.controller.setEyeTarget(command.eyeTarget)
+  81:       if (command.speakingIntensity !== undefined) {
+  82:         this.controller.setSpeakingIntensity(command.speakingIntensity)
+  83:       }
+  84:     } catch {
+  85:       try {
+  86:         if (!this.controller.disposed) {
+  87:           this.controller.setState(command.fallbackState)
+  88:         }
+  89:       } catch {
+  90:         // The failed receipt below is the authoritative result.
+  91:       }
+  92:       return this.fail(command, startedAt, "RUNTIME_COMMAND_FAILED", true)
+  93:     }
+  94: 
+  95:     const receipt = this.receipt(command, "APPLIED", startedAt, null, null, false, null)
+  96:     this.active = { command, startedAt: startedAt.toISOString() }
+  97:     this.onReceipt(receipt)
+  98:     if (command.durationMs > 0) {
+  99:       this.timer = this.schedule(() => this.complete(command.commandId), command.durationMs)
+ 100:     }
+ 101:     return receipt
+ 102:   }
+ 103: 
+ 104:   private complete(commandId: string) {
+ 105:     if (this.disposed || !this.active || this.active.command.commandId !== commandId) return
+ 106:     const active = this.active
+ 107:     const completedAt = this.clock()
+ 108:     this.timer = null
+ 109:     this.active = null
+ 110:     let fallbackUsed = false
+ 111:     let errorCode: string | null = null
+ 112:     try {
+ 113:       if (!this.controller.disposed) {
+ 114:         this.controller.setState(active.command.fallbackState)
+ 115:         fallbackUsed = true
+ 116:       }
+ 117:     } catch {
+ 118:       errorCode = "RUNTIME_COMMAND_FAILED"
+ 119:     }
+ 120:     this.onReceipt(this.receipt(
+ 121:       active.command,
+ 122:       errorCode ? "FAILED" : "COMPLETED",
+ 123:       new Date(active.startedAt),
+ 124:       completedAt,
+ 125:       null,
+ 126:       fallbackUsed,
+ 127:       errorCode,
+ 128:     ))
+ 129:   }
+ 130: 
+ 131:   private interruptActive(interruptedBy: string, at: Date) {
+ 132:     if (!this.active) return
+ 133:     const active = this.active
+ 134:     if (this.timer) this.cancel(this.timer)
+ 135:     this.timer = null
+ 136:     this.active = null
+ 137:     this.onReceipt(this.receipt(
+ 138:       active.command,
+ 139:       "INTERRUPTED",
+ 140:       new Date(active.startedAt),
+ 141:       at,
+ 142:       interruptedBy,
+ 143:       false,
+ 144:       null,
+ 145:     ))
+ 146:   }
+ 147: 
+ 148:   private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+ 149:     const receipt = this.receipt(command, "FAILED", at, at, null, fallbackUsed, errorCode)
+ 150:     this.onReceipt(receipt)
+ 151:     return receipt
+ 152:   }
+ 153: 
+ 154:   private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+ 155:     const receipt = this.receipt(command, "SKIPPED", at, at, null, false, errorCode)
+ 156:     this.onReceipt(receipt)
+ 157:     return receipt
+ 158:   }
+ 159: 
+ 160:   private receipt(
+ 161:     command: R2RuntimeCommand,
+ 162:     status: R2ExecutionReceipt["status"],
+ 163:     startedAt: Date,
+ 164:     completedAt: Date | null,
+ 165:     interruptedBy: string | null,
+ 166:     fallbackUsed: boolean,
+ 167:     errorCode: string | null,
+ 168:   ): R2ExecutionReceipt {
+ 169:     return {
+ 170:       receiptId: `${command.commandId}:${status.toLowerCase()}:${startedAt.getTime()}`,
+ 171:       commandId: command.commandId,
+ 172:       eventId: command.eventId,
+ 173:       workspaceId: command.workspaceId,
+ 174:       status,
+ 175:       runtimeState: command.runtimeState,
+ 176:       startedAt: startedAt.toISOString(),
+ 177:       completedAt: completedAt?.toISOString() ?? null,
+ 178:       durationMs: completedAt ? Math.max(0, completedAt.getTime() - startedAt.getTime()) : null,
+ 179:       interruptedBy,
+ 180:       fallbackUsed,
+ 181:       errorCode,
+ 182:     }
+ 183:   }
+ 184: 
+ 185:   dispose() {
+ 186:     if (this.disposed) return
+ 187:     this.disposed = true
+ 188:     if (this.timer) this.cancel(this.timer)
+ 189:     this.timer = null
+ 190:     this.active = null
+ 191:   }
+ 192: }
+----------------------------------------
+TOTAL_LINES=192
+
+FILE=.\components\dashboard\gorila-r2-avatar-3d.tsx
+EXISTS=True
+BYTES=1757
+SHA256=68D37404656FE9673C8700B43078C8F284714C6D32BBE9024D94FF5254240B59
+----------------------------------------
+   1: "use client"
+   2: 
+   3: import { useMemo } from "react"
+   4: 
+   5: import { normalizeDashboardBriefing } from "@/application/r2"
+   6: import { GorilaR23D } from "./3d/gorila-r2-3d"
+   7: import {
+   8:   R2OrchestrationProvider,
+   9:   useR2Orchestration,
+  10: } from "./3d/r2/orchestration/r2-orchestration-provider"
+  11: import type { GorilaR2Briefing } from "@/types/dashboard"
+  12: 
+  13: type GorilaR2Avatar3DProps = {
+  14:   size?: "hero" | "compact"
+  15:   status?: "online" | "alert" | "thinking"
+  16:   workspaceId?: string
+  17:   userId?: string
+  18:   briefing?: GorilaR2Briefing
+  19: }
+  20: 
+  21: function OrchestratedR2({ workspaceId }: Readonly<{ workspaceId: string }>) {
+  22:   const { command, recordReceipt } = useR2Orchestration()
+  23:   return (
+  24:     <GorilaR23D
+  25:       workspaceId={workspaceId}
+  26:       runtimeCommand={command}
+  27:       onRuntimeReceipt={recordReceipt}
+  28:     />
+  29:   )
+  30: }
+  31: 
+  32: export function GorilaR2Avatar3D({
+  33:   size = "hero",
+  34:   workspaceId,
+  35:   userId,
+  36:   briefing,
+  37: }: GorilaR2Avatar3DProps) {
+  38:   const initialEvent = useMemo(() => {
+  39:     if (!workspaceId || !userId || !briefing) return null
+  40:     return normalizeDashboardBriefing({ workspaceId, userId, briefing })
+  41:   }, [briefing, userId, workspaceId])
+  42: 
+  43:   return (
+  44:     <div
+  45:       data-testid={size === "hero" ? "r2-hero-canvas-container" : undefined}
+  46:       className={
+  47:         size === "hero"
+  48:           ? "h-72 min-h-72 w-full min-w-0 sm:h-80 sm:min-h-80 xl:h-[360px] xl:min-h-[360px] 2xl:h-[400px] 2xl:min-h-[400px]"
+  49:           : "h-32 w-32"
+  50:       }
+  51:     >
+  52:       {workspaceId && userId && initialEvent ? (
+  53:         <R2OrchestrationProvider
+  54:           workspaceId={workspaceId}
+  55:           userId={userId}
+  56:           initialEvent={initialEvent}
+  57:         >
+  58:           <OrchestratedR2 workspaceId={workspaceId} />
+  59:         </R2OrchestrationProvider>
+  60:       ) : (
+  61:         <GorilaR23D />
+  62:       )}
+  63:     </div>
+  64:   )
+  65: 
+  66: }
+----------------------------------------
+TOTAL_LINES=66
+
+FILE=.\application\dashboard\r2-adapter.ts
+EXISTS=True
+BYTES=625
+SHA256=76C01462B4B1F558446A4394EAC14C720A6C459E4EB581FDFE9D2D41B0AB9735
+----------------------------------------
+   1: import type { GorilaR2Briefing } from "@/types/dashboard"
+   2: import type { R2Behavior } from "@/components/dashboard/3d/r2-behavior"
+   3: 
+   4: export function adaptGorilaR2ToBehavior(
+   5:   briefing: GorilaR2Briefing
+   6: ): R2Behavior {
+   7: 
+   8:   if (briefing.confidence === "low") {
+   9:     return {
+  10:       mood: "alert",
+  11:       animation: "warning",
+  12:       message: briefing.analysis,
+  13:     }
+  14:   }
+  15: 
+  16:   if (briefing.nextAction?.priority === "high") {
+  17:     return {
+  18:       mood: "thinking",
+  19:       animation: "thinking",
+  20:       message: briefing.recommendation,
+  21:     }
+  22:   }
+  23: 
+  24:   return {
+  25:     mood: "idle",
+  26:     animation: "breathing",
+  27:     message: briefing.analysis,
+  28:   }
+  29: }
+----------------------------------------
+TOTAL_LINES=29
+
+FILE=.\components\dashboard\3d\r2-intelligence.ts
+EXISTS=True
+BYTES=776
+SHA256=4A724904BD8516D82B3F592A128739B30D6C6ECFC4448947F56B7BF7AC85BE40
+----------------------------------------
+   1: import type { R2Behavior } from "./r2-behavior"
+   2: 
+   3: type NextBestActionInput = {
+   4:   title: string
+   5:   description?: string | null
+   6:   reason: string
+   7:   priority: "LOW" | "NORMAL" | "HIGH" | "URGENT"
+   8:   confidence: number
+   9: }
+  10: 
+  11: export function interpretNextBestAction(
+  12:   action: NextBestActionInput
+  13: ): R2Behavior {
+  14:   if (action.priority === "URGENT") {
+  15:     return {
+  16:       mood: "alert",
+  17:       animation: "warning",
+  18:       message: `AtenÃ§Ã£o: ${action.title}. ${action.reason}`,
+  19:     }
+  20:   }
+  21: 
+  22:   if (action.priority === "HIGH") {
+  23:     return {
+  24:       mood: "thinking",
+  25:       animation: "thinking",
+  26:       message: `Encontrei uma oportunidade importante: ${action.title}.`,
+  27:     }
+  28:   }
+  29: 
+  30:   return {
+  31:     mood: "idle",
+  32:     animation: "breathing",
+  33:     message: `Estou monitorando: ${action.title}.`,
+  34:   }
+  35: }
+----------------------------------------
+TOTAL_LINES=35
+
+FILE=.\components\dashboard\3d\r2-service.ts
+EXISTS=True
+BYTES=541
+SHA256=054E00ED2B7ADAEFB7518EAC12778833E2ADE017046D6C0F685F31E607634F76
+----------------------------------------
+   1: import { interpretNextBestAction } from "./r2-intelligence"
+   2: import type { R2Behavior } from "./r2-behavior"
+   3: 
+   4: export type R2CommercialSignal = {
+   5:   title: string
+   6:   description?: string | null
+   7:   reason: string
+   8:   priority: "LOW" | "NORMAL" | "HIGH" | "URGENT"
+   9:   confidence: number
+  10: }
+  11: 
+  12: export function generateR2Reaction(
+  13:   signal?: R2CommercialSignal
+  14: ): R2Behavior {
+  15:   if (!signal) {
+  16:     return {
+  17:       mood: "idle",
+  18:       animation: "breathing",
+  19:       message: "Monitorando sua operaÃ§Ã£o.",
+  20:     }
+  21:   }
+  22: 
+  23:   return interpretNextBestAction(signal)
+  24: }
+----------------------------------------
+TOTAL_LINES=24
+
+============================================================
+ EVENT AND STATE SYMBOL INDEX
+============================================================
+
+PATTERN=normalizeR2Event
+MATCH_COUNT=0
+
+PATTERN=R2NormalizedEvent
+MATCH_COUNT=0
+
+PATTERN=R2RuntimeCommand
+MATCH_COUNT=42
+C:\Projetos\consorcio-os\web\application\r2\index.ts:16: createR2RuntimeCommand,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:8: R2RuntimeCommand,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:319: const command = decision.command as R2RuntimeCommand
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:17: R2RuntimeCommand,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:24: createR2RuntimeCommand,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:162: command?: R2RuntimeCommand | null
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:211: command: R2RuntimeCommand,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:234: incoming: R2RuntimeCommand,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:336: const command: R2RuntimeCommand = {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:380: const command = createR2RuntimeCommand(plan)
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:407: command: R2RuntimeCommand,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:452: const fallbackCommand: R2RuntimeCommand = {
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:6: R2RuntimeCommand,
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:84: export function createR2RuntimeCommand(
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:86: ): R2RuntimeCommand {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:24: R2RuntimeCommand,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:28: command: R2RuntimeCommand | null
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:6: import type { R2RuntimeCommand } from "@/types/r2-intelligence-orchestration"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:7: import { R2RuntimeCommandAdapter } from "./r2-runtime-command-adapter"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:11: function command(overrides: Partial<R2RuntimeCommand> = {}): R2RuntimeCommand {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:81: const adapter = new R2RuntimeCommandAdapter({
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:106: const adapter = new R2RuntimeCommandAdapter({
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:122: const adapter = new R2RuntimeCommandAdapter({
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:129: expect(adapter.apply({ ...command(), expression: "INVALID" } as unknown as R2RuntimeCommand)).toMatchObject({ status: "FAILED", errorCode: "INVALID_RUNTIME_COMMAND" })
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:144: const adapter = new R2RuntimeCommandAdapter({
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:158: const adapter = new R2RuntimeCommandAdapter({
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:11: R2RuntimeCommand,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:14: export type R2RuntimeCommandAdapterConfig = Readonly<{
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:27: export class R2RuntimeCommandAdapter {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:31: private readonly schedule: NonNullable<R2RuntimeCommandAdapterConfig["schedule"]>
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:32: private readonly cancel: NonNullable<R2RuntimeCommandAdapterConfig["cancel"]>
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:33: private readonly onReceipt: NonNullable<R2RuntimeCommandAdapterConfig["onReceipt"]>
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:35: private active: Readonly<{ command: R2RuntimeCommand; startedAt: string }> | null = null
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:38: constructor(config: R2RuntimeCommandAdapterConfig) {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:49: apply(command: R2RuntimeCommand): R2ExecutionReceipt {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:148: private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:154: private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:161: command: R2RuntimeCommand,
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:214: export type R2RuntimeCommand = Readonly<{
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:255: command: R2RuntimeCommand | null
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:299: command: R2RuntimeCommand
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:306: command: R2RuntimeCommand
+
+PATTERN=R2RuntimeState
+MATCH_COUNT=22
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:19: R2RuntimeState,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:254: currentRuntimeState?: R2RuntimeState
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:255: lastStableRuntimeState?: R2RuntimeState
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:20: R2RuntimeState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:45: const STABLE_STATES = new Set<R2RuntimeState>([
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:82: private lastStableState: R2RuntimeState = "idle"
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:161: runtimeState: R2RuntimeState | null
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:4: R2RuntimeState,
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:100: currentRuntimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:101: lastStableRuntimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:140: runtimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:150: fallbackState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:195: runtimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:210: fallbackState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:218: runtimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:232: fallbackState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:254: runtimeState: R2RuntimeState | null
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:267: runtimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:316: fromState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:317: toState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:331: lastStableState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:345: runtimeState: R2RuntimeState | null
+
+PATTERN=runtimeState:
+MATCH_COUNT=49
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:281: currentRuntimeState: input.currentRuntimeState ?? "idle",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:282: lastStableRuntimeState: input.lastStableRuntimeState ?? "idle",
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:150: runtimeState: state,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:67: lastStableRuntimeState: R2EventContext["lastStableRuntimeState"] = "idle",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:189: expect(decision).toMatchObject({ decision: "EXECUTE", runtimeState: "working", workspaceId: "workspace-a" })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:199: decision: "INTERRUPT", interruptedEventId: "sale-1", runtimeState: "alert",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:207: decision: "INTERRUPT", runtimeState: "error_attention",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:262: expect(queued).toMatchObject({ decision: "EXECUTE", runtimeState: "working" })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:265: decision: "FALLBACK", runtimeState: "idle",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:310: expect(decision).toMatchObject({ decision: "FAIL", reason: "INTELLIGENCE_FAILURE", runtimeState: "error_attention" })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:324: workspaceId: "workspace-a", status: "APPLIED", runtimeState: command.runtimeState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:161: runtimeState: R2RuntimeState | null
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:178: runtimeState: input.runtimeState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:190: runtimeState: result.runtimeState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:270: runtimeState: item.command.runtimeState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:287: runtimeState: item.command.runtimeState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:302: return this.decision({ type: "REJECT", event, reason: "RUNTIME_FAILURE", priority: "CRITICAL", runtimeState: null, discardedReason: "Orchestrator disposed.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:305: return this.decision({ type: "REJECT", event, reason: "NO_REACTION_REQUIRED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Invalid canonical event.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:308: return this.decision({ type: "REJECT", event, reason: "WORKSPACE_MISMATCH", priority: "CRITICAL", runtimeState: null, discardedReason: "Workspace isolation rejected the event.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:311: return this.decision({ type: "REJECT", event, reason: "USER_MISMATCH", priority: "CRITICAL", runtimeState: null, discardedReason: "User context isolation rejected the event.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:314: return this.decision({ type: "DISCARD", event, reason: "EVENT_DUPLICATE", priority: "BACKGROUND", runtimeState: null, discardedReason: "eventId was already processed.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:319: return this.decision({ type: "DISCARD", event, reason: "EVENT_EXPIRED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Event expired before presentation.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:323: return this.decision({ type: "DISCARD", event, reason: "DEBOUNCED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Equivalent correlated event arrived inside debounce window.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:340: runtimeState: "error_attention",
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:372: return this.decision({ type: "FAIL", event, reason: "INTELLIGENCE_FAILURE", priority: command.priority, runtimeState: command.runtimeState, command, fallbackUsed: true, errorCode: "INTELLIGENCE_FAILED", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:378: return this.decision({ type: "IGNORE", event, reason: intelligence.result === "REQUEST_CONTEXT" ? "INSUFFICIENT_CONTEXT" : "NO_REACTION_REQUIRED", priority: "BACKGROUND", runtimeState: null, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:383: return this.decision({ type: "DISCARD", event, reason: "COOLDOWN_ACTIVE", priority: command.priority, runtimeState: command.runtimeState, discardedReason: "Event type cooldown is active.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:388: return this.decision({ type: "EXECUTE", event, reason: "EVENT_ACCEPTED", priority: command.priority, runtimeState: command.runtimeState, command, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:400: return this.decision({ type: "INTERRUPT", event, reason: "INTERRUPTED_CURRENT", priority: command.priority, runtimeState: command.runtimeState, command, interruptedEventId: interrupted.event.eventId, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:416: runtimeState: command.runtimeState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:449: return this.decision({ type: "EXECUTE", event: next.event, reason: "EVENT_ACCEPTED", priority: next.command.priority, runtimeState: next.command.runtimeState, command: next.command, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:456: runtimeState: current.command.fallbackState || this.lastStableState || "idle",
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:468: return this.decision({ type: "FALLBACK", event: current.event, reason: "PRESENTATION_COMPLETED", priority: "BACKGROUND", runtimeState: fallbackCommand.runtimeState, command: fallbackCommand, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:64: runtimeState: hints.runtimeState,
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:91: runtimeState: plan.runtimeState,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:79: currentRuntimeState: state.current?.command.runtimeState ?? state.lastStableState,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:80: lastStableRuntimeState: state.lastStableState,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:16: runtimeState: "speaking",
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:115: adapter.apply(command({ commandId: "command-2", eventId: "event-2", runtimeState: "alert" }))
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:175: runtimeState: command.runtimeState,
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.test.tsx:13: runtimeCommand?: { runtimeState: string } | null
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:100: currentRuntimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:101: lastStableRuntimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:140: runtimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:195: runtimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:218: runtimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:254: runtimeState: R2RuntimeState | null
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:267: runtimeState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:345: runtimeState: R2RuntimeState | null
+
+PATTERN=fallbackState:
+MATCH_COUNT=12
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:54: "runtime.speaking_requested": { state: "speaking", title: "R2 falando", summary: "O R2 está apresentando uma mensagem preparada.", rationale: "A fala pode ser interrompida por alertas e erros.", durationMs: 5000, minimumDisplayMs: 800, fallbackState: "listening" },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:55: "runtime.neutral_requested": { state: "neutral", title: "Reset neutro", summary: "O runtime retornará ao estado neutro exato.", rationale: "O reset explícito restaura o baseline aprovado.", durationMs: 1000, minimumDisplayMs: 0, fallbackState: "idle" },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:160: fallbackState: reaction.fallbackState ?? request.context.lastStableRuntimeState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:351: fallbackState: this.lastStableState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:428: fallbackState: command.fallbackState,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:465: fallbackState: "idle",
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:79: fallbackState: hints.fallbackState,
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:105: fallbackState: plan.fallbackState,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:30: fallbackState: "listening",
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:150: fallbackState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:210: fallbackState: R2RuntimeState
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:232: fallbackState: R2RuntimeState
+
+PATTERN=durationMs:
+MATCH_COUNT=48
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:18: durationMs: number
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:24: "lead.received": { state: "working", title: "Novo lead recebido", summary: "Um novo lead entrou na operação.", rationale: "O evento confirmado requer acompanhamento discreto.", durationMs: 4000, minimumDisplayMs: 900 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:25: "lead.created": { state: "working", title: "Lead registrado", summary: "Um lead foi registrado e está pronto para acompanhamento.", rationale: "O cadastro confirmado inicia o acompanhamento comercial.", durationMs: 4000, minimumDisplayMs: 900 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:26: "lead.replied": { state: "listening", title: "Resposta recebida", summary: "O lead respondeu e o contexto pode ser analisado.", rationale: "Uma resposta confirmada merece atenção sem presumir intenção.", durationMs: 5000, minimumDisplayMs: 1200 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:27: "lead.action_required": { state: "awaiting_action", title: "Ação necessária", summary: "Há uma ação pendente para este lead.", rationale: "O evento solicita decisão humana explícita.", durationMs: 7000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:28: "lead.at_risk": { state: "alert", title: "Lead em risco", summary: "Um lead confirmado apresenta risco de perda.", rationale: "O risco registrado justifica atenção elevada.", expression: "BROW_RAISE", expressionIntensity: 0.2, durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:29: "opportunity.stage_changed": { state: "thinking", title: "Etapa atualizada", summary: "A oportunidade avançou ou mudou de etapa.", rationale: "A mudança confirmada requer reavaliação do próximo passo.", durationMs: 4500, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:30: "opportunity.stagnant": { state: "awaiting_action", title: "Oportunidade estagnada", summary: "Uma oportunidade está sem avanço e requer revisão.", rationale: "A estagnação registrada demanda uma próxima ação.", durationMs: 7000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:31: "opportunity.at_risk": { state: "alert", title: "Oportunidade em risco", summary: "Uma oportunidade requer atenção prioritária.", rationale: "O risco confirmado pode comprometer o avanço comercial.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:32: "meeting.scheduled": { state: "listening", title: "Reunião agendada", summary: "Uma reunião foi agendada.", rationale: "O compromisso confirmado deve entrar no radar sem interromper alertas.", durationMs: 4500, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:33: "meeting.upcoming": { state: "alert", title: "Reunião próxima", summary: "Uma reunião confirmada está próxima.", rationale: "A proximidade do compromisso requer atenção controlada.", expression: "BROW_RAISE", expressionIntensity: 0.18, durationMs: 6500, minimumDisplayMs: 1500 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:34: "meeting.completed": { state: "working", title: "Reunião concluída", summary: "A reunião foi concluída e o acompanhamento pode continuar.", rationale: "O fato concluído permite organizar os próximos passos.", durationMs: 4000, minimumDisplayMs: 900 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:35: "meeting.summary_missing": { state: "awaiting_action", title: "Resumo pendente", summary: "Uma reunião concluída ainda não possui resumo.", rationale: "O contexto ausente exige ação antes de novas recomendações.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:36: "proposal.sent": { state: "working", title: "Proposta enviada", summary: "A proposta foi enviada e está em acompanhamento.", rationale: "O envio confirmado não implica aprovação e deve ser monitorado.", durationMs: 4500, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:37: "proposal.accepted": { state: "awaiting_action", title: "Proposta aceita", summary: "A proposta foi aceita; valide os próximos passos autorizados.", rationale: "Aceitação não equivale à conclusão da venda e requer continuidade controlada.", durationMs: 7500, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:38: "sale.documentation_requested": { state: "awaiting_action", title: "Documentação solicitada", summary: "A venda aguarda documentação confirmada.", rationale: "A pendência documental exige acompanhamento humano.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:39: "sale.completed": { state: "celebrating_sale", title: "Venda concluída", summary: "A venda foi concluída.", rationale: "O evento comercial confirmado permite uma celebração breve e controlada.", expression: "SMILE", expressionIntensity: 0.7, durationMs: 6000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:40: "sale.celebration_ready": { state: "celebrating_sale", title: "Venda comemorável", summary: "Uma venda confirmada está pronta para celebração.", rationale: "A confirmação explícita permite uma reação positiva controlada.", expression: "SMILE", expressionIntensity: 0.7, durationMs: 6000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:41: "task.created": { state: "working", title: "Tarefa criada", summary: "Uma nova tarefa entrou na operação.", rationale: "A tarefa confirmada deve ser acompanhada sem interrupção excessiva.", durationMs: 3500, minimumDisplayMs: 800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:42: "task.due_soon": { state: "awaiting_action", title: "Prazo próximo", summary: "Uma tarefa está próxima do vencimento.", rationale: "O prazo exige decisão ou execução do usuário.", durationMs: 6500, minimumDisplayMs: 1500 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:43: "task.overdue": { state: "alert", title: "Tarefa vencida", summary: "Uma tarefa confirmada está vencida.", rationale: "O atraso requer atenção elevada.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:44: "automation.started": { state: "working", title: "Automação iniciada", summary: "Uma automação iniciou seu processamento.", rationale: "O processamento confirmado deve permanecer discreto.", durationMs: 3500, minimumDisplayMs: 700 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:45: "automation.failed": { state: "error_attention", title: "Falha de automação", summary: "Uma automação falhou e requer verificação.", rationale: "A falha confirmada tem precedência sobre estados normais.", expression: "BROW_FROWN", expressionIntensity: 0.45, durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:46: "workflow.blocked": { state: "error_attention", title: "Workflow bloqueado", summary: "Um workflow está bloqueado.", rationale: "O bloqueio confirmado impede continuidade automática.", expression: "BROW_FROWN", expressionIntensity: 0.4, durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:47: "queue.failed": { state: "error_attention", title: "Falha na fila", summary: "A fila operacional apresentou falha.", rationale: "A falha confirmada exige atenção técnica.", expression: "BROW_FROWN", expressionIntensity: 0.45, durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:48: "integration.unavailable": { state: "error_attention", title: "Integração indisponível", summary: "Uma integração necessária está indisponível.", rationale: "A indisponibilidade confirmada pode interromper o fluxo.", expression: "BROW_FROWN", expressionIntensity: 0.4, durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:49: "intelligence.analysis_started": { state: "thinking", title: "Análise em andamento", summary: "O R2 está analisando o contexto disponível.", rationale: "A análise confirmada deve ser representada sem sugerir conclusão.", durationMs: 5000, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:50: "intelligence.recommendation_ready": { state: "awaiting_action", title: "Recomendação pronta", summary: "Uma recomendação estruturada está pronta para revisão.", rationale: "A decisão final permanece com o usuário.", durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:51: "intelligence.next_best_action_ready": { state: "awaiting_action", title: "Próxima ação pronta", summary: "Uma próxima melhor ação está pronta para revisão.", rationale: "A recomendação organiza prioridade sem executar mutações.", durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:52: "intelligence.confirmation_required": { state: "awaiting_action", title: "Confirmação necessária", summary: "A continuidade depende de confirmação explícita.", rationale: "Nenhuma ação externa deve ocorrer sem autorização.", durationMs: 9000, minimumDisplayMs: 2000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:53: "intelligence.provider_error": { state: "error_attention", title: "Falha de inteligência", summary: "O provedor de inteligência falhou; regras locais permanecem disponíveis.", rationale: "A falha deve ser visível e usar fallback determinístico.", durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:54: "runtime.speaking_requested": { state: "speaking", title: "R2 falando", summary: "O R2 está apresentando uma mensagem preparada.", rationale: "A fala pode ser interrompida por alertas e erros.", durationMs: 5000, minimumDisplayMs: 800, fallbackState: "listening" },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:55: "runtime.neutral_requested": { state: "neutral", title: "Reset neutro", summary: "O runtime retornará ao estado neutro exato.", rationale: "O reset explícito restaura o baseline aprovado.", durationMs: 1000, minimumDisplayMs: 0, fallbackState: "idle" },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:156: durationMs: reaction.durationMs,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:325: startedAt: NOW, completedAt: null, durationMs: null, interruptedBy: null,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:193: durationMs: null,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:343: durationMs: 6000,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:419: durationMs: command.durationMs,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:457: durationMs: 0,
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:70: durationMs: hints.durationMs,
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:97: durationMs: plan.durationMs,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:22: durationMs: 1000,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:178: durationMs: completedAt ? Math.max(0, completedAt.getTime() - startedAt.getTime()) : null,
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:146: durationMs: number
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:201: durationMs: number
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:224: durationMs: number
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:270: durationMs: number | null
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:348: durationMs: number | null
+
+PATTERN=priority:
+MATCH_COUNT=30
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:160: priority: R2Priority
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:177: priority: input.priority,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:189: priority: result.priority,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:269: priority: item.command.priority,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:286: priority: item.command.priority,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:302: return this.decision({ type: "REJECT", event, reason: "RUNTIME_FAILURE", priority: "CRITICAL", runtimeState: null, discardedReason: "Orchestrator disposed.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:305: return this.decision({ type: "REJECT", event, reason: "NO_REACTION_REQUIRED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Invalid canonical event.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:308: return this.decision({ type: "REJECT", event, reason: "WORKSPACE_MISMATCH", priority: "CRITICAL", runtimeState: null, discardedReason: "Workspace isolation rejected the event.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:311: return this.decision({ type: "REJECT", event, reason: "USER_MISMATCH", priority: "CRITICAL", runtimeState: null, discardedReason: "User context isolation rejected the event.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:314: return this.decision({ type: "DISCARD", event, reason: "EVENT_DUPLICATE", priority: "BACKGROUND", runtimeState: null, discardedReason: "eventId was already processed.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:319: return this.decision({ type: "DISCARD", event, reason: "EVENT_EXPIRED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Event expired before presentation.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:323: return this.decision({ type: "DISCARD", event, reason: "DEBOUNCED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Equivalent correlated event arrived inside debounce window.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:346: priority: "HIGH",
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:372: return this.decision({ type: "FAIL", event, reason: "INTELLIGENCE_FAILURE", priority: command.priority, runtimeState: command.runtimeState, command, fallbackUsed: true, errorCode: "INTELLIGENCE_FAILED", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:378: return this.decision({ type: "IGNORE", event, reason: intelligence.result === "REQUEST_CONTEXT" ? "INSUFFICIENT_CONTEXT" : "NO_REACTION_REQUIRED", priority: "BACKGROUND", runtimeState: null, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:383: return this.decision({ type: "DISCARD", event, reason: "COOLDOWN_ACTIVE", priority: command.priority, runtimeState: command.runtimeState, discardedReason: "Event type cooldown is active.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:388: return this.decision({ type: "EXECUTE", event, reason: "EVENT_ACCEPTED", priority: command.priority, runtimeState: command.runtimeState, command, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:400: return this.decision({ type: "INTERRUPT", event, reason: "INTERRUPTED_CURRENT", priority: command.priority, runtimeState: command.runtimeState, command, interruptedEventId: interrupted.event.eventId, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:423: priority: command.priority,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:449: return this.decision({ type: "EXECUTE", event: next.event, reason: "EVENT_ACCEPTED", priority: next.command.priority, runtimeState: next.command.runtimeState, command: next.command, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:460: priority: "BACKGROUND",
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:468: return this.decision({ type: "FALLBACK", event: current.event, reason: "PRESENTATION_COMPLETED", priority: "BACKGROUND", runtimeState: fallbackCommand.runtimeState, command: fallbackCommand, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:74: priority: PRIORITY_BY_URGENCY[intelligence.urgency],
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:100: priority: plan.priority,
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:110: export function priorityRank(priority: R2Priority) {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:25: priority: "NORMAL",
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:205: priority: R2Priority
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:227: priority: R2Priority
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:253: priority: R2Priority
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:344: priority: R2Priority
+
+PATTERN=lead
+MATCH_COUNT=26
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:28: LEAD_CREATED: "lead.created",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:29: LEAD_REPLIED: "lead.replied",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:47: LEAD_CREATED: "lead",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:48: LEAD_REPLIED: "lead",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:66: LEAD_CREATED: "normal",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:67: LEAD_REPLIED: "normal",
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:24: "lead.received": { state: "working", title: "Novo lead recebido", summary: "Um novo lead entrou na operação.", rationale: "O evento confirmado requer acompanhamento discreto.", durationMs: 4000, minimumDisplayMs: 900 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:25: "lead.created": { state: "working", title: "Lead registrado", summary: "Um lead foi registrado e está pronto para acompanhamento.", rationale: "O cadastro confirmado inicia o acompanhamento comercial.", durationMs: 4000, minimumDisplayMs: 900 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:26: "lead.replied": { state: "listening", title: "Resposta recebida", summary: "O lead respondeu e o contexto pode ser analisado.", rationale: "Uma resposta confirmada merece atenção sem presumir intenção.", durationMs: 5000, minimumDisplayMs: 1200 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:27: "lead.action_required": { state: "awaiting_action", title: "Ação necessária", summary: "Há uma ação pendente para este lead.", rationale: "O evento solicita decisão humana explícita.", durationMs: 7000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:28: "lead.at_risk": { state: "alert", title: "Lead em risco", summary: "Um lead confirmado apresenta risco de perda.", rationale: "O risco registrado justifica atenção elevada.", expression: "BROW_RAISE", expressionIntensity: 0.2, durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:80: LEAD_CREATED: "lead.created", LEAD_REPLIED: "lead.replied",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:94: expect(() => normalizeCommercialEvent({ ...commercial("LEAD_CREATED"), workspaceId: " " })).toThrow(/workspaceId/)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:95: const canonical = normalizeCommercialEvent(commercial("LEAD_CREATED"))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:124: ["lead.created", "normal", "working"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:187: const source = event("lead.created", "lead-1")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:214: event("lead.created", "progress-working"),
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:237: const source = event("lead.created", "user-isolation", "normal", { userId: "user-a" })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:271: const base = event("lead.created", "gate-1")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:282: const debounced = event("lead.created", "gate-2", "normal", { correlationId: base.correlationId })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:286: const cooldown = event("lead.created", "gate-3", "normal", { correlationId: "other" })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:292: const active = event("lead.created", "active")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:308: const source = event("lead.created", "failure")
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:36: <button type="button" onClick={() => void dispatch(event("lead.created", "provider-working"))}>working</button>
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:9: "lead.received", "lead.created", "lead.qualified", "lead.disqualified", "lead.no_response", "lead.replied", "lead.converted", "lead.action_required", "lead.at_risk",
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:32: | "lead"
+
+PATTERN=meeting
+MATCH_COUNT=18
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:30: MEETING_SCHEDULED: "meeting.scheduled",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:31: MEETING_COMPLETED: "meeting.completed",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:49: MEETING_SCHEDULED: "meeting",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:50: MEETING_COMPLETED: "meeting",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:68: MEETING_SCHEDULED: "attention",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:69: MEETING_COMPLETED: "normal",
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:32: "meeting.scheduled": { state: "listening", title: "Reunião agendada", summary: "Uma reunião foi agendada.", rationale: "O compromisso confirmado deve entrar no radar sem interromper alertas.", durationMs: 4500, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:33: "meeting.upcoming": { state: "alert", title: "Reunião próxima", summary: "Uma reunião confirmada está próxima.", rationale: "A proximidade do compromisso requer atenção controlada.", expression: "BROW_RAISE", expressionIntensity: 0.18, durationMs: 6500, minimumDisplayMs: 1500 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:34: "meeting.completed": { state: "working", title: "Reunião concluída", summary: "A reunião foi concluída e o acompanhamento pode continuar.", rationale: "O fato concluído permite organizar os próximos passos.", durationMs: 4000, minimumDisplayMs: 900 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:35: "meeting.summary_missing": { state: "awaiting_action", title: "Resumo pendente", summary: "Uma reunião concluída ainda não possui resumo.", rationale: "O contexto ausente exige ação antes de novas recomendações.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:81: MEETING_SCHEDULED: "meeting.scheduled", MEETING_COMPLETED: "meeting.completed",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:127: ["meeting.upcoming", "high", "alert"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:197: const meeting = event("meeting.upcoming", "meeting-1", "high")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:198: expect(await first.orchestrator.dispatch(meeting, context(meeting))).toMatchObject({
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:217: event("meeting.upcoming", "progress-alert", "high"),
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:256: const alert = event("meeting.upcoming", "alert-1", "high")
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:11: "meeting.scheduled", "meeting.upcoming", "meeting.started", "meeting.completed", "meeting.cancelled", "meeting.summary_missing", "meeting.follow_up_pending",
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:35: | "meeting"
+
+PATTERN=proposal
+MATCH_COUNT=12
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:32: PROPOSAL_SENT: "proposal.sent",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:33: PROPOSAL_ACCEPTED: "proposal.accepted",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:51: PROPOSAL_SENT: "proposal",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:52: PROPOSAL_ACCEPTED: "proposal",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:70: PROPOSAL_SENT: "normal",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:71: PROPOSAL_ACCEPTED: "attention",
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:36: "proposal.sent": { state: "working", title: "Proposta enviada", summary: "A proposta foi enviada e está em acompanhamento.", rationale: "O envio confirmado não implica aprovação e deve ser monitorado.", durationMs: 4500, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:37: "proposal.accepted": { state: "awaiting_action", title: "Proposta aceita", summary: "A proposta foi aceita; valide os próximos passos autorizados.", rationale: "Aceitação não equivale à conclusão da venda e requer continuidade controlada.", durationMs: 7500, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:82: PROPOSAL_SENT: "proposal.sent", PROPOSAL_ACCEPTED: "proposal.accepted",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:296: const overflow = event("proposal.sent", "queued-2")
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:12: "proposal.prepared", "proposal.review_ready", "proposal.sent", "proposal.viewed", "proposal.accepted", "proposal.rejected", "proposal.expired",
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:36: | "proposal"
+
+PATTERN=sale
+MATCH_COUNT=21
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:34: DOCUMENT_REQUESTED: "sale.documentation_requested",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:35: DOCUMENT_RECEIVED: "sale.documentation_received",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:36: PAYMENT_CONFIRMED: "sale.payment_confirmed",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:37: SALE_COMPLETED: "sale.completed",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:53: DOCUMENT_REQUESTED: "sale",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:54: DOCUMENT_RECEIVED: "sale",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:55: PAYMENT_CONFIRMED: "sale",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:56: SALE_COMPLETED: "sale",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:75: SALE_COMPLETED: "celebration",
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:38: "sale.documentation_requested": { state: "awaiting_action", title: "Documentação solicitada", summary: "A venda aguarda documentação confirmada.", rationale: "A pendência documental exige acompanhamento humano.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:39: "sale.completed": { state: "celebrating_sale", title: "Venda concluída", summary: "A venda foi concluída.", rationale: "O evento comercial confirmado permite uma celebração breve e controlada.", expression: "SMILE", expressionIntensity: 0.7, durationMs: 6000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:40: "sale.celebration_ready": { state: "celebrating_sale", title: "Venda comemorável", summary: "Uma venda confirmada está pronta para celebração.", rationale: "A confirmação explícita permite uma reação positiva controlada.", expression: "SMILE", expressionIntensity: 0.7, durationMs: 6000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:83: DOCUMENT_REQUESTED: "sale.documentation_requested", DOCUMENT_RECEIVED: "sale.documentation_received",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:84: PAYMENT_CONFIRMED: "sale.payment_confirmed", SALE_COMPLETED: "sale.completed",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:128: ["sale.completed", "celebration", "celebrating_sale"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:195: const sale = event("sale.completed", "sale-1", "celebration")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:196: expect((await first.orchestrator.dispatch(sale, context(sale))).runtimeState).toBe("celebrating_sale")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:199: decision: "INTERRUPT", interruptedEventId: "sale-1", runtimeState: "alert",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:249: const celebration = event("sale.completed", "late-celebration", "celebration")
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:13: "sale.started", "sale.documentation_requested", "sale.documentation_received", "sale.payment_confirmed", "sale.awaiting_documentation", "sale.completed", "sale.cancelled", "sale.pending", "sale.celebration_ready",
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:37: | "sale"
+
+PATTERN=automation
+MATCH_COUNT=16
+C:\Projetos\consorcio-os\web\application\r2\index.ts:2: normalizeAutomationTrigger,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:6: AutomationTrigger,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:7: } from "@/engine/decision/automation/types"
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:171: export function normalizeAutomationTrigger(
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:172: trigger: AutomationTrigger,
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:188: entityType: options.entityType ?? "automation",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:192: source: "automation_trigger",
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:195: schema: "gorillaos.automation-trigger",
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:44: "automation.started": { state: "working", title: "Automação iniciada", summary: "Uma automação iniciou seu processamento.", rationale: "O processamento confirmado deve permanecer discreto.", durationMs: 3500, minimumDisplayMs: 700 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:45: "automation.failed": { state: "error_attention", title: "Falha de automação", summary: "Uma automação falhou e requer verificação.", rationale: "A falha confirmada tem precedência sobre estados normais.", expression: "BROW_FROWN", expressionIntensity: 0.45, durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:129: ["automation.failed", "critical", "error_attention"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:205: const failure = event("automation.failed", "failure-1", "critical")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:246: const critical = event("automation.failed", "critical-active", "critical")
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:14: "task.created", "task.due_soon", "task.overdue", "task.completed", "automation.started", "automation.completed", "automation.failed", "workflow.blocked", "queue.failed", "integration.unavailable",
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:24: | "automation_trigger"
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:39: | "automation"
+
+PATTERN=decision
+MATCH_COUNT=84
+C:\Projetos\consorcio-os\web\application\r2\normalize-r2-event.ts:7: } from "@/engine/decision/automation/types"
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:188: const decision = await test.orchestrator.dispatch(source, context(source))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:189: expect(decision).toMatchObject({ decision: "EXECUTE", runtimeState: "working", workspaceId: "workspace-a" })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:190: expect(decision.command?.workspaceId).toBe("workspace-a")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:199: decision: "INTERRUPT", interruptedEventId: "sale-1", runtimeState: "alert",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:207: decision: "INTERRUPT", runtimeState: "error_attention",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:222: const decision = await test.orchestrator.dispatch(source, context(source))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:223: expect(decision.runtimeState).toBe(expected[index])
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:224: if (decision.runtimeState === "awaiting_action") {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:225: expect(decision.command?.requiresConfirmation).toBe(true)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:228: test.add(decision.command?.durationMs ?? 0)
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:240: decision: "REJECT", reason: "USER_MISMATCH",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:250: expect((await test.orchestrator.dispatch(celebration, context(celebration))).decision).toBe("QUEUE")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:259: expect((await test.orchestrator.dispatch(task, context(task))).decision).toBe("QUEUE")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:262: expect(queued).toMatchObject({ decision: "EXECUTE", runtimeState: "working" })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:265: decision: "FALLBACK", runtimeState: "idle",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:295: expect((await test.orchestrator.dispatch(firstQueued, context(firstQueued))).decision).toBe("QUEUE")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:298: decision: "DISCARD", reason: "QUEUE_FULL",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:309: const decision = await test.orchestrator.dispatch(source, context(source))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:310: expect(decision).toMatchObject({ decision: "FAIL", reason: "INTELLIGENCE_FAILURE", runtimeState: "error_attention" })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:318: const decision = await test.orchestrator.dispatch(source, context(source))
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:319: const command = decision.command as R2RuntimeCommand
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:3: R2DecisionReason,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:12: R2OrchestrationDecision,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:13: R2OrchestrationDecisionType,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:127: ): Promise<R2OrchestrationDecision> {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:155: private decision(
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:157: type: R2OrchestrationDecisionType
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:159: reason: R2DecisionReason
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:169: ): R2OrchestrationDecision {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:170: const result: R2OrchestrationDecision = {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:171: decisionId: this.nextId("r2-decision"),
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:172: decision: input.type,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:187: decision: result.decision,
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:196: fallbackUsed: input.fallbackUsed ?? result.decision === "FALLBACK",
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:197: errorCode: input.errorCode ?? (result.decision === "FAIL" ? result.reason : null),
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:254: ): R2OrchestrationDecision {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:265: return this.decision({
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:282: return this.decision({
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:296: ): Promise<R2OrchestrationDecision> {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:302: return this.decision({ type: "REJECT", event, reason: "RUNTIME_FAILURE", priority: "CRITICAL", runtimeState: null, discardedReason: "Orchestrator disposed.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:305: return this.decision({ type: "REJECT", event, reason: "NO_REACTION_REQUIRED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Invalid canonical event.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:308: return this.decision({ type: "REJECT", event, reason: "WORKSPACE_MISMATCH", priority: "CRITICAL", runtimeState: null, discardedReason: "Workspace isolation rejected the event.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:311: return this.decision({ type: "REJECT", event, reason: "USER_MISMATCH", priority: "CRITICAL", runtimeState: null, discardedReason: "User context isolation rejected the event.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:314: return this.decision({ type: "DISCARD", event, reason: "EVENT_DUPLICATE", priority: "BACKGROUND", runtimeState: null, discardedReason: "eventId was already processed.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:319: return this.decision({ type: "DISCARD", event, reason: "EVENT_EXPIRED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Event expired before presentation.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:323: return this.decision({ type: "DISCARD", event, reason: "DEBOUNCED", priority: "BACKGROUND", runtimeState: null, discardedReason: "Equivalent correlated event arrived inside debounce window.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:372: return this.decision({ type: "FAIL", event, reason: "INTELLIGENCE_FAILURE", priority: command.priority, runtimeState: command.runtimeState, command, fallbackUsed: true, errorCode: "INTELLIGENCE_FAILED", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:378: return this.decision({ type: "IGNORE", event, reason: intelligence.result === "REQUEST_CONTEXT" ? "INSUFFICIENT_CONTEXT" : "NO_REACTION_REQUIRED", priority: "BACKGROUND", runtimeState: null, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:383: return this.decision({ type: "DISCARD", event, reason: "COOLDOWN_ACTIVE", priority: command.priority, runtimeState: command.runtimeState, discardedReason: "Event type cooldown is active.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:388: return this.decision({ type: "EXECUTE", event, reason: "EVENT_ACCEPTED", priority: command.priority, runtimeState: command.runtimeState, command, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:400: return this.decision({ type: "INTERRUPT", event, reason: "INTERRUPTED_CURRENT", priority: command.priority, runtimeState: command.runtimeState, command, interruptedEventId: interrupted.event.eventId, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:438: advance(now = this.clock()): R2OrchestrationDecision | null {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:449: return this.decision({ type: "EXECUTE", event: next.event, reason: "EVENT_ACCEPTED", priority: next.command.priority, runtimeState: next.command.runtimeState, command: next.command, now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:468: return this.decision({ type: "FALLBACK", event: current.event, reason: "PRESENTATION_COMPLETED", priority: "BACKGROUND", runtimeState: fallbackCommand.runtimeState, command: fallbackCommand, now })
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:31: const { command, decision, dispatch } = useR2Orchestration()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:35: <output data-testid="decision">{decision?.decision ?? "none"}</output>
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:52: await waitFor(() => expect(screen.getByTestId("decision").textContent).toBe("QUEUE"))
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:22: R2OrchestrationDecision,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:29: decision: R2OrchestrationDecision | null
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:51: decision: null,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:82: const decision = await this.orchestrator.dispatch(event, context)
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:83: this.publish(decision)
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:84: return decision
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:94: private publish(decision: R2OrchestrationDecision) {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:98: decision.decision === "EXECUTE" ||
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:99: decision.decision === "INTERRUPT" ||
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:100: decision.decision === "FALLBACK" ||
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:101: decision.decision === "FAIL"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:103: command: presentsCommand && decision.command
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:104: ? decision.command
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:106: decision,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:110: if (decision.command && decision.command.durationMs > 0 && decision.decision !== "QUEUE") {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:115: }, decision.command.durationMs)
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:114: | "explain_decision"
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:158: reasons: readonly R2DecisionReason[]
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:171: export type R2DecisionReason =
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:236: export type R2OrchestrationDecisionType =
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:246: export type R2OrchestrationDecision = Readonly<{
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:247: decisionId: string
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:248: decision: R2OrchestrationDecisionType
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:252: reason: R2DecisionReason
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:342: decision: R2OrchestrationDecisionType
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:343: reason: R2DecisionReason
+
+PATTERN=alert
+MATCH_COUNT=22
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:28: "lead.at_risk": { state: "alert", title: "Lead em risco", summary: "Um lead confirmado apresenta risco de perda.", rationale: "O risco registrado justifica atenção elevada.", expression: "BROW_RAISE", expressionIntensity: 0.2, durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:31: "opportunity.at_risk": { state: "alert", title: "Oportunidade em risco", summary: "Uma oportunidade requer atenção prioritária.", rationale: "O risco confirmado pode comprometer o avanço comercial.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:32: "meeting.scheduled": { state: "listening", title: "Reunião agendada", summary: "Uma reunião foi agendada.", rationale: "O compromisso confirmado deve entrar no radar sem interromper alertas.", durationMs: 4500, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:33: "meeting.upcoming": { state: "alert", title: "Reunião próxima", summary: "Uma reunião confirmada está próxima.", rationale: "A proximidade do compromisso requer atenção controlada.", expression: "BROW_RAISE", expressionIntensity: 0.18, durationMs: 6500, minimumDisplayMs: 1500 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:43: "task.overdue": { state: "alert", title: "Tarefa vencida", summary: "Uma tarefa confirmada está vencida.", rationale: "O atraso requer atenção elevada.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:54: "runtime.speaking_requested": { state: "speaking", title: "R2 falando", summary: "O R2 está apresentando uma mensagem preparada.", rationale: "A fala pode ser interrompida por alertas e erros.", durationMs: 5000, minimumDisplayMs: 800, fallbackState: "listening" },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:72: if (urgency === "high") return "ALERT_OR_CRITICAL"
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:128: ? "alert"
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:127: ["meeting.upcoming", "high", "alert"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:193: it("interrupts celebration with alert and speaking with critical error", async () => {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:199: decision: "INTERRUPT", interruptedEventId: "sale-1", runtimeState: "alert",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:211: it("executes the required working to thinking to awaiting_action to alert progression", async () => {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:217: event("meeting.upcoming", "progress-alert", "high"),
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:219: const expected = ["working", "thinking", "awaiting_action", "alert"]
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:254: it("falls back after alert completion and executes queued work by priority", async () => {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:256: const alert = event("meeting.upcoming", "alert-1", "high")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:257: await test.orchestrator.dispatch(alert, context(alert, "listening"))
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:246: if (current.plan.interruptibility === "ALERT_OR_CRITICAL") return incomingRank >= 4
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:422: interruptibility: "ALERT_OR_CRITICAL",
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:115: adapter.apply(command({ commandId: "command-2", eventId: "event-2", runtimeState: "alert" }))
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:15: status?: "online" | "alert" | "thinking"
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:68: | "ALERT_OR_CRITICAL"
+
+PATTERN=celebrating_sale
+MATCH_COUNT=4
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:39: "sale.completed": { state: "celebrating_sale", title: "Venda concluída", summary: "A venda foi concluída.", rationale: "O evento comercial confirmado permite uma celebração breve e controlada.", expression: "SMILE", expressionIntensity: 0.7, durationMs: 6000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:40: "sale.celebration_ready": { state: "celebrating_sale", title: "Venda comemorável", summary: "Uma venda confirmada está pronta para celebração.", rationale: "A confirmação explícita permite uma reação positiva controlada.", expression: "SMILE", expressionIntensity: 0.7, durationMs: 6000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:128: ["sale.completed", "celebration", "celebrating_sale"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:196: expect((await first.orchestrator.dispatch(sale, context(sale))).runtimeState).toBe("celebrating_sale")
+
+PATTERN=error_attention
+MATCH_COUNT=10
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:45: "automation.failed": { state: "error_attention", title: "Falha de automação", summary: "Uma automação falhou e requer verificação.", rationale: "A falha confirmada tem precedência sobre estados normais.", expression: "BROW_FROWN", expressionIntensity: 0.45, durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:46: "workflow.blocked": { state: "error_attention", title: "Workflow bloqueado", summary: "Um workflow está bloqueado.", rationale: "O bloqueio confirmado impede continuidade automática.", expression: "BROW_FROWN", expressionIntensity: 0.4, durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:47: "queue.failed": { state: "error_attention", title: "Falha na fila", summary: "A fila operacional apresentou falha.", rationale: "A falha confirmada exige atenção técnica.", expression: "BROW_FROWN", expressionIntensity: 0.45, durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:48: "integration.unavailable": { state: "error_attention", title: "Integração indisponível", summary: "Uma integração necessária está indisponível.", rationale: "A indisponibilidade confirmada pode interromper o fluxo.", expression: "BROW_FROWN", expressionIntensity: 0.4, durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:53: "intelligence.provider_error": { state: "error_attention", title: "Falha de inteligência", summary: "O provedor de inteligência falhou; regras locais permanecem disponíveis.", rationale: "A falha deve ser visível e usar fallback determinístico.", durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:158: transitionMs: state === "error_attention" ? 120 : 250,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:129: ["automation.failed", "critical", "error_attention"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:207: decision: "INTERRUPT", runtimeState: "error_attention",
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:310: expect(decision).toMatchObject({ decision: "FAIL", reason: "INTELLIGENCE_FAILURE", runtimeState: "error_attention" })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:340: runtimeState: "error_attention",
+
+PATTERN=awaiting_action
+MATCH_COUNT=16
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:27: "lead.action_required": { state: "awaiting_action", title: "Ação necessária", summary: "Há uma ação pendente para este lead.", rationale: "O evento solicita decisão humana explícita.", durationMs: 7000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:30: "opportunity.stagnant": { state: "awaiting_action", title: "Oportunidade estagnada", summary: "Uma oportunidade está sem avanço e requer revisão.", rationale: "A estagnação registrada demanda uma próxima ação.", durationMs: 7000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:35: "meeting.summary_missing": { state: "awaiting_action", title: "Resumo pendente", summary: "Uma reunião concluída ainda não possui resumo.", rationale: "O contexto ausente exige ação antes de novas recomendações.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:37: "proposal.accepted": { state: "awaiting_action", title: "Proposta aceita", summary: "A proposta foi aceita; valide os próximos passos autorizados.", rationale: "Aceitação não equivale à conclusão da venda e requer continuidade controlada.", durationMs: 7500, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:38: "sale.documentation_requested": { state: "awaiting_action", title: "Documentação solicitada", summary: "A venda aguarda documentação confirmada.", rationale: "A pendência documental exige acompanhamento humano.", durationMs: 7000, minimumDisplayMs: 1600 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:42: "task.due_soon": { state: "awaiting_action", title: "Prazo próximo", summary: "Uma tarefa está próxima do vencimento.", rationale: "O prazo exige decisão ou execução do usuário.", durationMs: 6500, minimumDisplayMs: 1500 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:50: "intelligence.recommendation_ready": { state: "awaiting_action", title: "Recomendação pronta", summary: "Uma recomendação estruturada está pronta para revisão.", rationale: "A decisão final permanece com o usuário.", durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:51: "intelligence.next_best_action_ready": { state: "awaiting_action", title: "Próxima ação pronta", summary: "Uma próxima melhor ação está pronta para revisão.", rationale: "A recomendação organiza prioridade sem executar mutações.", durationMs: 8000, minimumDisplayMs: 1800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:52: "intelligence.confirmation_required": { state: "awaiting_action", title: "Confirmação necessária", summary: "A continuidade depende de confirmação explícita.", rationale: "Nenhuma ação externa deve ocorrer sem autorização.", durationMs: 9000, minimumDisplayMs: 2000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:83: const requiresConfirmation = reaction.state === "awaiting_action"
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:145: reasons: reaction.state === "awaiting_action"
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:126: ["intelligence.recommendation_ready", "attention", "awaiting_action"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:211: it("executes the required working to thinking to awaiting_action to alert progression", async () => {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:219: const expected = ["working", "thinking", "awaiting_action", "alert"]
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:224: if (decision.runtimeState === "awaiting_action") {
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.test.tsx:46: expect(screen.getByTestId("r2-runtime-bridge").getAttribute("data-state")).toBe("awaiting_action")
+
+PATTERN=thinking
+MATCH_COUNT=9
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:29: "opportunity.stage_changed": { state: "thinking", title: "Etapa atualizada", summary: "A oportunidade avançou ou mudou de etapa.", rationale: "A mudança confirmada requer reavaliação do próximo passo.", durationMs: 4500, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:49: "intelligence.analysis_started": { state: "thinking", title: "Análise em andamento", summary: "O R2 está analisando o contexto disponível.", rationale: "A análise confirmada deve ser representada sem sugerir conclusão.", durationMs: 5000, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:155: eyeTarget: state === "thinking" ? { yaw: 0.3, pitch: 0.25 } : undefined,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:125: ["opportunity.stage_changed", "normal", "thinking"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:211: it("executes the required working to thinking to awaiting_action to alert progression", async () => {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:215: event("opportunity.stage_changed", "progress-thinking"),
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:219: const expected = ["working", "thinking", "awaiting_action", "alert"]
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:49: "thinking",
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:15: status?: "online" | "alert" | "thinking"
+
+PATTERN=listening
+MATCH_COUNT=9
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:26: "lead.replied": { state: "listening", title: "Resposta recebida", summary: "O lead respondeu e o contexto pode ser analisado.", rationale: "Uma resposta confirmada merece atenção sem presumir intenção.", durationMs: 5000, minimumDisplayMs: 1200 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:32: "meeting.scheduled": { state: "listening", title: "Reunião agendada", summary: "Uma reunião foi agendada.", rationale: "O compromisso confirmado deve entrar no radar sem interromper alertas.", durationMs: 4500, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:54: "runtime.speaking_requested": { state: "speaking", title: "R2 falando", summary: "O R2 está apresentando uma mensagem preparada.", rationale: "A fala pode ser interrompida por alertas e erros.", durationMs: 5000, minimumDisplayMs: 800, fallbackState: "listening" },
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:257: await test.orchestrator.dispatch(alert, context(alert, "listening"))
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:48: "listening",
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:30: fallbackState: "listening",
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:98: expect(controller.setState).toHaveBeenLastCalledWith("listening")
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:139: effectiveState: "listening",
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:152: expect(controller.setState).toHaveBeenLastCalledWith("listening")
+
+PATTERN=working
+MATCH_COUNT=18
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:24: "lead.received": { state: "working", title: "Novo lead recebido", summary: "Um novo lead entrou na operação.", rationale: "O evento confirmado requer acompanhamento discreto.", durationMs: 4000, minimumDisplayMs: 900 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:25: "lead.created": { state: "working", title: "Lead registrado", summary: "Um lead foi registrado e está pronto para acompanhamento.", rationale: "O cadastro confirmado inicia o acompanhamento comercial.", durationMs: 4000, minimumDisplayMs: 900 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:34: "meeting.completed": { state: "working", title: "Reunião concluída", summary: "A reunião foi concluída e o acompanhamento pode continuar.", rationale: "O fato concluído permite organizar os próximos passos.", durationMs: 4000, minimumDisplayMs: 900 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:36: "proposal.sent": { state: "working", title: "Proposta enviada", summary: "A proposta foi enviada e está em acompanhamento.", rationale: "O envio confirmado não implica aprovação e deve ser monitorado.", durationMs: 4500, minimumDisplayMs: 1000 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:41: "task.created": { state: "working", title: "Tarefa criada", summary: "Uma nova tarefa entrou na operação.", rationale: "A tarefa confirmada deve ser acompanhada sem interrupção excessiva.", durationMs: 3500, minimumDisplayMs: 800 },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:44: "automation.started": { state: "working", title: "Automação iniciada", summary: "Uma automação iniciou seu processamento.", rationale: "O processamento confirmado deve permanecer discreto.", durationMs: 3500, minimumDisplayMs: 700 },
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:124: ["lead.created", "normal", "working"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:185: it("executes idle to working and preserves exact command workspace", async () => {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:189: expect(decision).toMatchObject({ decision: "EXECUTE", runtimeState: "working", workspaceId: "workspace-a" })
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:211: it("executes the required working to thinking to awaiting_action to alert progression", async () => {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:214: event("lead.created", "progress-working"),
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:219: const expected = ["working", "thinking", "awaiting_action", "alert"]
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:262: expect(queued).toMatchObject({ decision: "EXECUTE", runtimeState: "working" })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:47: "working",
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:36: <button type="button" onClick={() => void dispatch(event("lead.created", "provider-working"))}>working</button>
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:49: fireEvent.click(screen.getByRole("button", { name: "working" }))
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:50: await waitFor(() => expect(screen.getByTestId("command-state").textContent).toBe("working"))
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.test.tsx:53: expect(screen.getByTestId("command-state").textContent).toBe("working")
+
+PATTERN=speaking
+MATCH_COUNT=24
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:54: "runtime.speaking_requested": { state: "speaking", title: "R2 falando", summary: "O R2 está apresentando uma mensagem preparada.", rationale: "A fala pode ser interrompida por alertas e erros.", durationMs: 5000, minimumDisplayMs: 800, fallbackState: "listening" },
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:130: const viseme = request.event.eventType === "runtime.speaking_requested"
+C:\Projetos\consorcio-os\web\application\r2\r2-deterministic-intelligence.ts:154: speakingIntensity: state === "speaking" ? 0.75 : undefined,
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:130: ["runtime.speaking_requested", "normal", "speaking"],
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:193: it("interrupts celebration with alert and speaking with critical error", async () => {
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:203: const speaking = event("runtime.speaking_requested", "speech-1")
+C:\Projetos\consorcio-os\web\application\r2\r2-intelligence-orchestration.test.ts:204: await second.orchestrator.dispatch(speaking, context(speaking))
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:54: finiteRange(hints.speakingIntensity, 0, 1, "speakingIntensity")
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:68: speakingIntensity: hints.speakingIntensity,
+C:\Projetos\consorcio-os\web\application\r2\r2-presentation-planner.ts:95: speakingIntensity: plan.speakingIntensity,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:16: runtimeState: "speaking",
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:20: speakingIntensity: 0.75,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:68: setSpeakingIntensity: vi.fn(),
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:91: expect(controller.setState).toHaveBeenCalledWith("speaking")
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:95: expect(controller.setSpeakingIntensity).toHaveBeenCalledWith(0.75)
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts:136: if (state === "speaking") throw new Error("mixer rejected state")
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:65: !finiteUnit(command.speakingIntensity) ||
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:78: this.controller.setViseme(command.viseme, command.speakingIntensity ?? 1)
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:81: if (command.speakingIntensity !== undefined) {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:82: this.controller.setSpeakingIntensity(command.speakingIntensity)
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:16: "runtime.speaking_requested", "runtime.neutral_requested",
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:144: speakingIntensity?: number
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:199: speakingIntensity?: number
+C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts:222: speakingIntensity?: number
+
+============================================================
+ MAPPING COVERAGE METRICS
+============================================================
+TARGET_FILE_COUNT=12
+EXISTING_TARGET_FILE_COUNT=12
+APPLICATION_R2_FILE_COUNT=6
+STATE_MAPPING_MATCH_COUNT=67
+EVENT_REFERENCE_MATCH_COUNT=134
+STAGED_FILE_COUNT=0
+
+============================================================
+ FINAL VERDICT
+============================================================
+VEREDITO=APROVADO_PARA_DESENHO_DO_MAPA
+NEXT_STEP=DEFINIR_LACUNAS_E_IMPLEMENTAR_EVENTO_PARA_COMANDO

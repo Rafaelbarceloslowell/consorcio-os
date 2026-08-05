@@ -1,4 +1,4 @@
-﻿# Sistema operacional
+# Sistema operacional
 .DS_Store
 Thumbs.db
 desktop.ini
@@ -52,3 +52,7 @@ pnpm-debug.log*
 **/.vercel/
 
 **/.agents/
+
+# Blender intermediates acima do limite do GitHub
+/web/blender/r2-rig/r2-rig-v23-surface-deform-proxy.blend
+/web/blender/r2-rig/r2-rig-v24-celebration-validation.blend

@@ -2,19 +2,28 @@ import type {
     CommercialEventType,
     PrismaClient,
   } from "@/lib/generated/prisma/client"
-  
+
   import type {
     CommercialEvent,
   } from "@/types/domain"
-  
+
+  import type {
+    R2CommercialEventCursor,
+  } from "@/types/r2-persistent-commercial-events"
+
+  export type FindCommercialEventsAfterCursorInput = Readonly<{
+    cursor: R2CommercialEventCursor
+    limit: number
+  }>
+
   import {
     prisma,
   } from "@/infrastructure/prisma/client"
-  
+
   import {
     CommercialEventMapper,
   } from "@/infrastructure/prisma/mappers/commercial-event-mapper"
-  
+
   export class PrismaCommercialEventRepository {
     constructor(
       private readonly workspaceId: string,
@@ -26,7 +35,7 @@ import type {
         )
       }
     }
-  
+
     async findAll(): Promise<CommercialEvent[]> {
       const events =
         await this.database.commercialEvent.findMany({
@@ -42,21 +51,82 @@ import type {
             },
           ],
         })
-  
+
       return events.map((event) =>
         CommercialEventMapper.toDomain(
           event,
         ),
       )
     }
-  
+
+
+    async findAfterCursor({
+      cursor,
+      limit,
+    }: FindCommercialEventsAfterCursorInput): Promise<CommercialEvent[]> {
+      const createdAt =
+        new Date(
+          cursor.createdAt,
+        )
+
+      if (!Number.isFinite(createdAt.getTime())) {
+        throw new Error(
+          "O cursor de eventos comerciais precisa de uma data valida.",
+        )
+      }
+
+      const normalizedLimit =
+        Math.min(
+          100,
+          Math.max(
+            1,
+            Math.floor(limit),
+          ),
+        )
+
+      const events =
+        await this.database.commercialEvent.findMany({
+          where: {
+            workspaceId: this.workspaceId,
+            OR: [
+              {
+                createdAt: {
+                  gt: createdAt,
+                },
+              },
+              {
+                createdAt,
+                id: {
+                  gt: cursor.eventId,
+                },
+              },
+            ],
+          },
+          orderBy: [
+            {
+              createdAt: "asc",
+            },
+            {
+              id: "asc",
+            },
+          ],
+          take: normalizedLimit,
+        })
+
+      return events.map((event) =>
+        CommercialEventMapper.toDomain(
+          event,
+        ),
+      )
+    }
+
     async findById(
       eventId: string,
     ): Promise<CommercialEvent | undefined> {
       if (!eventId.trim()) {
         return undefined
       }
-  
+
       const event =
         await this.database.commercialEvent.findFirst({
           where: {
@@ -64,23 +134,23 @@ import type {
             workspaceId: this.workspaceId,
           },
         })
-  
+
       if (!event) {
         return undefined
       }
-  
+
       return CommercialEventMapper.toDomain(
         event,
       )
     }
-  
+
     async findByJourneyId(
       journeyId: string,
     ): Promise<CommercialEvent[]> {
       if (!journeyId.trim()) {
         return []
       }
-  
+
       const events =
         await this.database.commercialEvent.findMany({
           where: {
@@ -96,14 +166,14 @@ import type {
             },
           ],
         })
-  
+
       return events.map((event) =>
         CommercialEventMapper.toDomain(
           event,
         ),
       )
     }
-  
+
     async findByType(
       type: CommercialEventType,
     ): Promise<CommercialEvent[]> {
@@ -122,25 +192,25 @@ import type {
             },
           ],
         })
-  
+
       return events.map((event) =>
         CommercialEventMapper.toDomain(
           event,
         ),
       )
     }
-  
+
     async create(
       event: CommercialEvent,
     ): Promise<CommercialEvent> {
       this.validateEventWorkspace(
         event,
       )
-  
+
       await this.validateJourneyOwnership(
         event.journeyId,
       )
-  
+
       const createdEvent =
         await this.database.commercialEvent.create({
           data: CommercialEventMapper.toPersistence({
@@ -148,19 +218,19 @@ import type {
             event,
           }),
         })
-  
+
       return CommercialEventMapper.toDomain(
         createdEvent,
       )
     }
-  
+
     async delete(
       eventId: string,
     ): Promise<boolean> {
       if (!eventId.trim()) {
         return false
       }
-  
+
       const result =
         await this.database.commercialEvent.deleteMany({
           where: {
@@ -168,10 +238,10 @@ import type {
             workspaceId: this.workspaceId,
           },
         })
-  
+
       return result.count > 0
     }
-  
+
     private validateEventWorkspace(
       event: CommercialEvent,
     ): void {
@@ -184,7 +254,7 @@ import type {
         )
       }
     }
-  
+
     private async validateJourneyOwnership(
       journeyId: string,
     ): Promise<void> {
@@ -198,7 +268,7 @@ import type {
             id: true,
           },
         })
-  
+
       if (!journey) {
         throw new Error(
           "A jornada comercial informada nao existe neste workspace.",

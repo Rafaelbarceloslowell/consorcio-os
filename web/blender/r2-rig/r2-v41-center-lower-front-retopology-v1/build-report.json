@@ -1,0 +1,28 @@
+{
+  "approved": true,
+  "candidate": "DISSOLVE_25",
+  "removed_vertices": [
+    3486,
+    3487,
+    3537,
+    3542,
+    3545,
+    3546,
+    3547,
+    3549,
+    3550,
+    3565,
+    3568,
+    3569,
+    3571,
+    3572,
+    3574,
+    3576
+  ],
+  "reduction_percent": 41.007194244604314,
+  "triangles": 149,
+  "aspect_p95": 10.81882864663957,
+  "normal_p05": 0.9999999195337296,
+  "inverted": 0,
+  "blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\.__r2_v41_build_ddd4e73efea94434ae9b50096defd601\\r2-rig-v41-center-lower-front-retopology-v1.blend"
+}

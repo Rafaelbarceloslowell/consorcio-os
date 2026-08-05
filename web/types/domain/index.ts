@@ -15,7 +15,7 @@ export type {
   ConsultantStatus,
 } from "./consultant"
 
-export type { Lead, LeadSource, LeadStatus } from "./lead"
+export type { Lead, LeadApproachType, LeadSource, LeadStatus } from "./lead"
 
 export type {
   Meeting,
@@ -40,6 +40,12 @@ export type {
 } from "./task"
 
 export type { CommercialActorType } from "./commercial-actor"
+
+export type {
+  CommercialConversationGoal,
+  CommercialConversationMemory,
+  CommercialConversationStage,
+} from "./commercial-conversation-memory"
 
 export type {
   CommercialAction,

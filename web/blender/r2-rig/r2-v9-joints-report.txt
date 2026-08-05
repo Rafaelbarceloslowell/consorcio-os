@@ -1,0 +1,15 @@
+R2_JOINTS_REFINED_OK
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v9-joints-refined.blend
+bones=51
+body_unchanged=true
+weights_applied=false
+shoulder_x=0.355
+shoulder_z=0.445
+hip_x=0.190
+hip_z=-0.390
+knee_x=0.210
+knee_z=-0.655
+ankle_x=0.260
+ankle_z=-0.895
+foot_x=0.270
+status=shoulders_and_legs_refined

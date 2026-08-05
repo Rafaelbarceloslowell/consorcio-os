@@ -1,0 +1,237 @@
+{
+  "neutral_reset": "R2_NEUTRAL",
+  "schema_version": 1,
+  "state_count": 10,
+  "states": {
+    "alert": {
+      "blink_interval_seconds": [
+        5.0,
+        8.0
+      ],
+      "clip": "R2_ALERT",
+      "expressions": {
+        "EXP_BROW_FROWN": 0.08,
+        "EXP_BROW_RAISE": 0.25
+      },
+      "eye": "event_focus",
+      "fallback": "neutral",
+      "fallback_behavior": "neutral",
+      "head": [
+        0.02,
+        0,
+        0
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "closed_neutral",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.15
+    },
+    "awaiting_action": {
+      "blink_interval_seconds": [
+        3.0,
+        5.0
+      ],
+      "clip": "R2_AWAITING_ACTION",
+      "expressions": {
+        "EXP_BROW_RAISE": 0.12
+      },
+      "eye": "user_focus",
+      "fallback": "listening",
+      "fallback_behavior": "listening",
+      "head": [
+        0.01,
+        0,
+        0
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "closed_neutral",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.3
+    },
+    "celebrating_sale": {
+      "blink_interval_seconds": [
+        3.0,
+        5.0
+      ],
+      "clip": "R2_CELEBRATING_SALE",
+      "expressions": {
+        "EXP_CHEEK_RAISE": 0.25,
+        "EXP_SMILE": 0.65
+      },
+      "eye": "user_focus",
+      "fallback": "idle",
+      "fallback_behavior": "idle",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "confident_smile",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.25
+    },
+    "error_attention": {
+      "blink_interval_seconds": [
+        4.5,
+        7.0
+      ],
+      "clip": "R2_ERROR_ATTENTION",
+      "expressions": {
+        "EXP_BROW_FROWN": 0.45,
+        "EXP_FROWN": 0.28
+      },
+      "eye": "event_focus",
+      "fallback": "neutral",
+      "fallback_behavior": "neutral",
+      "head": [
+        -0.02,
+        0,
+        0
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "serious_closed",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.18
+    },
+    "idle": {
+      "blink_interval_seconds": [
+        3.5,
+        6.5
+      ],
+      "clip": "R2_IDLE",
+      "expressions": {},
+      "eye": "ambient_subtle",
+      "fallback": "neutral",
+      "fallback_behavior": "neutral",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "closed_neutral",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.45
+    },
+    "listening": {
+      "blink_interval_seconds": [
+        3.0,
+        5.5
+      ],
+      "clip": "R2_LISTENING",
+      "expressions": {
+        "EXP_BROW_RAISE": 0.08
+      },
+      "eye": "user_focus",
+      "fallback": "idle",
+      "fallback_behavior": "idle",
+      "head": [
+        0,
+        0,
+        0.02
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "closed_neutral",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.3
+    },
+    "neutral": {
+      "blink_interval_seconds": [
+        4.0,
+        7.0
+      ],
+      "clip": "R2_NEUTRAL",
+      "expressions": {},
+      "eye": "forward",
+      "fallback": "neutral",
+      "fallback_behavior": "neutral",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "closed_neutral",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.25
+    },
+    "speaking": {
+      "blink_interval_seconds": [
+        3.5,
+        6.0
+      ],
+      "clip": "R2_IDLE",
+      "expressions": {
+        "EXP_CHEEK_RAISE": 0.05
+      },
+      "eye": "user_focus",
+      "fallback": "listening",
+      "fallback_behavior": "listening",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "runtime_viseme",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.2
+    },
+    "thinking": {
+      "blink_interval_seconds": [
+        4.5,
+        7.5
+      ],
+      "clip": "R2_THINKING",
+      "expressions": {
+        "EXP_BROW_RAISE": 0.18,
+        "EXP_MOUTH_NARROW": 0.05
+      },
+      "eye": "up_lateral",
+      "fallback": "idle",
+      "fallback_behavior": "idle",
+      "head": [
+        -0.02,
+        -0.02,
+        0.03
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "closed_neutral",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.35
+    },
+    "working": {
+      "blink_interval_seconds": [
+        4.0,
+        7.0
+      ],
+      "clip": "R2_WORKING",
+      "expressions": {
+        "EXP_BROW_FROWN": 0.1
+      },
+      "eye": "task_focus",
+      "fallback": "idle",
+      "fallback_behavior": "idle",
+      "head": [
+        -0.02,
+        0,
+        0
+      ],
+      "interruptible": true,
+      "loop": true,
+      "mouth": "closed_neutral",
+      "neutral_reset": "EXACT_AFTER_EXIT",
+      "transition_seconds": 0.35
+    }
+  }
+}

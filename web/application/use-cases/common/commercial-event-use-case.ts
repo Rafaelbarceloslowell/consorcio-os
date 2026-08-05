@@ -1,3 +1,8 @@
+import {
+  publishCommercialEvent as publishRecordedCommercialEvent,
+} from "@/application/use-cases/common/commercial-event-dispatcher"
+
+/* R2_PROCESS_LOCAL_COMMERCIAL_EVENT_BRIDGE_V1_IMPORT */
 import type {
   ProcessCommercialTransitionInput,
   ProcessCommercialTransitionResult,
@@ -53,6 +58,10 @@ import type {
 } from "@/types/domain"
 
 export type CommercialEventUseCaseDependencies = {
+  /* R2_PROCESS_LOCAL_COMMERCIAL_EVENT_BRIDGE_V1_DEPENDENCY */
+  publishCommercialEvent?: (
+    event: CommercialEvent,
+  ) => void
   recordCommercialEvent: (
     input: RecordCommercialEventInput,
 
@@ -184,6 +193,11 @@ function resolveDependencies(
     Partial<CommercialEventUseCaseDependencies> = {},
 ): CommercialEventUseCaseDependencies {
   return {
+    /* R2_PROCESS_LOCAL_COMMERCIAL_EVENT_BRIDGE_V1_DEFAULT */
+    publishCommercialEvent:
+      dependencies
+        .publishCommercialEvent ??
+      publishRecordedCommercialEvent,
     recordCommercialEvent:
       dependencies.recordCommercialEvent ??
       defaultDependencies
@@ -281,6 +295,16 @@ export function executeCommercialEventUseCase({
             true,
         },
       )
+
+  /* R2_PROCESS_LOCAL_COMMERCIAL_EVENT_BRIDGE_V1_PUBLISH */
+  try {
+    resolvedDependencies
+      .publishCommercialEvent?.(
+        event,
+      )
+  } catch {
+    // R2 presentation must never interrupt the commercial operation.
+  }
 
   const journeyAfterEvent =
     commercialRepository.getJourneyById(

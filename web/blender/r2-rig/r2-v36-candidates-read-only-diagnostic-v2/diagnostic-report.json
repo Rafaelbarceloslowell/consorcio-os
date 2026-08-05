@@ -1,0 +1,755 @@
+{
+  "audit": "R2 v36 candidates read-only diagnostic v2",
+  "blender_version": "4.5.10 LTS",
+  "source_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v35-logical-separation-v1\\r2-rig-v35-logical-separation.blend",
+  "source_sha256": "9BDAE28936686773708FCE9E8D6A3F0CDFECC7F5CA753D1EF65D0D6957F7909F",
+  "source_read_only": true,
+  "blend_saved": false,
+  "new_blends_created": 0,
+  "weights_present_in_render_candidates": false,
+  "armature_modifiers_present_in_render_candidates": false,
+  "shared_camera_scale": 0.6488155484199524,
+  "crop_report": {
+    "face_bbox_min": [
+      -0.043171923607587814,
+      -0.30578985810279846,
+      0.6516481041908264
+    ],
+    "face_bbox_max": [
+      0.11104054749011993,
+      -0.10961980372667313,
+      0.9505565166473389
+    ],
+    "face_bbox_dimensions": [
+      0.15421247482299805,
+      0.19617006182670593,
+      0.29890841245651245
+    ],
+    "face_bbox_diagonal": 0.38937182395689857,
+    "crop": {
+      "x_min": -0.21097704023122787,
+      "x_max": 0.21097704023122787,
+      "y_min": -0.35483237355947495,
+      "y_max": 0.3611883446574211,
+      "z_min": 0.6277354311943054,
+      "z_max": 1.1597924053668975,
+      "fur_distance_limit": 0.30371002268638086
+    },
+    "cropped_vertices": 19278,
+    "cropped_edges": 55689,
+    "cropped_faces": 36304,
+    "fur_polygons_accepted": 29218
+  },
+  "remesh_base": {
+    "method": "OBJECT_VOXEL_REMESH",
+    "voxel_size": 0.0030238275548787686,
+    "cleanup": {
+      "components_before_cleanup": 119,
+      "largest_component_vertices": 83518
+    },
+    "topology": {
+      "vertices": 83518,
+      "edges": 170784,
+      "faces": 85392,
+      "boundary_edges": 0,
+      "wire_edges": 0,
+      "non_manifold_edges": 0,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "connected_islands": 1,
+      "island_vertex_sizes": [
+        83518
+      ]
+    }
+  },
+  "candidate_order": [
+    "cropped-source",
+    "positive-repaired",
+    "negative-repaired",
+    "full-remesh"
+  ],
+  "candidate_labels": {
+    "cropped-source": "Fonte recortada",
+    "positive-repaired": "Positivo reparado",
+    "negative-repaired": "Negativo reparado",
+    "full-remesh": "Full remesh"
+  },
+  "candidates": {
+    "cropped-source": {
+      "label": "Fonte recortada",
+      "static": {
+        "name": "R2_V36_DIAG_Cropped_Source",
+        "topology": {
+          "vertices": 19278,
+          "edges": 55689,
+          "faces": 36304,
+          "boundary_edges": 2466,
+          "wire_edges": 0,
+          "non_manifold_edges": 2466,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 17,
+          "island_vertex_sizes": [
+            6043,
+            4604,
+            3697,
+            2438,
+            660,
+            530,
+            510,
+            235,
+            142,
+            134,
+            120,
+            84,
+            40,
+            22,
+            8,
+            7,
+            4
+          ]
+        },
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_is_identity": true,
+        "parent": null,
+        "modifier_count": 0,
+        "vertex_group_count": 0,
+        "dimensions": [
+          0.3690546751022339,
+          0.4990888833999634,
+          0.3760005831718445
+        ]
+      },
+      "evaluation": null,
+      "repair": null
+    },
+    "positive-repaired": {
+      "label": "Positivo reparado",
+      "static": {
+        "name": "R2_V36_DIAG_Positive_Repaired",
+        "topology": {
+          "vertices": 33882,
+          "edges": 68940,
+          "faces": 34470,
+          "boundary_edges": 0,
+          "wire_edges": 0,
+          "non_manifold_edges": 0,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            33882
+          ]
+        },
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_is_identity": true,
+        "parent": null,
+        "modifier_count": 0,
+        "vertex_group_count": 0,
+        "dimensions": [
+          0.3982217609882355,
+          0.3181728720664978,
+          0.1888725757598877
+        ]
+      },
+      "evaluation": {
+        "score": 0.1082357793880828,
+        "candidate_to_source": {
+          "samples": 25000,
+          "min": 3.725290298461914e-09,
+          "median": 0.0015984986752873168,
+          "mean": 0.007675713693418818,
+          "p95": 0.042909201956606684,
+          "max": 0.08861513683785359
+        },
+        "source_to_candidate": {
+          "samples": 19278,
+          "min": 8.348723810544226e-08,
+          "median": 0.06152213964168811,
+          "mean": 0.08478469831308755,
+          "p95": 0.23197272792562598,
+          "max": 0.2728574228237661
+        },
+        "symmetry_error": {
+          "samples": 25000,
+          "min": 0.0,
+          "median": 8.784127092689484e-06,
+          "mean": 7.339152031202746e-05,
+          "p95": 0.0003513834403536772,
+          "max": 0.007859264903019577
+        },
+        "bbox_relative_error": 0.313068183497882,
+        "bbox_dimensions": [
+          0.3982217609882355,
+          0.3181728720664978,
+          0.1888725757598877
+        ],
+        "topology": {
+          "vertices": 33882,
+          "edges": 68940,
+          "faces": 34470,
+          "boundary_edges": 0,
+          "wire_edges": 0,
+          "non_manifold_edges": 0,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            33882
+          ]
+        }
+      },
+      "repair": {
+        "first_cleanup": {
+          "components_before_cleanup": 14,
+          "largest_component_vertices": 89387
+        },
+        "topology_after_mirror": {
+          "vertices": 89387,
+          "edges": 183110,
+          "faces": 91600,
+          "boundary_edges": 10,
+          "wire_edges": 13,
+          "non_manifold_edges": 68,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            89387
+          ]
+        },
+        "repair_method": "OBJECT_VOXEL_REMESH",
+        "repair_voxel_size": 0.00247953859500059,
+        "second_cleanup": {
+          "components_before_cleanup": 941,
+          "largest_component_vertices": 33882
+        },
+        "topology_after_repair": {
+          "vertices": 33882,
+          "edges": 68940,
+          "faces": 34470,
+          "boundary_edges": 0,
+          "wire_edges": 0,
+          "non_manifold_edges": 0,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            33882
+          ]
+        }
+      }
+    },
+    "negative-repaired": {
+      "label": "Negativo reparado",
+      "static": {
+        "name": "R2_V36_DIAG_Negative_Repaired",
+        "topology": {
+          "vertices": 20521,
+          "edges": 41610,
+          "faces": 20805,
+          "boundary_edges": 0,
+          "wire_edges": 0,
+          "non_manifold_edges": 0,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            20521
+          ]
+        },
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_is_identity": true,
+        "parent": null,
+        "modifier_count": 0,
+        "vertex_group_count": 0,
+        "dimensions": [
+          0.23250430822372437,
+          0.240666925907135,
+          0.24660325050354004
+        ]
+      },
+      "evaluation": {
+        "score": 0.08838348646232241,
+        "candidate_to_source": {
+          "samples": 20521,
+          "min": 0.0,
+          "median": 0.00030955193535309227,
+          "mean": 0.0014812509953585032,
+          "p95": 0.006218058564805969,
+          "max": 0.013816887472585464
+        },
+        "source_to_candidate": {
+          "samples": 19278,
+          "min": 7.82310962677002e-08,
+          "median": 0.0609363478096826,
+          "mean": 0.07686285600714825,
+          "p95": 0.20451261114105515,
+          "max": 0.2610127388390118
+        },
+        "symmetry_error": {
+          "samples": 20521,
+          "min": 0.0,
+          "median": 7.908948789021109e-06,
+          "mean": 6.901646020363218e-05,
+          "p95": 0.00032717752483603233,
+          "max": 0.0050270637601924585
+        },
+        "bbox_relative_error": 0.41064304145517516,
+        "bbox_dimensions": [
+          0.23250430822372437,
+          0.240666925907135,
+          0.24660325050354004
+        ],
+        "topology": {
+          "vertices": 20521,
+          "edges": 41610,
+          "faces": 20805,
+          "boundary_edges": 0,
+          "wire_edges": 0,
+          "non_manifold_edges": 0,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            20521
+          ]
+        }
+      },
+      "repair": {
+        "first_cleanup": {
+          "components_before_cleanup": 13,
+          "largest_component_vertices": 77329
+        },
+        "topology_after_mirror": {
+          "vertices": 77329,
+          "edges": 158052,
+          "faces": 79065,
+          "boundary_edges": 22,
+          "wire_edges": 17,
+          "non_manifold_edges": 74,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            77329
+          ]
+        },
+        "repair_method": "OBJECT_VOXEL_REMESH",
+        "repair_voxel_size": 0.00247953859500059,
+        "second_cleanup": {
+          "components_before_cleanup": 768,
+          "largest_component_vertices": 20521
+        },
+        "topology_after_repair": {
+          "vertices": 20521,
+          "edges": 41610,
+          "faces": 20805,
+          "boundary_edges": 0,
+          "wire_edges": 0,
+          "non_manifold_edges": 0,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            20521
+          ]
+        }
+      }
+    },
+    "full-remesh": {
+      "label": "Full remesh",
+      "static": {
+        "name": "R2_V36_DIAG_Full_Remesh",
+        "topology": {
+          "vertices": 83518,
+          "edges": 170784,
+          "faces": 85392,
+          "boundary_edges": 0,
+          "wire_edges": 0,
+          "non_manifold_edges": 0,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            83518
+          ]
+        },
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "matrix_is_identity": true,
+        "parent": null,
+        "modifier_count": 0,
+        "vertex_group_count": 0,
+        "dimensions": [
+          0.360143780708313,
+          0.4892023801803589,
+          0.37284260988235474
+        ]
+      },
+      "evaluation": {
+        "score": 0.11105506629433742,
+        "candidate_to_source": {
+          "samples": 25000,
+          "min": 0.0,
+          "median": 7.017011231088998e-06,
+          "mean": 1.6448867840431224e-05,
+          "p95": 5.621374962808454e-05,
+          "max": 0.0027077579214562835
+        },
+        "source_to_candidate": {
+          "samples": 19278,
+          "min": 3.725290298461914e-09,
+          "median": 0.0002452122598800301,
+          "mean": 0.0008412702673423966,
+          "p95": 0.003330439777193987,
+          "max": 0.017845355530569495
+        },
+        "symmetry_error": {
+          "samples": 25000,
+          "min": 2.6863450374185958e-08,
+          "median": 0.003113010484745707,
+          "mean": 0.00619641685215379,
+          "p95": 0.027094430699935987,
+          "max": 0.09163023128402756
+        },
+        "bbox_relative_error": 0.017451047676087905,
+        "bbox_dimensions": [
+          0.360143780708313,
+          0.4892023801803589,
+          0.37284260988235474
+        ],
+        "topology": {
+          "vertices": 83518,
+          "edges": 170784,
+          "faces": 85392,
+          "boundary_edges": 0,
+          "wire_edges": 0,
+          "non_manifold_edges": 0,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            83518
+          ]
+        }
+      },
+      "repair": {
+        "cleanup": {
+          "components_before_cleanup": 1,
+          "largest_component_vertices": 83518
+        },
+        "topology_before": {
+          "vertices": 83518,
+          "edges": 170784,
+          "faces": 85392,
+          "boundary_edges": 0,
+          "wire_edges": 0,
+          "non_manifold_edges": 0,
+          "loose_vertices": 0,
+          "zero_area_faces": 0,
+          "connected_islands": 1,
+          "island_vertex_sizes": [
+            83518
+          ]
+        }
+      }
+    }
+  },
+  "images": [
+    {
+      "file": "solid-front-cropped-source.png",
+      "mode": "solid",
+      "view": "front",
+      "candidate": "cropped-source"
+    },
+    {
+      "file": "solid-front-positive-repaired.png",
+      "mode": "solid",
+      "view": "front",
+      "candidate": "positive-repaired"
+    },
+    {
+      "file": "solid-front-negative-repaired.png",
+      "mode": "solid",
+      "view": "front",
+      "candidate": "negative-repaired"
+    },
+    {
+      "file": "solid-front-full-remesh.png",
+      "mode": "solid",
+      "view": "front",
+      "candidate": "full-remesh"
+    },
+    {
+      "file": "solid-back-cropped-source.png",
+      "mode": "solid",
+      "view": "back",
+      "candidate": "cropped-source"
+    },
+    {
+      "file": "solid-back-positive-repaired.png",
+      "mode": "solid",
+      "view": "back",
+      "candidate": "positive-repaired"
+    },
+    {
+      "file": "solid-back-negative-repaired.png",
+      "mode": "solid",
+      "view": "back",
+      "candidate": "negative-repaired"
+    },
+    {
+      "file": "solid-back-full-remesh.png",
+      "mode": "solid",
+      "view": "back",
+      "candidate": "full-remesh"
+    },
+    {
+      "file": "solid-left-cropped-source.png",
+      "mode": "solid",
+      "view": "left",
+      "candidate": "cropped-source"
+    },
+    {
+      "file": "solid-left-positive-repaired.png",
+      "mode": "solid",
+      "view": "left",
+      "candidate": "positive-repaired"
+    },
+    {
+      "file": "solid-left-negative-repaired.png",
+      "mode": "solid",
+      "view": "left",
+      "candidate": "negative-repaired"
+    },
+    {
+      "file": "solid-left-full-remesh.png",
+      "mode": "solid",
+      "view": "left",
+      "candidate": "full-remesh"
+    },
+    {
+      "file": "solid-right-cropped-source.png",
+      "mode": "solid",
+      "view": "right",
+      "candidate": "cropped-source"
+    },
+    {
+      "file": "solid-right-positive-repaired.png",
+      "mode": "solid",
+      "view": "right",
+      "candidate": "positive-repaired"
+    },
+    {
+      "file": "solid-right-negative-repaired.png",
+      "mode": "solid",
+      "view": "right",
+      "candidate": "negative-repaired"
+    },
+    {
+      "file": "solid-right-full-remesh.png",
+      "mode": "solid",
+      "view": "right",
+      "candidate": "full-remesh"
+    },
+    {
+      "file": "wire-front-cropped-source.png",
+      "mode": "wire",
+      "view": "front",
+      "candidate": "cropped-source"
+    },
+    {
+      "file": "wire-front-positive-repaired.png",
+      "mode": "wire",
+      "view": "front",
+      "candidate": "positive-repaired"
+    },
+    {
+      "file": "wire-front-negative-repaired.png",
+      "mode": "wire",
+      "view": "front",
+      "candidate": "negative-repaired"
+    },
+    {
+      "file": "wire-front-full-remesh.png",
+      "mode": "wire",
+      "view": "front",
+      "candidate": "full-remesh"
+    },
+    {
+      "file": "wire-back-cropped-source.png",
+      "mode": "wire",
+      "view": "back",
+      "candidate": "cropped-source"
+    },
+    {
+      "file": "wire-back-positive-repaired.png",
+      "mode": "wire",
+      "view": "back",
+      "candidate": "positive-repaired"
+    },
+    {
+      "file": "wire-back-negative-repaired.png",
+      "mode": "wire",
+      "view": "back",
+      "candidate": "negative-repaired"
+    },
+    {
+      "file": "wire-back-full-remesh.png",
+      "mode": "wire",
+      "view": "back",
+      "candidate": "full-remesh"
+    },
+    {
+      "file": "wire-left-cropped-source.png",
+      "mode": "wire",
+      "view": "left",
+      "candidate": "cropped-source"
+    },
+    {
+      "file": "wire-left-positive-repaired.png",
+      "mode": "wire",
+      "view": "left",
+      "candidate": "positive-repaired"
+    },
+    {
+      "file": "wire-left-negative-repaired.png",
+      "mode": "wire",
+      "view": "left",
+      "candidate": "negative-repaired"
+    },
+    {
+      "file": "wire-left-full-remesh.png",
+      "mode": "wire",
+      "view": "left",
+      "candidate": "full-remesh"
+    },
+    {
+      "file": "wire-right-cropped-source.png",
+      "mode": "wire",
+      "view": "right",
+      "candidate": "cropped-source"
+    },
+    {
+      "file": "wire-right-positive-repaired.png",
+      "mode": "wire",
+      "view": "right",
+      "candidate": "positive-repaired"
+    },
+    {
+      "file": "wire-right-negative-repaired.png",
+      "mode": "wire",
+      "view": "right",
+      "candidate": "negative-repaired"
+    },
+    {
+      "file": "wire-right-full-remesh.png",
+      "mode": "wire",
+      "view": "right",
+      "candidate": "full-remesh"
+    }
+  ],
+  "image_count": 32,
+  "visual_validation_completed": false,
+  "diagnostic_completed": true
+}

@@ -1,0 +1,197 @@
+
+============================================================
+ R2 PRODUCTION ENTRYPOINT DISCOVERY V1
+============================================================
+GENERATED_AT=2026-08-02T15:07:44-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+MODE=READ_ONLY
+OBJECTIVE=LOCATE_REAL_MUTATION_ENTRYPOINTS_BEFORE_SERVER_BROWSER_TRANSPORT
+
+============================================================
+ GIT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+STAGED_FILE_COUNT=0
+
+============================================================
+ SOURCE INVENTORY
+============================================================
+SOURCE_FILE_COUNT=186
+APP_SOURCE_FILE_COUNT=24
+APPLICATION_SOURCE_FILE_COUNT=64
+COMPONENT_SOURCE_FILE_COUNT=99
+
+============================================================
+ APP ROUTE AND ACTION INVENTORY
+============================================================
+PAGE_FILE_COUNT=12
+ACTION_FILE_COUNT=5
+SERVER_ACTION_FILE_COUNT=5
+ROUTE_HANDLER_FILE_COUNT=0
+CLIENT_APP_FILE_COUNT=2
+SERVER_ACTION_FILE=app/clients/[clientId]/actions.ts
+SERVER_ACTION_FILE=app/clients/[clientId]/edit/actions.ts
+SERVER_ACTION_FILE=app/clients/new/actions.ts
+SERVER_ACTION_FILE=app/opportunities/[opportunityId]/edit/actions.ts
+SERVER_ACTION_FILE=app/opportunities/new/actions.ts
+
+============================================================
+ APPLICATION IMPORTS FROM APP
+============================================================
+APPLICATION_IMPORT_MATCH_COUNT=14
+APPLICATION_IMPORT_FILE_COUNT=11
+app/clients/[clientId]/actions.ts:12: } from "@/application/client/block-client-async"
+app/clients/[clientId]/actions.ts:15: } from "@/application/client/deactivate-client-async"
+app/clients/[clientId]/actions.ts:18: } from "@/application/client/reactivate-client-async"
+app/clients/[clientId]/actions.ts:21: } from "@/application/client/unblock-client-async"
+app/clients/[clientId]/edit/actions.ts:12: } from "@/application/client/update-client-async"
+app/clients/[clientId]/edit/page.tsx:7: } from "@/application/client/get-client-details-async"
+app/clients/[clientId]/page.tsx:7: } from "@/application/client/get-client-details-async"
+app/clients/new/actions.ts:6: import { CreateClientAsync } from "@/application/client/create-client-async"
+app/clients/page.tsx:3: } from "@/application/client/list-clients-async"
+app/opportunities/[opportunityId]/edit/actions.ts:12: } from "@/application/opportunity/update-opportunity-async"
+app/opportunities/[opportunityId]/edit/page.tsx:7: } from "@/application/opportunity/get-opportunity-details-async"
+app/opportunities/[opportunityId]/page.tsx:7: } from "@/application/opportunity/get-opportunity-details-async"
+app/opportunities/new/actions.ts:12: } from "@/application/opportunity/create-opportunity-async"
+app/page.tsx:3: } from "@/application/dashboard/get-async-dashboard-data"
+
+============================================================
+ REAL PRODUCER CALLS
+============================================================
+PRODUCER=receiveLeadReply
+EVENT=lead.replied
+REAL_CALL_COUNT=0
+PRODUCER=scheduleMeeting
+EVENT=meeting.scheduled
+REAL_CALL_COUNT=0
+PRODUCER=completeMeeting
+EVENT=meeting.completed
+REAL_CALL_COUNT=0
+PRODUCER=sendProposal
+EVENT=proposal.sent
+REAL_CALL_COUNT=0
+PRODUCER=acceptProposal
+EVENT=proposal.accepted
+REAL_CALL_COUNT=0
+PRODUCER=closeSale
+EVENT=sale.completed
+REAL_CALL_COUNT=0
+TOTAL_REAL_PRODUCER_CALL_COUNT=0
+
+============================================================
+ CURRENT MUTATION ENTRYPOINTS
+============================================================
+MUTATION_TOKEN=createClient
+MATCH_COUNT=3
+app/clients/new/actions.ts:6: import { CreateClientAsync } from "@/application/client/create-client-async"
+app/clients/new/actions.ts:135: export async function createClientAction(
+app/clients/new/actions.ts:219: await new CreateClientAsync({
+MUTATION_TOKEN=updateClient
+MATCH_COUNT=3
+app/clients/[clientId]/edit/actions.ts:11: UpdateClientAsync,
+app/clients/[clientId]/edit/actions.ts:127: export async function updateClientAction(
+app/clients/[clientId]/edit/actions.ts:171: await new UpdateClientAsync({
+MUTATION_TOKEN=createOpportunity
+MATCH_COUNT=3
+app/opportunities/new/actions.ts:11: CreateOpportunityAsync,
+app/opportunities/new/actions.ts:96: export async function createOpportunityAction(
+app/opportunities/new/actions.ts:245: } = await new CreateOpportunityAsync({
+MUTATION_TOKEN=updateOpportunity
+MATCH_COUNT=3
+app/opportunities/[opportunityId]/edit/actions.ts:11: UpdateOpportunityAsync,
+app/opportunities/[opportunityId]/edit/actions.ts:80: export async function updateOpportunityAction(
+app/opportunities/[opportunityId]/edit/actions.ts:178: await new UpdateOpportunityAsync({
+MUTATION_TOKEN=delete
+MATCH_COUNT=0
+MUTATION_TOKEN=archive
+MATCH_COUNT=0
+MUTATION_TOKEN=save
+MATCH_COUNT=0
+MUTATION_TOKEN=execute(
+MATCH_COUNT=8
+app/clients/[clientId]/actions.ts:85: ).execute(input)
+app/clients/[clientId]/actions.ts:91: ).execute(input)
+app/clients/[clientId]/actions.ts:97: ).execute(input)
+app/clients/[clientId]/actions.ts:103: ).execute(input)
+app/clients/[clientId]/edit/actions.ts:178: }).execute({
+app/clients/new/actions.ts:223: }).execute({
+app/opportunities/[opportunityId]/edit/actions.ts:183: }).execute({
+app/opportunities/new/actions.ts:255: }).execute({
+TOTAL_MUTATION_MATCH_COUNT=20
+
+============================================================
+ FORM AND CLIENT MUTATION SIGNALS
+============================================================
+FORM_PATTERN=action={
+MATCH_COUNT=17
+app/clients/[clientId]/edit/page.tsx:121: action={updateClientAction.bind(
+app/clients/[clientId]/page.tsx:89: blockAction={
+app/clients/[clientId]/page.tsx:95: unblockAction={
+app/clients/[clientId]/page.tsx:101: deactivateAction={
+app/clients/[clientId]/page.tsx:107: reactivateAction={
+app/clients/new/page.tsx:46: action={createClientAction}
+app/opportunities/[opportunityId]/edit/page.tsx:122: action={updateOpportunityAction.bind(
+app/opportunities/new/page.tsx:59: action={createOpportunityAction}
+components/client/client-create-form.tsx:120: action={formAction}
+components/client/client-lifecycle-actions.tsx:56: <form action={blockAction}>
+components/client/client-lifecycle-actions.tsx:65: <form action={deactivateAction}>
+components/client/client-lifecycle-actions.tsx:78: <form action={unblockAction}>
+components/client/client-lifecycle-actions.tsx:87: <form action={deactivateAction}>
+components/client/client-lifecycle-actions.tsx:99: <form action={reactivateAction}>
+components/client/client-update-form.tsx:84: action={formAction}
+components/opportunity/opportunity-create-form.tsx:106: action={formAction}
+components/opportunity/opportunity-update-form.tsx:97: action={formAction}
+FORM_PATTERN=useActionState(
+MATCH_COUNT=4
+components/client/client-create-form.tsx:59: ] = useActionState(
+components/client/client-update-form.tsx:47: ] = useActionState(
+components/opportunity/opportunity-create-form.tsx:51: ] = useActionState(
+components/opportunity/opportunity-update-form.tsx:51: ] = useActionState(
+FORM_PATTERN=useFormState(
+MATCH_COUNT=0
+FORM_PATTERN=onSubmit={
+MATCH_COUNT=0
+FORM_PATTERN=startTransition(
+MATCH_COUNT=0
+FORM_PATTERN=formAction=
+MATCH_COUNT=0
+TOTAL_FORM_SIGNAL_COUNT=21
+
+============================================================
+ FLOW SURFACE INVENTORY
+============================================================
+FLOW=lead
+PATH_FILE_COUNT=7
+UI_CONTENT_MATCH_COUNT=39
+UI_CONTENT_FILE_COUNT=21
+FLOW=meeting
+PATH_FILE_COUNT=3
+UI_CONTENT_MATCH_COUNT=2
+UI_CONTENT_FILE_COUNT=1
+FLOW=proposal
+PATH_FILE_COUNT=2
+UI_CONTENT_MATCH_COUNT=2
+UI_CONTENT_FILE_COUNT=2
+FLOW=sale
+PATH_FILE_COUNT=2
+UI_CONTENT_MATCH_COUNT=8
+UI_CONTENT_FILE_COUNT=4
+
+============================================================
+ DISCOVERY METRICS
+============================================================
+HAS_PRODUCTION_ENTRYPOINTS=True
+HAS_REAL_PRODUCER_CALLS=False
+SERVER_BROWSER_TRANSPORT_PREMATURE=True
+SERVER_ACTION_FILE_COUNT=5
+ROUTE_HANDLER_FILE_COUNT=0
+TOTAL_REAL_PRODUCER_CALL_COUNT=0
+TOTAL_MUTATION_MATCH_COUNT=20
+TOTAL_FORM_SIGNAL_COUNT=21
+STAGED_FILE_COUNT=0
+
+============================================================
+ FINAL VERDICT
+============================================================
+VEREDITO=APROVADO_PARA_INTEGRACAO_DOS_ENTRYPOINTS_REAIS
+NEXT_STEP=MAPEAR_E_CONECTAR_O_PRIMEIRO_FLUXO_COMERCIAL_REAL

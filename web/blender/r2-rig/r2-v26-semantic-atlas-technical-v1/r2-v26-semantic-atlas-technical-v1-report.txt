@@ -1,0 +1,23 @@
+R2_AAA_WEB_TECHNICAL_ATLAS_REPORT
+generated_at_utc=2026-07-29T21:52:29.856702+00:00
+blender_version=4.5.10 LTS
+source_blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend
+source_sha256_before=392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1
+source_sha256_after_analysis=392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1
+mesh_object=R2_Body
+armature_object=R2_Rig
+atlas_version=26
+atlas_package=r2-v26-semantic-atlas-technical-v1
+component_count=110
+vertex_count=197505
+edge_count=573879
+face_count=376007
+triangle_count=376007
+total_vertices_over_4_influences=0
+total_unweighted_vertices=0
+total_non_normalized_weight_vertices=0
+components_with_cross_side_warning=0
+semantic_classification_completed=false
+blend_saved=false
+source_unchanged=true
+status=technical_semantic_atlas_created

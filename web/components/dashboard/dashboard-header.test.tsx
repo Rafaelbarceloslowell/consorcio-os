@@ -24,6 +24,7 @@ import {
 const user: User = {
   id: "user-1",
   name: "Rafael",
+  positionTitle: "Consultor Sênior",
 }
 
 afterEach(() => {
@@ -33,58 +34,55 @@ afterEach(() => {
 describe("DashboardHeader", () => {
   it("deve renderizar a saudação da manhã com o nome do usuário", () => {
     vi.useFakeTimers()
-
     vi.setSystemTime(
-      new Date("2026-07-22T09:00:00")
+      new Date("2026-07-22T09:00:00"),
     )
 
     render(
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByText("Bom dia, Rafael")
+      screen.getByText("Bom dia, Rafael"),
     ).toBeInTheDocument()
   })
 
   it("deve renderizar a saudação da tarde", () => {
     vi.useFakeTimers()
-
     vi.setSystemTime(
-      new Date("2026-07-22T15:00:00")
+      new Date("2026-07-22T15:00:00"),
     )
 
     render(
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByText("Boa tarde, Rafael")
+      screen.getByText("Boa tarde, Rafael"),
     ).toBeInTheDocument()
   })
 
   it("deve renderizar a saudação da noite", () => {
     vi.useFakeTimers()
-
     vi.setSystemTime(
-      new Date("2026-07-22T20:00:00")
+      new Date("2026-07-22T20:00:00"),
     )
 
     render(
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByText("Boa noite, Rafael")
+      screen.getByText("Boa noite, Rafael"),
     ).toBeInTheDocument()
   })
 
@@ -93,14 +91,14 @@ describe("DashboardHeader", () => {
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
       screen.getByRole("heading", {
         level: 1,
         name: "Dashboard",
-      })
+      }),
     ).toBeInTheDocument()
   })
 
@@ -109,95 +107,52 @@ describe("DashboardHeader", () => {
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
       screen.getByRole("heading", {
         level: 2,
         name: "O R2 organizou o que merece sua atenção hoje.",
-      })
+      }),
     ).toBeInTheDocument()
-  })
-
-  it("deve renderizar o título do resumo do R2", () => {
-    render(
-      <DashboardHeader
-        user={user}
-        summary="Resumo comercial"
-      />
-    )
-
-    expect(
-      screen.getByRole("heading", {
-        level: 3,
-        name: "Resumo do R2",
-      })
-    ).toBeInTheDocument()
-  })
-
-  it("deve renderizar o resumo informado", () => {
-    render(
-      <DashboardHeader
-        user={user}
-        summary="Você possui 12 tarefas pendentes"
-      />
-    )
-
-    expect(
-      screen.getByText(
-        "Você possui 12 tarefas pendentes"
-      )
-    ).toBeInTheDocument()
-  })
-
-  it("deve renderizar o resumo dentro de um parágrafo", () => {
-    render(
-      <DashboardHeader
-        user={user}
-        summary="Resumo comercial"
-      />
-    )
-
-    const summary =
-      screen.getByText("Resumo comercial")
-
-    expect(summary.tagName).toBe("P")
   })
 
   it("deve preservar o nome completo do usuário", () => {
     const completeUser: User = {
       id: "user-2",
-      name: "Rafael Barcelos",
+      name: "Rafael Ramos Barcelos",
+      positionTitle: "Consultor Sênior",
     }
 
     render(
       <DashboardHeader
         user={completeUser}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByText("Rafael Barcelos")
+      screen.getByText("Rafael Ramos Barcelos"),
     ).toBeInTheDocument()
   })
 
   it("deve gerar as iniciais do usuário", () => {
     const completeUser: User = {
       id: "user-2",
-      name: "Rafael Barcelos",
+      name: "Rafael Ramos Barcelos",
+      positionTitle: "Consultor Sênior",
     }
 
     render(
       <DashboardHeader
         user={completeUser}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByText("RB")
+      screen.getByText("RR"),
     ).toBeInTheDocument()
   })
 
@@ -205,17 +160,18 @@ describe("DashboardHeader", () => {
     const unnamedUser: User = {
       id: "user-3",
       name: "   ",
+      positionTitle: "Consultor Sênior",
     }
 
     render(
       <DashboardHeader
         user={unnamedUser}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByText("US")
+      screen.getByText("US"),
     ).toBeInTheDocument()
   })
 
@@ -224,13 +180,13 @@ describe("DashboardHeader", () => {
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
       screen.getByText(
-        "Hoje existem 0 ações prioritárias na operação."
-      )
+        "Hoje existem 0 ações prioritárias na operação.",
+      ),
     ).toBeInTheDocument()
   })
 
@@ -240,13 +196,13 @@ describe("DashboardHeader", () => {
         user={user}
         summary="Resumo comercial"
         priorityCount={1}
-      />
+      />,
     )
 
     expect(
       screen.getByText(
-        "Hoje existe 1 ação prioritária na operação."
-      )
+        "Hoje existe 1 ação prioritária na operação.",
+      ),
     ).toBeInTheDocument()
   })
 
@@ -256,107 +212,32 @@ describe("DashboardHeader", () => {
         user={user}
         summary="Resumo comercial"
         priorityCount={4}
-      />
+      />,
     )
 
     expect(
       screen.getByText(
-        "Hoje existem 4 ações prioritárias na operação."
-      )
+        "Hoje existem 4 ações prioritárias na operação.",
+      ),
     ).toBeInTheDocument()
   })
 
-  it("deve renderizar o campo de busca operacional", () => {
-    render(
+  it("deve renderizar o botão acessível da pesquisa global", () => {
+    const { container } = render(
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByPlaceholderText(
-        "Buscar clientes, leads, grupos, cotas..."
-      )
-    ).toHaveAttribute(
-      "type",
-      "search"
-    )
-  })
-
-  it("deve fornecer descrição acessível para o campo de busca", () => {
-    render(
-      <DashboardHeader
-        user={user}
-        summary="Resumo comercial"
-      />
-    )
-
-    expect(
-      screen.getByRole("searchbox", {
-        name: /Buscar clientes, leads, grupos ou cotas/i,
-      })
-    ).toBeInTheDocument()
-  })
-
-  it("deve aplicar elevação no hover ao campo de busca sem usar azul", () => {
-    render(
-      <DashboardHeader
-        user={user}
-        summary="Resumo comercial"
-      />
-    )
-
-    const searchInput =
-      screen.getByPlaceholderText(
-        "Buscar clientes, leads, grupos, cotas..."
-      )
-
-    expect(searchInput).toHaveClass(
-      "hover:-translate-y-px",
-      "hover:border-[#2F8F5B]/30"
-    )
-
-    expect(searchInput.className).not.toMatch(
-      /hover:(bg|border|text)-(blue|sky|cyan|indigo)/
-    )
-  })
-
-  it("deve renderizar o atalho visual da busca", () => {
-    const {
-      container,
-    } = render(
-      <DashboardHeader
-        user={user}
-        summary="Resumo comercial"
-      />
-    )
-
-    expect(
-      container.querySelector(
-        ".lucide-command"
-      )
+      screen.getByRole("button", {
+        name: "Abrir pesquisa global",
+      }),
     ).toBeInTheDocument()
 
     expect(
-      screen.getByText("K")
-    ).toBeInTheDocument()
-  })
-
-  it("deve renderizar o ícone de busca", () => {
-    const {
-      container,
-    } = render(
-      <DashboardHeader
-        user={user}
-        summary="Resumo comercial"
-      />
-    )
-
-    expect(
-      container.querySelector(
-        ".lucide-search"
-      )
+      container.querySelector(".lucide-search"),
     ).toBeInTheDocument()
   })
 
@@ -365,13 +246,13 @@ describe("DashboardHeader", () => {
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
       screen.getByRole("button", {
         name: "Abrir notificações",
-      })
+      }),
     ).toBeInTheDocument()
   })
 
@@ -380,13 +261,13 @@ describe("DashboardHeader", () => {
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
       screen.getByRole("button", {
         name: "Abrir menu do usuário",
-      })
+      }),
     ).toBeInTheDocument()
   })
 
@@ -395,28 +276,43 @@ describe("DashboardHeader", () => {
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByText("R2")
-    ).toBeInTheDocument()
-
-    expect(
-      screen.getByText("Monitorando")
+      screen.getByText("Monitorando"),
     ).toBeInTheDocument()
   })
 
-  it("deve renderizar o cargo do usuário", () => {
+  it("deve renderizar Consultor Sênior como cargo operacional", () => {
     render(
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByText("Supervisor")
+      screen.getByText("Consultor Sênior"),
+    ).toBeInTheDocument()
+  })
+
+  it("deve respeitar um cargo explícito recebido pelo dashboard", () => {
+    const manager: User = {
+      id: "user-4",
+      name: "Gestor Teste",
+      positionTitle: "Gestor",
+    }
+
+    render(
+      <DashboardHeader
+        user={manager}
+        summary="Resumo comercial"
+      />,
+    )
+
+    expect(
+      screen.getByText("Gestor"),
     ).toBeInTheDocument()
   })
 
@@ -425,51 +321,33 @@ describe("DashboardHeader", () => {
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
       screen.getByRole("heading", {
         level: 1,
         name: "Dashboard",
-      })
+      }),
     ).toHaveClass(
       "text-2xl",
       "font-semibold",
       "tracking-[-0.045em]",
       "text-[#F5F7FA]",
-      "sm:text-3xl"
+      "sm:text-3xl",
     )
   })
 
-  it("deve aplicar as classes premium do resumo", () => {
+  it("deve manter exatamente os dois headings atuais do cabeçalho", () => {
     render(
       <DashboardHeader
         user={user}
         summary="Resumo comercial"
-      />
+      />,
     )
 
     expect(
-      screen.getByText("Resumo comercial")
-    ).toHaveClass(
-      "mt-2",
-      "text-sm",
-      "leading-6",
-      "text-[#D6DBE3]"
-    )
-  })
-
-  it("deve renderizar exatamente três níveis de heading", () => {
-    render(
-      <DashboardHeader
-        user={user}
-        summary="Resumo comercial"
-      />
-    )
-
-    expect(
-      screen.getAllByRole("heading")
-    ).toHaveLength(3)
+      screen.getAllByRole("heading"),
+    ).toHaveLength(2)
   })
 })

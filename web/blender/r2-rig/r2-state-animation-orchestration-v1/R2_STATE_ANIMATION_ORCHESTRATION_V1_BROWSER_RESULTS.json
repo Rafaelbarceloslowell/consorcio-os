@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "testedAt": "2026-08-02T02:16:00-03:00",
+  "url": "http://localhost:3000/",
+  "browserAttempts": [
+    { "browser": "Microsoft Edge", "available": false, "reason": "No connected Edge browser surface in this Codex session." },
+    { "browser": "Google Chrome", "available": false, "reason": "No connected Chrome browser surface in this Codex session." },
+    { "browser": "Codex in-app browser", "available": true, "viewport": [1280, 720] }
+  ],
+  "resizeObserver": false,
+  "r2CanvasRendered": false,
+  "productFallbackRendered": true,
+  "developmentDiagnosticsAvailable": false,
+  "r2ConsoleErrors": 0,
+  "consoleErrors": 0,
+  "warnings": [
+    "THREE.Clock deprecation warning",
+    "WebGL shader loop-unroll warning"
+  ],
+  "glbRequestedByRuntime": false,
+  "reason": "The available browser exposes no ResizeObserver. The production component intentionally renders its no-canvas fallback before mounting the R2 runtime. This browser also exposed no fetch, performance resource timing, viewport resizing, or orientation emulation.",
+  "requiredViewportsValidated": [],
+  "requiredViewportsBlocked": [
+    [1440, 900],
+    [1366, 768],
+    [1024, 768],
+    [768, 1024],
+    [390, 844]
+  ],
+  "evidence": [
+    "evidence/R2_BROWSER_AVAILABLE_1280x720.jpg"
+  ],
+  "permanentPolyfillAdded": false,
+  "verdict": "REPROVADO"
+}

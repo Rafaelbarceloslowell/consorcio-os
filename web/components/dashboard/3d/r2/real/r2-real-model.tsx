@@ -1,0 +1,128 @@
+"use client"
+
+import { useGLTF, useAnimations } from "@react-three/drei"
+import type { R2Behavior } from "../../r2-behavior"
+import { useEffect, useMemo, useState } from "react"
+import * as THREE from "three"
+import { SkeletonUtils } from "three-stdlib"
+import { R2Customization } from "./r2-customization"
+import { R2FaceController } from "./r2-face-controller"
+import { findR2Rig } from "./r2-rig"
+import { R2EyeController } from "./r2-eye-controller"
+import { R2LifeController } from "./r2-life-controller"
+
+type R2RealModelProps = {
+  scale?: number
+  position?: [number, number, number]
+  rotation?: [number, number, number]
+  behavior?: R2Behavior
+}
+
+
+export function R2RealModel({
+  scale = 1,
+  position = [0,0,0],
+  rotation = [0,0,0],
+  behavior,
+}: R2RealModelProps) {
+
+
+  const { scene, animations } = useGLTF(
+    "/models/r2/r2-gorilla.glb"
+  )
+
+  const { actions } =
+    useAnimations(
+      animations,
+      scene
+    )
+
+
+  useEffect(() => {
+
+    if (!behavior) return
+
+    const animation =
+      behavior.animation
+
+    const action =
+      actions[animation]
+
+    if (!action) return
+
+    action
+      .reset()
+      .fadeIn(0.4)
+      .play()
+
+    return () => {
+      action.fadeOut(0.4)
+    }
+
+  }, [behavior, actions])
+
+
+  const model = useMemo(() => {
+    const clone =
+      SkeletonUtils.clone(scene)
+
+    clone.traverse((object) => {
+
+      if (
+        object instanceof THREE.Mesh
+      ) {
+
+        object.castShadow = true
+        object.receiveShadow = true
+
+      }
+
+    })
+
+    return clone
+
+  }, [scene])
+
+
+  const rig = useMemo(() => {
+    return findR2Rig(model)
+  }, [model])
+
+
+  const [modelGroup, setModelGroup] =
+    useState<THREE.Group | null>(null)
+
+
+  return (
+    <group ref={setModelGroup}>
+
+      <primitive
+        object={model}
+        scale={scale}
+        position={position}
+        rotation={rotation}
+      />
+
+      <R2Customization />
+
+      <R2FaceController
+        behavior={behavior}
+      />
+
+      <R2EyeController
+        rig={rig}
+        behavior={behavior}
+      />
+
+      <R2LifeController
+        target={modelGroup}
+      />
+
+    </group>
+  )
+}
+
+
+useGLTF.preload(
+  "/models/r2/r2-gorilla.glb"
+)

@@ -1,0 +1,1957 @@
+﻿============================================================
+ R2 TARGETED SOURCE DISCOVERY
+============================================================
+GENERATED_AT=2026-08-02T12:29:55-03:00
+
+============================================================
+ FILE: C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx
+============================================================
+
+----- PATTERN: fallback -----
+LINE=107
+----------------------------------------
+            R2_RENDERER.shadowsEnabled
+          gl.setClearColor(
+            0x000000,
+            0,
+          )
+        }}
+>>>         fallback={
+          <div
+            aria-label="Visualização 3D do R2 indisponível"
+            className="h-full w-full bg-transparent"
+          />
+        }
+      >
+        <hemisphereLight
+          name="r2-hemisphere-light"
+          color={
+            R2_LIGHTING.hemisphere.skyColor
+----------------------------------------
+LINE=144
+----------------------------------------
+        <directionalLight
+          name="r2-rim-light"
+          color={R2_LIGHTING.rim.color}
+          intensity={R2_LIGHTING.rim.intensity}
+          position={R2_LIGHTING.rim.position}
+        />
+>>>         <Suspense fallback={null}>
+          <R2FullCharacterErrorBoundary>
+            <R2FullCharacterModel
+              runtimeWorkspaceId={workspaceId}
+              runtimeCommand={runtimeCommand}
+              onRuntimeReceipt={onRuntimeReceipt}
+              scale={R2_MODEL_PRESENTATION_SCALE}
+              autoFrame
+            />
+          </R2FullCharacterErrorBoundary>
+        </Suspense>
+----------------------------------------
+
+----- PATTERN: Fallback -----
+LINE=107
+----------------------------------------
+            R2_RENDERER.shadowsEnabled
+          gl.setClearColor(
+            0x000000,
+            0,
+          )
+        }}
+>>>         fallback={
+          <div
+            aria-label="Visualização 3D do R2 indisponível"
+            className="h-full w-full bg-transparent"
+          />
+        }
+      >
+        <hemisphereLight
+          name="r2-hemisphere-light"
+          color={
+            R2_LIGHTING.hemisphere.skyColor
+----------------------------------------
+LINE=144
+----------------------------------------
+        <directionalLight
+          name="r2-rim-light"
+          color={R2_LIGHTING.rim.color}
+          intensity={R2_LIGHTING.rim.intensity}
+          position={R2_LIGHTING.rim.position}
+        />
+>>>         <Suspense fallback={null}>
+          <R2FullCharacterErrorBoundary>
+            <R2FullCharacterModel
+              runtimeWorkspaceId={workspaceId}
+              runtimeCommand={runtimeCommand}
+              onRuntimeReceipt={onRuntimeReceipt}
+              scale={R2_MODEL_PRESENTATION_SCALE}
+              autoFrame
+            />
+          </R2FullCharacterErrorBoundary>
+        </Suspense>
+----------------------------------------
+
+----- PATTERN: aria-label -----
+LINE=60
+----------------------------------------
+    }
+  }, [])
+
+  if (!canRenderCanvas) {
+    return (
+      <div
+>>>         aria-label="Visualização 3D do R2 indisponível"
+        className="h-full w-full bg-transparent"
+      />
+    )
+  }
+
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+      <Canvas
+        camera={{
+          position: [
+----------------------------------------
+LINE=109
+----------------------------------------
+            0x000000,
+            0,
+          )
+        }}
+        fallback={
+          <div
+>>>             aria-label="Visualização 3D do R2 indisponível"
+            className="h-full w-full bg-transparent"
+          />
+        }
+      >
+        <hemisphereLight
+          name="r2-hemisphere-light"
+          color={
+            R2_LIGHTING.hemisphere.skyColor
+          }
+          groundColor={
+----------------------------------------
+
+----- PATTERN: Canvas -----
+LINE=10
+----------------------------------------
+  Suspense,
+  useEffect,
+  useState,
+} from "react"
+
+import {
+>>>   Canvas,
+} from "@react-three/fiber"
+
+import {
+  R2FullCharacterErrorBoundary,
+  R2FullCharacterModel,
+} from "./r2/real/r2-full-character-model"
+import {
+  R2_CAMERA_FOV,
+  R2_LIGHTING,
+  R2_MODEL_PRESENTATION_SCALE,
+----------------------------------------
+LINE=37
+----------------------------------------
+  onRuntimeReceipt,
+}: Readonly<{
+  workspaceId?: string
+  runtimeCommand?: R2RuntimeCommand | null
+  onRuntimeReceipt?: (receipt: R2ExecutionReceipt) => void
+}>) {
+>>>   const [canRenderCanvas, setCanRenderCanvas] =
+    useState(false)
+
+  useEffect(() => {
+    let active = true
+
+    queueMicrotask(() => {
+      if (active) {
+        setCanRenderCanvas(
+          typeof globalThis.ResizeObserver !==
+            "undefined",
+----------------------------------------
+LINE=45
+----------------------------------------
+
+  useEffect(() => {
+    let active = true
+
+    queueMicrotask(() => {
+      if (active) {
+>>>         setCanRenderCanvas(
+          typeof globalThis.ResizeObserver !==
+            "undefined",
+        )
+      }
+    })
+
+    return () => {
+      active = false
+    }
+  }, [])
+----------------------------------------
+LINE=57
+----------------------------------------
+
+    return () => {
+      active = false
+    }
+  }, [])
+
+>>>   if (!canRenderCanvas) {
+    return (
+      <div
+        aria-label="Visualização 3D do R2 indisponível"
+        className="h-full w-full bg-transparent"
+      />
+    )
+  }
+
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+----------------------------------------
+LINE=68
+----------------------------------------
+      />
+    )
+  }
+
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+>>>       <Canvas
+        camera={{
+          position: [
+            0,
+            0,
+            5,
+          ],
+          fov: R2_CAMERA_FOV,
+          near: 0.1,
+          far: 100,
+        }}
+----------------------------------------
+LINE=155
+----------------------------------------
+              onRuntimeReceipt={onRuntimeReceipt}
+              scale={R2_MODEL_PRESENTATION_SCALE}
+              autoFrame
+            />
+          </R2FullCharacterErrorBoundary>
+        </Suspense>
+>>>       </Canvas>
+    </div>
+  )
+}
+----------------------------------------
+
+----- PATTERN: ResizeObserver -----
+LINE=46
+----------------------------------------
+  useEffect(() => {
+    let active = true
+
+    queueMicrotask(() => {
+      if (active) {
+        setCanRenderCanvas(
+>>>           typeof globalThis.ResizeObserver !==
+            "undefined",
+        )
+      }
+    })
+
+    return () => {
+      active = false
+    }
+  }, [])
+
+----------------------------------------
+
+============================================================
+ FILE: C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+============================================================
+
+----- PATTERN: __GORILLA_R2_DIAGNOSTICS__ -----
+LINE=80
+----------------------------------------
+    R2FullCharacterRuntimeController
+  adapter: R2RuntimeCommandAdapter | null
+}
+
+declare global {
+  interface Window {
+>>>     __GORILLA_R2_DIAGNOSTICS__?: Readonly<{
+      setState: R2FullCharacterRuntimeController["setState"]
+      setReducedMotion: R2FullCharacterRuntimeController["setReducedMotion"]
+      getSnapshot: R2FullCharacterRuntimeController["getDiagnostics"]
+      resetNeutral: R2FullCharacterRuntimeController["resetNeutral"]
+    }>
+  }
+}
+
+function R2CameraFraming({
+  scene,
+----------------------------------------
+LINE=280
+----------------------------------------
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+>>>     window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+----------------------------------------
+LINE=283
+----------------------------------------
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+>>>       if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+  }, [runtime, runtimeCommand])
+
+  useFrame((_, delta) => {
+----------------------------------------
+LINE=284
+----------------------------------------
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+>>>         delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+  }, [runtime, runtimeCommand])
+
+  useFrame((_, delta) => {
+    runtime?.controller.update(delta)
+----------------------------------------
+
+----- PATTERN: fallback -----
+LINE=320
+----------------------------------------
+    </>
+  )
+}
+
+type ErrorBoundaryProps = {
+  children: ReactNode
+>>>   fallback?: ReactNode
+  onError?: (
+    error: Error,
+    info: ErrorInfo,
+  ) => void
+}
+
+type ErrorBoundaryState = {
+  error: Error | null
+}
+
+----------------------------------------
+LINE=358
+----------------------------------------
+      info,
+    )
+  }
+
+  render() {
+    if (this.state.error) {
+>>>       return this.props.fallback ?? null
+    }
+
+    return this.props.children
+  }
+}
+
+useGLTF.preload(
+  R2_FULL_CHARACTER_MODEL_PATH,
+)
+----------------------------------------
+
+----- PATTERN: Fallback -----
+LINE=320
+----------------------------------------
+    </>
+  )
+}
+
+type ErrorBoundaryProps = {
+  children: ReactNode
+>>>   fallback?: ReactNode
+  onError?: (
+    error: Error,
+    info: ErrorInfo,
+  ) => void
+}
+
+type ErrorBoundaryState = {
+  error: Error | null
+}
+
+----------------------------------------
+LINE=358
+----------------------------------------
+      info,
+    )
+  }
+
+  render() {
+    if (this.state.error) {
+>>>       return this.props.fallback ?? null
+    }
+
+    return this.props.children
+  }
+}
+
+useGLTF.preload(
+  R2_FULL_CHARACTER_MODEL_PATH,
+)
+----------------------------------------
+
+----- PATTERN: setState -----
+LINE=81
+----------------------------------------
+  adapter: R2RuntimeCommandAdapter | null
+}
+
+declare global {
+  interface Window {
+    __GORILLA_R2_DIAGNOSTICS__?: Readonly<{
+>>>       setState: R2FullCharacterRuntimeController["setState"]
+      setReducedMotion: R2FullCharacterRuntimeController["setReducedMotion"]
+      getSnapshot: R2FullCharacterRuntimeController["getDiagnostics"]
+      resetNeutral: R2FullCharacterRuntimeController["resetNeutral"]
+    }>
+  }
+}
+
+function R2CameraFraming({
+  scene,
+}: Readonly<{
+----------------------------------------
+LINE=251
+----------------------------------------
+    runtimeWorkspaceId,
+    scene,
+  ])
+
+  useEffect(() => {
+    if (!runtimeCommand) {
+>>>       runtime?.controller.setState(
+        r2BehaviorToRuntimeState(
+          behavior,
+        ),
+      )
+    }
+  }, [
+    behavior,
+    runtime,
+    runtimeCommand,
+  ])
+----------------------------------------
+LINE=275
+----------------------------------------
+  useEffect(() => {
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+>>>       setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+----------------------------------------
+
+----- PATTERN: getDiagnostics -----
+LINE=83
+----------------------------------------
+
+declare global {
+  interface Window {
+    __GORILLA_R2_DIAGNOSTICS__?: Readonly<{
+      setState: R2FullCharacterRuntimeController["setState"]
+      setReducedMotion: R2FullCharacterRuntimeController["setReducedMotion"]
+>>>       getSnapshot: R2FullCharacterRuntimeController["getDiagnostics"]
+      resetNeutral: R2FullCharacterRuntimeController["resetNeutral"]
+    }>
+  }
+}
+
+function R2CameraFraming({
+  scene,
+}: Readonly<{
+  scene: Object3D
+}>) {
+----------------------------------------
+LINE=277
+----------------------------------------
+      return undefined
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+>>>       getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+----------------------------------------
+
+----- PATTERN: setReducedMotion -----
+LINE=82
+----------------------------------------
+}
+
+declare global {
+  interface Window {
+    __GORILLA_R2_DIAGNOSTICS__?: Readonly<{
+      setState: R2FullCharacterRuntimeController["setState"]
+>>>       setReducedMotion: R2FullCharacterRuntimeController["setReducedMotion"]
+      getSnapshot: R2FullCharacterRuntimeController["getDiagnostics"]
+      resetNeutral: R2FullCharacterRuntimeController["resetNeutral"]
+    }>
+  }
+}
+
+function R2CameraFraming({
+  scene,
+}: Readonly<{
+  scene: Object3D
+----------------------------------------
+LINE=264
+----------------------------------------
+    behavior,
+    runtime,
+    runtimeCommand,
+  ])
+
+  useEffect(() => {
+>>>     runtime?.controller.setReducedMotion(
+      reducedMotion ?? systemReducedMotion,
+    )
+  }, [reducedMotion, runtime, systemReducedMotion])
+
+  useEffect(() => {
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+----------------------------------------
+LINE=276
+----------------------------------------
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+>>>       setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+----------------------------------------
+
+============================================================
+ FILE: C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+============================================================
+
+----- PATTERN: fallback -----
+LINE=73
+----------------------------------------
+  | "blinkIntervalSeconds"
+  | "expressions"
+  | "mouth"
+  | "loop"
+  | "transitionSeconds"
+  | "interruptible"
+>>>   | "fallback"
+> & Partial<Pick<
+  R2RuntimeStateDefinition,
+  | "playbackMode"
+  | "playbackSpeed"
+  | "fadeInMs"
+  | "fadeOutMs"
+  | "crossFadeMs"
+  | "minimumDurationMs"
+  | "maximumDurationMs"
+  | "priority"
+----------------------------------------
+LINE=102
+----------------------------------------
+    fadeInMs: seed.fadeInMs ?? crossFadeMs,
+    fadeOutMs: seed.fadeOutMs ?? crossFadeMs,
+    crossFadeMs,
+    minimumDurationMs: seed.minimumDurationMs ?? 0,
+    maximumDurationMs: seed.maximumDurationMs ?? null,
+    priority: seed.priority ?? "normal",
+>>>     returnState: seed.returnState ?? seed.fallback,
+    cooldownMs: seed.cooldownMs ?? 0,
+    morphTargetProfile: seed.morphTargetProfile ?? "neutral",
+    headTrackingProfile: seed.eye,
+    eyeProfile: seed.eye,
+    reducedMotionProfile: {
+      playbackMode: "pose",
+      playbackSpeed: 0,
+      crossFadeMs: Math.min(crossFadeMs, 120),
+      proceduralMotion: false,
+    },
+----------------------------------------
+LINE=143
+----------------------------------------
+    blinkIntervalSeconds: [4, 7],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.25,
+    interruptible: true,
+>>>     fallback: "neutral",
+    priority: "low",
+    description: "Pose neutra recuperável e baseline exato do personagem.",
+  }),
+  idle: defineR2State({
+    id: "idle",
+    clip: "R2_IDLE",
+    head: [0, 0, 0],
+    eye: "ambient_subtle",
+    blinkIntervalSeconds: [3.5, 6.5],
+    expressions: {},
+----------------------------------------
+LINE=158
+----------------------------------------
+    blinkIntervalSeconds: [3.5, 6.5],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.45,
+    interruptible: true,
+>>>     fallback: "neutral",
+    priority: "low",
+    description: "Presença ambiental discreta quando não há tarefa ativa.",
+  }),
+  working: defineR2State({
+    id: "working",
+    clip: "R2_WORKING",
+    head: [-0.02, 0, 0],
+    eye: "task_focus",
+    blinkIntervalSeconds: [4, 7],
+    expressions: {
+----------------------------------------
+LINE=175
+----------------------------------------
+      BROW_FROWN: 0.1,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.35,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 250,
+    morphTargetProfile: "focus",
+    description: "Execução concentrada de uma tarefa operacional.",
+  }),
+  listening: defineR2State({
+    id: "listening",
+    clip: "R2_LISTENING",
+    head: [0, 0, 0.02],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5.5],
+----------------------------------------
+LINE=193
+----------------------------------------
+      BROW_RAISE: 0.08,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.3,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 200,
+    morphTargetProfile: "listen",
+    description: "Escuta atenta com foco no usuário.",
+  }),
+  thinking: defineR2State({
+    id: "thinking",
+    clip: "R2_THINKING",
+    head: [-0.02, -0.02, 0.03],
+    eye: "up_lateral",
+    blinkIntervalSeconds: [4.5, 7.5],
+----------------------------------------
+LINE=212
+----------------------------------------
+      MOUTH_NARROW: 0.05,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.35,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 350,
+    morphTargetProfile: "think",
+    description: "Raciocínio deliberado antes de uma resposta ou decisão.",
+  }),
+  awaiting_action: defineR2State({
+    id: "awaiting_action",
+    clip: "R2_AWAITING_ACTION",
+    head: [0.01, 0, 0],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5],
+----------------------------------------
+LINE=230
+----------------------------------------
+      BROW_RAISE: 0.12,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.3,
+    interruptible: true,
+>>>     fallback: "listening",
+    minimumDurationMs: 300,
+    morphTargetProfile: "listen",
+    description: "Espera explícita por uma ação do usuário.",
+  }),
+  alert: defineR2State({
+    id: "alert",
+    clip: "R2_ALERT",
+    head: [0.02, 0, 0],
+    eye: "event_focus",
+    blinkIntervalSeconds: [5, 8],
+----------------------------------------
+LINE=249
+----------------------------------------
+      BROW_FROWN: 0.08,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.15,
+    interruptible: true,
+>>>     fallback: "neutral",
+    minimumDurationMs: 400,
+    priority: "critical",
+    cooldownMs: 300,
+    morphTargetProfile: "alert",
+    description: "Alerta operacional que pode interromper estados menos prioritários.",
+  }),
+  speaking: defineR2State({
+    id: "speaking",
+    clip: "R2_IDLE",
+    head: [0, 0, 0],
+----------------------------------------
+LINE=269
+----------------------------------------
+      CHEEK_RAISE: 0.05,
+    },
+    mouth: "runtime_viseme",
+    loop: "repeat",
+    transitionSeconds: 0.2,
+    interruptible: true,
+>>>     fallback: "listening",
+    minimumDurationMs: 500,
+    priority: "high",
+    morphTargetProfile: "speak",
+    description: "Fala ativa; reutiliza com transparência o clipe corporal de idle.",
+  }),
+  celebrating_sale: defineR2State({
+    id: "celebrating_sale",
+    clip: "R2_CELEBRATING_SALE",
+    head: [0, 0, 0],
+    eye: "user_focus",
+----------------------------------------
+LINE=289
+----------------------------------------
+      CHEEK_RAISE: 0.25,
+    },
+    mouth: "confident_smile",
+    loop: "once",
+    transitionSeconds: 0.25,
+    interruptible: false,
+>>>     fallback: "idle",
+    playbackMode: "one_shot",
+    minimumDurationMs: 800,
+    maximumDurationMs: 2_400,
+    priority: "high",
+    returnState: "idle",
+    cooldownMs: 1_000,
+    morphTargetProfile: "celebrate",
+    description: "Comemoração one-shot com retorno automático e seguro ao idle.",
+  }),
+  error_attention: defineR2State({
+----------------------------------------
+LINE=313
+----------------------------------------
+      FROWN: 0.28,
+    },
+    mouth: "serious_closed",
+    loop: "once",
+    transitionSeconds: 0.18,
+    interruptible: false,
+>>>     fallback: "neutral",
+    playbackMode: "one_shot",
+    minimumDurationMs: 600,
+    maximumDurationMs: 2_000,
+    priority: "critical",
+    returnState: "neutral",
+    cooldownMs: 750,
+    morphTargetProfile: "error",
+    description: "Erro crítico one-shot com retorno automático ao baseline neutro.",
+  }),
+}
+----------------------------------------
+LINE=637
+----------------------------------------
+  private pendingState: R2RuntimeState | null = null
+  private readonly lastStateStartedAtMs = new Map<R2RuntimeState, number>()
+  private runtimeElapsedMs = 0
+  private requestGeneration = 0
+  private transitionsApplied = 0
+  private transitionsIgnored = 0
+>>>   private fallbacks = 0
+  private actionsReused = 0
+  private maximumSimultaneousActions = 0
+  private mixerListeners = 0
+  private reducedMotion = false
+  private speakingIntensity = 1
+  private activeViseme?: R2Viseme
+  private elapsedInState = 0
+  private autoBlinkValue = 0
+
+  state: R2RuntimeState = "neutral"
+----------------------------------------
+LINE=1086
+----------------------------------------
+    }
+  }
+
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+>>>       this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+        status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+----------------------------------------
+LINE=1091
+----------------------------------------
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+>>>         status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+  setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+    if (this.reducedMotion === normalized) {
+----------------------------------------
+LINE=1123
+----------------------------------------
+      actionsCreated: this.actions.size,
+      actionsReused: this.actionsReused,
+      maximumSimultaneousActions: this.maximumSimultaneousActions,
+      activeActions: this.activeActionCount(),
+      transitionsApplied: this.transitionsApplied,
+      transitionsIgnored: this.transitionsIgnored,
+>>>       fallbacks: this.fallbacks,
+      mixerListeners: this.mixerListeners,
+      pendingState: this.pendingState,
+    }
+  }
+
+  setExpression(
+    channel: R2ExpressionChannel,
+    value: number,
+  ) {
+    this.assertActive()
+----------------------------------------
+
+----- PATTERN: Fallback -----
+LINE=73
+----------------------------------------
+  | "blinkIntervalSeconds"
+  | "expressions"
+  | "mouth"
+  | "loop"
+  | "transitionSeconds"
+  | "interruptible"
+>>>   | "fallback"
+> & Partial<Pick<
+  R2RuntimeStateDefinition,
+  | "playbackMode"
+  | "playbackSpeed"
+  | "fadeInMs"
+  | "fadeOutMs"
+  | "crossFadeMs"
+  | "minimumDurationMs"
+  | "maximumDurationMs"
+  | "priority"
+----------------------------------------
+LINE=102
+----------------------------------------
+    fadeInMs: seed.fadeInMs ?? crossFadeMs,
+    fadeOutMs: seed.fadeOutMs ?? crossFadeMs,
+    crossFadeMs,
+    minimumDurationMs: seed.minimumDurationMs ?? 0,
+    maximumDurationMs: seed.maximumDurationMs ?? null,
+    priority: seed.priority ?? "normal",
+>>>     returnState: seed.returnState ?? seed.fallback,
+    cooldownMs: seed.cooldownMs ?? 0,
+    morphTargetProfile: seed.morphTargetProfile ?? "neutral",
+    headTrackingProfile: seed.eye,
+    eyeProfile: seed.eye,
+    reducedMotionProfile: {
+      playbackMode: "pose",
+      playbackSpeed: 0,
+      crossFadeMs: Math.min(crossFadeMs, 120),
+      proceduralMotion: false,
+    },
+----------------------------------------
+LINE=143
+----------------------------------------
+    blinkIntervalSeconds: [4, 7],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.25,
+    interruptible: true,
+>>>     fallback: "neutral",
+    priority: "low",
+    description: "Pose neutra recuperável e baseline exato do personagem.",
+  }),
+  idle: defineR2State({
+    id: "idle",
+    clip: "R2_IDLE",
+    head: [0, 0, 0],
+    eye: "ambient_subtle",
+    blinkIntervalSeconds: [3.5, 6.5],
+    expressions: {},
+----------------------------------------
+LINE=158
+----------------------------------------
+    blinkIntervalSeconds: [3.5, 6.5],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.45,
+    interruptible: true,
+>>>     fallback: "neutral",
+    priority: "low",
+    description: "Presença ambiental discreta quando não há tarefa ativa.",
+  }),
+  working: defineR2State({
+    id: "working",
+    clip: "R2_WORKING",
+    head: [-0.02, 0, 0],
+    eye: "task_focus",
+    blinkIntervalSeconds: [4, 7],
+    expressions: {
+----------------------------------------
+LINE=175
+----------------------------------------
+      BROW_FROWN: 0.1,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.35,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 250,
+    morphTargetProfile: "focus",
+    description: "Execução concentrada de uma tarefa operacional.",
+  }),
+  listening: defineR2State({
+    id: "listening",
+    clip: "R2_LISTENING",
+    head: [0, 0, 0.02],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5.5],
+----------------------------------------
+LINE=193
+----------------------------------------
+      BROW_RAISE: 0.08,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.3,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 200,
+    morphTargetProfile: "listen",
+    description: "Escuta atenta com foco no usuário.",
+  }),
+  thinking: defineR2State({
+    id: "thinking",
+    clip: "R2_THINKING",
+    head: [-0.02, -0.02, 0.03],
+    eye: "up_lateral",
+    blinkIntervalSeconds: [4.5, 7.5],
+----------------------------------------
+LINE=212
+----------------------------------------
+      MOUTH_NARROW: 0.05,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.35,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 350,
+    morphTargetProfile: "think",
+    description: "Raciocínio deliberado antes de uma resposta ou decisão.",
+  }),
+  awaiting_action: defineR2State({
+    id: "awaiting_action",
+    clip: "R2_AWAITING_ACTION",
+    head: [0.01, 0, 0],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5],
+----------------------------------------
+LINE=230
+----------------------------------------
+      BROW_RAISE: 0.12,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.3,
+    interruptible: true,
+>>>     fallback: "listening",
+    minimumDurationMs: 300,
+    morphTargetProfile: "listen",
+    description: "Espera explícita por uma ação do usuário.",
+  }),
+  alert: defineR2State({
+    id: "alert",
+    clip: "R2_ALERT",
+    head: [0.02, 0, 0],
+    eye: "event_focus",
+    blinkIntervalSeconds: [5, 8],
+----------------------------------------
+LINE=249
+----------------------------------------
+      BROW_FROWN: 0.08,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.15,
+    interruptible: true,
+>>>     fallback: "neutral",
+    minimumDurationMs: 400,
+    priority: "critical",
+    cooldownMs: 300,
+    morphTargetProfile: "alert",
+    description: "Alerta operacional que pode interromper estados menos prioritários.",
+  }),
+  speaking: defineR2State({
+    id: "speaking",
+    clip: "R2_IDLE",
+    head: [0, 0, 0],
+----------------------------------------
+LINE=269
+----------------------------------------
+      CHEEK_RAISE: 0.05,
+    },
+    mouth: "runtime_viseme",
+    loop: "repeat",
+    transitionSeconds: 0.2,
+    interruptible: true,
+>>>     fallback: "listening",
+    minimumDurationMs: 500,
+    priority: "high",
+    morphTargetProfile: "speak",
+    description: "Fala ativa; reutiliza com transparência o clipe corporal de idle.",
+  }),
+  celebrating_sale: defineR2State({
+    id: "celebrating_sale",
+    clip: "R2_CELEBRATING_SALE",
+    head: [0, 0, 0],
+    eye: "user_focus",
+----------------------------------------
+LINE=289
+----------------------------------------
+      CHEEK_RAISE: 0.25,
+    },
+    mouth: "confident_smile",
+    loop: "once",
+    transitionSeconds: 0.25,
+    interruptible: false,
+>>>     fallback: "idle",
+    playbackMode: "one_shot",
+    minimumDurationMs: 800,
+    maximumDurationMs: 2_400,
+    priority: "high",
+    returnState: "idle",
+    cooldownMs: 1_000,
+    morphTargetProfile: "celebrate",
+    description: "Comemoração one-shot com retorno automático e seguro ao idle.",
+  }),
+  error_attention: defineR2State({
+----------------------------------------
+LINE=313
+----------------------------------------
+      FROWN: 0.28,
+    },
+    mouth: "serious_closed",
+    loop: "once",
+    transitionSeconds: 0.18,
+    interruptible: false,
+>>>     fallback: "neutral",
+    playbackMode: "one_shot",
+    minimumDurationMs: 600,
+    maximumDurationMs: 2_000,
+    priority: "critical",
+    returnState: "neutral",
+    cooldownMs: 750,
+    morphTargetProfile: "error",
+    description: "Erro crítico one-shot com retorno automático ao baseline neutro.",
+  }),
+}
+----------------------------------------
+LINE=637
+----------------------------------------
+  private pendingState: R2RuntimeState | null = null
+  private readonly lastStateStartedAtMs = new Map<R2RuntimeState, number>()
+  private runtimeElapsedMs = 0
+  private requestGeneration = 0
+  private transitionsApplied = 0
+  private transitionsIgnored = 0
+>>>   private fallbacks = 0
+  private actionsReused = 0
+  private maximumSimultaneousActions = 0
+  private mixerListeners = 0
+  private reducedMotion = false
+  private speakingIntensity = 1
+  private activeViseme?: R2Viseme
+  private elapsedInState = 0
+  private autoBlinkValue = 0
+
+  state: R2RuntimeState = "neutral"
+----------------------------------------
+LINE=1086
+----------------------------------------
+    }
+  }
+
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+>>>       this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+        status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+----------------------------------------
+LINE=1091
+----------------------------------------
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+>>>         status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+  setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+    if (this.reducedMotion === normalized) {
+----------------------------------------
+LINE=1123
+----------------------------------------
+      actionsCreated: this.actions.size,
+      actionsReused: this.actionsReused,
+      maximumSimultaneousActions: this.maximumSimultaneousActions,
+      activeActions: this.activeActionCount(),
+      transitionsApplied: this.transitionsApplied,
+      transitionsIgnored: this.transitionsIgnored,
+>>>       fallbacks: this.fallbacks,
+      mixerListeners: this.mixerListeners,
+      pendingState: this.pendingState,
+    }
+  }
+
+  setExpression(
+    channel: R2ExpressionChannel,
+    value: number,
+  ) {
+    this.assertActive()
+----------------------------------------
+
+----- PATTERN: setState -----
+LINE=1083
+----------------------------------------
+      effectiveState: state,
+      status: "applied",
+      generation,
+    }
+  }
+
+>>>   setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+        status: "fallback",
+      }
+    }
+----------------------------------------
+
+----- PATTERN: getDiagnostics -----
+LINE=1108
+----------------------------------------
+      return
+    }
+    this.reducedMotion = normalized
+    this.applyState(this.state, true)
+  }
+
+>>>   getDiagnostics(): R2RuntimeDiagnostics {
+    return {
+      requestedState: this.requestedState,
+      effectiveState: this.state,
+      activeClip: this.currentAction
+        ? R2_RUNTIME_STATE_MAP[this.state].clip
+        : null,
+      elapsedInStateMs: Math.round(this.elapsedInState * 1_000),
+      reducedMotion: this.reducedMotion,
+      actionsCreated: this.actions.size,
+      actionsReused: this.actionsReused,
+----------------------------------------
+
+----- PATTERN: setReducedMotion -----
+LINE=1098
+----------------------------------------
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+>>>   setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+    if (this.reducedMotion === normalized) {
+      return
+    }
+    this.reducedMotion = normalized
+    this.applyState(this.state, true)
+  }
+
+  getDiagnostics(): R2RuntimeDiagnostics {
+----------------------------------------
+
+============================================================
+ FILE: C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+============================================================
+
+----- PATTERN: fallback -----
+LINE=87
+----------------------------------------
+      if (command.speakingIntensity !== undefined) {
+        this.controller.setSpeakingIntensity(command.speakingIntensity)
+      }
+    } catch {
+      try {
+        if (!this.controller.disposed) {
+>>>           this.controller.setState(command.fallbackState)
+        }
+      } catch {
+        // The failed receipt below is the authoritative result.
+      }
+      return this.fail(command, startedAt, "RUNTIME_COMMAND_FAILED", true)
+    }
+
+    const receipt = this.receipt(command, "APPLIED", startedAt, null, null, false, null)
+    this.active = { command, startedAt: startedAt.toISOString() }
+    this.onReceipt(receipt)
+----------------------------------------
+LINE=110
+----------------------------------------
+  private complete(commandId: string) {
+    if (this.disposed || !this.active || this.active.command.commandId !== commandId) return
+    const active = this.active
+    const completedAt = this.clock()
+    this.timer = null
+    this.active = null
+>>>     let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+        this.controller.setState(active.command.fallbackState)
+        fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+----------------------------------------
+LINE=114
+----------------------------------------
+    this.timer = null
+    this.active = null
+    let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+>>>         this.controller.setState(active.command.fallbackState)
+        fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+----------------------------------------
+LINE=115
+----------------------------------------
+    this.active = null
+    let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+        this.controller.setState(active.command.fallbackState)
+>>>         fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+----------------------------------------
+LINE=126
+----------------------------------------
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+>>>       fallbackUsed,
+      errorCode,
+    ))
+  }
+
+  private interruptActive(interruptedBy: string, at: Date) {
+    if (!this.active) return
+    const active = this.active
+    if (this.timer) this.cancel(this.timer)
+    this.timer = null
+    this.active = null
+----------------------------------------
+LINE=148
+----------------------------------------
+      interruptedBy,
+      false,
+      null,
+    ))
+  }
+
+>>>   private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+    const receipt = this.receipt(command, "FAILED", at, at, null, fallbackUsed, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+    const receipt = this.receipt(command, "SKIPPED", at, at, null, false, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+----------------------------------------
+LINE=149
+----------------------------------------
+      false,
+      null,
+    ))
+  }
+
+  private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+>>>     const receipt = this.receipt(command, "FAILED", at, at, null, fallbackUsed, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+    const receipt = this.receipt(command, "SKIPPED", at, at, null, false, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+----------------------------------------
+LINE=166
+----------------------------------------
+  private receipt(
+    command: R2RuntimeCommand,
+    status: R2ExecutionReceipt["status"],
+    startedAt: Date,
+    completedAt: Date | null,
+    interruptedBy: string | null,
+>>>     fallbackUsed: boolean,
+    errorCode: string | null,
+  ): R2ExecutionReceipt {
+    return {
+      receiptId: `${command.commandId}:${status.toLowerCase()}:${startedAt.getTime()}`,
+      commandId: command.commandId,
+      eventId: command.eventId,
+      workspaceId: command.workspaceId,
+      status,
+      runtimeState: command.runtimeState,
+      startedAt: startedAt.toISOString(),
+----------------------------------------
+LINE=180
+----------------------------------------
+      status,
+      runtimeState: command.runtimeState,
+      startedAt: startedAt.toISOString(),
+      completedAt: completedAt?.toISOString() ?? null,
+      durationMs: completedAt ? Math.max(0, completedAt.getTime() - startedAt.getTime()) : null,
+      interruptedBy,
+>>>       fallbackUsed,
+      errorCode,
+    }
+  }
+
+  dispose() {
+    if (this.disposed) return
+    this.disposed = true
+    if (this.timer) this.cancel(this.timer)
+    this.timer = null
+    this.active = null
+----------------------------------------
+
+----- PATTERN: Fallback -----
+LINE=87
+----------------------------------------
+      if (command.speakingIntensity !== undefined) {
+        this.controller.setSpeakingIntensity(command.speakingIntensity)
+      }
+    } catch {
+      try {
+        if (!this.controller.disposed) {
+>>>           this.controller.setState(command.fallbackState)
+        }
+      } catch {
+        // The failed receipt below is the authoritative result.
+      }
+      return this.fail(command, startedAt, "RUNTIME_COMMAND_FAILED", true)
+    }
+
+    const receipt = this.receipt(command, "APPLIED", startedAt, null, null, false, null)
+    this.active = { command, startedAt: startedAt.toISOString() }
+    this.onReceipt(receipt)
+----------------------------------------
+LINE=110
+----------------------------------------
+  private complete(commandId: string) {
+    if (this.disposed || !this.active || this.active.command.commandId !== commandId) return
+    const active = this.active
+    const completedAt = this.clock()
+    this.timer = null
+    this.active = null
+>>>     let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+        this.controller.setState(active.command.fallbackState)
+        fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+----------------------------------------
+LINE=114
+----------------------------------------
+    this.timer = null
+    this.active = null
+    let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+>>>         this.controller.setState(active.command.fallbackState)
+        fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+----------------------------------------
+LINE=115
+----------------------------------------
+    this.active = null
+    let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+        this.controller.setState(active.command.fallbackState)
+>>>         fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+----------------------------------------
+LINE=126
+----------------------------------------
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+>>>       fallbackUsed,
+      errorCode,
+    ))
+  }
+
+  private interruptActive(interruptedBy: string, at: Date) {
+    if (!this.active) return
+    const active = this.active
+    if (this.timer) this.cancel(this.timer)
+    this.timer = null
+    this.active = null
+----------------------------------------
+LINE=148
+----------------------------------------
+      interruptedBy,
+      false,
+      null,
+    ))
+  }
+
+>>>   private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+    const receipt = this.receipt(command, "FAILED", at, at, null, fallbackUsed, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+    const receipt = this.receipt(command, "SKIPPED", at, at, null, false, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+----------------------------------------
+LINE=149
+----------------------------------------
+      false,
+      null,
+    ))
+  }
+
+  private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+>>>     const receipt = this.receipt(command, "FAILED", at, at, null, fallbackUsed, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+    const receipt = this.receipt(command, "SKIPPED", at, at, null, false, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+----------------------------------------
+LINE=166
+----------------------------------------
+  private receipt(
+    command: R2RuntimeCommand,
+    status: R2ExecutionReceipt["status"],
+    startedAt: Date,
+    completedAt: Date | null,
+    interruptedBy: string | null,
+>>>     fallbackUsed: boolean,
+    errorCode: string | null,
+  ): R2ExecutionReceipt {
+    return {
+      receiptId: `${command.commandId}:${status.toLowerCase()}:${startedAt.getTime()}`,
+      commandId: command.commandId,
+      eventId: command.eventId,
+      workspaceId: command.workspaceId,
+      status,
+      runtimeState: command.runtimeState,
+      startedAt: startedAt.toISOString(),
+----------------------------------------
+LINE=180
+----------------------------------------
+      status,
+      runtimeState: command.runtimeState,
+      startedAt: startedAt.toISOString(),
+      completedAt: completedAt?.toISOString() ?? null,
+      durationMs: completedAt ? Math.max(0, completedAt.getTime() - startedAt.getTime()) : null,
+      interruptedBy,
+>>>       fallbackUsed,
+      errorCode,
+    }
+  }
+
+  dispose() {
+    if (this.disposed) return
+    this.disposed = true
+    if (this.timer) this.cancel(this.timer)
+    this.timer = null
+    this.active = null
+----------------------------------------
+
+----- PATTERN: setState -----
+LINE=73
+----------------------------------------
+    ) {
+      return this.fail(command, startedAt, "INVALID_RUNTIME_COMMAND")
+    }
+
+    this.interruptActive(command.commandId, startedAt)
+    try {
+>>>       this.controller.setState(command.runtimeState)
+      if (command.expression) {
+        this.controller.setExpression(command.expression, command.expressionIntensity ?? 1)
+      }
+      if (command.viseme) {
+        this.controller.setViseme(command.viseme, command.speakingIntensity ?? 1)
+      }
+      if (command.eyeTarget) this.controller.setEyeTarget(command.eyeTarget)
+      if (command.speakingIntensity !== undefined) {
+        this.controller.setSpeakingIntensity(command.speakingIntensity)
+      }
+----------------------------------------
+LINE=87
+----------------------------------------
+      if (command.speakingIntensity !== undefined) {
+        this.controller.setSpeakingIntensity(command.speakingIntensity)
+      }
+    } catch {
+      try {
+        if (!this.controller.disposed) {
+>>>           this.controller.setState(command.fallbackState)
+        }
+      } catch {
+        // The failed receipt below is the authoritative result.
+      }
+      return this.fail(command, startedAt, "RUNTIME_COMMAND_FAILED", true)
+    }
+
+    const receipt = this.receipt(command, "APPLIED", startedAt, null, null, false, null)
+    this.active = { command, startedAt: startedAt.toISOString() }
+    this.onReceipt(receipt)
+----------------------------------------
+LINE=114
+----------------------------------------
+    this.timer = null
+    this.active = null
+    let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+>>>         this.controller.setState(active.command.fallbackState)
+        fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+----------------------------------------
+
+============================================================
+ GLOBAL DIAGNOSTICS CONTRACT
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=80
+----------------------------------------
+      R2FullCharacterRuntimeController,
+  ) => void
+  autoFrame?: boolean
+  reducedMotion?: boolean
+}
+
+type RuntimeInstance = {
+  scene: Object3D
+  controller:
+    R2FullCharacterRuntimeController
+  adapter: R2RuntimeCommandAdapter | null
+}
+
+declare global {
+  interface Window {
+>>>     __GORILLA_R2_DIAGNOSTICS__?: Readonly<{
+      setState: R2FullCharacterRuntimeController["setState"]
+      setReducedMotion: R2FullCharacterRuntimeController["setReducedMotion"]
+      getSnapshot: R2FullCharacterRuntimeController["getDiagnostics"]
+      resetNeutral: R2FullCharacterRuntimeController["resetNeutral"]
+    }>
+  }
+}
+
+function R2CameraFraming({
+  scene,
+}: Readonly<{
+  scene: Object3D
+}>) {
+  const {
+    camera,
+    size,
+  } = useThree((state) => ({
+    camera: state.camera,
+    size: state.size,
+  }))
+
+  useEffect(() => {
+    if (!(camera instanceof PerspectiveCamera)) {
+      return
+    }
+
+    configureR2Camera(
+      camera,
+      computeR2RenderableBounds(scene),
+      size.height > 0
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=280
+----------------------------------------
+      reducedMotion ?? systemReducedMotion,
+    )
+  }, [reducedMotion, runtime, systemReducedMotion])
+
+  useEffect(() => {
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+>>>     window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+  }, [runtime, runtimeCommand])
+
+  useFrame((_, delta) => {
+    runtime?.controller.update(delta)
+  })
+
+  if (!runtime) {
+    return null
+  }
+
+  return (
+    <>
+      {autoFrame ? (
+        <R2CameraFraming
+          scene={runtime.scene}
+        />
+      ) : null}
+      <primitive
+        object={runtime.scene as Group}
+        scale={scale}
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=283
+----------------------------------------
+
+  useEffect(() => {
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+>>>       if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+  }, [runtime, runtimeCommand])
+
+  useFrame((_, delta) => {
+    runtime?.controller.update(delta)
+  })
+
+  if (!runtime) {
+    return null
+  }
+
+  return (
+    <>
+      {autoFrame ? (
+        <R2CameraFraming
+          scene={runtime.scene}
+        />
+      ) : null}
+      <primitive
+        object={runtime.scene as Group}
+        scale={scale}
+        position={position}
+        rotation={rotation}
+      />
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=284
+----------------------------------------
+  useEffect(() => {
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+>>>         delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+  }, [runtime, runtimeCommand])
+
+  useFrame((_, delta) => {
+    runtime?.controller.update(delta)
+  })
+
+  if (!runtime) {
+    return null
+  }
+
+  return (
+    <>
+      {autoFrame ? (
+        <R2CameraFraming
+          scene={runtime.scene}
+        />
+      ) : null}
+      <primitive
+        object={runtime.scene as Group}
+        scale={scale}
+        position={position}
+        rotation={rotation}
+      />
+    </>
+----------------------------------------

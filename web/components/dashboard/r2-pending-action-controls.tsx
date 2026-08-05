@@ -1,0 +1,508 @@
+"use client"
+
+import Link from "next/link"
+import {
+  useRouter,
+} from "next/navigation"
+import {
+  FormEvent,
+  useState,
+  useTransition,
+} from "react"
+
+import type {
+  GorilaR2PendingAction,
+} from "@/types/dashboard"
+
+type R2PendingActionControlsProps = Readonly<{
+  workspaceId: string
+  consultantId: string
+  action: GorilaR2PendingAction
+}>
+
+type ContactOutcome =
+  | "INTERESTED"
+  | "FOLLOW_UP"
+  | "NO_ANSWER"
+  | "NOT_INTERESTED"
+  | "WRONG_NUMBER"
+  | "OTHER"
+
+type CompleteActionResponse = Readonly<{
+  message?: string
+  error?: string
+  followUpTaskId?: string | null
+}>
+
+const outcomeOptions: ReadonlyArray<
+  Readonly<{
+    value: ContactOutcome
+    label: string
+  }>
+> = [
+  {
+    value: "INTERESTED",
+    label: "Cliente demonstrou interesse",
+  },
+  {
+    value: "FOLLOW_UP",
+    label: "Precisa de novo acompanhamento",
+  },
+  {
+    value: "NO_ANSWER",
+    label: "Não respondeu",
+  },
+  {
+    value: "NOT_INTERESTED",
+    label: "Não tem interesse neste momento",
+  },
+  {
+    value: "WRONG_NUMBER",
+    label: "Número incorreto ou indisponível",
+  },
+  {
+    value: "OTHER",
+    label: "Outro resultado",
+  },
+]
+
+function requiresFollowUp(
+  outcome: ContactOutcome,
+): boolean {
+  return outcome === "FOLLOW_UP"
+}
+
+export function R2PendingActionControls({
+  workspaceId,
+  consultantId,
+  action,
+}: R2PendingActionControlsProps) {
+  const router = useRouter()
+  const [isPending, startTransition] =
+    useTransition()
+  const [dialogOpen, setDialogOpen] =
+    useState(false)
+  const [contactMade, setContactMade] =
+    useState(true)
+  const [outcome, setOutcome] =
+    useState<ContactOutcome>(
+      "INTERESTED",
+    )
+  const [notes, setNotes] =
+    useState("")
+  const [
+    nextFollowUpAt,
+    setNextFollowUpAt,
+  ] = useState("")
+  const [feedback, setFeedback] =
+    useState<string | null>(null)
+  const [error, setError] =
+    useState<string | null>(null)
+
+  function openCompletionDialog(): void {
+    setFeedback(null)
+    setError(null)
+    setDialogOpen(true)
+  }
+
+  function closeCompletionDialog(): void {
+    if (isPending) {
+      return
+    }
+
+    setError(null)
+    setDialogOpen(false)
+  }
+
+  function changeContactMade(
+    value: boolean,
+  ): void {
+    setContactMade(value)
+    setError(null)
+
+    if (
+      value &&
+      (
+        outcome === "NO_ANSWER" ||
+        outcome === "WRONG_NUMBER"
+      )
+    ) {
+      setOutcome("INTERESTED")
+      setNextFollowUpAt("")
+    }
+
+    if (
+      !value &&
+      (
+        outcome === "INTERESTED" ||
+        outcome === "FOLLOW_UP" ||
+        outcome === "NOT_INTERESTED"
+      )
+    ) {
+      setOutcome("NO_ANSWER")
+    }
+  }
+
+  function changeOutcome(
+    value: ContactOutcome,
+  ): void {
+    setOutcome(value)
+    setError(null)
+
+    if (
+      value === "NO_ANSWER" ||
+      value === "WRONG_NUMBER"
+    ) {
+      setContactMade(false)
+    }
+    else if (
+      value === "INTERESTED" ||
+      value === "FOLLOW_UP" ||
+      value === "NOT_INTERESTED"
+    ) {
+      setContactMade(true)
+    }
+
+    if (!requiresFollowUp(value)) {
+      setNextFollowUpAt("")
+    }
+  }
+
+  function submitContactOutcome(
+    event: FormEvent<HTMLFormElement>,
+  ): void {
+    event.preventDefault()
+    setFeedback(null)
+    setError(null)
+
+    if (
+      requiresFollowUp(outcome) &&
+      !nextFollowUpAt
+    ) {
+      setError(
+        "Informe a data do próximo retorno.",
+      )
+      return
+    }
+
+    let normalizedFollowUpAt:
+      | string
+      | null = null
+
+    if (nextFollowUpAt) {
+      const parsedDate =
+        new Date(nextFollowUpAt)
+
+      if (
+        Number.isNaN(
+          parsedDate.getTime(),
+        )
+      ) {
+        setError(
+          "A data do próximo retorno é inválida.",
+        )
+        return
+      }
+
+      normalizedFollowUpAt =
+        parsedDate.toISOString()
+    }
+
+    startTransition(async () => {
+      try {
+        const response = await fetch(
+          `/api/r2/actions/${encodeURIComponent(
+            action.actionId,
+          )}/complete`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type":
+                "application/json",
+            },
+            body: JSON.stringify({
+              workspaceId,
+              consultantId,
+              contactMade,
+              outcome,
+              notes:
+                notes.trim() || null,
+              nextFollowUpAt:
+                normalizedFollowUpAt,
+            }),
+          },
+        )
+
+        const payload =
+          await response.json() as CompleteActionResponse
+
+        if (!response.ok) {
+          throw new Error(
+            payload.error ??
+              "Não foi possível registrar o resultado.",
+          )
+        }
+
+        setDialogOpen(false)
+        setFeedback(
+          payload.message ??
+            "Resultado registrado. O R2 vai buscar a próxima prioridade.",
+        )
+        router.refresh()
+      }
+      catch (completeError) {
+        setError(
+          completeError instanceof Error
+            ? completeError.message
+            : "Não foi possível registrar o resultado.",
+        )
+      }
+    })
+  }
+
+  const buttonBase =
+    "inline-flex min-h-10 items-center justify-center rounded-xl border px-3.5 text-xs font-semibold transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-55 disabled:hover:translate-y-0"
+
+  const fieldClass =
+    "mt-2 w-full rounded-xl border border-white/[0.10] bg-[#0F1412] px-3 py-2.5 text-sm text-[#F5F7FA] outline-none transition focus:border-[#43A972]/55 focus:ring-4 focus:ring-[#2F8F5B]/10"
+
+  return (
+    <>
+      <div
+        data-testid="r2-pending-action-controls"
+        className="mt-5 max-w-3xl rounded-2xl border border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.065] p-4"
+      >
+        <p className="mb-3 text-xs font-medium text-[#6FD39B]">
+          Recomendação aceita · ação pendente
+        </p>
+
+        <div className="flex flex-wrap items-center gap-2">
+          <Link
+            href={action.opportunityHref}
+            className={`${buttonBase} border-white/[0.10] bg-white/[0.035] text-[#D6DBE3] hover:border-white/[0.18] hover:bg-white/[0.06]`}
+          >
+            Abrir oportunidade
+          </Link>
+
+          <button
+            type="button"
+            disabled={isPending}
+            onClick={openCompletionDialog}
+            className={`${buttonBase} border-[#2F8F5B]/35 bg-[#2F8F5B]/15 text-[#6FD39B] hover:border-[#43A972]/55 hover:bg-[#2F8F5B]/22`}
+          >
+            Registrar resultado
+          </button>
+        </div>
+
+        <p
+          aria-live="polite"
+          className="mt-3 min-h-5 text-xs leading-5"
+        >
+          {error && !dialogOpen ? (
+            <span className="text-[#E98A8A]">
+              {error}
+            </span>
+          ) : feedback ? (
+            <span className="text-[#6FD39B]">
+              {feedback}
+            </span>
+          ) : (
+            <span className="text-[#697384]">
+              Abra a oportunidade e registre o resultado antes de concluir a ação.
+            </span>
+          )}
+        </p>
+      </div>
+
+      {dialogOpen ? (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          onMouseDown={(event) => {
+            if (
+              event.target ===
+              event.currentTarget
+            ) {
+              closeCompletionDialog()
+            }
+          }}
+        >
+          <section
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="r2-contact-outcome-title"
+            className="max-h-[calc(100vh-2rem)] w-full max-w-xl overflow-y-auto rounded-[24px] border border-white/[0.09] bg-[#151A17] p-5 shadow-[0_32px_90px_rgba(0,0,0,0.58)] sm:p-6"
+          >
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#43A972]">
+                R2 · registro obrigatório
+              </p>
+
+              <h3
+                id="r2-contact-outcome-title"
+                className="mt-2 text-xl font-semibold tracking-[-0.035em] text-[#F5F7FA]"
+              >
+                Como foi o contato?
+              </h3>
+
+              <p className="mt-2 text-sm leading-6 text-[#96A0AF]">
+                Registre o resultado para concluir “{action.title}” e manter a memória comercial atualizada.
+              </p>
+            </div>
+
+            <form
+              noValidate
+              className="mt-5 space-y-5"
+              onSubmit={submitContactOutcome}
+            >
+              <fieldset>
+                <legend className="text-sm font-medium text-[#D6DBE3]">
+                  O contato aconteceu?
+                </legend>
+
+                <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                  <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 py-2.5 text-sm text-[#D6DBE3]">
+                    <input
+                      type="radio"
+                      name="contactMade"
+                      checked={contactMade}
+                      onChange={() =>
+                        changeContactMade(true)
+                      }
+                    />
+                    Sim, falei com o cliente
+                  </label>
+
+                  <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 py-2.5 text-sm text-[#D6DBE3]">
+                    <input
+                      type="radio"
+                      name="contactMade"
+                      checked={!contactMade}
+                      onChange={() =>
+                        changeContactMade(false)
+                      }
+                    />
+                    Não consegui contato
+                  </label>
+                </div>
+              </fieldset>
+
+              <label className="block text-sm font-medium text-[#D6DBE3]">
+                Resultado
+                <select
+                  aria-label="Resultado do contato"
+                  value={outcome}
+                  onChange={(event) =>
+                    changeOutcome(
+                      event.target.value as ContactOutcome,
+                    )
+                  }
+                  className={fieldClass}
+                >
+                  {outcomeOptions.map(
+                    (option) => (
+                      <option
+                        key={option.value}
+                        value={option.value}
+                      >
+                        {option.label}
+                      </option>
+                    ),
+                  )}
+                </select>
+              </label>
+
+              <label className="block text-sm font-medium text-[#D6DBE3]">
+                Observação
+                <textarea
+                  value={notes}
+                  onChange={(event) =>
+                    setNotes(
+                      event.target.value,
+                    )
+                  }
+                  maxLength={1000}
+                  rows={4}
+                  placeholder="Ex.: cliente pediu simulação de R$ 500 mil e prefere retorno pela manhã."
+                  className={fieldClass}
+                />
+                <span className="mt-1 block text-right text-[11px] text-[#697384]">
+                  {notes.length}/1000
+                </span>
+              </label>
+
+              {outcome === "NO_ANSWER" ? (
+                <div
+                  data-testid="automatic-no-answer-call"
+                  className="rounded-xl border border-[#43A972]/25 bg-[#2F8F5B]/10 px-4 py-3"
+                >
+                  <p className="text-sm font-medium text-[#7BE0A7]">
+                    Ligação automática em 5 minutos
+                  </p>
+                  <p className="mt-1 text-xs leading-5 text-[#96A0AF]">
+                    Nenhum horário precisa ser informado. O GorillaOS colocará uma ligação para este cliente na fila do consultor.
+                  </p>
+                </div>
+              ) : (
+                <label className="block text-sm font-medium text-[#D6DBE3]">
+                  Próximo retorno
+                  <input
+                    type="datetime-local"
+                    aria-label="Próximo retorno"
+                    value={nextFollowUpAt}
+                    onChange={(event) => {
+                      setNextFollowUpAt(
+                        event.target.value,
+                      )
+                      setError(null)
+                    }}
+                    required={
+                      requiresFollowUp(
+                        outcome,
+                      )
+                    }
+                    className={fieldClass}
+                  />
+                  <span className="mt-1 block text-xs leading-5 text-[#697384]">
+                    {requiresFollowUp(
+                      outcome,
+                    )
+                      ? "Obrigatório quando o cliente combinou um novo horário."
+                      : "Opcional. Informe somente quando houver um retorno combinado."}
+                  </span>
+                </label>
+              )}
+
+              <p
+                aria-live="assertive"
+                className="min-h-5 text-sm text-[#E98A8A]"
+              >
+                {dialogOpen ? error : null}
+              </p>
+
+              <div className="flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+                <button
+                  type="button"
+                  disabled={isPending}
+                  onClick={closeCompletionDialog}
+                  className={`${buttonBase} border-white/[0.10] bg-white/[0.025] text-[#B7C0CC] hover:border-white/[0.18] hover:bg-white/[0.05]`}
+                >
+                  Cancelar
+                </button>
+
+                <button
+                  type="submit"
+                  disabled={isPending}
+                  className={`${buttonBase} border-[#43A972]/45 bg-[#2F8F5B]/20 text-[#7BE0A7] hover:border-[#43A972]/70 hover:bg-[#2F8F5B]/30`}
+                >
+                  {isPending
+                    ? "Registrando..."
+                    : "Registrar e concluir"}
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      ) : null}
+    </>
+  )
+}

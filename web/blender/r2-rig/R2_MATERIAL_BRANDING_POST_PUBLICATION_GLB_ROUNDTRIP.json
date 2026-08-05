@@ -1,0 +1,478 @@
+{
+  "AnimationClipsRoundTripConfirmed": true,
+  "BackBrandingRoundTripConfirmed": true,
+  "BoneCount": 65,
+  "BrandingDeformationRoundTrip": {
+    "clipping": 0,
+    "floating": 0,
+    "z_fighting": 0
+  },
+  "BrandingHierarchyRoundTrip": true,
+  "BrandingPlacementRoundTrip": {
+    "back_centered": true,
+    "left_arm": true,
+    "right_chest": true,
+    "sizes": {
+      "arm": 0.238211283,
+      "back": 0.364899045,
+      "chest": 0.168388113
+    }
+  },
+  "ClipValidationMatrix": {
+    "R2_ALERT": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000103,
+        "minimum": 0.001165169,
+        "vertices": 5188,
+        "z_fighting": 0
+      },
+      "R2_Brand_RightChest_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000043,
+        "minimum": 0.001499674,
+        "vertices": 3385,
+        "z_fighting": 0
+      },
+      "R2_Brand_UpperBack_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004200056,
+        "minimum": 0.00149768,
+        "vertices": 3413,
+        "z_fighting": 0
+      }
+    },
+    "R2_AWAITING_ACTION": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000103,
+        "minimum": 0.001165169,
+        "vertices": 5188,
+        "z_fighting": 0
+      },
+      "R2_Brand_RightChest_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000043,
+        "minimum": 0.001499674,
+        "vertices": 3385,
+        "z_fighting": 0
+      },
+      "R2_Brand_UpperBack_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004200056,
+        "minimum": 0.00149768,
+        "vertices": 3413,
+        "z_fighting": 0
+      }
+    },
+    "R2_CELEBRATING_SALE": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000103,
+        "minimum": 0.001165169,
+        "vertices": 5188,
+        "z_fighting": 0
+      },
+      "R2_Brand_RightChest_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000043,
+        "minimum": 0.001499674,
+        "vertices": 3385,
+        "z_fighting": 0
+      },
+      "R2_Brand_UpperBack_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004200056,
+        "minimum": 0.00149768,
+        "vertices": 3413,
+        "z_fighting": 0
+      }
+    },
+    "R2_ERROR_ATTENTION": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000103,
+        "minimum": 0.001165169,
+        "vertices": 5188,
+        "z_fighting": 0
+      },
+      "R2_Brand_RightChest_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000043,
+        "minimum": 0.001499674,
+        "vertices": 3385,
+        "z_fighting": 0
+      },
+      "R2_Brand_UpperBack_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004200056,
+        "minimum": 0.00149768,
+        "vertices": 3413,
+        "z_fighting": 0
+      }
+    },
+    "R2_IDLE": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000103,
+        "minimum": 0.001165169,
+        "vertices": 5188,
+        "z_fighting": 0
+      },
+      "R2_Brand_RightChest_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000043,
+        "minimum": 0.001499674,
+        "vertices": 3385,
+        "z_fighting": 0
+      },
+      "R2_Brand_UpperBack_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004200056,
+        "minimum": 0.00149768,
+        "vertices": 3413,
+        "z_fighting": 0
+      }
+    },
+    "R2_LISTENING": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000103,
+        "minimum": 0.001165169,
+        "vertices": 5188,
+        "z_fighting": 0
+      },
+      "R2_Brand_RightChest_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000043,
+        "minimum": 0.001499674,
+        "vertices": 3385,
+        "z_fighting": 0
+      },
+      "R2_Brand_UpperBack_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004200056,
+        "minimum": 0.00149768,
+        "vertices": 3413,
+        "z_fighting": 0
+      }
+    },
+    "R2_NEUTRAL": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000103,
+        "minimum": 0.001165169,
+        "vertices": 5188,
+        "z_fighting": 0
+      },
+      "R2_Brand_RightChest_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000043,
+        "minimum": 0.001499674,
+        "vertices": 3385,
+        "z_fighting": 0
+      },
+      "R2_Brand_UpperBack_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004200056,
+        "minimum": 0.00149768,
+        "vertices": 3413,
+        "z_fighting": 0
+      }
+    },
+    "R2_THINKING": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000103,
+        "minimum": 0.001165169,
+        "vertices": 5188,
+        "z_fighting": 0
+      },
+      "R2_Brand_RightChest_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000043,
+        "minimum": 0.001499674,
+        "vertices": 3385,
+        "z_fighting": 0
+      },
+      "R2_Brand_UpperBack_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004200056,
+        "minimum": 0.00149768,
+        "vertices": 3413,
+        "z_fighting": 0
+      }
+    },
+    "R2_WORKING": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000103,
+        "minimum": 0.001165169,
+        "vertices": 5188,
+        "z_fighting": 0
+      },
+      "R2_Brand_RightChest_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004000043,
+        "minimum": 0.001499674,
+        "vertices": 3385,
+        "z_fighting": 0
+      },
+      "R2_Brand_UpperBack_GorillaMark": {
+        "clipping": 0,
+        "floating": 0,
+        "maximum": 0.004200056,
+        "minimum": 0.00149768,
+        "vertices": 3413,
+        "z_fighting": 0
+      }
+    }
+  },
+  "CreatedImages": 0,
+  "ExecutionStatus": "COMPLETED",
+  "ExternalDependencies": 0,
+  "FailedGates": "NONE",
+  "GLBRoundTripApproved": true,
+  "LeftArmBrandingRoundTripConfirmed": true,
+  "MaterialAssignments": {
+    "R2_Brand_LeftArm_GorillaMark_R2_Patch": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White",
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "R2_Brand_RightChest_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Brand_UpperBack_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ]
+  },
+  "MaterialCount": 17,
+  "MaterialManifest": {
+    "R2_Mat_Embroidery_Gray": {
+      "base_color": [
+        0.219526201,
+        0.230740055,
+        0.242281124,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.730000019
+    },
+    "R2_Mat_Embroidery_White": {
+      "base_color": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.699999988
+    },
+    "R2_Mat_EyeSclera": {
+      "base_color": [
+        0.720000029,
+        0.74000001,
+        0.689999998,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.340000004
+    },
+    "R2_Mat_Eyelid": {
+      "base_color": [
+        0.129999995,
+        0.075000003,
+        0.052000001,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.579999983
+    },
+    "R2_Mat_Fur_DarkGraphite": {
+      "base_color": [
+        0.008568126,
+        0.010960094,
+        0.012286488,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.800000012
+    },
+    "R2_Mat_Fur_MidGraphite": {
+      "base_color": [
+        0.017641954,
+        0.023153367,
+        0.026241222,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.75999999
+    },
+    "R2_Mat_GorillaOS_Green": {
+      "base_color": [
+        0.008023193,
+        0.049706567,
+        0.035601314,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.720000029
+    },
+    "R2_Mat_Hoodie_Black": {
+      "base_color": [
+        0.005605392,
+        0.00699541,
+        0.008023193,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.839999974
+    },
+    "R2_Mat_IrisTechGreen": {
+      "base_color": [
+        0.045000002,
+        0.340000004,
+        0.159999996,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.180000007,
+      "roughness": 0.270000011
+    },
+    "R2_Mat_Lip": {
+      "base_color": [
+        0.159999996,
+        0.055,
+        0.045000002,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.620000005
+    },
+    "R2_Mat_MouthInterior": {
+      "base_color": [
+        0.045000002,
+        0.008,
+        0.012,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.720000029
+    },
+    "R2_Mat_Pants_Charcoal": {
+      "base_color": [
+        0.020288562,
+        0.025186859,
+        0.02842604,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.790000021
+    },
+    "R2_Mat_Pupil": {
+      "base_color": [
+        0.004,
+        0.006,
+        0.005,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.219999999
+    },
+    "R2_Mat_Shoes_Black": {
+      "base_color": [
+        0.005181517,
+        0.006512091,
+        0.007499032,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.610000014
+    },
+    "R2_Mat_Skin_Anthracite": {
+      "base_color": [
+        0.039546236,
+        0.046665087,
+        0.048171826,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.639999986
+    },
+    "R2_Mat_Teeth": {
+      "base_color": [
+        0.689999998,
+        0.649999976,
+        0.5,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.460000008
+    },
+    "R2_Mat_Tongue": {
+      "base_color": [
+        0.280000001,
+        0.055,
+        0.064999998,
+        1.0
+      ],
+      "images": 0,
+      "metallic": 0.0,
+      "roughness": 0.660000026
+    }
+  },
+  "MaterialsRoundTripConfirmed": true,
+  "MorphTargetsRoundTripConfirmed": true,
+  "NeutralResetExact": true,
+  "PostPublication": true,
+  "RenderableMeshesWithoutMaterial": 0,
+  "RightChestBrandingRoundTripConfirmed": true,
+  "TechnicalVerdict": "APROVADO",
+  "glb": "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-material-branded-ready-v1.glb",
+  "glb_sha256": "1F693EBB12E36965786C426CC07AF5FD6775CADFD81542236518103C6541E6AB",
+  "schema_version": 1
+}

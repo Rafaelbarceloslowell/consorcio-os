@@ -1,0 +1,106 @@
+{
+    "schema_version":  1,
+    "ExecutionStatus":  "COMPLETED",
+    "TechnicalVerdict":  "APROVADO",
+    "RuntimeComponent":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx",
+    "PresentationConfiguration":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-character-presentation.ts",
+    "RuntimeContract":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+    "ModelPathBefore":  "/models/r2/r2-full-character-material-branded-ready-v1.glb",
+    "ModelPathAfter":  "/models/r2/r2-full-character-color-readable-ready-v2.glb",
+    "RollbackModelPath":  "/models/r2/r2-full-character-material-branded-ready-v1.glb",
+    "Camera":  {
+                   "FovBefore":  32,
+                   "FovAfter":  32,
+                   "PositionBefore":  "auto-framed from bounds at target coverage 0.85",
+                   "PositionAfter":  "auto-framed from bounds at raw coverage 0.6315789474",
+                   "TargetBefore":  "renderable bounds center",
+                   "TargetAfter":  "renderable bounds center",
+                   "ModelScaleBefore":  1,
+                   "ModelScaleAfter":  1.14,
+                   "ModelScaleIncreasePercent":  14,
+                   "EffectiveVerticalCoverageAfter":  0.72,
+                   "ResponsiveEffectiveCoverageRange":  [
+                                                            0.6752813116,
+                                                            0.72
+                                                        ]
+               },
+    "Renderer":  {
+                     "ToneMapping":  "ACESFilmicToneMapping",
+                     "ExposureBefore":  0.9,
+                     "ExposureAfter":  1,
+                     "OutputColorSpace":  "SRGBColorSpace",
+                     "ShadowsEnabled":  false
+                 },
+    "LightingBefore":  {
+                           "Hemisphere":  {
+                                              "Sky":  "#DFF7E8",
+                                              "Ground":  "#07100B",
+                                              "Intensity":  0.55
+                                          },
+                           "Key":  {
+                                       "Color":  "#FFF7EC",
+                                       "Intensity":  2,
+                                       "Position":  [
+                                                        3,
+                                                        4,
+                                                        5
+                                                    ]
+                                   },
+                           "Fill":  {
+                                        "Color":  "#9EDCBA",
+                                        "Intensity":  0.75,
+                                        "Position":  [
+                                                         -4,
+                                                         1.5,
+                                                         3
+                                                     ]
+                                    },
+                           "Rim":  {
+                                       "Color":  "#43A972",
+                                       "Intensity":  1.05,
+                                       "Position":  [
+                                                        1,
+                                                        3,
+                                                        -4
+                                                    ]
+                                   }
+                       },
+    "LightingAfter":  {
+                          "Hemisphere":  {
+                                             "Sky":  "#E8EEE9",
+                                             "Ground":  "#07100B",
+                                             "Intensity":  0.62
+                                         },
+                          "Key":  {
+                                      "Color":  "#FFF8F0",
+                                      "Intensity":  2.15,
+                                      "Position":  [
+                                                       3.2,
+                                                       4.2,
+                                                       5
+                                                   ]
+                                  },
+                          "Fill":  {
+                                       "Color":  "#C0D0C6",
+                                       "Intensity":  0.82,
+                                       "Position":  [
+                                                        -4,
+                                                        1.8,
+                                                        3
+                                                    ]
+                                   },
+                          "Rim":  {
+                                      "Color":  "#6FA786",
+                                      "Intensity":  0.9,
+                                      "Position":  [
+                                                       1.5,
+                                                       3.2,
+                                                       -4
+                                                   ]
+                                  }
+                      },
+    "RuntimeStatesPreserved":  10,
+    "RuntimeMaterialOverrides":  0,
+    "RuntimeConsoleErrors":  0,
+    "FailedGates":  "NONE"
+}

@@ -1,0 +1,228 @@
+﻿{
+    "schema_version":  1,
+    "mission":  "FACIAL_OCULAR_ORAL_ASSET_AUTHORING_AND_RIG_RESUME",
+    "execution_status":  "COMPLETED",
+    "technical_verdict":  "APROVADO",
+    "recoverable":  true,
+    "current_checkpoint":  "CHECKPOINT_10_ATOMIC_PUBLICATION_APPROVED",
+    "checkpoint_status":  {
+                              "CHECKPOINT_1_SOURCE_AND_BLOCKER_REVALIDATION":  "APROVADO",
+                              "CHECKPOINT_2_AUTHORING_ARCHITECTURE":  "APROVADO",
+                              "CHECKPOINT_3_TRANSACTIONAL_WORKSPACE":  "APROVADO",
+                              "CHECKPOINT_4_OCULAR_ASSET_AUTHORING":  "APROVADO",
+                              "CHECKPOINT_5_ORAL_AND_MANDIBULAR_ASSET_AUTHORING":  "APROVADO",
+                              "CHECKPOINT_6_REMAINING_LANDMARK_AUTHORING":  "APROVADO_38_OF_38",
+                              "CHECKPOINT_7_SEMANTIC_REGION_MAP":  "APROVADO",
+                              "CHECKPOINT_8_TECHNICAL_VALIDATION":  "APROVADO",
+                              "CHECKPOINT_9_INDEPENDENT_AUDIT":  "APROVADO",
+                              "CHECKPOINT_10_ATOMIC_PUBLICATION":  "APROVADO_REOPENED",
+                              "HEAD_RIGGING_AND_EXPRESSION_SYSTEM":  "AUTHORIZED_TO_RESUME_CHECKPOINT_2"
+                          },
+    "official_source_path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-consolidated-rig-ready-v1\\r2-head-consolidated-rig-ready-v1.blend",
+    "official_source_sha256":  "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+    "official_source_unchanged":  true,
+    "previous_official_versions_unchanged":  true,
+    "previous_version_hash_evidence":  [
+                                           {
+                                               "version":  "V40",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v40-cheek-region-retopology-v2\\r2-rig-v40-cheek-region-retopology-v2.blend",
+                                               "expected_sha256":  "E770FF08D8945DFAA8BB2D1EC0E558A1F5CC2E12E0DAD8FDF6592F9E3AFAB3FC",
+                                               "actual_sha256":  "E770FF08D8945DFAA8BB2D1EC0E558A1F5CC2E12E0DAD8FDF6592F9E3AFAB3FC",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V41",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v41-center-lower-front-retopology-v1\\r2-rig-v41-center-lower-front-retopology-v1.blend",
+                                               "expected_sha256":  "4D19EA4F98B86592E43505814EF58CBF15252F445C2431D8D156F0DA7D8730CB",
+                                               "actual_sha256":  "4D19EA4F98B86592E43505814EF58CBF15252F445C2431D8D156F0DA7D8730CB",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V42",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v42-positive-x-lower-back-retopology-v1\\r2-rig-v42-positive-x-lower-back-retopology-v1.blend",
+                                               "expected_sha256":  "803D9DEEAB64D3AD16523DFBA59B9556CBA306BAEC94F02EB21EA7EB26AEA5DD",
+                                               "actual_sha256":  "803D9DEEAB64D3AD16523DFBA59B9556CBA306BAEC94F02EB21EA7EB26AEA5DD",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V43",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v43-positive-x-lower-back-retopology-v1\\r2-rig-v43-positive-x-lower-back-retopology-v1.blend",
+                                               "expected_sha256":  "CEB65B49D6B75AD1D6B5C2780046F68A22DDF15272C1A8747FF3BFDE535B91DA",
+                                               "actual_sha256":  "CEB65B49D6B75AD1D6B5C2780046F68A22DDF15272C1A8747FF3BFDE535B91DA",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V44",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v44-positive-x-lower-back-retopology-v1\\r2-rig-v44-positive-x-lower-back-retopology-v1.blend",
+                                               "expected_sha256":  "2572ACD4D563833A294C8C507C21C6B47B341F471C928BE2B63D073D2DD8790E",
+                                               "actual_sha256":  "2572ACD4D563833A294C8C507C21C6B47B341F471C928BE2B63D073D2DD8790E",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V45",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v45-negative-x-upper-back-retopology-v1\\r2-rig-v45-negative-x-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "917988C37BD125C391D85D166020243FD75192CBA16D34D4B5E70578EA41339B",
+                                               "actual_sha256":  "917988C37BD125C391D85D166020243FD75192CBA16D34D4B5E70578EA41339B",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V46",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v46-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v46-positive-x-lower-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "496B459EBB0350AFD10B5353C71692EC74CD11C08401E9AEA6DCFC1256D2A696",
+                                               "actual_sha256":  "496B459EBB0350AFD10B5353C71692EC74CD11C08401E9AEA6DCFC1256D2A696",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V47",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v47-center-upper-back-retopology-v1\\r2-rig-v47-center-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "15ABA4E137DD2CC01B39842DA80AA81C8C8F3B85EF741F94A9915108D5DAAC19",
+                                               "actual_sha256":  "15ABA4E137DD2CC01B39842DA80AA81C8C8F3B85EF741F94A9915108D5DAAC19",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V48",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v48-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v48-positive-x-lower-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "4B6C58414920BF9B0A440B6BAE1FB887B76683077A2CDD92B465A9F81A562088",
+                                               "actual_sha256":  "4B6C58414920BF9B0A440B6BAE1FB887B76683077A2CDD92B465A9F81A562088",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V49",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v49-positive-x-middle-mid-depth-retopology-v1\\r2-rig-v49-positive-x-middle-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "F2CA2AB53B59AA6D8F60E665BB29E335273FB6E9AACEFC7A68E9C139899AD126",
+                                               "actual_sha256":  "F2CA2AB53B59AA6D8F60E665BB29E335273FB6E9AACEFC7A68E9C139899AD126",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V50",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v50-positive-x-lower-front-retopology-v1\\r2-rig-v50-positive-x-lower-front-retopology-v1.blend",
+                                               "expected_sha256":  "9BE98A43AFB6E5974057AA6C24CEB71486BC254077DA2DF20E23A3DF7ACAAACC",
+                                               "actual_sha256":  "9BE98A43AFB6E5974057AA6C24CEB71486BC254077DA2DF20E23A3DF7ACAAACC",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V51",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v51-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v51-positive-x-lower-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "23DCF9D94B1232A50F36ECF4B168EB70ED3AFCFFB2E3AEB00BBDB88B7D2E6C9C",
+                                               "actual_sha256":  "23DCF9D94B1232A50F36ECF4B168EB70ED3AFCFFB2E3AEB00BBDB88B7D2E6C9C",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V52",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v52-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v52-positive-x-lower-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "F2139FAF062507DFBE05439836752DC05A20659B62E13F06F45C59F440B8637A",
+                                               "actual_sha256":  "F2139FAF062507DFBE05439836752DC05A20659B62E13F06F45C59F440B8637A",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V53",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v53-negative-x-upper-back-retopology-v1\\r2-rig-v53-negative-x-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "AF8413D82E790134B541B97B19EF6D2E40893F3576CCA84D286B08105747BD1B",
+                                               "actual_sha256":  "AF8413D82E790134B541B97B19EF6D2E40893F3576CCA84D286B08105747BD1B",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V54",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v54-positive-x-lower-front-retopology-v1\\r2-rig-v54-positive-x-lower-front-retopology-v1.blend",
+                                               "expected_sha256":  "3C1E373AE64B0B5C017FCCE9F3C0D7489D89AD500AE536CF05BA2A1337EF2435",
+                                               "actual_sha256":  "3C1E373AE64B0B5C017FCCE9F3C0D7489D89AD500AE536CF05BA2A1337EF2435",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V55",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v55-negative-x-upper-back-retopology-v1\\r2-rig-v55-negative-x-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "2CB36F889303C98D8A8FAEA69F8BBD2AEFEBB3A13C27050071D8DBA7269653CD",
+                                               "actual_sha256":  "2CB36F889303C98D8A8FAEA69F8BBD2AEFEBB3A13C27050071D8DBA7269653CD",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V56",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v56-negative-x-upper-back-retopology-v1\\r2-rig-v56-negative-x-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "FB374635A16B5305AAF316726BA1AA0BB4A75B21F33A3225A49B3CDEEF504BB8",
+                                               "actual_sha256":  "FB374635A16B5305AAF316726BA1AA0BB4A75B21F33A3225A49B3CDEEF504BB8",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V57",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v57-negative-x-middle-mid-depth-retopology-v1\\r2-rig-v57-negative-x-middle-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+                                               "actual_sha256":  "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+                                               "unchanged":  true
+                                           }
+                                       ],
+    "foundation_identity":  {
+                                "object_name":  "R2_Head_Face_Foundation",
+                                "mesh_name":  "R2_Head_Face_Foundation_Mesh",
+                                "vertex_count":  3654,
+                                "polygon_count":  6847,
+                                "vertex_order_fingerprint":  "B67AD7CDAFC66A8A591E13D6EE2AF8C645F84F9B3285F61A313A44B855F5D3B2",
+                                "combined_identity_fingerprint":  "A374A44A37CFA41A09CF653826D346CF40A71E2C88A14AAD14ECAFDC374358C4"
+                            },
+    "design_authorization":  "EXPLICIT_USER_AUTHORIZATION_2026-08-01",
+    "authoring_architecture":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FACIAL_ASSET_AUTHORING_ARCHITECTURE.md",
+    "transactional_directory":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_facial_asset_authoring_20260801_133136",
+    "transactional_candidate_path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_facial_asset_authoring_20260801_133136\\r2-facial-ocular-oral-assets-ready-v1.candidate.blend",
+    "transactional_candidate_initial_sha256":  "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+    "input_artifact_sha256":  {
+                                  "R2_FACIAL_ANATOMY_CERTIFICATION_STATE.json":  "69D9372EFE1BEFC3D3AE432242883C67F89CD21BE73B300BB1A01CCAFB24783D",
+                                  "R2_FACIAL_ANATOMY_CERTIFICATION_FINAL_REPORT.md":  "D1B486E4803F385E8290F930C4AF7F5F393F7435D1371BB88E80CF15504E4FC8",
+                                  "R2_FACIAL_SEMANTIC_SUFFICIENCY_AUDIT.json":  "D5A3CD9D982F4C435641E963B856CC713B7C3404B457F974C788960C9133BEF1",
+                                  "R2_FACIAL_LANDMARK_CERTIFICATE.json":  "09C45FD100F67BEE5BCCC70E2E66810DB1701C534720C3C9FDE99BAC0652E4ED",
+                                  "R2_OCULAR_ASSET_CERTIFICATE.json":  "69542B6C72CF02F9339591F5AD0E5F6773F9F9189FFEE808C7AA86EECE17CB50",
+                                  "R2_ORAL_ASSET_CERTIFICATE.json":  "FC0A7E5585440530C809E740620563DB493924C05189964834B018E0B3041E12",
+                                  "R2_FACIAL_ASSET_AUTHORING_ARCHITECTURE.md":  "148B225362B6FF5030EF85D86DDD21C716EB0FD9388F83EC911553AD1D3A0DE6"
+                              },
+    "authorized_topology_change_mask":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_AUTHORIZED_TOPOLOGY_CHANGE_MAP.json",
+    "preservation_mask":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_PRESERVATION_ZONE_MAP.json",
+    "expected_object_count_before":  16,
+    "expected_mesh_count_before":  15,
+    "expected_object_count_after":  32,
+    "expected_mesh_count_after":  27,
+    "anatomical_publication":  {
+                                   "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-facial-ocular-oral-assets-ready-v1\\r2-facial-ocular-oral-assets-ready-v1.blend",
+                                   "sha256":  "50D04CFBAEC2A431D96D4060E2AE82045AFBC56A0E74AD1759D156C0222825B3",
+                                   "reopened":  true,
+                                   "independent_audit_approved":  true
+                               },
+    "rig_publication":  null,
+    "failed_attempts":  [
+                            {
+                                "attempt":  1,
+                                "result":  "REJECTED",
+                                "reason":  "Bone-parented object world transforms did not persist after reopen.",
+                                "evidence":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_facial_asset_authoring_20260801_133136\\R2_FACIAL_ASSET_INDEPENDENT_AUDIT.attempt1.rejected.json"
+                            },
+                            {
+                                "attempt":  2,
+                                "result":  "REJECTED",
+                                "reason":  "New empty pivots were parented before their dependency-graph matrices were updated and reopened at origin.",
+                                "evidence":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_facial_asset_authoring_20260801_133136\\R2_FACIAL_ASSET_INDEPENDENT_AUDIT.attempt2.rejected.json"
+                            }
+                        ],
+    "corrections_performed":  [
+                                  "Replaced direct bone parenting with stable armature-object parenting plus explicit head-bone reference metadata.",
+                                  "Initialized empty pivot locations after parent assignment and forced dependency-graph update before eye parenting.",
+                                  "Restored each rejected candidate from the exact immutable source and reran full authoring and independent audit."
+                              ],
+    "created_images":  0,
+    "temporary_directories_remaining":  0,
+    "local_datetime":  "2026-08-01T13:58:26.9906770-03:00",
+    "artifact_sha256":  {
+                            "R2_FACIAL_LANDMARK_CERTIFICATE.json":  "6C6C56D85653067B5F056D1D3389925DC0A635EF7FF789680B244944946FF9A9",
+                            "R2_OCULAR_ASSET_CERTIFICATE.json":  "C34A57DE76A91CBA9DBD5FE760892BA9C5BE34CA9C7649F039E9E51C1C7EC6F1",
+                            "R2_ORAL_ASSET_CERTIFICATE.json":  "315E26811C5A889560AC1F47CD97579E6FE296D24DC608DAB77C6F06588E85CD",
+                            "R2_AUTHORIZED_TOPOLOGY_CHANGE_MAP.json":  "1E8184BFB6E43F14C8FEF253D91F2DE106E5C6CACFD93EC01E7102747E46DCA8",
+                            "R2_PRESERVATION_ZONE_MAP.json":  "8766AAEAE60D2726526C0CB6F87ED9C966E9BD70D2B21ACD023C330D449674C8",
+                            "R2_FACIAL_SEMANTIC_REGION_MAP.json":  "BF450464E50B84D57A59E966916BA85DF9374A8DECEB7F0F26FD267BD9D179EC",
+                            "R2_FACIAL_OBJECT_MESH_MANIFEST.json":  "0B6444E1418CAC5EDAC140E703FD1F76021005D076A2D77B15746B337AB66E53",
+                            "R2_FACIAL_MATERIAL_MANIFEST.json":  "B03336BF073FE16FEE8BE2501DCE99157F95FB400E135B236A767F2C0456E867",
+                            "R2_JAW_EYE_PIVOT_SPECIFICATION.json":  "221B90F9700CBC5F71621188D0C648ECD6EE6ED3E11A285063D09BB7367460C2",
+                            "R2_EYELID_LIP_LOOP_SPECIFICATION.json":  "8D3758839B5C836B7DD53B0E3D63347C2C9C7306C4956056E927768EE81D1E95",
+                            "R2_FACIAL_ASSET_AUTHORING_BUILD_REPORT.json":  "7EA65021FF999E34F40231969EA5A5F8B6A3263022E05EC3AF5D4725226BE29D",
+                            "R2_FACIAL_ASSET_INDEPENDENT_AUDIT.json":  "78C87DBCF6A0290515AE456A6909A48458F2387E2228CA97CCF8B4533CD3BD71",
+                            "R2_FACIAL_ASSET_PUBLICATION_REOPEN_AUDIT.json":  "872B51841C84D878FCE4C6DDB8556BE412E05E1B9165E605043E03406C8BC8CB",
+                            "R2_FACIAL_ASSET_FINAL_INTEGRITY_REPORT.md":  "2BF86C9EC32D12780680A2632EB887C40FC8B8D27C021D0EFA3BC300567CCE81",
+                            "R2_FACIAL_ASSET_AUTHORING_FINAL_REPORT.md":  "7FB2205414AE9B311F91D3D4ECD98448CAB2092766854CE25A05E8FD4A42CEE4"
+                        },
+    "next_phase":  "HEAD_RIGGING_AND_EXPRESSION_SYSTEM_CHECKPOINT_2"
+}

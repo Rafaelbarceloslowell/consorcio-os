@@ -1,0 +1,17 @@
+R2_REPAIRED_WEIGHTS_OK
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v11-weighted-repaired.blend
+vertices=197505
+bones=51
+deform_bones=50
+vertex_groups=50
+empty_groups_before=1
+empty_groups_after=0
+fallback_vertices=306
+unweighted_vertices=0
+maximum_influences=10
+parent=R2_Rig
+armature_modifier=R2_Armature
+status=weights_repaired
+
+REPAIRED_GROUPS
+index_02.L=395

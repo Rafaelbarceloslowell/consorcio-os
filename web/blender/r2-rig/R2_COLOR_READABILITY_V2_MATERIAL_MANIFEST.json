@@ -1,0 +1,661 @@
+{
+    "schema_version":  1,
+    "ExecutionStatus":  "COMPLETED",
+    "TechnicalVerdict":  "APROVADO",
+    "PublishedBlend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\r2-full-character-color-readable-ready-v2.blend",
+    "PublishedGLB":  "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-color-readable-ready-v2.glb",
+    "MaterialCount":  17,
+    "Materials":  [
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+                                                   "R2_Brand_RightChest_GorillaMark",
+                                                   "R2_Brand_UpperBack_GorillaMark"
+                                               ],
+                          "name":  "R2_Mat_Embroidery_Gray",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.219526201,
+                                                                     0.230740055,
+                                                                     0.242281124,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#818487",
+                                      "metallic":  0.0,
+                                      "roughness":  0.730000019
+                                  },
+                          "users":  3
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+                                                   "R2_Brand_RightChest_GorillaMark",
+                                                   "R2_Brand_UpperBack_GorillaMark"
+                                               ],
+                          "name":  "R2_Mat_Embroidery_White",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     1.0,
+                                                                     1.0,
+                                                                     1.0,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#FFFFFF",
+                                      "metallic":  0.0,
+                                      "roughness":  0.699999988
+                                  },
+                          "users":  3
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_LowerEyelid.L",
+                                                   "R2_LowerEyelid.R",
+                                                   "R2_UpperEyelid.L",
+                                                   "R2_UpperEyelid.R"
+                                               ],
+                          "name":  "R2_Mat_Eyelid",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.129999995,
+                                                                     0.075000003,
+                                                                     0.052000001,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#654D40",
+                                      "metallic":  0.0,
+                                      "roughness":  0.579999983
+                                  },
+                          "users":  4
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Eye.L",
+                                                   "R2_Eye.R"
+                                               ],
+                          "name":  "R2_Mat_EyeSclera",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.720000029,
+                                                                     0.74000001,
+                                                                     0.689999998,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#DDDFD8",
+                                      "metallic":  0.0,
+                                      "roughness":  0.340000004
+                                  },
+                          "users":  2
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Head_Fur"
+                                               ],
+                          "name":  "R2_Mat_Fur_DarkGraphite",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.026241222,
+                                                                     0.030713445,
+                                                                     0.027320892,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#2D312E",
+                                      "metallic":  0.0,
+                                      "roughness":  0.800000012
+                                  },
+                          "users":  1
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Arm_Fur_R"
+                                               ],
+                          "name":  "R2_Mat_Fur_MidGraphite",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.029556835,
+                                                                     0.034339808,
+                                                                     0.030713445,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#303431",
+                                      "metallic":  0.0,
+                                      "roughness":  0.779999971
+                                  },
+                          "users":  1
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Hood_Cord_L",
+                                                   "R2_Hood_Cord_R"
+                                               ],
+                          "name":  "R2_Mat_GorillaOS_Green",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.008023193,
+                                                                     0.049706567,
+                                                                     0.035601314,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#163F35",
+                                      "metallic":  0.0,
+                                      "roughness":  0.720000029
+                                  },
+                          "users":  2
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Hood",
+                                                   "R2_Hoodie_Sleeve_L",
+                                                   "R2_Hoodie_Sleeve_R",
+                                                   "R2_Hoodie_Torso"
+                                               ],
+                          "name":  "R2_Mat_Hoodie_Black",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.078187421,
+                                                                     0.107023105,
+                                                                     0.042311411,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#4F5C3A",
+                                      "metallic":  0.0,
+                                      "roughness":  0.819999993
+                                  },
+                          "users":  4
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Eye.L",
+                                                   "R2_Eye.R"
+                                               ],
+                          "name":  "R2_Mat_IrisTechGreen",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.045000002,
+                                                                     0.340000004,
+                                                                     0.159999996,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#3C9E6F",
+                                      "metallic":  0.180000007,
+                                      "roughness":  0.270000011
+                                  },
+                          "users":  2
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_LipLower",
+                                                   "R2_LipUpper"
+                                               ],
+                          "name":  "R2_Mat_Lip",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.159999996,
+                                                                     0.055,
+                                                                     0.045000002,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#6F423C",
+                                      "metallic":  0.0,
+                                      "roughness":  0.620000005
+                                  },
+                          "users":  2
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_MouthInterior"
+                                               ],
+                          "name":  "R2_Mat_MouthInterior",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.045000002,
+                                                                     0.008,
+                                                                     0.012,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#3C161D",
+                                      "metallic":  0.0,
+                                      "roughness":  0.720000029
+                                  },
+                          "users":  1
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Hoodie_Torso",
+                                                   "R2_Pants"
+                                               ],
+                          "name":  "R2_Mat_Pants_Charcoal",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.036889449,
+                                                                     0.042311411,
+                                                                     0.048171826,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#363A3E",
+                                      "metallic":  0.0,
+                                      "roughness":  0.779999971
+                                  },
+                          "users":  2
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Eye.L",
+                                                   "R2_Eye.R"
+                                               ],
+                          "name":  "R2_Mat_Pupil",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.004,
+                                                                     0.006,
+                                                                     0.005,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#0D1210",
+                                      "metallic":  0.0,
+                                      "roughness":  0.219999999
+                                  },
+                          "users":  2
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Shoe_L",
+                                                   "R2_Shoe_R"
+                                               ],
+                          "name":  "R2_Mat_Shoes_Black",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.00699541,
+                                                                     0.008568126,
+                                                                     0.009134059,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#141718",
+                                      "metallic":  0.0,
+                                      "roughness":  0.540000021
+                                  },
+                          "users":  2
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Hand_L",
+                                                   "R2_Hand_R",
+                                                   "R2_Head_Face",
+                                                   "R2_Head_Face_Foundation"
+                                               ],
+                          "name":  "R2_Mat_Skin_Anthracite",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.052860647,
+                                                                     0.063010015,
+                                                                     0.056128491,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#414743",
+                                      "metallic":  0.0,
+                                      "roughness":  0.680000007
+                                  },
+                          "users":  4
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_TeethLower",
+                                                   "R2_TeethUpper"
+                                               ],
+                          "name":  "R2_Mat_Teeth",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.689999998,
+                                                                     0.649999976,
+                                                                     0.5,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#D8D3BC",
+                                      "metallic":  0.0,
+                                      "roughness":  0.460000008
+                                  },
+                          "users":  2
+                      },
+                      {
+                          "assigned_objects":  [
+                                                   "R2_Tongue"
+                                               ],
+                          "name":  "R2_Mat_Tongue",
+                          "pbr":  {
+                                      "alpha":  1.0,
+                                      "base_color_linear_rgba":  [
+                                                                     0.280000001,
+                                                                     0.055,
+                                                                     0.064999998,
+                                                                     1.0
+                                                                 ],
+                                      "base_color_srgb_hex":  "#904248",
+                                      "metallic":  0.0,
+                                      "roughness":  0.660000026
+                                  },
+                          "users":  1
+                      }
+                  ],
+    "ChangedPalette":  {
+                           "R2_Mat_Fur_DarkGraphite":  {
+                                                           "BaseColor":  "#2D312E",
+                                                           "Roughness":  0.8,
+                                                           "Metallic":  0,
+                                                           "Role":  "head fur"
+                                                       },
+                           "R2_Mat_Fur_MidGraphite":  {
+                                                          "BaseColor":  "#303431",
+                                                          "Roughness":  0.78,
+                                                          "Metallic":  0,
+                                                          "Role":  "exposed arm fur"
+                                                      },
+                           "R2_Mat_Skin_Anthracite":  {
+                                                          "BaseColor":  "#414743",
+                                                          "Roughness":  0.68,
+                                                          "Metallic":  0,
+                                                          "Role":  "face, ears and hands"
+                                                      },
+                           "R2_Mat_Hoodie_Black":  {
+                                                       "BaseColor":  "#4F5C3A",
+                                                       "Roughness":  0.82,
+                                                       "Metallic":  0,
+                                                       "Role":  "moss-green hoodie"
+                                                   },
+                           "R2_Mat_Pants_Charcoal":  {
+                                                         "BaseColor":  "#363A3E",
+                                                         "Roughness":  0.78,
+                                                         "Metallic":  0,
+                                                         "Role":  "dark lead-gray cargo pants"
+                                                     },
+                           "R2_Mat_Shoes_Black":  {
+                                                      "BaseColor":  "#141718",
+                                                      "Roughness":  0.54,
+                                                      "Metallic":  0,
+                                                      "Role":  "black boots"
+                                                  }
+                       },
+    "ChangedMaterials":  [
+                             {
+                                 "after":  {
+                                               "base_color_linear_rgba":  [
+                                                                              0.026241222,
+                                                                              0.030713445,
+                                                                              0.027320892,
+                                                                              1.0
+                                                                          ],
+                                               "base_color_srgb_hex":  "#2D312E",
+                                               "metallic":  0.0,
+                                               "name":  "R2_Mat_Fur_DarkGraphite",
+                                               "roughness":  0.800000012
+                                           },
+                                 "before":  {
+                                                "base_color_linear_rgba":  [
+                                                                               0.008568126,
+                                                                               0.010960094,
+                                                                               0.012286488,
+                                                                               1.0
+                                                                           ],
+                                                "base_color_srgb_hex":  "#171B1D",
+                                                "metallic":  0.0,
+                                                "name":  "R2_Mat_Fur_DarkGraphite",
+                                                "roughness":  0.800000012
+                                            },
+                                 "role":  "head fur"
+                             },
+                             {
+                                 "after":  {
+                                               "base_color_linear_rgba":  [
+                                                                              0.029556835,
+                                                                              0.034339808,
+                                                                              0.030713445,
+                                                                              1.0
+                                                                          ],
+                                               "base_color_srgb_hex":  "#303431",
+                                               "metallic":  0.0,
+                                               "name":  "R2_Mat_Fur_MidGraphite",
+                                               "roughness":  0.779999971
+                                           },
+                                 "before":  {
+                                                "base_color_linear_rgba":  [
+                                                                               0.017641954,
+                                                                               0.023153367,
+                                                                               0.026241222,
+                                                                               1.0
+                                                                           ],
+                                                "base_color_srgb_hex":  "#242A2D",
+                                                "metallic":  0.0,
+                                                "name":  "R2_Mat_Fur_MidGraphite",
+                                                "roughness":  0.75999999
+                                            },
+                                 "role":  "exposed arm fur"
+                             },
+                             {
+                                 "after":  {
+                                               "base_color_linear_rgba":  [
+                                                                              0.052860647,
+                                                                              0.063010015,
+                                                                              0.056128491,
+                                                                              1.0
+                                                                          ],
+                                               "base_color_srgb_hex":  "#414743",
+                                               "metallic":  0.0,
+                                               "name":  "R2_Mat_Skin_Anthracite",
+                                               "roughness":  0.680000007
+                                           },
+                                 "before":  {
+                                                "base_color_linear_rgba":  [
+                                                                               0.039546236,
+                                                                               0.046665087,
+                                                                               0.048171826,
+                                                                               1.0
+                                                                           ],
+                                                "base_color_srgb_hex":  "#383D3E",
+                                                "metallic":  0.0,
+                                                "name":  "R2_Mat_Skin_Anthracite",
+                                                "roughness":  0.639999986
+                                            },
+                                 "role":  "face, ears and hands"
+                             },
+                             {
+                                 "after":  {
+                                               "base_color_linear_rgba":  [
+                                                                              0.078187421,
+                                                                              0.107023105,
+                                                                              0.042311411,
+                                                                              1.0
+                                                                          ],
+                                               "base_color_srgb_hex":  "#4F5C3A",
+                                               "metallic":  0.0,
+                                               "name":  "R2_Mat_Hoodie_Black",
+                                               "roughness":  0.819999993
+                                           },
+                                 "before":  {
+                                                "base_color_linear_rgba":  [
+                                                                               0.005605392,
+                                                                               0.00699541,
+                                                                               0.008023193,
+                                                                               1.0
+                                                                           ],
+                                                "base_color_srgb_hex":  "#111416",
+                                                "metallic":  0.0,
+                                                "name":  "R2_Mat_Hoodie_Black",
+                                                "roughness":  0.839999974
+                                            },
+                                 "role":  "moss-green hoodie"
+                             },
+                             {
+                                 "after":  {
+                                               "base_color_linear_rgba":  [
+                                                                              0.036889449,
+                                                                              0.042311411,
+                                                                              0.048171826,
+                                                                              1.0
+                                                                          ],
+                                               "base_color_srgb_hex":  "#363A3E",
+                                               "metallic":  0.0,
+                                               "name":  "R2_Mat_Pants_Charcoal",
+                                               "roughness":  0.779999971
+                                           },
+                                 "before":  {
+                                                "base_color_linear_rgba":  [
+                                                                               0.020288562,
+                                                                               0.025186859,
+                                                                               0.02842604,
+                                                                               1.0
+                                                                           ],
+                                                "base_color_srgb_hex":  "#272C2F",
+                                                "metallic":  0.0,
+                                                "name":  "R2_Mat_Pants_Charcoal",
+                                                "roughness":  0.790000021
+                                            },
+                                 "role":  "dark lead-gray cargo pants"
+                             },
+                             {
+                                 "after":  {
+                                               "base_color_linear_rgba":  [
+                                                                              0.00699541,
+                                                                              0.008568126,
+                                                                              0.009134059,
+                                                                              1.0
+                                                                          ],
+                                               "base_color_srgb_hex":  "#141718",
+                                               "metallic":  0.0,
+                                               "name":  "R2_Mat_Shoes_Black",
+                                               "roughness":  0.540000021
+                                           },
+                                 "before":  {
+                                                "base_color_linear_rgba":  [
+                                                                               0.005181517,
+                                                                               0.006512091,
+                                                                               0.007499032,
+                                                                               1.0
+                                                                           ],
+                                                "base_color_srgb_hex":  "#101315",
+                                                "metallic":  0.0,
+                                                "name":  "R2_Mat_Shoes_Black",
+                                                "roughness":  0.610000014
+                                            },
+                                 "role":  "black boots"
+                             }
+                         ],
+    "ObjectToMaterial":  {
+                             "R2_Brand_LeftArm_GorillaMark_R2_Patch":  [
+                                                                           "R2_Mat_Embroidery_Gray",
+                                                                           "R2_Mat_Embroidery_White"
+                                                                       ],
+                             "R2_Brand_RightChest_GorillaMark":  [
+                                                                     "R2_Mat_Embroidery_Gray",
+                                                                     "R2_Mat_Embroidery_White"
+                                                                 ],
+                             "R2_Brand_UpperBack_GorillaMark":  [
+                                                                    "R2_Mat_Embroidery_Gray",
+                                                                    "R2_Mat_Embroidery_White"
+                                                                ],
+                             "R2_LowerEyelid.L":  [
+                                                      "R2_Mat_Eyelid"
+                                                  ],
+                             "R2_LowerEyelid.R":  [
+                                                      "R2_Mat_Eyelid"
+                                                  ],
+                             "R2_UpperEyelid.L":  [
+                                                      "R2_Mat_Eyelid"
+                                                  ],
+                             "R2_UpperEyelid.R":  [
+                                                      "R2_Mat_Eyelid"
+                                                  ],
+                             "R2_Eye.L":  [
+                                              "R2_Mat_EyeSclera",
+                                              "R2_Mat_IrisTechGreen",
+                                              "R2_Mat_Pupil"
+                                          ],
+                             "R2_Eye.R":  [
+                                              "R2_Mat_EyeSclera",
+                                              "R2_Mat_IrisTechGreen",
+                                              "R2_Mat_Pupil"
+                                          ],
+                             "R2_Head_Fur":  [
+                                                 "R2_Mat_Fur_DarkGraphite"
+                                             ],
+                             "R2_Arm_Fur_R":  [
+                                                  "R2_Mat_Fur_MidGraphite"
+                                              ],
+                             "R2_Hood_Cord_L":  [
+                                                    "R2_Mat_GorillaOS_Green"
+                                                ],
+                             "R2_Hood_Cord_R":  [
+                                                    "R2_Mat_GorillaOS_Green"
+                                                ],
+                             "R2_Hood":  [
+                                             "R2_Mat_Hoodie_Black"
+                                         ],
+                             "R2_Hoodie_Sleeve_L":  [
+                                                        "R2_Mat_Hoodie_Black"
+                                                    ],
+                             "R2_Hoodie_Sleeve_R":  [
+                                                        "R2_Mat_Hoodie_Black"
+                                                    ],
+                             "R2_Hoodie_Torso":  [
+                                                     "R2_Mat_Hoodie_Black",
+                                                     "R2_Mat_Pants_Charcoal"
+                                                 ],
+                             "R2_LipLower":  [
+                                                 "R2_Mat_Lip"
+                                             ],
+                             "R2_LipUpper":  [
+                                                 "R2_Mat_Lip"
+                                             ],
+                             "R2_MouthInterior":  [
+                                                      "R2_Mat_MouthInterior"
+                                                  ],
+                             "R2_Pants":  [
+                                              "R2_Mat_Pants_Charcoal"
+                                          ],
+                             "R2_Shoe_L":  [
+                                               "R2_Mat_Shoes_Black"
+                                           ],
+                             "R2_Shoe_R":  [
+                                               "R2_Mat_Shoes_Black"
+                                           ],
+                             "R2_Hand_L":  [
+                                               "R2_Mat_Skin_Anthracite"
+                                           ],
+                             "R2_Hand_R":  [
+                                               "R2_Mat_Skin_Anthracite"
+                                           ],
+                             "R2_Head_Face":  [
+                                                  "R2_Mat_Skin_Anthracite"
+                                              ],
+                             "R2_Head_Face_Foundation":  [
+                                                             "R2_Mat_Skin_Anthracite"
+                                                         ],
+                             "R2_TeethLower":  [
+                                                   "R2_Mat_Teeth"
+                                               ],
+                             "R2_TeethUpper":  [
+                                                   "R2_Mat_Teeth"
+                                               ],
+                             "R2_Tongue":  [
+                                               "R2_Mat_Tongue"
+                                           ]
+                         },
+    "ClothAndFurMetallic":  false,
+    "MissingMaterials":  0,
+    "ImageTextures":  0,
+    "ExternalDependencies":  0,
+    "FailedGates":  "NONE"
+}

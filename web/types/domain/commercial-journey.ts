@@ -38,13 +38,13 @@ import type {
     /** Workspace proprietário da jornada */
     workspaceId: EntityId
   
-    /** Lead que originou esta oportunidade */
-    leadId: EntityId
+    /** Lead que originou esta oportunidade, quando aplicável */
+    leadId: EntityId | null
   
     /**
-     * Cliente vinculado.
+     * Cliente que originou ou foi vinculado à oportunidade.
      *
-     * Será null enquanto a venda ainda não foi ativada.
+     * Ao menos leadId ou clientId deve estar preenchido.
      */
     clientId: EntityId | null
   

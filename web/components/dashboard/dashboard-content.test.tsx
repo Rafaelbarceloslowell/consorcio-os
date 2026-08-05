@@ -35,6 +35,31 @@ const dashboardData: DashboardData = {
     },
   ],
   pipeline: [],
+  opportunities: [
+    {
+      id: "journey-1",
+      title:
+        "Oportunidade real",
+      origin: "client",
+      originName:
+        "Cliente real",
+      consultantName:
+        "Rafael",
+      priority: "HIGH",
+      score: 90,
+      phaseName: "Negociação",
+      stateName:
+        "Proposta enviada",
+      consortiumType:
+        "real_estate",
+      lastInteractionAt:
+        null,
+      updatedAt:
+        "2026-07-26T18:00:00.000Z",
+      status: "open",
+      outcome: null,
+    },
+  ],
   intelligence: {
     criticalCount: 1,
     importantCount: 1,
@@ -96,6 +121,40 @@ describe("DashboardContent", () => {
     expect(screen.getByText("Ações pendentes")).toBeInTheDocument()
     expect(screen.getByText("Próximas tarefas")).toBeInTheDocument()
     expect(screen.getByText("Enviar proposta")).toBeInTheDocument()
+  })
+
+  it("renderiza as oportunidades reais", () => {
+    render(
+      <DashboardContent
+        {...dashboardData}
+      />,
+    )
+
+    expect(
+      screen.getByText(
+        "Oportunidade real",
+      ),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        /Cliente real · Rafael/,
+      ),
+    ).toBeInTheDocument()
+  })
+
+  it("renderiza estado vazio de oportunidades", () => {
+    render(
+      <DashboardContent
+        {...dashboardData}
+        opportunities={[]}
+      />,
+    )
+
+    expect(
+      screen.getByText(
+        "Nenhuma oportunidade encontrada.",
+      ),
+    ).toBeInTheDocument()
   })
 
   it("oferece uma orientação segura quando não há tarefas", () => {

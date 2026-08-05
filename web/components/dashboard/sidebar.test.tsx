@@ -84,6 +84,77 @@ describe("Sidebar", () => {
     expect(
       screen.getAllByRole("link")
     ).toHaveLength(8)
+
+    expect(
+      screen.getByRole("link", {
+        name: "Leads",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/leads",
+    )
+
+    expect(
+      screen.getByRole("link", {
+        name: "Clientes",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/clients",
+    )
+
+    expect(
+      screen.getByRole("link", {
+        name: "Agenda",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/agenda",
+    )
+
+    expect(
+      screen.getByRole("link", {
+        name: "Propostas",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/proposals",
+    )
+
+    expect(
+      screen.getByRole("link", {
+        name: "Financeiro",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/finance",
+    )
+
+    expect(
+      screen.getByRole("link", {
+        name: "Configurações",
+      }),
+    ).toHaveAttribute(
+      "href",
+      "/settings",
+    )
+  })
+
+  it("não deve exibir contagens fixas em Leads ou Agenda", () => {
+    render(
+      <Sidebar
+        open={true}
+        onClose={vi.fn()}
+      />
+    )
+
+    expect(
+      screen.queryByText("12")
+    ).not.toBeInTheDocument()
+
+    expect(
+      screen.queryByText("4")
+    ).not.toBeInTheDocument()
   })
 
   it("deve marcar Dashboard como item ativo", () => {
@@ -134,11 +205,11 @@ describe("Sidebar", () => {
     )
 
     expect(
-      screen.getByText("Rafael Ramos")
+      screen.getByText("Rafael Ramos Barcelos")
     ).toBeInTheDocument()
 
     expect(
-      screen.getByText("Supervisor")
+      screen.getByText("Consultor Sênior")
     ).toBeInTheDocument()
   })
 
@@ -286,7 +357,7 @@ describe("Sidebar", () => {
     ).not.toBeInTheDocument()
 
     expect(
-      screen.queryByText("Rafael Ramos")
+      screen.queryByText("Rafael Ramos Barcelos")
     ).not.toBeInTheDocument()
   })
 

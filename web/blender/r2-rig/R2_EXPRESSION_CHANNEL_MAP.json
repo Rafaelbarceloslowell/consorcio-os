@@ -1,0 +1,115 @@
+{
+  "BLINK_BOTH": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_BLINK_BOTH",
+    "status": "READY"
+  },
+  "BLINK_LEFT": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_BLINK_LEFT",
+    "status": "READY"
+  },
+  "BLINK_RIGHT": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_BLINK_RIGHT",
+    "status": "READY"
+  },
+  "BROW_FROWN": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_BROW_FROWN",
+    "status": "READY"
+  },
+  "BROW_RAISE": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_BROW_RAISE",
+    "status": "READY"
+  },
+  "CHEEK_RAISE": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_CHEEK_RAISE",
+    "status": "READY"
+  },
+  "EYE_AIM": {
+    "observed": 0.48869219422340393,
+    "passed": true,
+    "property": "EYE_AIM_YAW",
+    "status": "READY"
+  },
+  "EYE_LEFT": {
+    "observed": 0.48869219422340393,
+    "passed": true,
+    "property": "EYE_YAW.L",
+    "status": "READY"
+  },
+  "EYE_RIGHT": {
+    "observed": 0.48869219422340393,
+    "passed": true,
+    "property": "EYE_YAW.R",
+    "status": "READY"
+  },
+  "FROWN": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_FROWN",
+    "status": "READY"
+  },
+  "JAW_OPEN": {
+    "observed": 0.5585053563117981,
+    "passed": true,
+    "property": "EXP_JAW_OPEN",
+    "status": "READY"
+  },
+  "LIPS_CLOSED": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_LIPS_CLOSED",
+    "status": "READY"
+  },
+  "MOUTH_E": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_MOUTH_E",
+    "status": "READY"
+  },
+  "MOUTH_NARROW": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_MOUTH_NARROW",
+    "status": "READY"
+  },
+  "MOUTH_O": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_MOUTH_O",
+    "status": "READY"
+  },
+  "MOUTH_WIDE": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_MOUTH_WIDE",
+    "status": "READY"
+  },
+  "MUZZLE": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_MUZZLE",
+    "status": "READY"
+  },
+  "NEUTRAL": {
+    "neutral_reset_exact": true,
+    "property_values": 0.0,
+    "status": "READY"
+  },
+  "SMILE": {
+    "observed": 1.0,
+    "passed": true,
+    "property": "EXP_SMILE",
+    "status": "READY"
+  }
+}

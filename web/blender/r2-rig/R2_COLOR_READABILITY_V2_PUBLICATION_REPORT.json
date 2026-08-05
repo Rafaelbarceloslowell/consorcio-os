@@ -1,0 +1,26 @@
+{
+    "schema_version":  1,
+    "ExecutionStatus":  "COMPLETED",
+    "TechnicalVerdict":  "APROVADO",
+    "PublishedBlend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\r2-full-character-color-readable-ready-v2.blend",
+    "PublishedBlendSHA256":  "2EEC504BFC6F3C0D0B1BF6B1EFA932445142DCB61527E94A64F9C4A3A5EE491D",
+    "PublishedBlendSizeBytes":  40307451,
+    "PublishedGLB":  "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-color-readable-ready-v2.glb",
+    "PublishedGLBSHA256":  "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE",
+    "PublishedGLBSizeBytes":  13160568,
+    "EvidenceDirectory":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence",
+    "EvidenceCount":  5,
+    "EvidenceViews":  [
+                          "back",
+                          "dashboard",
+                          "front",
+                          "left_arm_close",
+                          "three_quarter"
+                      ],
+    "PreviousBlend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-material-branded-ready-v1\\r2-full-character-material-branded-ready-v1.blend",
+    "PreviousBlendSHA256":  "AD7501A2828DAA76749C6ABE367597F1645BB79C1A205E83BED265B556F52E57",
+    "PreviousGLB":  "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-material-branded-ready-v1.glb",
+    "PreviousGLBSHA256":  "1F693EBB12E36965786C426CC07AF5FD6775CADFD81542236518103C6541E6AB",
+    "PreviousOfficialSourcesUnchanged":  true,
+    "FailedGates":  "NONE"
+}

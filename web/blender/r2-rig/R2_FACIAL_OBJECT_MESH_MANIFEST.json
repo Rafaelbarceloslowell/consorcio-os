@@ -1,0 +1,911 @@
+{
+  "meshes_after": [
+    "R2_Arm_Fur_R_Mesh",
+    "R2_Eye.L_Mesh",
+    "R2_Eye.R_Mesh",
+    "R2_Hand_L_Mesh",
+    "R2_Hand_R_Mesh",
+    "R2_Head_Face_Foundation_Mesh",
+    "R2_Head_Face_Mesh",
+    "R2_Head_Fur_Mesh",
+    "R2_Hood_Cord_L_Mesh",
+    "R2_Hood_Cord_R_Mesh",
+    "R2_Hood_Mesh",
+    "R2_Hoodie_Sleeve_L_Mesh",
+    "R2_Hoodie_Sleeve_R_Mesh",
+    "R2_Hoodie_Torso_Mesh",
+    "R2_LipLower_Mesh",
+    "R2_LipUpper_Mesh",
+    "R2_LowerEyelid.L_Mesh",
+    "R2_LowerEyelid.R_Mesh",
+    "R2_MouthInterior_Mesh",
+    "R2_Pants_Mesh",
+    "R2_Shoe_L_Mesh",
+    "R2_Shoe_R_Mesh",
+    "R2_TeethLower_Mesh",
+    "R2_TeethUpper_Mesh",
+    "R2_Tongue_Mesh",
+    "R2_UpperEyelid.L_Mesh",
+    "R2_UpperEyelid.R_Mesh"
+  ],
+  "meshes_before": [
+    "R2_Arm_Fur_R_Mesh",
+    "R2_Hand_L_Mesh",
+    "R2_Hand_R_Mesh",
+    "R2_Head_Face_Foundation_Mesh",
+    "R2_Head_Face_Mesh",
+    "R2_Head_Fur_Mesh",
+    "R2_Hood_Cord_L_Mesh",
+    "R2_Hood_Cord_R_Mesh",
+    "R2_Hood_Mesh",
+    "R2_Hoodie_Sleeve_L_Mesh",
+    "R2_Hoodie_Sleeve_R_Mesh",
+    "R2_Hoodie_Torso_Mesh",
+    "R2_Pants_Mesh",
+    "R2_Shoe_L_Mesh",
+    "R2_Shoe_R_Mesh"
+  ],
+  "new_objects": [
+    {
+      "custom_properties": {
+        "r2_aperture_vertices": "[2137, 2138, 2285, 2286]",
+        "r2_radius": 0.01,
+        "r2_role": "EYEBALL",
+        "r2_side": "L"
+      },
+      "materials": [
+        "R2_Mat_EyeSclera",
+        "R2_Mat_IrisTechGreen",
+        "R2_Mat_Pupil"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.01105880830436945
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.21429984271526337
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8490406274795532
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_Eye.L_Mesh",
+      "mesh_fingerprint": "9E032FF8676321801A5FE6E62DFA864EBCE5F23E59EFC59659763E01AA0F39B6",
+      "name": "R2_Eye.L",
+      "parent": "R2_EyePivot.L",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 0,
+        "edges": 992,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 512,
+        "vertices": 482,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "custom_properties": {
+        "r2_aperture_vertices": "[2394, 2395, 2396, 2410]",
+        "r2_radius": 0.01,
+        "r2_role": "EYEBALL",
+        "r2_side": "R"
+      },
+      "materials": [
+        "R2_Mat_EyeSclera",
+        "R2_Mat_IrisTechGreen",
+        "R2_Mat_Pupil"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.014793476089835167
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.22213289141654968
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.831754207611084
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_Eye.R_Mesh",
+      "mesh_fingerprint": "FCB0EC3AD81FE42347F714B20E8B692945B5A96C2B340AFEC9FDE23E0AEC7528",
+      "name": "R2_Eye.R",
+      "parent": "R2_EyePivot.R",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 0,
+        "edges": 992,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 512,
+        "vertices": 482,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "EYE_ROTATION_PIVOT"
+      },
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.01105880830436945
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.21429984271526337
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8490406274795532
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "R2_EyePivot.L",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "type": "EMPTY"
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "EYE_ROTATION_PIVOT"
+      },
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.014793476089835167
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.22213289141654968
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.831754207611084
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "R2_EyePivot.R",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "type": "EMPTY"
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "MANDIBULAR_PIVOT_REFERENCE",
+        "r2_side": "L"
+      },
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.031153474003076553
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.2929005026817322
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.725739061832428
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "R2_JawPivot.L",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "type": "EMPTY"
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "MANDIBULAR_PIVOT_REFERENCE",
+        "r2_side": "R"
+      },
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.031153474003076553
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.2929005026817322
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.725739061832428
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "R2_JawPivot.R",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "type": "EMPTY"
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "LOWER_LIP",
+        "r2_source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B"
+      },
+      "materials": [
+        "R2_Mat_Lip"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_LipLower_Mesh",
+      "mesh_fingerprint": "C4D2518E02797C114765F96C550FEB7932E1091031A6964FC467C60A094B3678",
+      "name": "R2_LipLower",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 42,
+        "edges": 61,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 20,
+        "vertices": 42,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": []
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "UPPER_LIP",
+        "r2_source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B"
+      },
+      "materials": [
+        "R2_Mat_Lip"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_LipUpper_Mesh",
+      "mesh_fingerprint": "0583188D07455C4CBF9808B07BC7A89308DC9D0FBE78C3BDACD96DD8302A10DF",
+      "name": "R2_LipUpper",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 42,
+        "edges": 61,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 20,
+        "vertices": 42,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": []
+    },
+    {
+      "custom_properties": {
+        "r2_aperture_vertices": "[2137, 2138, 2285, 2286]",
+        "r2_parent_bone_reference": "head",
+        "r2_role": "LOWER_EYELID",
+        "r2_side": "L"
+      },
+      "materials": [
+        "R2_Mat_Eyelid"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_LowerEyelid.L_Mesh",
+      "mesh_fingerprint": "63B45FB97384747877B3D239B0A01AC57C900731833C1FC39F7ABBC002538B83",
+      "name": "R2_LowerEyelid.L",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 34,
+        "edges": 49,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 16,
+        "vertices": 34,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": []
+    },
+    {
+      "custom_properties": {
+        "r2_aperture_vertices": "[2394, 2395, 2396, 2410]",
+        "r2_parent_bone_reference": "head",
+        "r2_role": "LOWER_EYELID",
+        "r2_side": "R"
+      },
+      "materials": [
+        "R2_Mat_Eyelid"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_LowerEyelid.R_Mesh",
+      "mesh_fingerprint": "67189B54A0741E315EA179746A1205F66BB0EC0C487D81D8BDBC053E8D370651",
+      "name": "R2_LowerEyelid.R",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 34,
+        "edges": 49,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 16,
+        "vertices": 34,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": []
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "ORAL_CAVITY",
+        "r2_source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B"
+      },
+      "materials": [
+        "R2_Mat_MouthInterior"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.29610946774482727
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.7116225361824036
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_MouthInterior_Mesh",
+      "mesh_fingerprint": "3AE02FF2B1640BB1E4CFCAE521C7104CA44C1AD39505B88B46E29A907F33DF20",
+      "name": "R2_MouthInterior",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 0,
+        "edges": 756,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 392,
+        "vertices": 366,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "LOWER_TEETH",
+        "r2_source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B"
+      },
+      "materials": [
+        "R2_Mat_Teeth"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.29894375801086426
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.7090040445327759
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_TeethLower_Mesh",
+      "mesh_fingerprint": "0E80F743A1D27AD71E1D9B23BFFD7AAE1E2BC387AA5DBEF319700AAED3447CE1",
+      "name": "R2_TeethLower",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 0,
+        "edges": 108,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 54,
+        "vertices": 56,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "UPPER_TEETH",
+        "r2_source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B"
+      },
+      "materials": [
+        "R2_Mat_Teeth"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.29896804690361023
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.7145256400108337
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_TeethUpper_Mesh",
+      "mesh_fingerprint": "643E15E661AB1D26F5CEBB504A6DD2F2BCCC5482546E051791F18C970A99B2F2",
+      "name": "R2_TeethUpper",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 0,
+        "edges": 108,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 54,
+        "vertices": 56,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "custom_properties": {
+        "r2_parent_bone_reference": "head",
+        "r2_role": "TONGUE",
+        "r2_source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B"
+      },
+      "materials": [
+        "R2_Mat_Tongue"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.2952815890312195
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.7081546187400818
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_Tongue_Mesh",
+      "mesh_fingerprint": "5B6D4CC501C39DA066C1BFFD7EF7611732C2B40D4A9192316A1AB21ED75D362E",
+      "name": "R2_Tongue",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 0,
+        "edges": 552,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 288,
+        "vertices": 266,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "custom_properties": {
+        "r2_aperture_vertices": "[2137, 2138, 2285, 2286]",
+        "r2_parent_bone_reference": "head",
+        "r2_role": "UPPER_EYELID",
+        "r2_side": "L"
+      },
+      "materials": [
+        "R2_Mat_Eyelid"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_UpperEyelid.L_Mesh",
+      "mesh_fingerprint": "D610CF67E5F40A394A3F3F08AE9CE7021172000432C5BB5B7BA2FE57CBD5E16B",
+      "name": "R2_UpperEyelid.L",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 34,
+        "edges": 49,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 16,
+        "vertices": 34,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": []
+    },
+    {
+      "custom_properties": {
+        "r2_aperture_vertices": "[2394, 2395, 2396, 2410]",
+        "r2_parent_bone_reference": "head",
+        "r2_role": "UPPER_EYELID",
+        "r2_side": "R"
+      },
+      "materials": [
+        "R2_Mat_Eyelid"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "mesh": "R2_UpperEyelid.R_Mesh",
+      "mesh_fingerprint": "21D3899EA6BC6C05DF4E1508AC32126BA5982D8BB91C23CFD0059BE72E4C4258",
+      "name": "R2_UpperEyelid.R",
+      "parent": "R2_Rig",
+      "parent_bone": null,
+      "parent_type": "OBJECT",
+      "topology": {
+        "boundary_edges": 34,
+        "edges": 49,
+        "invalid_non_manifold_edges": 0,
+        "polygons": 16,
+        "vertices": 34,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "type": "MESH",
+      "uv_layers": []
+    }
+  ],
+  "objects_after": [
+    "R2_Arm_Fur_R",
+    "R2_Eye.L",
+    "R2_Eye.R",
+    "R2_EyePivot.L",
+    "R2_EyePivot.R",
+    "R2_Hand_L",
+    "R2_Hand_R",
+    "R2_Head_Face",
+    "R2_Head_Face_Foundation",
+    "R2_Head_Fur",
+    "R2_Hood",
+    "R2_Hood_Cord_L",
+    "R2_Hood_Cord_R",
+    "R2_Hoodie_Sleeve_L",
+    "R2_Hoodie_Sleeve_R",
+    "R2_Hoodie_Torso",
+    "R2_JawPivot.L",
+    "R2_JawPivot.R",
+    "R2_LipLower",
+    "R2_LipUpper",
+    "R2_LowerEyelid.L",
+    "R2_LowerEyelid.R",
+    "R2_MouthInterior",
+    "R2_Pants",
+    "R2_Rig",
+    "R2_Shoe_L",
+    "R2_Shoe_R",
+    "R2_TeethLower",
+    "R2_TeethUpper",
+    "R2_Tongue",
+    "R2_UpperEyelid.L",
+    "R2_UpperEyelid.R"
+  ],
+  "objects_before": [
+    "R2_Arm_Fur_R",
+    "R2_Hand_L",
+    "R2_Hand_R",
+    "R2_Head_Face",
+    "R2_Head_Face_Foundation",
+    "R2_Head_Fur",
+    "R2_Hood",
+    "R2_Hood_Cord_L",
+    "R2_Hood_Cord_R",
+    "R2_Hoodie_Sleeve_L",
+    "R2_Hoodie_Sleeve_R",
+    "R2_Hoodie_Torso",
+    "R2_Pants",
+    "R2_Rig",
+    "R2_Shoe_L",
+    "R2_Shoe_R"
+  ],
+  "schema_version": 1
+}

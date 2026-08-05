@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 1,
+  "directed": [
+    {
+      "from": "neutral",
+      "to": "working",
+      "response": {
+        "requestedState": "working",
+        "effectiveState": "working",
+        "status": "applied",
+        "generation": 16
+      },
+      "snapshot": {
+        "requestedState": "working",
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING",
+        "elapsedInStateMs": 583,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 16,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 16,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      }
+    },
+    {
+      "from": "working",
+      "to": "alert",
+      "response": {
+        "requestedState": "alert",
+        "effectiveState": "alert",
+        "status": "applied",
+        "generation": 18
+      },
+      "snapshot": {
+        "requestedState": "alert",
+        "effectiveState": "alert",
+        "activeClip": "R2_ALERT",
+        "elapsedInStateMs": 567,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 18,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 18,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      }
+    },
+    {
+      "from": "alert",
+      "to": "neutral",
+      "response": {
+        "requestedState": "neutral",
+        "effectiveState": "neutral",
+        "status": "applied",
+        "generation": 20
+      },
+      "snapshot": {
+        "requestedState": "neutral",
+        "effectiveState": "neutral",
+        "activeClip": "R2_NEUTRAL",
+        "elapsedInStateMs": 567,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 20,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 20,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      }
+    },
+    {
+      "from": "listening",
+      "to": "speaking",
+      "response": {
+        "requestedState": "speaking",
+        "effectiveState": "speaking",
+        "status": "applied",
+        "generation": 22
+      },
+      "snapshot": {
+        "requestedState": "speaking",
+        "effectiveState": "speaking",
+        "activeClip": "R2_IDLE",
+        "elapsedInStateMs": 600,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 22,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 22,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      }
+    },
+    {
+      "from": "thinking",
+      "to": "awaiting_action",
+      "response": {
+        "requestedState": "awaiting_action",
+        "effectiveState": "awaiting_action",
+        "status": "applied",
+        "generation": 24
+      },
+      "snapshot": {
+        "requestedState": "awaiting_action",
+        "effectiveState": "awaiting_action",
+        "activeClip": "R2_AWAITING_ACTION",
+        "elapsedInStateMs": 732,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 24,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 24,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      }
+    }
+  ],
+  "repeated": {
+    "before": {
+      "requestedState": "working",
+      "effectiveState": "working",
+      "activeClip": "R2_WORKING",
+      "elapsedInStateMs": 649,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 25,
+      "maximumSimultaneousActions": 2,
+      "activeActions": 1,
+      "transitionsApplied": 25,
+      "transitionsIgnored": 0,
+      "fallbacks": 0,
+      "mixerListeners": 1,
+      "pendingState": null
+    },
+    "response": {
+      "requestedState": "working",
+      "effectiveState": "working",
+      "status": "repeated",
+      "generation": 26
+    },
+    "after": {
+      "requestedState": "working",
+      "effectiveState": "working",
+      "activeClip": "R2_WORKING",
+      "elapsedInStateMs": 915,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 26,
+      "maximumSimultaneousActions": 2,
+      "activeActions": 1,
+      "transitionsApplied": 25,
+      "transitionsIgnored": 1,
+      "fallbacks": 0,
+      "mixerListeners": 1,
+      "pendingState": null
+    }
+  },
+  "invalid": {
+    "response": {
+      "requestedState": "browser-invalid-state",
+      "effectiveState": "neutral",
+      "status": "fallback",
+      "generation": 27
+    },
+    "snapshot": {
+      "requestedState": "neutral",
+      "effectiveState": "neutral",
+      "activeClip": "R2_NEUTRAL",
+      "elapsedInStateMs": 17,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 27,
+      "maximumSimultaneousActions": 2,
+      "activeActions": 2,
+      "transitionsApplied": 26,
+      "transitionsIgnored": 1,
+      "fallbacks": 1,
+      "mixerListeners": 1,
+      "pendingState": null
+    }
+  },
+  "concurrentOneShot": {
+    "response": {
+      "requestedState": "working",
+      "effectiveState": "celebrating_sale",
+      "status": "deferred",
+      "generation": 29
+    },
+    "final": {
+      "requestedState": "working",
+      "effectiveState": "working",
+      "activeClip": "R2_WORKING",
+      "elapsedInStateMs": 467,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 29,
+      "maximumSimultaneousActions": 2,
+      "activeActions": 1,
+      "transitionsApplied": 28,
+      "transitionsIgnored": 2,
+      "fallbacks": 1,
+      "mixerListeners": 1,
+      "pendingState": null
+    }
+  },
+  "priorityInterruption": {
+    "response": {
+      "requestedState": "alert",
+      "effectiveState": "alert",
+      "status": "applied",
+      "generation": 32
+    },
+    "final": {
+      "requestedState": "alert",
+      "effectiveState": "alert",
+      "activeClip": "R2_ALERT",
+      "elapsedInStateMs": 566,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 31,
+      "maximumSimultaneousActions": 2,
+      "activeActions": 1,
+      "transitionsApplied": 30,
+      "transitionsIgnored": 2,
+      "fallbacks": 1,
+      "mixerListeners": 1,
+      "pendingState": null
+    }
+  },
+  "rapid": {
+    "requests": 100,
+    "statuses": {
+      "applied": 8,
+      "deferred": 74,
+      "cooldown": 9,
+      "repeated": 9
+    },
+    "immediate": {
+      "requestedState": "error_attention",
+      "effectiveState": "error_attention",
+      "activeClip": "R2_ERROR_ATTENTION",
+      "elapsedInStateMs": 0,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 48,
+      "maximumSimultaneousActions": 2,
+      "activeActions": 2,
+      "transitionsApplied": 38,
+      "transitionsIgnored": 94,
+      "fallbacks": 1,
+      "mixerListeners": 1,
+      "pendingState": "celebrating_sale"
+    },
+    "final": {
+      "requestedState": "celebrating_sale",
+      "effectiveState": "celebrating_sale",
+      "activeClip": "R2_CELEBRATING_SALE",
+      "elapsedInStateMs": 466,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 49,
+      "maximumSimultaneousActions": 2,
+      "activeActions": 1,
+      "transitionsApplied": 39,
+      "transitionsIgnored": 94,
+      "fallbacks": 1,
+      "mixerListeners": 1,
+      "pendingState": null
+    }
+  },
+  "resizeDuringCrossfade": {
+    "requestedState": "alert",
+    "effectiveState": "alert",
+    "activeClip": "R2_ALERT",
+    "elapsedInStateMs": 1285,
+    "reducedMotion": false,
+    "actionsCreated": 9,
+    "actionsReused": 51,
+    "maximumSimultaneousActions": 2,
+    "activeActions": 1,
+    "transitionsApplied": 41,
+    "transitionsIgnored": 94,
+    "fallbacks": 1,
+    "mixerListeners": 1,
+    "pendingState": null
+  },
+  "maximumSimultaneousActions": 2,
+  "passed": true,
+  "frameSequence": [
+    {
+      "path": "evidence/transition-frame-00.png",
+      "bytes": 28360,
+      "sha256": "D322390334D34FC7FCA3C664F04CC12F646DB5AEF21CF0142BC99D65D09EA31A",
+      "rect": {
+        "x": 349,
+        "y": 227,
+        "width": 426.296875,
+        "height": 360
+      }
+    },
+    {
+      "path": "evidence/transition-frame-01.png",
+      "bytes": 28367,
+      "sha256": "C1FAF5CCD98182A90C10ED0B6B0CB28C9C010BD9B8C25637A930DF1616ED6197",
+      "rect": {
+        "x": 349,
+        "y": 227,
+        "width": 426.296875,
+        "height": 360
+      }
+    },
+    {
+      "path": "evidence/transition-frame-02.png",
+      "bytes": 28367,
+      "sha256": "C1FAF5CCD98182A90C10ED0B6B0CB28C9C010BD9B8C25637A930DF1616ED6197",
+      "rect": {
+        "x": 349,
+        "y": 227,
+        "width": 426.296875,
+        "height": 360
+      }
+    },
+    {
+      "path": "evidence/transition-frame-03.png",
+      "bytes": 28367,
+      "sha256": "C1FAF5CCD98182A90C10ED0B6B0CB28C9C010BD9B8C25637A930DF1616ED6197",
+      "rect": {
+        "x": 349,
+        "y": 227,
+        "width": 426.296875,
+        "height": 360
+      }
+    },
+    {
+      "path": "evidence/transition-frame-04.png",
+      "bytes": 28367,
+      "sha256": "C1FAF5CCD98182A90C10ED0B6B0CB28C9C010BD9B8C25637A930DF1616ED6197",
+      "rect": {
+        "x": 349,
+        "y": 227,
+        "width": 426.296875,
+        "height": 360
+      }
+    },
+    {
+      "path": "evidence/transition-frame-05.png",
+      "bytes": 28367,
+      "sha256": "C1FAF5CCD98182A90C10ED0B6B0CB28C9C010BD9B8C25637A930DF1616ED6197",
+      "rect": {
+        "x": 349,
+        "y": 227,
+        "width": 426.296875,
+        "height": 360
+      }
+    }
+  ]
+}

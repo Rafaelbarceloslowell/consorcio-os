@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "viewports": [
+    {
+      "requested": {
+        "width": 1440,
+        "height": 900
+      },
+      "actual": {
+        "width": 1440,
+        "height": 900
+      },
+      "canvases": [
+        {
+          "index": 0,
+          "width": 426,
+          "height": 360,
+          "clientWidth": 426,
+          "clientHeight": 360,
+          "rect": {
+            "x": 349,
+            "y": 227,
+            "width": 426.296875,
+            "height": 360
+          },
+          "visible": true
+        }
+      ],
+      "fallbackActive": true,
+      "diagnostics": {
+        "requestedState": "neutral",
+        "effectiveState": "neutral",
+        "activeClip": "R2_NEUTRAL",
+        "elapsedInStateMs": 350,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 2,
+        "maximumSimultaneousActions": 1,
+        "activeActions": 1,
+        "transitionsApplied": 2,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      },
+      "fullScreenshot": {
+        "path": "evidence/viewport-1440x900.png",
+        "bytes": 193636,
+        "sha256": "D0B8B4C0AA4B2E3807D1FAC3157BFD562496EFD1E7146E3B4F32378765D686D7"
+      },
+      "canvasScreenshot": {
+        "path": "evidence/viewport-1440x900-r2.png",
+        "bytes": 23891,
+        "sha256": "F35DFE717F1307B798A3E4AF31308E7C37FCFD354A8CE9C47DE4550CC077B4B9",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      },
+      "passed": false
+    },
+    {
+      "requested": {
+        "width": 1366,
+        "height": 768
+      },
+      "actual": {
+        "width": 1366,
+        "height": 768
+      },
+      "canvases": [
+        {
+          "index": 0,
+          "width": 395,
+          "height": 360,
+          "clientWidth": 395,
+          "clientHeight": 360,
+          "rect": {
+            "x": 349,
+            "y": 227,
+            "width": 395.21875,
+            "height": 360
+          },
+          "visible": true
+        }
+      ],
+      "fallbackActive": true,
+      "diagnostics": {
+        "requestedState": "neutral",
+        "effectiveState": "neutral",
+        "activeClip": "R2_NEUTRAL",
+        "elapsedInStateMs": 333,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 4,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 4,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      },
+      "fullScreenshot": {
+        "path": "evidence/viewport-1366x768.png",
+        "bytes": 167390,
+        "sha256": "9DF22FFF5B38DCF43D57C040C2BC388EDF45059838FEA08857ADCFFF28D9E14F"
+      },
+      "canvasScreenshot": {
+        "path": "evidence/viewport-1366x768-r2.png",
+        "bytes": 28318,
+        "sha256": "1C2D5A6F22A3B7813BA8BC904306344267950E4527FECC690989F7F5AB00AEE3",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 395.21875,
+          "height": 360
+        }
+      },
+      "passed": false
+    },
+    {
+      "requested": {
+        "width": 1024,
+        "height": 768
+      },
+      "actual": {
+        "width": 1024,
+        "height": 768
+      },
+      "canvases": [
+        {
+          "index": 0,
+          "width": 599,
+          "height": 320,
+          "clientWidth": 599,
+          "clientHeight": 320,
+          "rect": {
+            "x": 349,
+            "y": 217,
+            "width": 599,
+            "height": 320
+          },
+          "visible": true
+        }
+      ],
+      "fallbackActive": true,
+      "diagnostics": {
+        "requestedState": "neutral",
+        "effectiveState": "neutral",
+        "activeClip": "R2_NEUTRAL",
+        "elapsedInStateMs": 333,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 5,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 5,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      },
+      "fullScreenshot": {
+        "path": "evidence/viewport-1024x768.png",
+        "bytes": 151980,
+        "sha256": "E80F24FB0152D66372D902C1FB5D3974995380C7D8A866809F597E1484FC165F"
+      },
+      "canvasScreenshot": {
+        "path": "evidence/viewport-1024x768-r2.png",
+        "bytes": 27566,
+        "sha256": "18ED165E8D4AC9A3C3AEE33DCE466FCDE91C9C1209AC59F19636BF9B8F016EDD",
+        "rect": {
+          "x": 349,
+          "y": 217,
+          "width": 599,
+          "height": 320
+        }
+      },
+      "passed": false
+    },
+    {
+      "requested": {
+        "width": 768,
+        "height": 1024
+      },
+      "actual": {
+        "width": 768,
+        "height": 1024
+      },
+      "canvases": [
+        {
+          "index": 0,
+          "width": 655,
+          "height": 320,
+          "clientWidth": 655,
+          "clientHeight": 320,
+          "rect": {
+            "x": 49,
+            "y": 318,
+            "width": 655,
+            "height": 320
+          },
+          "visible": true
+        }
+      ],
+      "fallbackActive": true,
+      "diagnostics": {
+        "requestedState": "neutral",
+        "effectiveState": "neutral",
+        "activeClip": "R2_NEUTRAL",
+        "elapsedInStateMs": 318,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 6,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 6,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      },
+      "fullScreenshot": {
+        "path": "evidence/viewport-768x1024.png",
+        "bytes": 133642,
+        "sha256": "17780A7205A755A6D6D71892F734D17F76FA7522BD95AD4D8CE70D79A983DA2F"
+      },
+      "canvasScreenshot": {
+        "path": "evidence/viewport-768x1024-r2.png",
+        "bytes": 26455,
+        "sha256": "A8D02CD798DC92D659944753974C420A31F2695217990DE94A999C386C857437",
+        "rect": {
+          "x": 49,
+          "y": 318,
+          "width": 655,
+          "height": 320
+        }
+      },
+      "passed": false
+    },
+    {
+      "requested": {
+        "width": 390,
+        "height": 844
+      },
+      "actual": {
+        "width": 390,
+        "height": 844
+      },
+      "canvases": [
+        {
+          "index": 0,
+          "width": 301,
+          "height": 288,
+          "clientWidth": 301,
+          "clientHeight": 288,
+          "rect": {
+            "x": 37,
+            "y": 350,
+            "width": 301,
+            "height": 288
+          },
+          "visible": true
+        }
+      ],
+      "fallbackActive": true,
+      "diagnostics": {
+        "requestedState": "neutral",
+        "effectiveState": "neutral",
+        "activeClip": "R2_NEUTRAL",
+        "elapsedInStateMs": 318,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 7,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 7,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      },
+      "fullScreenshot": {
+        "path": "evidence/viewport-390x844.png",
+        "bytes": 87967,
+        "sha256": "53A1697065C73F3BEF083AD9920008CBB35232841DA8F81B8252CBCD6C7DD263"
+      },
+      "canvasScreenshot": {
+        "path": "evidence/viewport-390x844-r2.png",
+        "bytes": 19916,
+        "sha256": "F452BC0E0DE5D009B2ED74A4E6003FE543404A5AF9CBDC5C3B6AF560DBDFDF6C",
+        "rect": {
+          "x": 37,
+          "y": 350,
+          "width": 301,
+          "height": 288
+        }
+      },
+      "passed": false
+    }
+  ],
+  "downsize": {
+    "width": 390,
+    "height": 844,
+    "canvas": [
+      {
+        "width": 301,
+        "height": 288
+      }
+    ]
+  },
+  "upsize": {
+    "width": 1440,
+    "height": 900,
+    "canvas": [
+      {
+        "width": 426,
+        "height": 360
+      }
+    ]
+  },
+  "rapidResizeIterations": 12,
+  "afterRapidResize": {
+    "requestedState": "neutral",
+    "effectiveState": "neutral",
+    "activeClip": "R2_NEUTRAL",
+    "elapsedInStateMs": 5367,
+    "reducedMotion": false,
+    "actionsCreated": 9,
+    "actionsReused": 7,
+    "maximumSimultaneousActions": 2,
+    "activeActions": 1,
+    "transitionsApplied": 7,
+    "transitionsIgnored": 0,
+    "fallbacks": 0,
+    "mixerListeners": 1,
+    "pendingState": null
+  },
+  "passed": false
+}

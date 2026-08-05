@@ -1,0 +1,853 @@
+{
+  "candidate_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_material_branding_20260802_000707\\r2-full-character-material-branded-ready-v1.candidate.blend",
+  "candidate_blend_sha256": "AD7501A2828DAA76749C6ABE367597F1645BB79C1A205E83BED265B556F52E57",
+  "created_images": 0,
+  "execution_status": "COMPLETED",
+  "failed_gates": [],
+  "initial_materialless_count": 14,
+  "initial_materialless_renderable_meshes": [
+    "R2_Arm_Fur_R",
+    "R2_Hand_L",
+    "R2_Hand_R",
+    "R2_Head_Face_Foundation",
+    "R2_Head_Fur",
+    "R2_Hood",
+    "R2_Hood_Cord_L",
+    "R2_Hood_Cord_R",
+    "R2_Hoodie_Sleeve_L",
+    "R2_Hoodie_Sleeve_R",
+    "R2_Hoodie_Torso",
+    "R2_Pants",
+    "R2_Shoe_L",
+    "R2_Shoe_R"
+  ],
+  "materials": [
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+        "R2_Brand_RightChest_GorillaMark",
+        "R2_Brand_UpperBack_GorillaMark"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+          "slot": 0
+        },
+        {
+          "object": "R2_Brand_RightChest_GorillaMark",
+          "slot": 0
+        },
+        {
+          "object": "R2_Brand_UpperBack_GorillaMark",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.219526201,
+        0.230740055,
+        0.242281124,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Embroidery_Gray",
+      "material_sha256": "BCCFF80D9EB4754DDB3AC95C8F3CECF3EB795451E3A6168A4E5E689CDAAEE600",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.730000019,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": "#818487",
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+        "R2_Brand_RightChest_GorillaMark",
+        "R2_Brand_UpperBack_GorillaMark"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+          "slot": 1
+        },
+        {
+          "object": "R2_Brand_RightChest_GorillaMark",
+          "slot": 1
+        },
+        {
+          "object": "R2_Brand_UpperBack_GorillaMark",
+          "slot": 1
+        }
+      ],
+      "base_color_linear_rgba": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Embroidery_White",
+      "material_sha256": "283262716D1F6CB4008B6D7328AF453EBF5AAE238BBA0073E7CFBA2B49BCF511",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.699999988,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": "#FFFFFF",
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Eye.L",
+        "R2_Eye.R"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Eye.L",
+          "slot": 0
+        },
+        {
+          "object": "R2_Eye.R",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.720000029,
+        0.74000001,
+        0.689999998,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_EyeSclera",
+      "material_sha256": "9F840180BAF2366C0B985DF5D1EBF8496AB6866CDE8A1166C13C575A26651358",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.340000004,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": null,
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_LowerEyelid.L",
+        "R2_LowerEyelid.R",
+        "R2_UpperEyelid.L",
+        "R2_UpperEyelid.R"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_LowerEyelid.L",
+          "slot": 0
+        },
+        {
+          "object": "R2_LowerEyelid.R",
+          "slot": 0
+        },
+        {
+          "object": "R2_UpperEyelid.L",
+          "slot": 0
+        },
+        {
+          "object": "R2_UpperEyelid.R",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.129999995,
+        0.075000003,
+        0.052000001,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Eyelid",
+      "material_sha256": "18132CADDB82B29DCD43BEC3A454DB3EEFFD053CA2550D410CCB9D238C96F80E",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.579999983,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": null,
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Head_Fur"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Head_Fur",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.008568126,
+        0.010960094,
+        0.012286488,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Fur_DarkGraphite",
+      "material_sha256": "2D21E9368DE16A5AB2F38EAC473FF5CD55B57841E7B5BB36C5420483CC96F576",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.800000012,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": "#171B1D",
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Arm_Fur_R"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Arm_Fur_R",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.017641954,
+        0.023153367,
+        0.026241222,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Fur_MidGraphite",
+      "material_sha256": "F3F2609BBE80F72DFA37E55B922E03A6BA8E1EC0CACBAFBFA051D9AE51C1E0C5",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.75999999,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": "#242A2D",
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+        "R2_Hood_Cord_L",
+        "R2_Hood_Cord_R"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+          "slot": 2
+        },
+        {
+          "object": "R2_Hood_Cord_L",
+          "slot": 0
+        },
+        {
+          "object": "R2_Hood_Cord_R",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.008023193,
+        0.049706567,
+        0.035601314,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_GorillaOS_Green",
+      "material_sha256": "D5921631C640406ED75C79140C6588AC0BEDEAD2F40B85E6D33CFDB41C18A854",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.720000029,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": "#163F35",
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Hood",
+        "R2_Hoodie_Sleeve_L",
+        "R2_Hoodie_Sleeve_R",
+        "R2_Hoodie_Torso"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Hood",
+          "slot": 0
+        },
+        {
+          "object": "R2_Hoodie_Sleeve_L",
+          "slot": 0
+        },
+        {
+          "object": "R2_Hoodie_Sleeve_R",
+          "slot": 0
+        },
+        {
+          "object": "R2_Hoodie_Torso",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.005605392,
+        0.00699541,
+        0.008023193,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Hoodie_Black",
+      "material_sha256": "414E22FFD2050009A03C8DF1CAF63401D8C2FE86BD0841351A04621F46CFE4FD",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.839999974,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": "#111416",
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Eye.L",
+        "R2_Eye.R"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Eye.L",
+          "slot": 1
+        },
+        {
+          "object": "R2_Eye.R",
+          "slot": 1
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.045000002,
+        0.340000004,
+        0.159999996,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_IrisTechGreen",
+      "material_sha256": "C55F8F767256FB930B13A2E3C4443328E94351679215A24F217954D84DA3D6AD",
+      "metallic": 0.180000007,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.270000011,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": null,
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_LipLower",
+        "R2_LipUpper"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_LipLower",
+          "slot": 0
+        },
+        {
+          "object": "R2_LipUpper",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.159999996,
+        0.055,
+        0.045000002,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Lip",
+      "material_sha256": "63D57BCCEBE6CA529CF26B0BF14E8E6AFA2047AE55E667B9D92E35CB6958E8AC",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.620000005,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": null,
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_MouthInterior"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_MouthInterior",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.045000002,
+        0.008,
+        0.012,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_MouthInterior",
+      "material_sha256": "9D99ADCB59DE16167F51297D97C0548B5DD85A6A63429E7CC41F068FF1EF06EF",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.720000029,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": null,
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Pants"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Pants",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.020288562,
+        0.025186859,
+        0.02842604,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Pants_Charcoal",
+      "material_sha256": "69F0EB1F74A4DD925EE1EB68E1D2103CE97C911E5E188950D45B4F89F7550BE8",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.790000021,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": "#272C2F",
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Eye.L",
+        "R2_Eye.R"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Eye.L",
+          "slot": 2
+        },
+        {
+          "object": "R2_Eye.R",
+          "slot": 2
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.004,
+        0.006,
+        0.005,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Pupil",
+      "material_sha256": "65C09454600A0A6C55559B145567A09980E57E30862BF3A45F182E09A740C21F",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.219999999,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": null,
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Shoe_L",
+        "R2_Shoe_R"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Shoe_L",
+          "slot": 0
+        },
+        {
+          "object": "R2_Shoe_R",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.005181517,
+        0.006512091,
+        0.007499032,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Shoes_Black",
+      "material_sha256": "CC220746954948FA84097C041D3E11BE20E112CFFB59A4FF6AE3E9819AC6A784",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.610000014,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": "#101315",
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Hand_L",
+        "R2_Hand_R",
+        "R2_Head_Face",
+        "R2_Head_Face_Foundation"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Hand_L",
+          "slot": 0
+        },
+        {
+          "object": "R2_Hand_R",
+          "slot": 0
+        },
+        {
+          "object": "R2_Head_Face",
+          "slot": 0
+        },
+        {
+          "object": "R2_Head_Face_Foundation",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.039546236,
+        0.046665087,
+        0.048171826,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Skin_Anthracite",
+      "material_sha256": "56F47D0E5D107839DD7B7ECE1AF29A71C124CEE773BA4DAC0747C6231A2DB959",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.639999986,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": "#383D3E",
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_TeethLower",
+        "R2_TeethUpper"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_TeethLower",
+          "slot": 0
+        },
+        {
+          "object": "R2_TeethUpper",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.689999998,
+        0.649999976,
+        0.5,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Teeth",
+      "material_sha256": "D0E1A3B62C18CB4ED1F285302901AA114D62E7877F9FA50BB662942B9E1E4F7E",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.460000008,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": null,
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [
+        "R2_Tongue"
+      ],
+      "assigned_slots": [
+        {
+          "object": "R2_Tongue",
+          "slot": 0
+        }
+      ],
+      "base_color_linear_rgba": [
+        0.280000001,
+        0.055,
+        0.064999998,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "R2_Mat_Tongue",
+      "material_sha256": "553842D9523DDA957ABB37F1FC482E1F5433375FCF45008B23FDA2F1E90FBDB0",
+      "metallic": 0.0,
+      "node_graph_summary": "Principled BSDF -> Material Output",
+      "roughness": 0.660000026,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": null,
+      "texture_usage": "NONE"
+    },
+    {
+      "alpha_mode": "OPAQUE",
+      "assigned_objects": [],
+      "assigned_slots": [],
+      "base_color_linear_rgba": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "double_sided": true,
+      "emissive": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "gltf_export_compatibility": true,
+      "material_name": "SVGMat",
+      "material_sha256": "7B53A8FD67D591CBCB34454D0EB345C1283E605E5F19A4D77A09A61DAAD104F4",
+      "metallic": null,
+      "node_graph_summary": "legacy material",
+      "roughness": null,
+      "runtime_result": "pending controlled GLB export",
+      "srgb_hex": null,
+      "texture_usage": "NONE"
+    }
+  ],
+  "new_materials": [
+    "R2_Mat_Embroidery_Gray",
+    "R2_Mat_Embroidery_White",
+    "R2_Mat_Fur_DarkGraphite",
+    "R2_Mat_Fur_MidGraphite",
+    "R2_Mat_GorillaOS_Green",
+    "R2_Mat_Hoodie_Black",
+    "R2_Mat_Pants_Charcoal",
+    "R2_Mat_Shoes_Black",
+    "R2_Mat_Skin_Anthracite"
+  ],
+  "node_graph_policy": "One glTF-compatible Principled BSDF connected directly to Material Output; no images and no procedural nodes.",
+  "object_to_material": {
+    "R2_Arm_Fur_R": [
+      "R2_Mat_Fur_MidGraphite"
+    ],
+    "R2_Brand_LeftArm_GorillaMark_R2_Patch": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White",
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "R2_Brand_RightChest_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Brand_UpperBack_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Eye.L": [
+      "R2_Mat_EyeSclera",
+      "R2_Mat_IrisTechGreen",
+      "R2_Mat_Pupil"
+    ],
+    "R2_Eye.R": [
+      "R2_Mat_EyeSclera",
+      "R2_Mat_IrisTechGreen",
+      "R2_Mat_Pupil"
+    ],
+    "R2_Hand_L": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Hand_R": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Head_Face": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Head_Face_Foundation": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Head_Fur": [
+      "R2_Mat_Fur_DarkGraphite"
+    ],
+    "R2_Hood": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_Hood_Cord_L": [
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "R2_Hood_Cord_R": [
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "R2_Hoodie_Sleeve_L": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_Hoodie_Sleeve_R": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_Hoodie_Torso": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_LipLower": [
+      "R2_Mat_Lip"
+    ],
+    "R2_LipUpper": [
+      "R2_Mat_Lip"
+    ],
+    "R2_LowerEyelid.L": [
+      "R2_Mat_Eyelid"
+    ],
+    "R2_LowerEyelid.R": [
+      "R2_Mat_Eyelid"
+    ],
+    "R2_MouthInterior": [
+      "R2_Mat_MouthInterior"
+    ],
+    "R2_Pants": [
+      "R2_Mat_Pants_Charcoal"
+    ],
+    "R2_Shoe_L": [
+      "R2_Mat_Shoes_Black"
+    ],
+    "R2_Shoe_R": [
+      "R2_Mat_Shoes_Black"
+    ],
+    "R2_TeethLower": [
+      "R2_Mat_Teeth"
+    ],
+    "R2_TeethUpper": [
+      "R2_Mat_Teeth"
+    ],
+    "R2_Tongue": [
+      "R2_Mat_Tongue"
+    ],
+    "R2_UpperEyelid.L": [
+      "R2_Mat_Eyelid"
+    ],
+    "R2_UpperEyelid.R": [
+      "R2_Mat_Eyelid"
+    ]
+  },
+  "official_green": {
+    "hex": "#163F35",
+    "manifest": "C:\\Projetos\\consorcio-os\\brand\\assets\\manifest.json",
+    "master_sha256": "6572940BA485E3E9D993754B8D422CEFB26DE5B194ED5AD8219771224BB29B70",
+    "source": "C:\\Projetos\\consorcio-os\\brand\\assets\\source\\GorillaMark_Master.svg"
+  },
+  "preserved_materials": [
+    "R2_Mat_EyeSclera",
+    "R2_Mat_IrisTechGreen",
+    "R2_Mat_Pupil",
+    "R2_Mat_Lip",
+    "R2_Mat_Teeth",
+    "R2_Mat_Tongue",
+    "R2_Mat_Eyelid",
+    "R2_Mat_MouthInterior"
+  ],
+  "renderable_meshes_without_material": 0,
+  "schema_version": 1,
+  "source_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-runtime-ready-v1\\r2-full-character-runtime-ready-v1.blend",
+  "source_blend_sha256": "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269",
+  "source_glb": "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-runtime-ready-v1.glb",
+  "source_glb_sha256": "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+  "technical_verdict": "APROVADO"
+}

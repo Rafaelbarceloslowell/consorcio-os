@@ -1,4 +1,4 @@
-﻿import type {
+import type {
   AsyncCommercialRepositories,
 } from "@/repositories/commercial/async-commercial-repositories"
 
@@ -15,6 +15,10 @@ import type {
 } from "@/types/dashboard"
 
 import {
+  ListOpportunitiesAsync,
+} from "@/application/opportunity/list-opportunities-async"
+
+import {
   getNextBestActions,
 } from "../decision/get-next-best-actions"
 
@@ -22,7 +26,16 @@ import {
   mapOperationalDashboardData,
 } from "./mapper"
 
+import {
+  buildGorilaR2Briefing,
+} from "./build-gorilar2-briefing"
+
+import {
+  enrichGorilaR2PilotBriefing,
+} from "./enrich-gorilar2-pilot-briefing"
+
 export type GetAsyncDashboardDataInput = {
+  workspaceId: string
   consultantId?: string
   now?: Date
 }
@@ -150,6 +163,59 @@ function formatTime(
   )
 }
 
+
+function getDateKey(
+  value: string | Date,
+): number {
+  const parts =
+    getDateParts(value)
+
+  return Date.UTC(
+    Number(parts.year),
+    Number(parts.month) - 1,
+    Number(parts.day),
+  )
+}
+
+function formatScheduledDateLabel(
+  value: string,
+  now: Date,
+): string {
+  const dayDifference =
+    Math.round(
+      (
+        getDateKey(value) -
+        getDateKey(now)
+      ) /
+      (
+        24 *
+        60 *
+        60 *
+        1000
+      ),
+    )
+
+  if (dayDifference === 0) {
+    return "hoje"
+  }
+
+  if (dayDifference === 1) {
+    return "amanhã"
+  }
+
+  return new Intl.DateTimeFormat(
+    "pt-BR",
+    {
+      timeZone:
+        DASHBOARD_TIME_ZONE,
+      day: "2-digit",
+      month: "2-digit",
+    },
+  ).format(
+    new Date(value),
+  )
+}
+
 function hoursSince(
   value: string,
   now: Date,
@@ -161,14 +227,49 @@ function hoursSince(
   )
 }
 
+function consultantPositionTitle(
+  role: "consultant" | "manager" | "admin",
+): string {
+  if (role === "manager") {
+    return "Gestor"
+  }
+
+  if (role === "admin") {
+    return "Administrador"
+  }
+
+  return "Consultor Sênior"
+}
+
+function isDataCrazyReactivationStage(
+  stageName: string,
+): boolean {
+  return (
+    stageName
+      .trim()
+      .toLocaleLowerCase("pt-BR") ===
+    "reativação data crazy"
+  )
+}
+
 export async function getAsyncDashboardData(
   {
+    workspaceId,
     consultantId,
     now = new Date(),
   }: GetAsyncDashboardDataInput,
   dependencies:
     GetAsyncDashboardDataDependencies,
 ): Promise<DashboardData> {
+  const normalizedWorkspaceId =
+    workspaceId.trim()
+
+  if (!normalizedWorkspaceId) {
+    throw new Error(
+      "O workspace é obrigatório para carregar o Mission Control.",
+    )
+  }
+
   const consultants =
     await dependencies
       .crmRepository
@@ -196,14 +297,30 @@ export async function getAsyncDashboardData(
     selectedConsultant?.id
 
   const [
+    listedOpportunities,
     operationalActions,
+    openCommercialActions,
     leads,
     clients,
     meetings,
     sales,
     pipelineStages,
     tasks,
+    phases,
+    states,
   ] = await Promise.all([
+    new ListOpportunitiesAsync({
+      journeys:
+        dependencies
+          .commercialRepository
+          .journeys,
+    }).execute({
+      workspaceId:
+        normalizedWorkspaceId,
+      consultantId:
+        resolvedConsultantId,
+    }),
+
     getNextBestActions({
       commercialRepository:
         dependencies
@@ -213,7 +330,13 @@ export async function getAsyncDashboardData(
         resolvedConsultantId,
 
       now,
+      limit: 1,
     }),
+
+    dependencies
+      .commercialRepository
+      .actions
+      .findOpen(),
 
     dependencies
       .crmRepository
@@ -244,6 +367,16 @@ export async function getAsyncDashboardData(
       .crmRepository
       .tasks
       .findAll(),
+
+    dependencies
+      .commercialRepository
+      .phases
+      .findAll(),
+
+    dependencies
+      .commercialRepository
+      .states
+      .findAll(),
   ])
 
   const baseDashboardData: DashboardData = {
@@ -253,10 +386,16 @@ export async function getAsyncDashboardData(
             selectedConsultant.id,
           name:
             selectedConsultant.name,
+          positionTitle:
+            consultantPositionTitle(
+              selectedConsultant.role,
+            ),
         }
       : {
           id: "commercial-team",
           name: "Equipe Comercial",
+          positionTitle:
+            "Operação comercial",
         },
 
     summary: "",
@@ -271,6 +410,7 @@ export async function getAsyncDashboardData(
     meetings: [],
     tasks: [],
     pipeline: [],
+    opportunities: [],
   }
 
   const dashboardData =
@@ -306,9 +446,34 @@ export async function getAsyncDashboardData(
         )
       : sales
 
+  const dataCrazyReactivationStageIds =
+    new Set(
+      pipelineStages
+        .filter(
+          (stage) =>
+            isDataCrazyReactivationStage(
+              stage.name,
+            ),
+        )
+        .map(
+          (stage) => stage.id,
+        ),
+    )
+
+  const reactivatedLeads =
+    consultantLeads.filter(
+      (lead) =>
+        dataCrazyReactivationStageIds.has(
+          lead.pipelineStageId,
+        ),
+    )
+
   const newLeads =
     consultantLeads.filter(
       (lead) =>
+        !dataCrazyReactivationStageIds.has(
+          lead.pipelineStageId,
+        ) &&
         isSameDay(
           lead.createdAt,
           now,
@@ -404,6 +569,113 @@ export async function getAsyncDashboardData(
       ]),
     )
 
+  const consultantsById =
+    new Map(
+      consultants.map(
+        (consultant) => [
+          consultant.id,
+          consultant,
+        ],
+      ),
+    )
+
+  const phasesById =
+    new Map(
+      phases.map((phase) => [
+        phase.id,
+        phase,
+      ]),
+    )
+
+  const statesById =
+    new Map(
+      states.map((state) => [
+        state.id,
+        state,
+      ]),
+    )
+
+  const opportunities =
+    listedOpportunities
+      .opportunities
+      .map((opportunity) => {
+        const lead =
+          opportunity.leadId
+            ? leadsById.get(
+                opportunity.leadId,
+              )
+            : undefined
+        const client =
+          opportunity.clientId
+            ? clientsById.get(
+                opportunity.clientId,
+              )
+            : undefined
+        const consultant =
+          consultantsById.get(
+            opportunity.consultantId,
+          )
+        const phase =
+          phasesById.get(
+            opportunity
+              .currentPhaseId,
+          )
+        const state =
+          statesById.get(
+            opportunity
+              .currentStateId,
+          )
+
+        return {
+          id: opportunity.id,
+          title: opportunity.title,
+          origin:
+            opportunity.leadId
+              ? "lead" as const
+              : "client" as const,
+          originName:
+            opportunity.leadId
+              ? (
+                  lead?.name ??
+                  "Lead não identificado"
+                )
+              : (
+                  client?.name ??
+                  "Cliente não identificado"
+                ),
+          consultantName:
+            consultant?.name ??
+            "Consultor não identificado",
+          priority:
+            opportunity.priority,
+          score:
+            opportunity.score,
+          phaseName:
+            phase?.name ??
+            "Fase indisponível",
+          stateName:
+            state?.name ??
+            "Estado indisponível",
+          consortiumType:
+            opportunity
+              .consortiumType,
+          lastInteractionAt:
+            opportunity
+              .lastInteractionAt,
+          updatedAt:
+            opportunity.updatedAt,
+          status:
+            opportunity.closedAt !==
+              null ||
+            opportunity.outcome !==
+              null
+              ? "closed" as const
+              : "open" as const,
+          outcome:
+            opportunity.outcome,
+        }
+      })
+
   const dashboardMeetings =
     consultantMeetings
       .filter(
@@ -460,22 +732,85 @@ export async function getAsyncDashboardData(
         },
       )
 
-  const dashboardTasks =
-    tasks
+  const openConsultantTasks =
+    tasks.filter(
+      (task) =>
+        (
+          task.status ===
+            "pending" ||
+          task.status ===
+            "in_progress"
+        ) &&
+        (
+          !resolvedConsultantId ||
+          task.assignedToId ===
+            resolvedConsultantId
+        ),
+    )
+
+  const scheduledFollowUpTask =
+    openConsultantTasks
       .filter(
         (task) =>
-          (
-            task.status ===
-              "pending" ||
-            task.status ===
-              "in_progress"
-          ) &&
-          (
-            !resolvedConsultantId ||
-            task.assignedToId ===
-              resolvedConsultantId
-          ),
+          task.type ===
+            "follow_up" &&
+          new Date(
+            task.dueAt,
+          ).getTime() >
+            now.getTime(),
       )
+      .sort(
+        (
+          firstTask,
+          secondTask,
+        ) =>
+          new Date(
+            firstTask.dueAt,
+          ).getTime() -
+          new Date(
+            secondTask.dueAt,
+          ).getTime(),
+      )[0]
+
+  const scheduledFollowUp =
+    scheduledFollowUpTask
+      ? {
+          taskId:
+            scheduledFollowUpTask.id,
+          title:
+            scheduledFollowUpTask.title,
+          contactName:
+            (
+              scheduledFollowUpTask.leadId
+                ? leadsById.get(
+                    scheduledFollowUpTask.leadId,
+                  )?.name
+                : undefined
+            ) ??
+            (
+              scheduledFollowUpTask.clientId
+                ? clientsById.get(
+                    scheduledFollowUpTask.clientId,
+                  )?.name
+                : undefined
+            ) ??
+            "contato",
+          dueAt:
+            scheduledFollowUpTask.dueAt,
+          dateLabel:
+            formatScheduledDateLabel(
+              scheduledFollowUpTask.dueAt,
+              now,
+            ),
+          time:
+            formatTime(
+              scheduledFollowUpTask.dueAt,
+            ),
+        }
+      : undefined
+
+  const dashboardTasks =
+    openConsultantTasks
       .sort(
         (
           firstTask,
@@ -544,6 +879,9 @@ export async function getAsyncDashboardData(
   const staleOpportunities =
     activeLeads.filter(
       (lead) =>
+        !dataCrazyReactivationStageIds.has(
+          lead.pipelineStageId,
+        ) &&
         hoursSince(
           lead.lastContactAt ??
             lead.createdAt,
@@ -560,7 +898,15 @@ export async function getAsyncDashboardData(
         !meeting.description?.trim(),
     ).length
 
+  const recommendedLead =
+    operationalActions[0]?.leadId
+      ? leadsById.get(
+          operationalActions[0].leadId,
+        )
+      : undefined
+
   const topOpportunity =
+    recommendedLead ??
     [...activeLeads].sort(
       (firstLead, secondLead) =>
         secondLead.score -
@@ -584,8 +930,92 @@ export async function getAsyncDashboardData(
       (task) => task.priority === "low",
     ).length
 
+  const intelligence = {
+    criticalCount,
+    importantCount,
+    monitoringCount,
+    reactivatedLeads:
+      reactivatedLeads.length,
+    unpreparedMeetings,
+    staleOpportunities,
+    pipelineValue:
+      activeLeads.reduce(
+        (total, lead) =>
+          total +
+          lead.desiredCreditValue,
+        0,
+      ),
+    nextAction:
+      prioritizedTasks[0]?.title,
+    scheduledFollowUp,
+    topOpportunity:
+      topOpportunity
+        ? {
+            id: topOpportunity.id,
+            name: topOpportunity.name,
+            value:
+              topOpportunity
+                .desiredCreditValue,
+            score:
+              topOpportunity.score,
+          }
+        : undefined,
+  }
+
+  const pendingCommercialAction =
+    openCommercialActions.find(
+      (action) =>
+        action.origin ===
+          "NEXT_BEST_ACTION" &&
+        (
+          !resolvedConsultantId ||
+          action.actorId ===
+            resolvedConsultantId
+        ) &&
+        (
+          action.scheduledFor === null ||
+          new Date(
+            action.scheduledFor,
+          ).getTime() <= now.getTime()
+        ),
+    )
+
+  const pendingActionOpportunity =
+    pendingCommercialAction
+      ? listedOpportunities
+          .opportunities
+          .find(
+            (opportunity) =>
+              opportunity.id ===
+              pendingCommercialAction
+                .journeyId,
+          )
+      : undefined
+
+  const gorilaR2 =
+    enrichGorilaR2PilotBriefing(
+      buildGorilaR2Briefing({
+        intelligence,
+      }),
+      operationalActions,
+      pendingCommercialAction
+        ? {
+            action:
+              pendingCommercialAction,
+            journeyTitle:
+              pendingActionOpportunity
+                ?.title ??
+              pendingCommercialAction
+                .title,
+          }
+        : undefined,
+    )
+
   return {
     ...dashboardData,
+    workspaceId: normalizedWorkspaceId,
+
+    gorilaR2,
 
     metrics: {
       newLeads,
@@ -601,44 +1031,26 @@ export async function getAsyncDashboardData(
     tasks:
       prioritizedTasks,
 
+    opportunities,
+
     pipeline,
 
     summary:
-      criticalCount > 0
-        ? `Hoje existem ${criticalCount} oportunidades críticas. Resolver a primeira ação aumenta sua chance de avançar ainda hoje.`
+      operationalActions[0]?.recommendation.id
+        .startsWith(
+          "dc_reactivation_nba_",
+        )
+        ? `O R2 organizou ${reactivatedLeads.length} leads reativados e selecionou o próximo contato da fila.`
+        : criticalCount > 0
+          ? `Hoje existem ${criticalCount} oportunidades críticas. Resolver a primeira ação aumenta sua chance de avançar ainda hoje.`
         : unpreparedMeetings > 0
           ? `Você possui ${unpreparedMeetings} reuniões sem preparação. Organize o contexto antes do próximo compromisso.`
           : staleOpportunities > 0
             ? `${staleOpportunities} oportunidades aguardam retomada há mais de 48 horas.`
-            : "Sua operação está organizada. Comece pela próxima ação recomendada.",
+            : scheduledFollowUp
+              ? `Próximo retorno com ${scheduledFollowUp.contactName}: ${scheduledFollowUp.dateLabel} às ${scheduledFollowUp.time}.`
+              : "Sua operação está organizada. Comece pela próxima ação recomendada.",
 
-    intelligence: {
-      criticalCount,
-      importantCount,
-      monitoringCount,
-      unpreparedMeetings,
-      staleOpportunities,
-      pipelineValue:
-        activeLeads.reduce(
-          (total, lead) =>
-            total +
-            lead.desiredCreditValue,
-          0,
-        ),
-      nextAction:
-        prioritizedTasks[0]?.title,
-      topOpportunity:
-        topOpportunity
-          ? {
-              id: topOpportunity.id,
-              name: topOpportunity.name,
-              value:
-                topOpportunity
-                  .desiredCreditValue,
-              score:
-                topOpportunity.score,
-            }
-          : undefined,
-    },
+    intelligence,
   }
 }

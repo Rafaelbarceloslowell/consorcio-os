@@ -18,7 +18,11 @@ import type {
     PrismaCommercialEventRepository,
   } from "./commercial/prisma-commercial-event-repository"
   
+  
   import {
+    PrismaCommercialConversationMemoryRepository,
+  } from "./commercial/prisma-commercial-conversation-memory-repository"
+import {
     PrismaCommercialJourneyRepository,
   } from "./commercial/prisma-commercial-journey-repository"
   
@@ -58,6 +62,12 @@ import type {
     }
   
     return {
+      conversationMemories:
+        new PrismaCommercialConversationMemoryRepository(
+          workspaceId,
+          database,
+        ),
+
       journeys:
         new PrismaCommercialJourneyRepository(
           workspaceId,

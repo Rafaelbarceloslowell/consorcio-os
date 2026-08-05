@@ -1,0 +1,458 @@
+{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-08-02T13:57:20.7084676-03:00",
+    "phase":  "R2_RUNTIME_INTELLIGENCE_INTEGRATION_V1",
+    "mode":  "READ_ONLY_GAP_AUDIT",
+    "git":  {
+                "head":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "stagedFileCount":  0,
+                "stagedFiles":  [
+
+                                ]
+            },
+    "files":  {
+                  "types":  {
+                                "path":  "C:\\Projetos\\consorcio-os\\web\\types\\r2-intelligence-orchestration.ts",
+                                "sha256":  "82E51D5280735096B35BEBD37AB0954CA5ED97FD82F8D216B19B8FC4946D3D69"
+                            },
+                  "intelligence":  {
+                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-deterministic-intelligence.ts",
+                                       "sha256":  "734982A6475EF46A5FDAAACDA92559441C8A76496305950D78443C15AD4CA447"
+                                   },
+                  "normalizer":  {
+                                     "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\normalize-r2-event.ts",
+                                     "sha256":  "B6EBC6F331133E7E18D5BD448F256CF6C784EF023D745E085F655E9A69EC31ED"
+                                 },
+                  "tests":  {
+                                "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-intelligence-orchestration.test.ts",
+                                "sha256":  "EA297EBCD7CE8A283AA8C3F932948069739A9201395E3EE3D4A14E57E8FC0D5D"
+                            }
+              },
+    "metrics":  {
+                    "canonicalEventCount":  61,
+                    "reactionEventCount":  32,
+                    "mappedCanonicalEventCount":  32,
+                    "missingReactionEventCount":  29,
+                    "extraReactionEventCount":  0,
+                    "normalizerEventCount":  15,
+                    "normalizedWithoutReactionCount":  4,
+                    "reactionWithoutNormalizerCount":  21,
+                    "testedEventCount":  19,
+                    "mappedWithoutDirectTestReferenceCount":  17,
+                    "canonicalReactionCoveragePercent":  52.46
+                },
+    "canonicalEvents":  [
+                            "automation.completed",
+                            "automation.failed",
+                            "automation.started",
+                            "integration.unavailable",
+                            "intelligence.analysis_completed",
+                            "intelligence.analysis_started",
+                            "intelligence.confirmation_required",
+                            "intelligence.insufficient_context",
+                            "intelligence.next_best_action_ready",
+                            "intelligence.provider_error",
+                            "intelligence.recommendation_accepted",
+                            "intelligence.recommendation_ready",
+                            "intelligence.recommendation_rejected",
+                            "lead.action_required",
+                            "lead.at_risk",
+                            "lead.converted",
+                            "lead.created",
+                            "lead.disqualified",
+                            "lead.no_response",
+                            "lead.qualified",
+                            "lead.received",
+                            "lead.replied",
+                            "meeting.cancelled",
+                            "meeting.completed",
+                            "meeting.follow_up_pending",
+                            "meeting.scheduled",
+                            "meeting.started",
+                            "meeting.summary_missing",
+                            "meeting.upcoming",
+                            "opportunity.at_risk",
+                            "opportunity.created",
+                            "opportunity.lost",
+                            "opportunity.note_added",
+                            "opportunity.stage_changed",
+                            "opportunity.stagnant",
+                            "opportunity.updated",
+                            "opportunity.won",
+                            "proposal.accepted",
+                            "proposal.expired",
+                            "proposal.prepared",
+                            "proposal.rejected",
+                            "proposal.review_ready",
+                            "proposal.sent",
+                            "proposal.viewed",
+                            "queue.failed",
+                            "runtime.neutral_requested",
+                            "runtime.speaking_requested",
+                            "sale.awaiting_documentation",
+                            "sale.cancelled",
+                            "sale.celebration_ready",
+                            "sale.completed",
+                            "sale.documentation_received",
+                            "sale.documentation_requested",
+                            "sale.payment_confirmed",
+                            "sale.pending",
+                            "sale.started",
+                            "task.completed",
+                            "task.created",
+                            "task.due_soon",
+                            "task.overdue",
+                            "workflow.blocked"
+                        ],
+    "reactionEvents":  [
+                           "automation.failed",
+                           "automation.started",
+                           "integration.unavailable",
+                           "intelligence.analysis_started",
+                           "intelligence.confirmation_required",
+                           "intelligence.next_best_action_ready",
+                           "intelligence.provider_error",
+                           "intelligence.recommendation_ready",
+                           "lead.action_required",
+                           "lead.at_risk",
+                           "lead.created",
+                           "lead.received",
+                           "lead.replied",
+                           "meeting.completed",
+                           "meeting.scheduled",
+                           "meeting.summary_missing",
+                           "meeting.upcoming",
+                           "opportunity.at_risk",
+                           "opportunity.stage_changed",
+                           "opportunity.stagnant",
+                           "proposal.accepted",
+                           "proposal.sent",
+                           "queue.failed",
+                           "runtime.neutral_requested",
+                           "runtime.speaking_requested",
+                           "sale.celebration_ready",
+                           "sale.completed",
+                           "sale.documentation_requested",
+                           "task.created",
+                           "task.due_soon",
+                           "task.overdue",
+                           "workflow.blocked"
+                       ],
+    "normalizerEvents":  [
+                             "intelligence.recommendation_ready",
+                             "lead.created",
+                             "lead.replied",
+                             "meeting.completed",
+                             "meeting.scheduled",
+                             "opportunity.note_added",
+                             "opportunity.stage_changed",
+                             "proposal.accepted",
+                             "proposal.sent",
+                             "sale.completed",
+                             "sale.documentation_received",
+                             "sale.documentation_requested",
+                             "sale.payment_confirmed",
+                             "task.completed",
+                             "task.created"
+                         ],
+    "testedEvents":  [
+                         "automation.failed",
+                         "intelligence.recommendation_ready",
+                         "lead.created",
+                         "lead.replied",
+                         "meeting.completed",
+                         "meeting.scheduled",
+                         "meeting.upcoming",
+                         "opportunity.note_added",
+                         "opportunity.stage_changed",
+                         "proposal.accepted",
+                         "proposal.sent",
+                         "runtime.neutral_requested",
+                         "runtime.speaking_requested",
+                         "sale.completed",
+                         "sale.documentation_received",
+                         "sale.documentation_requested",
+                         "sale.payment_confirmed",
+                         "task.completed",
+                         "task.created"
+                     ],
+    "gaps":  {
+                 "missingReactionEvents":  [
+                                               "automation.completed",
+                                               "intelligence.analysis_completed",
+                                               "intelligence.insufficient_context",
+                                               "intelligence.recommendation_accepted",
+                                               "intelligence.recommendation_rejected",
+                                               "lead.converted",
+                                               "lead.disqualified",
+                                               "lead.no_response",
+                                               "lead.qualified",
+                                               "meeting.cancelled",
+                                               "meeting.follow_up_pending",
+                                               "meeting.started",
+                                               "opportunity.created",
+                                               "opportunity.lost",
+                                               "opportunity.note_added",
+                                               "opportunity.updated",
+                                               "opportunity.won",
+                                               "proposal.expired",
+                                               "proposal.prepared",
+                                               "proposal.rejected",
+                                               "proposal.review_ready",
+                                               "proposal.viewed",
+                                               "sale.awaiting_documentation",
+                                               "sale.cancelled",
+                                               "sale.documentation_received",
+                                               "sale.payment_confirmed",
+                                               "sale.pending",
+                                               "sale.started",
+                                               "task.completed"
+                                           ],
+                 "extraReactionEvents":  [
+
+                                         ],
+                 "normalizedWithoutReaction":  [
+                                                   "opportunity.note_added",
+                                                   "sale.documentation_received",
+                                                   "sale.payment_confirmed",
+                                                   "task.completed"
+                                               ],
+                 "reactionWithoutNormalizer":  [
+                                                   "automation.failed",
+                                                   "automation.started",
+                                                   "integration.unavailable",
+                                                   "intelligence.analysis_started",
+                                                   "intelligence.confirmation_required",
+                                                   "intelligence.next_best_action_ready",
+                                                   "intelligence.provider_error",
+                                                   "lead.action_required",
+                                                   "lead.at_risk",
+                                                   "lead.received",
+                                                   "meeting.summary_missing",
+                                                   "meeting.upcoming",
+                                                   "opportunity.at_risk",
+                                                   "opportunity.stagnant",
+                                                   "queue.failed",
+                                                   "runtime.neutral_requested",
+                                                   "runtime.speaking_requested",
+                                                   "sale.celebration_ready",
+                                                   "task.due_soon",
+                                                   "task.overdue",
+                                                   "workflow.blocked"
+                                               ],
+                 "mappedWithoutDirectTestReference":  [
+                                                          "automation.started",
+                                                          "integration.unavailable",
+                                                          "intelligence.analysis_started",
+                                                          "intelligence.confirmation_required",
+                                                          "intelligence.next_best_action_ready",
+                                                          "intelligence.provider_error",
+                                                          "lead.action_required",
+                                                          "lead.at_risk",
+                                                          "lead.received",
+                                                          "meeting.summary_missing",
+                                                          "opportunity.at_risk",
+                                                          "opportunity.stagnant",
+                                                          "queue.failed",
+                                                          "sale.celebration_ready",
+                                                          "task.due_soon",
+                                                          "task.overdue",
+                                                          "workflow.blocked"
+                                                      ]
+             },
+    "grouped":  {
+                    "canonical":  {
+                                      "lead":  [
+                                                   "lead.action_required",
+                                                   "lead.at_risk",
+                                                   "lead.converted",
+                                                   "lead.created",
+                                                   "lead.disqualified",
+                                                   "lead.no_response",
+                                                   "lead.qualified",
+                                                   "lead.received",
+                                                   "lead.replied"
+                                               ],
+                                      "opportunity":  [
+                                                          "opportunity.at_risk",
+                                                          "opportunity.created",
+                                                          "opportunity.lost",
+                                                          "opportunity.note_added",
+                                                          "opportunity.stage_changed",
+                                                          "opportunity.stagnant",
+                                                          "opportunity.updated",
+                                                          "opportunity.won"
+                                                      ],
+                                      "meeting":  [
+                                                      "meeting.cancelled",
+                                                      "meeting.completed",
+                                                      "meeting.follow_up_pending",
+                                                      "meeting.scheduled",
+                                                      "meeting.started",
+                                                      "meeting.summary_missing",
+                                                      "meeting.upcoming"
+                                                  ],
+                                      "proposal":  [
+                                                       "proposal.accepted",
+                                                       "proposal.expired",
+                                                       "proposal.prepared",
+                                                       "proposal.rejected",
+                                                       "proposal.review_ready",
+                                                       "proposal.sent",
+                                                       "proposal.viewed"
+                                                   ],
+                                      "sale":  [
+                                                   "sale.awaiting_documentation",
+                                                   "sale.cancelled",
+                                                   "sale.celebration_ready",
+                                                   "sale.completed",
+                                                   "sale.documentation_received",
+                                                   "sale.documentation_requested",
+                                                   "sale.payment_confirmed",
+                                                   "sale.pending",
+                                                   "sale.started"
+                                               ],
+                                      "task":  [
+                                                   "task.completed",
+                                                   "task.created",
+                                                   "task.due_soon",
+                                                   "task.overdue"
+                                               ],
+                                      "automation":  [
+                                                         "automation.completed",
+                                                         "automation.failed",
+                                                         "automation.started"
+                                                     ],
+                                      "workflow":  [
+                                                       "workflow.blocked"
+                                                   ],
+                                      "queue":  [
+                                                    "queue.failed"
+                                                ],
+                                      "integration":  [
+                                                          "integration.unavailable"
+                                                      ],
+                                      "intelligence":  [
+                                                           "intelligence.analysis_completed",
+                                                           "intelligence.analysis_started",
+                                                           "intelligence.confirmation_required",
+                                                           "intelligence.insufficient_context",
+                                                           "intelligence.next_best_action_ready",
+                                                           "intelligence.provider_error",
+                                                           "intelligence.recommendation_accepted",
+                                                           "intelligence.recommendation_ready",
+                                                           "intelligence.recommendation_rejected"
+                                                       ],
+                                      "runtime":  [
+                                                      "runtime.neutral_requested",
+                                                      "runtime.speaking_requested"
+                                                  ]
+                                  },
+                    "reactions":  {
+                                      "lead":  [
+                                                   "lead.action_required",
+                                                   "lead.at_risk",
+                                                   "lead.created",
+                                                   "lead.received",
+                                                   "lead.replied"
+                                               ],
+                                      "opportunity":  [
+                                                          "opportunity.at_risk",
+                                                          "opportunity.stage_changed",
+                                                          "opportunity.stagnant"
+                                                      ],
+                                      "meeting":  [
+                                                      "meeting.completed",
+                                                      "meeting.scheduled",
+                                                      "meeting.summary_missing",
+                                                      "meeting.upcoming"
+                                                  ],
+                                      "proposal":  [
+                                                       "proposal.accepted",
+                                                       "proposal.sent"
+                                                   ],
+                                      "sale":  [
+                                                   "sale.celebration_ready",
+                                                   "sale.completed",
+                                                   "sale.documentation_requested"
+                                               ],
+                                      "task":  [
+                                                   "task.created",
+                                                   "task.due_soon",
+                                                   "task.overdue"
+                                               ],
+                                      "automation":  [
+                                                         "automation.failed",
+                                                         "automation.started"
+                                                     ],
+                                      "workflow":  [
+                                                       "workflow.blocked"
+                                                   ],
+                                      "queue":  [
+                                                    "queue.failed"
+                                                ],
+                                      "integration":  [
+                                                          "integration.unavailable"
+                                                      ],
+                                      "intelligence":  [
+                                                           "intelligence.analysis_started",
+                                                           "intelligence.confirmation_required",
+                                                           "intelligence.next_best_action_ready",
+                                                           "intelligence.provider_error",
+                                                           "intelligence.recommendation_ready"
+                                                       ],
+                                      "runtime":  [
+                                                      "runtime.neutral_requested",
+                                                      "runtime.speaking_requested"
+                                                  ]
+                                  },
+                    "missingReactions":  {
+                                             "lead":  [
+                                                          "lead.converted",
+                                                          "lead.disqualified",
+                                                          "lead.no_response",
+                                                          "lead.qualified"
+                                                      ],
+                                             "opportunity":  [
+                                                                 "opportunity.created",
+                                                                 "opportunity.lost",
+                                                                 "opportunity.note_added",
+                                                                 "opportunity.updated",
+                                                                 "opportunity.won"
+                                                             ],
+                                             "meeting":  [
+                                                             "meeting.cancelled",
+                                                             "meeting.follow_up_pending",
+                                                             "meeting.started"
+                                                         ],
+                                             "proposal":  [
+                                                              "proposal.expired",
+                                                              "proposal.prepared",
+                                                              "proposal.rejected",
+                                                              "proposal.review_ready",
+                                                              "proposal.viewed"
+                                                          ],
+                                             "sale":  [
+                                                          "sale.awaiting_documentation",
+                                                          "sale.cancelled",
+                                                          "sale.documentation_received",
+                                                          "sale.payment_confirmed",
+                                                          "sale.pending",
+                                                          "sale.started"
+                                                      ],
+                                             "task":  [
+                                                          "task.completed"
+                                                      ],
+                                             "automation":  [
+                                                                "automation.completed"
+                                                            ],
+                                             "intelligence":  [
+                                                                  "intelligence.analysis_completed",
+                                                                  "intelligence.insufficient_context",
+                                                                  "intelligence.recommendation_accepted",
+                                                                  "intelligence.recommendation_rejected"
+                                                              ]
+                                         }
+                },
+    "verdict":  "APROVADO_PARA_IMPLEMENTACAO_DAS_LACUNAS"
+}

@@ -1,0 +1,10 @@
+R2_RIG_BASE_OK
+source=C:\Projetos\consorcio-os\web\public\models\r2\r2-gorilla-geometry-only.glb
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v1.blend
+objects=1
+meshes=1
+vertices=197505
+polygons=376007
+dimensions=1.066222,0.611580,2.000000
+bounds_min=-0.533111,-0.305790,-1.000000
+bounds_max=0.533111,0.305790,1.000000

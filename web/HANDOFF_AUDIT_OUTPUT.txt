@@ -1,0 +1,17 @@
+GORILLAOS_HANDOFF_AUDIT
+GENERATED_AT=2026-08-05T13:59:25.339Z
+REPO_ROOT=C:\Projetos\consorcio-os\web
+GIT_TOP=C:/Projetos/consorcio-os
+BRANCH=feature/lead-approach-and-seals
+HEAD=7ee2270bb8f29f1e2d3c9c29a85cca2a0d61db9b
+FILES_ANALYZED=1896
+BUILD_STATUS=Aprovado nesta auditoria com `npm run build`.
+TEST_STATUS=Falhou nesta auditoria com `npm run test -- --run` (código 1). Ver saída resumida nesta seção.
+
+===== git log --all --full-history --name-only -- .env =====
+(sem saída)
+===== fim do git log =====
+
+===== possíveis segredos — somente localização =====
+Nenhuma ocorrência de alta confiança encontrada pelos padrões automáticos.
+===== fim da varredura =====

@@ -1,0 +1,2781 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>r2-v27-semantic-atlas-visual-v1</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0d1110;
+      color: #e9f2ec;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #0d1110; }
+    .hero {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 20px;
+      border-bottom: 1px solid #26342b;
+      background: rgba(13, 17, 16, 0.96);
+      backdrop-filter: blur(12px);
+    }
+    h1 { margin: 0 0 10px; font-size: 24px; }
+    .meta { margin: 4px 0; color: #a8b9ad; overflow-wrap: anywhere; }
+    .notice {
+      margin: 14px 0;
+      padding: 12px;
+      border: 1px solid #3a5a45;
+      border-radius: 10px;
+      background: #132219;
+    }
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #35483c;
+      border-radius: 10px;
+      background: #151c18;
+      color: #fff;
+      font: inherit;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 18px;
+      padding: 20px;
+    }
+    .card {
+      overflow: hidden;
+      border: 1px solid #26342b;
+      border-radius: 14px;
+      background: #141a17;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.24);
+    }
+    .card header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 14px;
+    }
+    h2 { margin: 0; font-size: 17px; }
+    code { color: #9fd0ad; font-size: 12px; }
+    .image-wrap {
+      position: relative;
+      display: block;
+      background: #070a09;
+    }
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+    .view-label {
+      position: absolute;
+      padding: 4px 7px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 6px;
+      background: rgba(0,0,0,.62);
+      color: #fff;
+      font-size: 11px;
+      pointer-events: none;
+    }
+    .top-left { top: 8px; left: 8px; }
+    .top-right { top: 8px; right: 8px; }
+    .bottom-left { bottom: 8px; left: 8px; }
+    .bottom-right { bottom: 8px; right: 8px; }
+    dl {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 7px 10px;
+      margin: 0;
+      padding: 14px;
+      font-size: 12px;
+    }
+    dt { color: #8fa296; }
+    dd { margin: 0; overflow-wrap: anywhere; }
+    .pending {
+      margin: 0;
+      padding: 10px 14px;
+      border-top: 1px solid #26342b;
+      color: #f0c66f;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>Atlas visual dos 110 componentes</h1>
+    <p class="meta"><strong>Pacote:</strong> r2-v27-semantic-atlas-visual-v1</p>
+    <p class="meta"><strong>Fonte:</strong> C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend</p>
+    <p class="meta"><strong>SHA-256:</strong> 392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1</p>
+    <p class="meta"><strong>Atlas técnico:</strong> C:\Projetos\consorcio-os\web\blender\r2-rig\r2-v26-semantic-atlas-technical-v1</p>
+    <div class="notice">
+      Cada imagem mostra a mesma ilha em quatro rotações no eixo Z.
+      O tamanho visual é normalizado por componente; dimensões reais permanecem no manifesto.
+      Nenhum nome semântico ou ação foi decidido automaticamente.
+    </div>
+    <input id="search" type="search" placeholder="Pesquisar ID, stable key, lado, grupo de peso ou flag">
+  </section>
+  <main id="cards">
+    
+            <article class="card" data-search="0 c000-v000000 center head:2354.746516|clavicle.l:1641.841698|upper_arm.l:916.217868|neck:392.055836|chest:242.070202|spine_02:92.067884 crosses_center_plane">
+              <header>
+                <h2>Componente 000</h2>
+                <code>C000-V000000</code>
+              </header>
+              <a class="image-wrap" href="images/C000.png" target="_blank">
+                <img src="images/C000.png" alt="Componente 000">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>5639</dd>
+                <dt>Faces</dt><dd>10896</dd>
+                <dt>Centro local</dt><dd>0.163888461, 0.217114859, 0.649556858</dd>
+                <dt>Grupos dominantes</dt><dd>head:2354.746516|clavicle.L:1641.841698|upper_arm.L:916.217868|neck:392.055836|chest:242.070202|spine_02:92.067884</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="1 c001-v000001 center head:486.994793|clavicle.r:320.333134|neck:106.357071|chest:73.669575|spine_02:28.645426 crosses_center_plane">
+              <header>
+                <h2>Componente 001</h2>
+                <code>C001-V000001</code>
+              </header>
+              <a class="image-wrap" href="images/C001.png" target="_blank">
+                <img src="images/C001.png" alt="Componente 001">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>1016</dd>
+                <dt>Faces</dt><dd>1902</dd>
+                <dt>Centro local</dt><dd>-0.064027666, 0.267080687, 0.565011282</dd>
+                <dt>Grupos dominantes</dt><dd>head:486.994793|clavicle.R:320.333134|neck:106.357071|chest:73.669575|spine_02:28.645426</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="2 c002-v000069 right head:2344.179620|neck:319.820383 ">
+              <header>
+                <h2>Componente 002</h2>
+                <code>C002-V000069</code>
+              </header>
+              <a class="image-wrap" href="images/C002.png" target="_blank">
+                <img src="images/C002.png" alt="Componente 002">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>2664</dd>
+                <dt>Faces</dt><dd>5083</dd>
+                <dt>Centro local</dt><dd>-0.118634614, 0.209846889, 0.749935659</dd>
+                <dt>Grupos dominantes</dt><dd>head:2344.179620|neck:319.820383</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="3 c003-v002278 center upper_arm.l:3560.307967|spine_02:3555.856382|chest:3528.000155|forearm.l:882.167407|clavicle.l:197.668086 crosses_center_plane|very_large_component">
+              <header>
+                <h2>Componente 003</h2>
+                <code>C003-V002278</code>
+              </header>
+              <a class="image-wrap" href="images/C003.png" target="_blank">
+                <img src="images/C003.png" alt="Componente 003">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>11724</dd>
+                <dt>Faces</dt><dd>22878</dd>
+                <dt>Centro local</dt><dd>0.272940698, 0.141446717, 0.256298736</dd>
+                <dt>Grupos dominantes</dt><dd>upper_arm.L:3560.307967|spine_02:3555.856382|chest:3528.000155|forearm.L:882.167407|clavicle.L:197.668086</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE|VERY_LARGE_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="4 c004-v002555 center spine_02:3005.916606|chest:2044.885540|clavicle.r:44.248128|upper_arm.r:4.949726 crosses_center_plane">
+              <header>
+                <h2>Componente 004</h2>
+                <code>C004-V002555</code>
+              </header>
+              <a class="image-wrap" href="images/C004.png" target="_blank">
+                <img src="images/C004.png" alt="Componente 004">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>5100</dd>
+                <dt>Faces</dt><dd>9856</dd>
+                <dt>Centro local</dt><dd>-0.161663534, 0.202177312, 0.207811761</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:3005.916606|chest:2044.885540|clavicle.R:44.248128|upper_arm.R:4.949726</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="5 c005-v003089 right clavicle.r:1193.059930|upper_arm.r:864.435694|chest:265.319224|spine_02:103.185150 ">
+              <header>
+                <h2>Componente 005</h2>
+                <code>C005-V003089</code>
+              </header>
+              <a class="image-wrap" href="images/C005.png" target="_blank">
+                <img src="images/C005.png" alt="Componente 005">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>2426</dd>
+                <dt>Faces</dt><dd>4631</dd>
+                <dt>Centro local</dt><dd>-0.278175803, 0.172436641, 0.561997821</dd>
+                <dt>Grupos dominantes</dt><dd>clavicle.R:1193.059930|upper_arm.R:864.435694|chest:265.319224|spine_02:103.185150</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="6 c006-v010017 center thigh.r:2808.650199|spine_02:469.555189|spine_01:420.619353|pelvis:269.175267 crosses_center_plane">
+              <header>
+                <h2>Componente 006</h2>
+                <code>C006-V010017</code>
+              </header>
+              <a class="image-wrap" href="images/C006.png" target="_blank">
+                <img src="images/C006.png" alt="Componente 006">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>3968</dd>
+                <dt>Faces</dt><dd>7579</dd>
+                <dt>Centro local</dt><dd>-0.126851002, 0.109140273, -0.280951962</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.R:2808.650199|spine_02:469.555189|spine_01:420.619353|pelvis:269.175267</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="7 c007-v010972 center thigh.l:1814.228970|spine_01:1662.207690|spine_02:839.015506|pelvis:269.594332|thumb_01.l:1.953503 crosses_center_plane">
+              <header>
+                <h2>Componente 007</h2>
+                <code>C007-V010972</code>
+              </header>
+              <a class="image-wrap" href="images/C007.png" target="_blank">
+                <img src="images/C007.png" alt="Componente 007">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>4587</dd>
+                <dt>Faces</dt><dd>8837</dd>
+                <dt>Centro local</dt><dd>0.153724981, 0.127383366, -0.159471729</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.L:1814.228970|spine_01:1662.207690|spine_02:839.015506|pelvis:269.594332|thumb_01.L:1.953503</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="8 c008-v013520 right spine_01:1048.648907|thigh.r:360.907703|spine_02:132.443388 ">
+              <header>
+                <h2>Componente 008</h2>
+                <code>C008-V013520</code>
+              </header>
+              <a class="image-wrap" href="images/C008.png" target="_blank">
+                <img src="images/C008.png" alt="Componente 008">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1542</dd>
+                <dt>Faces</dt><dd>2909</dd>
+                <dt>Centro local</dt><dd>-0.205853854, 0.129892189, -0.119581041</dd>
+                <dt>Grupos dominantes</dt><dd>spine_01:1048.648907|thigh.R:360.907703|spine_02:132.443388</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="9 c009-v014026 center head:418.252522|neck:119.747477 crosses_center_plane">
+              <header>
+                <h2>Componente 009</h2>
+                <code>C009-V014026</code>
+              </header>
+              <a class="image-wrap" href="images/C009.png" target="_blank">
+                <img src="images/C009.png" alt="Componente 009">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>538</dd>
+                <dt>Faces</dt><dd>966</dd>
+                <dt>Centro local</dt><dd>0.070470637, 0.149214243, 0.817161787</dd>
+                <dt>Grupos dominantes</dt><dd>head:418.252522|neck:119.747477</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="10 c010-v016641 right upper_arm.r:2507.667892|chest:754.598932|forearm.r:233.334302|spine_02:229.876417|clavicle.r:116.522459 ">
+              <header>
+                <h2>Componente 010</h2>
+                <code>C010-V016641</code>
+              </header>
+              <a class="image-wrap" href="images/C010.png" target="_blank">
+                <img src="images/C010.png" alt="Componente 010">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>3842</dd>
+                <dt>Faces</dt><dd>7398</dd>
+                <dt>Centro local</dt><dd>-0.375176332, 0.104326588, 0.314542901</dd>
+                <dt>Grupos dominantes</dt><dd>upper_arm.R:2507.667892|chest:754.598932|forearm.R:233.334302|spine_02:229.876417|clavicle.R:116.522459</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="11 c011-v018149 left clavicle.l:1564.161203|upper_arm.l:1290.693462|head:993.527701|neck:97.720775|chest:49.608348|spine_02:19.288512 ">
+              <header>
+                <h2>Componente 011</h2>
+                <code>C011-V018149</code>
+              </header>
+              <a class="image-wrap" href="images/C011.png" target="_blank">
+                <img src="images/C011.png" alt="Componente 011">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>4015</dd>
+                <dt>Faces</dt><dd>7678</dd>
+                <dt>Centro local</dt><dd>0.257338433, 0.022844828, 0.668649645</dd>
+                <dt>Grupos dominantes</dt><dd>clavicle.L:1564.161203|upper_arm.L:1290.693462|head:993.527701|neck:97.720775|chest:49.608348|spine_02:19.288512</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="12 c012-v022173 right clavicle.r:1157.796948|head:621.020352|upper_arm.r:491.261240|neck:33.921461 ">
+              <header>
+                <h2>Componente 012</h2>
+                <code>C012-V022173</code>
+              </header>
+              <a class="image-wrap" href="images/C012.png" target="_blank">
+                <img src="images/C012.png" alt="Componente 012">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>2304</dd>
+                <dt>Faces</dt><dd>4308</dd>
+                <dt>Centro local</dt><dd>-0.234382120, 0.044439601, 0.703909902</dd>
+                <dt>Grupos dominantes</dt><dd>clavicle.R:1157.796948|head:621.020352|upper_arm.R:491.261240|neck:33.921461</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="13 c013-v023728 center head:140.521606|neck:1.478394 crosses_center_plane">
+              <header>
+                <h2>Componente 013</h2>
+                <code>C013-V023728</code>
+              </header>
+              <a class="image-wrap" href="images/C013.png" target="_blank">
+                <img src="images/C013.png" alt="Componente 013">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>142</dd>
+                <dt>Faces</dt><dd>235</dd>
+                <dt>Centro local</dt><dd>-0.008870664, 0.140889942, 0.815683135</dd>
+                <dt>Grupos dominantes</dt><dd>head:140.521606|neck:1.478394</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="14 c014-v023749 left head:134.000000 ">
+              <header>
+                <h2>Componente 014</h2>
+                <code>C014-V023749</code>
+              </header>
+              <a class="image-wrap" href="images/C014.png" target="_blank">
+                <img src="images/C014.png" alt="Componente 014">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>134</dd>
+                <dt>Faces</dt><dd>212</dd>
+                <dt>Centro local</dt><dd>0.023449060, 0.142678390, 0.812822017</dd>
+                <dt>Grupos dominantes</dt><dd>head:134.000000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="15 c015-v025393 right head:660.000000 ">
+              <header>
+                <h2>Componente 015</h2>
+                <code>C015-V025393</code>
+              </header>
+              <a class="image-wrap" href="images/C015.png" target="_blank">
+                <img src="images/C015.png" alt="Componente 015">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>660</dd>
+                <dt>Faces</dt><dd>1176</dd>
+                <dt>Centro local</dt><dd>-0.090638824, 0.102950369, 0.828621523</dd>
+                <dt>Grupos dominantes</dt><dd>head:660.000000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="16 c016-v025517 right foot.r:3476.619888|shin.r:2419.716120|toe.r:340.664000 ">
+              <header>
+                <h2>Componente 016</h2>
+                <code>C016-V025517</code>
+              </header>
+              <a class="image-wrap" href="images/C016.png" target="_blank">
+                <img src="images/C016.png" alt="Componente 016">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>6237</dd>
+                <dt>Faces</dt><dd>12025</dd>
+                <dt>Centro local</dt><dd>-0.270853321, -0.067272845, -0.870200137</dd>
+                <dt>Grupos dominantes</dt><dd>foot.R:3476.619888|shin.R:2419.716120|toe.R:340.664000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="17 c017-v025520 right foot.r:4051.113333|toe.r:417.888000|shin.r:204.998669 ">
+              <header>
+                <h2>Componente 017</h2>
+                <code>C017-V025520</code>
+              </header>
+              <a class="image-wrap" href="images/C017.png" target="_blank">
+                <img src="images/C017.png" alt="Componente 017">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>4674</dd>
+                <dt>Faces</dt><dd>9046</dd>
+                <dt>Centro local</dt><dd>-0.255106489, -0.065181455, -0.964049939</dd>
+                <dt>Grupos dominantes</dt><dd>foot.R:4051.113333|toe.R:417.888000|shin.R:204.998669</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="18 c018-v026402 center head:510.000000 crosses_center_plane">
+              <header>
+                <h2>Componente 018</h2>
+                <code>C018-V026402</code>
+              </header>
+              <a class="image-wrap" href="images/C018.png" target="_blank">
+                <img src="images/C018.png" alt="Componente 018">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>510</dd>
+                <dt>Faces</dt><dd>890</dd>
+                <dt>Centro local</dt><dd>0.066550776, 0.109536197, 0.842078678</dd>
+                <dt>Grupos dominantes</dt><dd>head:510.000000</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="19 c019-v027428 right shin.r:3458.660815|thigh.r:742.339188 ">
+              <header>
+                <h2>Componente 019</h2>
+                <code>C019-V027428</code>
+              </header>
+              <a class="image-wrap" href="images/C019.png" target="_blank">
+                <img src="images/C019.png" alt="Componente 019">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>4201</dd>
+                <dt>Faces</dt><dd>8084</dd>
+                <dt>Centro local</dt><dd>-0.207340243, 0.082683065, -0.681954532</dd>
+                <dt>Grupos dominantes</dt><dd>shin.R:3458.660815|thigh.R:742.339188</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="20 c020-v028460 center head:4604.000000 crosses_center_plane">
+              <header>
+                <h2>Componente 020</h2>
+                <code>C020-V028460</code>
+              </header>
+              <a class="image-wrap" href="images/C020.png" target="_blank">
+                <img src="images/C020.png" alt="Componente 020">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>4604</dd>
+                <dt>Faces</dt><dd>8824</dd>
+                <dt>Centro local</dt><dd>0.061902702, -0.012699288, 0.900880604</dd>
+                <dt>Grupos dominantes</dt><dd>head:4604.000000</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="21 c021-v028545 left foot.l:2947.435258|shin.l:1808.564761 ">
+              <header>
+                <h2>Componente 021</h2>
+                <code>C021-V028545</code>
+              </header>
+              <a class="image-wrap" href="images/C021.png" target="_blank">
+                <img src="images/C021.png" alt="Componente 021">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>4756</dd>
+                <dt>Faces</dt><dd>9134</dd>
+                <dt>Centro local</dt><dd>0.281184729, -0.020144460, -0.884847652</dd>
+                <dt>Grupos dominantes</dt><dd>foot.L:2947.435258|shin.L:1808.564761</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="22 c022-v028563 left foot.l:3426.866025|shin.l:1059.840978|toe.l:428.292999 ">
+              <header>
+                <h2>Componente 022</h2>
+                <code>C022-V028563</code>
+              </header>
+              <a class="image-wrap" href="images/C022.png" target="_blank">
+                <img src="images/C022.png" alt="Componente 022">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>4915</dd>
+                <dt>Faces</dt><dd>9452</dd>
+                <dt>Centro local</dt><dd>0.216085146, -0.069368855, -0.905382624</dd>
+                <dt>Grupos dominantes</dt><dd>foot.L:3426.866025|shin.L:1059.840978|toe.L:428.292999</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="23 c023-v028676 left shin.l:3392.815143|thigh.l:625.184858 ">
+              <header>
+                <h2>Componente 023</h2>
+                <code>C023-V028676</code>
+              </header>
+              <a class="image-wrap" href="images/C023.png" target="_blank">
+                <img src="images/C023.png" alt="Componente 023">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>4018</dd>
+                <dt>Faces</dt><dd>7704</dd>
+                <dt>Centro local</dt><dd>0.192535773, 0.076828355, -0.684154809</dd>
+                <dt>Grupos dominantes</dt><dd>shin.L:3392.815143|thigh.L:625.184858</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="24 c024-v031619 right head:6026.393809|neck:16.606189 ">
+              <header>
+                <h2>Componente 024</h2>
+                <code>C024-V031619</code>
+              </header>
+              <a class="image-wrap" href="images/C024.png" target="_blank">
+                <img src="images/C024.png" alt="Componente 024">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>6043</dd>
+                <dt>Faces</dt><dd>11569</dd>
+                <dt>Centro local</dt><dd>-0.086248727, -0.095277448, 0.811081347</dd>
+                <dt>Grupos dominantes</dt><dd>head:6026.393809|neck:16.606189</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="25 c025-v035147 right head:3.000000 very_small_component">
+              <header>
+                <h2>Componente 025</h2>
+                <code>C025-V035147</code>
+              </header>
+              <a class="image-wrap" href="images/C025.png" target="_blank">
+                <img src="images/C025.png" alt="Componente 025">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>-0.054239233, 0.111618129, 0.881242851</dd>
+                <dt>Grupos dominantes</dt><dd>head:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="26 c026-v035853 center thigh.l:5336.240770|pelvis:910.549155|spine_01:4.210072 crosses_center_plane">
+              <header>
+                <h2>Componente 026</h2>
+                <code>C026-V035853</code>
+              </header>
+              <a class="image-wrap" href="images/C026.png" target="_blank">
+                <img src="images/C026.png" alt="Componente 026">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>6251</dd>
+                <dt>Faces</dt><dd>12068</dd>
+                <dt>Centro local</dt><dd>0.147384194, -0.108338791, -0.373783207</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.L:5336.240770|pelvis:910.549155|spine_01:4.210072</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="27 c027-v035864 left thigh.l:3151.000000 ">
+              <header>
+                <h2>Componente 027</h2>
+                <code>C027-V035864</code>
+              </header>
+              <a class="image-wrap" href="images/C027.png" target="_blank">
+                <img src="images/C027.png" alt="Componente 027">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3151</dd>
+                <dt>Faces</dt><dd>6036</dd>
+                <dt>Centro local</dt><dd>0.274333755, 0.035334422, -0.366055765</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.L:3151.000000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="28 c028-v039815 right spine_02:83.550515|spine_01:46.449485 ">
+              <header>
+                <h2>Componente 028</h2>
+                <code>C028-V039815</code>
+              </header>
+              <a class="image-wrap" href="images/C028.png" target="_blank">
+                <img src="images/C028.png" alt="Componente 028">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>130</dd>
+                <dt>Faces</dt><dd>210</dd>
+                <dt>Centro local</dt><dd>-0.254648283, 0.058538257, -0.021680939</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:83.550515|spine_01:46.449485</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="29 c029-v039824 left thigh.l:2635.759714|spine_02:945.551331|spine_01:765.476744|index_03.l:0.212216 ">
+              <header>
+                <h2>Componente 029</h2>
+                <code>C029-V039824</code>
+              </header>
+              <a class="image-wrap" href="images/C029.png" target="_blank">
+                <img src="images/C029.png" alt="Componente 029">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>4347</dd>
+                <dt>Faces</dt><dd>8302</dd>
+                <dt>Centro local</dt><dd>0.259164513, -0.119287462, -0.145040571</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.L:2635.759714|spine_02:945.551331|spine_01:765.476744|index_03.L:0.212216</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="30 c030-v039826 right spine_02:1968.966285|chest:27.263472|upper_arm.r:0.657706|clavicle.r:0.112541 ">
+              <header>
+                <h2>Componente 030</h2>
+                <code>C030-V039826</code>
+              </header>
+              <a class="image-wrap" href="images/C030.png" target="_blank">
+                <img src="images/C030.png" alt="Componente 030">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1997</dd>
+                <dt>Faces</dt><dd>3735</dd>
+                <dt>Centro local</dt><dd>-0.282235646, -0.019881877, 0.095949481</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:1968.966285|chest:27.263472|upper_arm.R:0.657706|clavicle.R:0.112541</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="31 c031-v042107 right upper_arm.r:1090.302675|clavicle.r:171.091044|chest:53.719436|spine_02:20.886859 ">
+              <header>
+                <h2>Componente 031</h2>
+                <code>C031-V042107</code>
+              </header>
+              <a class="image-wrap" href="images/C031.png" target="_blank">
+                <img src="images/C031.png" alt="Componente 031">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1336</dd>
+                <dt>Faces</dt><dd>2512</dd>
+                <dt>Centro local</dt><dd>-0.374752197, -0.030145270, 0.538856545</dd>
+                <dt>Grupos dominantes</dt><dd>upper_arm.R:1090.302675|clavicle.R:171.091044|chest:53.719436|spine_02:20.886859</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="32 c032-v042946 left thigh.l:1298.311000|shin.l:1262.689000 ">
+              <header>
+                <h2>Componente 032</h2>
+                <code>C032-V042946</code>
+              </header>
+              <a class="image-wrap" href="images/C032.png" target="_blank">
+                <img src="images/C032.png" alt="Componente 032">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>2561</dd>
+                <dt>Faces</dt><dd>4863</dd>
+                <dt>Centro local</dt><dd>0.293288154, -0.027694156, -0.586574182</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.L:1298.311000|shin.L:1262.689000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="33 c033-v044956 left shin.l:1554.507348|thigh.l:1470.492653 ">
+              <header>
+                <h2>Componente 033</h2>
+                <code>C033-V044956</code>
+              </header>
+              <a class="image-wrap" href="images/C033.png" target="_blank">
+                <img src="images/C033.png" alt="Componente 033">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3025</dd>
+                <dt>Faces</dt><dd>5766</dd>
+                <dt>Centro local</dt><dd>0.145689648, -0.064457217, -0.591883963</dd>
+                <dt>Grupos dominantes</dt><dd>shin.L:1554.507348|thigh.L:1470.492653</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="34 c034-v045953 right head:115.390740|clavicle.r:4.609260 ">
+              <header>
+                <h2>Componente 034</h2>
+                <code>C034-V045953</code>
+              </header>
+              <a class="image-wrap" href="images/C034.png" target="_blank">
+                <img src="images/C034.png" alt="Componente 034">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>120</dd>
+                <dt>Faces</dt><dd>190</dd>
+                <dt>Centro local</dt><dd>-0.144000503, 0.055810050, 0.763622092</dd>
+                <dt>Grupos dominantes</dt><dd>head:115.390740|clavicle.R:4.609260</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="35 c035-v047387 right forearm.r:3864.107652|upper_arm.r:2176.733466|chest:339.896327|spine_02:132.158185|clavicle.r:110.104428 ">
+              <header>
+                <h2>Componente 035</h2>
+                <code>C035-V047387</code>
+              </header>
+              <a class="image-wrap" href="images/C035.png" target="_blank">
+                <img src="images/C035.png" alt="Componente 035">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>6623</dd>
+                <dt>Faces</dt><dd>12802</dd>
+                <dt>Centro local</dt><dd>-0.432278191, -0.077130239, 0.182850144</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.R:3864.107652|upper_arm.R:2176.733466|chest:339.896327|spine_02:132.158185|clavicle.R:110.104428</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="36 c036-v047395 right forearm.r:863.419108|upper_arm.r:446.678454|chest:257.176266|spine_02:100.019401|clavicle.r:97.706773 ">
+              <header>
+                <h2>Componente 036</h2>
+                <code>C036-V047395</code>
+              </header>
+              <a class="image-wrap" href="images/C036.png" target="_blank">
+                <img src="images/C036.png" alt="Componente 036">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1765</dd>
+                <dt>Faces</dt><dd>3317</dd>
+                <dt>Centro local</dt><dd>-0.349139419, -0.000839420, 0.093395868</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.R:863.419108|upper_arm.R:446.678454|chest:257.176266|spine_02:100.019401|clavicle.R:97.706773</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="37 c037-v048519 right shin.r:1726.753154|thigh.r:1349.246850 ">
+              <header>
+                <h2>Componente 037</h2>
+                <code>C037-V048519</code>
+              </header>
+              <a class="image-wrap" href="images/C037.png" target="_blank">
+                <img src="images/C037.png" alt="Componente 037">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>3076</dd>
+                <dt>Faces</dt><dd>5902</dd>
+                <dt>Centro local</dt><dd>-0.141797651, -0.054293005, -0.602448502</dd>
+                <dt>Grupos dominantes</dt><dd>shin.R:1726.753154|thigh.R:1349.246850</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="38 c038-v050391 right shin.r:1056.678000|thigh.r:858.322000 ">
+              <header>
+                <h2>Componente 038</h2>
+                <code>C038-V050391</code>
+              </header>
+              <a class="image-wrap" href="images/C038.png" target="_blank">
+                <img src="images/C038.png" alt="Componente 038">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1915</dd>
+                <dt>Faces</dt><dd>3635</dd>
+                <dt>Centro local</dt><dd>-0.299508527, -0.046066239, -0.600103492</dd>
+                <dt>Grupos dominantes</dt><dd>shin.R:1056.678000|thigh.R:858.322000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="39 c039-v050562 right thigh.r:3089.981656|index_02.r:0.018344 ">
+              <header>
+                <h2>Componente 039</h2>
+                <code>C039-V050562</code>
+              </header>
+              <a class="image-wrap" href="images/C039.png" target="_blank">
+                <img src="images/C039.png" alt="Componente 039">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>3090</dd>
+                <dt>Faces</dt><dd>5880</dd>
+                <dt>Centro local</dt><dd>-0.319012137, -0.031479413, -0.374855965</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.R:3089.981656|index_02.R:0.018344</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="40 c040-v051674 left head:3.000000 very_small_component">
+              <header>
+                <h2>Componente 040</h2>
+                <code>C040-V051674</code>
+              </header>
+              <a class="image-wrap" href="images/C040.png" target="_blank">
+                <img src="images/C040.png" alt="Componente 040">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>0.105794013, 0.072230272, 0.847176691</dd>
+                <dt>Grupos dominantes</dt><dd>head:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="41 c041-v053474 right upper_arm.r:3.000000 very_small_component">
+              <header>
+                <h2>Componente 041</h2>
+                <code>C041-V053474</code>
+              </header>
+              <a class="image-wrap" href="images/C041.png" target="_blank">
+                <img src="images/C041.png" alt="Componente 041">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>-0.153156141, 0.073592077, 0.767122904</dd>
+                <dt>Grupos dominantes</dt><dd>upper_arm.R:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="42 c042-v054704 left spine_02:2731.475841|chest:234.524159 ">
+              <header>
+                <h2>Componente 042</h2>
+                <code>C042-V054704</code>
+              </header>
+              <a class="image-wrap" href="images/C042.png" target="_blank">
+                <img src="images/C042.png" alt="Componente 042">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>2966</dd>
+                <dt>Faces</dt><dd>5611</dd>
+                <dt>Centro local</dt><dd>0.256257984, -0.104730800, 0.093126647</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:2731.475841|chest:234.524159</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="43 c043-v055315 right head:3.000000 very_small_component">
+              <header>
+                <h2>Componente 043</h2>
+                <code>C043-V055315</code>
+              </header>
+              <a class="image-wrap" href="images/C043.png" target="_blank">
+                <img src="images/C043.png" alt="Componente 043">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>-0.124115234, 0.065375455, 0.825956921</dd>
+                <dt>Grupos dominantes</dt><dd>head:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="44 c044-v056447 right spine_01:432.873296|spine_02:193.876327|thigh.r:184.250392 ">
+              <header>
+                <h2>Componente 044</h2>
+                <code>C044-V056447</code>
+              </header>
+              <a class="image-wrap" href="images/C044.png" target="_blank">
+                <img src="images/C044.png" alt="Componente 044">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>811</dd>
+                <dt>Faces</dt><dd>1482</dd>
+                <dt>Centro local</dt><dd>-0.278855184, -0.039682525, -0.069609973</dd>
+                <dt>Grupos dominantes</dt><dd>spine_01:432.873296|spine_02:193.876327|thigh.R:184.250392</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="45 c045-v059882 left forearm.l:2304.970225|upper_arm.l:953.269350|chest:429.545565|clavicle.l:170.176140|spine_02:167.038735 ">
+              <header>
+                <h2>Componente 045</h2>
+                <code>C045-V059882</code>
+              </header>
+              <a class="image-wrap" href="images/C045.png" target="_blank">
+                <img src="images/C045.png" alt="Componente 045">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>4025</dd>
+                <dt>Faces</dt><dd>7711</dd>
+                <dt>Centro local</dt><dd>0.371781667, -0.093240696, 0.131626707</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.L:2304.970225|upper_arm.L:953.269350|chest:429.545565|clavicle.L:170.176140|spine_02:167.038735</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="46 c046-v059889 left forearm.l:1921.533845|upper_arm.l:1085.158279|clavicle.l:6.733740|chest:1.132906|spine_02:0.441243 ">
+              <header>
+                <h2>Componente 046</h2>
+                <code>C046-V059889</code>
+              </header>
+              <a class="image-wrap" href="images/C046.png" target="_blank">
+                <img src="images/C046.png" alt="Componente 046">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3015</dd>
+                <dt>Faces</dt><dd>5723</dd>
+                <dt>Centro local</dt><dd>0.476687356, -0.062939424, 0.189926597</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.L:1921.533845|upper_arm.L:1085.158279|clavicle.L:6.733740|chest:1.132906|spine_02:0.441243</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="47 c047-v067764 left chest:120.594579|spine_02:104.554750|upper_arm.l:20.376177|clavicle.l:4.474495 ">
+              <header>
+                <h2>Componente 047</h2>
+                <code>C047-V067764</code>
+              </header>
+              <a class="image-wrap" href="images/C047.png" target="_blank">
+                <img src="images/C047.png" alt="Componente 047">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>250</dd>
+                <dt>Faces</dt><dd>407</dd>
+                <dt>Centro local</dt><dd>0.288022151, 0.007210326, 0.167489840</dd>
+                <dt>Grupos dominantes</dt><dd>chest:120.594579|spine_02:104.554750|upper_arm.L:20.376177|clavicle.L:4.474495</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="48 c048-v068836 center thigh.r:3499.727584|spine_01:850.086090|pelvis:735.019458|spine_02:204.166883 crosses_center_plane">
+              <header>
+                <h2>Componente 048</h2>
+                <code>C048-V068836</code>
+              </header>
+              <a class="image-wrap" href="images/C048.png" target="_blank">
+                <img src="images/C048.png" alt="Componente 048">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>5289</dd>
+                <dt>Faces</dt><dd>10194</dd>
+                <dt>Centro local</dt><dd>-0.109064226, -0.151887733, -0.305417790</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.R:3499.727584|spine_01:850.086090|pelvis:735.019458|spine_02:204.166883</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="49 c049-v070515 right forearm.r:708.000000 ">
+              <header>
+                <h2>Componente 049</h2>
+                <code>C049-V070515</code>
+              </header>
+              <a class="image-wrap" href="images/C049.png" target="_blank">
+                <img src="images/C049.png" alt="Componente 049">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>708</dd>
+                <dt>Faces</dt><dd>1237</dd>
+                <dt>Centro local</dt><dd>-0.378675653, -0.079351192, -0.023071775</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.R:708.000000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="50 c050-v070533 left forearm.l:1343.887319|thumb_01.l:1.112681 ">
+              <header>
+                <h2>Componente 050</h2>
+                <code>C050-V070533</code>
+              </header>
+              <a class="image-wrap" href="images/C050.png" target="_blank">
+                <img src="images/C050.png" alt="Componente 050">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>1345</dd>
+                <dt>Faces</dt><dd>2510</dd>
+                <dt>Centro local</dt><dd>0.412489494, -0.058432380, -0.059684753</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.L:1343.887319|thumb_01.L:1.112681</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="51 c051-v071993 right thigh.r:1133.698071|thumb_01.r:78.082786|thumb_02.r:1.219141 ">
+              <header>
+                <h2>Componente 051</h2>
+                <code>C051-V071993</code>
+              </header>
+              <a class="image-wrap" href="images/C051.png" target="_blank">
+                <img src="images/C051.png" alt="Componente 051">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1213</dd>
+                <dt>Faces</dt><dd>2231</dd>
+                <dt>Centro local</dt><dd>-0.324158375, -0.082602491, -0.235196514</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.R:1133.698071|thumb_01.R:78.082786|thumb_02.R:1.219141</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="52 c052-v072647 right clavicle.r:1902.947678|head:525.932670|chest:224.392449|spine_02:79.295356|neck:25.662270|upper_arm.r:19.654771|clavicle.l:2.114808 ">
+              <header>
+                <h2>Componente 052</h2>
+                <code>C052-V072647</code>
+              </header>
+              <a class="image-wrap" href="images/C052.png" target="_blank">
+                <img src="images/C052.png" alt="Componente 052">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>2780</dd>
+                <dt>Faces</dt><dd>5253</dd>
+                <dt>Centro local</dt><dd>-0.163184646, -0.109414675, 0.620049885</dd>
+                <dt>Grupos dominantes</dt><dd>clavicle.R:1902.947678|head:525.932670|chest:224.392449|spine_02:79.295356|neck:25.662270|upper_arm.R:19.654771|clavicle.L:2.114808</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="53 c053-v074931 right forearm.r:2311.925071|pinky_01.r:764.374219|pinky_02.r:575.828478|thumb_02.r:501.055570|index_01.r:438.905159|pinky_03.r:431.077241|hand.r:339.099931|thumb_01.r:199.486018 ">
+              <header>
+                <h2>Componente 053</h2>
+                <code>C053-V074931</code>
+              </header>
+              <a class="image-wrap" href="images/C053.png" target="_blank">
+                <img src="images/C053.png" alt="Componente 053">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>5654</dd>
+                <dt>Faces</dt><dd>10866</dd>
+                <dt>Centro local</dt><dd>-0.427492901, -0.163846066, -0.125162205</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.R:2311.925071|pinky_01.R:764.374219|pinky_02.R:575.828478|thumb_02.R:501.055570|index_01.R:438.905159|pinky_03.R:431.077241|hand.R:339.099931|thumb_01.R:199.486018</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="54 c054-v078402 center head:1944.646360|clavicle.l:702.995507|neck:280.884724|clavicle.r:1.473408 crosses_center_plane">
+              <header>
+                <h2>Componente 054</h2>
+                <code>C054-V078402</code>
+              </header>
+              <a class="image-wrap" href="images/C054.png" target="_blank">
+                <img src="images/C054.png" alt="Componente 054">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>2930</dd>
+                <dt>Faces</dt><dd>5529</dd>
+                <dt>Centro local</dt><dd>0.101716435, -0.111986493, 0.674958025</dd>
+                <dt>Grupos dominantes</dt><dd>head:1944.646360|clavicle.L:702.995507|neck:280.884724|clavicle.R:1.473408</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="55 c055-v080937 left spine_02:20.000000 very_small_component">
+              <header>
+                <h2>Componente 055</h2>
+                <code>C055-V080937</code>
+              </header>
+              <a class="image-wrap" href="images/C055.png" target="_blank">
+                <img src="images/C055.png" alt="Componente 055">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>20</dd>
+                <dt>Faces</dt><dd>21</dd>
+                <dt>Centro local</dt><dd>0.297090708, -0.009774749, 0.151981986</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:20.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="56 c056-v082354 left spine_02:3.000000 very_small_component">
+              <header>
+                <h2>Componente 056</h2>
+                <code>C056-V082354</code>
+              </header>
+              <a class="image-wrap" href="images/C056.png" target="_blank">
+                <img src="images/C056.png" alt="Componente 056">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>0.296803882, -0.007684463, 0.160074433</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="57 c057-v084022 left clavicle.l:40.933038|head:35.795846|neck:7.271117 very_small_component">
+              <header>
+                <h2>Componente 057</h2>
+                <code>C057-V084022</code>
+              </header>
+              <a class="image-wrap" href="images/C057.png" target="_blank">
+                <img src="images/C057.png" alt="Componente 057">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>84</dd>
+                <dt>Faces</dt><dd>137</dd>
+                <dt>Centro local</dt><dd>0.150019220, -0.025173551, 0.714323015</dd>
+                <dt>Grupos dominantes</dt><dd>clavicle.L:40.933038|head:35.795846|neck:7.271117</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="58 c058-v086343 right forearm.r:271.382007|thumb_01.r:2.617993 ">
+              <header>
+                <h2>Componente 058</h2>
+                <code>C058-V086343</code>
+              </header>
+              <a class="image-wrap" href="images/C058.png" target="_blank">
+                <img src="images/C058.png" alt="Componente 058">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>274</dd>
+                <dt>Faces</dt><dd>456</dd>
+                <dt>Centro local</dt><dd>-0.387867282, -0.062070938, -0.071731343</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.R:271.382007|thumb_01.R:2.617993</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="59 c059-v089359 left forearm.l:1876.182740|pinky_01.l:692.959405|pinky_03.l:530.977589|hand.l:489.665028|pinky_02.l:489.616354|thumb_02.l:447.031276|index_01.l:347.977397|thumb_01.l:149.865136 ">
+              <header>
+                <h2>Componente 059</h2>
+                <code>C059-V089359</code>
+              </header>
+              <a class="image-wrap" href="images/C059.png" target="_blank">
+                <img src="images/C059.png" alt="Componente 059">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>5347</dd>
+                <dt>Faces</dt><dd>10236</dd>
+                <dt>Centro local</dt><dd>0.425762935, -0.173800024, -0.142044247</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.L:1876.182740|pinky_01.L:692.959405|pinky_03.L:530.977589|hand.L:489.665028|pinky_02.L:489.616354|thumb_02.L:447.031276|index_01.L:347.977397|thumb_01.L:149.865136</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="60 c060-v090276 right shin.r:3.000000 very_small_component">
+              <header>
+                <h2>Componente 060</h2>
+                <code>C060-V090276</code>
+              </header>
+              <a class="image-wrap" href="images/C060.png" target="_blank">
+                <img src="images/C060.png" alt="Componente 060">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>-0.333683262, -0.033044821, -0.733129005</dd>
+                <dt>Grupos dominantes</dt><dd>shin.R:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="61 c061-v092550 right spine_02:1170.621763|chest:209.378237 ">
+              <header>
+                <h2>Componente 061</h2>
+                <code>C061-V092550</code>
+              </header>
+              <a class="image-wrap" href="images/C061.png" target="_blank">
+                <img src="images/C061.png" alt="Componente 061">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1380</dd>
+                <dt>Faces</dt><dd>2551</dd>
+                <dt>Centro local</dt><dd>-0.238913807, -0.148044270, 0.110592658</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:1170.621763|chest:209.378237</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="62 c062-v093695 right forearm.r:509.946400|hand.r:113.289701|thumb_01.r:59.419040|index_01.r:12.857994|middle_01.r:1.991226|thumb_02.r:0.317350|pinky_01.r:0.178290 ">
+              <header>
+                <h2>Componente 062</h2>
+                <code>C062-V093695</code>
+              </header>
+              <a class="image-wrap" href="images/C062.png" target="_blank">
+                <img src="images/C062.png" alt="Componente 062">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>698</dd>
+                <dt>Faces</dt><dd>1262</dd>
+                <dt>Centro local</dt><dd>-0.382448896, -0.112425430, -0.113561103</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.R:509.946400|hand.R:113.289701|thumb_01.R:59.419040|index_01.R:12.857994|middle_01.R:1.991226|thumb_02.R:0.317350|pinky_01.R:0.178290</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="63 c063-v095347 right thumb_01.r:153.885913|forearm.r:43.114087 ">
+              <header>
+                <h2>Componente 063</h2>
+                <code>C063-V095347</code>
+              </header>
+              <a class="image-wrap" href="images/C063.png" target="_blank">
+                <img src="images/C063.png" alt="Componente 063">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>197</dd>
+                <dt>Faces</dt><dd>345</dd>
+                <dt>Centro local</dt><dd>-0.344283890, -0.061108594, -0.065149445</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_01.R:153.885913|forearm.R:43.114087</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="64 c064-v096836 right thigh.r:226.000000 ">
+              <header>
+                <h2>Componente 064</h2>
+                <code>C064-V096836</code>
+              </header>
+              <a class="image-wrap" href="images/C064.png" target="_blank">
+                <img src="images/C064.png" alt="Componente 064">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>226</dd>
+                <dt>Faces</dt><dd>378</dd>
+                <dt>Centro local</dt><dd>-0.294843997, -0.098970715, -0.144950187</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.R:226.000000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="65 c065-v098930 center clavicle.l:986.178804|chest:170.726970|neck:56.826418|spine_02:54.056861|head:46.412318|clavicle.r:8.798634 crosses_center_plane">
+              <header>
+                <h2>Componente 065</h2>
+                <code>C065-V098930</code>
+              </header>
+              <a class="image-wrap" href="images/C065.png" target="_blank">
+                <img src="images/C065.png" alt="Componente 065">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>1323</dd>
+                <dt>Faces</dt><dd>2436</dd>
+                <dt>Centro local</dt><dd>0.127295723, -0.152673923, 0.560253551</dd>
+                <dt>Grupos dominantes</dt><dd>clavicle.L:986.178804|chest:170.726970|neck:56.826418|spine_02:54.056861|head:46.412318|clavicle.R:8.798634</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="66 c066-v100027 right forearm.r:48.000000 very_small_component">
+              <header>
+                <h2>Componente 066</h2>
+                <code>C066-V100027</code>
+              </header>
+              <a class="image-wrap" href="images/C066.png" target="_blank">
+                <img src="images/C066.png" alt="Componente 066">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>48</dd>
+                <dt>Faces</dt><dd>59</dd>
+                <dt>Centro local</dt><dd>-0.371825711, -0.080090143, -0.051810736</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.R:48.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="67 c067-v100510 right upper_arm.r:132.226597|clavicle.r:3.781567|chest:0.714883|spine_02:0.276953 ">
+              <header>
+                <h2>Componente 067</h2>
+                <code>C067-V100510</code>
+              </header>
+              <a class="image-wrap" href="images/C067.png" target="_blank">
+                <img src="images/C067.png" alt="Componente 067">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>137</dd>
+                <dt>Faces</dt><dd>218</dd>
+                <dt>Centro local</dt><dd>-0.373014167, -0.092306939, 0.455468008</dd>
+                <dt>Grupos dominantes</dt><dd>upper_arm.R:132.226597|clavicle.R:3.781567|chest:0.714883|spine_02:0.276953</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="68 c068-v102202 left upper_arm.l:437.007934|chest:397.639970|spine_02:154.626173|clavicle.l:57.725922 ">
+              <header>
+                <h2>Componente 068</h2>
+                <code>C068-V102202</code>
+              </header>
+              <a class="image-wrap" href="images/C068.png" target="_blank">
+                <img src="images/C068.png" alt="Componente 068">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>1047</dd>
+                <dt>Faces</dt><dd>1908</dd>
+                <dt>Centro local</dt><dd>0.314546176, -0.108859505, 0.424117301</dd>
+                <dt>Grupos dominantes</dt><dd>upper_arm.L:437.007934|chest:397.639970|spine_02:154.626173|clavicle.L:57.725922</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="69 c069-v103352 right thumb_01.r:65.000000 very_small_component">
+              <header>
+                <h2>Componente 069</h2>
+                <code>C069-V103352</code>
+              </header>
+              <a class="image-wrap" href="images/C069.png" target="_blank">
+                <img src="images/C069.png" alt="Componente 069">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>65</dd>
+                <dt>Faces</dt><dd>95</dd>
+                <dt>Centro local</dt><dd>-0.343773253, -0.078890105, -0.098030622</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_01.R:65.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="70 c070-v105074 right thumb_01.r:52.000000 very_small_component">
+              <header>
+                <h2>Componente 070</h2>
+                <code>C070-V105074</code>
+              </header>
+              <a class="image-wrap" href="images/C070.png" target="_blank">
+                <img src="images/C070.png" alt="Componente 070">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>52</dd>
+                <dt>Faces</dt><dd>82</dd>
+                <dt>Centro local</dt><dd>-0.331127480, -0.081683275, -0.106460346</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_01.R:52.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="71 c071-v107569 left upper_arm.l:3.000000 very_small_component">
+              <header>
+                <h2>Componente 071</h2>
+                <code>C071-V107569</code>
+              </header>
+              <a class="image-wrap" href="images/C071.png" target="_blank">
+                <img src="images/C071.png" alt="Componente 071">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>0.389448732, -0.072233096, 0.502293905</dd>
+                <dt>Grupos dominantes</dt><dd>upper_arm.L:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="72 c072-v107930 left foot.l:3.000000 very_small_component">
+              <header>
+                <h2>Componente 072</h2>
+                <code>C072-V107930</code>
+              </header>
+              <a class="image-wrap" href="images/C072.png" target="_blank">
+                <img src="images/C072.png" alt="Componente 072">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>0.215325301, -0.080574279, -0.991594950</dd>
+                <dt>Grupos dominantes</dt><dd>foot.L:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="73 c073-v107938 left foot.l:1167.932000|toe.l:302.235999|shin.l:2.832000 ">
+              <header>
+                <h2>Componente 073</h2>
+                <code>C073-V107938</code>
+              </header>
+              <a class="image-wrap" href="images/C073.png" target="_blank">
+                <img src="images/C073.png" alt="Componente 073">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>1473</dd>
+                <dt>Faces</dt><dd>2813</dd>
+                <dt>Centro local</dt><dd>0.344452501, -0.192231003, -0.969735654</dd>
+                <dt>Grupos dominantes</dt><dd>foot.L:1167.932000|toe.L:302.235999|shin.L:2.832000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="74 c074-v108810 right thumb_01.r:24.000000 very_small_component">
+              <header>
+                <h2>Componente 074</h2>
+                <code>C074-V108810</code>
+              </header>
+              <a class="image-wrap" href="images/C074.png" target="_blank">
+                <img src="images/C074.png" alt="Componente 074">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>24</dd>
+                <dt>Faces</dt><dd>30</dd>
+                <dt>Centro local</dt><dd>-0.335632003, -0.081466480, -0.098994392</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_01.R:24.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="75 c075-v111177 left chest:1504.970696|spine_02:416.026242|upper_arm.l:0.003064 ">
+              <header>
+                <h2>Componente 075</h2>
+                <code>C075-V111177</code>
+              </header>
+              <a class="image-wrap" href="images/C075.png" target="_blank">
+                <img src="images/C075.png" alt="Componente 075">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>1921</dd>
+                <dt>Faces</dt><dd>3646</dd>
+                <dt>Centro local</dt><dd>0.207091910, -0.184748641, 0.348547545</dd>
+                <dt>Grupos dominantes</dt><dd>chest:1504.970696|spine_02:416.026242|upper_arm.L:0.003064</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="76 c076-v112702 right spine_02:698.182968|spine_01:522.095936|thigh.r:107.721125 ">
+              <header>
+                <h2>Componente 076</h2>
+                <code>C076-V112702</code>
+              </header>
+              <a class="image-wrap" href="images/C076.png" target="_blank">
+                <img src="images/C076.png" alt="Componente 076">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1328</dd>
+                <dt>Faces</dt><dd>2457</dd>
+                <dt>Centro local</dt><dd>-0.182582781, -0.183694495, -0.057113690</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:698.182968|spine_01:522.095936|thigh.R:107.721125</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="77 c077-v113130 right chest:2398.313161|spine_02:524.086866|upper_arm.r:182.940992|clavicle.r:38.658981 ">
+              <header>
+                <h2>Componente 077</h2>
+                <code>C077-V113130</code>
+              </header>
+              <a class="image-wrap" href="images/C077.png" target="_blank">
+                <img src="images/C077.png" alt="Componente 077">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>3144</dd>
+                <dt>Faces</dt><dd>6041</dd>
+                <dt>Centro local</dt><dd>-0.202046458, -0.178713099, 0.372997839</dd>
+                <dt>Grupos dominantes</dt><dd>chest:2398.313161|spine_02:524.086866|upper_arm.R:182.940992|clavicle.R:38.658981</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="78 c078-v114374 right hand.r:391.141805|index_03.r:362.137554|middle_03.r:354.466288|pinky_03.r:160.266980|ring_03.r:54.649715|thumb_02.r:1.337655 ">
+              <header>
+                <h2>Componente 078</h2>
+                <code>C078-V114374</code>
+              </header>
+              <a class="image-wrap" href="images/C078.png" target="_blank">
+                <img src="images/C078.png" alt="Componente 078">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1324</dd>
+                <dt>Faces</dt><dd>2512</dd>
+                <dt>Centro local</dt><dd>-0.406226136, -0.145581381, -0.271857829</dd>
+                <dt>Grupos dominantes</dt><dd>hand.R:391.141805|index_03.R:362.137554|middle_03.R:354.466288|pinky_03.R:160.266980|ring_03.R:54.649715|thumb_02.R:1.337655</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="79 c079-v118856 left middle_03.l:367.567899|index_03.l:284.973396|hand.l:270.770234|pinky_03.l:79.107474|ring_03.l:52.148503|index_02.l:1.432493 ">
+              <header>
+                <h2>Componente 079</h2>
+                <code>C079-V118856</code>
+              </header>
+              <a class="image-wrap" href="images/C079.png" target="_blank">
+                <img src="images/C079.png" alt="Componente 079">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>1056</dd>
+                <dt>Faces</dt><dd>1957</dd>
+                <dt>Centro local</dt><dd>0.403619438, -0.147808345, -0.269981743</dd>
+                <dt>Grupos dominantes</dt><dd>middle_03.L:367.567899|index_03.L:284.973396|hand.L:270.770234|pinky_03.L:79.107474|ring_03.L:52.148503|index_02.L:1.432493</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="80 c080-v119076 center spine_01:845.881981|spine_02:224.720625|thigh.l:128.450570|pelvis:106.946838 crosses_center_plane">
+              <header>
+                <h2>Componente 080</h2>
+                <code>C080-V119076</code>
+              </header>
+              <a class="image-wrap" href="images/C080.png" target="_blank">
+                <img src="images/C080.png" alt="Componente 080">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>1306</dd>
+                <dt>Faces</dt><dd>2396</dd>
+                <dt>Centro local</dt><dd>0.068923778, -0.196652327, -0.144759417</dd>
+                <dt>Grupos dominantes</dt><dd>spine_01:845.881981|spine_02:224.720625|thigh.L:128.450570|pelvis:106.946838</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="81 c081-v119281 left thumb_01.l:157.653551|forearm.l:52.346449 ">
+              <header>
+                <h2>Componente 081</h2>
+                <code>C081-V119281</code>
+              </header>
+              <a class="image-wrap" href="images/C081.png" target="_blank">
+                <img src="images/C081.png" alt="Componente 081">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>210</dd>
+                <dt>Faces</dt><dd>362</dd>
+                <dt>Centro local</dt><dd>0.350439879, -0.110722297, -0.123348725</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_01.L:157.653551|forearm.L:52.346449</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="82 c082-v123750 right thigh.r:763.000000 ">
+              <header>
+                <h2>Componente 082</h2>
+                <code>C082-V123750</code>
+              </header>
+              <a class="image-wrap" href="images/C082.png" target="_blank">
+                <img src="images/C082.png" alt="Componente 082">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>763</dd>
+                <dt>Faces</dt><dd>1416</dd>
+                <dt>Centro local</dt><dd>-0.270752712, -0.170979500, -0.219670407</dd>
+                <dt>Grupos dominantes</dt><dd>thigh.R:763.000000</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="83 c083-v123842 left thumb_01.l:11.000000 very_small_component">
+              <header>
+                <h2>Componente 083</h2>
+                <code>C083-V123842</code>
+              </header>
+              <a class="image-wrap" href="images/C083.png" target="_blank">
+                <img src="images/C083.png" alt="Componente 083">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>11</dd>
+                <dt>Faces</dt><dd>11</dd>
+                <dt>Centro local</dt><dd>0.318441174, -0.114204808, -0.142000304</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_01.L:11.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="84 c084-v126227 left thumb_01.l:5.000000 very_small_component">
+              <header>
+                <h2>Componente 084</h2>
+                <code>C084-V126227</code>
+              </header>
+              <a class="image-wrap" href="images/C084.png" target="_blank">
+                <img src="images/C084.png" alt="Componente 084">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>5</dd>
+                <dt>Faces</dt><dd>3</dd>
+                <dt>Centro local</dt><dd>0.315873086, -0.114954677, -0.141469732</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_01.L:5.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="85 c085-v127561 right clavicle.r:230.814835|neck:149.631319|head:141.553845 ">
+              <header>
+                <h2>Componente 085</h2>
+                <code>C085-V127561</code>
+              </header>
+              <a class="image-wrap" href="images/C085.png" target="_blank">
+                <img src="images/C085.png" alt="Componente 085">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>522</dd>
+                <dt>Faces</dt><dd>925</dd>
+                <dt>Centro local</dt><dd>-0.062358637, -0.146531529, 0.626182526</dd>
+                <dt>Grupos dominantes</dt><dd>clavicle.R:230.814835|neck:149.631319|head:141.553845</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="86 c086-v127699 center head:3583.148513|neck:113.851512 crosses_center_plane">
+              <header>
+                <h2>Componente 086</h2>
+                <code>C086-V127699</code>
+              </header>
+              <a class="image-wrap" href="images/C086.png" target="_blank">
+                <img src="images/C086.png" alt="Componente 086">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>3697</dd>
+                <dt>Faces</dt><dd>7086</dd>
+                <dt>Centro local</dt><dd>0.038419004, -0.215684992, 0.774905032</dd>
+                <dt>Grupos dominantes</dt><dd>head:3583.148513|neck:113.851512</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="87 c087-v128662 left hand.l:179.312240|index_01.l:178.850556|forearm.l:150.063545|middle_03.l:132.119524|index_03.l:120.463059|ring_03.l:91.866294|ring_02.l:79.322184|pinky_03.l:71.251671 ">
+              <header>
+                <h2>Componente 087</h2>
+                <code>C087-V128662</code>
+              </header>
+              <a class="image-wrap" href="images/C087.png" target="_blank">
+                <img src="images/C087.png" alt="Componente 087">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>1137</dd>
+                <dt>Faces</dt><dd>2077</dd>
+                <dt>Centro local</dt><dd>0.375454594, -0.168114826, -0.188743001</dd>
+                <dt>Grupos dominantes</dt><dd>hand.L:179.312240|index_01.L:178.850556|forearm.L:150.063545|middle_03.L:132.119524|index_03.L:120.463059|ring_03.L:91.866294|ring_02.L:79.322184|pinky_03.L:71.251671</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="88 c088-v128680 left thumb_01.l:3.000000 very_small_component">
+              <header>
+                <h2>Componente 088</h2>
+                <code>C088-V128680</code>
+              </header>
+              <a class="image-wrap" href="images/C088.png" target="_blank">
+                <img src="images/C088.png" alt="Componente 088">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>0.316342890, -0.116099370, -0.142092173</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_01.L:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="89 c089-v131306 right index_01.r:64.390506|thumb_01.r:62.834753|thumb_02.r:32.774744 ">
+              <header>
+                <h2>Componente 089</h2>
+                <code>C089-V131306</code>
+              </header>
+              <a class="image-wrap" href="images/C089.png" target="_blank">
+                <img src="images/C089.png" alt="Componente 089">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>160</dd>
+                <dt>Faces</dt><dd>275</dd>
+                <dt>Centro local</dt><dd>-0.299570630, -0.145334151, -0.117507041</dd>
+                <dt>Grupos dominantes</dt><dd>index_01.R:64.390506|thumb_01.R:62.834753|thumb_02.R:32.774744</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="90 c090-v133696 left middle_03.l:2.204409|index_03.l:0.795591 very_small_component">
+              <header>
+                <h2>Componente 090</h2>
+                <code>C090-V133696</code>
+              </header>
+              <a class="image-wrap" href="images/C090.png" target="_blank">
+                <img src="images/C090.png" alt="Componente 090">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>0.389068792, -0.122919649, -0.265439719</dd>
+                <dt>Grupos dominantes</dt><dd>middle_03.L:2.204409|index_03.L:0.795591</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="91 c091-v133740 right thumb_02.r:327.240394|index_03.r:264.577715|pinky_03.r:158.674653|ring_02.r:137.589005|ring_03.r:135.893428|hand.r:97.747556|middle_03.r:86.671561|ring_01.r:23.444375 ">
+              <header>
+                <h2>Componente 091</h2>
+                <code>C091-V133740</code>
+              </header>
+              <a class="image-wrap" href="images/C091.png" target="_blank">
+                <img src="images/C091.png" alt="Componente 091">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>1247</dd>
+                <dt>Faces</dt><dd>2319</dd>
+                <dt>Centro local</dt><dd>-0.374210650, -0.198050562, -0.239689835</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_02.R:327.240394|index_03.R:264.577715|pinky_03.R:158.674653|ring_02.R:137.589005|ring_03.R:135.893428|hand.R:97.747556|middle_03.R:86.671561|ring_01.R:23.444375</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="92 c092-v140831 right forearm.r:3.000000 very_small_component">
+              <header>
+                <h2>Componente 092</h2>
+                <code>C092-V140831</code>
+              </header>
+              <a class="image-wrap" href="images/C092.png" target="_blank">
+                <img src="images/C092.png" alt="Componente 092">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>-0.347371509, -0.136950855, -0.110315683</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.R:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="93 c093-v141561 left neck:325.413070|head:247.586909 ">
+              <header>
+                <h2>Componente 093</h2>
+                <code>C093-V141561</code>
+              </header>
+              <a class="image-wrap" href="images/C093.png" target="_blank">
+                <img src="images/C093.png" alt="Componente 093">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>573</dd>
+                <dt>Faces</dt><dd>1034</dd>
+                <dt>Centro local</dt><dd>0.108086838, -0.203295502, 0.568058432</dd>
+                <dt>Grupos dominantes</dt><dd>neck:325.413070|head:247.586909</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="94 c094-v145565 right neck:439.255671|head:50.744317 ">
+              <header>
+                <h2>Componente 094</h2>
+                <code>C094-V145565</code>
+              </header>
+              <a class="image-wrap" href="images/C094.png" target="_blank">
+                <img src="images/C094.png" alt="Componente 094">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>490</dd>
+                <dt>Faces</dt><dd>892</dd>
+                <dt>Centro local</dt><dd>-0.098962771, -0.208110473, 0.557228000</dd>
+                <dt>Grupos dominantes</dt><dd>neck:439.255671|head:50.744317</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="95 c095-v146776 left thumb_02.l:70.022331|thumb_01.l:30.977670 ">
+              <header>
+                <h2>Componente 095</h2>
+                <code>C095-V146776</code>
+              </header>
+              <a class="image-wrap" href="images/C095.png" target="_blank">
+                <img src="images/C095.png" alt="Componente 095">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>101</dd>
+                <dt>Faces</dt><dd>173</dd>
+                <dt>Centro local</dt><dd>0.300931761, -0.155288542, -0.120769946</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_02.L:70.022331|thumb_01.L:30.977670</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="96 c096-v148739 left thumb_02.l:99.660033|thumb_01.l:53.339970 ">
+              <header>
+                <h2>Componente 096</h2>
+                <code>C096-V148739</code>
+              </header>
+              <a class="image-wrap" href="images/C096.png" target="_blank">
+                <img src="images/C096.png" alt="Componente 096">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>153</dd>
+                <dt>Faces</dt><dd>264</dd>
+                <dt>Centro local</dt><dd>0.279946336, -0.159942905, -0.098078483</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_02.L:99.660033|thumb_01.L:53.339970</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="97 c097-v148799 right thumb_01.r:13.671040|index_01.r:11.951177|thumb_02.r:1.377783 very_small_component">
+              <header>
+                <h2>Componente 097</h2>
+                <code>C097-V148799</code>
+              </header>
+              <a class="image-wrap" href="images/C097.png" target="_blank">
+                <img src="images/C097.png" alt="Componente 097">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>27</dd>
+                <dt>Faces</dt><dd>30</dd>
+                <dt>Centro local</dt><dd>-0.288058775, -0.160712227, -0.097381466</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_01.R:13.671040|index_01.R:11.951177|thumb_02.R:1.377783</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="98 c098-v148800 right index_01.r:38.653172|thumb_01.r:16.346829 very_small_component">
+              <header>
+                <h2>Componente 098</h2>
+                <code>C098-V148800</code>
+              </header>
+              <a class="image-wrap" href="images/C098.png" target="_blank">
+                <img src="images/C098.png" alt="Componente 098">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>55</dd>
+                <dt>Faces</dt><dd>90</dd>
+                <dt>Centro local</dt><dd>-0.283043649, -0.160673844, -0.094858835</dd>
+                <dt>Grupos dominantes</dt><dd>index_01.R:38.653172|thumb_01.R:16.346829</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="99 c099-v148810 left index_01.l:3.000000 very_small_component">
+              <header>
+                <h2>Componente 099</h2>
+                <code>C099-V148810</code>
+              </header>
+              <a class="image-wrap" href="images/C099.png" target="_blank">
+                <img src="images/C099.png" alt="Componente 099">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>0.323289166, -0.156011939, -0.106819558</dd>
+                <dt>Grupos dominantes</dt><dd>index_01.L:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="100 c100-v150928 left index_01.l:9.000000 very_small_component">
+              <header>
+                <h2>Componente 100</h2>
+                <code>C100-V150928</code>
+              </header>
+              <a class="image-wrap" href="images/C100.png" target="_blank">
+                <img src="images/C100.png" alt="Componente 100">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>9</dd>
+                <dt>Faces</dt><dd>8</dd>
+                <dt>Centro local</dt><dd>0.268605729, -0.162064685, -0.080797557</dd>
+                <dt>Grupos dominantes</dt><dd>index_01.L:9.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="101 c101-v151564 left head:4.000000 very_small_component">
+              <header>
+                <h2>Componente 101</h2>
+                <code>C101-V151564</code>
+              </header>
+              <a class="image-wrap" href="images/C101.png" target="_blank">
+                <img src="images/C101.png" alt="Componente 101">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>4</dd>
+                <dt>Faces</dt><dd>2</dd>
+                <dt>Centro local</dt><dd>0.099608717, -0.154511176, 0.617993265</dd>
+                <dt>Grupos dominantes</dt><dd>head:4.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="102 c102-v161362 left forearm.l:3.000000 very_small_component">
+              <header>
+                <h2>Componente 102</h2>
+                <code>C102-V161362</code>
+              </header>
+              <a class="image-wrap" href="images/C102.png" target="_blank">
+                <img src="images/C102.png" alt="Componente 102">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>3</dd>
+                <dt>Faces</dt><dd>1</dd>
+                <dt>Centro local</dt><dd>0.493526508, -0.177927623, 0.003083666</dd>
+                <dt>Grupos dominantes</dt><dd>forearm.L:3.000000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="103 c103-v167183 left thumb_02.l:141.373568|thumb_01.l:83.023598|forearm.l:2.870999|index_02.l:0.731836 ">
+              <header>
+                <h2>Componente 103</h2>
+                <code>C103-V167183</code>
+              </header>
+              <a class="image-wrap" href="images/C103.png" target="_blank">
+                <img src="images/C103.png" alt="Componente 103">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>228</dd>
+                <dt>Faces</dt><dd>393</dd>
+                <dt>Centro local</dt><dd>0.352471761, -0.227596475, -0.194884648</dd>
+                <dt>Grupos dominantes</dt><dd>thumb_02.L:141.373568|thumb_01.L:83.023598|forearm.L:2.870999|index_02.L:0.731836</dd>
+                <dt>Flags técnicas</dt><dd>Nenhuma</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="104 c104-v174307 center spine_02:1743.203137|chest:1195.796861 crosses_center_plane">
+              <header>
+                <h2>Componente 104</h2>
+                <code>C104-V174307</code>
+              </header>
+              <a class="image-wrap" href="images/C104.png" target="_blank">
+                <img src="images/C104.png" alt="Componente 104">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>2939</dd>
+                <dt>Faces</dt><dd>5604</dd>
+                <dt>Centro local</dt><dd>0.077394433, -0.260501681, 0.227692126</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:1743.203137|chest:1195.796861</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="105 c105-v177904 center spine_02:1365.923956|chest:369.076069 crosses_center_plane">
+              <header>
+                <h2>Componente 105</h2>
+                <code>C105-V177904</code>
+              </header>
+              <a class="image-wrap" href="images/C105.png" target="_blank">
+                <img src="images/C105.png" alt="Componente 105">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>CENTER</dd>
+                <dt>Vértices</dt><dd>1735</dd>
+                <dt>Faces</dt><dd>3277</dd>
+                <dt>Centro local</dt><dd>-0.086048215, -0.260407098, 0.157331761</dd>
+                <dt>Grupos dominantes</dt><dd>spine_02:1365.923956|chest:369.076069</dd>
+                <dt>Flags técnicas</dt><dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="106 c106-v190469 right chest:49.680002|spine_02:19.320000 very_small_component">
+              <header>
+                <h2>Componente 106</h2>
+                <code>C106-V190469</code>
+              </header>
+              <a class="image-wrap" href="images/C106.png" target="_blank">
+                <img src="images/C106.png" alt="Componente 106">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>69</dd>
+                <dt>Faces</dt><dd>111</dd>
+                <dt>Centro local</dt><dd>-0.094881454, -0.262913054, 0.485854792</dd>
+                <dt>Grupos dominantes</dt><dd>chest:49.680002|spine_02:19.320000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="107 c107-v190484 left chest:60.480002|spine_02:23.520000 very_small_component">
+              <header>
+                <h2>Componente 107</h2>
+                <code>C107-V190484</code>
+              </header>
+              <a class="image-wrap" href="images/C107.png" target="_blank">
+                <img src="images/C107.png" alt="Componente 107">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>84</dd>
+                <dt>Faces</dt><dd>140</dd>
+                <dt>Centro local</dt><dd>0.105274826, -0.274305651, 0.491673727</dd>
+                <dt>Grupos dominantes</dt><dd>chest:60.480002|spine_02:23.520000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="108 c108-v192344 right chest:45.360002|spine_02:17.640000 very_small_component">
+              <header>
+                <h2>Componente 108</h2>
+                <code>C108-V192344</code>
+              </header>
+              <a class="image-wrap" href="images/C108.png" target="_blank">
+                <img src="images/C108.png" alt="Componente 108">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>RIGHT</dd>
+                <dt>Vértices</dt><dd>63</dd>
+                <dt>Faces</dt><dd>97</dd>
+                <dt>Centro local</dt><dd>-0.094828342, -0.270224319, 0.488222410</dd>
+                <dt>Grupos dominantes</dt><dd>chest:45.360002|spine_02:17.640000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+
+            <article class="card" data-search="109 c109-v192356 left chest:56.160002|spine_02:21.840000 very_small_component">
+              <header>
+                <h2>Componente 109</h2>
+                <code>C109-V192356</code>
+              </header>
+              <a class="image-wrap" href="images/C109.png" target="_blank">
+                <img src="images/C109.png" alt="Componente 109">
+                <span class="view-label top-left">Z 0°</span>
+                <span class="view-label top-right">Z 180°</span>
+                <span class="view-label bottom-left">Z +90°</span>
+                <span class="view-label bottom-right">Z 270°</span>
+              </a>
+              <dl>
+                <dt>Lado provisório</dt><dd>LEFT</dd>
+                <dt>Vértices</dt><dd>78</dd>
+                <dt>Faces</dt><dd>125</dd>
+                <dt>Centro local</dt><dd>0.102758274, -0.279489344, 0.494953291</dd>
+                <dt>Grupos dominantes</dt><dd>chest:56.160002|spine_02:21.840000</dd>
+                <dt>Flags técnicas</dt><dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+              <p class="pending">Classificação semântica: PENDENTE</p>
+            </article>
+            
+  </main>
+  <script>
+    const input = document.getElementById("search");
+    const cards = [...document.querySelectorAll(".card")];
+    input.addEventListener("input", () => {
+      const query = input.value.trim().toLowerCase();
+      for (const card of cards) {
+        card.classList.toggle(
+          "hidden",
+          query.length > 0 && !card.dataset.search.includes(query)
+        );
+      }
+    });
+  </script>
+</body>
+</html>

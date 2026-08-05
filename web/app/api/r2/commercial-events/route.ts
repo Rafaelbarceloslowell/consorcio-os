@@ -1,0 +1,161 @@
+import {
+  prisma,
+} from "@/infrastructure/prisma/client"
+
+import {
+  PrismaCommercialEventRepository,
+} from "@/infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository"
+
+import type {
+  R2CommercialEventCursor,
+} from "@/types/r2-persistent-commercial-events"
+
+const PILOT_WORKSPACE_SLUG = "consorcio-os"
+const DEFAULT_BATCH_LIMIT = 25
+const MAX_BATCH_LIMIT = 25
+
+function json(
+  body: unknown,
+  status = 200,
+): Response {
+  return Response.json(
+    body,
+    {
+      status,
+      headers: {
+        "Cache-Control": "no-store",
+      },
+    },
+  )
+}
+
+function parseLimit(
+  value: string | null,
+): number {
+  if (!value) {
+    return DEFAULT_BATCH_LIMIT
+  }
+
+  const parsed = Number(value)
+
+  if (!Number.isInteger(parsed) || parsed < 1) {
+    throw new Error("limit must be a positive integer.")
+  }
+
+  return Math.min(
+    parsed,
+    MAX_BATCH_LIMIT,
+  )
+}
+
+function parseCursor(
+  createdAt: string | null,
+  eventId: string | null,
+): R2CommercialEventCursor {
+  if (!createdAt) {
+    throw new Error("afterCreatedAt is required.")
+  }
+
+  const parsedTimestamp = new Date(createdAt).getTime()
+
+  if (!Number.isFinite(parsedTimestamp)) {
+    throw new Error("afterCreatedAt must be a valid date.")
+  }
+
+  return {
+    createdAt: new Date(parsedTimestamp).toISOString(),
+    eventId: eventId ?? "",
+  }
+}
+
+export const dynamic = "force-dynamic"
+
+export async function GET(
+  request: Request,
+): Promise<Response> {
+  const url = new URL(request.url)
+  const workspaceId =
+    url.searchParams.get("workspaceId")?.trim() ?? ""
+
+  if (!workspaceId) {
+    return json(
+      {
+        error: "workspaceId is required.",
+      },
+      400,
+    )
+  }
+
+  let cursor: R2CommercialEventCursor
+  let limit: number
+
+  try {
+    cursor = parseCursor(
+      url.searchParams.get("afterCreatedAt"),
+      url.searchParams.get("afterEventId"),
+    )
+    limit = parseLimit(
+      url.searchParams.get("limit"),
+    )
+  }
+  catch (error) {
+    return json(
+      {
+        error:
+          error instanceof Error
+            ? error.message
+            : "Invalid persistent event request.",
+      },
+      400,
+    )
+  }
+
+  const workspace =
+    await prisma.workspace.findFirst({
+      where: {
+        id: workspaceId,
+        slug: PILOT_WORKSPACE_SLUG,
+      },
+      select: {
+        id: true,
+      },
+    })
+
+  if (!workspace) {
+    return json(
+      {
+        error: "Workspace is not available for persistent R2 events.",
+      },
+      403,
+    )
+  }
+
+  const repository =
+    new PrismaCommercialEventRepository(
+      workspace.id,
+    )
+
+  const events =
+    await repository.findAfterCursor({
+      cursor,
+      limit,
+    })
+
+  const lastEvent =
+    events.at(-1)
+
+  const nextCursor: R2CommercialEventCursor =
+    lastEvent
+      ? {
+          createdAt: lastEvent.createdAt,
+          eventId: lastEvent.id,
+        }
+      : cursor
+
+  return json({
+    events,
+    nextCursor,
+    hasMore:
+      events.length === limit,
+  })
+}

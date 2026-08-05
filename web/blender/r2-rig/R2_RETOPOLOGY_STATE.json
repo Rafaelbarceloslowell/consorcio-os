@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "current_official_version": "V57",
+  "current_official_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v57-negative-x-middle-mid-depth-retopology-v1\\r2-rig-v57-negative-x-middle-mid-depth-retopology-v1.blend",
+  "current_official_sha256": "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+  "current_certificate_sha256": "9A60D374659F7383911397DC8C928BD7FE64736940FAB0C5C5B0EA567ADB2A5A",
+  "approved_versions": ["V40", "V41", "V42", "V43", "V44", "V45", "V46", "V47", "V48", "V49", "V50", "V51", "V52", "V53", "V54", "V55", "V56", "V57"],
+  "rejected_versions": [
+    {
+      "version": "V58",
+      "location": "NEGATIVE_X_LOWER_MID_DEPTH",
+      "certificate_sha256": "AAB88D5B1291A3B2BA7419D6A5BA0689BB4BC01CEB64DB592C8E53FA841E6260",
+      "reason": "No tested operation produced measurable reduction while preserving the non-weakenable aspect, normal, inversion, boundary, and topology gates; V58 was not published and never became an official source."
+    }
+  ],
+  "rejected_attempts": [
+    {
+      "version": "V57",
+      "stage": "candidate_measurement",
+      "reason": "Stale vertex indices after Blender topology renumbering.",
+      "resolution": "Replaced post-operation index tracing with deterministic coordinate tracing, regenerated manifest and hashes, and reran from frozen V56."
+    },
+    {
+      "version": "V58",
+      "stage": "candidate_build",
+      "candidate": "DISSOLVE_INTERNAL_1522",
+      "reduction_percent": 14.285714285714286,
+      "reason": "Aspect p95 worsened from 3.406521 to 4.324827 and normal p05 worsened from 0.688335 to 0.596193."
+    },
+    {
+      "version": "V58",
+      "stage": "candidate_build",
+      "candidate": "DISSOLVE_INTERNAL_1642",
+      "reduction_percent": 7.142857142857143,
+      "reason": "Aspect and normal quality improved, but the reduction remained below the established 10 percent measurable-benefit gate."
+    },
+    {
+      "version": "V58",
+      "stage": "candidate_build",
+      "candidate": "DISSOLVE_INTERNAL_1522_1642",
+      "reduction_percent": 28.571428571428573,
+      "reason": "Aspect p95 worsened to 5.779130; candidate rejected without weakening the quality gate."
+    },
+    {
+      "version": "V58",
+      "stage": "candidate_build_exhaustive",
+      "candidate": "ALL_STRICTLY_INTERNAL_EDGE_PAIRS",
+      "reduction_percent": 0.0,
+      "reason": "Every pair produced zero face reduction; some also degraded quality or introduced an inverted face."
+    }
+  ],
+  "treated_regions": ["V41", "V42", "V43", "V44", "V45", "V46", "V47", "V48", "V49", "V50", "V51", "V52", "V53", "V54", "V55", "V56", "V57"],
+  "treated_region_count": 17,
+  "lineage_relations": [
+    {"child": "V56", "source": "V55", "overlap_faces": 14, "type": "immediate_patch_continuation"},
+    {"child": "V57", "source": "V56", "overlap_faces": 0, "type": "new_treated_region"}
+  ],
+  "allowed_overlaps": [{"regions": ["V55", "V56"], "faces": 14, "reason": "immediate_source_lineage"}],
+  "forbidden_overlaps": "all non-consecutive or unrelated treated regions",
+  "last_build": {
+    "version": "V57",
+    "candidate": "DISSOLVE_INTERNAL_1705",
+    "removed_vertex_count": 1,
+    "patch_faces_before": 6,
+    "patch_faces_after": 3,
+    "reduction_percent": 50.0,
+    "aspect_p95_before": 4.007413678708593,
+    "aspect_p95_after": 3.828369661898109,
+    "normal_p05_before": 0.7459831098094583,
+    "normal_p05_after": 0.9279118590056896
+  },
+  "last_priority_analysis": {
+    "requested_version": "V58",
+    "location": "NEGATIVE_X_LOWER_MID_DEPTH",
+    "seed_face_count": 26,
+    "certified_face_count": 14,
+    "refinement_removed_face_count": 12,
+    "historical_treated_overlap": 0,
+    "source_v57_overlap": 0
+  },
+  "last_approved_runtime": "V57_FINAL_INTEGRITY_READ_ONLY_AUDIT",
+  "next_action": "HEAD_CONSOLIDATION_AND_RIG_PREPARATION",
+  "loop_status": "COMPLETE",
+  "retopology_sequence_complete": true,
+  "no_further_safe_candidate": true,
+  "stopping_reason": "The remaining certified V58 statistical-risk region had no corresponding operation with both measurable topology reduction and preservation of all non-weakenable gates.",
+  "previous_official_versions_unchanged": true,
+  "created_images": 0,
+  "local_datetime": "2026-08-01T02:10:36-03:00",
+  "blender": "4.5.10 LTS"
+}

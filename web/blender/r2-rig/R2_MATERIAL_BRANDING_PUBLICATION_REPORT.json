@@ -1,0 +1,18 @@
+{
+    "schema_version":  1,
+    "ExecutionStatus":  "COMPLETED",
+    "TechnicalVerdict":  "APROVADO",
+    "published_blend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-material-branded-ready-v1\\r2-full-character-material-branded-ready-v1.blend",
+    "published_blend_sha256":  "AD7501A2828DAA76749C6ABE367597F1645BB79C1A205E83BED265B556F52E57",
+    "published_blend_size_bytes":  40302898,
+    "published_glb":  "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-material-branded-ready-v1.glb",
+    "published_glb_sha256":  "1F693EBB12E36965786C426CC07AF5FD6775CADFD81542236518103C6541E6AB",
+    "published_glb_size_bytes":  13160140,
+    "previous_official_blend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-runtime-ready-v1\\r2-full-character-runtime-ready-v1.blend",
+    "previous_official_blend_sha256":  "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269",
+    "previous_official_glb":  "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-runtime-ready-v1.glb",
+    "previous_official_glb_sha256":  "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+    "previous_official_sources_unchanged":  true,
+    "overwrite_performed":  false,
+    "failed_gates":  "NONE"
+}

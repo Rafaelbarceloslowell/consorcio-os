@@ -1,0 +1,18 @@
+{
+  "approved": true,
+  "candidate": "DISSOLVE_15",
+  "custom_properties_exact": true,
+  "failed_gates": [],
+  "global_aspect_p95": 3.896010466292723,
+  "global_normal_p05": 0.9999999292194843,
+  "invalid_non_manifold": 0,
+  "inverted_faces": 0,
+  "materials_exact": true,
+  "missing_outside_faces": 0,
+  "preserved_weights_exact": true,
+  "untouched_geometry_preserved": true,
+  "unweighted_vertices": 0,
+  "vertex_groups_exact": true,
+  "weight_mismatches": 0,
+  "wire_edges": 0
+}

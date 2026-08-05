@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "authoritative_source_type": "types/domain/commercial-event.ts#CommercialEvent",
+  "existing_commercial_event_types": [
+    {"source":"LEAD_CREATED","canonical":"lead.created","origin_status":"TYPE_ONLY"},
+    {"source":"LEAD_REPLIED","canonical":"lead.replied","origin_status":"IMPLEMENTED_USE_CASE"},
+    {"source":"MEETING_SCHEDULED","canonical":"meeting.scheduled","origin_status":"IMPLEMENTED_USE_CASE"},
+    {"source":"MEETING_COMPLETED","canonical":"meeting.completed","origin_status":"IMPLEMENTED_USE_CASE"},
+    {"source":"PROPOSAL_SENT","canonical":"proposal.sent","origin_status":"IMPLEMENTED_USE_CASE"},
+    {"source":"PROPOSAL_ACCEPTED","canonical":"proposal.accepted","origin_status":"IMPLEMENTED_USE_CASE"},
+    {"source":"DOCUMENT_REQUESTED","canonical":"sale.documentation_requested","origin_status":"TYPE_ONLY"},
+    {"source":"DOCUMENT_RECEIVED","canonical":"sale.documentation_received","origin_status":"TYPE_ONLY"},
+    {"source":"PAYMENT_CONFIRMED","canonical":"sale.payment_confirmed","origin_status":"TYPE_ONLY"},
+    {"source":"SALE_COMPLETED","canonical":"sale.completed","origin_status":"IMPLEMENTED_USE_CASE"},
+    {"source":"STATE_CHANGED","canonical":"opportunity.stage_changed","origin_status":"IMPLEMENTED_TRANSITION_ENGINE"},
+    {"source":"NOTE_ADDED","canonical":"opportunity.note_added","origin_status":"TYPE_ONLY"},
+    {"source":"TASK_CREATED","canonical":"task.created","origin_status":"TYPE_ONLY"},
+    {"source":"TASK_COMPLETED","canonical":"task.completed","origin_status":"TYPE_ONLY"}
+  ],
+  "existing_automation_trigger_types": [
+    "SCHEDULED_TIME",
+    "COMMERCIAL_EVENT",
+    "JOURNEY_STATE_CHANGED",
+    "LEAD_RESPONDED",
+    "MANUAL",
+    "SYSTEM"
+  ],
+  "canonical_events_prepared": [
+    "lead.received","lead.created","lead.qualified","lead.disqualified","lead.no_response","lead.replied","lead.converted","lead.action_required","lead.at_risk",
+    "client.created","opportunity.created","opportunity.updated","opportunity.stage_changed","opportunity.stagnant","opportunity.at_risk","opportunity.won","opportunity.lost","opportunity.note_added",
+    "meeting.scheduled","meeting.upcoming","meeting.started","meeting.completed","meeting.cancelled","meeting.summary_missing","meeting.follow_up_pending",
+    "proposal.prepared","proposal.review_ready","proposal.sent","proposal.viewed","proposal.accepted","proposal.rejected","proposal.expired",
+    "sale.started","sale.documentation_requested","sale.documentation_received","sale.payment_confirmed","sale.awaiting_documentation","sale.completed","sale.cancelled","sale.pending","sale.celebration_ready",
+    "task.created","task.due_soon","task.overdue","task.completed","automation.started","automation.completed","automation.failed","workflow.blocked","queue.failed","integration.unavailable",
+    "intelligence.analysis_started","intelligence.analysis_completed","intelligence.recommendation_ready","intelligence.next_best_action_ready","intelligence.confirmation_required","intelligence.recommendation_accepted","intelligence.recommendation_rejected","intelligence.insufficient_context","intelligence.provider_error",
+    "runtime.speaking_requested","runtime.neutral_requested"
+  ],
+  "documented_missing_origins": [
+    "lead.received","lead.qualified","lead.disqualified","lead.no_response","lead.converted","lead.action_required","lead.at_risk",
+    "client.created","opportunity.created","opportunity.updated","opportunity.stagnant","opportunity.at_risk","opportunity.won","opportunity.lost",
+    "meeting.upcoming","meeting.started","meeting.cancelled","meeting.summary_missing","meeting.follow_up_pending",
+    "proposal.prepared","proposal.review_ready","proposal.viewed","proposal.rejected","proposal.expired",
+    "sale.started","sale.awaiting_documentation","sale.cancelled","sale.pending","sale.celebration_ready",
+    "task.due_soon","task.overdue","automation.started","automation.completed","automation.failed","workflow.blocked","queue.failed","integration.unavailable",
+    "intelligence.analysis_started","intelligence.analysis_completed","intelligence.recommendation_ready","intelligence.next_best_action_ready","intelligence.confirmation_required","intelligence.recommendation_accepted","intelligence.recommendation_rejected","intelligence.insufficient_context","intelligence.provider_error",
+    "runtime.speaking_requested","runtime.neutral_requested"
+  ],
+  "vertical_flows_selected": [
+    "LEAD_CREATED -> lead.created -> working",
+    "STATE_CHANGED -> opportunity.stage_changed -> thinking",
+    "intelligence.recommendation_ready -> awaiting_action",
+    "meeting.upcoming -> alert",
+    "SALE_COMPLETED -> sale.completed -> celebrating_sale",
+    "automation.failed -> error_attention",
+    "runtime.speaking_requested -> speaking"
+  ]
+}

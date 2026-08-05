@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-08-03T00:22:38.251Z",
+  "workspace": "C:\\Projetos\\consorcio-os\\web",
+  "migrationName": "20260802210000_add_opportunity_created_commercial_event",
+  "migrationDeployStarted": false,
+  "migrationDeploySucceeded": false,
+  "rollbackPerformed": true,
+  "postMigrationFailure": false,
+  "verdict": "REPROVADO_COM_ROLLBACK_PRE_MIGRACAO",
+  "error": "PRISMA MIGRATE STATUS BEFORE falhou com exit code 1: spawnSync npx.cmd EINVAL.",
+  "checks": {
+    "head": "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+    "stagedCountBefore": 0,
+    "schemaHashBefore": "B568D1DAD16A91B41B3DC8171EB73CECA40465A027984A310C4CD39898CDC1CE",
+    "glbHashBefore": "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE"
+  },
+  "files": {},
+  "reportPath": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-runtime-intelligence-integration-v1\\r2-real-event-dispatch-integration-v1\\r2-opportunity-created-atomic-integration-v1\\R2_OPPORTUNITY_CREATED_ATOMIC_INTEGRATION_V1_REPORT.txt",
+  "reportSha256": "68EFCE48D05828175F19339BBDD7FCD934DD56FCF026202764F17E336BECE6DD"
+}

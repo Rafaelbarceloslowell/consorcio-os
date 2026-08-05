@@ -1,0 +1,50 @@
+{
+  "approved": true,
+  "aspect_p95": 3.828369661898109,
+  "blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\.__r2_v57_build_9b96640240b24b00ae8c2f67aa0adeb7\\r2-rig-v57-negative-x-middle-mid-depth-retopology-v1.blend",
+  "boundary_vertices": [
+    1587,
+    1702,
+    1706,
+    1713,
+    1845,
+    1853
+  ],
+  "candidate_patch_faces": 3,
+  "candidate_patch_triangles": 4,
+  "inverted_faces": 0,
+  "normal_p05": 0.9279118590056896,
+  "reduction_percent": 50.0,
+  "removed_vertex_count": 1,
+  "removed_vertices": [
+    1705
+  ],
+  "selected_candidate": "DISSOLVE_INTERNAL_1705",
+  "source_aspect_p95": 4.007413678708593,
+  "source_normal_p05": 0.7459831098094583,
+  "source_patch_faces": 6,
+  "source_patch_triangles": 6,
+  "trials": [
+    {
+      "aspect_p95": 3.828369661898109,
+      "boundary_vertices": [
+        1587,
+        1702,
+        1706,
+        1713,
+        1845,
+        1853
+      ],
+      "candidate": "DISSOLVE_INTERNAL_1705",
+      "inverted_faces": 0,
+      "normal_p05": 0.9279118590056896,
+      "passed": true,
+      "patch_faces": 3,
+      "patch_triangles": 4,
+      "reduction_percent": 50.0,
+      "removed_vertices": [
+        1705
+      ]
+    }
+  ]
+}

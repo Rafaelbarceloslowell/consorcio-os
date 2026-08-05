@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "emulation": "CDP Emulation.setEmulatedMedia prefers-reduced-motion=reduce",
+  "detected": true,
+  "active": {
+    "requestedState": "error_attention",
+    "effectiveState": "error_attention",
+    "activeClip": "R2_ERROR_ATTENTION",
+    "elapsedInStateMs": 430,
+    "reducedMotion": true,
+    "actionsCreated": 9,
+    "actionsReused": 3,
+    "maximumSimultaneousActions": 0,
+    "activeActions": 0,
+    "transitionsApplied": 3,
+    "transitionsIgnored": 1,
+    "fallbacks": 0,
+    "mixerListeners": 1,
+    "pendingState": null
+  },
+  "finalState": "neutral",
+  "restored": true,
+  "proceduralBlinkExpectedDisabled": true,
+  "safeMorphProfileRetained": "error morph profile configured; individual morph values are not exposed by diagnostics",
+  "screenshot": {
+    "path": "evidence/reduced-motion.png",
+    "bytes": 23891,
+    "sha256": "F35DFE717F1307B798A3E4AF31308E7C37FCFD354A8CE9C47DE4550CC077B4B9",
+    "rect": {
+      "x": 349,
+      "y": 227,
+      "width": 426.296875,
+      "height": 360
+    }
+  },
+  "passed": true
+}

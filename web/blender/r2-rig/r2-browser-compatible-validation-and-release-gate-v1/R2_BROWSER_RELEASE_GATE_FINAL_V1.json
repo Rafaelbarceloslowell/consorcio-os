@@ -1,0 +1,1083 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-02T15:58:48.244Z",
+  "browser": {
+    "Browser": "Edg/151.0.4129.59",
+    "Protocol-Version": "1.3",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+    "V8-Version": "15.1.23.5",
+    "WebKit-Version": "537.36 (@400e1a29bee558c0c1dec28b2d8b3506a7302ce3)",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:49610/devtools/browser/16774ff8-509c-444e-8b6d-c0923e1ee889"
+  },
+  "appUrl": "http://localhost:49609/",
+  "capabilities": {
+    "resizeObserver": true,
+    "fetch": true,
+    "resourceTiming": true,
+    "webgl": true,
+    "diagnosticsAvailable": true,
+    "canvases": [
+      {
+        "index": 0,
+        "width": 415,
+        "height": 360,
+        "clientWidth": 415,
+        "clientHeight": 360,
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 415.375,
+          "height": 360
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "visible": true
+      }
+    ],
+    "visibleCanvas": {
+      "index": 0,
+      "width": 415,
+      "height": 360,
+      "clientWidth": 415,
+      "clientHeight": 360,
+      "rect": {
+        "x": 349,
+        "y": 227,
+        "width": 415.375,
+        "height": 360
+      },
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1",
+      "visible": true
+    },
+    "fallbackElements": [
+      {
+        "label": "Visualização 3D do R2 indisponível",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "visible": false
+      }
+    ],
+    "visibleFallbackCount": 0,
+    "blockingFallback": false,
+    "diagnostics": {
+      "requestedState": "awaiting_action",
+      "effectiveState": "awaiting_action",
+      "activeClip": "R2_AWAITING_ACTION",
+      "elapsedInStateMs": 2031,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 1,
+      "maximumSimultaneousActions": 1,
+      "activeActions": 1,
+      "transitionsApplied": 1,
+      "transitionsIgnored": 0,
+      "fallbacks": 0,
+      "mixerListeners": 1,
+      "pendingState": null
+    },
+    "innerWidth": 1414,
+    "innerHeight": 807,
+    "devicePixelRatio": 1,
+    "passed": true
+  },
+  "states": {
+    "results": [
+      {
+        "state": "neutral",
+        "expectedClip": "R2_NEUTRAL",
+        "snapshot": {
+          "requestedState": "neutral",
+          "effectiveState": "neutral",
+          "activeClip": "R2_NEUTRAL",
+          "elapsedInStateMs": 13,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 4,
+          "maximumSimultaneousActions": 1,
+          "activeActions": 1,
+          "transitionsApplied": 3,
+          "transitionsIgnored": 1,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-neutral.png",
+          "bytes": 23651,
+          "sha256": "55987C6CB00E3F2DCA3CBBAE7ED763E88F4C38E8AEA47E8A5DEF71DDB9BC2C72"
+        },
+        "activated": true,
+        "completion": null
+      },
+      {
+        "state": "idle",
+        "expectedClip": "R2_IDLE",
+        "snapshot": {
+          "requestedState": "idle",
+          "effectiveState": "idle",
+          "activeClip": "R2_IDLE",
+          "elapsedInStateMs": 0,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 8,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 2,
+          "transitionsApplied": 6,
+          "transitionsIgnored": 2,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-idle.png",
+          "bytes": 23651,
+          "sha256": "55987C6CB00E3F2DCA3CBBAE7ED763E88F4C38E8AEA47E8A5DEF71DDB9BC2C72"
+        },
+        "activated": true,
+        "completion": null
+      },
+      {
+        "state": "working",
+        "expectedClip": "R2_WORKING",
+        "snapshot": {
+          "requestedState": "working",
+          "effectiveState": "working",
+          "activeClip": "R2_WORKING",
+          "elapsedInStateMs": 0,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 12,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 2,
+          "transitionsApplied": 9,
+          "transitionsIgnored": 3,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-working.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "activated": true,
+        "completion": null
+      },
+      {
+        "state": "listening",
+        "expectedClip": "R2_LISTENING",
+        "snapshot": {
+          "requestedState": "listening",
+          "effectiveState": "listening",
+          "activeClip": "R2_LISTENING",
+          "elapsedInStateMs": 18,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 16,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 2,
+          "transitionsApplied": 12,
+          "transitionsIgnored": 4,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-listening.png",
+          "bytes": 23644,
+          "sha256": "E102731E812B9253616A8F820992CC89FF900240DF639CDC6DCBAEF834C7C5BC"
+        },
+        "activated": true,
+        "completion": null
+      },
+      {
+        "state": "thinking",
+        "expectedClip": "R2_THINKING",
+        "snapshot": {
+          "requestedState": "thinking",
+          "effectiveState": "thinking",
+          "activeClip": "R2_THINKING",
+          "elapsedInStateMs": 17,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 20,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 2,
+          "transitionsApplied": 15,
+          "transitionsIgnored": 5,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-thinking.png",
+          "bytes": 23644,
+          "sha256": "0202F50B5E9B8E2FB48DAB22B81CEDCC1735FEA33BCCB587DD46C3E60680ABE8"
+        },
+        "activated": true,
+        "completion": null
+      },
+      {
+        "state": "awaiting_action",
+        "expectedClip": "R2_AWAITING_ACTION",
+        "snapshot": {
+          "requestedState": "awaiting_action",
+          "effectiveState": "awaiting_action",
+          "activeClip": "R2_AWAITING_ACTION",
+          "elapsedInStateMs": 33,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 24,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 2,
+          "transitionsApplied": 18,
+          "transitionsIgnored": 7,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-awaiting_action.png",
+          "bytes": 23644,
+          "sha256": "22F9C46BC573FFB4B65B463FDF51CCD3860846A7A5060FD166F6DBFA2E03672D"
+        },
+        "activated": true,
+        "completion": null
+      },
+      {
+        "state": "alert",
+        "expectedClip": "R2_ALERT",
+        "snapshot": {
+          "requestedState": "alert",
+          "effectiveState": "alert",
+          "activeClip": "R2_ALERT",
+          "elapsedInStateMs": 50,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 28,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 2,
+          "transitionsApplied": 21,
+          "transitionsIgnored": 8,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-alert.png",
+          "bytes": 23644,
+          "sha256": "10CC8FB02DCD9876D925C5668BD4F38CFAFA3DCE49D7E5D67BA20CC00BCAFFAD"
+        },
+        "activated": true,
+        "completion": null
+      },
+      {
+        "state": "speaking",
+        "expectedClip": "R2_IDLE",
+        "snapshot": {
+          "requestedState": "speaking",
+          "effectiveState": "speaking",
+          "activeClip": "R2_IDLE",
+          "elapsedInStateMs": 67,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 32,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 2,
+          "transitionsApplied": 24,
+          "transitionsIgnored": 9,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-speaking.png",
+          "bytes": 23650,
+          "sha256": "B6BB2B812CDA41E28FB3D70A323FD2C383AD818BFDB6515A975F320F25D88D29"
+        },
+        "activated": true,
+        "completion": null
+      },
+      {
+        "state": "celebrating_sale",
+        "expectedClip": "R2_CELEBRATING_SALE",
+        "snapshot": {
+          "requestedState": "celebrating_sale",
+          "effectiveState": "celebrating_sale",
+          "activeClip": "R2_CELEBRATING_SALE",
+          "elapsedInStateMs": 16,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 36,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 2,
+          "transitionsApplied": 27,
+          "transitionsIgnored": 10,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-celebrating_sale.png",
+          "bytes": 23650,
+          "sha256": "F793381E6743BF14DC6BC14598E93FBD320EB44BA6BDF76733B690B709D1E10B"
+        },
+        "activated": true,
+        "completion": {
+          "requestedState": "idle",
+          "effectiveState": "idle",
+          "activeClip": "R2_IDLE",
+          "elapsedInStateMs": 83,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 37,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 1,
+          "transitionsApplied": 28,
+          "transitionsIgnored": 10,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        }
+      },
+      {
+        "state": "error_attention",
+        "expectedClip": "R2_ERROR_ATTENTION",
+        "snapshot": {
+          "requestedState": "error_attention",
+          "effectiveState": "error_attention",
+          "activeClip": "R2_ERROR_ATTENTION",
+          "elapsedInStateMs": 17,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 41,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 2,
+          "transitionsApplied": 31,
+          "transitionsIgnored": 11,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "screenshot": {
+          "path": "evidence-final/state-error_attention.png",
+          "bytes": 23647,
+          "sha256": "FFC80F30AB7688A8C3130702F1F28A6FE68A05FFED10A5BFB70E52D1A27A96BE"
+        },
+        "activated": true,
+        "completion": {
+          "requestedState": "neutral",
+          "effectiveState": "neutral",
+          "activeClip": "R2_NEUTRAL",
+          "elapsedInStateMs": 33,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 42,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 1,
+          "transitionsApplied": 32,
+          "transitionsIgnored": 11,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        }
+      }
+    ],
+    "passed": true
+  },
+  "movement": {
+    "state": "working",
+    "start": {
+      "requestedState": "working",
+      "effectiveState": "working",
+      "activeClip": "R2_WORKING",
+      "elapsedInStateMs": 17,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 46,
+      "maximumSimultaneousActions": 2,
+      "activeActions": 2,
+      "transitionsApplied": 35,
+      "transitionsIgnored": 12,
+      "fallbacks": 0,
+      "mixerListeners": 1,
+      "pendingState": null
+    },
+    "end": {
+      "requestedState": "working",
+      "effectiveState": "working",
+      "activeClip": "R2_WORKING",
+      "elapsedInStateMs": 3116,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 46,
+      "maximumSimultaneousActions": 2,
+      "activeActions": 1,
+      "transitionsApplied": 35,
+      "transitionsIgnored": 12,
+      "fallbacks": 0,
+      "mixerListeners": 1,
+      "pendingState": null
+    },
+    "uniqueHashes": 2,
+    "frames": [
+      {
+        "index": 0,
+        "screenshot": {
+          "path": "evidence-final/movement-working-00.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "elapsedInStateMs": 168,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      },
+      {
+        "index": 1,
+        "screenshot": {
+          "path": "evidence-final/movement-working-01.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "elapsedInStateMs": 451,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      },
+      {
+        "index": 2,
+        "screenshot": {
+          "path": "evidence-final/movement-working-02.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "elapsedInStateMs": 750,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      },
+      {
+        "index": 3,
+        "screenshot": {
+          "path": "evidence-final/movement-working-03.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "elapsedInStateMs": 1133,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      },
+      {
+        "index": 4,
+        "screenshot": {
+          "path": "evidence-final/movement-working-04.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "elapsedInStateMs": 1433,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      },
+      {
+        "index": 5,
+        "screenshot": {
+          "path": "evidence-final/movement-working-05.png",
+          "bytes": 23556,
+          "sha256": "5811D7B22A4F4E450AAFC7E79BFA5C586F94B7EBCD0443BF891E5B03599EF500"
+        },
+        "elapsedInStateMs": 1750,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      },
+      {
+        "index": 6,
+        "screenshot": {
+          "path": "evidence-final/movement-working-06.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "elapsedInStateMs": 2066,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      },
+      {
+        "index": 7,
+        "screenshot": {
+          "path": "evidence-final/movement-working-07.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "elapsedInStateMs": 2366,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      },
+      {
+        "index": 8,
+        "screenshot": {
+          "path": "evidence-final/movement-working-08.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "elapsedInStateMs": 2652,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      },
+      {
+        "index": 9,
+        "screenshot": {
+          "path": "evidence-final/movement-working-09.png",
+          "bytes": 23650,
+          "sha256": "F1D38F4C4BD90492DAC957732F79B089DF901B4CAF2083E7BB55426EDC7DD6BB"
+        },
+        "elapsedInStateMs": 2933,
+        "effectiveState": "working",
+        "activeClip": "R2_WORKING"
+      }
+    ],
+    "passed": true
+  },
+  "viewports": {
+    "results": [
+      {
+        "requested": {
+          "width": 1440,
+          "height": 900
+        },
+        "actual": {
+          "width": 1440,
+          "height": 900
+        },
+        "canvas": {
+          "index": 0,
+          "width": 426,
+          "height": 360,
+          "clientWidth": 426,
+          "clientHeight": 360,
+          "rect": {
+            "x": 349,
+            "y": 227,
+            "width": 426.296875,
+            "height": 360
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "visible": true
+        },
+        "fallbackElements": [
+          {
+            "label": "Visualização 3D do R2 indisponível",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "visible": false
+          }
+        ],
+        "blockingFallback": false,
+        "diagnostics": {
+          "requestedState": "neutral",
+          "effectiveState": "neutral",
+          "activeClip": "R2_NEUTRAL",
+          "elapsedInStateMs": 333,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 49,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 1,
+          "transitionsApplied": 37,
+          "transitionsIgnored": 13,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "fullScreenshot": {
+          "path": "evidence-final/viewport-1440x900.png",
+          "bytes": 198908,
+          "sha256": "B2ABEFE663465F31EFCE8FB4F14F72DB7E35C81D230D527585D0207598C278A1"
+        },
+        "canvasScreenshot": {
+          "path": "evidence-final/viewport-1440x900-r2.png",
+          "bytes": 28363,
+          "sha256": "E184C8BCF0D153F6F18EAC075B207DB3489C2D2F26705490C90234DAC2B2ED09"
+        },
+        "passed": true
+      },
+      {
+        "requested": {
+          "width": 1366,
+          "height": 768
+        },
+        "actual": {
+          "width": 1366,
+          "height": 768
+        },
+        "canvas": {
+          "index": 0,
+          "width": 395,
+          "height": 360,
+          "clientWidth": 395,
+          "clientHeight": 360,
+          "rect": {
+            "x": 349,
+            "y": 227,
+            "width": 395.21875,
+            "height": 360
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "visible": true
+        },
+        "fallbackElements": [
+          {
+            "label": "Visualização 3D do R2 indisponível",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "visible": false
+          }
+        ],
+        "blockingFallback": false,
+        "diagnostics": {
+          "requestedState": "neutral",
+          "effectiveState": "neutral",
+          "activeClip": "R2_NEUTRAL",
+          "elapsedInStateMs": 333,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 52,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 1,
+          "transitionsApplied": 39,
+          "transitionsIgnored": 14,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "fullScreenshot": {
+          "path": "evidence-final/viewport-1366x768.png",
+          "bytes": 167595,
+          "sha256": "E5F758AC1FEB4523007EC4EA6FF14C30398D386A0A46E6AA985A1B2E9E9BAB3D"
+        },
+        "canvasScreenshot": {
+          "path": "evidence-final/viewport-1366x768-r2.png",
+          "bytes": 28318,
+          "sha256": "1C2D5A6F22A3B7813BA8BC904306344267950E4527FECC690989F7F5AB00AEE3"
+        },
+        "passed": true
+      },
+      {
+        "requested": {
+          "width": 1024,
+          "height": 768
+        },
+        "actual": {
+          "width": 1024,
+          "height": 768
+        },
+        "canvas": {
+          "index": 0,
+          "width": 599,
+          "height": 320,
+          "clientWidth": 599,
+          "clientHeight": 320,
+          "rect": {
+            "x": 349,
+            "y": 217,
+            "width": 599,
+            "height": 320
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "visible": true
+        },
+        "fallbackElements": [
+          {
+            "label": "Visualização 3D do R2 indisponível",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "visible": false
+          }
+        ],
+        "blockingFallback": false,
+        "diagnostics": {
+          "requestedState": "neutral",
+          "effectiveState": "neutral",
+          "activeClip": "R2_NEUTRAL",
+          "elapsedInStateMs": 333,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 55,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 1,
+          "transitionsApplied": 41,
+          "transitionsIgnored": 15,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "fullScreenshot": {
+          "path": "evidence-final/viewport-1024x768.png",
+          "bytes": 151907,
+          "sha256": "B853831F31B5AEC32A013009C02CC3C2D4D0B151CBCC0ABDCF5747735E1A4007"
+        },
+        "canvasScreenshot": {
+          "path": "evidence-final/viewport-1024x768-r2.png",
+          "bytes": 27566,
+          "sha256": "18ED165E8D4AC9A3C3AEE33DCE466FCDE91C9C1209AC59F19636BF9B8F016EDD"
+        },
+        "passed": true
+      },
+      {
+        "requested": {
+          "width": 768,
+          "height": 1024
+        },
+        "actual": {
+          "width": 768,
+          "height": 1024
+        },
+        "canvas": {
+          "index": 0,
+          "width": 655,
+          "height": 320,
+          "clientWidth": 655,
+          "clientHeight": 320,
+          "rect": {
+            "x": 49,
+            "y": 318,
+            "width": 655,
+            "height": 320
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "visible": true
+        },
+        "fallbackElements": [
+          {
+            "label": "Visualização 3D do R2 indisponível",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "visible": false
+          }
+        ],
+        "blockingFallback": false,
+        "diagnostics": {
+          "requestedState": "neutral",
+          "effectiveState": "neutral",
+          "activeClip": "R2_NEUTRAL",
+          "elapsedInStateMs": 850,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 58,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 1,
+          "transitionsApplied": 43,
+          "transitionsIgnored": 16,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "fullScreenshot": {
+          "path": "evidence-final/viewport-768x1024.png",
+          "bytes": 110375,
+          "sha256": "896A06C6D491D6DB56BA06E999E819B9C606F464E4F7578F71AA2696F158707D"
+        },
+        "canvasScreenshot": {
+          "path": "evidence-final/viewport-768x1024-r2.png",
+          "bytes": 4276,
+          "sha256": "481DBAEE2E84307C5B0E302F0308B83C5FA6A10A00BAF90BB93989F8AF394711"
+        },
+        "passed": true
+      },
+      {
+        "requested": {
+          "width": 390,
+          "height": 844
+        },
+        "actual": {
+          "width": 390,
+          "height": 844
+        },
+        "canvas": {
+          "index": 0,
+          "width": 301,
+          "height": 288,
+          "clientWidth": 301,
+          "clientHeight": 288,
+          "rect": {
+            "x": 37,
+            "y": 350,
+            "width": 301,
+            "height": 288
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "visible": true
+        },
+        "fallbackElements": [
+          {
+            "label": "Visualização 3D do R2 indisponível",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "width": 0,
+              "height": 0
+            },
+            "display": "block",
+            "visibility": "visible",
+            "opacity": "1",
+            "visible": false
+          }
+        ],
+        "blockingFallback": false,
+        "diagnostics": {
+          "requestedState": "neutral",
+          "effectiveState": "neutral",
+          "activeClip": "R2_NEUTRAL",
+          "elapsedInStateMs": 350,
+          "reducedMotion": false,
+          "actionsCreated": 9,
+          "actionsReused": 61,
+          "maximumSimultaneousActions": 2,
+          "activeActions": 1,
+          "transitionsApplied": 45,
+          "transitionsIgnored": 17,
+          "fallbacks": 0,
+          "mixerListeners": 1,
+          "pendingState": null
+        },
+        "fullScreenshot": {
+          "path": "evidence-final/viewport-390x844.png",
+          "bytes": 68720,
+          "sha256": "DCE6C0CD6C595D6486B5D089671F158C2DB64BEDC44D110226A2091EA25BC3D1"
+        },
+        "canvasScreenshot": {
+          "path": "evidence-final/viewport-390x844-r2.png",
+          "bytes": 1327,
+          "sha256": "07FCB873688A51A9A4FC3D16CFE1D2687D1562CE6FFB18BF9C81C351DA19D306"
+        },
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "visualBaseline": {
+    "report": {
+      "schemaVersion": 1,
+      "metrics": [
+        {
+          "viewport": {
+            "width": 1440,
+            "height": 900
+          },
+          "width": 426,
+          "height": 360,
+          "meanLuminance": 24.92129831514517,
+          "luminanceVariance": 70.09455299439878,
+          "blackScreen": false,
+          "nonDarkPixelRatio": 0.9915753781950966,
+          "approximateForegroundBounds": {
+            "x": 0,
+            "y": 0,
+            "width": 426,
+            "height": 360
+          },
+          "usefulHeightCoverage": 1,
+          "palettePixelCounts": {
+            "fur": 151712,
+            "hoodie": 4415,
+            "pants": 20647,
+            "boots": 150404
+          },
+          "paletteBandsPresent": true
+        },
+        {
+          "viewport": {
+            "width": 1366,
+            "height": 768
+          },
+          "width": 395,
+          "height": 360,
+          "meanLuminance": 25.566692526085646,
+          "luminanceVariance": 97.21122656350383,
+          "blackScreen": false,
+          "nonDarkPixelRatio": 0.9881223628691983,
+          "approximateForegroundBounds": {
+            "x": 0,
+            "y": 0,
+            "width": 395,
+            "height": 360
+          },
+          "usefulHeightCoverage": 1,
+          "palettePixelCounts": {
+            "fur": 140054,
+            "hoodie": 5788,
+            "pants": 23176,
+            "boots": 138362
+          },
+          "paletteBandsPresent": true
+        },
+        {
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "width": 599,
+          "height": 320,
+          "meanLuminance": 24.666335940130505,
+          "luminanceVariance": 58.73583076509374,
+          "blackScreen": false,
+          "nonDarkPixelRatio": 0.9931552587646076,
+          "approximateForegroundBounds": {
+            "x": 0,
+            "y": 0,
+            "width": 599,
+            "height": 320
+          },
+          "usefulHeightCoverage": 1,
+          "palettePixelCounts": {
+            "fur": 189986,
+            "hoodie": 4552,
+            "pants": 15236,
+            "boots": 188653
+          },
+          "paletteBandsPresent": true
+        },
+        {
+          "viewport": {
+            "width": 768,
+            "height": 1024
+          },
+          "width": 655,
+          "height": 320,
+          "meanLuminance": 24.242047936069092,
+          "luminanceVariance": 53.47825815284375,
+          "blackScreen": false,
+          "nonDarkPixelRatio": 0.9937404580152672,
+          "approximateForegroundBounds": {
+            "x": 0,
+            "y": 0,
+            "width": 655,
+            "height": 320
+          },
+          "usefulHeightCoverage": 1,
+          "palettePixelCounts": {
+            "fur": 207906,
+            "hoodie": 4552,
+            "pants": 9621,
+            "boots": 206573
+          },
+          "paletteBandsPresent": true
+        },
+        {
+          "viewport": {
+            "width": 390,
+            "height": 844
+          },
+          "width": 301,
+          "height": 288,
+          "meanLuminance": 25.297639996299036,
+          "luminanceVariance": 100.80133900568558,
+          "blackScreen": false,
+          "nonDarkPixelRatio": 0.9880260243632336,
+          "approximateForegroundBounds": {
+            "x": 0,
+            "y": 0,
+            "width": 301,
+            "height": 288
+          },
+          "usefulHeightCoverage": 1,
+          "palettePixelCounts": {
+            "fur": 85325,
+            "hoodie": 3673,
+            "pants": 7030,
+            "boots": 84282
+          },
+          "paletteBandsPresent": true
+        }
+      ],
+      "transitionFrameMeanAbsoluteDifference": 0.000517301338897583,
+      "movementDetected": false,
+      "blackScreens": 0,
+      "paletteBands": {
+        "fur": "#2D312E/#303431",
+        "hoodie": "#4F5C3A",
+        "pants": "#363A3E",
+        "boots": "#141718"
+      }
+    },
+    "passed": true
+  },
+  "network": {
+    "glbResponses": [
+      {
+        "url": "http://localhost:49609/models/r2/r2-full-character-color-readable-ready-v2.glb",
+        "status": 200,
+        "mimeType": "model/gltf-binary",
+        "fromDiskCache": false
+      }
+    ],
+    "correctGlbResponses": [
+      {
+        "url": "http://localhost:49609/models/r2/r2-full-character-color-readable-ready-v2.glb",
+        "status": 200,
+        "mimeType": "model/gltf-binary",
+        "fromDiskCache": false
+      }
+    ],
+    "failedRequests": [],
+    "passed": true
+  },
+  "console": {
+    "errors": [],
+    "passed": true
+  },
+  "gates": {
+    "capabilitiesPassed": true,
+    "statesPassed": true,
+    "movementPassed": true,
+    "viewportsPassed": true,
+    "visualBaselinePassed": true,
+    "networkPassed": true,
+    "consolePassed": true
+  },
+  "verdict": "APROVADO"
+}

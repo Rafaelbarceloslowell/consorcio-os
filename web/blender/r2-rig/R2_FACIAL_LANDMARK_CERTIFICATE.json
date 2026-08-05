@@ -1,0 +1,2159 @@
+{
+  "approved": true,
+  "certificate": "R2_FACIAL_LANDMARK_CERTIFICATE",
+  "execution_status": "COMPLETED",
+  "foundation_vertex_order_sha256": "B67AD7CDAFC66A8A591E13D6EE2AF8C645F84F9B3285F61A313A44B855F5D3B2",
+  "gates": {
+    "DuplicatePrimaryLandmarks": 0,
+    "LandmarkFoundationHashLinked": true,
+    "LandmarkTopologyFingerprintsMatch": true,
+    "LeftRightSymmetryMappingValid": true,
+    "MandatoryLandmarksCertified": 38,
+    "OutOfRangeIndices": 0
+  },
+  "landmarks": {
+    "chin_center": {
+      "canonical_name": "chin_center",
+      "confidence_score": 0.94,
+      "evidence": "Authorized broad jaw region, center plane and deterministic position below oral zone.",
+      "intended_rigging_use": "chin/jaw corrective anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.06439311802387238,
+        -0.9792780876159668,
+        -0.19201023876667023
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.0018230827990919352,
+        -0.29708921909332275,
+        0.6937416791915894
+      ],
+      "primary_vertex_index": 3483,
+      "semantic_description": "chin center",
+      "supporting_face_indices": [
+        6598,
+        6599,
+        6600,
+        6601,
+        6603,
+        6614,
+        6615,
+        6616,
+        6617,
+        6618,
+        6620,
+        6632,
+        6634,
+        6635,
+        6636,
+        6637,
+        6638,
+        6639,
+        6652,
+        6653,
+        6654,
+        6825,
+        6826
+      ],
+      "supporting_vertex_indices": [
+        3475,
+        3476,
+        3482,
+        3483,
+        3484,
+        3492,
+        3493
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "6C4410A1C1C09B5AF57E40BCB987A46D4B83B4067C3E65B531DA17688DF6F79E",
+      "world_space_coordinates": [
+        0.0018230827990919352,
+        -0.29708921909332275,
+        0.6937416791915894
+      ]
+    },
+    "jaw_center": {
+      "canonical_name": "jaw_center",
+      "confidence_score": 0.96,
+      "evidence": "Authorized broad jaw region and center plane.",
+      "intended_rigging_use": "jaw deformation center",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.09006795287132263,
+        -0.9766867160797119,
+        -0.19486135244369507
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.001853568130172789,
+        -0.2979540526866913,
+        0.6985208988189697
+      ],
+      "primary_vertex_index": 3492,
+      "semantic_description": "broad jaw center",
+      "supporting_face_indices": [
+        6614,
+        6615,
+        6616,
+        6618,
+        6632,
+        6633,
+        6634,
+        6635,
+        6636,
+        6637,
+        6639,
+        6652,
+        6653,
+        6654,
+        6793,
+        6824,
+        6825,
+        6826,
+        6827
+      ],
+      "supporting_vertex_indices": [
+        3482,
+        3483,
+        3491,
+        3492,
+        3493,
+        3500,
+        3617
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "4001CCA867D78843CF5917F0EA35DBFA4330C95F3C0CFD89E84C2CF654730B5D",
+      "world_space_coordinates": [
+        0.001853568130172789,
+        -0.2979540526866913,
+        0.6985208988189697
+      ]
+    },
+    "left_brow_center": {
+      "canonical_name": "left_brow_center",
+      "confidence_score": 0.96,
+      "evidence": "Approved r2_region_id=2 lineage, anatomical side and deterministic upper-lateral ordering.",
+      "intended_rigging_use": "brow deformation anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.14506229758262634,
+        -0.7230167984962463,
+        0.675428569316864
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.01115458831191063,
+        -0.21998697519302368,
+        0.8543692231178284
+      ],
+      "primary_vertex_index": 2004,
+      "semantic_description": "left brow center",
+      "supporting_face_indices": [
+        3448,
+        3449,
+        3451,
+        3691,
+        3692,
+        3693,
+        3694,
+        3708,
+        3709,
+        3710,
+        4439,
+        4440,
+        4441,
+        4442,
+        4444,
+        4469,
+        4470,
+        4471,
+        4473,
+        4492,
+        4493
+      ],
+      "supporting_vertex_indices": [
+        1880,
+        2003,
+        2004,
+        2005,
+        2138,
+        2285
+      ],
+      "symmetry_error": 0.01788890146941761,
+      "symmetry_partner": "right_brow_center",
+      "topology_neighborhood_fingerprint": "4D447C1B59C33F16E0731D717C10B5C77EE5A144E04F50DAEA68DF5FCADE5BFE",
+      "world_space_coordinates": [
+        0.01115458831191063,
+        -0.21998697519302368,
+        0.8543692231178284
+      ]
+    },
+    "left_brow_inner": {
+      "canonical_name": "left_brow_inner",
+      "confidence_score": 0.96,
+      "evidence": "Approved r2_region_id=2 lineage, anatomical side and deterministic upper-lateral ordering.",
+      "intended_rigging_use": "brow deformation anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.007116873282939196,
+        -0.7059248685836792,
+        0.7082509398460388
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.002071075141429901,
+        -0.22006097435951233,
+        0.8528265357017517
+      ],
+      "primary_vertex_index": 2002,
+      "semantic_description": "left brow inner",
+      "supporting_face_indices": [
+        3445,
+        3446,
+        3447,
+        3449,
+        3687,
+        3688,
+        3689,
+        3690,
+        3691,
+        3692,
+        3694,
+        3943,
+        3945,
+        3946,
+        3961,
+        4408,
+        4409,
+        4410,
+        4412,
+        4436,
+        4473,
+        4492,
+        4493
+      ],
+      "supporting_vertex_indices": [
+        1878,
+        1879,
+        2001,
+        2002,
+        2003,
+        2136,
+        2137
+      ],
+      "symmetry_error": 0.005532222360061466,
+      "symmetry_partner": "right_brow_inner",
+      "topology_neighborhood_fingerprint": "6666DA72C5A310463AFEAB0D630968638AF9477859EC7C6ADD640571D1669304",
+      "world_space_coordinates": [
+        0.002071075141429901,
+        -0.22006097435951233,
+        0.8528265357017517
+      ]
+    },
+    "left_brow_outer": {
+      "canonical_name": "left_brow_outer",
+      "confidence_score": 0.96,
+      "evidence": "Approved r2_region_id=2 lineage, anatomical side and deterministic upper-lateral ordering.",
+      "intended_rigging_use": "brow deformation anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.16218945384025574,
+        -0.7649861574172974,
+        0.6232903003692627
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.023510703817009926,
+        -0.2241673469543457,
+        0.8529584407806396
+      ],
+      "primary_vertex_index": 2146,
+      "semantic_description": "left brow outer",
+      "supporting_face_indices": [
+        3710,
+        3711,
+        3713,
+        3962,
+        3963,
+        3964,
+        3966,
+        4226,
+        4240,
+        4241,
+        4242,
+        4243,
+        4439,
+        4440,
+        4441,
+        4442,
+        4444,
+        4469,
+        4470,
+        4471,
+        4575,
+        4576,
+        4578,
+        4592
+      ],
+      "supporting_vertex_indices": [
+        2006,
+        2012,
+        2138,
+        2146,
+        2147,
+        2289,
+        2290
+      ],
+      "symmetry_error": 0.017440427367838195,
+      "symmetry_partner": "right_brow_outer",
+      "topology_neighborhood_fingerprint": "E080A1DD434003956D9775D41C7CB3DC1A2B199C2B5F72A526ABEE54312D09F3",
+      "world_space_coordinates": [
+        0.023510703817009926,
+        -0.2241673469543457,
+        0.8529584407806396
+      ]
+    },
+    "left_cheek_center": {
+      "canonical_name": "left_cheek_center",
+      "confidence_score": 0.98,
+      "evidence": "Approved r2_v40_cheek_side face lineage.",
+      "intended_rigging_use": "cheek raise and volume control",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.4896233379840851,
+        -0.5884255766868591,
+        0.64344722032547
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.01237720251083374,
+        -0.25798216462135315,
+        0.779973566532135
+      ],
+      "primary_vertex_index": 2879,
+      "semantic_description": "left cheek center",
+      "supporting_face_indices": [
+        5441,
+        5442,
+        5443,
+        5564,
+        5565,
+        5566,
+        5571,
+        5572,
+        5580
+      ],
+      "supporting_vertex_indices": [
+        2875,
+        2878,
+        2879,
+        2947
+      ],
+      "symmetry_error": 0.008814058342703485,
+      "symmetry_partner": "right_cheek_center",
+      "topology_neighborhood_fingerprint": "C87F9B6119C0D50E0A137FFED2A7FA5A75F472E395F8CE8D47FD7006CFA1CC41",
+      "world_space_coordinates": [
+        0.01237720251083374,
+        -0.25798216462135315,
+        0.779973566532135
+      ]
+    },
+    "left_ear_base": {
+      "canonical_name": "left_ear_base",
+      "confidence_score": 0.9,
+      "evidence": "Existing head-side attachment topology; exterior ear shape preserved and only semantic ownership added.",
+      "intended_rigging_use": "ear-base deformation anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.1386667639017105,
+        -0.46462225914001465,
+        0.8745843172073364
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.0390988253057003,
+        -0.19997502863407135,
+        0.8684231638908386
+      ],
+      "primary_vertex_index": 1394,
+      "semantic_description": "left ear-base attachment",
+      "supporting_face_indices": [
+        2366,
+        2367,
+        2368,
+        2369,
+        2529,
+        2548,
+        2549,
+        2550,
+        2551,
+        2552,
+        2553,
+        2726,
+        2727,
+        2728,
+        2729,
+        2730,
+        2731,
+        2732,
+        2968,
+        2970,
+        2971,
+        2972,
+        2974
+      ],
+      "supporting_vertex_indices": [
+        1296,
+        1298,
+        1382,
+        1393,
+        1394,
+        1499,
+        1500
+      ],
+      "symmetry_error": 0.04890047654821838,
+      "symmetry_partner": "right_ear_base",
+      "topology_neighborhood_fingerprint": "B706FB6611943660788F15CCC283D59BE884DEA79C059D74B09C9BABB7885CA0",
+      "world_space_coordinates": [
+        0.0390988253057003,
+        -0.19997502863407135,
+        0.8684231638908386
+      ]
+    },
+    "left_inner_eye_corner": {
+      "canonical_name": "left_inner_eye_corner",
+      "confidence_score": 0.99,
+      "evidence": "Certified r2_region_id=2 aperture boundary plus explicit ocular design authorization.",
+      "intended_rigging_use": "canthus and eyelid anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.035805583000183105,
+        -0.8001179695129395,
+        0.5987731218338013
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.0065881055779755116,
+        -0.22368541359901428,
+        0.8488261103630066
+      ],
+      "primary_vertex_index": 2137,
+      "semantic_description": "medial canthus",
+      "supporting_face_indices": [
+        3689,
+        3690,
+        3691,
+        3692,
+        3694,
+        3943,
+        3944,
+        3945,
+        3946,
+        4215,
+        4223,
+        4224,
+        4225,
+        4408,
+        4409,
+        4410,
+        4412,
+        4436,
+        4437,
+        4438,
+        4439,
+        4440,
+        4441,
+        4442,
+        4444,
+        4469,
+        4470,
+        4471,
+        4473,
+        4492,
+        4493,
+        4520,
+        4521,
+        4523,
+        4544,
+        4545
+      ],
+      "supporting_vertex_indices": [
+        2002,
+        2003,
+        2135,
+        2136,
+        2137,
+        2138,
+        2279,
+        2280,
+        2285,
+        2286
+      ],
+      "symmetry_error": 0.016625728291108668,
+      "symmetry_partner": "right_inner_eye_corner",
+      "topology_neighborhood_fingerprint": "3ED0603C08B138F2379D16F69E3D2E17823E6601CE130241FAE5DF4288F8AE06",
+      "world_space_coordinates": [
+        0.0065881055779755116,
+        -0.22368541359901428,
+        0.8488261103630066
+      ]
+    },
+    "left_jaw_hinge_region": {
+      "canonical_name": "left_jaw_hinge_region",
+      "confidence_score": 0.96,
+      "evidence": "Explicit bilateral mandibular pivot design mapped to nearest authorized jaw-region topology.",
+      "intended_rigging_use": "jaw hinge and deform-chain placement",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.44225865602493286,
+        -0.8235983848571777,
+        -0.35509559512138367
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.0298126433044672,
+        -0.2945655882358551,
+        0.7199127078056335
+      ],
+      "primary_vertex_index": 3437,
+      "semantic_description": "left jaw hinge region",
+      "supporting_face_indices": [
+        6387,
+        6390,
+        6391,
+        6392,
+        6512,
+        6513,
+        6514,
+        6515,
+        6516,
+        6517,
+        6518,
+        6519,
+        6520,
+        6521,
+        6522,
+        6523,
+        6525,
+        6677,
+        6678,
+        6679,
+        6681,
+        6682,
+        6683,
+        6686,
+        6688,
+        6689,
+        6796,
+        6797
+      ],
+      "supporting_vertex_indices": [
+        3370,
+        3371,
+        3436,
+        3437,
+        3438,
+        3439,
+        3515,
+        3519
+      ],
+      "symmetry_error": 0.003136513785803224,
+      "symmetry_partner": "right_jaw_hinge_region",
+      "topology_neighborhood_fingerprint": "D353F2D553B883EDBF4E46B263814B26A95F310BDAD15ECDD31BC7072A1E1D6B",
+      "world_space_coordinates": [
+        0.0298126433044672,
+        -0.2945655882358551,
+        0.7199127078056335
+      ]
+    },
+    "left_lower_eyelid": {
+      "canonical_name": "left_lower_eyelid",
+      "confidence_score": 1.0,
+      "evidence": "Deterministic eyelid ribbon derived from certified aperture.",
+      "intended_rigging_use": "blink and lid-follow deformation",
+      "mesh_name": "R2_LowerEyelid.L_Mesh",
+      "normal_direction": [
+        0.0,
+        -0.9987521171569824,
+        0.04994264990091324
+      ],
+      "object_name": "R2_LowerEyelid.L",
+      "object_space_coordinates": [
+        0.01105880830436945,
+        -0.22384455800056458,
+        0.8473822474479675
+      ],
+      "primary_vertex_index": 25,
+      "semantic_description": "left lower eyelid region seed",
+      "supporting_face_indices": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "supporting_vertex_indices": [
+        8,
+        24,
+        25,
+        26
+      ],
+      "symmetry_error": 0.01934230375766004,
+      "symmetry_partner": "right_lower_eyelid",
+      "topology_neighborhood_fingerprint": "0B000AB9017806749A780D340C4520BD665877363BD92E8585C3D2AA40342BBE",
+      "world_space_coordinates": [
+        0.01105880830436945,
+        -0.22384455800056458,
+        0.8473822474479675
+      ]
+    },
+    "left_mouth_corner": {
+      "canonical_name": "left_mouth_corner",
+      "confidence_score": 1.0,
+      "evidence": "Shared neutral lip endpoint from deterministic oral architecture.",
+      "intended_rigging_use": "mouth-corner control",
+      "mesh_name": "R2_LipUpper_Mesh",
+      "normal_direction": [
+        0.023951401934027672,
+        -0.9610274434089661,
+        0.27541330456733704
+      ],
+      "object_name": "R2_LipUpper",
+      "object_space_coordinates": [
+        0.020099015906453133,
+        -0.3060470521450043,
+        0.7121194005012512
+      ],
+      "primary_vertex_index": 20,
+      "semantic_description": "left mouth commissure",
+      "supporting_face_indices": [
+        18,
+        19
+      ],
+      "supporting_vertex_indices": [
+        19,
+        20,
+        41
+      ],
+      "symmetry_error": 0.0,
+      "symmetry_partner": "right_mouth_corner",
+      "topology_neighborhood_fingerprint": "FCB8AAFBAD43F1CB14EF6EDDBCE25415829821C13F544D14A7C7E70DDF36AA99",
+      "world_space_coordinates": [
+        0.020099015906453133,
+        -0.3060470521450043,
+        0.7121194005012512
+      ]
+    },
+    "left_muzzle": {
+      "canonical_name": "left_muzzle",
+      "confidence_score": 0.97,
+      "evidence": "Approved r2_region_id=1 muzzle lineage and anatomical side.",
+      "intended_rigging_use": "broad muzzle control",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.2910066246986389,
+        -0.889927864074707,
+        -0.3512027859687805
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.013110669329762459,
+        -0.3023850619792938,
+        0.7194126844406128
+      ],
+      "primary_vertex_index": 3544,
+      "semantic_description": "left muzzle anchor",
+      "supporting_face_indices": [
+        6730,
+        6731,
+        6751,
+        6752,
+        6753,
+        6754,
+        6767,
+        6768,
+        6769,
+        6770,
+        6796,
+        6797
+      ],
+      "supporting_vertex_indices": [
+        3543,
+        3544,
+        3545,
+        3587,
+        3637
+      ],
+      "symmetry_error": 0.00269219237671232,
+      "symmetry_partner": "right_muzzle",
+      "topology_neighborhood_fingerprint": "38621D0C22948BD2E8EC1A1079867711BF130EC38AC36242145958D3CBF125CF",
+      "world_space_coordinates": [
+        0.013110669329762459,
+        -0.3023850619792938,
+        0.7194126844406128
+      ]
+    },
+    "left_nostril": {
+      "canonical_name": "left_nostril",
+      "confidence_score": 0.93,
+      "evidence": "Approved muzzle lineage plus user-authorized gorilla nasal design and anatomical-side constraint.",
+      "intended_rigging_use": "nostril and upper-muzzle deformation",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.13817349076271057,
+        -0.7803377509117126,
+        0.6099025011062622
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.005798506084829569,
+        -0.2945905923843384,
+        0.7457627654075623
+      ],
+      "primary_vertex_index": 3464,
+      "semantic_description": "left nostril anchor",
+      "supporting_face_indices": [
+        6449,
+        6450,
+        6451,
+        6452,
+        6453,
+        6565,
+        6577,
+        6578,
+        6579,
+        6580,
+        6581,
+        6582,
+        6583,
+        6777,
+        6778,
+        6804,
+        6805,
+        6806
+      ],
+      "supporting_vertex_indices": [
+        3400,
+        3401,
+        3463,
+        3464,
+        3467,
+        3596
+      ],
+      "symmetry_error": 0.003846060718681083,
+      "symmetry_partner": "right_nostril",
+      "topology_neighborhood_fingerprint": "0290503D1AEE2A59ADB1B5B859FE9EE477EC0A64FB5C4BCCE7AD4936BB0CD58F",
+      "world_space_coordinates": [
+        0.005798506084829569,
+        -0.2945905923843384,
+        0.7457627654075623
+      ]
+    },
+    "left_outer_eye_corner": {
+      "canonical_name": "left_outer_eye_corner",
+      "confidence_score": 0.99,
+      "evidence": "Certified r2_region_id=2 aperture boundary plus explicit ocular design authorization.",
+      "intended_rigging_use": "canthus and eyelid anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.15802684426307678,
+        -0.7679346799850464,
+        0.6207284927368164
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.015365147031843662,
+        -0.2239403873682022,
+        0.8511037230491638
+      ],
+      "primary_vertex_index": 2138,
+      "semantic_description": "lateral canthus",
+      "supporting_face_indices": [
+        3693,
+        3694,
+        3708,
+        3709,
+        3710,
+        3711,
+        3962,
+        3964,
+        4226,
+        4240,
+        4241,
+        4408,
+        4409,
+        4410,
+        4412,
+        4436,
+        4437,
+        4438,
+        4439,
+        4440,
+        4441,
+        4442,
+        4444,
+        4469,
+        4470,
+        4471,
+        4473,
+        4492,
+        4493,
+        4548,
+        4549,
+        4550,
+        4552,
+        4575
+      ],
+      "supporting_vertex_indices": [
+        2004,
+        2005,
+        2006,
+        2137,
+        2138,
+        2146,
+        2285,
+        2286,
+        2287,
+        2288,
+        2289
+      ],
+      "symmetry_error": 0.021350867773391857,
+      "symmetry_partner": "right_outer_eye_corner",
+      "topology_neighborhood_fingerprint": "80A8361851BC482ED5E3D34775E431A54FBBF3FA01537E74C5A3E4DFC3A48488",
+      "world_space_coordinates": [
+        0.015365147031843662,
+        -0.2239403873682022,
+        0.8511037230491638
+      ]
+    },
+    "left_upper_eyelid": {
+      "canonical_name": "left_upper_eyelid",
+      "confidence_score": 1.0,
+      "evidence": "Deterministic eyelid ribbon derived from certified aperture.",
+      "intended_rigging_use": "blink and lid-follow deformation",
+      "mesh_name": "R2_UpperEyelid.L_Mesh",
+      "normal_direction": [
+        0.0,
+        0.9987521171569824,
+        -0.04994264990091324
+      ],
+      "object_name": "R2_UpperEyelid.L",
+      "object_space_coordinates": [
+        0.01105880830436945,
+        -0.22363153100013733,
+        0.851642906665802
+      ],
+      "primary_vertex_index": 25,
+      "semantic_description": "left upper eyelid region seed",
+      "supporting_face_indices": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "supporting_vertex_indices": [
+        8,
+        24,
+        25,
+        26
+      ],
+      "symmetry_error": 0.01934230375766004,
+      "symmetry_partner": "right_upper_eyelid",
+      "topology_neighborhood_fingerprint": "28342995183119F904C78FEDB31D7C86FE74FD01A700BC46890AACC67C29EF49",
+      "world_space_coordinates": [
+        0.01105880830436945,
+        -0.22363153100013733,
+        0.851642906665802
+      ]
+    },
+    "lower_lip_boundary": {
+      "canonical_name": "lower_lip_boundary",
+      "confidence_score": 1.0,
+      "evidence": "Deterministic lip outer boundary topology.",
+      "intended_rigging_use": "lip boundary/shape-key responsibility",
+      "mesh_name": "R2_LipLower_Mesh",
+      "normal_direction": [
+        0.005569125059992075,
+        -0.9990478157997131,
+        -0.043272458016872406
+      ],
+      "object_name": "R2_LipLower",
+      "object_space_coordinates": [
+        0.008039605803787708,
+        -0.3059341013431549,
+        0.7093721032142639
+      ],
+      "primary_vertex_index": 35,
+      "semantic_description": "lower lip boundary",
+      "supporting_face_indices": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "supporting_vertex_indices": [
+        14,
+        34,
+        35,
+        36
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "9D0AEC57B0A271240FC448B292A5CC8845AAA420A48986ADD24607F4C87D6F55",
+      "world_space_coordinates": [
+        0.008039605803787708,
+        -0.3059341013431549,
+        0.7093721032142639
+      ]
+    },
+    "lower_lip_center": {
+      "canonical_name": "lower_lip_center",
+      "confidence_score": 1.0,
+      "evidence": "Deterministic user-authorized neutral lip ribbon.",
+      "intended_rigging_use": "lip center and closure control",
+      "mesh_name": "R2_LipLower_Mesh",
+      "normal_direction": [
+        2.9103868620650175e-11,
+        -0.9995970129966736,
+        -0.028389103710651398
+      ],
+      "object_name": "R2_LipLower",
+      "object_space_coordinates": [
+        0.0,
+        -0.3059587776660919,
+        0.7088788747787476
+      ],
+      "primary_vertex_index": 31,
+      "semantic_description": "lower lip center",
+      "supporting_face_indices": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "supporting_vertex_indices": [
+        10,
+        30,
+        31,
+        32
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "7EE372C0D1A7D327DE77B7E162A9FF004E459A157019EFF22A8401ACD6E37FD7",
+      "world_space_coordinates": [
+        0.0,
+        -0.3059587776660919,
+        0.7088788747787476
+      ]
+    },
+    "mouth_opening_boundary": {
+      "canonical_name": "mouth_opening_boundary",
+      "confidence_score": 1.0,
+      "evidence": "Front boundary of the authorized closed oral-cavity support asset.",
+      "intended_rigging_use": "mouth opening and cavity seal",
+      "mesh_name": "R2_MouthInterior_Mesh",
+      "normal_direction": [
+        -7.07221730067431e-08,
+        -1.0,
+        -2.619339856124725e-09
+      ],
+      "object_name": "R2_MouthInterior",
+      "object_space_coordinates": [
+        -7.906764132314947e-10,
+        -0.01049999613314867,
+        0.0
+      ],
+      "primary_vertex_index": 178,
+      "semantic_description": "oral opening boundary reference",
+      "supporting_face_indices": [
+        174,
+        175,
+        185,
+        187,
+        188,
+        190,
+        198,
+        200,
+        201,
+        203,
+        213,
+        214
+      ],
+      "supporting_vertex_indices": [
+        165,
+        177,
+        178,
+        179,
+        191
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "7C293C1C690ED41EBA3A2C840714108BA2EBB250813A909814935BDD78FFAFC5",
+      "world_space_coordinates": [
+        -7.906764132314947e-10,
+        -0.30660945177078247,
+        0.7116225361824036
+      ]
+    },
+    "muzzle_center": {
+      "canonical_name": "muzzle_center",
+      "confidence_score": 0.98,
+      "evidence": "Approved r2_region_id=1 lineage centroid.",
+      "intended_rigging_use": "central muzzle control",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.09258774667978287,
+        -0.9946057796478271,
+        0.04676387459039688
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -3.1877789297141135e-06,
+        -0.30559760332107544,
+        0.7213103771209717
+      ],
+      "primary_vertex_index": 3623,
+      "semantic_description": "muzzle center",
+      "supporting_face_indices": [
+        6729,
+        6730,
+        6731,
+        6732,
+        6733,
+        6734,
+        6735,
+        6736,
+        6737,
+        6738,
+        6739,
+        6740,
+        6741,
+        6742,
+        6743,
+        6744,
+        6745,
+        6746,
+        6747,
+        6748,
+        6749,
+        6750,
+        6751,
+        6752,
+        6753,
+        6754,
+        6755,
+        6756,
+        6757,
+        6758,
+        6759,
+        6760,
+        6761,
+        6762,
+        6763,
+        6764,
+        6765,
+        6766
+      ],
+      "supporting_vertex_indices": [
+        3533,
+        3534,
+        3535,
+        3536,
+        3539,
+        3540,
+        3542,
+        3623,
+        3624,
+        3625,
+        3626,
+        3627,
+        3628,
+        3629,
+        3630,
+        3631,
+        3632,
+        3633,
+        3634,
+        3635,
+        3636,
+        3637,
+        3638
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "399CCC6AE99D4FD29A1A18C6B7506124E97A4D818A38977F52F9A4DFD289C5E2",
+      "world_space_coordinates": [
+        -3.1877789297141135e-06,
+        -0.30559760332107544,
+        0.7213103771209717
+      ]
+    },
+    "neck_attachment_center": {
+      "canonical_name": "neck_attachment_center",
+      "confidence_score": 1.0,
+      "evidence": "Existing normalized neck vertex group and approved neck/head armature chain.",
+      "intended_rigging_use": "neck continuity and head-root reference",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.7023430466651917,
+        -0.41362249851226807,
+        0.579336404800415
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.04954143241047859,
+        -0.24171464145183563,
+        0.757319986820221
+      ],
+      "primary_vertex_index": 2604,
+      "semantic_description": "head-to-neck attachment center",
+      "supporting_face_indices": [
+        4674,
+        4675,
+        4677,
+        4678,
+        4680,
+        4681,
+        4682,
+        4897,
+        4899,
+        4900,
+        4901,
+        4902,
+        4903,
+        4905,
+        5035,
+        5036,
+        5037,
+        5038,
+        5039,
+        5040,
+        5041,
+        5042,
+        5158,
+        5159,
+        5160,
+        5161,
+        5162,
+        5163,
+        5164,
+        5165
+      ],
+      "supporting_vertex_indices": [
+        2502,
+        2503,
+        2603,
+        2604,
+        2605,
+        2671,
+        2672,
+        2673
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "5EF9BE699753B21847F4C1B1DADFC59DED3F637443E7F8D706D66B296CB22BB9",
+      "world_space_coordinates": [
+        0.04954143241047859,
+        -0.24171464145183563,
+        0.757319986820221
+      ]
+    },
+    "nose_bridge_lower": {
+      "canonical_name": "nose_bridge_lower",
+      "confidence_score": 0.98,
+      "evidence": "Approved r2_region_id=3 nasal-bridge lineage and anatomical vertical extremum.",
+      "intended_rigging_use": "lower nasal bridge anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.2359563410282135,
+        -0.6734045743942261,
+        0.7006074786186218
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.0021287102717906237,
+        -0.25129464268684387,
+        0.7896386384963989
+      ],
+      "primary_vertex_index": 3648,
+      "semantic_description": "nose bridge lower",
+      "supporting_face_indices": [
+        5193,
+        5194,
+        5195,
+        5196,
+        5197,
+        5198,
+        5199,
+        5200,
+        5202,
+        5203,
+        5204,
+        5205,
+        5305,
+        5312,
+        5313,
+        5320,
+        5321,
+        5322,
+        5323,
+        5436,
+        5437,
+        5438
+      ],
+      "supporting_vertex_indices": [
+        2817,
+        3639,
+        3647,
+        3648,
+        3649
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "2B060A68FB36187BAB0C372A7584E00135089F8E1FA49E35B7B761ADDA61474C",
+      "world_space_coordinates": [
+        -0.0021287102717906237,
+        -0.25129464268684387,
+        0.7896386384963989
+      ]
+    },
+    "nose_bridge_upper": {
+      "canonical_name": "nose_bridge_upper",
+      "confidence_score": 0.98,
+      "evidence": "Approved r2_region_id=3 nasal-bridge lineage and anatomical vertical extremum.",
+      "intended_rigging_use": "upper nasal bridge anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.021654997020959854,
+        -0.682849109172821,
+        0.7302383184432983
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        0.0006314408965408802,
+        -0.24572713673114777,
+        0.7953976988792419
+      ],
+      "primary_vertex_index": 3642,
+      "semantic_description": "nose bridge upper",
+      "supporting_face_indices": [
+        4951,
+        4952,
+        4953,
+        5078,
+        5193,
+        5194,
+        5195,
+        5196,
+        5197,
+        5198,
+        5199,
+        5200,
+        5202,
+        5203,
+        5204,
+        5205,
+        5312,
+        5313,
+        5444,
+        5445,
+        5446,
+        5447
+      ],
+      "supporting_vertex_indices": [
+        2629,
+        3639,
+        3641,
+        3642,
+        3643
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "0587777C259F7479CCB5FD6167B6F24F83902672FA08C91794D2E43659178F53",
+      "world_space_coordinates": [
+        0.0006314408965408802,
+        -0.24572713673114777,
+        0.7953976988792419
+      ]
+    },
+    "nose_tip": {
+      "canonical_name": "nose_tip",
+      "confidence_score": 0.95,
+      "evidence": "Combined approved nasal and muzzle lineage with maximum anatomical-front support near lower bridge.",
+      "intended_rigging_use": "nose-tip deformation anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.44686010479927063,
+        -0.6213820576667786,
+        0.643584132194519
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.004149395506829023,
+        -0.2537388205528259,
+        0.7849507927894592
+      ],
+      "primary_vertex_index": 2817,
+      "semantic_description": "anterior nasal tip",
+      "supporting_face_indices": [
+        5189,
+        5198,
+        5199,
+        5305,
+        5311,
+        5320,
+        5321,
+        5322,
+        5323,
+        5426,
+        5427,
+        5428,
+        5431,
+        5436,
+        5437,
+        5438,
+        5439,
+        5567,
+        5568,
+        5569,
+        5575,
+        5576
+      ],
+      "supporting_vertex_indices": [
+        2753,
+        2814,
+        2817,
+        2876,
+        2880,
+        2881,
+        3648
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "8B3775A65B3D3E9E271E1231BD60071C59FBF1706392B11E890AB9B11BA44AB0",
+      "world_space_coordinates": [
+        -0.004149395506829023,
+        -0.2537388205528259,
+        0.7849507927894592
+      ]
+    },
+    "right_brow_center": {
+      "canonical_name": "right_brow_center",
+      "confidence_score": 0.96,
+      "evidence": "Approved r2_region_id=2 lineage, anatomical side and deterministic upper-lateral ordering.",
+      "intended_rigging_use": "brow deformation anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.183751180768013,
+        -0.9487146735191345,
+        0.25724688172340393
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.015257780440151691,
+        -0.23156821727752686,
+        0.841367244720459
+      ],
+      "primary_vertex_index": 2432,
+      "semantic_description": "right brow center",
+      "supporting_face_indices": [
+        4220,
+        4221,
+        4515,
+        4537,
+        4538,
+        4539,
+        4540,
+        4541,
+        4542,
+        4546,
+        4547,
+        4571,
+        4573,
+        4574,
+        4744,
+        4746,
+        4747,
+        4748,
+        4749,
+        4750,
+        4769,
+        4771,
+        4772,
+        4795,
+        4796,
+        4797,
+        4798,
+        4818
+      ],
+      "supporting_vertex_indices": [
+        2283,
+        2410,
+        2431,
+        2432,
+        2444,
+        2445,
+        2551
+      ],
+      "symmetry_error": 0.01788890146941761,
+      "symmetry_partner": "left_brow_center",
+      "topology_neighborhood_fingerprint": "472E4CE8F411330AE9A99494B04A92C2969E941911A7E1C78F0DD21A79FE0A91",
+      "world_space_coordinates": [
+        -0.015257780440151691,
+        -0.23156821727752686,
+        0.841367244720459
+      ]
+    },
+    "right_brow_inner": {
+      "canonical_name": "right_brow_inner",
+      "confidence_score": 0.96,
+      "evidence": "Approved r2_region_id=2 lineage, anatomical side and deterministic upper-lateral ordering.",
+      "intended_rigging_use": "brow deformation anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.10629232227802277,
+        -0.7637423872947693,
+        0.6367099285125732
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.002554879290983081,
+        -0.2238713949918747,
+        0.8488450646400452
+      ],
+      "primary_vertex_index": 2135,
+      "semantic_description": "right brow inner",
+      "supporting_face_indices": [
+        3687,
+        3688,
+        3690,
+        3942,
+        3943,
+        3944,
+        3945,
+        3946,
+        3960,
+        3961,
+        4214,
+        4215,
+        4221,
+        4222,
+        4223,
+        4224,
+        4225,
+        4239,
+        4408,
+        4409,
+        4410,
+        4412,
+        4436,
+        4492,
+        4493,
+        4541,
+        4543,
+        4544,
+        4545
+      ],
+      "supporting_vertex_indices": [
+        2001,
+        2132,
+        2133,
+        2135,
+        2136,
+        2137,
+        2276,
+        2278,
+        2279
+      ],
+      "symmetry_error": 0.005532222360061466,
+      "symmetry_partner": "left_brow_inner",
+      "topology_neighborhood_fingerprint": "F55CC53229504F641F7AB3B532DE311CF8731B971A4CB9ECDA05ADC88C922F5E",
+      "world_space_coordinates": [
+        -0.002554879290983081,
+        -0.2238713949918747,
+        0.8488450646400452
+      ]
+    },
+    "right_brow_outer": {
+      "canonical_name": "right_brow_outer",
+      "confidence_score": 0.96,
+      "evidence": "Approved r2_region_id=2 lineage, anatomical side and deterministic upper-lateral ordering.",
+      "intended_rigging_use": "brow deformation anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.09272661060094833,
+        -0.9956014156341553,
+        -0.01340040285140276
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.01906929910182953,
+        -0.2327830195426941,
+        0.8384597301483154
+      ],
+      "primary_vertex_index": 2550,
+      "semantic_description": "right brow outer",
+      "supporting_face_indices": [
+        4494,
+        4495,
+        4513,
+        4514,
+        4515,
+        4537,
+        4538,
+        4546,
+        4547,
+        4744,
+        4745,
+        4767,
+        4768,
+        4770,
+        4793,
+        4795,
+        4796,
+        4797,
+        4798,
+        4799,
+        4818
+      ],
+      "supporting_vertex_indices": [
+        2394,
+        2444,
+        2539,
+        2549,
+        2550,
+        2551
+      ],
+      "symmetry_error": 0.017440427367838195,
+      "symmetry_partner": "left_brow_outer",
+      "topology_neighborhood_fingerprint": "2DE495E1E821DBACF1619D45AAD3E09D267F95CA161CE9B26E5EDFDCB7B7E6D0",
+      "world_space_coordinates": [
+        -0.01906929910182953,
+        -0.2327830195426941,
+        0.8384597301483154
+      ]
+    },
+    "right_cheek_center": {
+      "canonical_name": "right_cheek_center",
+      "confidence_score": 0.98,
+      "evidence": "Approved r2_v40_cheek_side face lineage.",
+      "intended_rigging_use": "cheek raise and volume control",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.6120634078979492,
+        -0.5966295599937439,
+        0.519048810005188
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.011836003512144089,
+        -0.24951045215129852,
+        0.7823452353477478
+      ],
+      "primary_vertex_index": 2750,
+      "semantic_description": "right cheek center",
+      "supporting_face_indices": [
+        5060,
+        5061,
+        5064,
+        5065,
+        5189,
+        5305,
+        5311,
+        5322,
+        5323,
+        5424,
+        5425,
+        5426,
+        5427,
+        5428,
+        5430,
+        5431,
+        5432,
+        5434,
+        5435,
+        5436
+      ],
+      "supporting_vertex_indices": [
+        2685,
+        2687,
+        2750,
+        2753,
+        2811,
+        2814
+      ],
+      "symmetry_error": 0.008814058342703485,
+      "symmetry_partner": "left_cheek_center",
+      "topology_neighborhood_fingerprint": "EF15BC1EB20BEAE8F3D08BF0118EC67F83C7334C03C4ABE4321FA825FD4C7053",
+      "world_space_coordinates": [
+        -0.011836003512144089,
+        -0.24951045215129852,
+        0.7823452353477478
+      ]
+    },
+    "right_ear_base": {
+      "canonical_name": "right_ear_base",
+      "confidence_score": 0.9,
+      "evidence": "Existing head-side attachment topology; exterior ear shape preserved and only semantic ownership added.",
+      "intended_rigging_use": "ear-base deformation anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.5319384932518005,
+        -0.617728590965271,
+        -0.579183042049408
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.03517594188451767,
+        -0.20713093876838684,
+        0.8202084302902222
+      ],
+      "primary_vertex_index": 1594,
+      "semantic_description": "right ear-base attachment",
+      "supporting_face_indices": [
+        2901,
+        2902,
+        2913,
+        2914,
+        3140,
+        3141,
+        3142,
+        3148,
+        3397,
+        3418,
+        3419,
+        3420
+      ],
+      "supporting_vertex_indices": [
+        1586,
+        1593,
+        1594,
+        1711,
+        1716
+      ],
+      "symmetry_error": 0.04890047654821838,
+      "symmetry_partner": "left_ear_base",
+      "topology_neighborhood_fingerprint": "3C2CB0DAF658F222566F9FFC12E7AB61513BBD98E32FB7C70AB1395E3B7F1762",
+      "world_space_coordinates": [
+        -0.03517594188451767,
+        -0.20713093876838684,
+        0.8202084302902222
+      ]
+    },
+    "right_inner_eye_corner": {
+      "canonical_name": "right_inner_eye_corner",
+      "confidence_score": 0.99,
+      "evidence": "Certified r2_region_id=2 aperture boundary plus explicit ocular design authorization.",
+      "intended_rigging_use": "canthus and eyelid anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.144779235124588,
+        -0.989318311214447,
+        -0.01698179915547371
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.010386424139142036,
+        -0.23160021007061005,
+        0.8347072005271912
+      ],
+      "primary_vertex_index": 2410,
+      "semantic_description": "medial canthus",
+      "supporting_face_indices": [
+        4411,
+        4414,
+        4443,
+        4446,
+        4472,
+        4475,
+        4494,
+        4495,
+        4496,
+        4497,
+        4513,
+        4514,
+        4515,
+        4516,
+        4517,
+        4518,
+        4519,
+        4538,
+        4539,
+        4540,
+        4541,
+        4542,
+        4543,
+        4546,
+        4547,
+        4744,
+        4746,
+        4747,
+        4748,
+        4749,
+        4750,
+        4769,
+        4771,
+        4772,
+        4773,
+        4774,
+        4797,
+        4798,
+        4799
+      ],
+      "supporting_vertex_indices": [
+        2382,
+        2394,
+        2395,
+        2396,
+        2397,
+        2410,
+        2411,
+        2420,
+        2421,
+        2431,
+        2432,
+        2433,
+        2551
+      ],
+      "symmetry_error": 0.016625728291108668,
+      "symmetry_partner": "left_inner_eye_corner",
+      "topology_neighborhood_fingerprint": "52868451AF8B6FBA4B6B86B703568FA3E4308578D9589AF0DD46A2CDCF2DE636",
+      "world_space_coordinates": [
+        -0.010386424139142036,
+        -0.23160021007061005,
+        0.8347072005271912
+      ]
+    },
+    "right_jaw_hinge_region": {
+      "canonical_name": "right_jaw_hinge_region",
+      "confidence_score": 0.96,
+      "evidence": "Explicit bilateral mandibular pivot design mapped to nearest authorized jaw-region topology.",
+      "intended_rigging_use": "jaw hinge and deform-chain placement",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.30991339683532715,
+        -0.9317557215690613,
+        0.18916909396648407
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.029564497992396355,
+        -0.2973441779613495,
+        0.7213464379310608
+      ],
+      "primary_vertex_index": 3516,
+      "semantic_description": "right jaw hinge region",
+      "supporting_face_indices": [
+        6680,
+        6684,
+        6685,
+        6690,
+        6691,
+        6692,
+        6727,
+        6728,
+        6813,
+        6814,
+        6815
+      ],
+      "supporting_vertex_indices": [
+        3513,
+        3516,
+        3517,
+        3520,
+        3521
+      ],
+      "symmetry_error": 0.003136513785803224,
+      "symmetry_partner": "left_jaw_hinge_region",
+      "topology_neighborhood_fingerprint": "4405341CD0A53C8296185E8EBB6A0B8A2E46CC456F2D581BCD5D26CB7A3D4982",
+      "world_space_coordinates": [
+        -0.029564497992396355,
+        -0.2973441779613495,
+        0.7213464379310608
+      ]
+    },
+    "right_lower_eyelid": {
+      "canonical_name": "right_lower_eyelid",
+      "confidence_score": 1.0,
+      "evidence": "Deterministic eyelid ribbon derived from certified aperture.",
+      "intended_rigging_use": "blink and lid-follow deformation",
+      "mesh_name": "R2_LowerEyelid.R_Mesh",
+      "normal_direction": [
+        1.9895196601282805e-13,
+        -0.9987521171569824,
+        0.04994264990091324
+      ],
+      "object_name": "R2_LowerEyelid.R",
+      "object_space_coordinates": [
+        -0.014793476089835167,
+        -0.2316776067018509,
+        0.8300958275794983
+      ],
+      "primary_vertex_index": 25,
+      "semantic_description": "right lower eyelid region seed",
+      "supporting_face_indices": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "supporting_vertex_indices": [
+        8,
+        24,
+        25,
+        26
+      ],
+      "symmetry_error": 0.01934230375766004,
+      "symmetry_partner": "left_lower_eyelid",
+      "topology_neighborhood_fingerprint": "0336D6D835A4CA04524DB77F9980CB656DC1F87D83C9CEE7E798C696AFD6638A",
+      "world_space_coordinates": [
+        -0.014793476089835167,
+        -0.2316776067018509,
+        0.8300958275794983
+      ]
+    },
+    "right_mouth_corner": {
+      "canonical_name": "right_mouth_corner",
+      "confidence_score": 1.0,
+      "evidence": "Shared neutral lip endpoint from deterministic oral architecture.",
+      "intended_rigging_use": "mouth-corner control",
+      "mesh_name": "R2_LipUpper_Mesh",
+      "normal_direction": [
+        -0.023951401934027672,
+        -0.9610274434089661,
+        0.27541330456733704
+      ],
+      "object_name": "R2_LipUpper",
+      "object_space_coordinates": [
+        -0.020099015906453133,
+        -0.3060470521450043,
+        0.7121194005012512
+      ],
+      "primary_vertex_index": 0,
+      "semantic_description": "right mouth commissure",
+      "supporting_face_indices": [
+        0,
+        1
+      ],
+      "supporting_vertex_indices": [
+        0,
+        1,
+        21
+      ],
+      "symmetry_error": 0.0,
+      "symmetry_partner": "left_mouth_corner",
+      "topology_neighborhood_fingerprint": "3C5441A7EFD7139C29D1754F8655C7F643B750073B43D61C373413DC5397295A",
+      "world_space_coordinates": [
+        -0.020099015906453133,
+        -0.3060470521450043,
+        0.7121194005012512
+      ]
+    },
+    "right_muzzle": {
+      "canonical_name": "right_muzzle",
+      "confidence_score": 0.97,
+      "evidence": "Approved r2_region_id=1 muzzle lineage and anatomical side.",
+      "intended_rigging_use": "broad muzzle control",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.3344404995441437,
+        -0.9298095703125,
+        0.1536346673965454
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.01317760068923235,
+        -0.303909569978714,
+        0.7216306328773499
+      ],
+      "primary_vertex_index": 3569,
+      "semantic_description": "right muzzle anchor",
+      "supporting_face_indices": [
+        6744,
+        6786,
+        6787,
+        6788,
+        6789,
+        6814,
+        6815
+      ],
+      "supporting_vertex_indices": [
+        3568,
+        3569,
+        3570,
+        3606
+      ],
+      "symmetry_error": 0.00269219237671232,
+      "symmetry_partner": "left_muzzle",
+      "topology_neighborhood_fingerprint": "1011DEABC86AAE1E17F1BF87E7618C866253FF75C6A89458C38CF9C2A1D23561",
+      "world_space_coordinates": [
+        -0.01317760068923235,
+        -0.303909569978714,
+        0.7216306328773499
+      ]
+    },
+    "right_nostril": {
+      "canonical_name": "right_nostril",
+      "confidence_score": 0.93,
+      "evidence": "Approved muzzle lineage plus user-authorized gorilla nasal design and anatomical-side constraint.",
+      "intended_rigging_use": "nostril and upper-muzzle deformation",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        -0.059562455862760544,
+        -0.7916547060012817,
+        0.608058512210846
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.0020749422255903482,
+        -0.29555344581604004,
+        0.7457757592201233
+      ],
+      "primary_vertex_index": 3466,
+      "semantic_description": "right nostril anchor",
+      "supporting_face_indices": [
+        6444,
+        6445,
+        6446,
+        6447,
+        6448,
+        6449,
+        6573,
+        6574,
+        6575,
+        6576,
+        6577,
+        6578,
+        6580,
+        6708,
+        6710,
+        6711,
+        6712,
+        6779,
+        6780,
+        6805,
+        6806,
+        6807,
+        6808
+      ],
+      "supporting_vertex_indices": [
+        3398,
+        3399,
+        3465,
+        3466,
+        3467,
+        3532,
+        3598
+      ],
+      "symmetry_error": 0.003846060718681083,
+      "symmetry_partner": "left_nostril",
+      "topology_neighborhood_fingerprint": "0CF3D5C2FFBCAEA2D59AF8D4A661436BE1F761B9001810ECD49ED00F57220CA1",
+      "world_space_coordinates": [
+        -0.0020749422255903482,
+        -0.29555344581604004,
+        0.7457757592201233
+      ]
+    },
+    "right_outer_eye_corner": {
+      "canonical_name": "right_outer_eye_corner",
+      "confidence_score": 0.99,
+      "evidence": "Certified r2_region_id=2 aperture boundary plus explicit ocular design authorization.",
+      "intended_rigging_use": "canthus and eyelid anchor",
+      "mesh_name": "R2_Head_Face_Foundation_Mesh",
+      "normal_direction": [
+        0.04380444809794426,
+        -0.9637055397033691,
+        -0.2633492052555084
+      ],
+      "object_name": "R2_Head_Face_Foundation",
+      "object_space_coordinates": [
+        -0.018761046230793,
+        -0.23226411640644073,
+        0.8317376971244812
+      ],
+      "primary_vertex_index": 2394,
+      "semantic_description": "lateral canthus",
+      "supporting_face_indices": [
+        4140,
+        4142,
+        4181,
+        4182,
+        4183,
+        4434,
+        4435,
+        4494,
+        4495,
+        4513,
+        4514,
+        4515,
+        4546,
+        4547,
+        4742,
+        4744,
+        4745,
+        4746,
+        4747,
+        4748,
+        4749,
+        4750,
+        4767,
+        4769,
+        4770,
+        4771,
+        4772,
+        4773,
+        4774,
+        4795,
+        4797,
+        4798,
+        4799
+      ],
+      "supporting_vertex_indices": [
+        2239,
+        2260,
+        2393,
+        2394,
+        2395,
+        2396,
+        2410,
+        2539,
+        2550,
+        2551
+      ],
+      "symmetry_error": 0.021350867773391857,
+      "symmetry_partner": "left_outer_eye_corner",
+      "topology_neighborhood_fingerprint": "CA23069EF55CEF6D3A3207A31C707A828E6D98F6929FB6F64FB201346CC5F101",
+      "world_space_coordinates": [
+        -0.018761046230793,
+        -0.23226411640644073,
+        0.8317376971244812
+      ]
+    },
+    "right_upper_eyelid": {
+      "canonical_name": "right_upper_eyelid",
+      "confidence_score": 1.0,
+      "evidence": "Deterministic eyelid ribbon derived from certified aperture.",
+      "intended_rigging_use": "blink and lid-follow deformation",
+      "mesh_name": "R2_UpperEyelid.R_Mesh",
+      "normal_direction": [
+        1.9895196601282805e-13,
+        0.9987521171569824,
+        -0.04994264990091324
+      ],
+      "object_name": "R2_UpperEyelid.R",
+      "object_space_coordinates": [
+        -0.014793476089835167,
+        -0.23146457970142365,
+        0.8343564867973328
+      ],
+      "primary_vertex_index": 25,
+      "semantic_description": "right upper eyelid region seed",
+      "supporting_face_indices": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "supporting_vertex_indices": [
+        8,
+        24,
+        25,
+        26
+      ],
+      "symmetry_error": 0.01934230375766004,
+      "symmetry_partner": "left_upper_eyelid",
+      "topology_neighborhood_fingerprint": "AB9E0D9819FF3AD854FFE25B109FD37422A4D64F1F0220DE0EC5FED01DCD61A5",
+      "world_space_coordinates": [
+        -0.014793476089835167,
+        -0.23146457970142365,
+        0.8343564867973328
+      ]
+    },
+    "upper_lip_boundary": {
+      "canonical_name": "upper_lip_boundary",
+      "confidence_score": 1.0,
+      "evidence": "Deterministic lip outer boundary topology.",
+      "intended_rigging_use": "lip boundary/shape-key responsibility",
+      "mesh_name": "R2_LipUpper_Mesh",
+      "normal_direction": [
+        0.005570820067077875,
+        -0.9904707074165344,
+        0.1376110315322876
+      ],
+      "object_name": "R2_LipUpper",
+      "object_space_coordinates": [
+        0.008039605803787708,
+        -0.30565258860588074,
+        0.7150026559829712
+      ],
+      "primary_vertex_index": 35,
+      "semantic_description": "upper lip boundary",
+      "supporting_face_indices": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "supporting_vertex_indices": [
+        14,
+        34,
+        35,
+        36
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "7FF39344D0EF9C0E5BF5740FA916A05DC6C023F9EA6C04F54E73CCB2EDE31566",
+      "world_space_coordinates": [
+        0.008039605803787708,
+        -0.30565258860588074,
+        0.7150026559829712
+      ]
+    },
+    "upper_lip_center": {
+      "canonical_name": "upper_lip_center",
+      "confidence_score": 1.0,
+      "evidence": "Deterministic user-authorized neutral lip ribbon.",
+      "intended_rigging_use": "lip center and closure control",
+      "mesh_name": "R2_LipUpper_Mesh",
+      "normal_direction": [
+        -2.9103868620650175e-11,
+        -0.9923255443572998,
+        0.12365357577800751
+      ],
+      "object_name": "R2_LipUpper",
+      "object_space_coordinates": [
+        0.0,
+        -0.3056264817714691,
+        0.7155249118804932
+      ],
+      "primary_vertex_index": 31,
+      "semantic_description": "upper lip center",
+      "supporting_face_indices": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "supporting_vertex_indices": [
+        10,
+        30,
+        31,
+        32
+      ],
+      "symmetry_error": null,
+      "symmetry_partner": null,
+      "topology_neighborhood_fingerprint": "F6955215888C13E8C79227BB3E65DABDE30A4934816A725062F9852D9D933C73",
+      "world_space_coordinates": [
+        0.0,
+        -0.3056264817714691,
+        0.7155249118804932
+      ]
+    }
+  },
+  "mandatory_landmark_count": 38,
+  "schema_version": 2,
+  "source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "technical_verdict": "APROVADO"
+}

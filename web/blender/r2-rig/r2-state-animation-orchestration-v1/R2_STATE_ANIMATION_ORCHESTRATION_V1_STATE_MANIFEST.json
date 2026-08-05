@@ -1,0 +1,426 @@
+{
+  "schemaVersion": 1,
+  "stateCount": 10,
+  "states": {
+    "neutral": {
+      "id": "neutral",
+      "clip": "R2_NEUTRAL",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "eye": "forward",
+      "blinkIntervalSeconds": [
+        4,
+        7
+      ],
+      "expressions": {},
+      "mouth": "closed_neutral",
+      "loop": "repeat",
+      "transitionSeconds": 0.25,
+      "interruptible": true,
+      "fallback": "neutral",
+      "priority": "low",
+      "description": "Pose neutra recuperável e baseline exato do personagem.",
+      "playbackMode": "loop",
+      "playbackSpeed": 1,
+      "fadeInMs": 250,
+      "fadeOutMs": 250,
+      "crossFadeMs": 250,
+      "minimumDurationMs": 0,
+      "maximumDurationMs": null,
+      "returnState": "neutral",
+      "cooldownMs": 0,
+      "morphTargetProfile": "neutral",
+      "headTrackingProfile": "forward",
+      "eyeProfile": "forward",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    },
+    "idle": {
+      "id": "idle",
+      "clip": "R2_IDLE",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "eye": "ambient_subtle",
+      "blinkIntervalSeconds": [
+        3.5,
+        6.5
+      ],
+      "expressions": {},
+      "mouth": "closed_neutral",
+      "loop": "repeat",
+      "transitionSeconds": 0.45,
+      "interruptible": true,
+      "fallback": "neutral",
+      "priority": "low",
+      "description": "Presença ambiental discreta quando não há tarefa ativa.",
+      "playbackMode": "loop",
+      "playbackSpeed": 1,
+      "fadeInMs": 450,
+      "fadeOutMs": 450,
+      "crossFadeMs": 450,
+      "minimumDurationMs": 0,
+      "maximumDurationMs": null,
+      "returnState": "neutral",
+      "cooldownMs": 0,
+      "morphTargetProfile": "neutral",
+      "headTrackingProfile": "ambient_subtle",
+      "eyeProfile": "ambient_subtle",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    },
+    "working": {
+      "id": "working",
+      "clip": "R2_WORKING",
+      "head": [
+        -0.02,
+        0,
+        0
+      ],
+      "eye": "task_focus",
+      "blinkIntervalSeconds": [
+        4,
+        7
+      ],
+      "expressions": {
+        "BROW_FROWN": 0.1
+      },
+      "mouth": "closed_neutral",
+      "loop": "repeat",
+      "transitionSeconds": 0.35,
+      "interruptible": true,
+      "fallback": "idle",
+      "minimumDurationMs": 250,
+      "morphTargetProfile": "focus",
+      "description": "Execução concentrada de uma tarefa operacional.",
+      "playbackMode": "loop",
+      "playbackSpeed": 1,
+      "fadeInMs": 350,
+      "fadeOutMs": 350,
+      "crossFadeMs": 350,
+      "maximumDurationMs": null,
+      "priority": "normal",
+      "returnState": "idle",
+      "cooldownMs": 0,
+      "headTrackingProfile": "task_focus",
+      "eyeProfile": "task_focus",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    },
+    "listening": {
+      "id": "listening",
+      "clip": "R2_LISTENING",
+      "head": [
+        0,
+        0,
+        0.02
+      ],
+      "eye": "user_focus",
+      "blinkIntervalSeconds": [
+        3,
+        5.5
+      ],
+      "expressions": {
+        "BROW_RAISE": 0.08
+      },
+      "mouth": "closed_neutral",
+      "loop": "repeat",
+      "transitionSeconds": 0.3,
+      "interruptible": true,
+      "fallback": "idle",
+      "minimumDurationMs": 200,
+      "morphTargetProfile": "listen",
+      "description": "Escuta atenta com foco no usuário.",
+      "playbackMode": "loop",
+      "playbackSpeed": 1,
+      "fadeInMs": 300,
+      "fadeOutMs": 300,
+      "crossFadeMs": 300,
+      "maximumDurationMs": null,
+      "priority": "normal",
+      "returnState": "idle",
+      "cooldownMs": 0,
+      "headTrackingProfile": "user_focus",
+      "eyeProfile": "user_focus",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    },
+    "thinking": {
+      "id": "thinking",
+      "clip": "R2_THINKING",
+      "head": [
+        -0.02,
+        -0.02,
+        0.03
+      ],
+      "eye": "up_lateral",
+      "blinkIntervalSeconds": [
+        4.5,
+        7.5
+      ],
+      "expressions": {
+        "BROW_RAISE": 0.18,
+        "MOUTH_NARROW": 0.05
+      },
+      "mouth": "closed_neutral",
+      "loop": "repeat",
+      "transitionSeconds": 0.35,
+      "interruptible": true,
+      "fallback": "idle",
+      "minimumDurationMs": 350,
+      "morphTargetProfile": "think",
+      "description": "Raciocínio deliberado antes de uma resposta ou decisão.",
+      "playbackMode": "loop",
+      "playbackSpeed": 1,
+      "fadeInMs": 350,
+      "fadeOutMs": 350,
+      "crossFadeMs": 350,
+      "maximumDurationMs": null,
+      "priority": "normal",
+      "returnState": "idle",
+      "cooldownMs": 0,
+      "headTrackingProfile": "up_lateral",
+      "eyeProfile": "up_lateral",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    },
+    "awaiting_action": {
+      "id": "awaiting_action",
+      "clip": "R2_AWAITING_ACTION",
+      "head": [
+        0.01,
+        0,
+        0
+      ],
+      "eye": "user_focus",
+      "blinkIntervalSeconds": [
+        3,
+        5
+      ],
+      "expressions": {
+        "BROW_RAISE": 0.12
+      },
+      "mouth": "closed_neutral",
+      "loop": "repeat",
+      "transitionSeconds": 0.3,
+      "interruptible": true,
+      "fallback": "listening",
+      "minimumDurationMs": 300,
+      "morphTargetProfile": "listen",
+      "description": "Espera explícita por uma ação do usuário.",
+      "playbackMode": "loop",
+      "playbackSpeed": 1,
+      "fadeInMs": 300,
+      "fadeOutMs": 300,
+      "crossFadeMs": 300,
+      "maximumDurationMs": null,
+      "priority": "normal",
+      "returnState": "listening",
+      "cooldownMs": 0,
+      "headTrackingProfile": "user_focus",
+      "eyeProfile": "user_focus",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    },
+    "alert": {
+      "id": "alert",
+      "clip": "R2_ALERT",
+      "head": [
+        0.02,
+        0,
+        0
+      ],
+      "eye": "event_focus",
+      "blinkIntervalSeconds": [
+        5,
+        8
+      ],
+      "expressions": {
+        "BROW_RAISE": 0.25,
+        "BROW_FROWN": 0.08
+      },
+      "mouth": "closed_neutral",
+      "loop": "repeat",
+      "transitionSeconds": 0.15,
+      "interruptible": true,
+      "fallback": "neutral",
+      "minimumDurationMs": 400,
+      "priority": "critical",
+      "cooldownMs": 300,
+      "morphTargetProfile": "alert",
+      "description": "Alerta operacional que pode interromper estados menos prioritários.",
+      "playbackMode": "loop",
+      "playbackSpeed": 1,
+      "fadeInMs": 150,
+      "fadeOutMs": 150,
+      "crossFadeMs": 150,
+      "maximumDurationMs": null,
+      "returnState": "neutral",
+      "headTrackingProfile": "event_focus",
+      "eyeProfile": "event_focus",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    },
+    "speaking": {
+      "id": "speaking",
+      "clip": "R2_IDLE",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "eye": "user_focus",
+      "blinkIntervalSeconds": [
+        3.5,
+        6
+      ],
+      "expressions": {
+        "CHEEK_RAISE": 0.05
+      },
+      "mouth": "runtime_viseme",
+      "loop": "repeat",
+      "transitionSeconds": 0.2,
+      "interruptible": true,
+      "fallback": "listening",
+      "minimumDurationMs": 500,
+      "priority": "high",
+      "morphTargetProfile": "speak",
+      "description": "Fala ativa; reutiliza com transparência o clipe corporal de idle.",
+      "playbackMode": "loop",
+      "playbackSpeed": 1,
+      "fadeInMs": 200,
+      "fadeOutMs": 200,
+      "crossFadeMs": 200,
+      "maximumDurationMs": null,
+      "returnState": "listening",
+      "cooldownMs": 0,
+      "headTrackingProfile": "user_focus",
+      "eyeProfile": "user_focus",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    },
+    "celebrating_sale": {
+      "id": "celebrating_sale",
+      "clip": "R2_CELEBRATING_SALE",
+      "head": [
+        0,
+        0,
+        0
+      ],
+      "eye": "user_focus",
+      "blinkIntervalSeconds": [
+        3,
+        5
+      ],
+      "expressions": {
+        "SMILE": 0.65,
+        "CHEEK_RAISE": 0.25
+      },
+      "mouth": "confident_smile",
+      "loop": "once",
+      "transitionSeconds": 0.25,
+      "interruptible": false,
+      "fallback": "idle",
+      "playbackMode": "one_shot",
+      "minimumDurationMs": 800,
+      "maximumDurationMs": 2400,
+      "priority": "high",
+      "returnState": "idle",
+      "cooldownMs": 1000,
+      "morphTargetProfile": "celebrate",
+      "description": "Comemoração one-shot com retorno automático e seguro ao idle.",
+      "playbackSpeed": 1,
+      "fadeInMs": 250,
+      "fadeOutMs": 250,
+      "crossFadeMs": 250,
+      "headTrackingProfile": "user_focus",
+      "eyeProfile": "user_focus",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    },
+    "error_attention": {
+      "id": "error_attention",
+      "clip": "R2_ERROR_ATTENTION",
+      "head": [
+        -0.02,
+        0,
+        0
+      ],
+      "eye": "event_focus",
+      "blinkIntervalSeconds": [
+        4.5,
+        7
+      ],
+      "expressions": {
+        "BROW_FROWN": 0.45,
+        "FROWN": 0.28
+      },
+      "mouth": "serious_closed",
+      "loop": "once",
+      "transitionSeconds": 0.18,
+      "interruptible": false,
+      "fallback": "neutral",
+      "playbackMode": "one_shot",
+      "minimumDurationMs": 600,
+      "maximumDurationMs": 2000,
+      "priority": "critical",
+      "returnState": "neutral",
+      "cooldownMs": 750,
+      "morphTargetProfile": "error",
+      "description": "Erro crítico one-shot com retorno automático ao baseline neutro.",
+      "playbackSpeed": 1,
+      "fadeInMs": 180,
+      "fadeOutMs": 180,
+      "crossFadeMs": 180,
+      "headTrackingProfile": "event_focus",
+      "eyeProfile": "event_focus",
+      "reducedMotionProfile": {
+        "playbackMode": "pose",
+        "playbackSpeed": 0,
+        "crossFadeMs": 120,
+        "proceduralMotion": false
+      }
+    }
+  }
+}

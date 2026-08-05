@@ -1,0 +1,9 @@
+R2_ORIENTATION_OK
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v4-oriented.blend
+bones=51
+body_forward=-Y
+body_rotation=0.000000,0.000000,0.000000
+dimensions=0.611580,1.066222,2.000000
+bounds_min=-0.305790,-0.533111,-1.000000
+bounds_max=0.305790,0.533111,1.000000
+status=body_oriented

@@ -31,6 +31,7 @@ vi.mock(
     Sidebar: (props: {
       open: boolean
       collapsed: boolean
+      user: DashboardData["user"]
       onClose: () => void
       onCollapsedChange: (
         collapsed: boolean
@@ -84,6 +85,8 @@ vi.mock(
       summary: DashboardData["summary"]
       metrics: DashboardData["metrics"]
       tasks: DashboardData["tasks"]
+      opportunities:
+        DashboardData["opportunities"]
     }) => {
       dashboardContentMock(props)
 
@@ -100,6 +103,8 @@ const dashboardData: DashboardData = {
   user: {
     id: "user-1",
     name: "Rafael Barcelos",
+    positionTitle:
+      "Consultor Sênior",
   },
   summary:
     "O R2 encontrou três ações prioritárias.",
@@ -119,6 +124,26 @@ const dashboardData: DashboardData = {
     },
   ],
   pipeline: [],
+  opportunities: [
+    {
+      id: "journey-1",
+      title: "Oportunidade",
+      origin: "client",
+      originName: "Cliente",
+      consultantName: "Rafael",
+      priority: "NORMAL",
+      score: 50,
+      phaseName: "Contato",
+      stateName: "Em andamento",
+      consortiumType:
+        "real_estate",
+      lastInteractionAt: null,
+      updatedAt:
+        "2026-07-26T18:00:00.000Z",
+      status: "open",
+      outcome: null,
+    },
+  ],
 }
 
 describe("DashboardShell", () => {
@@ -525,6 +550,26 @@ describe("DashboardShell", () => {
     )
   })
 
+  it("deve encaminhar as oportunidades para o DashboardContent", () => {
+    render(
+      <DashboardShell
+        {...dashboardData}
+      />,
+    )
+
+    const receivedProps =
+      dashboardContentMock.mock
+        .calls[0]?.[0]
+
+    expect(
+      receivedProps
+        ?.opportunities,
+    ).toBe(
+      dashboardData
+        .opportunities,
+    )
+  })
+
   it("não deve encaminhar reuniões e pipeline para o DashboardContent", () => {
     render(
       <DashboardShell {...dashboardData} />
@@ -558,6 +603,7 @@ describe("DashboardShell", () => {
       expect.objectContaining({
         open: false,
         collapsed: false,
+        user: dashboardData.user,
         onClose: expect.any(
           Function
         ),

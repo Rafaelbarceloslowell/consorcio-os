@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "baseline": {
+    "typescript": { "command": "npx.cmd tsc --noEmit", "passed": true },
+    "focusedTests": { "files": 6, "tests": 33, "passed": 33, "failed": 0 },
+    "phaseLint": { "passed": true, "errors": 0, "warnings": 0 }
+  },
+  "final": {
+    "typescript": { "command": ".\\node_modules\\.bin\\tsc.cmd --noEmit --pretty false", "passed": true },
+    "focusedTests": {
+      "command": ".\\node_modules\\.bin\\vitest.cmd run --testTimeout=60000 --maxWorkers=1 <7 directed files>",
+      "files": 7,
+      "tests": 60,
+      "passed": 60,
+      "failed": 0,
+      "durationSeconds": 18.12
+    },
+    "phaseLint": { "passed": true, "errors": 0, "warnings": 0 }
+  },
+  "environmentalRecovery": {
+    "observed": true,
+    "detail": "A parallel final run timed out while the pre-existing Next dev server consumed resources; no assertion failure was accepted. The server was stopped after browser evidence, then TypeScript and the complete directed suite passed cleanly with one worker and an explicit stress-safe timeout."
+  },
+  "threeAudit": "APROVADO",
+  "stressAudit": "APROVADO",
+  "verdict": "APROVADO"
+}

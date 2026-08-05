@@ -1,0 +1,538 @@
+{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-08-02T14:25:13.5380190-03:00",
+    "phase":  "R2_REAL_EVENT_DISPATCH_INTEGRATION_V1",
+    "mode":  "READ_ONLY_CONTRACT_DISCOVERY",
+    "git":  {
+                "head":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "branch":  "main",
+                "stagedFileCount":  0
+            },
+    "metrics":  {
+                    "fullFileCount":  6,
+                    "producerFileCount":  6,
+                    "wiringFileCount":  5,
+                    "sourceFileCount":  342,
+                    "hasSingleCommonUseCase":  true,
+                    "hasEventResult":  true,
+                    "hasOptionalDependencyPattern":  true,
+                    "hasR2DependencyToday":  false,
+                    "providerFileCount":  3,
+                    "orchestrationHookFileCount":  3,
+                    "targetedTestFileCount":  8,
+                    "typescriptExitCode":  0,
+                    "targetedTestExitCode":  0
+                },
+    "searchIndex":  {
+                        "executeCommercialEventUseCase":  [
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                  "line":  104,
+                                                                  "text":  "export type ExecuteCommercialEventUseCaseInput = {"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                  "line":  149,
+                                                                  "text":  "export type ExecuteCommercialEventUseCaseResult = {"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                  "line":  204,
+                                                                  "text":  "export function executeCommercialEventUseCase({"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                  "line":  222,
+                                                                  "text":  "}: ExecuteCommercialEventUseCaseInput):"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                  "line":  223,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult {"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\lead\\receive-lead-reply.ts",
+                                                                  "line":  3,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\lead\\receive-lead-reply.ts",
+                                                                  "line":  7,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\lead\\receive-lead-reply.ts",
+                                                                  "line":  73,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\lead\\receive-lead-reply.ts",
+                                                                  "line":  92,
+                                                                  "text":  "return executeCommercialEventUseCase({"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\complete-meeting.ts",
+                                                                  "line":  3,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\complete-meeting.ts",
+                                                                  "line":  7,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\complete-meeting.ts",
+                                                                  "line":  73,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\complete-meeting.ts",
+                                                                  "line":  92,
+                                                                  "text":  "return executeCommercialEventUseCase({"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\schedule-meeting.ts",
+                                                                  "line":  3,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\schedule-meeting.ts",
+                                                                  "line":  7,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\schedule-meeting.ts",
+                                                                  "line":  73,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\schedule-meeting.ts",
+                                                                  "line":  92,
+                                                                  "text":  "return executeCommercialEventUseCase({"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\accept-proposal.ts",
+                                                                  "line":  3,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\accept-proposal.ts",
+                                                                  "line":  7,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\accept-proposal.ts",
+                                                                  "line":  73,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\accept-proposal.ts",
+                                                                  "line":  92,
+                                                                  "text":  "return executeCommercialEventUseCase({"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\send-proposal.ts",
+                                                                  "line":  3,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\send-proposal.ts",
+                                                                  "line":  7,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\send-proposal.ts",
+                                                                  "line":  76,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult \u0026 {"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\send-proposal.ts",
+                                                                  "line":  223,
+                                                                  "text":  "executeCommercialEventUseCase({"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  10,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  14,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  53,
+                                                                  "text":  "executeCommercialEventUseCase:"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  203,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  210,
+                                                                  "text":  "} as unknown as ExecuteCommercialEventUseCaseResult,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  288,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  308,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  345,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  426,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.test.ts",
+                                                                  "line":  529,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.ts",
+                                                                  "line":  3,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.ts",
+                                                                  "line":  7,
+                                                                  "text":  "executeCommercialEventUseCase,"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.ts",
+                                                                  "line":  81,
+                                                                  "text":  "ExecuteCommercialEventUseCaseResult \u0026 {"
+                                                              },
+                                                              {
+                                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.ts",
+                                                                  "line":  250,
+                                                                  "text":  "executeCommercialEventUseCase({"
+                                                              }
+                                                          ],
+                        "CommercialEventUseCaseDependencies":  [
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                       "line":  55,
+                                                                       "text":  "export type CommercialEventUseCaseDependencies = {"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                       "line":  146,
+                                                                       "text":  "Partial\u003cCommercialEventUseCaseDependencies\u003e"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                       "line":  174,
+                                                                       "text":  "CommercialEventUseCaseDependencies = {"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                       "line":  184,
+                                                                       "text":  "Partial\u003cCommercialEventUseCaseDependencies\u003e = {},"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                                       "line":  185,
+                                                                       "text":  "): CommercialEventUseCaseDependencies {"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\lead\\receive-lead-reply.ts",
+                                                                       "line":  2,
+                                                                       "text":  "CommercialEventUseCaseDependencies,"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\lead\\receive-lead-reply.ts",
+                                                                       "line":  31,
+                                                                       "text":  "CommercialEventUseCaseDependencies"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\complete-meeting.ts",
+                                                                       "line":  2,
+                                                                       "text":  "CommercialEventUseCaseDependencies,"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\complete-meeting.ts",
+                                                                       "line":  31,
+                                                                       "text":  "CommercialEventUseCaseDependencies"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\schedule-meeting.ts",
+                                                                       "line":  2,
+                                                                       "text":  "CommercialEventUseCaseDependencies,"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\meeting\\schedule-meeting.ts",
+                                                                       "line":  31,
+                                                                       "text":  "CommercialEventUseCaseDependencies"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\accept-proposal.ts",
+                                                                       "line":  2,
+                                                                       "text":  "CommercialEventUseCaseDependencies,"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\accept-proposal.ts",
+                                                                       "line":  31,
+                                                                       "text":  "CommercialEventUseCaseDependencies"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\send-proposal.ts",
+                                                                       "line":  2,
+                                                                       "text":  "CommercialEventUseCaseDependencies,"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\send-proposal.ts",
+                                                                       "line":  32,
+                                                                       "text":  "CommercialEventUseCaseDependencies"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.ts",
+                                                                       "line":  2,
+                                                                       "text":  "CommercialEventUseCaseDependencies,"
+                                                                   },
+                                                                   {
+                                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\sale\\close-sale.ts",
+                                                                       "line":  40,
+                                                                       "text":  "CommercialEventUseCaseDependencies"
+                                                                   }
+                                                               ],
+                        "recordCommercialEvent:":  [
+                                                       {
+                                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                           "line":  56,
+                                                           "text":  "recordCommercialEvent: ("
+                                                       },
+                                                       {
+                                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\common\\commercial-event-use-case.ts",
+                                                           "line":  187,
+                                                           "text":  "recordCommercialEvent:"
+                                                       },
+                                                       {
+                                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\use-cases\\proposal\\send-proposal.test.ts",
+                                                           "line":  952,
+                                                           "text":  "recordCommercialEvent:"
+                                                       }
+                                                   ],
+                        "normalizeCommercialEvent":  [
+                                                         {
+                                                             "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\index.ts",
+                                                             "line":  3,
+                                                             "text":  "normalizeCommercialEvent,"
+                                                         },
+                                                         {
+                                                             "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\normalize-r2-event.ts",
+                                                             "line":  124,
+                                                             "text":  "export type NormalizeCommercialEventOptions = Readonly\u003c{"
+                                                         },
+                                                         {
+                                                             "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\normalize-r2-event.ts",
+                                                             "line":  132,
+                                                             "text":  "export function normalizeCommercialEvent("
+                                                         },
+                                                         {
+                                                             "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\normalize-r2-event.ts",
+                                                             "line":  134,
+                                                             "text":  "options: NormalizeCommercialEventOptions = {},"
+                                                         },
+                                                         {
+                                                             "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-intelligence-orchestration.test.ts",
+                                                             "line":  14,
+                                                             "text":  "normalizeCommercialEvent,"
+                                                         },
+                                                         {
+                                                             "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-intelligence-orchestration.test.ts",
+                                                             "line":  89,
+                                                             "text":  "expect(normalizeCommercialEvent(commercial(source as CommercialEventType)).eventType).toBe(canonical)"
+                                                         },
+                                                         {
+                                                             "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-intelligence-orchestration.test.ts",
+                                                             "line":  94,
+                                                             "text":  "expect(() =\u003e normalizeCommercialEvent({ ...commercial(\"LEAD_CREATED\"), workspaceId: \" \" })).toThrow(/workspaceId/)"
+                                                         },
+                                                         {
+                                                             "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-intelligence-orchestration.test.ts",
+                                                             "line":  95,
+                                                             "text":  "const canonical = normalizeCommercialEvent(commercial(\"LEAD_CREATED\"))"
+                                                         }
+                                                     ],
+                        "R2Orchestrator":  [
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\index.ts",
+                                                   "line":  12,
+                                                   "text":  "R2Orchestrator,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-intelligence-orchestration.test.ts",
+                                                   "line":  19,
+                                                   "text":  "import { R2InMemoryObservabilitySink, R2Orchestrator } from \"./r2-orchestrator\""
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-intelligence-orchestration.test.ts",
+                                                   "line":  216,
+                                                   "text":  "const orchestrator = new R2Orchestrator({"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                                   "line":  28,
+                                                   "text":  "export type R2OrchestratorConfig = Readonly\u003c{"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                                   "line":  67,
+                                                   "text":  "export class R2Orchestrator {"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                                   "line":  93,
+                                                   "text":  "constructor(config: R2OrchestratorConfig) {"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  16,
+                                                   "text":  "R2Orchestrator,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  34,
+                                                   "text":  "private readonly orchestrator: R2Orchestrator"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  45,
+                                                   "text":  "this.orchestrator = new R2Orchestrator({"
+                                               }
+                                           ],
+                        "dispatch(event":  [
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.test.tsx",
+                                                   "line":  36,
+                                                   "text":  "\u003cbutton type=\"button\" onClick={() =\u003e void dispatch(event(\"lead.created\", \"provider-working\"))}\u003eworking\u003c/button\u003e"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.test.tsx",
+                                                   "line":  37,
+                                                   "text":  "\u003cbutton type=\"button\" onClick={() =\u003e void dispatch(event(\"task.created\", \"provider-queued\"))}\u003equeue\u003c/button\u003e"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  73,
+                                                   "text":  "async dispatch(event: R2DomainEvent) {"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  82,
+                                                   "text":  "const decision = await this.orchestrator.dispatch(event, context)"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  186,
+                                                   "text":  "dispatch: (event: R2DomainEvent) =\u003e value.store.dispatch(event),"
+                                               }
+                                           ],
+                        "dispatch(canonical":  [
+
+                                               ],
+                        "R2OrchestrationProvider":  [
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.test.tsx",
+                                                            "line":  7,
+                                                            "text":  "import { R2OrchestrationProvider, useR2Orchestration } from \"./r2-orchestration-provider\""
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.test.tsx",
+                                                            "line":  42,
+                                                            "text":  "describe(\"R2OrchestrationProvider\", () =\u003e {"
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.test.tsx",
+                                                            "line":  45,
+                                                            "text":  "\u003cR2OrchestrationProvider workspaceId=\"workspace-a\" userId=\"user-a\"\u003e"
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.test.tsx",
+                                                            "line":  47,
+                                                            "text":  "\u003c/R2OrchestrationProvider\u003e,"
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                            "line":  140,
+                                                            "text":  "function R2OrchestrationProviderScope({"
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                            "line":  167,
+                                                            "text":  "export function R2OrchestrationProvider(props: Readonly\u003c{"
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                            "line":  174,
+                                                            "text":  "\u003cR2OrchestrationProviderScope"
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                            "line":  183,
+                                                            "text":  "if (!value) throw new Error(\"useR2Orchestration must be used inside R2OrchestrationProvider.\")"
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                            "line":  8,
+                                                            "text":  "R2OrchestrationProvider,"
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                            "line":  53,
+                                                            "text":  "\u003cR2OrchestrationProvider"
+                                                        },
+                                                        {
+                                                            "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                            "line":  59,
+                                                            "text":  "\u003c/R2OrchestrationProvider\u003e"
+                                                        }
+                                                    ],
+                        "useR2Orchestration":  [
+                                                   {
+                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.test.tsx",
+                                                       "line":  7,
+                                                       "text":  "import { R2OrchestrationProvider, useR2Orchestration } from \"./r2-orchestration-provider\""
+                                                   },
+                                                   {
+                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.test.tsx",
+                                                       "line":  31,
+                                                       "text":  "const { command, decision, dispatch } = useR2Orchestration()"
+                                                   },
+                                                   {
+                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                       "line":  181,
+                                                       "text":  "export function useR2Orchestration() {"
+                                                   },
+                                                   {
+                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                       "line":  183,
+                                                       "text":  "if (!value) throw new Error(\"useR2Orchestration must be used inside R2OrchestrationProvider.\")"
+                                                   },
+                                                   {
+                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                       "line":  9,
+                                                       "text":  "useR2Orchestration,"
+                                                   },
+                                                   {
+                                                       "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                       "line":  22,
+                                                       "text":  "const { command, recordReceipt } = useR2Orchestration()"
+                                                   }
+                                               ]
+                    },
+    "verdict":  "APROVADO_PARA_DESENHO_DO_DISPATCHER_UNICO"
+}

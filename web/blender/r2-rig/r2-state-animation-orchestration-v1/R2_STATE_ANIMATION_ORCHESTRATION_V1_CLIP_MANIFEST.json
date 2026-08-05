@@ -1,0 +1,2328 @@
+{
+  "schemaVersion": 1,
+  "glbSha256": "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE",
+  "clips": [
+    {
+      "name": "R2_ALERT",
+      "durationSeconds": 1.2000000476837158,
+      "trackCount": 195,
+      "affectedTargets": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "affectedBones": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "morphTrackNames": [],
+      "rootMotion": false,
+      "footDisplacement": false,
+      "rootPositionRanges": [
+        {
+          "track": "root.position",
+          "minimum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "maximum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "CTRL-face-root.position",
+          "minimum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "maximum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "footPositionRanges": [
+        {
+          "track": "footL.position",
+          "minimum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeL.position",
+          "minimum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "footR.position",
+          "minimum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeR.position",
+          "minimum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleTrackCount": 65,
+      "firstLastContinuous": true,
+      "loopSuitable": true,
+      "safeToInterrupt": true
+    },
+    {
+      "name": "R2_AWAITING_ACTION",
+      "durationSeconds": 2.5,
+      "trackCount": 195,
+      "affectedTargets": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "affectedBones": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "morphTrackNames": [],
+      "rootMotion": false,
+      "footDisplacement": false,
+      "rootPositionRanges": [
+        {
+          "track": "root.position",
+          "minimum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "maximum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "CTRL-face-root.position",
+          "minimum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "maximum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "footPositionRanges": [
+        {
+          "track": "footL.position",
+          "minimum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeL.position",
+          "minimum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "footR.position",
+          "minimum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeR.position",
+          "minimum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleTrackCount": 65,
+      "firstLastContinuous": true,
+      "loopSuitable": true,
+      "safeToInterrupt": true
+    },
+    {
+      "name": "R2_CELEBRATING_SALE",
+      "durationSeconds": 2.4000000953674316,
+      "trackCount": 195,
+      "affectedTargets": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "affectedBones": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "morphTrackNames": [],
+      "rootMotion": false,
+      "footDisplacement": false,
+      "rootPositionRanges": [
+        {
+          "track": "root.position",
+          "minimum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "maximum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "CTRL-face-root.position",
+          "minimum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "maximum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "footPositionRanges": [
+        {
+          "track": "footL.position",
+          "minimum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeL.position",
+          "minimum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "footR.position",
+          "minimum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeR.position",
+          "minimum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleTrackCount": 65,
+      "firstLastContinuous": true,
+      "loopSuitable": true,
+      "safeToInterrupt": true
+    },
+    {
+      "name": "R2_ERROR_ATTENTION",
+      "durationSeconds": 2,
+      "trackCount": 195,
+      "affectedTargets": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "affectedBones": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "morphTrackNames": [],
+      "rootMotion": false,
+      "footDisplacement": false,
+      "rootPositionRanges": [
+        {
+          "track": "root.position",
+          "minimum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "maximum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "CTRL-face-root.position",
+          "minimum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "maximum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "footPositionRanges": [
+        {
+          "track": "footL.position",
+          "minimum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeL.position",
+          "minimum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "footR.position",
+          "minimum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeR.position",
+          "minimum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleTrackCount": 65,
+      "firstLastContinuous": true,
+      "loopSuitable": true,
+      "safeToInterrupt": true
+    },
+    {
+      "name": "R2_IDLE",
+      "durationSeconds": 4,
+      "trackCount": 195,
+      "affectedTargets": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "affectedBones": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "morphTrackNames": [],
+      "rootMotion": false,
+      "footDisplacement": false,
+      "rootPositionRanges": [
+        {
+          "track": "root.position",
+          "minimum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "maximum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "CTRL-face-root.position",
+          "minimum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "maximum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "footPositionRanges": [
+        {
+          "track": "footL.position",
+          "minimum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeL.position",
+          "minimum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "footR.position",
+          "minimum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeR.position",
+          "minimum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleTrackCount": 65,
+      "firstLastContinuous": true,
+      "loopSuitable": true,
+      "safeToInterrupt": true
+    },
+    {
+      "name": "R2_LISTENING",
+      "durationSeconds": 3,
+      "trackCount": 195,
+      "affectedTargets": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "affectedBones": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "morphTrackNames": [],
+      "rootMotion": false,
+      "footDisplacement": false,
+      "rootPositionRanges": [
+        {
+          "track": "root.position",
+          "minimum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "maximum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "CTRL-face-root.position",
+          "minimum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "maximum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "footPositionRanges": [
+        {
+          "track": "footL.position",
+          "minimum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeL.position",
+          "minimum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "footR.position",
+          "minimum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeR.position",
+          "minimum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleTrackCount": 65,
+      "firstLastContinuous": true,
+      "loopSuitable": true,
+      "safeToInterrupt": true
+    },
+    {
+      "name": "R2_NEUTRAL",
+      "durationSeconds": 1,
+      "trackCount": 195,
+      "affectedTargets": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "affectedBones": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "morphTrackNames": [],
+      "rootMotion": false,
+      "footDisplacement": false,
+      "rootPositionRanges": [
+        {
+          "track": "root.position",
+          "minimum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "maximum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "CTRL-face-root.position",
+          "minimum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "maximum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "footPositionRanges": [
+        {
+          "track": "footL.position",
+          "minimum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeL.position",
+          "minimum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "footR.position",
+          "minimum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeR.position",
+          "minimum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleTrackCount": 65,
+      "firstLastContinuous": true,
+      "loopSuitable": true,
+      "safeToInterrupt": true
+    },
+    {
+      "name": "R2_THINKING",
+      "durationSeconds": 3,
+      "trackCount": 195,
+      "affectedTargets": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "affectedBones": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "morphTrackNames": [],
+      "rootMotion": false,
+      "footDisplacement": false,
+      "rootPositionRanges": [
+        {
+          "track": "root.position",
+          "minimum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "maximum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "CTRL-face-root.position",
+          "minimum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "maximum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "footPositionRanges": [
+        {
+          "track": "footL.position",
+          "minimum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeL.position",
+          "minimum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "footR.position",
+          "minimum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeR.position",
+          "minimum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleTrackCount": 65,
+      "firstLastContinuous": true,
+      "loopSuitable": true,
+      "safeToInterrupt": true
+    },
+    {
+      "name": "R2_WORKING",
+      "durationSeconds": 2.4000000953674316,
+      "trackCount": 195,
+      "affectedTargets": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "affectedBones": [
+        "CTRL-face-browL",
+        "CTRL-face-browR",
+        "CTRL-face-cheekL",
+        "CTRL-face-cheekR",
+        "CTRL-face-eyeL",
+        "CTRL-face-eyeR",
+        "CTRL-face-jaw",
+        "CTRL-face-lip-lower",
+        "CTRL-face-lip-upper",
+        "CTRL-face-mouth-cornerL",
+        "CTRL-face-mouth-cornerR",
+        "CTRL-face-muzzle",
+        "CTRL-face-root",
+        "DEF-face-jaw",
+        "chest",
+        "clavicleL",
+        "clavicleR",
+        "footL",
+        "footR",
+        "forearmL",
+        "forearmR",
+        "handL",
+        "handR",
+        "head",
+        "index_01L",
+        "index_01R",
+        "index_02L",
+        "index_02R",
+        "index_03L",
+        "index_03R",
+        "middle_01L",
+        "middle_01R",
+        "middle_02L",
+        "middle_02R",
+        "middle_03L",
+        "middle_03R",
+        "neck",
+        "pelvis",
+        "pinky_01L",
+        "pinky_01R",
+        "pinky_02L",
+        "pinky_02R",
+        "pinky_03L",
+        "pinky_03R",
+        "ring_01L",
+        "ring_01R",
+        "ring_02L",
+        "ring_02R",
+        "ring_03L",
+        "ring_03R",
+        "root",
+        "shinL",
+        "shinR",
+        "spine_01",
+        "spine_02",
+        "thighL",
+        "thighR",
+        "thumb_01L",
+        "thumb_01R",
+        "thumb_02L",
+        "thumb_02R",
+        "toeL",
+        "toeR",
+        "upper_armL",
+        "upper_armR"
+      ],
+      "morphTrackNames": [],
+      "rootMotion": false,
+      "footDisplacement": false,
+      "rootPositionRanges": [
+        {
+          "track": "root.position",
+          "minimum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "maximum": [
+            0,
+            -1,
+            0.05999999865889549
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "CTRL-face-root.position",
+          "minimum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "maximum": [
+            0.04954143613576889,
+            0.1392471194267273,
+            0.23665404319763184
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "footPositionRanges": [
+        {
+          "track": "footL.position",
+          "minimum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            -2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeL.position",
+          "minimum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            -3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "footR.position",
+          "minimum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "maximum": [
+            2.436852275522483e-9,
+            0.2858760952949524,
+            2.245320196436751e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "track": "toeR.position",
+          "minimum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "maximum": [
+            3.9568007537127414e-8,
+            0.17102667689323425,
+            -1.615693356882275e-8
+          ],
+          "span": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "scaleTrackCount": 65,
+      "firstLastContinuous": true,
+      "loopSuitable": true,
+      "safeToInterrupt": true
+    }
+  ]
+}

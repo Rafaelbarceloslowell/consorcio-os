@@ -1,0 +1,8 @@
+{
+  "approved": true,
+  "failed_gates": [],
+  "candidate": "DISSOLVE_25",
+  "aspect_p95": 10.81882864663957,
+  "normal_p05": 0.9999999195337296,
+  "inverted_faces": 0
+}

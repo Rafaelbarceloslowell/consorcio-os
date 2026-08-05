@@ -1,0 +1,352 @@
+
+============================================================
+ R2 OPPORTUNITY_CREATED ATOMIC INTEGRATION V3
+============================================================
+GENERATED_AT=2026-08-02T22:20:17.9433553-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+IMPLEMENTATION_MODE=FULL_FILE_REPLACEMENTS
+BACKUP_LOCATION=OUTSIDE_PROJECT
+NODE_TRANSFORMER=False
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+MANIFEST_SHA256=86EB8744E6DA445A8CC699DFA41D1B59CF39C2930ED329F41D07F1BE882E7083
+MANIFEST_HASH_MATCH=True
+MIGRATION_PARSER_SELF_TEST=True
+
+============================================================
+ PREFLIGHT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_BASELINE_MATCH=True
+STAGED_FILE_COUNT=0
+GLB_SHA256=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_BASELINE_MATCH=True
+DISPATCHER_SHA256=13BD007CA7A787AB63CF21E4CD60CB8C01C1AAFA2BC2F454C93208FA2E230258
+DISPATCHER_BASELINE_MATCH=True
+DATABASE_ENUM_TYPE_CONFIRMED=True
+PAYLOAD_FILE_COUNT=17
+PAYLOAD_AND_BASELINE_HASHES_VERIFIED=True
+GENERATED_CLIENT_HASH_BEFORE=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+
+============================================================
+ PRISMA MIGRATE STATUS BEFORE
+============================================================
+COMMAND=npx prisma migrate status
+----- STDOUT -----
+Datasource "db": PostgreSQL database "consorcio_os", schema "public" at "localhost:5432"
+
+2 migrations found in prisma/migrations
+
+Database schema is up to date!
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ VERIFIED BACKUP OUTSIDE PROJECT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v3-backup-3e41430e5d9344a2b5b9109c04f88b68
+GENERATED_CLIENT_BACKUP_HASH=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+BACKUP_COMPLETE=True
+
+============================================================
+ APPLY FULL FILE REPLACEMENTS
+============================================================
+APPLIED=app/opportunities/new/actions.test.ts
+APPLIED=app/opportunities/new/actions.ts
+APPLIED=application/opportunity/create-opportunity-async.test.ts
+APPLIED=application/opportunity/create-opportunity-async.ts
+APPLIED=application/r2/normalize-r2-event.ts
+APPLIED=application/r2/r2-intelligence-orchestration.test.ts
+APPLIED=infrastructure/prisma/mappers/commercial-event-mapper.opportunity-created.test.ts
+APPLIED=infrastructure/prisma/mappers/commercial-event-mapper.ts
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts
+APPLIED=lib/commercial-event-presenter.test.ts
+APPLIED=lib/commercial-event-presenter.ts
+APPLIED=prisma/migrations/20260802220000_add_opportunity_created_commercial_event/migration.sql
+APPLIED=prisma/schema.prisma
+APPLIED=repositories/commercial/async-commercial-repositories.ts
+APPLIED=repositories/commercial/commercial-repository.ts
+APPLIED=types/domain/commercial-event.ts
+FULL_FILE_REPLACEMENTS_VERIFIED=True
+
+============================================================
+ PRISMA VALIDATE
+============================================================
+COMMAND=npx prisma validate
+----- STDOUT -----
+The schema at prisma\schema.prisma is valid ðŸš€
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ PRISMA GENERATE
+============================================================
+COMMAND=npx prisma generate
+----- STDOUT -----
+
+âœ” Generated Prisma Client (7.9.0) to .\lib\generated\prisma in 399ms
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ TYPESCRIPT
+============================================================
+COMMAND=npx tsc --noEmit --pretty false
+----- STDOUT -----
+----- STDERR -----
+
+<--- Last few GCs --->
+
+[25472:0000027C82C5E000]     7726 ms: Scavenge (interleaved) 489.0 (554.7) -> 468.2 (575.2) MB, pooled: 0 MB, 36.36 / 0.63 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[25472:0000027C82C5E000]     7968 ms: Scavenge (interleaved) 510.5 (576.6) -> 491.6 (599.9) MB, pooled: 0 MB, 91.11 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+
+<--- Last few GCs --->
+
+[25472:0000027C82C5E000]     7726 ms: Scavenge (interleaved) 489.0 (554.7) -> 468.2 (575.2) MB, pooled: 0 MB, 36.36 / 0.63 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[25472:0000027C82C5E000]     7968 ms: Scavenge (interleaved) 510.5 (576.6) -> 491.6 (599.9) MB, pooled: 0 MB, 91.11 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+
+<--- Last few GCs --->
+
+[25472:0000027C82C5E000]     7726 ms: Scavenge (interleaved) 489.0 (554.7) -> 468.2 (575.2) MB, pooled: 0 MB, 36.36 / 0.63 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[25472:0000027C82C5E000]     7968 ms: Scavenge (interleaved) 510.5 (576.6) -> 491.6 (599.9) MB, pooled: 0 MB, 91.11 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+
+<--- Last few GCs --->
+
+[25472:0000027C82C5E000]     7726 ms: Scavenge (interleaved) 489.0 (554.7) -> 468.2 (575.2) MB, pooled: 0 MB, 36.36 / 0.63 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[25472:0000027C82C5E000]     7968 ms: Scavenge (interleaved) 510.5 (576.6) -> 491.6 (599.9) MB, pooled: 0 MB, 91.11 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+
+<--- Last few GCs --->
+
+[25472:0000027C82C5E000]     7726 ms: Scavenge (interleaved) 489.0 (554.7) -> 468.2 (575.2) MB, pooled: 0 MB, 36.36 / 0.63 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[25472:0000027C82C5E000]     7968 ms: Scavenge (interleaved) 510.5 (576.6) -> 491.6 (599.9) MB, pooled: 0 MB, 91.11 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+----- Native stack trace -----
+
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+----- Native stack trace -----
+
+----- Native stack trace -----
+
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 00007FF697E83D9F 
+ 2: 00007FF696ACDCB7 
+ 1: 00007FF697E83D9F 
+ 2: 00007FF696ACDCB7 
+ 3: 00007FF6968CE4F7 
+ 4: 00007FF6968ADBEE 
+ 5: 00007FF6968A32AD 
+ 6: 00007FF6968A2F5C 
+ 7: 00007FF6968A2BA1 
+ 1: 00007FF697E83D9F 
+ 2: 00007FF696ACDCB7 
+ 3: 00007FF6968CE4F7 
+ 4: 00007FF6968ADBEE 
+ 5: 00007FF6968A32AD 
+ 6: 00007FF6968A2F5C 
+ 7: 00007FF6968A2BA1 
+ 1: 00007FF697E83D9F 
+ 1: 00007FF697E83D9F 
+ 2: 00007FF696ACDCB7 
+ 3: 00007FF6968CE4F7 
+ 4: 00007FF6968ADBEE 
+ 5: 00007FF6968A32AD 
+ 6: 00007FF6968A2F5C 
+ 7: 00007FF6968A2BA1 
+ 8: 00007FF6968B4E88 
+ 9: 00007FF6972A641D 
+ 3: 00007FF6968CE4F7 
+ 4: 00007FF6968ADBEE 
+ 8: 00007FF6968B5098 
+ 9: 00007FF6972A6C6F 
+10: 00007FF697DC944B 
+11: 00007FF696B22D76 
+12: 00007FF6981CDC73 
+13: 00007FFEF113E957 
+14: 00007FFEF1DAAD6C 
+ 8: 00007FF6968B5098
+EXIT_CODE=134
+
+============================================================
+ FAILURE
+============================================================
+ERROR=TypeScript falhou com exit code 134; esperado 0.
+MIGRATION_DEPLOY_STARTED=False
+MIGRATION_DEPLOY_SUCCEEDED=False
+
+============================================================
+ ROLLBACK PRE-MIGRATION
+============================================================
+GENERATED_CLIENT_RESTORED_HASH=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+ROLLBACK_COMPLETE=True
+
+============================================================
+ ROLLBACK PRISMA VALIDATE
+============================================================
+COMMAND=npx prisma validate
+----- STDOUT -----
+The schema at prisma\schema.prisma is valid ðŸš€
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ ROLLBACK TYPESCRIPT
+============================================================
+COMMAND=npx tsc --noEmit --pretty false
+----- STDOUT -----
+----- STDERR -----
+
+<--- Last few GCs --->
+
+[28996:0000012314E7D000]     4708 ms: Scavenge (interleaved) 413.5 (480.1) -> 401.5 (508.3) MB, pooled: 0 MB, 31.58 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[28996:0000012314E7D000]     4944 ms: Scavenge (interleaved) 441.7 (508.3) -> 422.8 (532.3) MB, pooled: 0 MB, 135.60 / 0.01 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+
+<--- Last few GCs --->
+
+[28996:0000012314E7D000]     4708 ms: Scavenge (interleaved) 413.5 (480.1) -> 401.5 (508.3) MB, pooled: 0 MB, 31.58 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[28996:0000012314E7D000]     4944 ms: Scavenge (interleaved) 441.7 (508.3) -> 422.8 (532.3) MB, pooled: 0 MB, 135.60 / 0.01 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+
+<--- Last few GCs --->
+
+[28996:0000012314E7D000]     4708 ms: Scavenge (interleaved) 413.5 (480.1) -> 401.5 (508.3) MB, pooled: 0 MB, 31.58 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[28996:0000012314E7D000]     4944 ms: Scavenge (interleaved) 441.7 (508.3) -> 422.8 (532.3) MB, pooled: 0 MB, 135.60 / 0.01 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+
+<--- Last few GCs --->
+
+[28996:0000012314E7D000]     4708 ms: Scavenge (interleaved) 413.5 (480.1) -> 401.5 (508.3) MB, pooled: 0 MB, 31.58 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[28996:0000012314E7D000]     4944 ms: Scavenge (interleaved) 441.7 (508.3) -> 422.8 (532.3) MB, pooled: 0 MB, 135.60 / 0.01 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+
+<--- Last few GCs --->
+
+[28996:0000012314E7D000]     4708 ms: Scavenge (interleaved) 413.5 (480.1) -> 401.5 (508.3) MB, pooled: 0 MB, 31.58 / 0.02 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[28996:0000012314E7D000]     4944 ms: Scavenge (interleaved) 441.7 (508.3) -> 422.8 (532.3) MB, pooled: 0 MB, 135.60 / 0.01 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+----- Native stack trace -----
+
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+FATAL ERROR: MarkCompactCollector: young object promotion failed Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 00007FF697E83D9F 
+ 1: 00007FF697E83D9F 
+ 2: 00007FF696ACDCB7 
+ 2: 00007FF696ACDCB7 
+ 3: 00007FF6968CE4F7 
+ 1: 00007FF697E83D9F 
+ 2: 00007FF696ACDCB7 
+ 1: 00007FF697E83D9F 
+ 2: 00007FF696ACDCB7 
+ 3: 00007FF6968CE4F7 
+ 4: 00007FF6968ADBEE 
+ 5: 00007FF6968A32AD 
+ 3: 00007FF6968CE4F7 
+ 4: 00007FF6968ADBEE 
+ 5: 00007FF6968A32AD 
+ 6: 00007FF6968A2F5C 
+ 3: 00007FF6968CE4F7 
+ 4: 00007FF6968ADBEE 
+ 5: 00007FF6968A32AD 
+ 6: 00007FF6968A2F5C 
+ 7: 00007FF6968A2BA1 
+ 8: 00007FF6968B5098 
+ 9: 00007FF6972A6C6F 
+10: 00007FF697DC944B 
+ 6: 00007FF6968A2F5C 
+ 7: 00007FF6968A2BA1 
+ 8: 00007FF6968B5098 
+ 9: 00007FF6972A6C6F 
+10: 00007FF697DC944B 
+11: 00007FF696B22D76 
+11: 00007FF696B22D76 
+12: 00007FF6981CDC73 
+ 4: 00007FF6968ADBEE 
+ 5: 00007FF6968A32AD 
+ 6: 00007FF6968A2F5C 
+ 7: 00007FF6968A2BA1 
+ 8: 00007FF6968B5098 
+ 7: 00007FF6968A2BA1 
+ 8: 00007FF6968B4E88 
+ 9: 00007FF6972A641D 
+10: 00007FF6972A68C2 
+11: 00007FF6968A5BE4 
+12: 00007FF6981CDC73 
+13: 00007FFEF113E957 
+14: 00007FFEF1DAAD6C 
+12: 00007FF69688D30D 
+13: 00007FF696887384 
+13: 00007FFEF113E957 
+14: 00007FFEF1DAAD6C 
+14: 00007FF6968D08FA 
+ 9: 00007FF6972A6C6F 
+15: 00007FF6968CFF26 
+10: 00007FF697DC944B 
+11: 00007FF696B22D76 
+12: 00007FF6981CDC73 
+16: 00007FF6968E0E82 
+13: 00007FFEF113E957 
+17: 00007FF6968E09AB 
+14: 00007FFEF1DAAD6C 
+18: 00007FF6981B24AD 
+19: 00007FF6968CBFC0 
+20: 00007FF6968CC8E6 
+21: 00007FF696AF9BE7 
+22: 00007FF697BCA40D 
+23: 000001234D54F77E
+EXIT_CODE=134
+
+============================================================
+ FINAL RESULT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v3-backup-3e41430e5d9344a2b5b9109c04f88b68
+BACKUP_COMPLETE=True
+SOURCE_WRITE_STARTED=True
+ROLLBACK_PERFORMED=True
+ROLLBACK_COMPLETE=True
+PRE_DEPLOY_INTEGRITY_PASSED=False
+MIGRATION_DEPLOY_STARTED=False
+MIGRATION_DEPLOY_SUCCEEDED=False
+POST_MIGRATION_FAILURE=False
+GENERATED_CLIENT_HASH_BEFORE=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+GENERATED_CLIENT_HASH_FINAL=
+ERROR=TypeScript falhou com exit code 134; esperado 0.
+ROLLBACK_ERROR=TypeScript do rollback falhou com exit code 134; esperado 0.
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+VEREDITO=REPROVADO_ROLLBACK_INCOMPLETO
+NEXT_STEP=PARAR_E_ANALISAR_ESTADO

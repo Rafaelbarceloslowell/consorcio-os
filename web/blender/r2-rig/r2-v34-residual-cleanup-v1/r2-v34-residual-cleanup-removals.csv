@@ -1,0 +1,18 @@
+﻿component_id,stable_key,semantic_name,vertex_count,edge_count,face_count
+25,C025-V035147,Triângulo residual solto na região da cabeça,3,3,1
+40,C040-V051674,Triângulo residual solto na cabeça,3,3,1
+41,C041-V053474,Triângulo residual solto no braço direito,3,3,1
+43,C043-V055315,Triângulo residual solto na cabeça,3,3,1
+55,C055-V080937,Fragmento residual oculto na costura interna da axila esquerda,20,40,21
+56,C056-V082354,Triângulo residual solto no tronco,3,3,1
+60,C060-V090276,Triângulo residual solto na perna direita,3,3,1
+71,C071-V107569,Triângulo residual solto no braço esquerdo,3,3,1
+72,C072-V107930,Triângulo residual solto no pé esquerdo,3,3,1
+83,C083-V123842,Fragmento residual do polegar esquerdo,11,21,11
+84,C084-V126227,Fragmento poligonal residual do polegar esquerdo,5,7,3
+88,C088-V128680,Triângulo residual do polegar esquerdo,3,3,1
+90,C090-V133696,Triângulo residual entre os dedos médio e indicador esquerdos,3,3,1
+92,C092-V140831,Triângulo residual solto no antebraço direito,3,3,1
+99,C099-V148810,Triângulo residual solto no indicador esquerdo,3,3,1
+101,C101-V151564,Fragmento plano residual na região da cabeça,4,5,2
+102,C102-V161362,Triângulo residual solto no antebraço esquerdo,3,3,1

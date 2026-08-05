@@ -1,0 +1,2013 @@
+{
+  "blend_saved": true,
+  "build": "R2 V40 Cheek Region Retopology V2",
+  "build_passed": true,
+  "candidates": [
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 4.957850159645001,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9970515072345734,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9860557273030282,
+            "self_intersections": 0,
+            "source_distance_p95": 4.126169515075162e-05,
+            "triangles": 25
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.977693919798922,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9988645315170288,
+            "normal_min": 0.9939470291137695,
+            "normal_p05": 0.995699916779995,
+            "self_intersections": 0,
+            "source_distance_p95": 7.297245610970973e-05,
+            "triangles": 15
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.564784550534163,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9979667067527771,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.126432613702491e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0125_N0025",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 4.041589541716955,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9970007538795471,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9860557273030282,
+            "self_intersections": 0,
+            "source_distance_p95": 8.723825021661371e-06,
+            "triangles": 25
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.977693919798922,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9988645315170288,
+            "normal_min": 0.9939470291137695,
+            "normal_p05": 0.995699916779995,
+            "self_intersections": 0,
+            "source_distance_p95": 7.297245610970973e-05,
+            "triangles": 15
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.5075182619136633,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9977238848805428,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.02982586820144e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0123_N0025",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 4.041589541716955,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9970007538795471,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9860557273030282,
+            "self_intersections": 0,
+            "source_distance_p95": 8.723825021661371e-06,
+            "triangles": 25
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.977693919798922,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9988645315170288,
+            "normal_min": 0.9939470291137695,
+            "normal_p05": 0.995699916779995,
+            "self_intersections": 0,
+            "source_distance_p95": 7.297245610970973e-05,
+            "triangles": 15
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.5075182619136633,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9977238848805428,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.02982586820144e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0127_N0025",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.470696373731515,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9973959028720856,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.2520657189015765e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 8.839920871100034,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.993286919593811,
+            "self_intersections": 0,
+            "source_distance_p95": 3.346158052863757e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.6042836289720435,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9975449740886688,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 2.304399972672362e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0121_N0030",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.470696373731515,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9973959028720856,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.2520657189015765e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.504922082823012,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933674573898316,
+            "self_intersections": 0,
+            "source_distance_p95": 1.113249334494526e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.460350716071767,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9975387752056122,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.126432613702491e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0121_N0027",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4597421479741346,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9849157407879829,
+            "self_intersections": 0,
+            "source_distance_p95": 8.41160443087575e-05,
+            "triangles": 21
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 7.755095167021019,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9981890767812729,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933821395039559,
+            "self_intersections": 0,
+            "source_distance_p95": 2.2440960840696372e-07,
+            "triangles": 19
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.561660908276247,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972736164927483,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 2.242384239252676e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0027_N0031",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4597421479741346,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9849157407879829,
+            "self_intersections": 0,
+            "source_distance_p95": 8.41160443087575e-05,
+            "triangles": 21
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 7.755095167021019,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9981890767812729,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933821395039559,
+            "self_intersections": 0,
+            "source_distance_p95": 2.2440960840696372e-07,
+            "triangles": 19
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.561660908276247,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972736164927483,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 2.242384239252676e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0031_N0031",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4344441082201946,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.863315189140849e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 8.839920871100034,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.993286919593811,
+            "self_intersections": 0,
+            "source_distance_p95": 3.346158052863757e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.473947909149636,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972721114754677,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 2.304399972672362e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0091_N0030",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4344441082201946,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.863315189140849e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 8.839920871100034,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.993286919593811,
+            "self_intersections": 0,
+            "source_distance_p95": 3.346158052863757e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.473947909149636,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972721114754677,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 2.304399972672362e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0095_N0030",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4344441082201946,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.863315189140849e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.504922082823012,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933674573898316,
+            "self_intersections": 0,
+            "source_distance_p95": 1.113249334494526e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.2194107703117116,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972674176096916,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.126432613702491e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0091_N0027",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4344441082201946,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.863315189140849e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.504922082823012,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933674573898316,
+            "self_intersections": 0,
+            "source_distance_p95": 1.113249334494526e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.2194107703117116,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972674176096916,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.126432613702491e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0095_N0027",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.470696373731515,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.2520657189015765e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.504922082823012,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933674573898316,
+            "self_intersections": 0,
+            "source_distance_p95": 1.113249334494526e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.460350716071767,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9971983283758163,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.126432613702491e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0061_N0027",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.470696373731515,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.2520657189015765e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 8.839920871100034,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.993286919593811,
+            "self_intersections": 0,
+            "source_distance_p95": 3.346158052863757e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.7607605605775394,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9971983283758163,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903306767344475,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.019010466436155e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0061_N0030",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4597421479741346,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9961285293102264,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9849157407879829,
+            "self_intersections": 0,
+            "source_distance_p95": 6.143515638541444e-05,
+            "triangles": 21
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 7.755095167021019,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9981890767812729,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933821395039559,
+            "self_intersections": 0,
+            "source_distance_p95": 2.2440960840696372e-07,
+            "triangles": 19
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.6079412845926844,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.996918112039566,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897946063429117,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 1.886503494006283e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0085_N0031",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.470696373731515,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9973959028720856,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.2520657189015765e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.977693919798922,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9988645315170288,
+            "normal_min": 0.9939470291137695,
+            "normal_p05": 0.995699916779995,
+            "self_intersections": 0,
+            "source_distance_p95": 7.297245610970973e-05,
+            "triangles": 15
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.4615678522670317,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9979667067527771,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897606834769249,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.4524998702399855e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0121_N0025",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4344441082201946,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.863315189140849e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.977693919798922,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9988645315170288,
+            "normal_min": 0.9939470291137695,
+            "normal_p05": 0.995699916779995,
+            "self_intersections": 0,
+            "source_distance_p95": 7.297245610970973e-05,
+            "triangles": 15
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.2447088100656507,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9977238848805428,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897606834769249,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 6.0417484928620724e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0091_N0025",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4344441082201946,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.863315189140849e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.977693919798922,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9988645315170288,
+            "normal_min": 0.9939470291137695,
+            "normal_p05": 0.995699916779995,
+            "self_intersections": 0,
+            "source_distance_p95": 7.297245610970973e-05,
+            "triangles": 15
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.2447088100656507,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9977238848805428,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897606834769249,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 6.0417484928620724e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0095_N0025",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.470696373731515,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.2520657189015765e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.977693919798922,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9988645315170288,
+            "normal_min": 0.9939470291137695,
+            "normal_p05": 0.995699916779995,
+            "self_intersections": 0,
+            "source_distance_p95": 7.297245610970973e-05,
+            "triangles": 15
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.4615678522670317,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9976944401860237,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897606834769249,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.4524998702399855e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0061_N0025",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 5.821012282582517,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9970007538795471,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9849157407879829,
+            "self_intersections": 0,
+            "source_distance_p95": 4.910309453407537e-05,
+            "triangles": 21
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.504922082823012,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933674573898316,
+            "self_intersections": 0,
+            "source_distance_p95": 1.113249334494526e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.8242783258251367,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9974649921059608,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897606834769249,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.4524998702399855e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0057_N0027",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4597421479741346,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9849157407879829,
+            "self_intersections": 0,
+            "source_distance_p95": 8.41160443087575e-05,
+            "triangles": 21
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 8.839920871100034,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.993286919593811,
+            "self_intersections": 0,
+            "source_distance_p95": 3.346158052863757e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.4780167075953505,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972736164927483,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897606834769249,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.126564163016155e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0027_N0030",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4597421479741346,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9849157407879829,
+            "self_intersections": 0,
+            "source_distance_p95": 8.41160443087575e-05,
+            "triangles": 21
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 8.839920871100034,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.993286919593811,
+            "self_intersections": 0,
+            "source_distance_p95": 3.346158052863757e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.4780167075953505,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972736164927483,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897606834769249,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 4.126564163016155e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0031_N0030",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4597421479741346,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9849157407879829,
+            "self_intersections": 0,
+            "source_distance_p95": 8.41160443087575e-05,
+            "triangles": 21
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.504922082823012,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933674573898316,
+            "self_intersections": 0,
+            "source_distance_p95": 1.113249334494526e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.055399319991238,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972674176096916,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897606834769249,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 6.0417484928620724e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0027_N0027",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4597421479741346,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9849157407879829,
+            "self_intersections": 0,
+            "source_distance_p95": 8.41160443087575e-05,
+            "triangles": 21
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 2.504922082823012,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9982396811246872,
+            "normal_min": 0.9925251603126526,
+            "normal_p05": 0.9933674573898316,
+            "self_intersections": 0,
+            "source_distance_p95": 1.113249334494526e-06,
+            "triangles": 17
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.055399319991238,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9972674176096916,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9897606834769249,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 6.0417484928620724e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0031_N0027",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    },
+    {
+      "components": [
+        {
+          "metrics": {
+            "aspect_p95": 3.4344441082201946,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_median": 0.9968292713165283,
+            "normal_min": 0.9718771129846573,
+            "normal_p05": 0.9854857340455055,
+            "self_intersections": 0,
+            "source_distance_p95": 4.863315189140849e-05,
+            "triangles": 23
+          },
+          "output_faces": 15,
+          "paired_source_faces": [],
+          "side": 1,
+          "side_label": "POSITIVE_X"
+        },
+        {
+          "metrics": {
+            "aspect_p95": 13.113115937786748,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_median": 0.9969451278448105,
+            "normal_min": 0.9902159571647644,
+            "normal_p05": 0.991832399368286,
+            "self_intersections": 0,
+            "source_distance_p95": 5.295582701592092e-05,
+            "triangles": 15
+          },
+          "output_faces": 11,
+          "paired_source_faces": [],
+          "side": -1,
+          "side_label": "NEGATIVE_X"
+        }
+      ],
+      "metrics": {
+        "aspect_p95": 3.9839804302363646,
+        "failed_gates": [],
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.996918112039566,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9894209247082472,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_triangles": 38,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "source_distance_p95": 6.0417484928620724e-05
+      },
+      "name": "SOURCE_DISSOLVE_P0091_N0026",
+      "sampler_plan": {
+        "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+        "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+      }
+    }
+  ],
+  "errors": [],
+  "exact_blender_trials": [
+    {
+      "metrics": {
+        "aspect_p95": 16.928297212086527,
+        "failed_gates": [
+          "aspect_p95",
+          "normal_alignment",
+          "no_inverted_faces"
+        ],
+        "full_self_intersections": 0,
+        "inverted_faces": 1,
+        "normal_alignment_median": 0.9969181194901466,
+        "normal_alignment_min": -0.018140196800231934,
+        "normal_alignment_p05": 0.9487039558589458,
+        "passed": false,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_self_intersections": 0,
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "side_metrics": {
+          "NEGATIVE_X": {
+            "aspect_p95": 3.3227897284675025,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_alignment_median": 0.9984767735004425,
+            "normal_alignment_min": 0.9937024563550949,
+            "normal_alignment_p05": 0.9938736364245415,
+            "source_distance_p95": 0.0003277331532444803,
+            "tessellated_triangles": 15
+          },
+          "POSITIVE_X": {
+            "aspect_p95": 63.22475951751532,
+            "faces": 15,
+            "inverted_faces": 1,
+            "normal_alignment_median": 0.9960928559303284,
+            "normal_alignment_min": -0.018140196800231934,
+            "normal_alignment_p05": 0.7766012996435165,
+            "source_distance_p95": 0.00011152976185258012,
+            "tessellated_triangles": 25
+          }
+        },
+        "source_distance_p95": 0.00015892248920863468,
+        "topology": {
+          "boundary_edges": 354,
+          "connected_islands": 1,
+          "edges": 10670,
+          "faces": 6949,
+          "invalid_non_manifold_edges": 0,
+          "vertices": 3698,
+          "wire_edges": 0,
+          "zero_area_faces": 0
+        }
+      },
+      "name": "SOURCE_DISSOLVE_P0125_N0025"
+    },
+    {
+      "metrics": {
+        "aspect_p95": 4.31898298074429,
+        "failed_gates": [],
+        "full_self_intersections": 0,
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9978259205818176,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9903307050466538,
+        "passed": true,
+        "patch_balance": 0.7333333333333333,
+        "patch_faces": 26,
+        "patch_faces_by_side": [
+          15,
+          11
+        ],
+        "patch_self_intersections": 0,
+        "patch_triangles": 40,
+        "reduction_percent": 43.47826086956522,
+        "self_intersections": 0,
+        "side_metrics": {
+          "NEGATIVE_X": {
+            "aspect_p95": 3.3227897284675025,
+            "faces": 11,
+            "inverted_faces": 0,
+            "normal_alignment_median": 0.9984767735004425,
+            "normal_alignment_min": 0.9937024563550949,
+            "normal_alignment_p05": 0.9938736364245415,
+            "source_distance_p95": 0.0003277331532444803,
+            "tessellated_triangles": 15
+          },
+          "POSITIVE_X": {
+            "aspect_p95": 4.291775737137369,
+            "faces": 15,
+            "inverted_faces": 0,
+            "normal_alignment_median": 0.9970007836818695,
+            "normal_alignment_min": 0.9718771129846573,
+            "normal_alignment_p05": 0.9860557332634926,
+            "source_distance_p95": 4.1266299376729876e-05,
+            "tessellated_triangles": 25
+          }
+        },
+        "source_distance_p95": 0.00013420029426924873,
+        "topology": {
+          "boundary_edges": 354,
+          "connected_islands": 1,
+          "edges": 10670,
+          "faces": 6949,
+          "invalid_non_manifold_edges": 0,
+          "vertices": 3698,
+          "wire_edges": 0,
+          "zero_area_faces": 0
+        }
+      },
+      "name": "SOURCE_DISSOLVE_P0123_N0025"
+    }
+  ],
+  "execution_status": "COMPLETED",
+  "images_created": 0,
+  "new_blends_created": 1,
+  "output_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\.__r2_v40_cheek_retopology_v2_build_d6bc61fa387a47d888db82bcd00b292d\\r2-rig-v40-cheek-region-retopology-v2.blend",
+  "output_blend_sha256": "E770FF08D8945DFAA8BB2D1EC0E558A1F5CC2E12E0DAD8FDF6592F9E3AFAB3FC",
+  "quality_gates": {
+    "aspect_p95_max": 4.5,
+    "inverted_faces_max": 0,
+    "normal_alignment_p05_min": 0.95,
+    "patch_balance_min": 0.7,
+    "patch_faces_exact": 26,
+    "patch_triangles_max": 40,
+    "reduction_max": 60.0,
+    "reduction_min": 35.0,
+    "self_intersections_max": 0,
+    "source_distance_p95_max": 0.0015
+  },
+  "result_topology": {
+    "boundary_edges": 354,
+    "connected_islands": 1,
+    "edges": 10670,
+    "faces": 6949,
+    "invalid_non_manifold_edges": 0,
+    "vertices": 3698,
+    "wire_edges": 0,
+    "zero_area_faces": 0
+  },
+  "result_topology_failed_gates": [],
+  "result_unweighted_vertices": 0,
+  "selected_candidate": "SOURCE_DISSOLVE_P0123_N0025",
+  "selected_candidate_metrics": {
+    "aspect_p95": 4.31898298074429,
+    "failed_gates": [],
+    "full_self_intersections": 0,
+    "inverted_faces": 0,
+    "normal_alignment_median": 0.9978259205818176,
+    "normal_alignment_min": 0.9718771129846573,
+    "normal_alignment_p05": 0.9903307050466538,
+    "passed": true,
+    "patch_balance": 0.7333333333333333,
+    "patch_faces": 26,
+    "patch_faces_by_side": [
+      15,
+      11
+    ],
+    "patch_self_intersections": 0,
+    "patch_triangles": 40,
+    "reduction_percent": 43.47826086956522,
+    "self_intersections": 0,
+    "side_metrics": {
+      "NEGATIVE_X": {
+        "aspect_p95": 3.3227897284675025,
+        "faces": 11,
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9984767735004425,
+        "normal_alignment_min": 0.9937024563550949,
+        "normal_alignment_p05": 0.9938736364245415,
+        "source_distance_p95": 0.0003277331532444803,
+        "tessellated_triangles": 15
+      },
+      "POSITIVE_X": {
+        "aspect_p95": 4.291775737137369,
+        "faces": 15,
+        "inverted_faces": 0,
+        "normal_alignment_median": 0.9970007836818695,
+        "normal_alignment_min": 0.9718771129846573,
+        "normal_alignment_p05": 0.9860557332634926,
+        "source_distance_p95": 4.1266299376729876e-05,
+        "tessellated_triangles": 25
+      }
+    },
+    "source_distance_p95": 0.00013420029426924873,
+    "topology": {
+      "boundary_edges": 354,
+      "connected_islands": 1,
+      "edges": 10670,
+      "faces": 6949,
+      "invalid_non_manifold_edges": 0,
+      "vertices": 3698,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    }
+  },
+  "selected_candidate_virtual_metrics": {
+    "aspect_p95": 3.5075182619136633,
+    "failed_gates": [],
+    "inverted_faces": 0,
+    "normal_alignment_median": 0.9977238848805428,
+    "normal_alignment_min": 0.9718771129846573,
+    "normal_alignment_p05": 0.9903306767344475,
+    "passed": true,
+    "patch_balance": 0.7333333333333333,
+    "patch_faces": 26,
+    "patch_faces_by_side": [
+      15,
+      11
+    ],
+    "patch_triangles": 40,
+    "reduction_percent": 43.47826086956522,
+    "self_intersections": 0,
+    "source_distance_p95": 4.02982586820144e-05
+  },
+  "selected_face_indices": [
+    5123,
+    5126,
+    5127,
+    5245,
+    5250,
+    5251,
+    5255,
+    5256,
+    5261,
+    5262,
+    5373,
+    5380,
+    5381,
+    5382,
+    5386,
+    5387,
+    5388,
+    5389,
+    5390,
+    5391,
+    5398,
+    5511,
+    5512,
+    5513,
+    5514,
+    5515,
+    5517,
+    5519,
+    5520,
+    5521,
+    5522,
+    5527,
+    5528,
+    5529,
+    5530,
+    5651,
+    5652,
+    5653,
+    5658,
+    5659,
+    5660,
+    5661,
+    5667,
+    5786,
+    5787,
+    5788
+  ],
+  "selected_faces": 46,
+  "selected_sampler_plan": {
+    "negative_x": "SOURCE_PRESERVING_DISSOLVE",
+    "positive_x": "SOURCE_PRESERVING_DISSOLVE"
+  },
+  "selected_vertices": 38,
+  "selection_certificate": "C:\\Users\\rafae\\AppData\\Local\\Temp\\r2-v40-certified-geometry-fix-r6-cfa6f3d61b8142b386c132e40a9ac52b\\v40r6\\official-v40-cheek-selection-certificate.json",
+  "selection_certificate_sha256": "4654D3B5BCD09A497B7436CF6C5C75296473FCE0EA1A7B2217DC3197CEA4FFD5",
+  "selection_indices_file": "C:\\Users\\rafae\\AppData\\Local\\Temp\\r2-v40-certified-geometry-fix-r6-cfa6f3d61b8142b386c132e40a9ac52b\\v40r6\\official-v40-cheek-certified-face-indices.json",
+  "selection_indices_file_sha256": "BA838DBCF54BEAE9C49FB3EAA545A15DDEE23FFF7169A7D67D6B8360F8E6A7D0",
+  "selection_provenance": {
+    "canonical_indices_sha256": "24E58028866CDAFD7397FC46AAD4F26C13F82EB1FCFCA2B1B7CF231973597621",
+    "certificate_selection_sha256": "3B29C3EA10E8E086053F722B93FD55E15E540D5655B10590BF3F750359A6064C",
+    "certified_fixed_indices": true,
+    "dynamic_recovery_required": false,
+    "external_report_required": false,
+    "fingerprint": {
+      "abs_x_fraction": 0.0897880261462337,
+      "area_balance": 0.8662929396960968,
+      "area_percent": 0.722578426059695,
+      "boundary_closed": 2,
+      "boundary_components": 2,
+      "boundary_loop_vertices_total": 26,
+      "bounds_dimensions": [
+        0.15421247482299805,
+        0.1959778070449829,
+        0.29890841245651245
+      ],
+      "bounds_max": [
+        0.11104054749011993,
+        -0.10961980372667313,
+        0.9505565762519836
+      ],
+      "bounds_min": [
+        -0.043171923607587814,
+        -0.30559760332107544,
+        0.6516481637954712
+      ],
+      "centroid_mirror_error": 0.020585714812245068,
+      "component_face_counts_sorted": [
+        19,
+        27
+      ],
+      "face_balance": 0.7037037037037037,
+      "face_components": 2,
+      "faces": 46,
+      "historical_hash_matches": [],
+      "indices": [
+        5123,
+        5126,
+        5127,
+        5245,
+        5250,
+        5251,
+        5255,
+        5256,
+        5261,
+        5262,
+        5373,
+        5380,
+        5381,
+        5382,
+        5386,
+        5387,
+        5388,
+        5389,
+        5390,
+        5391,
+        5398,
+        5511,
+        5512,
+        5513,
+        5514,
+        5515,
+        5517,
+        5519,
+        5520,
+        5521,
+        5522,
+        5527,
+        5528,
+        5529,
+        5530,
+        5651,
+        5652,
+        5653,
+        5658,
+        5659,
+        5660,
+        5661,
+        5667,
+        5786,
+        5787,
+        5788
+      ],
+      "runtime_canonical_sha256": "24E58028866CDAFD7397FC46AAD4F26C13F82EB1FCFCA2B1B7CF231973597621",
+      "seed_mirror_error": 0.021678376001508137,
+      "vertices": 38
+    },
+    "height_fraction": 0.48,
+    "lateral_fraction": 0.1,
+    "method": "official_readonly_json_selected_candidate_fixed_indices",
+    "official_report_json_path": "$.cheek-region-report.json.selected_candidate.selected_face_indices",
+    "official_report_sha256": "5D4CEBCB1C37B71576BAFA9FC096499702F171B973BABA46D6A0F1622D7C5016",
+    "official_stable_hash_payload": "{\"faces\":[5123,5126,5127,5245,5250,5251,5255,5256,5261,5262,5373,5380,5381,5382,5386,5387,5388,5389,5390,5391,5398,5511,5512,5513,5514,5515,5517,5519,5520,5521,5522,5527,5528,5529,5530,5651,5652,5653,5658,5659,5660,5661,5667,5786,5787,5788],\"height_fraction\":0.48,\"lateral_fraction\":0.1,\"negative_seed\":2776,\"positive_seed\":2904,\"radius_fraction\":0.03,\"vertices\":[2639,2641,2707,2710,2712,2714,2771,2773,2776,2779,2780,2781,2782,2784,2836,2840,2841,2842,2843,2844,2845,2847,2848,2899,2900,2903,2904,2905,2907,2908,2909,2913,2973,2977,2981,2982,3042,3046]}",
+    "official_stable_hash_sha256": "3B29C3EA10E8E086053F722B93FD55E15E540D5655B10590BF3F750359A6064C",
+    "radius_fraction": 0.03,
+    "selected_vertex_indices": [
+      2639,
+      2641,
+      2707,
+      2710,
+      2712,
+      2714,
+      2771,
+      2773,
+      2776,
+      2779,
+      2780,
+      2781,
+      2782,
+      2784,
+      2836,
+      2840,
+      2841,
+      2842,
+      2843,
+      2844,
+      2845,
+      2847,
+      2848,
+      2899,
+      2900,
+      2903,
+      2904,
+      2905,
+      2907,
+      2908,
+      2909,
+      2913,
+      2973,
+      2977,
+      2981,
+      2982,
+      3042,
+      3046
+    ],
+    "selected_vertices": 38,
+    "selection_file": "C:\\Users\\rafae\\AppData\\Local\\Temp\\r2-v40-certified-geometry-fix-r6-cfa6f3d61b8142b386c132e40a9ac52b\\v40r6\\official-v40-cheek-certified-face-indices.json",
+    "selection_file_sha256": "BA838DBCF54BEAE9C49FB3EAA545A15DDEE23FFF7169A7D67D6B8360F8E6A7D0"
+  },
+  "selection_sha256_expected": "3B29C3EA10E8E086053F722B93FD55E15E540D5655B10590BF3F750359A6064C",
+  "source_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v39-nasal-bridge-region-retopology-v1\\r2-rig-v39-nasal-bridge-region-retopology-v1.blend",
+  "source_pair_merge_search": {
+    "combinations_evaluated": 430,
+    "method": "SOURCE_PRESERVING_DISSOLVE",
+    "summaries": [
+      {
+        "best_kept_internal_vertices": [
+          2841,
+          2904,
+          2907,
+          2908,
+          2909,
+          2977
+        ],
+        "best_metrics": {
+          "aspect_p95": 4.041589541716955,
+          "faces": 15,
+          "inverted_faces": 0,
+          "normal_median": 0.9970007538795471,
+          "normal_min": 0.9718771129846573,
+          "normal_p05": 0.9860557273030282,
+          "self_intersections": 0,
+          "source_distance_p95": 8.723825021661371e-06,
+          "triangles": 25
+        },
+        "best_removed_internal_vertices": [
+          2905
+        ],
+        "boundary_vertices": 15,
+        "internal_vertices": 7,
+        "options_kept": 43,
+        "side": 1,
+        "side_label": "POSITIVE_X",
+        "source_faces": 27,
+        "subsets_evaluated": 127,
+        "subsets_rejected": 84,
+        "subsets_total": 127,
+        "target_faces": 15,
+        "unique_options": 43
+      },
+      {
+        "best_kept_internal_vertices": [
+          2710,
+          2779,
+          2840
+        ],
+        "best_metrics": {
+          "aspect_p95": 2.977693919798922,
+          "faces": 11,
+          "inverted_faces": 0,
+          "normal_median": 0.9988645315170288,
+          "normal_min": 0.9939470291137695,
+          "normal_p05": 0.995699916779995,
+          "self_intersections": 0,
+          "source_distance_p95": 7.297245610970973e-05,
+          "triangles": 15
+        },
+        "best_removed_internal_vertices": [
+          2773,
+          2776
+        ],
+        "boundary_vertices": 11,
+        "internal_vertices": 5,
+        "options_kept": 10,
+        "side": -1,
+        "side_label": "NEGATIVE_X",
+        "source_faces": 19,
+        "subsets_evaluated": 31,
+        "subsets_rejected": 21,
+        "subsets_total": 31,
+        "target_faces": 11,
+        "unique_options": 10
+      }
+    ],
+    "target_faces_by_side": {
+      "negative_x": 11,
+      "positive_x": 15
+    }
+  },
+  "source_read_only": true,
+  "source_sha256_after": "0720E76A1CC9AD35DE4E398ED19272820374A31B7DAB715EB1F0ACDEAE4D9ECA",
+  "source_sha256_before": "0720E76A1CC9AD35DE4E398ED19272820374A31B7DAB715EB1F0ACDEAE4D9ECA",
+  "source_sha256_expected": "0720E76A1CC9AD35DE4E398ED19272820374A31B7DAB715EB1F0ACDEAE4D9ECA",
+  "source_topology": {
+    "boundary_edges": 354,
+    "connected_islands": 1,
+    "edges": 10693,
+    "faces": 6969,
+    "invalid_non_manifold_edges": 0,
+    "vertices": 3701,
+    "wire_edges": 0,
+    "zero_area_faces": 0
+  },
+  "source_unchanged": true,
+  "source_unweighted_vertices": 0,
+  "technical_verdict": "APROVADO",
+  "visual_validation_required": false
+}

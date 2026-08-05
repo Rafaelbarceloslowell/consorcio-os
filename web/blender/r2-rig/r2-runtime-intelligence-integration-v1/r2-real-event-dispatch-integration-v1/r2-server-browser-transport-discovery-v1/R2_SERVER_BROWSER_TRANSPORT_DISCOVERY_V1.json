@@ -1,0 +1,1204 @@
+{
+    "schemaVersion":  1,
+    "generatedAt":  "2026-08-02T15:04:37.3642011-03:00",
+    "mode":  "READ_ONLY",
+    "git":  {
+                "head":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+                "stagedFileCount":  0
+            },
+    "approvedBridge":  {
+                           "reportExists":  true,
+                           "reportPath":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-runtime-intelligence-integration-v1\\r2-real-event-dispatch-integration-v1\\r2-process-local-commercial-event-bridge-v1\\R2_PROCESS_LOCAL_COMMERCIAL_EVENT_BRIDGE_V1_REPORT.txt",
+                           "reportSha256":  "C6B644165763EDA92769E6D8EEE74025C7B40CAE3BADB6EA5F5C4AC3E544F427"
+                       },
+    "metrics":  {
+                    "producerCount":  6,
+                    "allProducerDefinitionsPresent":  true,
+                    "realCallCount":  0,
+                    "serverSideCallCount":  0,
+                    "clientSideCallCount":  0,
+                    "eventSourceMatchCount":  0,
+                    "sseMatchCount":  0,
+                    "webSocketMatchCount":  0,
+                    "broadcastChannelMatchCount":  0,
+                    "crossProcessTransportAlreadyExists":  false,
+                    "stagedFileCount":  0
+                },
+    "producers":  [
+                      {
+                          "producer":  "receiveLeadReply",
+                          "event":  "lead.replied",
+                          "definitionCount":  1,
+                          "importOrExportCount":  4,
+                          "realCallCount":  0,
+                          "environments":  [
+
+                                           ],
+                          "callers":  [
+
+                                      ]
+                      },
+                      {
+                          "producer":  "scheduleMeeting",
+                          "event":  "meeting.scheduled",
+                          "definitionCount":  2,
+                          "importOrExportCount":  7,
+                          "realCallCount":  0,
+                          "environments":  [
+
+                                           ],
+                          "callers":  [
+
+                                      ]
+                      },
+                      {
+                          "producer":  "completeMeeting",
+                          "event":  "meeting.completed",
+                          "definitionCount":  1,
+                          "importOrExportCount":  4,
+                          "realCallCount":  0,
+                          "environments":  [
+
+                                           ],
+                          "callers":  [
+
+                                      ]
+                      },
+                      {
+                          "producer":  "sendProposal",
+                          "event":  "proposal.sent",
+                          "definitionCount":  1,
+                          "importOrExportCount":  4,
+                          "realCallCount":  0,
+                          "environments":  [
+
+                                           ],
+                          "callers":  [
+
+                                      ]
+                      },
+                      {
+                          "producer":  "acceptProposal",
+                          "event":  "proposal.accepted",
+                          "definitionCount":  1,
+                          "importOrExportCount":  4,
+                          "realCallCount":  0,
+                          "environments":  [
+
+                                           ],
+                          "callers":  [
+
+                                      ]
+                      },
+                      {
+                          "producer":  "closeSale",
+                          "event":  "sale.completed",
+                          "definitionCount":  2,
+                          "importOrExportCount":  7,
+                          "realCallCount":  0,
+                          "environments":  [
+
+                                           ],
+                          "callers":  [
+
+                                      ]
+                      }
+                  ],
+    "transportIndex":  {
+                           "EventSource":  [
+
+                                           ],
+                           "text/event-stream":  [
+
+                                                 ],
+                           "WebSocket":  [
+
+                                         ],
+                           "new WebSocket":  [
+
+                                             ],
+                           "BroadcastChannel":  [
+
+                                                ],
+                           "ReadableStream":  [
+
+                                              ],
+                           "server-sent":  [
+
+                                           ],
+                           "SSE":  [
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\app\\globals.css",
+                                           "line":  85,
+                                           "text":  "--gorila-control-shadow-pressed: inset 0 3px 6px rgba(20,23,21,.18), inset 0 1px 0 rgba(255,255,255,.52), 0 1px 2px rgba(20,23,21,.08);",
+                                           "environment":  "UNKNOWN"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\app\\globals.css",
+                                           "line":  139,
+                                           "text":  "--gorila-control-shadow-pressed: inset 0 3px 6px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.07), 0 1px 2px rgba(0,0,0,.22);",
+                                           "environment":  "UNKNOWN"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\client\\list-clients.ts",
+                                           "line":  43,
+                                           "text":  "const matchesSearch = (",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\client\\list-clients.ts",
+                                           "line":  137,
+                                           "text":  "matchesSearch(",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\lead\\list-leads.ts",
+                                           "line":  42,
+                                           "text":  "const matchesSearch = (",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\lead\\list-leads.ts",
+                                           "line":  108,
+                                           "text":  "matchesSearch(",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  34,
+                                           "text":  "processedEventTtlMs?: number",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  74,
+                                           "text":  "private readonly processedEventTtlMs: number",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  83,
+                                           "text":  "private readonly processed = new Map\u003cstring, number\u003e()",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  101,
+                                           "text":  "this.processedEventTtlMs = milliseconds(config.processedEventTtlMs, 5 * 60_000)",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  114,
+                                           "text":  "processedEventIds: [...this.processed.keys()],",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  128,
+                                           "text":  "const task = this.dispatchTail.then(() =\u003e this.processEvent(event, context))",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  139,
+                                           "text":  "for (const [eventId, expires] of this.processed) {",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  140,
+                                           "text":  "if (expires \u003c= nowMs) this.processed.delete(eventId)",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  147,
+                                           "text":  "private markProcessed(event: R2DomainEvent, nowMs: number) {",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  148,
+                                           "text":  "this.processed.set(event.eventId, nowMs + this.processedEventTtlMs)",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  293,
+                                           "text":  "private async processEvent(",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  313,
+                                           "text":  "if (this.processed.has(event.eventId)) {",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  314,
+                                           "text":  "return this.decision({ type: \"DISCARD\", event, reason: \"EVENT_DUPLICATE\", priority: \"BACKGROUND\", runtimeState: null, discardedReason: \"eventId was already processed.\", now })",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  318,
+                                           "text":  "this.markProcessed(event, nowMs)",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  322,
+                                           "text":  "this.markProcessed(event, nowMs)",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  335,
+                                           "text":  "this.markProcessed(event, nowMs)",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  376,
+                                           "text":  "this.markProcessed(event, nowMs)",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\application\\r2\\r2-orchestrator.ts",
+                                           "line":  493,
+                                           "text":  "this.processed.clear()",
+                                           "environment":  "APPLICATION_LAYER"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\intro\\r2-intro-controller.tsx",
+                                           "line":  5,
+                                           "text":  "hasSeenR2Intro,",
+                                           "environment":  "CLIENT_COMPONENT"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\intro\\r2-intro-controller.tsx",
+                                           "line":  18,
+                                           "text":  "hasSeenR2Intro()",
+                                           "environment":  "CLIENT_COMPONENT"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\intro\\r2-intro-storage.ts",
+                                           "line":  5,
+                                           "text":  "export function hasSeenR2Intro() {",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  434,
+                                           "text":  "readonly assetName: string,",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  436,
+                                           "text":  "super(`${code}: ${assetName}`)",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  756,
+                                           "text":  "private assertActive() {",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  938,
+                                           "text":  "this.assertActive()",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  1099,
+                                           "text":  "this.assertActive()",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  1133,
+                                           "text":  "this.assertActive()",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  1145,
+                                           "text":  "this.assertActive()",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  1159,
+                                           "text":  "this.assertActive()",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  1171,
+                                           "text":  "this.assertActive()",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                           "line":  1218,
+                                           "text":  "this.assertActive()",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar.tsx",
+                                           "line":  14,
+                                           "text":  "const sizeClasses = {",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar.tsx",
+                                           "line":  43,
+                                           "text":  "sizeClasses[size],",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\ui\\button.tsx",
+                                           "line":  244,
+                                           "text":  "\"--button-active-shadow\": \"var(--gorila-control-shadow-pressed)\",",
+                                           "environment":  "CLIENT_COMPONENT"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\ui\\dialog.tsx",
+                                           "line":  71,
+                                           "text":  "const dialogSizeClasses: Record\u003c",
+                                           "environment":  "CLIENT_COMPONENT"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\ui\\dialog.tsx",
+                                           "line":  392,
+                                           "text":  "dialogSizeClasses[size],",
+                                           "environment":  "CLIENT_COMPONENT"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\ui\\glass-card.tsx",
+                                           "line":  72,
+                                           "text":  "\"active:[--card-shadow:var(--glass-card-shadow-pressed)]\",",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\ui\\glass-card.tsx",
+                                           "line":  142,
+                                           "text":  "\"--glass-card-shadow-pressed\": `",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\components\\ui\\icon-container.tsx",
+                                           "line":  8,
+                                           "text":  "* Componentes de negócio não devem conhecer esses detalhes visuais.",
+                                           "environment":  "COMPONENT_MODULE"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\infrastructure\\prisma\\mappers\\consortium-mapper.ts",
+                                           "line":  127,
+                                           "text":  "return ConsortiumMapper.assertNever(",
+                                           "environment":  "UNKNOWN"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\infrastructure\\prisma\\mappers\\consortium-mapper.ts",
+                                           "line":  154,
+                                           "text":  "return ConsortiumMapper.assertNever(",
+                                           "environment":  "UNKNOWN"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\infrastructure\\prisma\\mappers\\consortium-mapper.ts",
+                                           "line":  175,
+                                           "text":  "return ConsortiumMapper.assertNever(",
+                                           "environment":  "UNKNOWN"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\infrastructure\\prisma\\mappers\\consortium-mapper.ts",
+                                           "line":  196,
+                                           "text":  "return ConsortiumMapper.assertNever(",
+                                           "environment":  "UNKNOWN"
+                                       },
+                                       {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\infrastructure\\prisma\\mappers\\consortium-mapper.ts",
+                                           "line":  203,
+                                           "text":  "private static assertNever(",
+                                           "environment":  "UNKNOWN"
+                                       }
+                                   ],
+                           "revalidatePath":  [
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\[clientId]\\actions.ts",
+                                                      "line":  4,
+                                                      "text":  "revalidatePath,",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\[clientId]\\actions.ts",
+                                                      "line":  112,
+                                                      "text":  "revalidatePath(detailsPath)",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\[clientId]\\actions.ts",
+                                                      "line":  113,
+                                                      "text":  "revalidatePath(\"/clients\")",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\[clientId]\\edit\\actions.ts",
+                                                      "line":  4,
+                                                      "text":  "revalidatePath,",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\[clientId]\\edit\\actions.ts",
+                                                      "line":  233,
+                                                      "text":  "revalidatePath(detailsPath)",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\[clientId]\\edit\\actions.ts",
+                                                      "line":  234,
+                                                      "text":  "revalidatePath(\"/clients\")",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\new\\actions.ts",
+                                                      "line":  3,
+                                                      "text":  "import { revalidatePath } from \"next/cache\"",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\new\\actions.ts",
+                                                      "line":  272,
+                                                      "text":  "revalidatePath(\"/\")",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\opportunities\\[opportunityId]\\edit\\actions.ts",
+                                                      "line":  4,
+                                                      "text":  "revalidatePath,",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\opportunities\\[opportunityId]\\edit\\actions.ts",
+                                                      "line":  211,
+                                                      "text":  "revalidatePath(detailsPath)",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\opportunities\\new\\actions.ts",
+                                                      "line":  4,
+                                                      "text":  "revalidatePath,",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\app\\opportunities\\new\\actions.ts",
+                                                      "line":  281,
+                                                      "text":  "revalidatePath(\"/\")",
+                                                      "environment":  "SERVER_ACTION_MODULE"
+                                                  }
+                                              ],
+                           "router.refresh":  [
+
+                                              ],
+                           "window.dispatchEvent":  [
+
+                                                    ],
+                           "addEventListener(":  [
+                                                     {
+                                                         "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                                         "line":  711,
+                                                         "text":  "this.mixer.addEventListener(\"finished\", this.handleMixerFinished)",
+                                                         "environment":  "COMPONENT_MODULE"
+                                                     },
+                                                     {
+                                                         "path":  "C:\\Projetos\\consorcio-os\\web\\components\\ui\\dialog.tsx",
+                                                         "line":  115,
+                                                         "text":  "document.addEventListener(",
+                                                         "environment":  "CLIENT_COMPONENT"
+                                                     }
+                                                 ],
+                           "postMessage(":  [
+
+                                            ],
+                           "fetch(":  [
+
+                                      ],
+                           "use server":  [
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\[clientId]\\actions.ts",
+                                                  "line":  1,
+                                                  "text":  "\"use server\"",
+                                                  "environment":  "SERVER_ACTION_MODULE"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\[clientId]\\edit\\actions.ts",
+                                                  "line":  1,
+                                                  "text":  "\"use server\"",
+                                                  "environment":  "SERVER_ACTION_MODULE"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\app\\clients\\new\\actions.ts",
+                                                  "line":  1,
+                                                  "text":  "\"use server\"",
+                                                  "environment":  "SERVER_ACTION_MODULE"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\app\\opportunities\\[opportunityId]\\edit\\actions.ts",
+                                                  "line":  1,
+                                                  "text":  "\"use server\"",
+                                                  "environment":  "SERVER_ACTION_MODULE"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\app\\opportunities\\new\\actions.ts",
+                                                  "line":  1,
+                                                  "text":  "\"use server\"",
+                                                  "environment":  "SERVER_ACTION_MODULE"
+                                              }
+                                          ],
+                           "route.ts":  [
+
+                                        ]
+                       },
+    "dashboardIndex":  {
+                           "\"use client\"":  [
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx.20260729-115825.bak",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx.20260729-123325.bak",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\dialogue\\r2-dialogue-bubble.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\dialogue\\r2-dialogue-controller.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\head\\r2-head.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\intro\\r2-first-login.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\intro\\r2-intro-controller.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\intro\\r2-intro-face.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\intro\\r2-intro-look.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\intro\\r2-reveal-animation.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\memory\\r2-memory-provider.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\r2-avatar.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\r2-body.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\r2-dashboard-avatar.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\r2-face.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\r2-neck.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-animation-controller.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-core.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-customization.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-expression.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-eye-controller.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-face-controller.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-fur.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-geometry-smoke-test.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-hoodie.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-life-controller.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-material.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-model-smoke-test.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-real-model.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx.20260729-115825.bak",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx.20260729-123325.bak",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx.20260729-124749.bak",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx.20260729-125151.bak",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-webgl-smoke-test.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-web-model.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2-controller.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2-gltf-model.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2-lab.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2-model.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2-placeholder.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2-scene.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2-status.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-shell.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  },
+                                                  {
+                                                      "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\sidebar.tsx",
+                                                      "line":  1,
+                                                      "text":  "\"use client\""
+                                                  }
+                                              ],
+                           "R2OrchestrationProvider":  [
+                                                           {
+                                                               "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                               "line":  150,
+                                                               "text":  "function R2OrchestrationProviderScope({"
+                                                           },
+                                                           {
+                                                               "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                               "line":  202,
+                                                               "text":  "export function R2OrchestrationProvider(props: Readonly\u003c{"
+                                                           },
+                                                           {
+                                                               "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                               "line":  209,
+                                                               "text":  "\u003cR2OrchestrationProviderScope"
+                                                           },
+                                                           {
+                                                               "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                               "line":  218,
+                                                               "text":  "if (!value) throw new Error(\"useR2Orchestration must be used inside R2OrchestrationProvider.\")"
+                                                           },
+                                                           {
+                                                               "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                               "line":  8,
+                                                               "text":  "R2OrchestrationProvider,"
+                                                           },
+                                                           {
+                                                               "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                               "line":  53,
+                                                               "text":  "\u003cR2OrchestrationProvider"
+                                                           },
+                                                           {
+                                                               "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                               "line":  59,
+                                                               "text":  "\u003c/R2OrchestrationProvider\u003e"
+                                                           }
+                                                       ],
+                           "GorilaR2Avatar3D":  [
+                                                    {
+                                                        "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-header.tsx",
+                                                        "line":  11,
+                                                        "text":  "import { GorilaR2Avatar3D } from \"@/components/dashboard/gorila-r2-avatar-3d\""
+                                                    },
+                                                    {
+                                                        "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-header.tsx",
+                                                        "line":  159,
+                                                        "text":  "\u003cGorilaR2Avatar3D"
+                                                    },
+                                                    {
+                                                        "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                        "line":  13,
+                                                        "text":  "type GorilaR2Avatar3DProps = {"
+                                                    },
+                                                    {
+                                                        "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                        "line":  32,
+                                                        "text":  "export function GorilaR2Avatar3D({"
+                                                    },
+                                                    {
+                                                        "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                        "line":  37,
+                                                        "text":  "}: GorilaR2Avatar3DProps) {"
+                                                    }
+                                                ],
+                           "workspaceId":  [
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx",
+                                                   "line":  29,
+                                                   "text":  "workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx",
+                                                   "line":  33,
+                                                   "text":  "workspaceId?: string"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx",
+                                                   "line":  147,
+                                                   "text":  "runtimeWorkspaceId={workspaceId}"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  52,
+                                                   "text":  "readonly workspaceId: string,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  56,
+                                                   "text":  "workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  87,
+                                                   "text":  "workspaceId: this.workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  151,
+                                                   "text":  "workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  156,
+                                                   "text":  "workspaceId: string"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  161,
+                                                   "text":  "const [store] = useState(() =\u003e new R2OrchestrationStore(workspaceId, userId ?? null))"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  168,
+                                                   "text":  "event.workspaceId !=="
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  169,
+                                                   "text":  "workspaceId"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  184,
+                                                   "text":  "workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  203,
+                                                   "text":  "workspaceId: string"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                   "line":  210,
+                                                   "text":  "key={`${props.workspaceId}:${props.userId ?? \"anonymous\"}`}"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-runtime-command-adapter.ts",
+                                                   "line":  16,
+                                                   "text":  "workspaceId: string"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-runtime-command-adapter.ts",
+                                                   "line":  29,
+                                                   "text":  "private readonly workspaceId: string"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-runtime-command-adapter.ts",
+                                                   "line":  39,
+                                                   "text":  "const workspaceId = config.workspaceId.trim()"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-runtime-command-adapter.ts",
+                                                   "line":  40,
+                                                   "text":  "if (!workspaceId) throw new Error(\"R2 runtime adapter workspaceId is required.\")"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-runtime-command-adapter.ts",
+                                                   "line":  42,
+                                                   "text":  "this.workspaceId = workspaceId"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-runtime-command-adapter.ts",
+                                                   "line":  54,
+                                                   "text":  "if (command.workspaceId !== this.workspaceId) {"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-runtime-command-adapter.ts",
+                                                   "line":  173,
+                                                   "text":  "workspaceId: command.workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                   "line":  57,
+                                                   "text":  "runtimeWorkspaceId?: string"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                   "line":  129,
+                                                   "text":  "runtimeWorkspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                   "line":  179,
+                                                   "text":  "const adapter = runtimeWorkspaceId"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                   "line":  182,
+                                                   "text":  "workspaceId: runtimeWorkspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                   "line":  245,
+                                                   "text":  "runtimeWorkspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-content.tsx",
+                                                   "line":  11,
+                                                   "text":  "| \"workspaceId\""
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-content.tsx",
+                                                   "line":  22,
+                                                   "text":  "workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-content.tsx",
+                                                   "line":  59,
+                                                   "text":  "workspaceId={workspaceId}"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-header.tsx",
+                                                   "line":  18,
+                                                   "text":  "workspaceId?: string"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-header.tsx",
+                                                   "line":  40,
+                                                   "text":  "workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-header.tsx",
+                                                   "line":  161,
+                                                   "text":  "workspaceId={workspaceId}"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-shell.tsx",
+                                                   "line":  16,
+                                                   "text":  "workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\dashboard-shell.tsx",
+                                                   "line":  78,
+                                                   "text":  "workspaceId={workspaceId}"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  16,
+                                                   "text":  "workspaceId?: string"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  21,
+                                                   "text":  "function OrchestratedR2({ workspaceId }: Readonly\u003c{ workspaceId: string }\u003e) {"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  25,
+                                                   "text":  "workspaceId={workspaceId}"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  34,
+                                                   "text":  "workspaceId,"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  39,
+                                                   "text":  "if (!workspaceId || !userId || !briefing) return null"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  40,
+                                                   "text":  "return normalizeDashboardBriefing({ workspaceId, userId, briefing })"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  41,
+                                                   "text":  "}, [briefing, userId, workspaceId])"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  52,
+                                                   "text":  "{workspaceId \u0026\u0026 userId \u0026\u0026 initialEvent ? ("
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  54,
+                                                   "text":  "workspaceId={workspaceId}"
+                                               },
+                                               {
+                                                   "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\gorila-r2-avatar-3d.tsx",
+                                                   "line":  58,
+                                                   "text":  "\u003cOrchestratedR2 workspaceId={workspaceId} /\u003e"
+                                               }
+                                           ],
+                           "useEffect(":  [
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx",
+                                                  "line":  40,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                  "line":  164,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                  "line":  189,
+                                                  "text":  "useEffect(() =\u003e store.activate(), [store])"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\orchestration\\r2-orchestration-provider.tsx",
+                                                  "line":  191,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                  "line":  102,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                  "line":  138,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                  "line":  153,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                  "line":  165,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                  "line":  249,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                  "line":  263,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                  "line":  269,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-model.tsx",
+                                                  "line":  289,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-real-model.tsx",
+                                                  "line":  41,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx",
+                                                  "line":  616,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx.20260729-115825.bak",
+                                                  "line":  122,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx.20260729-123325.bak",
+                                                  "line":  126,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx.20260729-124749.bak",
+                                                  "line":  616,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              },
+                                              {
+                                                  "path":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-stable-model.tsx.20260729-125151.bak",
+                                                  "line":  616,
+                                                  "text":  "useEffect(() =\u003e {"
+                                              }
+                                          ],
+                           "fetch(":  [
+
+                                      ],
+                           "EventSource":  [
+
+                                           ],
+                           "router.refresh":  [
+
+                                              ]
+                       },
+    "verdict":  "APROVADO_PARA_DESENHO_DO_TRANSPORTE_SERVER_BROWSER"
+}

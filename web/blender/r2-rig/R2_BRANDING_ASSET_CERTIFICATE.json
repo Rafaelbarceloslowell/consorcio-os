@@ -1,0 +1,1745 @@
+{
+  "animation_clipping_results": {
+    "clipping_vertices": 0,
+    "clips": [
+      "R2_ALERT",
+      "R2_AWAITING_ACTION",
+      "R2_CELEBRATING_SALE",
+      "R2_ERROR_ATTENTION",
+      "R2_IDLE",
+      "R2_LISTENING",
+      "R2_NEUTRAL",
+      "R2_THINKING",
+      "R2_WORKING"
+    ],
+    "floating_vertices": 0,
+    "matrix": {
+      "R2_ALERT": {
+        "1": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "18": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "36": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        }
+      },
+      "R2_AWAITING_ACTION": {
+        "1": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "38": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "75": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        }
+      },
+      "R2_CELEBRATING_SALE": {
+        "1": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "36": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "72": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        }
+      },
+      "R2_ERROR_ATTENTION": {
+        "1": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "30": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "60": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        }
+      },
+      "R2_IDLE": {
+        "1": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "120": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "60": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        }
+      },
+      "R2_LISTENING": {
+        "1": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "46": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "90": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        }
+      },
+      "R2_NEUTRAL": {
+        "1": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "16": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "30": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        }
+      },
+      "R2_THINKING": {
+        "1": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "46": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "90": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        }
+      },
+      "R2_WORKING": {
+        "1": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "36": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        },
+        "72": {
+          "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000114,
+            "mean_distance": 0.002746815,
+            "minimum_distance": 0.001165247,
+            "sampled_vertices": 996,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_RightChest_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004000044,
+            "mean_distance": 0.002749992,
+            "minimum_distance": 0.001499674,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          },
+          "R2_Brand_UpperBack_GorillaMark": {
+            "clipping_vertices": 0,
+            "floating_vertices": 0,
+            "maximum_distance": 0.004200056,
+            "mean_distance": 0.002849949,
+            "minimum_distance": 0.00149768,
+            "sampled_vertices": 660,
+            "z_fighting_vertices": 0
+          }
+        }
+      }
+    },
+    "samples_per_clip": 3,
+    "z_fighting_vertices": 0
+  },
+  "branding_placement_count": 3,
+  "candidate_paths_inspected": [
+    "C:\\Projetos\\consorcio-os\\brand\\assets\\source\\GorillaMark_Master.svg",
+    "C:\\Projetos\\consorcio-os\\brand\\assets\\svg\\GorillaMark_Dark.svg",
+    "C:\\Projetos\\consorcio-os\\brand\\assets\\svg\\GorillaMark_Light.svg",
+    "C:\\Projetos\\consorcio-os\\brand\\assets\\svg\\GorillaMark_Monochrome.svg",
+    "C:\\Projetos\\consorcio-os\\web\\public\\brand\\GorillaMark_Dark.svg",
+    "C:\\Projetos\\consorcio-os\\web\\public\\brand\\GorillaMark_Light.svg"
+  ],
+  "created_images": 0,
+  "execution_status": "COMPLETED",
+  "failed_gates": [],
+  "glb_candidate": {
+    "branding_material_assignments": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": [
+        "R2_Mat_Embroidery_Gray",
+        "R2_Mat_Embroidery_White",
+        "R2_Mat_GorillaOS_Green"
+      ],
+      "R2_Brand_RightChest_GorillaMark": [
+        "R2_Mat_Embroidery_Gray",
+        "R2_Mat_Embroidery_White"
+      ],
+      "R2_Brand_UpperBack_GorillaMark": [
+        "R2_Mat_Embroidery_Gray",
+        "R2_Mat_Embroidery_White"
+      ]
+    },
+    "branding_node_names": [
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+      "R2_Brand_RightChest_GorillaMark",
+      "R2_Brand_UpperBack_GorillaMark"
+    ],
+    "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_material_branding_20260802_000707\\r2-full-character-material-branded-ready-v1.candidate.glb",
+    "sha256": "1F693EBB12E36965786C426CC07AF5FD6775CADFD81542236518103C6541E6AB"
+  },
+  "glb_round_trip_identities": {
+    "animation_clips": [
+      "R2_ALERT",
+      "R2_AWAITING_ACTION",
+      "R2_CELEBRATING_SALE",
+      "R2_ERROR_ATTENTION",
+      "R2_IDLE",
+      "R2_LISTENING",
+      "R2_NEUTRAL",
+      "R2_THINKING",
+      "R2_WORKING"
+    ],
+    "approved": true,
+    "bone_count": 65,
+    "materials": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": [
+        "R2_Mat_Embroidery_Gray",
+        "R2_Mat_Embroidery_White",
+        "R2_Mat_GorillaOS_Green"
+      ],
+      "R2_Brand_RightChest_GorillaMark": [
+        "R2_Mat_Embroidery_Gray",
+        "R2_Mat_Embroidery_White"
+      ],
+      "R2_Brand_UpperBack_GorillaMark": [
+        "R2_Mat_Embroidery_Gray",
+        "R2_Mat_Embroidery_White"
+      ]
+    },
+    "morph_targets": 24,
+    "objects": [
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+      "R2_Brand_RightChest_GorillaMark",
+      "R2_Brand_UpperBack_GorillaMark"
+    ]
+  },
+  "hierarchy": {
+    "largest": "R2_Brand_UpperBack_GorillaMark",
+    "medium": "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+    "smallest": "R2_Brand_RightChest_GorillaMark"
+  },
+  "left_arm_patch": {
+    "animation_clipping": 0,
+    "center_from_bounds": [
+      0.532439172,
+      -0.075452313,
+      0.308454633
+    ],
+    "contains_official_logo": true,
+    "contains_r2_designation": true,
+    "face_count": 1630,
+    "garment": "R2_Hoodie_Sleeve_L",
+    "garment_bounds": {
+      "maximum": [
+        0.532439172,
+        0.053447634,
+        0.471996546
+      ],
+      "minimum": [
+        0.266263872,
+        -0.20435226,
+        -0.009009036
+      ]
+    },
+    "geometry_sha256": "D596679AC00D5B6CBDC3D27678AD94AD656D43ABD308499F3A13C4B8F970C38A",
+    "material_slots": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White",
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "mirrored": false,
+    "neutral_offset_max": 0.004,
+    "neutral_offset_min": 0.0015,
+    "object": "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+    "placement": "ANATOMICAL_LEFT_UPPER_ARM",
+    "r2_mark": {
+      "font": "Blender Bfont converted to mesh",
+      "height": 0.045186915,
+      "text": "R2",
+      "width": 0.06493575319647789
+    },
+    "reference_face_count": 283,
+    "reference_faces": [
+      3220,
+      3232,
+      3408,
+      3410,
+      3411,
+      3413,
+      3421,
+      3611,
+      3613,
+      3614,
+      3619,
+      3624,
+      3628,
+      3805,
+      3807,
+      3808,
+      3839,
+      3841,
+      3843,
+      3844,
+      3845,
+      3847,
+      3990,
+      3991,
+      4006,
+      4009,
+      4013,
+      4015,
+      4020,
+      4021,
+      4212,
+      4217,
+      4219,
+      4220,
+      4221,
+      4222,
+      4223,
+      4225,
+      4226,
+      4227,
+      4243,
+      4245,
+      4246,
+      4248,
+      4250,
+      4252,
+      4454,
+      4456,
+      4457,
+      4458,
+      4459,
+      4460,
+      4462,
+      4463,
+      4464,
+      4466,
+      4468,
+      4472,
+      4485,
+      4488,
+      4489,
+      4490,
+      4505,
+      4506,
+      4702,
+      4706,
+      4710,
+      4713,
+      4714,
+      4716,
+      4717,
+      4725,
+      4726,
+      4727,
+      4729,
+      4730,
+      4741,
+      4744,
+      4746,
+      4748,
+      4749,
+      4751,
+      4753,
+      4754,
+      4755,
+      4756,
+      4769,
+      4971,
+      4972,
+      4974,
+      4975,
+      4976,
+      4986,
+      4988,
+      4989,
+      4990,
+      5012,
+      5013,
+      5016,
+      5242,
+      5247,
+      5262,
+      5264,
+      5265,
+      5268,
+      5271,
+      5276,
+      5290,
+      5299,
+      5517,
+      5520,
+      5543,
+      5545,
+      5546,
+      5547,
+      5548,
+      5549,
+      5551,
+      5581,
+      5582,
+      5583,
+      5584,
+      5774,
+      5777,
+      5809,
+      5838,
+      5846,
+      5847,
+      5848,
+      6072,
+      6075,
+      6076,
+      6107,
+      6116,
+      6126,
+      6137,
+      6138,
+      6143,
+      6144,
+      6145,
+      6149,
+      6151,
+      6152,
+      6162,
+      6164,
+      6165,
+      6375,
+      6380,
+      6381,
+      6385,
+      6387,
+      6398,
+      6403,
+      6436,
+      6438,
+      6444,
+      6445,
+      6446,
+      6448,
+      6449,
+      6450,
+      6452,
+      6453,
+      6454,
+      6455,
+      6456,
+      6701,
+      6702,
+      6706,
+      6709,
+      6715,
+      6716,
+      6721,
+      6725,
+      6726,
+      6733,
+      6736,
+      6769,
+      6774,
+      6777,
+      6778,
+      6781,
+      7051,
+      7052,
+      7053,
+      7056,
+      7057,
+      7058,
+      7063,
+      7064,
+      7066,
+      7070,
+      7075,
+      7077,
+      7078,
+      7081,
+      7083,
+      7084,
+      7109,
+      7111,
+      7113,
+      7115,
+      7123,
+      7126,
+      7131,
+      7132,
+      7133,
+      7138,
+      7139,
+      7140,
+      7422,
+      7426,
+      7429,
+      7439,
+      7441,
+      7442,
+      7446,
+      7447,
+      7462,
+      7477,
+      7480,
+      7483,
+      7486,
+      7489,
+      7491,
+      7496,
+      7504,
+      7761,
+      7762,
+      7765,
+      7787,
+      7792,
+      7797,
+      7803,
+      7815,
+      7816,
+      7820,
+      7823,
+      7838,
+      7839,
+      7840,
+      7852,
+      8131,
+      8163,
+      8180,
+      8181,
+      8188,
+      8189,
+      8196,
+      8225,
+      8228,
+      8232,
+      8233,
+      8275,
+      8279,
+      8280,
+      8282,
+      8285,
+      8287,
+      8289,
+      8290,
+      8295,
+      8296,
+      8301,
+      8303,
+      8317,
+      8556,
+      8636,
+      8637,
+      8675,
+      8698,
+      8736,
+      8813,
+      9117,
+      9244,
+      9294,
+      9321,
+      9338,
+      10327,
+      10357,
+      10384,
+      10816,
+      10977
+    ],
+    "topology": {
+      "boundary_edges": 0,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "vertex_count": 996,
+    "weights_sha256": "121434F1360247033DC28FCE6DF89C3ECDCE53E17979EE74F82F8493613F8538"
+  },
+  "logo_import": {
+    "aspect_height_over_width": 1.22067238,
+    "source_center": [
+      0.146758556,
+      0.147856236
+    ],
+    "source_dimensions": [
+      0.194172859,
+      0.237021446
+    ]
+  },
+  "official_logo_sha256": "7FC4BA6C6B5BEEA9B082CFF751A480D7DF8F8D372984703CF6847E2398B5749E",
+  "official_logo_source": "C:\\Projetos\\consorcio-os\\web\\public\\brand\\GorillaMark_Dark.svg",
+  "official_master_sha256": "6572940BA485E3E9D993754B8D422CEFB26DE5B194ED5AD8219771224BB29B70",
+  "official_master_source": "C:\\Projetos\\consorcio-os\\brand\\assets\\source\\GorillaMark_Master.svg",
+  "published_glb_round_trip": {
+    "animation_clips": [
+      "R2_ALERT",
+      "R2_AWAITING_ACTION",
+      "R2_CELEBRATING_SALE",
+      "R2_ERROR_ATTENTION",
+      "R2_IDLE",
+      "R2_LISTENING",
+      "R2_NEUTRAL",
+      "R2_THINKING",
+      "R2_WORKING"
+    ],
+    "approved": true,
+    "bone_count": 65,
+    "materials": {
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch": [
+        "R2_Mat_Embroidery_Gray",
+        "R2_Mat_Embroidery_White",
+        "R2_Mat_GorillaOS_Green"
+      ],
+      "R2_Brand_RightChest_GorillaMark": [
+        "R2_Mat_Embroidery_Gray",
+        "R2_Mat_Embroidery_White"
+      ],
+      "R2_Brand_UpperBack_GorillaMark": [
+        "R2_Mat_Embroidery_Gray",
+        "R2_Mat_Embroidery_White"
+      ]
+    },
+    "morph_targets": 24,
+    "objects": [
+      "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+      "R2_Brand_RightChest_GorillaMark",
+      "R2_Brand_UpperBack_GorillaMark"
+    ],
+    "path": "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-material-branded-ready-v1.glb",
+    "sha256": "1F693EBB12E36965786C426CC07AF5FD6775CADFD81542236518103C6541E6AB"
+  },
+  "right_chest_logo": {
+    "animation_clipping": 0,
+    "center_from_bounds": [
+      -0.154016569,
+      -0.299661756,
+      0.385241479
+    ],
+    "face_count": 1076,
+    "garment": "R2_Hoodie_Torso",
+    "garment_bounds": {
+      "maximum": [
+        0.507390976,
+        0.260520786,
+        0.681612551
+      ],
+      "minimum": [
+        -0.430775762,
+        -0.299661756,
+        -0.2302984
+      ]
+    },
+    "geometry_sha256": "8815FF8E310175DEC4F55B104E0713ACDFA5E78B208EE53FF976CFD23915F5BF",
+    "material_slots": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "mirrored": false,
+    "neutral_offset_max": 0.004,
+    "neutral_offset_min": 0.0015,
+    "object": "R2_Brand_RightChest_GorillaMark",
+    "placement": "ANATOMICAL_RIGHT_CHEST",
+    "reference_face_count": 133,
+    "reference_faces": [
+      57317,
+      57335,
+      57912,
+      57950,
+      58410,
+      58425,
+      58925,
+      58942,
+      58945,
+      59468,
+      59474,
+      59495,
+      59496,
+      59499,
+      59502,
+      60102,
+      60103,
+      60116,
+      60121,
+      60126,
+      60127,
+      60131,
+      60136,
+      60169,
+      60188,
+      60828,
+      60833,
+      60846,
+      60848,
+      60856,
+      60869,
+      60881,
+      60886,
+      60891,
+      60893,
+      60911,
+      61587,
+      61588,
+      61603,
+      61611,
+      61616,
+      61619,
+      61620,
+      61624,
+      61625,
+      61626,
+      61631,
+      61639,
+      61664,
+      61674,
+      61693,
+      62316,
+      62323,
+      62332,
+      62363,
+      62364,
+      62371,
+      62373,
+      62387,
+      62388,
+      62394,
+      62395,
+      62404,
+      62407,
+      62420,
+      62422,
+      62424,
+      62429,
+      62430,
+      62431,
+      62432,
+      62437,
+      62438,
+      62439,
+      62443,
+      62444,
+      62445,
+      63094,
+      63104,
+      63183,
+      63184,
+      63185,
+      63189,
+      63190,
+      63207,
+      63232,
+      63906,
+      63907,
+      63910,
+      63912,
+      63916,
+      63917,
+      63918,
+      63928,
+      63954,
+      63992,
+      64780,
+      64798,
+      64799,
+      64805,
+      64807,
+      64812,
+      64814,
+      64815,
+      64819,
+      64820,
+      64826,
+      64828,
+      64829,
+      64833,
+      64834,
+      64839,
+      64840,
+      64843,
+      64844,
+      64846,
+      64854,
+      64870,
+      64892,
+      64905,
+      64927,
+      65692,
+      65695,
+      65701,
+      65706,
+      65713,
+      65715,
+      65716,
+      65725,
+      65745,
+      65754,
+      65789,
+      65791
+    ],
+    "topology": {
+      "boundary_edges": 0,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "vertex_count": 660,
+    "weights_sha256": "46D084DE4FF2155344BA70E8DB8350D051CEB1EFB7B72EAC69F712D83BCF9CDB"
+  },
+  "schema_version": 1,
+  "skinning_ownership": {
+    "R2_Brand_LeftArm_GorillaMark_R2_Patch": {
+      "armature": "R2_Rig",
+      "garment": "R2_Hoodie_Sleeve_L",
+      "method": "barycentric transfer from ray-hit garment faces"
+    },
+    "R2_Brand_RightChest_GorillaMark": {
+      "armature": "R2_Rig",
+      "garment": "R2_Hoodie_Torso",
+      "method": "barycentric transfer from ray-hit garment faces"
+    },
+    "R2_Brand_UpperBack_GorillaMark": {
+      "armature": "R2_Rig",
+      "garment": "R2_Hoodie_Torso",
+      "method": "barycentric transfer from ray-hit garment faces"
+    }
+  },
+  "technical_verdict": "APROVADO",
+  "upper_back_logo": {
+    "animation_clipping": 0,
+    "center_from_bounds": [
+      0.038307607,
+      0.260520786,
+      0.321407735
+    ],
+    "face_count": 1076,
+    "garment": "R2_Hoodie_Torso",
+    "garment_bounds": {
+      "maximum": [
+        0.507390976,
+        0.260520786,
+        0.681612551
+      ],
+      "minimum": [
+        -0.430775762,
+        -0.299661756,
+        -0.2302984
+      ]
+    },
+    "geometry_sha256": "F6E7B6E7FD16AA799E3D0C9A63C6721166B70512CBD646497750A4B3C3C5DC3B",
+    "material_slots": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "mirrored": false,
+    "neutral_offset_max": 0.0042,
+    "neutral_offset_min": 0.0015,
+    "object": "R2_Brand_UpperBack_GorillaMark",
+    "placement": "UPPER_BACK_CENTERED",
+    "reference_face_count": 204,
+    "reference_faces": [
+      303,
+      463,
+      1571,
+      1593,
+      1602,
+      1648,
+      1729,
+      1731,
+      1741,
+      1752,
+      1765,
+      1775,
+      1781,
+      1783,
+      1784,
+      1786,
+      1788,
+      1790,
+      1792,
+      1793,
+      1795,
+      1797,
+      1799,
+      1800,
+      1801,
+      1803,
+      1804,
+      1805,
+      1806,
+      1807,
+      1815,
+      1817,
+      1819,
+      1899,
+      1920,
+      2036,
+      2227,
+      2233,
+      2354,
+      2396,
+      2934,
+      2977,
+      3012,
+      3022,
+      3028,
+      3035,
+      3085,
+      3117,
+      3120,
+      3122,
+      3125,
+      3128,
+      3130,
+      3132,
+      3133,
+      3134,
+      3147,
+      3150,
+      3152,
+      3165,
+      3175,
+      3182,
+      3186,
+      3194,
+      3195,
+      3202,
+      3203,
+      3212,
+      3223,
+      3225,
+      3227,
+      3231,
+      3232,
+      3240,
+      3242,
+      3293,
+      3332,
+      3370,
+      3373,
+      3376,
+      3377,
+      3378,
+      3380,
+      3389,
+      3418,
+      3421,
+      3422,
+      3423,
+      3424,
+      3434,
+      3467,
+      3482,
+      3483,
+      3484,
+      3538,
+      3542,
+      3592,
+      3621,
+      4327,
+      4343,
+      4356,
+      4357,
+      4382,
+      4393,
+      4394,
+      4411,
+      4564,
+      4585,
+      4666,
+      4668,
+      4669,
+      4724,
+      4726,
+      4727,
+      4728,
+      4767,
+      4781,
+      5469,
+      5476,
+      5484,
+      5492,
+      5501,
+      5510,
+      5520,
+      5521,
+      5534,
+      5536,
+      5545,
+      5546,
+      5547,
+      5548,
+      5550,
+      5569,
+      5570,
+      5572,
+      5597,
+      5608,
+      5610,
+      5614,
+      5617,
+      5644,
+      5646,
+      5649,
+      5650,
+      5651,
+      5689,
+      5690,
+      5691,
+      5695,
+      5702,
+      5771,
+      5774,
+      5783,
+      5804,
+      5805,
+      5825,
+      5828,
+      5831,
+      5851,
+      6467,
+      6495,
+      6536,
+      6702,
+      6704,
+      6705,
+      6763,
+      6764,
+      6766,
+      6769,
+      6806,
+      6807,
+      6808,
+      6809,
+      6832,
+      6840,
+      6845,
+      6874,
+      7547,
+      7594,
+      7651,
+      7679,
+      7680,
+      7700,
+      7703,
+      7725,
+      7736,
+      7739,
+      7744,
+      7763,
+      7766,
+      7776,
+      7778,
+      7782,
+      7801,
+      7843,
+      7844,
+      7854,
+      9192,
+      9313,
+      9316,
+      9329,
+      9360,
+      9364,
+      9405
+    ],
+    "topology": {
+      "boundary_edges": 0,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "vertex_count": 660,
+    "weights_sha256": "F1B7B3DA5F9913056E5914F5F45A7229F66D2495A9BBDDDD164227967E65D617"
+  },
+  "variant": "GorillaMark Dark",
+  "variant_certification": {
+    "colors": {
+      "foreground": "#FFFFFF",
+      "frame": "#818487"
+    },
+    "dashboard_component": "C:\\Projetos\\consorcio-os\\web\\components\\brand\\brand-identity.tsx",
+    "dashboard_default_theme": "dark",
+    "dashboard_runtime_path": "/brand/GorillaMark_Dark.svg",
+    "distribution_source": "C:\\Projetos\\consorcio-os\\brand\\assets\\svg\\GorillaMark_Dark.svg",
+    "geometry_paths": 4,
+    "geometry_reinterpreted": false,
+    "mirrored": false,
+    "published_matches_distribution_byte_for_byte": true,
+    "selection_reason": "The current dashboard defaults to its dark theme and BrandMarkSlot loads this exact distributed SVG."
+  }
+}

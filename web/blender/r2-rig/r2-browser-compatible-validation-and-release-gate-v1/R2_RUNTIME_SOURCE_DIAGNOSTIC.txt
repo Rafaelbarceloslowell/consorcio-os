@@ -1,0 +1,5286 @@
+﻿============================================================
+ R2 RUNTIME SOURCE DIAGNOSTIC
+============================================================
+GENERATED_AT=2026-08-02T12:27:43-03:00
+ROOT=C:\Projetos\consorcio-os\web
+
+============================================================
+ PATTERN: __GORILLA_R2_DIAGNOSTICS__
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=80
+----------------------------------------
+  scene: Object3D
+  controller:
+    R2FullCharacterRuntimeController
+  adapter: R2RuntimeCommandAdapter | null
+}
+
+declare global {
+  interface Window {
+>>>     __GORILLA_R2_DIAGNOSTICS__?: Readonly<{
+      setState: R2FullCharacterRuntimeController["setState"]
+      setReducedMotion: R2FullCharacterRuntimeController["setReducedMotion"]
+      getSnapshot: R2FullCharacterRuntimeController["getDiagnostics"]
+      resetNeutral: R2FullCharacterRuntimeController["resetNeutral"]
+    }>
+  }
+}
+
+function R2CameraFraming({
+  scene,
+}: Readonly<{
+  scene: Object3D
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=280
+----------------------------------------
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+>>>     window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+  }, [runtime, runtimeCommand])
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=283
+----------------------------------------
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+>>>       if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+  }, [runtime, runtimeCommand])
+
+  useFrame((_, delta) => {
+    runtime?.controller.update(delta)
+  })
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=284
+----------------------------------------
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+>>>         delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+  }, [runtime, runtimeCommand])
+
+  useFrame((_, delta) => {
+    runtime?.controller.update(delta)
+  })
+
+----------------------------------------
+
+============================================================
+ PATTERN: fallback
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx
+LINE=100
+----------------------------------------
+  }
+
+  private publish(decision: R2OrchestrationDecision) {
+    if (this.timer) clearTimeout(this.timer)
+    this.timer = null
+    const presentsCommand =
+      decision.decision === "EXECUTE" ||
+      decision.decision === "INTERRUPT" ||
+>>>       decision.decision === "FALLBACK" ||
+      decision.decision === "FAIL"
+    this.snapshot = {
+      command: presentsCommand && decision.command
+        ? decision.command
+        : this.snapshot.command,
+      decision,
+      state: this.orchestrator.getState(),
+    }
+    this.emit()
+    if (decision.command && decision.command.durationMs > 0 && decision.decision !== "QUEUE") {
+      this.timer = setTimeout(() => {
+        this.timer = null
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=30
+----------------------------------------
+    durationMs: 1000,
+    minimumDisplayMs: 200,
+    transitionMs: 100,
+    priority: "NORMAL",
+    message: "Mensagem confirmada",
+    actionLabel: null,
+    actionId: null,
+    expiresAt: null,
+>>>     fallbackState: "listening",
+    requiresConfirmation: false,
+    ...overrides,
+  }
+}
+
+function controllerFixture() {
+  const controller: R2RuntimeControllerApi = {
+    root: new Object3D(),
+    state: "neutral",
+    requestedState: "neutral",
+    disposed: false,
+    setState: vi.fn((state) => ({
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=61
+----------------------------------------
+      elapsedInStateMs: 0,
+      reducedMotion: false,
+      actionsCreated: 9,
+      actionsReused: 0,
+      maximumSimultaneousActions: 0,
+      activeActions: 0,
+      transitionsApplied: 0,
+      transitionsIgnored: 0,
+>>>       fallbacks: 0,
+      mixerListeners: 0,
+      pendingState: null,
+    })),
+    setExpression: vi.fn(),
+    setViseme: vi.fn(),
+    setEyeTarget: vi.fn(),
+    setSpeakingIntensity: vi.fn(),
+    resetNeutral: vi.fn(),
+    update: vi.fn(),
+    dispose: vi.fn(),
+  }
+  return controller
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=77
+----------------------------------------
+    resetNeutral: vi.fn(),
+    update: vi.fn(),
+    dispose: vi.fn(),
+  }
+  return controller
+}
+
+describe("R2 runtime command adapter", () => {
+>>>   it("applies a complete typed command and reports completion with fallback", () => {
+    const controller = controllerFixture()
+    const receipts: string[] = []
+    let scheduled: (() => void) | null = null
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+      workspaceId: "workspace-a",
+      now: () => new Date(NOW),
+      schedule: (callback) => { scheduled = callback; return 1 as unknown as ReturnType<typeof setTimeout> },
+      cancel: vi.fn(),
+      onReceipt: (receipt) => receipts.push(receipt.status),
+    })
+    expect(adapter.apply(command()).status).toBe("APPLIED")
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=133
+----------------------------------------
+      now: () => new Date(NOW),
+    })
+    expect(adapter.apply(command({ workspaceId: "workspace-b" }))).toMatchObject({ status: "FAILED", errorCode: "WORKSPACE_MISMATCH" })
+    expect(adapter.apply(command({ expiresAt: "2026-08-01T14:00:00.000Z" }))).toMatchObject({ status: "SKIPPED", errorCode: "COMMAND_EXPIRED" })
+    expect(adapter.apply({ ...command(), expression: "INVALID" } as unknown as R2RuntimeCommand)).toMatchObject({ status: "FAILED", errorCode: "INVALID_RUNTIME_COMMAND" })
+    expect(controller.setState).not.toHaveBeenCalled()
+  })
+
+>>>   it("restores a safe fallback when controller application fails", () => {
+    const controller = controllerFixture()
+    vi.mocked(controller.setState).mockImplementation((state) => {
+      if (state === "speaking") throw new Error("mixer rejected state")
+      return {
+        requestedState: state,
+        effectiveState: "listening",
+        status: "applied",
+        generation: 1,
+      }
+    })
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=150
+----------------------------------------
+      }
+    })
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+      workspaceId: "workspace-a",
+      now: () => new Date(NOW),
+    })
+    expect(adapter.apply(command())).toMatchObject({
+>>>       status: "FAILED", errorCode: "RUNTIME_COMMAND_FAILED", fallbackUsed: true,
+    })
+    expect(controller.setState).toHaveBeenLastCalledWith("listening")
+  })
+
+  it("clears its own timer and never owns controller disposal", () => {
+    const controller = controllerFixture()
+    const cancel = vi.fn()
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+      workspaceId: "workspace-a",
+      schedule: () => 11 as unknown as ReturnType<typeof setTimeout>,
+      cancel,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=87
+----------------------------------------
+      }
+      if (command.eyeTarget) this.controller.setEyeTarget(command.eyeTarget)
+      if (command.speakingIntensity !== undefined) {
+        this.controller.setSpeakingIntensity(command.speakingIntensity)
+      }
+    } catch {
+      try {
+        if (!this.controller.disposed) {
+>>>           this.controller.setState(command.fallbackState)
+        }
+      } catch {
+        // The failed receipt below is the authoritative result.
+      }
+      return this.fail(command, startedAt, "RUNTIME_COMMAND_FAILED", true)
+    }
+
+    const receipt = this.receipt(command, "APPLIED", startedAt, null, null, false, null)
+    this.active = { command, startedAt: startedAt.toISOString() }
+    this.onReceipt(receipt)
+    if (command.durationMs > 0) {
+      this.timer = this.schedule(() => this.complete(command.commandId), command.durationMs)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=110
+----------------------------------------
+  }
+
+  private complete(commandId: string) {
+    if (this.disposed || !this.active || this.active.command.commandId !== commandId) return
+    const active = this.active
+    const completedAt = this.clock()
+    this.timer = null
+    this.active = null
+>>>     let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+        this.controller.setState(active.command.fallbackState)
+        fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=114
+----------------------------------------
+    const active = this.active
+    const completedAt = this.clock()
+    this.timer = null
+    this.active = null
+    let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+>>>         this.controller.setState(active.command.fallbackState)
+        fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+      fallbackUsed,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=115
+----------------------------------------
+    const completedAt = this.clock()
+    this.timer = null
+    this.active = null
+    let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+        this.controller.setState(active.command.fallbackState)
+>>>         fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+      fallbackUsed,
+      errorCode,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=126
+----------------------------------------
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+>>>       fallbackUsed,
+      errorCode,
+    ))
+  }
+
+  private interruptActive(interruptedBy: string, at: Date) {
+    if (!this.active) return
+    const active = this.active
+    if (this.timer) this.cancel(this.timer)
+    this.timer = null
+    this.active = null
+    this.onReceipt(this.receipt(
+      active.command,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=148
+----------------------------------------
+      new Date(active.startedAt),
+      at,
+      interruptedBy,
+      false,
+      null,
+    ))
+  }
+
+>>>   private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+    const receipt = this.receipt(command, "FAILED", at, at, null, fallbackUsed, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+    const receipt = this.receipt(command, "SKIPPED", at, at, null, false, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private receipt(
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=149
+----------------------------------------
+      at,
+      interruptedBy,
+      false,
+      null,
+    ))
+  }
+
+  private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+>>>     const receipt = this.receipt(command, "FAILED", at, at, null, fallbackUsed, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+    const receipt = this.receipt(command, "SKIPPED", at, at, null, false, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private receipt(
+    command: R2RuntimeCommand,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=166
+----------------------------------------
+  }
+
+  private receipt(
+    command: R2RuntimeCommand,
+    status: R2ExecutionReceipt["status"],
+    startedAt: Date,
+    completedAt: Date | null,
+    interruptedBy: string | null,
+>>>     fallbackUsed: boolean,
+    errorCode: string | null,
+  ): R2ExecutionReceipt {
+    return {
+      receiptId: `${command.commandId}:${status.toLowerCase()}:${startedAt.getTime()}`,
+      commandId: command.commandId,
+      eventId: command.eventId,
+      workspaceId: command.workspaceId,
+      status,
+      runtimeState: command.runtimeState,
+      startedAt: startedAt.toISOString(),
+      completedAt: completedAt?.toISOString() ?? null,
+      durationMs: completedAt ? Math.max(0, completedAt.getTime() - startedAt.getTime()) : null,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=180
+----------------------------------------
+      eventId: command.eventId,
+      workspaceId: command.workspaceId,
+      status,
+      runtimeState: command.runtimeState,
+      startedAt: startedAt.toISOString(),
+      completedAt: completedAt?.toISOString() ?? null,
+      durationMs: completedAt ? Math.max(0, completedAt.getTime() - startedAt.getTime()) : null,
+      interruptedBy,
+>>>       fallbackUsed,
+      errorCode,
+    }
+  }
+
+  dispose() {
+    if (this.disposed) return
+    this.disposed = true
+    if (this.timer) this.cancel(this.timer)
+    this.timer = null
+    this.active = null
+  }
+}
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.test.tsx
+LINE=216
+----------------------------------------
+      durationMs: 60_000,
+      minimumDisplayMs: 1000,
+      transitionMs: 250,
+      priority: "ATTENTION",
+      message: "Revisar ação",
+      actionLabel: "Revisar",
+      actionId: "review",
+      expiresAt: null,
+>>>       fallbackState: "idle",
+      requiresConfirmation: true,
+    }
+    const view = render(
+      <R2FullCharacterModel
+        behavior={{ mood: "success", animation: "celebrating", message: "legacy" }}
+        runtimeWorkspaceId="workspace-a"
+        runtimeCommand={baseCommand}
+        onRuntimeReceipt={receipt}
+        onControllerReady={ready}
+      />,
+    )
+    await waitFor(() => expect(receipt).toHaveBeenCalledWith(
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=320
+----------------------------------------
+        rotation={rotation}
+      />
+    </>
+  )
+}
+
+type ErrorBoundaryProps = {
+  children: ReactNode
+>>>   fallback?: ReactNode
+  onError?: (
+    error: Error,
+    info: ErrorInfo,
+  ) => void
+}
+
+type ErrorBoundaryState = {
+  error: Error | null
+}
+
+export class R2FullCharacterErrorBoundary
+extends Component<
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=358
+----------------------------------------
+    this.props.onError?.(
+      error,
+      info,
+    )
+  }
+
+  render() {
+    if (this.state.error) {
+>>>       return this.props.fallback ?? null
+    }
+
+    return this.props.children
+  }
+}
+
+useGLTF.preload(
+  R2_FULL_CHARACTER_MODEL_PATH,
+)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.test.ts
+LINE=252
+----------------------------------------
+      const definition = R2_RUNTIME_STATE_MAP[state]
+      expect(definition.id).toBe(state)
+      expect(definition.playbackSpeed).toBeGreaterThanOrEqual(0)
+      expect(definition.crossFadeMs).toBeGreaterThanOrEqual(0)
+      expect(definition.fadeInMs).toBeGreaterThanOrEqual(0)
+      expect(definition.fadeOutMs).toBeGreaterThanOrEqual(0)
+      expect(definition.minimumDurationMs).toBeGreaterThanOrEqual(0)
+      expect(R2_RUNTIME_STATES).toContain(definition.returnState)
+>>>       expect(R2_RUNTIME_STATES).toContain(definition.fallback)
+      expect(definition.description.length).toBeGreaterThan(0)
+    }
+  })
+
+  it("does not restart a repeated state and falls back unknown requests", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    expect(controller.setState("working").status).toBe("applied")
+    controller.update(0.5)
+    expect(controller.setState("working").status).toBe("repeated")
+    expect(controller.getDiagnostics().elapsedInStateMs).toBe(500)
+    expect(controller.setState("unknown-state").status).toBe("fallback")
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.test.ts
+LINE=264
+----------------------------------------
+
+  it("does not restart a repeated state and falls back unknown requests", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    expect(controller.setState("working").status).toBe("applied")
+    controller.update(0.5)
+    expect(controller.setState("working").status).toBe("repeated")
+    expect(controller.getDiagnostics().elapsedInStateMs).toBe(500)
+>>>     expect(controller.setState("unknown-state").status).toBe("fallback")
+    expect(controller.state).toBe("neutral")
+    expect(controller.getDiagnostics().fallbacks).toBe(1)
+    controller.dispose()
+  })
+
+  it("applies priority, minimum-duration deferral, cooldown and queued recovery", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    controller.setState("working")
+    expect(controller.setState("alert").status).toBe("applied")
+    controller.update(0.4)
+    controller.setState("celebrating_sale")
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.test.ts
+LINE=266
+----------------------------------------
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    expect(controller.setState("working").status).toBe("applied")
+    controller.update(0.5)
+    expect(controller.setState("working").status).toBe("repeated")
+    expect(controller.getDiagnostics().elapsedInStateMs).toBe(500)
+    expect(controller.setState("unknown-state").status).toBe("fallback")
+    expect(controller.state).toBe("neutral")
+>>>     expect(controller.getDiagnostics().fallbacks).toBe(1)
+    controller.dispose()
+  })
+
+  it("applies priority, minimum-duration deferral, cooldown and queued recovery", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    controller.setState("working")
+    expect(controller.setState("alert").status).toBe("applied")
+    controller.update(0.4)
+    controller.setState("celebrating_sale")
+    controller.update(0.8)
+    expect(controller.setState("error_attention").status).toBe("applied")
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=73
+----------------------------------------
+  | "head"
+  | "eye"
+  | "blinkIntervalSeconds"
+  | "expressions"
+  | "mouth"
+  | "loop"
+  | "transitionSeconds"
+  | "interruptible"
+>>>   | "fallback"
+> & Partial<Pick<
+  R2RuntimeStateDefinition,
+  | "playbackMode"
+  | "playbackSpeed"
+  | "fadeInMs"
+  | "fadeOutMs"
+  | "crossFadeMs"
+  | "minimumDurationMs"
+  | "maximumDurationMs"
+  | "priority"
+  | "returnState"
+  | "cooldownMs"
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=102
+----------------------------------------
+    playbackMode: seed.playbackMode ?? (seed.loop === "once" ? "one_shot" : "loop"),
+    playbackSpeed: seed.playbackSpeed ?? 1,
+    fadeInMs: seed.fadeInMs ?? crossFadeMs,
+    fadeOutMs: seed.fadeOutMs ?? crossFadeMs,
+    crossFadeMs,
+    minimumDurationMs: seed.minimumDurationMs ?? 0,
+    maximumDurationMs: seed.maximumDurationMs ?? null,
+    priority: seed.priority ?? "normal",
+>>>     returnState: seed.returnState ?? seed.fallback,
+    cooldownMs: seed.cooldownMs ?? 0,
+    morphTargetProfile: seed.morphTargetProfile ?? "neutral",
+    headTrackingProfile: seed.eye,
+    eyeProfile: seed.eye,
+    reducedMotionProfile: {
+      playbackMode: "pose",
+      playbackSpeed: 0,
+      crossFadeMs: Math.min(crossFadeMs, 120),
+      proceduralMotion: false,
+    },
+    description: seed.description ?? seed.id,
+  }
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=143
+----------------------------------------
+    head: [0, 0, 0],
+    eye: "forward",
+    blinkIntervalSeconds: [4, 7],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.25,
+    interruptible: true,
+>>>     fallback: "neutral",
+    priority: "low",
+    description: "Pose neutra recuperável e baseline exato do personagem.",
+  }),
+  idle: defineR2State({
+    id: "idle",
+    clip: "R2_IDLE",
+    head: [0, 0, 0],
+    eye: "ambient_subtle",
+    blinkIntervalSeconds: [3.5, 6.5],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=158
+----------------------------------------
+    head: [0, 0, 0],
+    eye: "ambient_subtle",
+    blinkIntervalSeconds: [3.5, 6.5],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.45,
+    interruptible: true,
+>>>     fallback: "neutral",
+    priority: "low",
+    description: "Presença ambiental discreta quando não há tarefa ativa.",
+  }),
+  working: defineR2State({
+    id: "working",
+    clip: "R2_WORKING",
+    head: [-0.02, 0, 0],
+    eye: "task_focus",
+    blinkIntervalSeconds: [4, 7],
+    expressions: {
+      BROW_FROWN: 0.1,
+    },
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=175
+----------------------------------------
+    blinkIntervalSeconds: [4, 7],
+    expressions: {
+      BROW_FROWN: 0.1,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.35,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 250,
+    morphTargetProfile: "focus",
+    description: "Execução concentrada de uma tarefa operacional.",
+  }),
+  listening: defineR2State({
+    id: "listening",
+    clip: "R2_LISTENING",
+    head: [0, 0, 0.02],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5.5],
+    expressions: {
+      BROW_RAISE: 0.08,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=193
+----------------------------------------
+    blinkIntervalSeconds: [3, 5.5],
+    expressions: {
+      BROW_RAISE: 0.08,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.3,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 200,
+    morphTargetProfile: "listen",
+    description: "Escuta atenta com foco no usuário.",
+  }),
+  thinking: defineR2State({
+    id: "thinking",
+    clip: "R2_THINKING",
+    head: [-0.02, -0.02, 0.03],
+    eye: "up_lateral",
+    blinkIntervalSeconds: [4.5, 7.5],
+    expressions: {
+      BROW_RAISE: 0.18,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=212
+----------------------------------------
+    expressions: {
+      BROW_RAISE: 0.18,
+      MOUTH_NARROW: 0.05,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.35,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 350,
+    morphTargetProfile: "think",
+    description: "Raciocínio deliberado antes de uma resposta ou decisão.",
+  }),
+  awaiting_action: defineR2State({
+    id: "awaiting_action",
+    clip: "R2_AWAITING_ACTION",
+    head: [0.01, 0, 0],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5],
+    expressions: {
+      BROW_RAISE: 0.12,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=230
+----------------------------------------
+    blinkIntervalSeconds: [3, 5],
+    expressions: {
+      BROW_RAISE: 0.12,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.3,
+    interruptible: true,
+>>>     fallback: "listening",
+    minimumDurationMs: 300,
+    morphTargetProfile: "listen",
+    description: "Espera explícita por uma ação do usuário.",
+  }),
+  alert: defineR2State({
+    id: "alert",
+    clip: "R2_ALERT",
+    head: [0.02, 0, 0],
+    eye: "event_focus",
+    blinkIntervalSeconds: [5, 8],
+    expressions: {
+      BROW_RAISE: 0.25,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=249
+----------------------------------------
+    expressions: {
+      BROW_RAISE: 0.25,
+      BROW_FROWN: 0.08,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.15,
+    interruptible: true,
+>>>     fallback: "neutral",
+    minimumDurationMs: 400,
+    priority: "critical",
+    cooldownMs: 300,
+    morphTargetProfile: "alert",
+    description: "Alerta operacional que pode interromper estados menos prioritários.",
+  }),
+  speaking: defineR2State({
+    id: "speaking",
+    clip: "R2_IDLE",
+    head: [0, 0, 0],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3.5, 6],
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=269
+----------------------------------------
+    blinkIntervalSeconds: [3.5, 6],
+    expressions: {
+      CHEEK_RAISE: 0.05,
+    },
+    mouth: "runtime_viseme",
+    loop: "repeat",
+    transitionSeconds: 0.2,
+    interruptible: true,
+>>>     fallback: "listening",
+    minimumDurationMs: 500,
+    priority: "high",
+    morphTargetProfile: "speak",
+    description: "Fala ativa; reutiliza com transparência o clipe corporal de idle.",
+  }),
+  celebrating_sale: defineR2State({
+    id: "celebrating_sale",
+    clip: "R2_CELEBRATING_SALE",
+    head: [0, 0, 0],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5],
+    expressions: {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=289
+----------------------------------------
+    expressions: {
+      SMILE: 0.65,
+      CHEEK_RAISE: 0.25,
+    },
+    mouth: "confident_smile",
+    loop: "once",
+    transitionSeconds: 0.25,
+    interruptible: false,
+>>>     fallback: "idle",
+    playbackMode: "one_shot",
+    minimumDurationMs: 800,
+    maximumDurationMs: 2_400,
+    priority: "high",
+    returnState: "idle",
+    cooldownMs: 1_000,
+    morphTargetProfile: "celebrate",
+    description: "Comemoração one-shot com retorno automático e seguro ao idle.",
+  }),
+  error_attention: defineR2State({
+    id: "error_attention",
+    clip: "R2_ERROR_ATTENTION",
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=313
+----------------------------------------
+    expressions: {
+      BROW_FROWN: 0.45,
+      FROWN: 0.28,
+    },
+    mouth: "serious_closed",
+    loop: "once",
+    transitionSeconds: 0.18,
+    interruptible: false,
+>>>     fallback: "neutral",
+    playbackMode: "one_shot",
+    minimumDurationMs: 600,
+    maximumDurationMs: 2_000,
+    priority: "critical",
+    returnState: "neutral",
+    cooldownMs: 750,
+    morphTargetProfile: "error",
+    description: "Erro crítico one-shot com retorno automático ao baseline neutro.",
+  }),
+}
+
+const EXPRESSION_MORPHS: Readonly<
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=637
+----------------------------------------
+
+  private currentAction?: AnimationAction
+  private pendingState: R2RuntimeState | null = null
+  private readonly lastStateStartedAtMs = new Map<R2RuntimeState, number>()
+  private runtimeElapsedMs = 0
+  private requestGeneration = 0
+  private transitionsApplied = 0
+  private transitionsIgnored = 0
+>>>   private fallbacks = 0
+  private actionsReused = 0
+  private maximumSimultaneousActions = 0
+  private mixerListeners = 0
+  private reducedMotion = false
+  private speakingIntensity = 1
+  private activeViseme?: R2Viseme
+  private elapsedInState = 0
+  private autoBlinkValue = 0
+
+  state: R2RuntimeState = "neutral"
+  requestedState: R2RuntimeState = "neutral"
+  disposed = false
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1086
+----------------------------------------
+      status: "applied",
+      generation,
+    }
+  }
+
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+>>>       this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+        status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+  setReducedMotion(enabled: boolean) {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1091
+----------------------------------------
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+>>>         status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+  setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+    if (this.reducedMotion === normalized) {
+      return
+    }
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1123
+----------------------------------------
+      elapsedInStateMs: Math.round(this.elapsedInState * 1_000),
+      reducedMotion: this.reducedMotion,
+      actionsCreated: this.actions.size,
+      actionsReused: this.actionsReused,
+      maximumSimultaneousActions: this.maximumSimultaneousActions,
+      activeActions: this.activeActionCount(),
+      transitionsApplied: this.transitionsApplied,
+      transitionsIgnored: this.transitionsIgnored,
+>>>       fallbacks: this.fallbacks,
+      mixerListeners: this.mixerListeners,
+      pendingState: this.pendingState,
+    }
+  }
+
+  setExpression(
+    channel: R2ExpressionChannel,
+    value: number,
+  ) {
+    this.assertActive()
+    this.expressionValues.set(
+      channel,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx
+LINE=107
+----------------------------------------
+            R2_RENDERER.outputColorSpace
+          gl.shadowMap.enabled =
+            R2_RENDERER.shadowsEnabled
+          gl.setClearColor(
+            0x000000,
+            0,
+          )
+        }}
+>>>         fallback={
+          <div
+            aria-label="Visualização 3D do R2 indisponível"
+            className="h-full w-full bg-transparent"
+          />
+        }
+      >
+        <hemisphereLight
+          name="r2-hemisphere-light"
+          color={
+            R2_LIGHTING.hemisphere.skyColor
+          }
+          groundColor={
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx
+LINE=144
+----------------------------------------
+          position={R2_LIGHTING.fill.position}
+        />
+        <directionalLight
+          name="r2-rim-light"
+          color={R2_LIGHTING.rim.color}
+          intensity={R2_LIGHTING.rim.intensity}
+          position={R2_LIGHTING.rim.position}
+        />
+>>>         <Suspense fallback={null}>
+          <R2FullCharacterErrorBoundary>
+            <R2FullCharacterModel
+              runtimeWorkspaceId={workspaceId}
+              runtimeCommand={runtimeCommand}
+              onRuntimeReceipt={onRuntimeReceipt}
+              scale={R2_MODEL_PRESENTATION_SCALE}
+              autoFrame
+            />
+          </R2FullCharacterErrorBoundary>
+        </Suspense>
+      </Canvas>
+    </div>
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=117
+----------------------------------------
+  crossFadeMs: number
+  transitionSeconds: number
+  minimumDurationMs: number
+  maximumDurationMs: number | null
+  priority: R2RuntimePriority
+  interruptible: boolean
+  returnState: R2RuntimeState
+  cooldownMs: number
+>>>   fallback: R2RuntimeState
+  morphTargetProfile: "neutral" | "focus" | "listen" | "think" | "alert" | "speak" | "celebrate" | "error"
+  headTrackingProfile: R2EyeBehavior
+  eyeProfile: R2EyeBehavior
+  reducedMotionProfile: R2ReducedMotionProfile
+  description: string
+}
+
+export type R2StateRequestStatus =
+  | "applied"
+  | "repeated"
+  | "deferred"
+  | "cooldown"
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=130
+----------------------------------------
+  description: string
+}
+
+export type R2StateRequestStatus =
+  | "applied"
+  | "repeated"
+  | "deferred"
+  | "cooldown"
+>>>   | "fallback"
+
+export type R2StateRequestResult = Readonly<{
+  requestedState: unknown
+  effectiveState: R2RuntimeState
+  status: R2StateRequestStatus
+  generation: number
+}>
+
+export type R2RuntimeDiagnostics = Readonly<{
+  requestedState: R2RuntimeState
+  effectiveState: R2RuntimeState
+  activeClip: R2AnimationClipName | null
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=151
+----------------------------------------
+  elapsedInStateMs: number
+  reducedMotion: boolean
+  actionsCreated: number
+  actionsReused: number
+  maximumSimultaneousActions: number
+  activeActions: number
+  transitionsApplied: number
+  transitionsIgnored: number
+>>>   fallbacks: number
+  mixerListeners: number
+  pendingState: R2RuntimeState | null
+}>
+
+export const R2_ANIMATION_CLIPS = [
+  "R2_NEUTRAL",
+  "R2_IDLE",
+  "R2_WORKING",
+  "R2_LISTENING",
+  "R2_THINKING",
+  "R2_AWAITING_ACTION",
+  "R2_ALERT",
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=150
+----------------------------------------
+  expressionIntensity?: number
+  viseme?: R2Viseme
+  speakingIntensity?: number
+  eyeTarget?: R2EyeTarget
+  durationMs: number
+  minimumDisplayMs: number
+  transitionMs: number
+  interruptionPolicy: R2InterruptionPolicy
+>>>   fallbackState: R2RuntimeState
+}>
+
+export type R2IntelligenceResult = Readonly<{
+  result: "REACT" | "IGNORE" | "REQUEST_CONTEXT"
+  recommendation: R2Recommendation | null
+  confidence: number
+  urgency: R2Urgency
+  reasons: readonly R2DecisionReason[]
+  missingInformation: readonly string[]
+  presentationHints: R2PresentationHints | null
+  expiresAt: string | null
+}>
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=187
+----------------------------------------
+  | "LOWER_PRIORITY"
+  | "QUEUE_FULL"
+  | "INTERRUPTED_CURRENT"
+  | "QUEUED_FOR_LATER"
+  | "NO_REACTION_REQUIRED"
+  | "INSUFFICIENT_CONTEXT"
+  | "INTELLIGENCE_FAILURE"
+  | "RUNTIME_FAILURE"
+>>>   | "FALLBACK_APPLIED"
+  | "PRESENTATION_COMPLETED"
+  | "CONFIRMATION_REQUIRED"
+
+export type R2PresentationPlan = Readonly<{
+  planId: string
+  eventId: string
+  workspaceId: string
+  runtimeState: R2RuntimeState
+  expression?: R2ExpressionChannel
+  expressionIntensity?: number
+  viseme?: R2Viseme
+  speakingIntensity?: number
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=210
+----------------------------------------
+  minimumDisplayMs: number
+  transitionMs: number
+  interruptibility: R2InterruptionPolicy
+  priority: R2Priority
+  message: string | null
+  actionLabel: string | null
+  actionId: string | null
+  expiresAt: string | null
+>>>   fallbackState: R2RuntimeState
+  requiresConfirmation: boolean
+}>
+
+export type R2RuntimeCommand = Readonly<{
+  commandId: string
+  eventId: string
+  workspaceId: string
+  runtimeState: R2RuntimeState
+  expression?: R2ExpressionChannel
+  expressionIntensity?: number
+  viseme?: R2Viseme
+  speakingIntensity?: number
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=232
+----------------------------------------
+  durationMs: number
+  minimumDisplayMs: number
+  transitionMs: number
+  priority: R2Priority
+  message: string | null
+  actionLabel: string | null
+  actionId: string | null
+  expiresAt: string | null
+>>>   fallbackState: R2RuntimeState
+  requiresConfirmation: boolean
+}>
+
+export type R2OrchestrationDecisionType =
+  | "EXECUTE"
+  | "INTERRUPT"
+  | "QUEUE"
+  | "DISCARD"
+  | "REJECT"
+  | "IGNORE"
+  | "FALLBACK"
+  | "FAIL"
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=243
+----------------------------------------
+
+export type R2OrchestrationDecisionType =
+  | "EXECUTE"
+  | "INTERRUPT"
+  | "QUEUE"
+  | "DISCARD"
+  | "REJECT"
+  | "IGNORE"
+>>>   | "FALLBACK"
+  | "FAIL"
+
+export type R2OrchestrationDecision = Readonly<{
+  decisionId: string
+  decision: R2OrchestrationDecisionType
+  eventId: string
+  eventType: R2EventType
+  workspaceId: string
+  reason: R2DecisionReason
+  priority: R2Priority
+  runtimeState: R2RuntimeState | null
+  command: R2RuntimeCommand | null
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=272
+----------------------------------------
+  eventId: string
+  workspaceId: string
+  status: "APPLIED" | "COMPLETED" | "INTERRUPTED" | "FAILED" | "SKIPPED"
+  runtimeState: R2RuntimeState
+  startedAt: string
+  completedAt: string | null
+  durationMs: number | null
+  interruptedBy: string | null
+>>>   fallbackUsed: boolean
+  errorCode: string | null
+}>
+
+export type R2OrchestrationErrorCode =
+  | "INVALID_EVENT"
+  | "WORKSPACE_MISMATCH"
+  | "USER_MISMATCH"
+  | "INTELLIGENCE_FAILED"
+  | "INVALID_PRESENTATION"
+  | "RUNTIME_DISPOSED"
+  | "RUNTIME_COMMAND_FAILED"
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=351
+----------------------------------------
+  reason: R2DecisionReason
+  priority: R2Priority
+  runtimeState: R2RuntimeState | null
+  startedAt: string
+  completedAt: string | null
+  durationMs: number | null
+  interruptedBy: string | null
+  discardedReason: string | null
+>>>   fallbackUsed: boolean
+  errorCode: string | null
+}>
+
+export interface R2ObservabilitySink {
+  record(entry: R2ObservabilityEntry): void
+}
+----------------------------------------
+
+============================================================
+ PATTERN: Fallback
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx
+LINE=100
+----------------------------------------
+  }
+
+  private publish(decision: R2OrchestrationDecision) {
+    if (this.timer) clearTimeout(this.timer)
+    this.timer = null
+    const presentsCommand =
+      decision.decision === "EXECUTE" ||
+      decision.decision === "INTERRUPT" ||
+>>>       decision.decision === "FALLBACK" ||
+      decision.decision === "FAIL"
+    this.snapshot = {
+      command: presentsCommand && decision.command
+        ? decision.command
+        : this.snapshot.command,
+      decision,
+      state: this.orchestrator.getState(),
+    }
+    this.emit()
+    if (decision.command && decision.command.durationMs > 0 && decision.decision !== "QUEUE") {
+      this.timer = setTimeout(() => {
+        this.timer = null
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=30
+----------------------------------------
+    durationMs: 1000,
+    minimumDisplayMs: 200,
+    transitionMs: 100,
+    priority: "NORMAL",
+    message: "Mensagem confirmada",
+    actionLabel: null,
+    actionId: null,
+    expiresAt: null,
+>>>     fallbackState: "listening",
+    requiresConfirmation: false,
+    ...overrides,
+  }
+}
+
+function controllerFixture() {
+  const controller: R2RuntimeControllerApi = {
+    root: new Object3D(),
+    state: "neutral",
+    requestedState: "neutral",
+    disposed: false,
+    setState: vi.fn((state) => ({
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=61
+----------------------------------------
+      elapsedInStateMs: 0,
+      reducedMotion: false,
+      actionsCreated: 9,
+      actionsReused: 0,
+      maximumSimultaneousActions: 0,
+      activeActions: 0,
+      transitionsApplied: 0,
+      transitionsIgnored: 0,
+>>>       fallbacks: 0,
+      mixerListeners: 0,
+      pendingState: null,
+    })),
+    setExpression: vi.fn(),
+    setViseme: vi.fn(),
+    setEyeTarget: vi.fn(),
+    setSpeakingIntensity: vi.fn(),
+    resetNeutral: vi.fn(),
+    update: vi.fn(),
+    dispose: vi.fn(),
+  }
+  return controller
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=77
+----------------------------------------
+    resetNeutral: vi.fn(),
+    update: vi.fn(),
+    dispose: vi.fn(),
+  }
+  return controller
+}
+
+describe("R2 runtime command adapter", () => {
+>>>   it("applies a complete typed command and reports completion with fallback", () => {
+    const controller = controllerFixture()
+    const receipts: string[] = []
+    let scheduled: (() => void) | null = null
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+      workspaceId: "workspace-a",
+      now: () => new Date(NOW),
+      schedule: (callback) => { scheduled = callback; return 1 as unknown as ReturnType<typeof setTimeout> },
+      cancel: vi.fn(),
+      onReceipt: (receipt) => receipts.push(receipt.status),
+    })
+    expect(adapter.apply(command()).status).toBe("APPLIED")
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=133
+----------------------------------------
+      now: () => new Date(NOW),
+    })
+    expect(adapter.apply(command({ workspaceId: "workspace-b" }))).toMatchObject({ status: "FAILED", errorCode: "WORKSPACE_MISMATCH" })
+    expect(adapter.apply(command({ expiresAt: "2026-08-01T14:00:00.000Z" }))).toMatchObject({ status: "SKIPPED", errorCode: "COMMAND_EXPIRED" })
+    expect(adapter.apply({ ...command(), expression: "INVALID" } as unknown as R2RuntimeCommand)).toMatchObject({ status: "FAILED", errorCode: "INVALID_RUNTIME_COMMAND" })
+    expect(controller.setState).not.toHaveBeenCalled()
+  })
+
+>>>   it("restores a safe fallback when controller application fails", () => {
+    const controller = controllerFixture()
+    vi.mocked(controller.setState).mockImplementation((state) => {
+      if (state === "speaking") throw new Error("mixer rejected state")
+      return {
+        requestedState: state,
+        effectiveState: "listening",
+        status: "applied",
+        generation: 1,
+      }
+    })
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=150
+----------------------------------------
+      }
+    })
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+      workspaceId: "workspace-a",
+      now: () => new Date(NOW),
+    })
+    expect(adapter.apply(command())).toMatchObject({
+>>>       status: "FAILED", errorCode: "RUNTIME_COMMAND_FAILED", fallbackUsed: true,
+    })
+    expect(controller.setState).toHaveBeenLastCalledWith("listening")
+  })
+
+  it("clears its own timer and never owns controller disposal", () => {
+    const controller = controllerFixture()
+    const cancel = vi.fn()
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+      workspaceId: "workspace-a",
+      schedule: () => 11 as unknown as ReturnType<typeof setTimeout>,
+      cancel,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=87
+----------------------------------------
+      }
+      if (command.eyeTarget) this.controller.setEyeTarget(command.eyeTarget)
+      if (command.speakingIntensity !== undefined) {
+        this.controller.setSpeakingIntensity(command.speakingIntensity)
+      }
+    } catch {
+      try {
+        if (!this.controller.disposed) {
+>>>           this.controller.setState(command.fallbackState)
+        }
+      } catch {
+        // The failed receipt below is the authoritative result.
+      }
+      return this.fail(command, startedAt, "RUNTIME_COMMAND_FAILED", true)
+    }
+
+    const receipt = this.receipt(command, "APPLIED", startedAt, null, null, false, null)
+    this.active = { command, startedAt: startedAt.toISOString() }
+    this.onReceipt(receipt)
+    if (command.durationMs > 0) {
+      this.timer = this.schedule(() => this.complete(command.commandId), command.durationMs)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=110
+----------------------------------------
+  }
+
+  private complete(commandId: string) {
+    if (this.disposed || !this.active || this.active.command.commandId !== commandId) return
+    const active = this.active
+    const completedAt = this.clock()
+    this.timer = null
+    this.active = null
+>>>     let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+        this.controller.setState(active.command.fallbackState)
+        fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=114
+----------------------------------------
+    const active = this.active
+    const completedAt = this.clock()
+    this.timer = null
+    this.active = null
+    let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+>>>         this.controller.setState(active.command.fallbackState)
+        fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+      fallbackUsed,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=115
+----------------------------------------
+    const completedAt = this.clock()
+    this.timer = null
+    this.active = null
+    let fallbackUsed = false
+    let errorCode: string | null = null
+    try {
+      if (!this.controller.disposed) {
+        this.controller.setState(active.command.fallbackState)
+>>>         fallbackUsed = true
+      }
+    } catch {
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+      fallbackUsed,
+      errorCode,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=126
+----------------------------------------
+      errorCode = "RUNTIME_COMMAND_FAILED"
+    }
+    this.onReceipt(this.receipt(
+      active.command,
+      errorCode ? "FAILED" : "COMPLETED",
+      new Date(active.startedAt),
+      completedAt,
+      null,
+>>>       fallbackUsed,
+      errorCode,
+    ))
+  }
+
+  private interruptActive(interruptedBy: string, at: Date) {
+    if (!this.active) return
+    const active = this.active
+    if (this.timer) this.cancel(this.timer)
+    this.timer = null
+    this.active = null
+    this.onReceipt(this.receipt(
+      active.command,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=148
+----------------------------------------
+      new Date(active.startedAt),
+      at,
+      interruptedBy,
+      false,
+      null,
+    ))
+  }
+
+>>>   private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+    const receipt = this.receipt(command, "FAILED", at, at, null, fallbackUsed, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+    const receipt = this.receipt(command, "SKIPPED", at, at, null, false, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private receipt(
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=149
+----------------------------------------
+      at,
+      interruptedBy,
+      false,
+      null,
+    ))
+  }
+
+  private fail(command: R2RuntimeCommand, at: Date, errorCode: string, fallbackUsed = false) {
+>>>     const receipt = this.receipt(command, "FAILED", at, at, null, fallbackUsed, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private skip(command: R2RuntimeCommand, at: Date, errorCode: string) {
+    const receipt = this.receipt(command, "SKIPPED", at, at, null, false, errorCode)
+    this.onReceipt(receipt)
+    return receipt
+  }
+
+  private receipt(
+    command: R2RuntimeCommand,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=166
+----------------------------------------
+  }
+
+  private receipt(
+    command: R2RuntimeCommand,
+    status: R2ExecutionReceipt["status"],
+    startedAt: Date,
+    completedAt: Date | null,
+    interruptedBy: string | null,
+>>>     fallbackUsed: boolean,
+    errorCode: string | null,
+  ): R2ExecutionReceipt {
+    return {
+      receiptId: `${command.commandId}:${status.toLowerCase()}:${startedAt.getTime()}`,
+      commandId: command.commandId,
+      eventId: command.eventId,
+      workspaceId: command.workspaceId,
+      status,
+      runtimeState: command.runtimeState,
+      startedAt: startedAt.toISOString(),
+      completedAt: completedAt?.toISOString() ?? null,
+      durationMs: completedAt ? Math.max(0, completedAt.getTime() - startedAt.getTime()) : null,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts
+LINE=180
+----------------------------------------
+      eventId: command.eventId,
+      workspaceId: command.workspaceId,
+      status,
+      runtimeState: command.runtimeState,
+      startedAt: startedAt.toISOString(),
+      completedAt: completedAt?.toISOString() ?? null,
+      durationMs: completedAt ? Math.max(0, completedAt.getTime() - startedAt.getTime()) : null,
+      interruptedBy,
+>>>       fallbackUsed,
+      errorCode,
+    }
+  }
+
+  dispose() {
+    if (this.disposed) return
+    this.disposed = true
+    if (this.timer) this.cancel(this.timer)
+    this.timer = null
+    this.active = null
+  }
+}
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.test.tsx
+LINE=216
+----------------------------------------
+      durationMs: 60_000,
+      minimumDisplayMs: 1000,
+      transitionMs: 250,
+      priority: "ATTENTION",
+      message: "Revisar ação",
+      actionLabel: "Revisar",
+      actionId: "review",
+      expiresAt: null,
+>>>       fallbackState: "idle",
+      requiresConfirmation: true,
+    }
+    const view = render(
+      <R2FullCharacterModel
+        behavior={{ mood: "success", animation: "celebrating", message: "legacy" }}
+        runtimeWorkspaceId="workspace-a"
+        runtimeCommand={baseCommand}
+        onRuntimeReceipt={receipt}
+        onControllerReady={ready}
+      />,
+    )
+    await waitFor(() => expect(receipt).toHaveBeenCalledWith(
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=320
+----------------------------------------
+        rotation={rotation}
+      />
+    </>
+  )
+}
+
+type ErrorBoundaryProps = {
+  children: ReactNode
+>>>   fallback?: ReactNode
+  onError?: (
+    error: Error,
+    info: ErrorInfo,
+  ) => void
+}
+
+type ErrorBoundaryState = {
+  error: Error | null
+}
+
+export class R2FullCharacterErrorBoundary
+extends Component<
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=358
+----------------------------------------
+    this.props.onError?.(
+      error,
+      info,
+    )
+  }
+
+  render() {
+    if (this.state.error) {
+>>>       return this.props.fallback ?? null
+    }
+
+    return this.props.children
+  }
+}
+
+useGLTF.preload(
+  R2_FULL_CHARACTER_MODEL_PATH,
+)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.test.ts
+LINE=252
+----------------------------------------
+      const definition = R2_RUNTIME_STATE_MAP[state]
+      expect(definition.id).toBe(state)
+      expect(definition.playbackSpeed).toBeGreaterThanOrEqual(0)
+      expect(definition.crossFadeMs).toBeGreaterThanOrEqual(0)
+      expect(definition.fadeInMs).toBeGreaterThanOrEqual(0)
+      expect(definition.fadeOutMs).toBeGreaterThanOrEqual(0)
+      expect(definition.minimumDurationMs).toBeGreaterThanOrEqual(0)
+      expect(R2_RUNTIME_STATES).toContain(definition.returnState)
+>>>       expect(R2_RUNTIME_STATES).toContain(definition.fallback)
+      expect(definition.description.length).toBeGreaterThan(0)
+    }
+  })
+
+  it("does not restart a repeated state and falls back unknown requests", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    expect(controller.setState("working").status).toBe("applied")
+    controller.update(0.5)
+    expect(controller.setState("working").status).toBe("repeated")
+    expect(controller.getDiagnostics().elapsedInStateMs).toBe(500)
+    expect(controller.setState("unknown-state").status).toBe("fallback")
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.test.ts
+LINE=264
+----------------------------------------
+
+  it("does not restart a repeated state and falls back unknown requests", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    expect(controller.setState("working").status).toBe("applied")
+    controller.update(0.5)
+    expect(controller.setState("working").status).toBe("repeated")
+    expect(controller.getDiagnostics().elapsedInStateMs).toBe(500)
+>>>     expect(controller.setState("unknown-state").status).toBe("fallback")
+    expect(controller.state).toBe("neutral")
+    expect(controller.getDiagnostics().fallbacks).toBe(1)
+    controller.dispose()
+  })
+
+  it("applies priority, minimum-duration deferral, cooldown and queued recovery", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    controller.setState("working")
+    expect(controller.setState("alert").status).toBe("applied")
+    controller.update(0.4)
+    controller.setState("celebrating_sale")
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.test.ts
+LINE=266
+----------------------------------------
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    expect(controller.setState("working").status).toBe("applied")
+    controller.update(0.5)
+    expect(controller.setState("working").status).toBe("repeated")
+    expect(controller.getDiagnostics().elapsedInStateMs).toBe(500)
+    expect(controller.setState("unknown-state").status).toBe("fallback")
+    expect(controller.state).toBe("neutral")
+>>>     expect(controller.getDiagnostics().fallbacks).toBe(1)
+    controller.dispose()
+  })
+
+  it("applies priority, minimum-duration deferral, cooldown and queued recovery", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    controller.setState("working")
+    expect(controller.setState("alert").status).toBe("applied")
+    controller.update(0.4)
+    controller.setState("celebrating_sale")
+    controller.update(0.8)
+    expect(controller.setState("error_attention").status).toBe("applied")
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=73
+----------------------------------------
+  | "head"
+  | "eye"
+  | "blinkIntervalSeconds"
+  | "expressions"
+  | "mouth"
+  | "loop"
+  | "transitionSeconds"
+  | "interruptible"
+>>>   | "fallback"
+> & Partial<Pick<
+  R2RuntimeStateDefinition,
+  | "playbackMode"
+  | "playbackSpeed"
+  | "fadeInMs"
+  | "fadeOutMs"
+  | "crossFadeMs"
+  | "minimumDurationMs"
+  | "maximumDurationMs"
+  | "priority"
+  | "returnState"
+  | "cooldownMs"
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=102
+----------------------------------------
+    playbackMode: seed.playbackMode ?? (seed.loop === "once" ? "one_shot" : "loop"),
+    playbackSpeed: seed.playbackSpeed ?? 1,
+    fadeInMs: seed.fadeInMs ?? crossFadeMs,
+    fadeOutMs: seed.fadeOutMs ?? crossFadeMs,
+    crossFadeMs,
+    minimumDurationMs: seed.minimumDurationMs ?? 0,
+    maximumDurationMs: seed.maximumDurationMs ?? null,
+    priority: seed.priority ?? "normal",
+>>>     returnState: seed.returnState ?? seed.fallback,
+    cooldownMs: seed.cooldownMs ?? 0,
+    morphTargetProfile: seed.morphTargetProfile ?? "neutral",
+    headTrackingProfile: seed.eye,
+    eyeProfile: seed.eye,
+    reducedMotionProfile: {
+      playbackMode: "pose",
+      playbackSpeed: 0,
+      crossFadeMs: Math.min(crossFadeMs, 120),
+      proceduralMotion: false,
+    },
+    description: seed.description ?? seed.id,
+  }
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=143
+----------------------------------------
+    head: [0, 0, 0],
+    eye: "forward",
+    blinkIntervalSeconds: [4, 7],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.25,
+    interruptible: true,
+>>>     fallback: "neutral",
+    priority: "low",
+    description: "Pose neutra recuperável e baseline exato do personagem.",
+  }),
+  idle: defineR2State({
+    id: "idle",
+    clip: "R2_IDLE",
+    head: [0, 0, 0],
+    eye: "ambient_subtle",
+    blinkIntervalSeconds: [3.5, 6.5],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=158
+----------------------------------------
+    head: [0, 0, 0],
+    eye: "ambient_subtle",
+    blinkIntervalSeconds: [3.5, 6.5],
+    expressions: {},
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.45,
+    interruptible: true,
+>>>     fallback: "neutral",
+    priority: "low",
+    description: "Presença ambiental discreta quando não há tarefa ativa.",
+  }),
+  working: defineR2State({
+    id: "working",
+    clip: "R2_WORKING",
+    head: [-0.02, 0, 0],
+    eye: "task_focus",
+    blinkIntervalSeconds: [4, 7],
+    expressions: {
+      BROW_FROWN: 0.1,
+    },
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=175
+----------------------------------------
+    blinkIntervalSeconds: [4, 7],
+    expressions: {
+      BROW_FROWN: 0.1,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.35,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 250,
+    morphTargetProfile: "focus",
+    description: "Execução concentrada de uma tarefa operacional.",
+  }),
+  listening: defineR2State({
+    id: "listening",
+    clip: "R2_LISTENING",
+    head: [0, 0, 0.02],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5.5],
+    expressions: {
+      BROW_RAISE: 0.08,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=193
+----------------------------------------
+    blinkIntervalSeconds: [3, 5.5],
+    expressions: {
+      BROW_RAISE: 0.08,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.3,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 200,
+    morphTargetProfile: "listen",
+    description: "Escuta atenta com foco no usuário.",
+  }),
+  thinking: defineR2State({
+    id: "thinking",
+    clip: "R2_THINKING",
+    head: [-0.02, -0.02, 0.03],
+    eye: "up_lateral",
+    blinkIntervalSeconds: [4.5, 7.5],
+    expressions: {
+      BROW_RAISE: 0.18,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=212
+----------------------------------------
+    expressions: {
+      BROW_RAISE: 0.18,
+      MOUTH_NARROW: 0.05,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.35,
+    interruptible: true,
+>>>     fallback: "idle",
+    minimumDurationMs: 350,
+    morphTargetProfile: "think",
+    description: "Raciocínio deliberado antes de uma resposta ou decisão.",
+  }),
+  awaiting_action: defineR2State({
+    id: "awaiting_action",
+    clip: "R2_AWAITING_ACTION",
+    head: [0.01, 0, 0],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5],
+    expressions: {
+      BROW_RAISE: 0.12,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=230
+----------------------------------------
+    blinkIntervalSeconds: [3, 5],
+    expressions: {
+      BROW_RAISE: 0.12,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.3,
+    interruptible: true,
+>>>     fallback: "listening",
+    minimumDurationMs: 300,
+    morphTargetProfile: "listen",
+    description: "Espera explícita por uma ação do usuário.",
+  }),
+  alert: defineR2State({
+    id: "alert",
+    clip: "R2_ALERT",
+    head: [0.02, 0, 0],
+    eye: "event_focus",
+    blinkIntervalSeconds: [5, 8],
+    expressions: {
+      BROW_RAISE: 0.25,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=249
+----------------------------------------
+    expressions: {
+      BROW_RAISE: 0.25,
+      BROW_FROWN: 0.08,
+    },
+    mouth: "closed_neutral",
+    loop: "repeat",
+    transitionSeconds: 0.15,
+    interruptible: true,
+>>>     fallback: "neutral",
+    minimumDurationMs: 400,
+    priority: "critical",
+    cooldownMs: 300,
+    morphTargetProfile: "alert",
+    description: "Alerta operacional que pode interromper estados menos prioritários.",
+  }),
+  speaking: defineR2State({
+    id: "speaking",
+    clip: "R2_IDLE",
+    head: [0, 0, 0],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3.5, 6],
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=269
+----------------------------------------
+    blinkIntervalSeconds: [3.5, 6],
+    expressions: {
+      CHEEK_RAISE: 0.05,
+    },
+    mouth: "runtime_viseme",
+    loop: "repeat",
+    transitionSeconds: 0.2,
+    interruptible: true,
+>>>     fallback: "listening",
+    minimumDurationMs: 500,
+    priority: "high",
+    morphTargetProfile: "speak",
+    description: "Fala ativa; reutiliza com transparência o clipe corporal de idle.",
+  }),
+  celebrating_sale: defineR2State({
+    id: "celebrating_sale",
+    clip: "R2_CELEBRATING_SALE",
+    head: [0, 0, 0],
+    eye: "user_focus",
+    blinkIntervalSeconds: [3, 5],
+    expressions: {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=289
+----------------------------------------
+    expressions: {
+      SMILE: 0.65,
+      CHEEK_RAISE: 0.25,
+    },
+    mouth: "confident_smile",
+    loop: "once",
+    transitionSeconds: 0.25,
+    interruptible: false,
+>>>     fallback: "idle",
+    playbackMode: "one_shot",
+    minimumDurationMs: 800,
+    maximumDurationMs: 2_400,
+    priority: "high",
+    returnState: "idle",
+    cooldownMs: 1_000,
+    morphTargetProfile: "celebrate",
+    description: "Comemoração one-shot com retorno automático e seguro ao idle.",
+  }),
+  error_attention: defineR2State({
+    id: "error_attention",
+    clip: "R2_ERROR_ATTENTION",
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=313
+----------------------------------------
+    expressions: {
+      BROW_FROWN: 0.45,
+      FROWN: 0.28,
+    },
+    mouth: "serious_closed",
+    loop: "once",
+    transitionSeconds: 0.18,
+    interruptible: false,
+>>>     fallback: "neutral",
+    playbackMode: "one_shot",
+    minimumDurationMs: 600,
+    maximumDurationMs: 2_000,
+    priority: "critical",
+    returnState: "neutral",
+    cooldownMs: 750,
+    morphTargetProfile: "error",
+    description: "Erro crítico one-shot com retorno automático ao baseline neutro.",
+  }),
+}
+
+const EXPRESSION_MORPHS: Readonly<
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=637
+----------------------------------------
+
+  private currentAction?: AnimationAction
+  private pendingState: R2RuntimeState | null = null
+  private readonly lastStateStartedAtMs = new Map<R2RuntimeState, number>()
+  private runtimeElapsedMs = 0
+  private requestGeneration = 0
+  private transitionsApplied = 0
+  private transitionsIgnored = 0
+>>>   private fallbacks = 0
+  private actionsReused = 0
+  private maximumSimultaneousActions = 0
+  private mixerListeners = 0
+  private reducedMotion = false
+  private speakingIntensity = 1
+  private activeViseme?: R2Viseme
+  private elapsedInState = 0
+  private autoBlinkValue = 0
+
+  state: R2RuntimeState = "neutral"
+  requestedState: R2RuntimeState = "neutral"
+  disposed = false
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1086
+----------------------------------------
+      status: "applied",
+      generation,
+    }
+  }
+
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+>>>       this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+        status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+  setReducedMotion(enabled: boolean) {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1091
+----------------------------------------
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+>>>         status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+  setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+    if (this.reducedMotion === normalized) {
+      return
+    }
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1123
+----------------------------------------
+      elapsedInStateMs: Math.round(this.elapsedInState * 1_000),
+      reducedMotion: this.reducedMotion,
+      actionsCreated: this.actions.size,
+      actionsReused: this.actionsReused,
+      maximumSimultaneousActions: this.maximumSimultaneousActions,
+      activeActions: this.activeActionCount(),
+      transitionsApplied: this.transitionsApplied,
+      transitionsIgnored: this.transitionsIgnored,
+>>>       fallbacks: this.fallbacks,
+      mixerListeners: this.mixerListeners,
+      pendingState: this.pendingState,
+    }
+  }
+
+  setExpression(
+    channel: R2ExpressionChannel,
+    value: number,
+  ) {
+    this.assertActive()
+    this.expressionValues.set(
+      channel,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx
+LINE=107
+----------------------------------------
+            R2_RENDERER.outputColorSpace
+          gl.shadowMap.enabled =
+            R2_RENDERER.shadowsEnabled
+          gl.setClearColor(
+            0x000000,
+            0,
+          )
+        }}
+>>>         fallback={
+          <div
+            aria-label="Visualização 3D do R2 indisponível"
+            className="h-full w-full bg-transparent"
+          />
+        }
+      >
+        <hemisphereLight
+          name="r2-hemisphere-light"
+          color={
+            R2_LIGHTING.hemisphere.skyColor
+          }
+          groundColor={
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx
+LINE=144
+----------------------------------------
+          position={R2_LIGHTING.fill.position}
+        />
+        <directionalLight
+          name="r2-rim-light"
+          color={R2_LIGHTING.rim.color}
+          intensity={R2_LIGHTING.rim.intensity}
+          position={R2_LIGHTING.rim.position}
+        />
+>>>         <Suspense fallback={null}>
+          <R2FullCharacterErrorBoundary>
+            <R2FullCharacterModel
+              runtimeWorkspaceId={workspaceId}
+              runtimeCommand={runtimeCommand}
+              onRuntimeReceipt={onRuntimeReceipt}
+              scale={R2_MODEL_PRESENTATION_SCALE}
+              autoFrame
+            />
+          </R2FullCharacterErrorBoundary>
+        </Suspense>
+      </Canvas>
+    </div>
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=117
+----------------------------------------
+  crossFadeMs: number
+  transitionSeconds: number
+  minimumDurationMs: number
+  maximumDurationMs: number | null
+  priority: R2RuntimePriority
+  interruptible: boolean
+  returnState: R2RuntimeState
+  cooldownMs: number
+>>>   fallback: R2RuntimeState
+  morphTargetProfile: "neutral" | "focus" | "listen" | "think" | "alert" | "speak" | "celebrate" | "error"
+  headTrackingProfile: R2EyeBehavior
+  eyeProfile: R2EyeBehavior
+  reducedMotionProfile: R2ReducedMotionProfile
+  description: string
+}
+
+export type R2StateRequestStatus =
+  | "applied"
+  | "repeated"
+  | "deferred"
+  | "cooldown"
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=130
+----------------------------------------
+  description: string
+}
+
+export type R2StateRequestStatus =
+  | "applied"
+  | "repeated"
+  | "deferred"
+  | "cooldown"
+>>>   | "fallback"
+
+export type R2StateRequestResult = Readonly<{
+  requestedState: unknown
+  effectiveState: R2RuntimeState
+  status: R2StateRequestStatus
+  generation: number
+}>
+
+export type R2RuntimeDiagnostics = Readonly<{
+  requestedState: R2RuntimeState
+  effectiveState: R2RuntimeState
+  activeClip: R2AnimationClipName | null
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=151
+----------------------------------------
+  elapsedInStateMs: number
+  reducedMotion: boolean
+  actionsCreated: number
+  actionsReused: number
+  maximumSimultaneousActions: number
+  activeActions: number
+  transitionsApplied: number
+  transitionsIgnored: number
+>>>   fallbacks: number
+  mixerListeners: number
+  pendingState: R2RuntimeState | null
+}>
+
+export const R2_ANIMATION_CLIPS = [
+  "R2_NEUTRAL",
+  "R2_IDLE",
+  "R2_WORKING",
+  "R2_LISTENING",
+  "R2_THINKING",
+  "R2_AWAITING_ACTION",
+  "R2_ALERT",
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=150
+----------------------------------------
+  expressionIntensity?: number
+  viseme?: R2Viseme
+  speakingIntensity?: number
+  eyeTarget?: R2EyeTarget
+  durationMs: number
+  minimumDisplayMs: number
+  transitionMs: number
+  interruptionPolicy: R2InterruptionPolicy
+>>>   fallbackState: R2RuntimeState
+}>
+
+export type R2IntelligenceResult = Readonly<{
+  result: "REACT" | "IGNORE" | "REQUEST_CONTEXT"
+  recommendation: R2Recommendation | null
+  confidence: number
+  urgency: R2Urgency
+  reasons: readonly R2DecisionReason[]
+  missingInformation: readonly string[]
+  presentationHints: R2PresentationHints | null
+  expiresAt: string | null
+}>
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=187
+----------------------------------------
+  | "LOWER_PRIORITY"
+  | "QUEUE_FULL"
+  | "INTERRUPTED_CURRENT"
+  | "QUEUED_FOR_LATER"
+  | "NO_REACTION_REQUIRED"
+  | "INSUFFICIENT_CONTEXT"
+  | "INTELLIGENCE_FAILURE"
+  | "RUNTIME_FAILURE"
+>>>   | "FALLBACK_APPLIED"
+  | "PRESENTATION_COMPLETED"
+  | "CONFIRMATION_REQUIRED"
+
+export type R2PresentationPlan = Readonly<{
+  planId: string
+  eventId: string
+  workspaceId: string
+  runtimeState: R2RuntimeState
+  expression?: R2ExpressionChannel
+  expressionIntensity?: number
+  viseme?: R2Viseme
+  speakingIntensity?: number
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=210
+----------------------------------------
+  minimumDisplayMs: number
+  transitionMs: number
+  interruptibility: R2InterruptionPolicy
+  priority: R2Priority
+  message: string | null
+  actionLabel: string | null
+  actionId: string | null
+  expiresAt: string | null
+>>>   fallbackState: R2RuntimeState
+  requiresConfirmation: boolean
+}>
+
+export type R2RuntimeCommand = Readonly<{
+  commandId: string
+  eventId: string
+  workspaceId: string
+  runtimeState: R2RuntimeState
+  expression?: R2ExpressionChannel
+  expressionIntensity?: number
+  viseme?: R2Viseme
+  speakingIntensity?: number
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=232
+----------------------------------------
+  durationMs: number
+  minimumDisplayMs: number
+  transitionMs: number
+  priority: R2Priority
+  message: string | null
+  actionLabel: string | null
+  actionId: string | null
+  expiresAt: string | null
+>>>   fallbackState: R2RuntimeState
+  requiresConfirmation: boolean
+}>
+
+export type R2OrchestrationDecisionType =
+  | "EXECUTE"
+  | "INTERRUPT"
+  | "QUEUE"
+  | "DISCARD"
+  | "REJECT"
+  | "IGNORE"
+  | "FALLBACK"
+  | "FAIL"
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=243
+----------------------------------------
+
+export type R2OrchestrationDecisionType =
+  | "EXECUTE"
+  | "INTERRUPT"
+  | "QUEUE"
+  | "DISCARD"
+  | "REJECT"
+  | "IGNORE"
+>>>   | "FALLBACK"
+  | "FAIL"
+
+export type R2OrchestrationDecision = Readonly<{
+  decisionId: string
+  decision: R2OrchestrationDecisionType
+  eventId: string
+  eventType: R2EventType
+  workspaceId: string
+  reason: R2DecisionReason
+  priority: R2Priority
+  runtimeState: R2RuntimeState | null
+  command: R2RuntimeCommand | null
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=272
+----------------------------------------
+  eventId: string
+  workspaceId: string
+  status: "APPLIED" | "COMPLETED" | "INTERRUPTED" | "FAILED" | "SKIPPED"
+  runtimeState: R2RuntimeState
+  startedAt: string
+  completedAt: string | null
+  durationMs: number | null
+  interruptedBy: string | null
+>>>   fallbackUsed: boolean
+  errorCode: string | null
+}>
+
+export type R2OrchestrationErrorCode =
+  | "INVALID_EVENT"
+  | "WORKSPACE_MISMATCH"
+  | "USER_MISMATCH"
+  | "INTELLIGENCE_FAILED"
+  | "INVALID_PRESENTATION"
+  | "RUNTIME_DISPOSED"
+  | "RUNTIME_COMMAND_FAILED"
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-intelligence-orchestration.ts
+LINE=351
+----------------------------------------
+  reason: R2DecisionReason
+  priority: R2Priority
+  runtimeState: R2RuntimeState | null
+  startedAt: string
+  completedAt: string | null
+  durationMs: number | null
+  interruptedBy: string | null
+  discardedReason: string | null
+>>>   fallbackUsed: boolean
+  errorCode: string | null
+}>
+
+export interface R2ObservabilitySink {
+  record(entry: R2ObservabilityEntry): void
+}
+----------------------------------------
+
+============================================================
+ PATTERN: data-r2
+============================================================
+NO_MATCH
+
+============================================================
+ PATTERN: aria-label
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.test.tsx
+LINE=64
+----------------------------------------
+    }
+
+    globalThis.ResizeObserver = ResizeObserverStub
+
+    const serverMarkup = renderToString(
+      <GorilaR23D />,
+    )
+    expect(serverMarkup).toBe(
+>>>       '<div aria-label="Visualiza\u00e7\u00e3o 3D do R2 indispon\u00edvel" class="h-full w-full bg-transparent"></div>',
+    )
+
+    const container =
+      document.createElement("div")
+    container.innerHTML = serverMarkup
+    document.body.append(container)
+
+    const consoleError = vi
+      .spyOn(console, "error")
+      .mockImplementation(() => undefined)
+
+    const root = hydrateRoot(
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx
+LINE=60
+----------------------------------------
+    return () => {
+      active = false
+    }
+  }, [])
+
+  if (!canRenderCanvas) {
+    return (
+      <div
+>>>         aria-label="Visualização 3D do R2 indisponível"
+        className="h-full w-full bg-transparent"
+      />
+    )
+  }
+
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+      <Canvas
+        camera={{
+          position: [
+            0,
+            0,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx
+LINE=109
+----------------------------------------
+            R2_RENDERER.shadowsEnabled
+          gl.setClearColor(
+            0x000000,
+            0,
+          )
+        }}
+        fallback={
+          <div
+>>>             aria-label="Visualização 3D do R2 indisponível"
+            className="h-full w-full bg-transparent"
+          />
+        }
+      >
+        <hemisphereLight
+          name="r2-hemisphere-light"
+          color={
+            R2_LIGHTING.hemisphere.skyColor
+          }
+          groundColor={
+            R2_LIGHTING.hemisphere.groundColor
+          }
+----------------------------------------
+
+============================================================
+ PATTERN: requestedState
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=40
+----------------------------------------
+    ...overrides,
+  }
+}
+
+function controllerFixture() {
+  const controller: R2RuntimeControllerApi = {
+    root: new Object3D(),
+    state: "neutral",
+>>>     requestedState: "neutral",
+    disposed: false,
+    setState: vi.fn((state) => ({
+      requestedState: state,
+      effectiveState: "neutral" as const,
+      status: "applied" as const,
+      generation: 1,
+    })),
+    setReducedMotion: vi.fn(),
+    getDiagnostics: vi.fn(() => ({
+      requestedState: "neutral" as const,
+      effectiveState: "neutral" as const,
+      activeClip: null,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=43
+----------------------------------------
+
+function controllerFixture() {
+  const controller: R2RuntimeControllerApi = {
+    root: new Object3D(),
+    state: "neutral",
+    requestedState: "neutral",
+    disposed: false,
+    setState: vi.fn((state) => ({
+>>>       requestedState: state,
+      effectiveState: "neutral" as const,
+      status: "applied" as const,
+      generation: 1,
+    })),
+    setReducedMotion: vi.fn(),
+    getDiagnostics: vi.fn(() => ({
+      requestedState: "neutral" as const,
+      effectiveState: "neutral" as const,
+      activeClip: null,
+      elapsedInStateMs: 0,
+      reducedMotion: false,
+      actionsCreated: 9,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=50
+----------------------------------------
+    setState: vi.fn((state) => ({
+      requestedState: state,
+      effectiveState: "neutral" as const,
+      status: "applied" as const,
+      generation: 1,
+    })),
+    setReducedMotion: vi.fn(),
+    getDiagnostics: vi.fn(() => ({
+>>>       requestedState: "neutral" as const,
+      effectiveState: "neutral" as const,
+      activeClip: null,
+      elapsedInStateMs: 0,
+      reducedMotion: false,
+      actionsCreated: 9,
+      actionsReused: 0,
+      maximumSimultaneousActions: 0,
+      activeActions: 0,
+      transitionsApplied: 0,
+      transitionsIgnored: 0,
+      fallbacks: 0,
+      mixerListeners: 0,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=138
+----------------------------------------
+    expect(controller.setState).not.toHaveBeenCalled()
+  })
+
+  it("restores a safe fallback when controller application fails", () => {
+    const controller = controllerFixture()
+    vi.mocked(controller.setState).mockImplementation((state) => {
+      if (state === "speaking") throw new Error("mixer rejected state")
+      return {
+>>>         requestedState: state,
+        effectiveState: "listening",
+        status: "applied",
+        generation: 1,
+      }
+    })
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+      workspaceId: "workspace-a",
+      now: () => new Date(NOW),
+    })
+    expect(adapter.apply(command())).toMatchObject({
+      status: "FAILED", errorCode: "RUNTIME_COMMAND_FAILED", fallbackUsed: true,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=648
+----------------------------------------
+  private mixerListeners = 0
+  private reducedMotion = false
+  private speakingIntensity = 1
+  private activeViseme?: R2Viseme
+  private elapsedInState = 0
+  private autoBlinkValue = 0
+
+  state: R2RuntimeState = "neutral"
+>>>   requestedState: R2RuntimeState = "neutral"
+  disposed = false
+
+  private readonly handleMixerFinished = (event: { action: AnimationAction }) => {
+    if (this.disposed || event.action !== this.currentAction) {
+      return
+    }
+
+    const definition = R2_RUNTIME_STATE_MAP[this.state]
+    if (definition.playbackMode === "one_shot") {
+      this.applyState(definition.returnState, true)
+    }
+  }
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=941
+----------------------------------------
+    }
+    return active
+  }
+
+  private applyState(state: R2RuntimeState, force = false): R2StateRequestResult {
+    this.assertActive()
+    this.requestGeneration += 1
+    const generation = this.requestGeneration
+>>>     this.requestedState = state
+    const definition =
+      R2_RUNTIME_STATE_MAP[state]
+
+    if (!force && this.currentAction && state === this.state) {
+      this.actionsReused += 1
+      this.transitionsIgnored += 1
+      return {
+        requestedState: state,
+        effectiveState: this.state,
+        status: "repeated",
+        generation,
+      }
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=949
+----------------------------------------
+    this.requestedState = state
+    const definition =
+      R2_RUNTIME_STATE_MAP[state]
+
+    if (!force && this.currentAction && state === this.state) {
+      this.actionsReused += 1
+      this.transitionsIgnored += 1
+      return {
+>>>         requestedState: state,
+        effectiveState: this.state,
+        status: "repeated",
+        generation,
+      }
+    }
+
+    const currentDefinition = R2_RUNTIME_STATE_MAP[this.state]
+    const elapsedMs = this.elapsedInState * 1_000
+    const nextPriority = R2_PRIORITY_VALUE[definition.priority]
+    const currentPriority = R2_PRIORITY_VALUE[currentDefinition.priority]
+    const minimumLocked = elapsedMs < currentDefinition.minimumDurationMs
+    const cannotInterrupt = minimumLocked && (
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=973
+----------------------------------------
+    const lastStartedAt = this.lastStateStartedAtMs.get(state)
+    if (
+      !force &&
+      lastStartedAt !== undefined &&
+      this.runtimeElapsedMs - lastStartedAt < definition.cooldownMs
+    ) {
+      this.transitionsIgnored += 1
+      return {
+>>>         requestedState: state,
+        effectiveState: this.state,
+        status: "cooldown",
+        generation,
+      }
+    }
+
+    if (!force && this.currentAction && cannotInterrupt) {
+      this.pendingState = state
+      this.transitionsIgnored += 1
+      return {
+        requestedState: state,
+        effectiveState: this.state,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=984
+----------------------------------------
+        generation,
+      }
+    }
+
+    if (!force && this.currentAction && cannotInterrupt) {
+      this.pendingState = state
+      this.transitionsIgnored += 1
+      return {
+>>>         requestedState: state,
+        effectiveState: this.state,
+        status: "deferred",
+        generation,
+      }
+    }
+
+    const nextAction =
+      this.actions.get(
+        definition.clip,
+      )!
+
+    for (const action of this.actions.values()) {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1076
+----------------------------------------
+
+    const activeActions = this.activeActionCount()
+    this.maximumSimultaneousActions = Math.max(
+      this.maximumSimultaneousActions,
+      activeActions,
+    )
+
+    return {
+>>>       requestedState: state,
+      effectiveState: state,
+      status: "applied",
+      generation,
+    }
+  }
+
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1083
+----------------------------------------
+    return {
+      requestedState: state,
+      effectiveState: state,
+      status: "applied",
+      generation,
+    }
+  }
+
+>>>   setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+        status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1084
+----------------------------------------
+      requestedState: state,
+      effectiveState: state,
+      status: "applied",
+      generation,
+    }
+  }
+
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+>>>     const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+        status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1090
+----------------------------------------
+
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+>>>         requestedState,
+        status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+  setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+    if (this.reducedMotion === normalized) {
+      return
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1095
+----------------------------------------
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+        requestedState,
+        status: "fallback",
+      }
+    }
+
+>>>     return this.applyState(requestedState as R2RuntimeState)
+  }
+
+  setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+    if (this.reducedMotion === normalized) {
+      return
+    }
+    this.reducedMotion = normalized
+    this.applyState(this.state, true)
+  }
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1110
+----------------------------------------
+      return
+    }
+    this.reducedMotion = normalized
+    this.applyState(this.state, true)
+  }
+
+  getDiagnostics(): R2RuntimeDiagnostics {
+    return {
+>>>       requestedState: this.requestedState,
+      effectiveState: this.state,
+      activeClip: this.currentAction
+        ? R2_RUNTIME_STATE_MAP[this.state].clip
+        : null,
+      elapsedInStateMs: Math.round(this.elapsedInState * 1_000),
+      reducedMotion: this.reducedMotion,
+      actionsCreated: this.actions.size,
+      actionsReused: this.actionsReused,
+      maximumSimultaneousActions: this.maximumSimultaneousActions,
+      activeActions: this.activeActionCount(),
+      transitionsApplied: this.transitionsApplied,
+      transitionsIgnored: this.transitionsIgnored,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1213
+----------------------------------------
+      )
+    }
+
+    for (const binding of allMorphBindings()) {
+      this.setMorph(binding, 0)
+    }
+
+    this.state = "neutral"
+>>>     this.requestedState = "neutral"
+    this.root.updateMatrixWorld(true)
+  }
+
+  update(deltaSeconds: number) {
+    this.assertActive()
+    const delta = Math.max(
+      0,
+      Number.isFinite(deltaSeconds)
+        ? deltaSeconds
+        : 0,
+    )
+    this.mixer.update(delta)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=133
+----------------------------------------
+export type R2StateRequestStatus =
+  | "applied"
+  | "repeated"
+  | "deferred"
+  | "cooldown"
+  | "fallback"
+
+export type R2StateRequestResult = Readonly<{
+>>>   requestedState: unknown
+  effectiveState: R2RuntimeState
+  status: R2StateRequestStatus
+  generation: number
+}>
+
+export type R2RuntimeDiagnostics = Readonly<{
+  requestedState: R2RuntimeState
+  effectiveState: R2RuntimeState
+  activeClip: R2AnimationClipName | null
+  elapsedInStateMs: number
+  reducedMotion: boolean
+  actionsCreated: number
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=140
+----------------------------------------
+export type R2StateRequestResult = Readonly<{
+  requestedState: unknown
+  effectiveState: R2RuntimeState
+  status: R2StateRequestStatus
+  generation: number
+}>
+
+export type R2RuntimeDiagnostics = Readonly<{
+>>>   requestedState: R2RuntimeState
+  effectiveState: R2RuntimeState
+  activeClip: R2AnimationClipName | null
+  elapsedInStateMs: number
+  reducedMotion: boolean
+  actionsCreated: number
+  actionsReused: number
+  maximumSimultaneousActions: number
+  activeActions: number
+  transitionsApplied: number
+  transitionsIgnored: number
+  fallbacks: number
+  mixerListeners: number
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=184
+----------------------------------------
+export type R2RuntimeLoadState =
+  | { status: "loading" }
+  | { status: "ready" }
+  | { status: "error"; error: Error }
+
+export interface R2RuntimeControllerApi {
+  readonly root: Object3D
+  readonly state: R2RuntimeState
+>>>   readonly requestedState: R2RuntimeState
+  readonly disposed: boolean
+  setState(state: R2RuntimeState | string): R2StateRequestResult
+  setReducedMotion(enabled: boolean): void
+  getDiagnostics(): R2RuntimeDiagnostics
+  setExpression(
+    channel: R2ExpressionChannel,
+    value: number,
+  ): void
+  setViseme(
+    viseme: R2Viseme,
+    value: number,
+  ): void
+----------------------------------------
+
+============================================================
+ PATTERN: effectiveState
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=44
+----------------------------------------
+function controllerFixture() {
+  const controller: R2RuntimeControllerApi = {
+    root: new Object3D(),
+    state: "neutral",
+    requestedState: "neutral",
+    disposed: false,
+    setState: vi.fn((state) => ({
+      requestedState: state,
+>>>       effectiveState: "neutral" as const,
+      status: "applied" as const,
+      generation: 1,
+    })),
+    setReducedMotion: vi.fn(),
+    getDiagnostics: vi.fn(() => ({
+      requestedState: "neutral" as const,
+      effectiveState: "neutral" as const,
+      activeClip: null,
+      elapsedInStateMs: 0,
+      reducedMotion: false,
+      actionsCreated: 9,
+      actionsReused: 0,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=51
+----------------------------------------
+      requestedState: state,
+      effectiveState: "neutral" as const,
+      status: "applied" as const,
+      generation: 1,
+    })),
+    setReducedMotion: vi.fn(),
+    getDiagnostics: vi.fn(() => ({
+      requestedState: "neutral" as const,
+>>>       effectiveState: "neutral" as const,
+      activeClip: null,
+      elapsedInStateMs: 0,
+      reducedMotion: false,
+      actionsCreated: 9,
+      actionsReused: 0,
+      maximumSimultaneousActions: 0,
+      activeActions: 0,
+      transitionsApplied: 0,
+      transitionsIgnored: 0,
+      fallbacks: 0,
+      mixerListeners: 0,
+      pendingState: null,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=139
+----------------------------------------
+  })
+
+  it("restores a safe fallback when controller application fails", () => {
+    const controller = controllerFixture()
+    vi.mocked(controller.setState).mockImplementation((state) => {
+      if (state === "speaking") throw new Error("mixer rejected state")
+      return {
+        requestedState: state,
+>>>         effectiveState: "listening",
+        status: "applied",
+        generation: 1,
+      }
+    })
+    const adapter = new R2RuntimeCommandAdapter({
+      controller,
+      workspaceId: "workspace-a",
+      now: () => new Date(NOW),
+    })
+    expect(adapter.apply(command())).toMatchObject({
+      status: "FAILED", errorCode: "RUNTIME_COMMAND_FAILED", fallbackUsed: true,
+    })
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=950
+----------------------------------------
+    const definition =
+      R2_RUNTIME_STATE_MAP[state]
+
+    if (!force && this.currentAction && state === this.state) {
+      this.actionsReused += 1
+      this.transitionsIgnored += 1
+      return {
+        requestedState: state,
+>>>         effectiveState: this.state,
+        status: "repeated",
+        generation,
+      }
+    }
+
+    const currentDefinition = R2_RUNTIME_STATE_MAP[this.state]
+    const elapsedMs = this.elapsedInState * 1_000
+    const nextPriority = R2_PRIORITY_VALUE[definition.priority]
+    const currentPriority = R2_PRIORITY_VALUE[currentDefinition.priority]
+    const minimumLocked = elapsedMs < currentDefinition.minimumDurationMs
+    const cannotInterrupt = minimumLocked && (
+      !currentDefinition.interruptible || nextPriority < currentPriority
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=974
+----------------------------------------
+    if (
+      !force &&
+      lastStartedAt !== undefined &&
+      this.runtimeElapsedMs - lastStartedAt < definition.cooldownMs
+    ) {
+      this.transitionsIgnored += 1
+      return {
+        requestedState: state,
+>>>         effectiveState: this.state,
+        status: "cooldown",
+        generation,
+      }
+    }
+
+    if (!force && this.currentAction && cannotInterrupt) {
+      this.pendingState = state
+      this.transitionsIgnored += 1
+      return {
+        requestedState: state,
+        effectiveState: this.state,
+        status: "deferred",
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=985
+----------------------------------------
+      }
+    }
+
+    if (!force && this.currentAction && cannotInterrupt) {
+      this.pendingState = state
+      this.transitionsIgnored += 1
+      return {
+        requestedState: state,
+>>>         effectiveState: this.state,
+        status: "deferred",
+        generation,
+      }
+    }
+
+    const nextAction =
+      this.actions.get(
+        definition.clip,
+      )!
+
+    for (const action of this.actions.values()) {
+      if (action !== this.currentAction && action !== nextAction) {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1077
+----------------------------------------
+    const activeActions = this.activeActionCount()
+    this.maximumSimultaneousActions = Math.max(
+      this.maximumSimultaneousActions,
+      activeActions,
+    )
+
+    return {
+      requestedState: state,
+>>>       effectiveState: state,
+      status: "applied",
+      generation,
+    }
+  }
+
+  setState(requestedState: R2RuntimeState | string): R2StateRequestResult {
+    const valid = (R2_RUNTIME_STATES as readonly string[]).includes(requestedState)
+    if (!valid) {
+      this.fallbacks += 1
+      const result = this.applyState("neutral", true)
+      return {
+        ...result,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1111
+----------------------------------------
+    }
+    this.reducedMotion = normalized
+    this.applyState(this.state, true)
+  }
+
+  getDiagnostics(): R2RuntimeDiagnostics {
+    return {
+      requestedState: this.requestedState,
+>>>       effectiveState: this.state,
+      activeClip: this.currentAction
+        ? R2_RUNTIME_STATE_MAP[this.state].clip
+        : null,
+      elapsedInStateMs: Math.round(this.elapsedInState * 1_000),
+      reducedMotion: this.reducedMotion,
+      actionsCreated: this.actions.size,
+      actionsReused: this.actionsReused,
+      maximumSimultaneousActions: this.maximumSimultaneousActions,
+      activeActions: this.activeActionCount(),
+      transitionsApplied: this.transitionsApplied,
+      transitionsIgnored: this.transitionsIgnored,
+      fallbacks: this.fallbacks,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=134
+----------------------------------------
+  | "applied"
+  | "repeated"
+  | "deferred"
+  | "cooldown"
+  | "fallback"
+
+export type R2StateRequestResult = Readonly<{
+  requestedState: unknown
+>>>   effectiveState: R2RuntimeState
+  status: R2StateRequestStatus
+  generation: number
+}>
+
+export type R2RuntimeDiagnostics = Readonly<{
+  requestedState: R2RuntimeState
+  effectiveState: R2RuntimeState
+  activeClip: R2AnimationClipName | null
+  elapsedInStateMs: number
+  reducedMotion: boolean
+  actionsCreated: number
+  actionsReused: number
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=141
+----------------------------------------
+  requestedState: unknown
+  effectiveState: R2RuntimeState
+  status: R2StateRequestStatus
+  generation: number
+}>
+
+export type R2RuntimeDiagnostics = Readonly<{
+  requestedState: R2RuntimeState
+>>>   effectiveState: R2RuntimeState
+  activeClip: R2AnimationClipName | null
+  elapsedInStateMs: number
+  reducedMotion: boolean
+  actionsCreated: number
+  actionsReused: number
+  maximumSimultaneousActions: number
+  activeActions: number
+  transitionsApplied: number
+  transitionsIgnored: number
+  fallbacks: number
+  mixerListeners: number
+  pendingState: R2RuntimeState | null
+----------------------------------------
+
+============================================================
+ PATTERN: pendingState
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=63
+----------------------------------------
+      actionsCreated: 9,
+      actionsReused: 0,
+      maximumSimultaneousActions: 0,
+      activeActions: 0,
+      transitionsApplied: 0,
+      transitionsIgnored: 0,
+      fallbacks: 0,
+      mixerListeners: 0,
+>>>       pendingState: null,
+    })),
+    setExpression: vi.fn(),
+    setViseme: vi.fn(),
+    setEyeTarget: vi.fn(),
+    setSpeakingIntensity: vi.fn(),
+    resetNeutral: vi.fn(),
+    update: vi.fn(),
+    dispose: vi.fn(),
+  }
+  return controller
+}
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.test.ts
+LINE=283
+----------------------------------------
+    controller.update(0.4)
+    controller.setState("celebrating_sale")
+    controller.update(0.8)
+    expect(controller.setState("error_attention").status).toBe("applied")
+    expect(controller.setState("celebrating_sale").status).toBe("cooldown")
+    expect(controller.setState("working").status).toBe("deferred")
+    controller.update(0.6)
+    expect(controller.state).toBe("working")
+>>>     expect(controller.getDiagnostics().pendingState).toBeNull()
+    controller.dispose()
+  })
+
+  it("returns one-shots safely and keeps reduced-motion state communication", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    controller.setState("celebrating_sale")
+    controller.update(1.1)
+    expect(controller.state).toBe("idle")
+    controller.setReducedMotion(true)
+    controller.setState("error_attention")
+    expect(controller.getDiagnostics().reducedMotion).toBe(true)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=631
+----------------------------------------
+  private readonly visemeValues =
+    new Map<R2Viseme, number>()
+
+  private readonly leftEyePivot: Object3D
+  private readonly rightEyePivot: Object3D
+  private readonly jawDriver: Object3D
+
+  private currentAction?: AnimationAction
+>>>   private pendingState: R2RuntimeState | null = null
+  private readonly lastStateStartedAtMs = new Map<R2RuntimeState, number>()
+  private runtimeElapsedMs = 0
+  private requestGeneration = 0
+  private transitionsApplied = 0
+  private transitionsIgnored = 0
+  private fallbacks = 0
+  private actionsReused = 0
+  private maximumSimultaneousActions = 0
+  private mixerListeners = 0
+  private reducedMotion = false
+  private speakingIntensity = 1
+  private activeViseme?: R2Viseme
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=981
+----------------------------------------
+        requestedState: state,
+        effectiveState: this.state,
+        status: "cooldown",
+        generation,
+      }
+    }
+
+    if (!force && this.currentAction && cannotInterrupt) {
+>>>       this.pendingState = state
+      this.transitionsIgnored += 1
+      return {
+        requestedState: state,
+        effectiveState: this.state,
+        status: "deferred",
+        generation,
+      }
+    }
+
+    const nextAction =
+      this.actions.get(
+        definition.clip,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1061
+----------------------------------------
+            : definition.crossFadeMs
+        ) / 1_000,
+        true,
+      )
+    }
+
+    this.currentAction = nextAction
+    this.state = state
+>>>     this.pendingState = null
+    this.lastStateStartedAtMs.set(state, this.runtimeElapsedMs)
+    this.elapsedInState = 0
+    this.autoBlinkValue = 0
+    this.actionsReused += 1
+    this.transitionsApplied += 1
+    this.recomputeFacialState()
+
+    const activeActions = this.activeActionCount()
+    this.maximumSimultaneousActions = Math.max(
+      this.maximumSimultaneousActions,
+      activeActions,
+    )
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1125
+----------------------------------------
+      actionsCreated: this.actions.size,
+      actionsReused: this.actionsReused,
+      maximumSimultaneousActions: this.maximumSimultaneousActions,
+      activeActions: this.activeActionCount(),
+      transitionsApplied: this.transitionsApplied,
+      transitionsIgnored: this.transitionsIgnored,
+      fallbacks: this.fallbacks,
+      mixerListeners: this.mixerListeners,
+>>>       pendingState: this.pendingState,
+    }
+  }
+
+  setExpression(
+    channel: R2ExpressionChannel,
+    value: number,
+  ) {
+    this.assertActive()
+    this.expressionValues.set(
+      channel,
+      clamp01(value),
+    )
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1188
+----------------------------------------
+    }
+
+    this.mixer.stopAllAction()
+    this.currentAction = undefined
+    this.expressionValues.clear()
+    this.stateExpressionValues.clear()
+    this.visemeValues.clear()
+    this.activeViseme = undefined
+>>>     this.pendingState = null
+    this.speakingIntensity = 1
+    this.elapsedInState = 0
+    this.autoBlinkValue = 0
+
+    for (
+      const [object, transform] of
+        this.neutralTransforms
+    ) {
+      object.position.copy(
+        transform.position,
+      )
+      object.quaternion.copy(
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1246
+----------------------------------------
+
+    const definition = R2_RUNTIME_STATE_MAP[this.state]
+    if (
+      definition.maximumDurationMs !== null &&
+      this.elapsedInState * 1_000 >= definition.maximumDurationMs
+    ) {
+      this.applyState(definition.returnState, true)
+    } else if (
+>>>       this.pendingState &&
+      this.elapsedInState * 1_000 >= definition.minimumDurationMs
+    ) {
+      this.applyState(this.pendingState, true)
+    }
+
+    const blinkRange =
+      R2_RUNTIME_STATE_MAP[
+        this.state
+      ].blinkIntervalSeconds
+    const period =
+      (blinkRange[0] + blinkRange[1]) /
+      2
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1249
+----------------------------------------
+      definition.maximumDurationMs !== null &&
+      this.elapsedInState * 1_000 >= definition.maximumDurationMs
+    ) {
+      this.applyState(definition.returnState, true)
+    } else if (
+      this.pendingState &&
+      this.elapsedInState * 1_000 >= definition.minimumDurationMs
+    ) {
+>>>       this.applyState(this.pendingState, true)
+    }
+
+    const blinkRange =
+      R2_RUNTIME_STATE_MAP[
+        this.state
+      ].blinkIntervalSeconds
+    const period =
+      (blinkRange[0] + blinkRange[1]) /
+      2
+    const phase =
+      this.elapsedInState % period
+    const duration = 0.16
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=153
+----------------------------------------
+  actionsCreated: number
+  actionsReused: number
+  maximumSimultaneousActions: number
+  activeActions: number
+  transitionsApplied: number
+  transitionsIgnored: number
+  fallbacks: number
+  mixerListeners: number
+>>>   pendingState: R2RuntimeState | null
+}>
+
+export const R2_ANIMATION_CLIPS = [
+  "R2_NEUTRAL",
+  "R2_IDLE",
+  "R2_WORKING",
+  "R2_LISTENING",
+  "R2_THINKING",
+  "R2_AWAITING_ACTION",
+  "R2_ALERT",
+  "R2_CELEBRATING_SALE",
+  "R2_ERROR_ATTENTION",
+----------------------------------------
+
+============================================================
+ PATTERN: reducedMotion
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=48
+----------------------------------------
+    requestedState: "neutral",
+    disposed: false,
+    setState: vi.fn((state) => ({
+      requestedState: state,
+      effectiveState: "neutral" as const,
+      status: "applied" as const,
+      generation: 1,
+    })),
+>>>     setReducedMotion: vi.fn(),
+    getDiagnostics: vi.fn(() => ({
+      requestedState: "neutral" as const,
+      effectiveState: "neutral" as const,
+      activeClip: null,
+      elapsedInStateMs: 0,
+      reducedMotion: false,
+      actionsCreated: 9,
+      actionsReused: 0,
+      maximumSimultaneousActions: 0,
+      activeActions: 0,
+      transitionsApplied: 0,
+      transitionsIgnored: 0,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.test.ts
+LINE=54
+----------------------------------------
+      generation: 1,
+    })),
+    setReducedMotion: vi.fn(),
+    getDiagnostics: vi.fn(() => ({
+      requestedState: "neutral" as const,
+      effectiveState: "neutral" as const,
+      activeClip: null,
+      elapsedInStateMs: 0,
+>>>       reducedMotion: false,
+      actionsCreated: 9,
+      actionsReused: 0,
+      maximumSimultaneousActions: 0,
+      activeActions: 0,
+      transitionsApplied: 0,
+      transitionsIgnored: 0,
+      fallbacks: 0,
+      mixerListeners: 0,
+      pendingState: null,
+    })),
+    setExpression: vi.fn(),
+    setViseme: vi.fn(),
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=68
+----------------------------------------
+  onLoadStateChange?: (
+    state: R2RuntimeLoadState,
+  ) => void
+  onControllerReady?: (
+    controller:
+      R2FullCharacterRuntimeController,
+  ) => void
+  autoFrame?: boolean
+>>>   reducedMotion?: boolean
+}
+
+type RuntimeInstance = {
+  scene: Object3D
+  controller:
+    R2FullCharacterRuntimeController
+  adapter: R2RuntimeCommandAdapter | null
+}
+
+declare global {
+  interface Window {
+    __GORILLA_R2_DIAGNOSTICS__?: Readonly<{
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=82
+----------------------------------------
+    R2FullCharacterRuntimeController
+  adapter: R2RuntimeCommandAdapter | null
+}
+
+declare global {
+  interface Window {
+    __GORILLA_R2_DIAGNOSTICS__?: Readonly<{
+      setState: R2FullCharacterRuntimeController["setState"]
+>>>       setReducedMotion: R2FullCharacterRuntimeController["setReducedMotion"]
+      getSnapshot: R2FullCharacterRuntimeController["getDiagnostics"]
+      resetNeutral: R2FullCharacterRuntimeController["resetNeutral"]
+    }>
+  }
+}
+
+function R2CameraFraming({
+  scene,
+}: Readonly<{
+  scene: Object3D
+}>) {
+  const {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=135
+----------------------------------------
+  rotation = [0, 0, 0],
+  behavior,
+  runtimeWorkspaceId,
+  runtimeCommand,
+  onRuntimeReceipt,
+  onLoadStateChange,
+  onControllerReady,
+  autoFrame = false,
+>>>   reducedMotion,
+}: R2FullCharacterModelProps) {
+  const onRuntimeReceiptRef = useRef(onRuntimeReceipt)
+  useEffect(() => {
+    onRuntimeReceiptRef.current = onRuntimeReceipt
+  }, [onRuntimeReceipt])
+  const {
+    scene,
+    animations,
+  } = useGLTF(
+    R2_FULL_CHARACTER_MODEL_PATH,
+  )
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=150
+----------------------------------------
+    scene,
+    animations,
+  } = useGLTF(
+    R2_FULL_CHARACTER_MODEL_PATH,
+  )
+
+  const [runtime, setRuntime] =
+    useState<RuntimeInstance | null>(null)
+>>>   const [systemReducedMotion, setSystemReducedMotion] =
+    useState(false)
+
+  useEffect(() => {
+    if (reducedMotion !== undefined || typeof window.matchMedia !== "function") {
+      return undefined
+    }
+
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const sync = () => setSystemReducedMotion(media.matches)
+    sync()
+    media.addEventListener?.("change", sync)
+    return () => media.removeEventListener?.("change", sync)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=154
+----------------------------------------
+  )
+
+  const [runtime, setRuntime] =
+    useState<RuntimeInstance | null>(null)
+  const [systemReducedMotion, setSystemReducedMotion] =
+    useState(false)
+
+  useEffect(() => {
+>>>     if (reducedMotion !== undefined || typeof window.matchMedia !== "function") {
+      return undefined
+    }
+
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const sync = () => setSystemReducedMotion(media.matches)
+    sync()
+    media.addEventListener?.("change", sync)
+    return () => media.removeEventListener?.("change", sync)
+  }, [reducedMotion])
+
+  useEffect(() => {
+    onLoadStateChange?.({
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=159
+----------------------------------------
+    useState(false)
+
+  useEffect(() => {
+    if (reducedMotion !== undefined || typeof window.matchMedia !== "function") {
+      return undefined
+    }
+
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)")
+>>>     const sync = () => setSystemReducedMotion(media.matches)
+    sync()
+    media.addEventListener?.("change", sync)
+    return () => media.removeEventListener?.("change", sync)
+  }, [reducedMotion])
+
+  useEffect(() => {
+    onLoadStateChange?.({
+      status: "loading",
+    })
+
+    const ownedScene =
+      createOwnedR2Scene(scene)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=163
+----------------------------------------
+      return undefined
+    }
+
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const sync = () => setSystemReducedMotion(media.matches)
+    sync()
+    media.addEventListener?.("change", sync)
+    return () => media.removeEventListener?.("change", sync)
+>>>   }, [reducedMotion])
+
+  useEffect(() => {
+    onLoadStateChange?.({
+      status: "loading",
+    })
+
+    const ownedScene =
+      createOwnedR2Scene(scene)
+
+    try {
+      const controller =
+        new R2FullCharacterRuntimeController(
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=264
+----------------------------------------
+    }
+  }, [
+    behavior,
+    runtime,
+    runtimeCommand,
+  ])
+
+  useEffect(() => {
+>>>     runtime?.controller.setReducedMotion(
+      reducedMotion ?? systemReducedMotion,
+    )
+  }, [reducedMotion, runtime, systemReducedMotion])
+
+  useEffect(() => {
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=265
+----------------------------------------
+  }, [
+    behavior,
+    runtime,
+    runtimeCommand,
+  ])
+
+  useEffect(() => {
+    runtime?.controller.setReducedMotion(
+>>>       reducedMotion ?? systemReducedMotion,
+    )
+  }, [reducedMotion, runtime, systemReducedMotion])
+
+  useEffect(() => {
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=267
+----------------------------------------
+    runtime,
+    runtimeCommand,
+  ])
+
+  useEffect(() => {
+    runtime?.controller.setReducedMotion(
+      reducedMotion ?? systemReducedMotion,
+    )
+>>>   }, [reducedMotion, runtime, systemReducedMotion])
+
+  useEffect(() => {
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+      setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=276
+----------------------------------------
+
+  useEffect(() => {
+    if (!runtime || process.env.NODE_ENV === "production") {
+      return undefined
+    }
+
+    const api = {
+      setState: runtime.controller.setState.bind(runtime.controller),
+>>>       setReducedMotion: runtime.controller.setReducedMotion.bind(runtime.controller),
+      getSnapshot: runtime.controller.getDiagnostics.bind(runtime.controller),
+      resetNeutral: runtime.controller.resetNeutral.bind(runtime.controller),
+    }
+    window.__GORILLA_R2_DIAGNOSTICS__ = api
+
+    return () => {
+      if (window.__GORILLA_R2_DIAGNOSTICS__ === api) {
+        delete window.__GORILLA_R2_DIAGNOSTICS__
+      }
+    }
+  }, [runtime])
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.test.ts
+LINE=293
+----------------------------------------
+  })
+
+  it("returns one-shots safely and keeps reduced-motion state communication", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    controller.setState("celebrating_sale")
+    controller.update(1.1)
+    expect(controller.state).toBe("idle")
+>>>     controller.setReducedMotion(true)
+    controller.setState("error_attention")
+    expect(controller.getDiagnostics().reducedMotion).toBe(true)
+    expect(influence(root, "R2_LipUpper", "EXP_FROWN")).toBeCloseTo(0.28)
+    controller.update(2.1)
+    expect(controller.state).toBe("neutral")
+    controller.dispose()
+  })
+
+  it("keeps one mixer, nine cached actions and bounded resources under stress", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    for (let index = 0; index < 1_000; index += 1) {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.test.ts
+LINE=295
+----------------------------------------
+  it("returns one-shots safely and keeps reduced-motion state communication", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    controller.setState("celebrating_sale")
+    controller.update(1.1)
+    expect(controller.state).toBe("idle")
+    controller.setReducedMotion(true)
+    controller.setState("error_attention")
+>>>     expect(controller.getDiagnostics().reducedMotion).toBe(true)
+    expect(influence(root, "R2_LipUpper", "EXP_FROWN")).toBeCloseTo(0.28)
+    controller.update(2.1)
+    expect(controller.state).toBe("neutral")
+    controller.dispose()
+  })
+
+  it("keeps one mixer, nine cached actions and bounded resources under stress", () => {
+    const { root, animations } = fixture()
+    const controller = new R2FullCharacterRuntimeController(root, animations)
+    for (let index = 0; index < 1_000; index += 1) {
+      controller.setState(index % 2 === 0 ? "working" : "listening")
+      controller.update(0.4)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=107
+----------------------------------------
+    minimumDurationMs: seed.minimumDurationMs ?? 0,
+    maximumDurationMs: seed.maximumDurationMs ?? null,
+    priority: seed.priority ?? "normal",
+    returnState: seed.returnState ?? seed.fallback,
+    cooldownMs: seed.cooldownMs ?? 0,
+    morphTargetProfile: seed.morphTargetProfile ?? "neutral",
+    headTrackingProfile: seed.eye,
+    eyeProfile: seed.eye,
+>>>     reducedMotionProfile: {
+      playbackMode: "pose",
+      playbackSpeed: 0,
+      crossFadeMs: Math.min(crossFadeMs, 120),
+      proceduralMotion: false,
+    },
+    description: seed.description ?? seed.id,
+  }
+}
+
+type MorphBinding = {
+  object: string
+  morph: string
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=641
+----------------------------------------
+  private runtimeElapsedMs = 0
+  private requestGeneration = 0
+  private transitionsApplied = 0
+  private transitionsIgnored = 0
+  private fallbacks = 0
+  private actionsReused = 0
+  private maximumSimultaneousActions = 0
+  private mixerListeners = 0
+>>>   private reducedMotion = false
+  private speakingIntensity = 1
+  private activeViseme?: R2Viseme
+  private elapsedInState = 0
+  private autoBlinkValue = 0
+
+  state: R2RuntimeState = "neutral"
+  requestedState: R2RuntimeState = "neutral"
+  disposed = false
+
+  private readonly handleMixerFinished = (event: { action: AnimationAction }) => {
+    if (this.disposed || event.action !== this.currentAction) {
+      return
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1034
+----------------------------------------
+        definition.loop === "repeat"
+          ? LoopRepeat
+          : LoopOnce,
+        definition.loop === "repeat"
+          ? Infinity
+          : 1,
+      )
+      .setEffectiveTimeScale(
+>>>         this.reducedMotion
+          ? definition.reducedMotionProfile.playbackSpeed
+          : definition.playbackSpeed,
+      )
+      .setEffectiveWeight(1)
+      .play()
+
+    nextAction.paused = this.reducedMotion &&
+      definition.reducedMotionProfile.playbackMode === "pose"
+
+    if (
+      this.currentAction &&
+      this.currentAction !== nextAction
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1035
+----------------------------------------
+          ? LoopRepeat
+          : LoopOnce,
+        definition.loop === "repeat"
+          ? Infinity
+          : 1,
+      )
+      .setEffectiveTimeScale(
+        this.reducedMotion
+>>>           ? definition.reducedMotionProfile.playbackSpeed
+          : definition.playbackSpeed,
+      )
+      .setEffectiveWeight(1)
+      .play()
+
+    nextAction.paused = this.reducedMotion &&
+      definition.reducedMotionProfile.playbackMode === "pose"
+
+    if (
+      this.currentAction &&
+      this.currentAction !== nextAction
+    ) {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1041
+----------------------------------------
+      .setEffectiveTimeScale(
+        this.reducedMotion
+          ? definition.reducedMotionProfile.playbackSpeed
+          : definition.playbackSpeed,
+      )
+      .setEffectiveWeight(1)
+      .play()
+
+>>>     nextAction.paused = this.reducedMotion &&
+      definition.reducedMotionProfile.playbackMode === "pose"
+
+    if (
+      this.currentAction &&
+      this.currentAction !== nextAction
+    ) {
+      nextAction.crossFadeFrom(
+        this.currentAction,
+        (
+          this.reducedMotion
+            ? definition.reducedMotionProfile.crossFadeMs
+            : definition.crossFadeMs
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1042
+----------------------------------------
+        this.reducedMotion
+          ? definition.reducedMotionProfile.playbackSpeed
+          : definition.playbackSpeed,
+      )
+      .setEffectiveWeight(1)
+      .play()
+
+    nextAction.paused = this.reducedMotion &&
+>>>       definition.reducedMotionProfile.playbackMode === "pose"
+
+    if (
+      this.currentAction &&
+      this.currentAction !== nextAction
+    ) {
+      nextAction.crossFadeFrom(
+        this.currentAction,
+        (
+          this.reducedMotion
+            ? definition.reducedMotionProfile.crossFadeMs
+            : definition.crossFadeMs
+        ) / 1_000,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1051
+----------------------------------------
+
+    if (
+      this.currentAction &&
+      this.currentAction !== nextAction
+    ) {
+      nextAction.crossFadeFrom(
+        this.currentAction,
+        (
+>>>           this.reducedMotion
+            ? definition.reducedMotionProfile.crossFadeMs
+            : definition.crossFadeMs
+        ) / 1_000,
+        true,
+      )
+    }
+
+    this.currentAction = nextAction
+    this.state = state
+    this.pendingState = null
+    this.lastStateStartedAtMs.set(state, this.runtimeElapsedMs)
+    this.elapsedInState = 0
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1052
+----------------------------------------
+    if (
+      this.currentAction &&
+      this.currentAction !== nextAction
+    ) {
+      nextAction.crossFadeFrom(
+        this.currentAction,
+        (
+          this.reducedMotion
+>>>             ? definition.reducedMotionProfile.crossFadeMs
+            : definition.crossFadeMs
+        ) / 1_000,
+        true,
+      )
+    }
+
+    this.currentAction = nextAction
+    this.state = state
+    this.pendingState = null
+    this.lastStateStartedAtMs.set(state, this.runtimeElapsedMs)
+    this.elapsedInState = 0
+    this.autoBlinkValue = 0
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1098
+----------------------------------------
+        requestedState,
+        status: "fallback",
+      }
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+>>>   setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+    if (this.reducedMotion === normalized) {
+      return
+    }
+    this.reducedMotion = normalized
+    this.applyState(this.state, true)
+  }
+
+  getDiagnostics(): R2RuntimeDiagnostics {
+    return {
+      requestedState: this.requestedState,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1101
+----------------------------------------
+    }
+
+    return this.applyState(requestedState as R2RuntimeState)
+  }
+
+  setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+>>>     if (this.reducedMotion === normalized) {
+      return
+    }
+    this.reducedMotion = normalized
+    this.applyState(this.state, true)
+  }
+
+  getDiagnostics(): R2RuntimeDiagnostics {
+    return {
+      requestedState: this.requestedState,
+      effectiveState: this.state,
+      activeClip: this.currentAction
+        ? R2_RUNTIME_STATE_MAP[this.state].clip
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1104
+----------------------------------------
+  }
+
+  setReducedMotion(enabled: boolean) {
+    this.assertActive()
+    const normalized = Boolean(enabled)
+    if (this.reducedMotion === normalized) {
+      return
+    }
+>>>     this.reducedMotion = normalized
+    this.applyState(this.state, true)
+  }
+
+  getDiagnostics(): R2RuntimeDiagnostics {
+    return {
+      requestedState: this.requestedState,
+      effectiveState: this.state,
+      activeClip: this.currentAction
+        ? R2_RUNTIME_STATE_MAP[this.state].clip
+        : null,
+      elapsedInStateMs: Math.round(this.elapsedInState * 1_000),
+      reducedMotion: this.reducedMotion,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1116
+----------------------------------------
+  getDiagnostics(): R2RuntimeDiagnostics {
+    return {
+      requestedState: this.requestedState,
+      effectiveState: this.state,
+      activeClip: this.currentAction
+        ? R2_RUNTIME_STATE_MAP[this.state].clip
+        : null,
+      elapsedInStateMs: Math.round(this.elapsedInState * 1_000),
+>>>       reducedMotion: this.reducedMotion,
+      actionsCreated: this.actions.size,
+      actionsReused: this.actionsReused,
+      maximumSimultaneousActions: this.maximumSimultaneousActions,
+      activeActions: this.activeActionCount(),
+      transitionsApplied: this.transitionsApplied,
+      transitionsIgnored: this.transitionsIgnored,
+      fallbacks: this.fallbacks,
+      mixerListeners: this.mixerListeners,
+      pendingState: this.pendingState,
+    }
+  }
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1264
+----------------------------------------
+    const period =
+      (blinkRange[0] + blinkRange[1]) /
+      2
+    const phase =
+      this.elapsedInState % period
+    const duration = 0.16
+
+    this.autoBlinkValue =
+>>>       !this.reducedMotion && phase < duration
+        ? 1 -
+          Math.abs(
+            phase / (duration / 2) - 1,
+          )
+        : 0
+
+    this.recomputeFacialState()
+  }
+
+  dispose() {
+    if (this.disposed) {
+      return
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=73
+----------------------------------------
+  | "pose"
+
+export type R2RuntimePriority =
+  | "low"
+  | "normal"
+  | "high"
+  | "critical"
+
+>>> export type R2ReducedMotionProfile = Readonly<{
+  playbackMode: "loop" | "pose"
+  playbackSpeed: number
+  crossFadeMs: number
+  proceduralMotion: boolean
+}>
+
+export type R2EyeBehavior =
+  | "forward"
+  | "ambient_subtle"
+  | "task_focus"
+  | "user_focus"
+  | "up_lateral"
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=121
+----------------------------------------
+  priority: R2RuntimePriority
+  interruptible: boolean
+  returnState: R2RuntimeState
+  cooldownMs: number
+  fallback: R2RuntimeState
+  morphTargetProfile: "neutral" | "focus" | "listen" | "think" | "alert" | "speak" | "celebrate" | "error"
+  headTrackingProfile: R2EyeBehavior
+  eyeProfile: R2EyeBehavior
+>>>   reducedMotionProfile: R2ReducedMotionProfile
+  description: string
+}
+
+export type R2StateRequestStatus =
+  | "applied"
+  | "repeated"
+  | "deferred"
+  | "cooldown"
+  | "fallback"
+
+export type R2StateRequestResult = Readonly<{
+  requestedState: unknown
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=144
+----------------------------------------
+  generation: number
+}>
+
+export type R2RuntimeDiagnostics = Readonly<{
+  requestedState: R2RuntimeState
+  effectiveState: R2RuntimeState
+  activeClip: R2AnimationClipName | null
+  elapsedInStateMs: number
+>>>   reducedMotion: boolean
+  actionsCreated: number
+  actionsReused: number
+  maximumSimultaneousActions: number
+  activeActions: number
+  transitionsApplied: number
+  transitionsIgnored: number
+  fallbacks: number
+  mixerListeners: number
+  pendingState: R2RuntimeState | null
+}>
+
+export const R2_ANIMATION_CLIPS = [
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\types\r2-full-character-runtime.ts
+LINE=187
+----------------------------------------
+  | { status: "error"; error: Error }
+
+export interface R2RuntimeControllerApi {
+  readonly root: Object3D
+  readonly state: R2RuntimeState
+  readonly requestedState: R2RuntimeState
+  readonly disposed: boolean
+  setState(state: R2RuntimeState | string): R2StateRequestResult
+>>>   setReducedMotion(enabled: boolean): void
+  getDiagnostics(): R2RuntimeDiagnostics
+  setExpression(
+    channel: R2ExpressionChannel,
+    value: number,
+  ): void
+  setViseme(
+    viseme: R2Viseme,
+    value: number,
+  ): void
+  setEyeTarget(target: R2EyeTarget): void
+  setSpeakingIntensity(value: number): void
+  resetNeutral(): void
+----------------------------------------
+
+============================================================
+ PATTERN: frameloop
+============================================================
+NO_MATCH
+
+============================================================
+ PATTERN: invalidate(
+============================================================
+NO_MATCH
+
+============================================================
+ PATTERN: useFrame
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-face.tsx
+LINE=3
+----------------------------------------
+"use client"
+
+>>> import { useFrame } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+
+import type {
+  R2Presence,
+} from "./r2-intro-presence"
+
+
+type R2IntroFaceProps = {
+  presence?: R2Presence
+  target?: THREE.Group | null
+}
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-face.tsx
+LINE=28
+----------------------------------------
+  target,
+}: R2IntroFaceProps) {
+
+
+  const smile =
+    useRef(0)
+
+
+>>>   useFrame(() => {
+
+    if (!target) return
+    if (!presence) return
+
+
+    const targetSmile =
+      presence.eye === "happy"
+        ? 1
+        : 0
+
+
+    smile.current +=
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-look.tsx
+LINE=3
+----------------------------------------
+"use client"
+
+>>> import { useFrame, useThree } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+
+
+type R2IntroLookProps = {
+  target?: THREE.Group | null
+}
+
+
+export function R2IntroLook({
+  target,
+}: R2IntroLookProps) {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-look.tsx
+LINE=30
+----------------------------------------
+
+  const smooth =
+    useRef({
+      x: 0,
+      y: 0,
+    })
+
+
+>>>   useFrame(() => {
+
+    if (!target) return
+
+
+    smooth.current.x +=
+      (
+        mouse.x -
+        smooth.current.x
+      ) * 0.05
+
+
+    smooth.current.y +=
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-reveal-animation.tsx
+LINE=3
+----------------------------------------
+"use client"
+
+>>> import { useFrame } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+
+
+type R2RevealAnimationProps = {
+  active?: boolean
+  target?: THREE.Group | null
+}
+
+
+export function R2RevealAnimation({
+  active = false,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-reveal-animation.tsx
+LINE=23
+----------------------------------------
+  active = false,
+  target,
+}: R2RevealAnimationProps) {
+
+  const progress =
+    useRef(0)
+
+
+>>>   useFrame(() => {
+
+    if (!active) {
+      progress.current = 0
+      return
+    }
+
+    if (!target) return
+
+
+    progress.current += 0.02
+
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-core.tsx
+LINE=3
+----------------------------------------
+"use client"
+
+>>> import { useFrame } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+
+type R2CoreProps = {
+  color?: string
+}
+
+export function R2Core({
+  color = "#2F8F5B",
+}: R2CoreProps) {
+
+  const ref = useRef<THREE.Mesh>(null)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-core.tsx
+LINE=17
+----------------------------------------
+}
+
+export function R2Core({
+  color = "#2F8F5B",
+}: R2CoreProps) {
+
+  const ref = useRef<THREE.Mesh>(null)
+
+>>>   useFrame((state) => {
+
+    if (!ref.current) return
+
+    const pulse =
+      1 + Math.sin(
+        state.clock.elapsedTime * 4
+      ) * 0.08
+
+    ref.current.scale.setScalar(
+      pulse
+    )
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-eye-controller.tsx
+LINE=3
+----------------------------------------
+"use client"
+
+>>> import { useFrame } from "@react-three/fiber"
+import * as THREE from "three"
+import type { R2Rig } from "./r2-rig"
+import type { R2Behavior } from "../../r2-behavior"
+import { getR2Attention } from "./r2-attention"
+
+type R2EyeControllerProps = {
+  rig: R2Rig
+  behavior?: R2Behavior
+}
+
+
+export function R2EyeController({
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-eye-controller.tsx
+LINE=21
+----------------------------------------
+
+
+export function R2EyeController({
+  rig,
+  behavior,
+}: R2EyeControllerProps) {
+
+
+>>>   useFrame((state) => {
+
+    const time =
+      state.clock.elapsedTime
+
+
+    const target =
+      getR2Attention(
+        behavior?.mood
+      )
+
+    const movement =
+      target.x +
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-face-controller.tsx
+LINE=3
+----------------------------------------
+"use client"
+
+>>> import { useFrame } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+import type { R2Behavior } from "../../r2-behavior"
+
+type R2FaceControllerProps = {
+  behavior?: R2Behavior
+}
+
+export function R2FaceController({
+  behavior,
+}: R2FaceControllerProps) {
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-face-controller.tsx
+LINE=18
+----------------------------------------
+}
+
+export function R2FaceController({
+  behavior,
+}: R2FaceControllerProps) {
+
+  const ref = useRef<THREE.Group>(null)
+
+>>>   useFrame((state) => {
+
+    if (!ref.current) return
+
+    const time =
+      state.clock.elapsedTime
+
+
+    if (
+      behavior?.mood === "thinking"
+    ) {
+      ref.current.rotation.x =
+        Math.sin(time * 2) * 0.05
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.test.tsx
+LINE=42
+----------------------------------------
+vi.mock("@react-three/drei", () => ({
+  useGLTF: Object.assign(
+    () => mocks.gltf,
+    { preload: mocks.preload },
+  ),
+}))
+
+vi.mock("@react-three/fiber", () => ({
+>>>   useFrame: (callback: (state: unknown, delta: number) => void) => {
+    mocks.frame = callback
+  },
+  useThree: (
+    selector: (state: {
+      camera: PerspectiveCamera | null
+      size: { width: number; height: number }
+    }) => unknown,
+  ) => selector({
+    camera: mocks.camera,
+    size: mocks.size,
+  }),
+}))
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=17
+----------------------------------------
+import type {
+  ErrorInfo,
+  ReactNode,
+} from "react"
+import {
+  useGLTF,
+} from "@react-three/drei"
+import {
+>>>   useFrame,
+  useThree,
+} from "@react-three/fiber"
+import type {
+  Group,
+  Object3D,
+} from "three"
+import {
+  PerspectiveCamera,
+} from "three"
+
+import type {
+  R2Behavior,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx
+LINE=293
+----------------------------------------
+      }
+    }
+  }, [runtime])
+
+  useEffect(() => {
+    if (runtimeCommand) runtime?.adapter?.apply(runtimeCommand)
+  }, [runtime, runtimeCommand])
+
+>>>   useFrame((_, delta) => {
+    runtime?.controller.update(delta)
+  })
+
+  if (!runtime) {
+    return null
+  }
+
+  return (
+    <>
+      {autoFrame ? (
+        <R2CameraFraming
+          scene={runtime.scene}
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-fur.tsx
+LINE=3
+----------------------------------------
+"use client"
+
+>>> import { useFrame } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+
+type R2FurProps = {
+  intensity?: number
+}
+
+export function R2Fur({
+  intensity = 0.02,
+}: R2FurProps) {
+
+  const ref = useRef<THREE.Group>(null)
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-fur.tsx
+LINE=17
+----------------------------------------
+}
+
+export function R2Fur({
+  intensity = 0.02,
+}: R2FurProps) {
+
+  const ref = useRef<THREE.Group>(null)
+
+>>>   useFrame((state) => {
+
+    if (!ref.current) return
+
+    const time =
+      state.clock.elapsedTime
+
+    ref.current.rotation.y =
+      Math.sin(time * 0.5) *
+      intensity
+
+  })
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-life-controller.tsx
+LINE=3
+----------------------------------------
+"use client"
+
+>>> import { useFrame } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+
+
+type R2LifeControllerProps = {
+  target?: THREE.Group | null
+}
+
+
+
+export function R2LifeController({
+  target,
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-life-controller.tsx
+LINE=28
+----------------------------------------
+    useRef(false)
+
+
+  const baseY =
+    useRef(0)
+
+
+
+>>>   useFrame((state) => {
+
+
+    if (!target) return
+
+
+
+    if (!initialized.current) {
+
+      baseY.current =
+        target.position.y
+
+      initialized.current =
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx
+LINE=10
+----------------------------------------
+
+import {
+  useEffect,
+  useMemo,
+  useRef,
+} from "react"
+
+import {
+>>>   useFrame,
+} from "@react-three/fiber"
+
+import {
+  useGLTF,
+} from "@react-three/drei"
+
+import {
+  Color,
+  DoubleSide,
+  Vector3,
+} from "three"
+
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx
+LINE=558
+----------------------------------------
+        largestDimension > 0
+          ? 2 / largestDimension
+          : 1,
+    }
+  }, [
+    scene,
+  ])
+
+>>>   useFrame((state) => {
+    const time =
+      state.clock.elapsedTime
+
+    if (materialRef.current) {
+      materialRef.current
+        .uniforms
+        .uTime
+        .value = time
+    }
+
+    if (!groupRef.current) {
+      return
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\r2-avatar.tsx
+LINE=7
+----------------------------------------
+"use client"
+
+import type { R2Behavior } from "../r2-behavior"
+import { R2Body } from "./r2-body"
+import { R2Face } from "./r2-face"
+import { R2Head } from "./head/r2-head"
+>>> import { useFrame } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+
+type R2AvatarProps = {
+  behavior?: R2Behavior
+}
+
+function getAuraColor(
+  mood?: R2Behavior["mood"]
+) {
+  switch (mood) {
+    case "alert":
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\r2-avatar.tsx
+LINE=39
+----------------------------------------
+}
+
+export function R2Avatar({
+  behavior,
+}: R2AvatarProps) {
+
+  const ref = useRef<THREE.Group>(null)
+
+>>>   useFrame((state) => {
+    if (!ref.current) return
+
+    const time =
+      state.clock.elapsedTime
+
+    ref.current.position.y =
+      Math.sin(time * 2) * 0.03
+  })
+
+  const aura =
+    getAuraColor(
+      behavior?.mood
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-model.tsx
+LINE=3
+----------------------------------------
+"use client"
+
+>>> import { useFrame } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+
+import type { R2Behavior } from "./r2-behavior"
+import { R2Placeholder } from "./r2-placeholder"
+
+type R2ModelProps = {
+  scale?: number
+  position?: [number, number, number]
+  rotation?: [number, number, number]
+  behavior?: R2Behavior
+}
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-model.tsx
+LINE=25
+----------------------------------------
+export function R2Model({
+  scale = 1,
+  position = [0, 0, 0],
+  rotation = [0, 0, 0],
+  behavior,
+}: R2ModelProps) {
+  const modelRef = useRef<THREE.Group>(null)
+
+>>>   useFrame((state) => {
+    if (!modelRef.current) return
+
+    const time = state.clock.elapsedTime
+
+    if (behavior?.animation === "breathing") {
+      modelRef.current.scale.y =
+        scale + Math.sin(time * 2) * 0.03
+    }
+
+    if (behavior?.animation === "thinking") {
+      modelRef.current.rotation.y =
+        Math.sin(time) * 0.2
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-placeholder.tsx
+LINE=4
+----------------------------------------
+"use client"
+
+import type { R2Behavior } from "./r2-behavior"
+>>> import { useFrame } from "@react-three/fiber"
+import { useRef } from "react"
+import * as THREE from "three"
+
+type R2PlaceholderProps = {
+  scale?: number
+  position?: [number, number, number]
+  behavior?: R2Behavior
+}
+
+function getAuraColor(
+  mood?: R2Behavior["mood"]
+) {
+----------------------------------------
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-placeholder.tsx
+LINE=43
+----------------------------------------
+export function R2Placeholder({
+  scale = 1,
+  position = [0, 0, 0],
+  behavior,
+}: R2PlaceholderProps) {
+
+  const ref = useRef<THREE.Group>(null)
+
+>>>   useFrame((state) => {
+    if (!ref.current) return
+
+    const time = state.clock.elapsedTime
+
+    if (behavior?.animation === "breathing") {
+      ref.current.scale.y =
+        scale + Math.sin(time * 2) * 0.03
+    }
+
+    if (behavior?.animation === "thinking") {
+      ref.current.rotation.y =
+        Math.sin(time) * 0.25
+----------------------------------------
+
+============================================================
+ PATTERN: mixer.update
+============================================================
+
+FILE=C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts
+LINE=1225
+----------------------------------------
+  update(deltaSeconds: number) {
+    this.assertActive()
+    const delta = Math.max(
+      0,
+      Number.isFinite(deltaSeconds)
+        ? deltaSeconds
+        : 0,
+    )
+>>>     this.mixer.update(delta)
+    this.elapsedInState += delta
+    this.runtimeElapsedMs += delta * 1_000
+
+    for (const action of this.actions.values()) {
+      if (
+        action !== this.currentAction &&
+        action.isRunning() &&
+        action.getEffectiveWeight() <= 0.0001
+      ) {
+        action.stop()
+      }
+    }
+----------------------------------------
+

@@ -1,0 +1,11 @@
+R2_POSE_TEST_OK
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v12-pose-test.blend
+bones=51
+source=v11-weighted-repaired
+head_tilt=5
+upper_arm_left=-14
+forearm_left=27
+hand_left=-7
+thigh_right=6
+shin_right=-15
+status=pose_deformation_test

@@ -1,0 +1,643 @@
+{
+  "actions": [
+    "R2_ALERT",
+    "R2_AWAITING_ACTION",
+    "R2_CELEBRATING_SALE",
+    "R2_ERROR_ATTENTION",
+    "R2_IDLE",
+    "R2_LISTENING",
+    "R2_NEUTRAL",
+    "R2_THINKING",
+    "R2_WORKING"
+  ],
+  "armature": "R2_Rig",
+  "bone_count": 65,
+  "bones": [
+    "CTRL-face-brow.L",
+    "CTRL-face-brow.R",
+    "CTRL-face-cheek.L",
+    "CTRL-face-cheek.R",
+    "CTRL-face-eye.L",
+    "CTRL-face-eye.R",
+    "CTRL-face-jaw",
+    "CTRL-face-lip-lower",
+    "CTRL-face-lip-upper",
+    "CTRL-face-mouth-corner.L",
+    "CTRL-face-mouth-corner.R",
+    "CTRL-face-muzzle",
+    "CTRL-face-root",
+    "DEF-face-jaw",
+    "chest",
+    "clavicle.L",
+    "clavicle.R",
+    "foot.L",
+    "foot.R",
+    "forearm.L",
+    "forearm.R",
+    "hand.L",
+    "hand.R",
+    "head",
+    "index_01.L",
+    "index_01.R",
+    "index_02.L",
+    "index_02.R",
+    "index_03.L",
+    "index_03.R",
+    "middle_01.L",
+    "middle_01.R",
+    "middle_02.L",
+    "middle_02.R",
+    "middle_03.L",
+    "middle_03.R",
+    "neck",
+    "pelvis",
+    "pinky_01.L",
+    "pinky_01.R",
+    "pinky_02.L",
+    "pinky_02.R",
+    "pinky_03.L",
+    "pinky_03.R",
+    "ring_01.L",
+    "ring_01.R",
+    "ring_02.L",
+    "ring_02.R",
+    "ring_03.L",
+    "ring_03.R",
+    "root",
+    "shin.L",
+    "shin.R",
+    "spine_01",
+    "spine_02",
+    "thigh.L",
+    "thigh.R",
+    "thumb_01.L",
+    "thumb_01.R",
+    "thumb_02.L",
+    "thumb_02.R",
+    "toe.L",
+    "toe.R",
+    "upper_arm.L",
+    "upper_arm.R"
+  ],
+  "cameras": [],
+  "images": [],
+  "libraries": [],
+  "lights": [],
+  "material_count": 17,
+  "materials": [
+    {
+      "assigned_objects": [
+        "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+        "R2_Brand_RightChest_GorillaMark",
+        "R2_Brand_UpperBack_GorillaMark"
+      ],
+      "name": "R2_Mat_Embroidery_Gray",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.219526201,
+          0.230740055,
+          0.242281124,
+          1.0
+        ],
+        "base_color_srgb_hex": "#818487",
+        "metallic": 0.0,
+        "roughness": 0.730000019
+      },
+      "users": 3
+    },
+    {
+      "assigned_objects": [
+        "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+        "R2_Brand_RightChest_GorillaMark",
+        "R2_Brand_UpperBack_GorillaMark"
+      ],
+      "name": "R2_Mat_Embroidery_White",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "base_color_srgb_hex": "#FFFFFF",
+        "metallic": 0.0,
+        "roughness": 0.699999988
+      },
+      "users": 3
+    },
+    {
+      "assigned_objects": [
+        "R2_Eye.L",
+        "R2_Eye.R"
+      ],
+      "name": "R2_Mat_EyeSclera",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.720000029,
+          0.74000001,
+          0.689999998,
+          1.0
+        ],
+        "base_color_srgb_hex": "#DDDFD8",
+        "metallic": 0.0,
+        "roughness": 0.340000004
+      },
+      "users": 2
+    },
+    {
+      "assigned_objects": [
+        "R2_LowerEyelid.L",
+        "R2_LowerEyelid.R",
+        "R2_UpperEyelid.L",
+        "R2_UpperEyelid.R"
+      ],
+      "name": "R2_Mat_Eyelid",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.129999995,
+          0.075000003,
+          0.052000001,
+          1.0
+        ],
+        "base_color_srgb_hex": "#654D40",
+        "metallic": 0.0,
+        "roughness": 0.579999983
+      },
+      "users": 4
+    },
+    {
+      "assigned_objects": [
+        "R2_Head_Fur"
+      ],
+      "name": "R2_Mat_Fur_DarkGraphite",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.008568126,
+          0.010960094,
+          0.012286488,
+          1.0
+        ],
+        "base_color_srgb_hex": "#171B1D",
+        "metallic": 0.0,
+        "roughness": 0.800000012
+      },
+      "users": 1
+    },
+    {
+      "assigned_objects": [
+        "R2_Arm_Fur_R"
+      ],
+      "name": "R2_Mat_Fur_MidGraphite",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.017641954,
+          0.023153367,
+          0.026241222,
+          1.0
+        ],
+        "base_color_srgb_hex": "#242A2D",
+        "metallic": 0.0,
+        "roughness": 0.75999999
+      },
+      "users": 1
+    },
+    {
+      "assigned_objects": [
+        "R2_Brand_LeftArm_GorillaMark_R2_Patch",
+        "R2_Hood_Cord_L",
+        "R2_Hood_Cord_R"
+      ],
+      "name": "R2_Mat_GorillaOS_Green",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.008023193,
+          0.049706567,
+          0.035601314,
+          1.0
+        ],
+        "base_color_srgb_hex": "#163F35",
+        "metallic": 0.0,
+        "roughness": 0.720000029
+      },
+      "users": 3
+    },
+    {
+      "assigned_objects": [
+        "R2_Hood",
+        "R2_Hoodie_Sleeve_L",
+        "R2_Hoodie_Sleeve_R",
+        "R2_Hoodie_Torso"
+      ],
+      "name": "R2_Mat_Hoodie_Black",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.005605392,
+          0.00699541,
+          0.008023193,
+          1.0
+        ],
+        "base_color_srgb_hex": "#111416",
+        "metallic": 0.0,
+        "roughness": 0.839999974
+      },
+      "users": 4
+    },
+    {
+      "assigned_objects": [
+        "R2_Eye.L",
+        "R2_Eye.R"
+      ],
+      "name": "R2_Mat_IrisTechGreen",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.045000002,
+          0.340000004,
+          0.159999996,
+          1.0
+        ],
+        "base_color_srgb_hex": "#3C9E6F",
+        "metallic": 0.180000007,
+        "roughness": 0.270000011
+      },
+      "users": 2
+    },
+    {
+      "assigned_objects": [
+        "R2_LipLower",
+        "R2_LipUpper"
+      ],
+      "name": "R2_Mat_Lip",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.159999996,
+          0.055,
+          0.045000002,
+          1.0
+        ],
+        "base_color_srgb_hex": "#6F423C",
+        "metallic": 0.0,
+        "roughness": 0.620000005
+      },
+      "users": 2
+    },
+    {
+      "assigned_objects": [
+        "R2_MouthInterior"
+      ],
+      "name": "R2_Mat_MouthInterior",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.045000002,
+          0.008,
+          0.012,
+          1.0
+        ],
+        "base_color_srgb_hex": "#3C161D",
+        "metallic": 0.0,
+        "roughness": 0.720000029
+      },
+      "users": 1
+    },
+    {
+      "assigned_objects": [
+        "R2_Pants"
+      ],
+      "name": "R2_Mat_Pants_Charcoal",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.020288562,
+          0.025186859,
+          0.02842604,
+          1.0
+        ],
+        "base_color_srgb_hex": "#272C2F",
+        "metallic": 0.0,
+        "roughness": 0.790000021
+      },
+      "users": 1
+    },
+    {
+      "assigned_objects": [
+        "R2_Eye.L",
+        "R2_Eye.R"
+      ],
+      "name": "R2_Mat_Pupil",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.004,
+          0.006,
+          0.005,
+          1.0
+        ],
+        "base_color_srgb_hex": "#0D1210",
+        "metallic": 0.0,
+        "roughness": 0.219999999
+      },
+      "users": 2
+    },
+    {
+      "assigned_objects": [
+        "R2_Shoe_L",
+        "R2_Shoe_R"
+      ],
+      "name": "R2_Mat_Shoes_Black",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.005181517,
+          0.006512091,
+          0.007499032,
+          1.0
+        ],
+        "base_color_srgb_hex": "#101315",
+        "metallic": 0.0,
+        "roughness": 0.610000014
+      },
+      "users": 2
+    },
+    {
+      "assigned_objects": [
+        "R2_Hand_L",
+        "R2_Hand_R",
+        "R2_Head_Face",
+        "R2_Head_Face_Foundation"
+      ],
+      "name": "R2_Mat_Skin_Anthracite",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.039546236,
+          0.046665087,
+          0.048171826,
+          1.0
+        ],
+        "base_color_srgb_hex": "#383D3E",
+        "metallic": 0.0,
+        "roughness": 0.639999986
+      },
+      "users": 4
+    },
+    {
+      "assigned_objects": [
+        "R2_TeethLower",
+        "R2_TeethUpper"
+      ],
+      "name": "R2_Mat_Teeth",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.689999998,
+          0.649999976,
+          0.5,
+          1.0
+        ],
+        "base_color_srgb_hex": "#D8D3BC",
+        "metallic": 0.0,
+        "roughness": 0.460000008
+      },
+      "users": 2
+    },
+    {
+      "assigned_objects": [
+        "R2_Tongue"
+      ],
+      "name": "R2_Mat_Tongue",
+      "pbr": {
+        "alpha": 1.0,
+        "base_color_linear_rgba": [
+          0.280000001,
+          0.055,
+          0.064999998,
+          1.0
+        ],
+        "base_color_srgb_hex": "#904248",
+        "metallic": 0.0,
+        "roughness": 0.660000026
+      },
+      "users": 1
+    }
+  ],
+  "mesh_count": 30,
+  "morph_target_occurrences": 24,
+  "object_count": 36,
+  "object_type_counts": {
+    "ARMATURE": 1,
+    "EMPTY": 5,
+    "MESH": 30
+  },
+  "patch": {
+    "bounds": {
+      "center": [
+        0.431153834,
+        -0.0734126,
+        0.315441117
+      ],
+      "dimensions": [
+        0.155825853,
+        0.101884359,
+        0.14860186
+      ],
+      "maximum": [
+        0.509066761,
+        -0.02247042,
+        0.389742047
+      ],
+      "minimum": [
+        0.353240907,
+        -0.12435478,
+        0.241140187
+      ]
+    },
+    "components": [
+      {
+        "center": [
+          0.414556906,
+          -0.0734126,
+          0.348854363
+        ],
+        "dimensions": [
+          0.122631997,
+          0.101884359,
+          0.081775367
+        ],
+        "material": "R2_Mat_Embroidery_Gray",
+        "material_index": 0,
+        "maximum": [
+          0.475872904,
+          -0.02247042,
+          0.389742047
+        ],
+        "minimum": [
+          0.353240907,
+          -0.12435478,
+          0.307966679
+        ],
+        "polygon_count": 94,
+        "vertex_count": 60
+      },
+      {
+        "center": [
+          0.429455876,
+          -0.07754259,
+          0.300783619
+        ],
+        "dimensions": [
+          0.118773103,
+          0.093624379,
+          0.043173403
+        ],
+        "material": "R2_Mat_Embroidery_Gray",
+        "material_index": 0,
+        "maximum": [
+          0.488842428,
+          -0.0307304,
+          0.322370321
+        ],
+        "minimum": [
+          0.370069325,
+          -0.12435478,
+          0.279196918
+        ],
+        "polygon_count": 104,
+        "vertex_count": 66
+      },
+      {
+        "center": [
+          0.434551641,
+          -0.085241321,
+          0.338238165
+        ],
+        "dimensions": [
+          0.04614988,
+          0.040363021,
+          0.047378093
+        ],
+        "material": "R2_Mat_Embroidery_White",
+        "material_index": 1,
+        "maximum": [
+          0.457626581,
+          -0.065059811,
+          0.361927211
+        ],
+        "minimum": [
+          0.411476701,
+          -0.105422832,
+          0.314549118
+        ],
+        "polygon_count": 804,
+        "vertex_count": 486
+      },
+      {
+        "center": [
+          0.464758918,
+          -0.054378033,
+          0.332357109
+        ],
+        "dimensions": [
+          0.013504118,
+          0.026542917,
+          0.014338732
+        ],
+        "material": "R2_Mat_Embroidery_White",
+        "material_index": 1,
+        "maximum": [
+          0.471510977,
+          -0.041106574,
+          0.339526474
+        ],
+        "minimum": [
+          0.458006859,
+          -0.067649491,
+          0.325187743
+        ],
+        "polygon_count": 74,
+        "vertex_count": 48
+      },
+      {
+        "center": [
+          0.492291138,
+          -0.05807394,
+          0.264345676
+        ],
+        "dimensions": [
+          0.033551246,
+          0.030119564,
+          0.046410978
+        ],
+        "material": "R2_Mat_GorillaOS_Green",
+        "material_index": 2,
+        "maximum": [
+          0.509066761,
+          -0.043014158,
+          0.287551165
+        ],
+        "minimum": [
+          0.475515515,
+          -0.073133722,
+          0.241140187
+        ],
+        "polygon_count": 244,
+        "vertex_count": 150
+      },
+      {
+        "center": [
+          0.455294073,
+          -0.092721272,
+          0.263350807
+        ],
+        "dimensions": [
+          0.092015028,
+          0.037214883,
+          0.043941155
+        ],
+        "material": "R2_Mat_GorillaOS_Green",
+        "material_index": 2,
+        "maximum": [
+          0.501301587,
+          -0.074113831,
+          0.285321385
+        ],
+        "minimum": [
+          0.409286559,
+          -0.111328714,
+          0.24138023
+        ],
+        "polygon_count": 310,
+        "vertex_count": 186
+      }
+    ],
+    "material_slots": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White",
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "modifiers": [
+      {
+        "name": "R2_Armature",
+        "object": "R2_Rig",
+        "type": "ARMATURE"
+      }
+    ],
+    "polygon_count": 1630,
+    "vertex_count": 996
+  },
+  "renderable_mesh_count": 29,
+  "renderable_meshes_without_material": [],
+  "schema_version": 1,
+  "source_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-material-branded-ready-v1\\r2-full-character-material-branded-ready-v1.blend",
+  "source_blend_sha256": "AD7501A2828DAA76749C6ABE367597F1645BB79C1A205E83BED265B556F52E57",
+  "source_blend_size_bytes": 40302898
+}

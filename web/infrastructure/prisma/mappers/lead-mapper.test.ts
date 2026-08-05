@@ -47,7 +47,7 @@ describe("LeadMapper", () => {
     pipelineStageId: "pipeline-stage-1",
     score: 85,
     lostReason: undefined,
-    notes: "Lead interessado em imóvel.",
+    notes: "Lead interessado em imÃƒÂ³vel.",
     convertedClientId: undefined,
     lastContactAt: "2026-07-23T15:00:00.000Z",
     createdAt: "2026-07-23T14:00:00.000Z",
@@ -64,6 +64,7 @@ describe("LeadMapper", () => {
     companyName: "Seals Consultoria",
     source: PrismaLeadSource.SOCIAL_MEDIA,
     status: PrismaLeadStatus.QUALIFIED,
+    approachType: null,
     consortiumType:
       PrismaConsortiumType.REAL_ESTATE,
     desiredCreditValue:
@@ -73,7 +74,7 @@ describe("LeadMapper", () => {
     pipelineStageId: "pipeline-stage-1",
     score: 85,
     lostReason: null,
-    notes: "Lead interessado em imóvel.",
+    notes: "Lead interessado em imÃƒÂ³vel.",
     convertedClientId: null,
     lastContactAt:
       new Date("2026-07-23T15:00:00.000Z"),
@@ -109,6 +110,7 @@ describe("LeadMapper", () => {
         PrismaLeadSource.SOCIAL_MEDIA,
       status:
         PrismaLeadStatus.QUALIFIED,
+    approachType: null,
       consortiumType:
         PrismaConsortiumType.REAL_ESTATE,
       desiredCreditValue: 350000,
@@ -117,7 +119,7 @@ describe("LeadMapper", () => {
       pipelineStageId: "pipeline-stage-1",
       score: 85,
       lostReason: null,
-      notes: "Lead interessado em imóvel.",
+      notes: "Lead interessado em imÃƒÂ³vel.",
       convertedClientId: null,
       lastContactAt:
         new Date("2026-07-23T15:00:00.000Z"),

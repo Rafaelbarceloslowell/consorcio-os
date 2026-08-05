@@ -1,0 +1,352 @@
+{
+  "aggregate": {
+    "invalid_non_manifold": 0,
+    "unweighted_deform_vertices": 0,
+    "wire_edges": 0,
+    "zero_area_faces": 0
+  },
+  "audit_kind": "INDEPENDENT_HEAD_RIG_EXPRESSION_RUNTIME_AUDIT",
+  "candidate": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_head_rig_expression_20260801_140107\\r2-head-rig-expression-ready-v1.candidate.blend",
+  "candidate_sha256": "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97",
+  "created_images": 0,
+  "execution_status": "COMPLETED",
+  "existing_bone_failures": [],
+  "failed_gates": [],
+  "gates": {
+    "AllRuntimeChannelsPass": true,
+    "CandidateHashConfirmed": true,
+    "CreatedImages": true,
+    "ExistingBonesPreserved": true,
+    "ExistingObjectsNeutralPreserved": true,
+    "GLBRoundTrip": true,
+    "InvalidNonManifold": true,
+    "NeutralResetExact": true,
+    "RigStructureConfirmed": true,
+    "SemanticSourceUnchanged": true,
+    "ShapeKeyMapConfirmed": true,
+    "TemporaryGLBRemoved": true,
+    "UnweightedDeformVertices": true,
+    "WireEdges": true,
+    "ZeroAreaFaces": true
+  },
+  "glb_roundtrip": {
+    "armatures": [
+      "R2_Rig"
+    ],
+    "foundation_shape_keys": [
+      "Basis",
+      "EXP_BROW_RAISE",
+      "EXP_BROW_FROWN",
+      "EXP_CHEEK_RAISE",
+      "EXP_MUZZLE"
+    ],
+    "glb_sha256": "E8BB3EAE7D68659C2E3D5E5A4D2E265F34B03D3763B6FFDFAD82401CB9F2EFE0",
+    "glb_size_bytes": 11567560,
+    "images": 0,
+    "missing_required_objects": [],
+    "passed": true
+  },
+  "independent_audit_approved": true,
+  "neutral_reset": {
+    "basis_exact": true,
+    "final_properties_zero": true,
+    "final_shape_values_zero": true,
+    "initial_properties_zero": true,
+    "initial_shape_values_zero": true
+  },
+  "official_consolidated_source_unchanged": true,
+  "preservation_failures": [],
+  "rig_structure_failures": [],
+  "runtime_tests": {
+    "BLINK_BOTH": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_BLINK_BOTH"
+    },
+    "BLINK_LEFT": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_BLINK_LEFT"
+    },
+    "BLINK_RIGHT": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_BLINK_RIGHT"
+    },
+    "BROW_FROWN": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_BROW_FROWN"
+    },
+    "BROW_RAISE": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_BROW_RAISE"
+    },
+    "CHEEK_RAISE": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_CHEEK_RAISE"
+    },
+    "EYE_AIM": {
+      "observed": 0.48869219422340393,
+      "passed": true,
+      "property": "EYE_AIM_YAW"
+    },
+    "EYE_LEFT": {
+      "observed": 0.48869219422340393,
+      "passed": true,
+      "property": "EYE_YAW.L"
+    },
+    "EYE_RIGHT": {
+      "observed": 0.48869219422340393,
+      "passed": true,
+      "property": "EYE_YAW.R"
+    },
+    "FROWN": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_FROWN"
+    },
+    "JAW_OPEN": {
+      "observed": 0.5585053563117981,
+      "passed": true,
+      "property": "EXP_JAW_OPEN"
+    },
+    "LIPS_CLOSED": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_LIPS_CLOSED"
+    },
+    "MOUTH_E": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_MOUTH_E"
+    },
+    "MOUTH_NARROW": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_MOUTH_NARROW"
+    },
+    "MOUTH_O": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_MOUTH_O"
+    },
+    "MOUTH_WIDE": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_MOUTH_WIDE"
+    },
+    "MUZZLE": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_MUZZLE"
+    },
+    "SMILE": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "EXP_SMILE"
+    },
+    "VISEME_A": {
+      "observed": 0.550000011920929,
+      "passed": true,
+      "property": "VISEME_A"
+    },
+    "VISEME_E": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_E"
+    },
+    "VISEME_FV": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_FV"
+    },
+    "VISEME_L": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_L"
+    },
+    "VISEME_MBP": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_MBP"
+    },
+    "VISEME_O": {
+      "observed": 1.0,
+      "passed": true,
+      "property": "VISEME_O"
+    }
+  },
+  "schema_version": 1,
+  "semantic_source": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-facial-ocular-oral-assets-ready-v1\\r2-facial-ocular-oral-assets-ready-v1.blend",
+  "semantic_source_sha256": "50D04CFBAEC2A431D96D4060E2AE82045AFBC56A0E74AD1759D156C0222825B3",
+  "semantic_source_unchanged": true,
+  "shape_map_failures": [],
+  "technical_verdict": "APROVADO",
+  "topology": {
+    "R2_Arm_Fur_R": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Eye.L": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Eye.R": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hand_L": {
+      "connected_islands": 9,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hand_R": {
+      "connected_islands": 14,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Head_Face": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Head_Face_Foundation": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Head_Fur": {
+      "connected_islands": 14,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hood": {
+      "connected_islands": 6,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hood_Cord_L": {
+      "connected_islands": 2,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hood_Cord_R": {
+      "connected_islands": 2,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hoodie_Sleeve_L": {
+      "connected_islands": 3,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hoodie_Sleeve_R": {
+      "connected_islands": 5,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hoodie_Torso": {
+      "connected_islands": 13,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_LipLower": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_LipUpper": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_LowerEyelid.L": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_LowerEyelid.R": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_MouthInterior": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Pants": {
+      "connected_islands": 18,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Shoe_L": {
+      "connected_islands": 3,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Shoe_R": {
+      "connected_islands": 2,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_TeethLower": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_TeethUpper": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Tongue": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_UpperEyelid.L": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_UpperEyelid.R": {
+      "connected_islands": 1,
+      "invalid_non_manifold": 0,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    }
+  }
+}

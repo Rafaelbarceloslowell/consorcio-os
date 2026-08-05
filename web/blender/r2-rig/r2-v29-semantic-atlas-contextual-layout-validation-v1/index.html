@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>r2-v29-semantic-atlas-contextual-layout-validation-v1</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0f0d;
+      color: #edf5ef;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0b0f0d;
+    }
+
+    .hero {
+      padding: 24px;
+      border-bottom: 1px solid #253129;
+      background: #0f1511;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 26px;
+    }
+
+    .meta {
+      margin: 5px 0;
+      color: #aab9ae;
+      overflow-wrap: anywhere;
+    }
+
+    .notice {
+      margin-top: 16px;
+      padding: 13px 15px;
+      border: 1px solid #34503d;
+      border-radius: 10px;
+      background: #122018;
+      color: #d7e9dc;
+    }
+
+    .search-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 12px 24px;
+      border-bottom: 1px solid #253129;
+      background: rgba(11, 15, 13, 0.96);
+      backdrop-filter: blur(10px);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #34463a;
+      border-radius: 10px;
+      background: #141b17;
+      color: #fff;
+      font: inherit;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(580px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid #28372e;
+      border-radius: 14px;
+      background: #121814;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+    }
+
+    h2 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    code {
+      color: #96cda5;
+      font-size: 12px;
+    }
+
+    .pending {
+      color: #f3c96f;
+      font-size: 12px;
+    }
+
+    .image-wrap {
+      position: relative;
+      display: block;
+      background: #060807;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .label {
+      position: absolute;
+      padding: 4px 7px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.70);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      pointer-events: none;
+    }
+
+    .front {
+      left: 4%;
+      top: 4%;
+    }
+
+    .back {
+      left: 34%;
+      top: 4%;
+    }
+
+    .left {
+      left: 4%;
+      bottom: 4%;
+    }
+
+    .right {
+      left: 34%;
+      bottom: 4%;
+    }
+
+    .detail {
+      right: 4%;
+      top: 4%;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      gap: 8px 12px;
+      margin: 0;
+      padding: 15px 16px 17px;
+      font-size: 12px;
+    }
+
+    dt {
+      color: #8da092;
+    }
+
+    dd {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        grid-template-columns: 1fr;
+        padding: 12px;
+      }
+
+      .hero,
+      .search-wrap {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>Validação do layout contextual — C000, C010 e C050</h1>
+    <p class="meta"><strong>Pacote:</strong> r2-v29-semantic-atlas-contextual-layout-validation-v1</p>
+    <p class="meta"><strong>Fonte:</strong> C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend</p>
+    <p class="meta"><strong>SHA-256:</strong> 392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1</p>
+    <p class="meta"><strong>Atlas técnico:</strong> C:\Projetos\consorcio-os\web\blender\r2-rig\r2-v26-semantic-atlas-technical-v1</p>
+
+    <div class="notice">
+      O corpo completo aparece em cinza e a ilha ativa em verde.
+      Cada cartão de teste contém frente, costas, esquerda, direita e detalhe isolado.
+      O detalhe é normalizado visualmente; as dimensões reais permanecem no manifesto.
+      Nenhuma classificação foi tomada automaticamente.
+    </div>
+  </section>
+
+  <div class="search-wrap">
+    <input id="search" type="search" placeholder="Pesquisar ID, stable key, lado, osso dominante ou flag">
+  </div>
+
+  <main>
+    
+            <article class="card" data-search="0 c000-v000000 center head:2354.746516|clavicle.l:1641.841698|upper_arm.l:916.217868|neck:392.055836|chest:242.070202|spine_02:92.067884 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 000</h2>
+                  <code>C000-V000000</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C000-context.png" target="_blank">
+                <img src="images/C000-context.png" alt="Componente contextual 000">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>5639</dd>
+
+                <dt>Faces</dt>
+                <dd>10896</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:2354.746516|clavicle.L:1641.841698|upper_arm.L:916.217868|neck:392.055836|chest:242.070202|spine_02:92.067884</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="10 c010-v016641 right upper_arm.r:2507.667892|chest:754.598932|forearm.r:233.334302|spine_02:229.876417|clavicle.r:116.522459 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 010</h2>
+                  <code>C010-V016641</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C010-context.png" target="_blank">
+                <img src="images/C010-context.png" alt="Componente contextual 010">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3842</dd>
+
+                <dt>Faces</dt>
+                <dd>7398</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>upper_arm.R:2507.667892|chest:754.598932|forearm.R:233.334302|spine_02:229.876417|clavicle.R:116.522459</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="50 c050-v070533 left forearm.l:1343.887319|thumb_01.l:1.112681 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 050</h2>
+                  <code>C050-V070533</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C050-context.png" target="_blank">
+                <img src="images/C050-context.png" alt="Componente contextual 050">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1345</dd>
+
+                <dt>Faces</dt>
+                <dd>2510</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.L:1343.887319|thumb_01.L:1.112681</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+  </main>
+
+  <script>
+    const input = document.getElementById("search");
+    const cards = [...document.querySelectorAll(".card")];
+
+    input.addEventListener("input", () => {
+      const query = input.value.trim().toLowerCase();
+
+      for (const card of cards) {
+        card.classList.toggle(
+          "hidden",
+          query.length > 0 && !card.dataset.search.includes(query)
+        );
+      }
+    });
+  </script>
+</body>
+</html>

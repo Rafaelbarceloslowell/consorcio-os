@@ -1,0 +1,4303 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>r2-v28-semantic-atlas-contextual-v1</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b0f0d;
+      color: #edf5ef;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0b0f0d;
+    }
+
+    .hero {
+      padding: 24px;
+      border-bottom: 1px solid #253129;
+      background: #0f1511;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 26px;
+    }
+
+    .meta {
+      margin: 5px 0;
+      color: #aab9ae;
+      overflow-wrap: anywhere;
+    }
+
+    .notice {
+      margin-top: 16px;
+      padding: 13px 15px;
+      border: 1px solid #34503d;
+      border-radius: 10px;
+      background: #122018;
+      color: #d7e9dc;
+    }
+
+    .search-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 12px 24px;
+      border-bottom: 1px solid #253129;
+      background: rgba(11, 15, 13, 0.96);
+      backdrop-filter: blur(10px);
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #34463a;
+      border-radius: 10px;
+      background: #141b17;
+      color: #fff;
+      font: inherit;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(580px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid #28372e;
+      border-radius: 14px;
+      background: #121814;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+    }
+
+    h2 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    code {
+      color: #96cda5;
+      font-size: 12px;
+    }
+
+    .pending {
+      color: #f3c96f;
+      font-size: 12px;
+    }
+
+    .image-wrap {
+      position: relative;
+      display: block;
+      background: #060807;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+
+    .label {
+      position: absolute;
+      padding: 4px 7px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.70);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      pointer-events: none;
+    }
+
+    .front {
+      left: 4%;
+      top: 4%;
+    }
+
+    .back {
+      left: 34%;
+      top: 4%;
+    }
+
+    .left {
+      left: 4%;
+      bottom: 4%;
+    }
+
+    .right {
+      left: 34%;
+      bottom: 4%;
+    }
+
+    .detail {
+      right: 4%;
+      top: 4%;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      gap: 8px 12px;
+      margin: 0;
+      padding: 15px 16px 17px;
+      font-size: 12px;
+    }
+
+    dt {
+      color: #8da092;
+    }
+
+    dd {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        grid-template-columns: 1fr;
+        padding: 12px;
+      }
+
+      .hero,
+      .search-wrap {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>Atlas contextual dos 110 componentes</h1>
+    <p class="meta"><strong>Pacote:</strong> r2-v28-semantic-atlas-contextual-v1</p>
+    <p class="meta"><strong>Fonte:</strong> C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend</p>
+    <p class="meta"><strong>SHA-256:</strong> 392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1</p>
+    <p class="meta"><strong>Atlas técnico:</strong> C:\Projetos\consorcio-os\web\blender\r2-rig\r2-v26-semantic-atlas-technical-v1</p>
+
+    <div class="notice">
+      O corpo completo aparece em cinza e a ilha ativa em verde.
+      Cada cartão contém frente, costas, esquerda, direita e detalhe isolado.
+      O detalhe é normalizado visualmente; as dimensões reais permanecem no manifesto.
+      Nenhuma classificação foi tomada automaticamente.
+    </div>
+  </section>
+
+  <div class="search-wrap">
+    <input id="search" type="search" placeholder="Pesquisar ID, stable key, lado, osso dominante ou flag">
+  </div>
+
+  <main>
+    
+            <article class="card" data-search="0 c000-v000000 center head:2354.746516|clavicle.l:1641.841698|upper_arm.l:916.217868|neck:392.055836|chest:242.070202|spine_02:92.067884 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 000</h2>
+                  <code>C000-V000000</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C000-context.png" target="_blank">
+                <img src="images/C000-context.png" alt="Componente contextual 000">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>5639</dd>
+
+                <dt>Faces</dt>
+                <dd>10896</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:2354.746516|clavicle.L:1641.841698|upper_arm.L:916.217868|neck:392.055836|chest:242.070202|spine_02:92.067884</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="1 c001-v000001 center head:486.994793|clavicle.r:320.333134|neck:106.357071|chest:73.669575|spine_02:28.645426 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 001</h2>
+                  <code>C001-V000001</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C001-context.png" target="_blank">
+                <img src="images/C001-context.png" alt="Componente contextual 001">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>1016</dd>
+
+                <dt>Faces</dt>
+                <dd>1902</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:486.994793|clavicle.R:320.333134|neck:106.357071|chest:73.669575|spine_02:28.645426</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="2 c002-v000069 right head:2344.179620|neck:319.820383 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 002</h2>
+                  <code>C002-V000069</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C002-context.png" target="_blank">
+                <img src="images/C002-context.png" alt="Componente contextual 002">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>2664</dd>
+
+                <dt>Faces</dt>
+                <dd>5083</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:2344.179620|neck:319.820383</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="3 c003-v002278 center upper_arm.l:3560.307967|spine_02:3555.856382|chest:3528.000155|forearm.l:882.167407|clavicle.l:197.668086 crosses_center_plane|very_large_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 003</h2>
+                  <code>C003-V002278</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C003-context.png" target="_blank">
+                <img src="images/C003-context.png" alt="Componente contextual 003">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>11724</dd>
+
+                <dt>Faces</dt>
+                <dd>22878</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>upper_arm.L:3560.307967|spine_02:3555.856382|chest:3528.000155|forearm.L:882.167407|clavicle.L:197.668086</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE|VERY_LARGE_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="4 c004-v002555 center spine_02:3005.916606|chest:2044.885540|clavicle.r:44.248128|upper_arm.r:4.949726 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 004</h2>
+                  <code>C004-V002555</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C004-context.png" target="_blank">
+                <img src="images/C004-context.png" alt="Componente contextual 004">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>5100</dd>
+
+                <dt>Faces</dt>
+                <dd>9856</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:3005.916606|chest:2044.885540|clavicle.R:44.248128|upper_arm.R:4.949726</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="5 c005-v003089 right clavicle.r:1193.059930|upper_arm.r:864.435694|chest:265.319224|spine_02:103.185150 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 005</h2>
+                  <code>C005-V003089</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C005-context.png" target="_blank">
+                <img src="images/C005-context.png" alt="Componente contextual 005">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>2426</dd>
+
+                <dt>Faces</dt>
+                <dd>4631</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>clavicle.R:1193.059930|upper_arm.R:864.435694|chest:265.319224|spine_02:103.185150</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="6 c006-v010017 center thigh.r:2808.650199|spine_02:469.555189|spine_01:420.619353|pelvis:269.175267 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 006</h2>
+                  <code>C006-V010017</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C006-context.png" target="_blank">
+                <img src="images/C006-context.png" alt="Componente contextual 006">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>3968</dd>
+
+                <dt>Faces</dt>
+                <dd>7579</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.R:2808.650199|spine_02:469.555189|spine_01:420.619353|pelvis:269.175267</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="7 c007-v010972 center thigh.l:1814.228970|spine_01:1662.207690|spine_02:839.015506|pelvis:269.594332|thumb_01.l:1.953503 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 007</h2>
+                  <code>C007-V010972</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C007-context.png" target="_blank">
+                <img src="images/C007-context.png" alt="Componente contextual 007">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>4587</dd>
+
+                <dt>Faces</dt>
+                <dd>8837</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.L:1814.228970|spine_01:1662.207690|spine_02:839.015506|pelvis:269.594332|thumb_01.L:1.953503</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="8 c008-v013520 right spine_01:1048.648907|thigh.r:360.907703|spine_02:132.443388 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 008</h2>
+                  <code>C008-V013520</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C008-context.png" target="_blank">
+                <img src="images/C008-context.png" alt="Componente contextual 008">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1542</dd>
+
+                <dt>Faces</dt>
+                <dd>2909</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_01:1048.648907|thigh.R:360.907703|spine_02:132.443388</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="9 c009-v014026 center head:418.252522|neck:119.747477 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 009</h2>
+                  <code>C009-V014026</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C009-context.png" target="_blank">
+                <img src="images/C009-context.png" alt="Componente contextual 009">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>538</dd>
+
+                <dt>Faces</dt>
+                <dd>966</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:418.252522|neck:119.747477</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="10 c010-v016641 right upper_arm.r:2507.667892|chest:754.598932|forearm.r:233.334302|spine_02:229.876417|clavicle.r:116.522459 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 010</h2>
+                  <code>C010-V016641</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C010-context.png" target="_blank">
+                <img src="images/C010-context.png" alt="Componente contextual 010">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3842</dd>
+
+                <dt>Faces</dt>
+                <dd>7398</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>upper_arm.R:2507.667892|chest:754.598932|forearm.R:233.334302|spine_02:229.876417|clavicle.R:116.522459</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="11 c011-v018149 left clavicle.l:1564.161203|upper_arm.l:1290.693462|head:993.527701|neck:97.720775|chest:49.608348|spine_02:19.288512 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 011</h2>
+                  <code>C011-V018149</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C011-context.png" target="_blank">
+                <img src="images/C011-context.png" alt="Componente contextual 011">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>4015</dd>
+
+                <dt>Faces</dt>
+                <dd>7678</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>clavicle.L:1564.161203|upper_arm.L:1290.693462|head:993.527701|neck:97.720775|chest:49.608348|spine_02:19.288512</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="12 c012-v022173 right clavicle.r:1157.796948|head:621.020352|upper_arm.r:491.261240|neck:33.921461 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 012</h2>
+                  <code>C012-V022173</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C012-context.png" target="_blank">
+                <img src="images/C012-context.png" alt="Componente contextual 012">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>2304</dd>
+
+                <dt>Faces</dt>
+                <dd>4308</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>clavicle.R:1157.796948|head:621.020352|upper_arm.R:491.261240|neck:33.921461</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="13 c013-v023728 center head:140.521606|neck:1.478394 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 013</h2>
+                  <code>C013-V023728</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C013-context.png" target="_blank">
+                <img src="images/C013-context.png" alt="Componente contextual 013">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>142</dd>
+
+                <dt>Faces</dt>
+                <dd>235</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:140.521606|neck:1.478394</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="14 c014-v023749 left head:134.000000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 014</h2>
+                  <code>C014-V023749</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C014-context.png" target="_blank">
+                <img src="images/C014-context.png" alt="Componente contextual 014">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>134</dd>
+
+                <dt>Faces</dt>
+                <dd>212</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:134.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="15 c015-v025393 right head:660.000000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 015</h2>
+                  <code>C015-V025393</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C015-context.png" target="_blank">
+                <img src="images/C015-context.png" alt="Componente contextual 015">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>660</dd>
+
+                <dt>Faces</dt>
+                <dd>1176</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:660.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="16 c016-v025517 right foot.r:3476.619888|shin.r:2419.716120|toe.r:340.664000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 016</h2>
+                  <code>C016-V025517</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C016-context.png" target="_blank">
+                <img src="images/C016-context.png" alt="Componente contextual 016">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>6237</dd>
+
+                <dt>Faces</dt>
+                <dd>12025</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>foot.R:3476.619888|shin.R:2419.716120|toe.R:340.664000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="17 c017-v025520 right foot.r:4051.113333|toe.r:417.888000|shin.r:204.998669 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 017</h2>
+                  <code>C017-V025520</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C017-context.png" target="_blank">
+                <img src="images/C017-context.png" alt="Componente contextual 017">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>4674</dd>
+
+                <dt>Faces</dt>
+                <dd>9046</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>foot.R:4051.113333|toe.R:417.888000|shin.R:204.998669</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="18 c018-v026402 center head:510.000000 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 018</h2>
+                  <code>C018-V026402</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C018-context.png" target="_blank">
+                <img src="images/C018-context.png" alt="Componente contextual 018">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>510</dd>
+
+                <dt>Faces</dt>
+                <dd>890</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:510.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="19 c019-v027428 right shin.r:3458.660815|thigh.r:742.339188 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 019</h2>
+                  <code>C019-V027428</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C019-context.png" target="_blank">
+                <img src="images/C019-context.png" alt="Componente contextual 019">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>4201</dd>
+
+                <dt>Faces</dt>
+                <dd>8084</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>shin.R:3458.660815|thigh.R:742.339188</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="20 c020-v028460 center head:4604.000000 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 020</h2>
+                  <code>C020-V028460</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C020-context.png" target="_blank">
+                <img src="images/C020-context.png" alt="Componente contextual 020">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>4604</dd>
+
+                <dt>Faces</dt>
+                <dd>8824</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:4604.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="21 c021-v028545 left foot.l:2947.435258|shin.l:1808.564761 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 021</h2>
+                  <code>C021-V028545</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C021-context.png" target="_blank">
+                <img src="images/C021-context.png" alt="Componente contextual 021">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>4756</dd>
+
+                <dt>Faces</dt>
+                <dd>9134</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>foot.L:2947.435258|shin.L:1808.564761</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="22 c022-v028563 left foot.l:3426.866025|shin.l:1059.840978|toe.l:428.292999 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 022</h2>
+                  <code>C022-V028563</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C022-context.png" target="_blank">
+                <img src="images/C022-context.png" alt="Componente contextual 022">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>4915</dd>
+
+                <dt>Faces</dt>
+                <dd>9452</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>foot.L:3426.866025|shin.L:1059.840978|toe.L:428.292999</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="23 c023-v028676 left shin.l:3392.815143|thigh.l:625.184858 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 023</h2>
+                  <code>C023-V028676</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C023-context.png" target="_blank">
+                <img src="images/C023-context.png" alt="Componente contextual 023">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>4018</dd>
+
+                <dt>Faces</dt>
+                <dd>7704</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>shin.L:3392.815143|thigh.L:625.184858</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="24 c024-v031619 right head:6026.393809|neck:16.606189 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 024</h2>
+                  <code>C024-V031619</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C024-context.png" target="_blank">
+                <img src="images/C024-context.png" alt="Componente contextual 024">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>6043</dd>
+
+                <dt>Faces</dt>
+                <dd>11569</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:6026.393809|neck:16.606189</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="25 c025-v035147 right head:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 025</h2>
+                  <code>C025-V035147</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C025-context.png" target="_blank">
+                <img src="images/C025-context.png" alt="Componente contextual 025">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="26 c026-v035853 center thigh.l:5336.240770|pelvis:910.549155|spine_01:4.210072 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 026</h2>
+                  <code>C026-V035853</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C026-context.png" target="_blank">
+                <img src="images/C026-context.png" alt="Componente contextual 026">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>6251</dd>
+
+                <dt>Faces</dt>
+                <dd>12068</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.L:5336.240770|pelvis:910.549155|spine_01:4.210072</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="27 c027-v035864 left thigh.l:3151.000000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 027</h2>
+                  <code>C027-V035864</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C027-context.png" target="_blank">
+                <img src="images/C027-context.png" alt="Componente contextual 027">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3151</dd>
+
+                <dt>Faces</dt>
+                <dd>6036</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.L:3151.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="28 c028-v039815 right spine_02:83.550515|spine_01:46.449485 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 028</h2>
+                  <code>C028-V039815</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C028-context.png" target="_blank">
+                <img src="images/C028-context.png" alt="Componente contextual 028">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>130</dd>
+
+                <dt>Faces</dt>
+                <dd>210</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:83.550515|spine_01:46.449485</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="29 c029-v039824 left thigh.l:2635.759714|spine_02:945.551331|spine_01:765.476744|index_03.l:0.212216 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 029</h2>
+                  <code>C029-V039824</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C029-context.png" target="_blank">
+                <img src="images/C029-context.png" alt="Componente contextual 029">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>4347</dd>
+
+                <dt>Faces</dt>
+                <dd>8302</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.L:2635.759714|spine_02:945.551331|spine_01:765.476744|index_03.L:0.212216</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="30 c030-v039826 right spine_02:1968.966285|chest:27.263472|upper_arm.r:0.657706|clavicle.r:0.112541 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 030</h2>
+                  <code>C030-V039826</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C030-context.png" target="_blank">
+                <img src="images/C030-context.png" alt="Componente contextual 030">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1997</dd>
+
+                <dt>Faces</dt>
+                <dd>3735</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:1968.966285|chest:27.263472|upper_arm.R:0.657706|clavicle.R:0.112541</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="31 c031-v042107 right upper_arm.r:1090.302675|clavicle.r:171.091044|chest:53.719436|spine_02:20.886859 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 031</h2>
+                  <code>C031-V042107</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C031-context.png" target="_blank">
+                <img src="images/C031-context.png" alt="Componente contextual 031">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1336</dd>
+
+                <dt>Faces</dt>
+                <dd>2512</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>upper_arm.R:1090.302675|clavicle.R:171.091044|chest:53.719436|spine_02:20.886859</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="32 c032-v042946 left thigh.l:1298.311000|shin.l:1262.689000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 032</h2>
+                  <code>C032-V042946</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C032-context.png" target="_blank">
+                <img src="images/C032-context.png" alt="Componente contextual 032">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>2561</dd>
+
+                <dt>Faces</dt>
+                <dd>4863</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.L:1298.311000|shin.L:1262.689000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="33 c033-v044956 left shin.l:1554.507348|thigh.l:1470.492653 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 033</h2>
+                  <code>C033-V044956</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C033-context.png" target="_blank">
+                <img src="images/C033-context.png" alt="Componente contextual 033">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3025</dd>
+
+                <dt>Faces</dt>
+                <dd>5766</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>shin.L:1554.507348|thigh.L:1470.492653</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="34 c034-v045953 right head:115.390740|clavicle.r:4.609260 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 034</h2>
+                  <code>C034-V045953</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C034-context.png" target="_blank">
+                <img src="images/C034-context.png" alt="Componente contextual 034">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>120</dd>
+
+                <dt>Faces</dt>
+                <dd>190</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:115.390740|clavicle.R:4.609260</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="35 c035-v047387 right forearm.r:3864.107652|upper_arm.r:2176.733466|chest:339.896327|spine_02:132.158185|clavicle.r:110.104428 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 035</h2>
+                  <code>C035-V047387</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C035-context.png" target="_blank">
+                <img src="images/C035-context.png" alt="Componente contextual 035">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>6623</dd>
+
+                <dt>Faces</dt>
+                <dd>12802</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.R:3864.107652|upper_arm.R:2176.733466|chest:339.896327|spine_02:132.158185|clavicle.R:110.104428</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="36 c036-v047395 right forearm.r:863.419108|upper_arm.r:446.678454|chest:257.176266|spine_02:100.019401|clavicle.r:97.706773 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 036</h2>
+                  <code>C036-V047395</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C036-context.png" target="_blank">
+                <img src="images/C036-context.png" alt="Componente contextual 036">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1765</dd>
+
+                <dt>Faces</dt>
+                <dd>3317</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.R:863.419108|upper_arm.R:446.678454|chest:257.176266|spine_02:100.019401|clavicle.R:97.706773</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="37 c037-v048519 right shin.r:1726.753154|thigh.r:1349.246850 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 037</h2>
+                  <code>C037-V048519</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C037-context.png" target="_blank">
+                <img src="images/C037-context.png" alt="Componente contextual 037">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3076</dd>
+
+                <dt>Faces</dt>
+                <dd>5902</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>shin.R:1726.753154|thigh.R:1349.246850</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="38 c038-v050391 right shin.r:1056.678000|thigh.r:858.322000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 038</h2>
+                  <code>C038-V050391</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C038-context.png" target="_blank">
+                <img src="images/C038-context.png" alt="Componente contextual 038">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1915</dd>
+
+                <dt>Faces</dt>
+                <dd>3635</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>shin.R:1056.678000|thigh.R:858.322000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="39 c039-v050562 right thigh.r:3089.981656|index_02.r:0.018344 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 039</h2>
+                  <code>C039-V050562</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C039-context.png" target="_blank">
+                <img src="images/C039-context.png" alt="Componente contextual 039">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3090</dd>
+
+                <dt>Faces</dt>
+                <dd>5880</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.R:3089.981656|index_02.R:0.018344</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="40 c040-v051674 left head:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 040</h2>
+                  <code>C040-V051674</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C040-context.png" target="_blank">
+                <img src="images/C040-context.png" alt="Componente contextual 040">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="41 c041-v053474 right upper_arm.r:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 041</h2>
+                  <code>C041-V053474</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C041-context.png" target="_blank">
+                <img src="images/C041-context.png" alt="Componente contextual 041">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>upper_arm.R:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="42 c042-v054704 left spine_02:2731.475841|chest:234.524159 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 042</h2>
+                  <code>C042-V054704</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C042-context.png" target="_blank">
+                <img src="images/C042-context.png" alt="Componente contextual 042">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>2966</dd>
+
+                <dt>Faces</dt>
+                <dd>5611</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:2731.475841|chest:234.524159</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="43 c043-v055315 right head:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 043</h2>
+                  <code>C043-V055315</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C043-context.png" target="_blank">
+                <img src="images/C043-context.png" alt="Componente contextual 043">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="44 c044-v056447 right spine_01:432.873296|spine_02:193.876327|thigh.r:184.250392 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 044</h2>
+                  <code>C044-V056447</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C044-context.png" target="_blank">
+                <img src="images/C044-context.png" alt="Componente contextual 044">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>811</dd>
+
+                <dt>Faces</dt>
+                <dd>1482</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_01:432.873296|spine_02:193.876327|thigh.R:184.250392</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="45 c045-v059882 left forearm.l:2304.970225|upper_arm.l:953.269350|chest:429.545565|clavicle.l:170.176140|spine_02:167.038735 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 045</h2>
+                  <code>C045-V059882</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C045-context.png" target="_blank">
+                <img src="images/C045-context.png" alt="Componente contextual 045">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>4025</dd>
+
+                <dt>Faces</dt>
+                <dd>7711</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.L:2304.970225|upper_arm.L:953.269350|chest:429.545565|clavicle.L:170.176140|spine_02:167.038735</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="46 c046-v059889 left forearm.l:1921.533845|upper_arm.l:1085.158279|clavicle.l:6.733740|chest:1.132906|spine_02:0.441243 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 046</h2>
+                  <code>C046-V059889</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C046-context.png" target="_blank">
+                <img src="images/C046-context.png" alt="Componente contextual 046">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3015</dd>
+
+                <dt>Faces</dt>
+                <dd>5723</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.L:1921.533845|upper_arm.L:1085.158279|clavicle.L:6.733740|chest:1.132906|spine_02:0.441243</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="47 c047-v067764 left chest:120.594579|spine_02:104.554750|upper_arm.l:20.376177|clavicle.l:4.474495 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 047</h2>
+                  <code>C047-V067764</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C047-context.png" target="_blank">
+                <img src="images/C047-context.png" alt="Componente contextual 047">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>250</dd>
+
+                <dt>Faces</dt>
+                <dd>407</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>chest:120.594579|spine_02:104.554750|upper_arm.L:20.376177|clavicle.L:4.474495</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="48 c048-v068836 center thigh.r:3499.727584|spine_01:850.086090|pelvis:735.019458|spine_02:204.166883 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 048</h2>
+                  <code>C048-V068836</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C048-context.png" target="_blank">
+                <img src="images/C048-context.png" alt="Componente contextual 048">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>5289</dd>
+
+                <dt>Faces</dt>
+                <dd>10194</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.R:3499.727584|spine_01:850.086090|pelvis:735.019458|spine_02:204.166883</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="49 c049-v070515 right forearm.r:708.000000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 049</h2>
+                  <code>C049-V070515</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C049-context.png" target="_blank">
+                <img src="images/C049-context.png" alt="Componente contextual 049">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>708</dd>
+
+                <dt>Faces</dt>
+                <dd>1237</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.R:708.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="50 c050-v070533 left forearm.l:1343.887319|thumb_01.l:1.112681 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 050</h2>
+                  <code>C050-V070533</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C050-context.png" target="_blank">
+                <img src="images/C050-context.png" alt="Componente contextual 050">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1345</dd>
+
+                <dt>Faces</dt>
+                <dd>2510</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.L:1343.887319|thumb_01.L:1.112681</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="51 c051-v071993 right thigh.r:1133.698071|thumb_01.r:78.082786|thumb_02.r:1.219141 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 051</h2>
+                  <code>C051-V071993</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C051-context.png" target="_blank">
+                <img src="images/C051-context.png" alt="Componente contextual 051">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1213</dd>
+
+                <dt>Faces</dt>
+                <dd>2231</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.R:1133.698071|thumb_01.R:78.082786|thumb_02.R:1.219141</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="52 c052-v072647 right clavicle.r:1902.947678|head:525.932670|chest:224.392449|spine_02:79.295356|neck:25.662270|upper_arm.r:19.654771|clavicle.l:2.114808 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 052</h2>
+                  <code>C052-V072647</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C052-context.png" target="_blank">
+                <img src="images/C052-context.png" alt="Componente contextual 052">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>2780</dd>
+
+                <dt>Faces</dt>
+                <dd>5253</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>clavicle.R:1902.947678|head:525.932670|chest:224.392449|spine_02:79.295356|neck:25.662270|upper_arm.R:19.654771|clavicle.L:2.114808</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="53 c053-v074931 right forearm.r:2311.925071|pinky_01.r:764.374219|pinky_02.r:575.828478|thumb_02.r:501.055570|index_01.r:438.905159|pinky_03.r:431.077241|hand.r:339.099931|thumb_01.r:199.486018 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 053</h2>
+                  <code>C053-V074931</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C053-context.png" target="_blank">
+                <img src="images/C053-context.png" alt="Componente contextual 053">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>5654</dd>
+
+                <dt>Faces</dt>
+                <dd>10866</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.R:2311.925071|pinky_01.R:764.374219|pinky_02.R:575.828478|thumb_02.R:501.055570|index_01.R:438.905159|pinky_03.R:431.077241|hand.R:339.099931|thumb_01.R:199.486018</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="54 c054-v078402 center head:1944.646360|clavicle.l:702.995507|neck:280.884724|clavicle.r:1.473408 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 054</h2>
+                  <code>C054-V078402</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C054-context.png" target="_blank">
+                <img src="images/C054-context.png" alt="Componente contextual 054">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>2930</dd>
+
+                <dt>Faces</dt>
+                <dd>5529</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:1944.646360|clavicle.L:702.995507|neck:280.884724|clavicle.R:1.473408</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="55 c055-v080937 left spine_02:20.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 055</h2>
+                  <code>C055-V080937</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C055-context.png" target="_blank">
+                <img src="images/C055-context.png" alt="Componente contextual 055">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>20</dd>
+
+                <dt>Faces</dt>
+                <dd>21</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:20.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="56 c056-v082354 left spine_02:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 056</h2>
+                  <code>C056-V082354</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C056-context.png" target="_blank">
+                <img src="images/C056-context.png" alt="Componente contextual 056">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="57 c057-v084022 left clavicle.l:40.933038|head:35.795846|neck:7.271117 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 057</h2>
+                  <code>C057-V084022</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C057-context.png" target="_blank">
+                <img src="images/C057-context.png" alt="Componente contextual 057">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>84</dd>
+
+                <dt>Faces</dt>
+                <dd>137</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>clavicle.L:40.933038|head:35.795846|neck:7.271117</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="58 c058-v086343 right forearm.r:271.382007|thumb_01.r:2.617993 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 058</h2>
+                  <code>C058-V086343</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C058-context.png" target="_blank">
+                <img src="images/C058-context.png" alt="Componente contextual 058">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>274</dd>
+
+                <dt>Faces</dt>
+                <dd>456</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.R:271.382007|thumb_01.R:2.617993</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="59 c059-v089359 left forearm.l:1876.182740|pinky_01.l:692.959405|pinky_03.l:530.977589|hand.l:489.665028|pinky_02.l:489.616354|thumb_02.l:447.031276|index_01.l:347.977397|thumb_01.l:149.865136 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 059</h2>
+                  <code>C059-V089359</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C059-context.png" target="_blank">
+                <img src="images/C059-context.png" alt="Componente contextual 059">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>5347</dd>
+
+                <dt>Faces</dt>
+                <dd>10236</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.L:1876.182740|pinky_01.L:692.959405|pinky_03.L:530.977589|hand.L:489.665028|pinky_02.L:489.616354|thumb_02.L:447.031276|index_01.L:347.977397|thumb_01.L:149.865136</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="60 c060-v090276 right shin.r:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 060</h2>
+                  <code>C060-V090276</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C060-context.png" target="_blank">
+                <img src="images/C060-context.png" alt="Componente contextual 060">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>shin.R:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="61 c061-v092550 right spine_02:1170.621763|chest:209.378237 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 061</h2>
+                  <code>C061-V092550</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C061-context.png" target="_blank">
+                <img src="images/C061-context.png" alt="Componente contextual 061">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1380</dd>
+
+                <dt>Faces</dt>
+                <dd>2551</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:1170.621763|chest:209.378237</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="62 c062-v093695 right forearm.r:509.946400|hand.r:113.289701|thumb_01.r:59.419040|index_01.r:12.857994|middle_01.r:1.991226|thumb_02.r:0.317350|pinky_01.r:0.178290 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 062</h2>
+                  <code>C062-V093695</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C062-context.png" target="_blank">
+                <img src="images/C062-context.png" alt="Componente contextual 062">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>698</dd>
+
+                <dt>Faces</dt>
+                <dd>1262</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.R:509.946400|hand.R:113.289701|thumb_01.R:59.419040|index_01.R:12.857994|middle_01.R:1.991226|thumb_02.R:0.317350|pinky_01.R:0.178290</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="63 c063-v095347 right thumb_01.r:153.885913|forearm.r:43.114087 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 063</h2>
+                  <code>C063-V095347</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C063-context.png" target="_blank">
+                <img src="images/C063-context.png" alt="Componente contextual 063">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>197</dd>
+
+                <dt>Faces</dt>
+                <dd>345</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_01.R:153.885913|forearm.R:43.114087</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="64 c064-v096836 right thigh.r:226.000000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 064</h2>
+                  <code>C064-V096836</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C064-context.png" target="_blank">
+                <img src="images/C064-context.png" alt="Componente contextual 064">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>226</dd>
+
+                <dt>Faces</dt>
+                <dd>378</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.R:226.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="65 c065-v098930 center clavicle.l:986.178804|chest:170.726970|neck:56.826418|spine_02:54.056861|head:46.412318|clavicle.r:8.798634 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 065</h2>
+                  <code>C065-V098930</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C065-context.png" target="_blank">
+                <img src="images/C065-context.png" alt="Componente contextual 065">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>1323</dd>
+
+                <dt>Faces</dt>
+                <dd>2436</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>clavicle.L:986.178804|chest:170.726970|neck:56.826418|spine_02:54.056861|head:46.412318|clavicle.R:8.798634</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="66 c066-v100027 right forearm.r:48.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 066</h2>
+                  <code>C066-V100027</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C066-context.png" target="_blank">
+                <img src="images/C066-context.png" alt="Componente contextual 066">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>48</dd>
+
+                <dt>Faces</dt>
+                <dd>59</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.R:48.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="67 c067-v100510 right upper_arm.r:132.226597|clavicle.r:3.781567|chest:0.714883|spine_02:0.276953 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 067</h2>
+                  <code>C067-V100510</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C067-context.png" target="_blank">
+                <img src="images/C067-context.png" alt="Componente contextual 067">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>137</dd>
+
+                <dt>Faces</dt>
+                <dd>218</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>upper_arm.R:132.226597|clavicle.R:3.781567|chest:0.714883|spine_02:0.276953</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="68 c068-v102202 left upper_arm.l:437.007934|chest:397.639970|spine_02:154.626173|clavicle.l:57.725922 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 068</h2>
+                  <code>C068-V102202</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C068-context.png" target="_blank">
+                <img src="images/C068-context.png" alt="Componente contextual 068">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1047</dd>
+
+                <dt>Faces</dt>
+                <dd>1908</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>upper_arm.L:437.007934|chest:397.639970|spine_02:154.626173|clavicle.L:57.725922</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="69 c069-v103352 right thumb_01.r:65.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 069</h2>
+                  <code>C069-V103352</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C069-context.png" target="_blank">
+                <img src="images/C069-context.png" alt="Componente contextual 069">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>65</dd>
+
+                <dt>Faces</dt>
+                <dd>95</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_01.R:65.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="70 c070-v105074 right thumb_01.r:52.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 070</h2>
+                  <code>C070-V105074</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C070-context.png" target="_blank">
+                <img src="images/C070-context.png" alt="Componente contextual 070">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>52</dd>
+
+                <dt>Faces</dt>
+                <dd>82</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_01.R:52.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="71 c071-v107569 left upper_arm.l:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 071</h2>
+                  <code>C071-V107569</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C071-context.png" target="_blank">
+                <img src="images/C071-context.png" alt="Componente contextual 071">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>upper_arm.L:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="72 c072-v107930 left foot.l:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 072</h2>
+                  <code>C072-V107930</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C072-context.png" target="_blank">
+                <img src="images/C072-context.png" alt="Componente contextual 072">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>foot.L:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="73 c073-v107938 left foot.l:1167.932000|toe.l:302.235999|shin.l:2.832000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 073</h2>
+                  <code>C073-V107938</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C073-context.png" target="_blank">
+                <img src="images/C073-context.png" alt="Componente contextual 073">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1473</dd>
+
+                <dt>Faces</dt>
+                <dd>2813</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>foot.L:1167.932000|toe.L:302.235999|shin.L:2.832000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="74 c074-v108810 right thumb_01.r:24.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 074</h2>
+                  <code>C074-V108810</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C074-context.png" target="_blank">
+                <img src="images/C074-context.png" alt="Componente contextual 074">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>24</dd>
+
+                <dt>Faces</dt>
+                <dd>30</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_01.R:24.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="75 c075-v111177 left chest:1504.970696|spine_02:416.026242|upper_arm.l:0.003064 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 075</h2>
+                  <code>C075-V111177</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C075-context.png" target="_blank">
+                <img src="images/C075-context.png" alt="Componente contextual 075">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1921</dd>
+
+                <dt>Faces</dt>
+                <dd>3646</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>chest:1504.970696|spine_02:416.026242|upper_arm.L:0.003064</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="76 c076-v112702 right spine_02:698.182968|spine_01:522.095936|thigh.r:107.721125 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 076</h2>
+                  <code>C076-V112702</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C076-context.png" target="_blank">
+                <img src="images/C076-context.png" alt="Componente contextual 076">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1328</dd>
+
+                <dt>Faces</dt>
+                <dd>2457</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:698.182968|spine_01:522.095936|thigh.R:107.721125</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="77 c077-v113130 right chest:2398.313161|spine_02:524.086866|upper_arm.r:182.940992|clavicle.r:38.658981 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 077</h2>
+                  <code>C077-V113130</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C077-context.png" target="_blank">
+                <img src="images/C077-context.png" alt="Componente contextual 077">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3144</dd>
+
+                <dt>Faces</dt>
+                <dd>6041</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>chest:2398.313161|spine_02:524.086866|upper_arm.R:182.940992|clavicle.R:38.658981</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="78 c078-v114374 right hand.r:391.141805|index_03.r:362.137554|middle_03.r:354.466288|pinky_03.r:160.266980|ring_03.r:54.649715|thumb_02.r:1.337655 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 078</h2>
+                  <code>C078-V114374</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C078-context.png" target="_blank">
+                <img src="images/C078-context.png" alt="Componente contextual 078">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1324</dd>
+
+                <dt>Faces</dt>
+                <dd>2512</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>hand.R:391.141805|index_03.R:362.137554|middle_03.R:354.466288|pinky_03.R:160.266980|ring_03.R:54.649715|thumb_02.R:1.337655</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="79 c079-v118856 left middle_03.l:367.567899|index_03.l:284.973396|hand.l:270.770234|pinky_03.l:79.107474|ring_03.l:52.148503|index_02.l:1.432493 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 079</h2>
+                  <code>C079-V118856</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C079-context.png" target="_blank">
+                <img src="images/C079-context.png" alt="Componente contextual 079">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1056</dd>
+
+                <dt>Faces</dt>
+                <dd>1957</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>middle_03.L:367.567899|index_03.L:284.973396|hand.L:270.770234|pinky_03.L:79.107474|ring_03.L:52.148503|index_02.L:1.432493</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="80 c080-v119076 center spine_01:845.881981|spine_02:224.720625|thigh.l:128.450570|pelvis:106.946838 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 080</h2>
+                  <code>C080-V119076</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C080-context.png" target="_blank">
+                <img src="images/C080-context.png" alt="Componente contextual 080">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>1306</dd>
+
+                <dt>Faces</dt>
+                <dd>2396</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_01:845.881981|spine_02:224.720625|thigh.L:128.450570|pelvis:106.946838</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="81 c081-v119281 left thumb_01.l:157.653551|forearm.l:52.346449 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 081</h2>
+                  <code>C081-V119281</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C081-context.png" target="_blank">
+                <img src="images/C081-context.png" alt="Componente contextual 081">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>210</dd>
+
+                <dt>Faces</dt>
+                <dd>362</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_01.L:157.653551|forearm.L:52.346449</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="82 c082-v123750 right thigh.r:763.000000 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 082</h2>
+                  <code>C082-V123750</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C082-context.png" target="_blank">
+                <img src="images/C082-context.png" alt="Componente contextual 082">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>763</dd>
+
+                <dt>Faces</dt>
+                <dd>1416</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thigh.R:763.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="83 c083-v123842 left thumb_01.l:11.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 083</h2>
+                  <code>C083-V123842</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C083-context.png" target="_blank">
+                <img src="images/C083-context.png" alt="Componente contextual 083">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>11</dd>
+
+                <dt>Faces</dt>
+                <dd>11</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_01.L:11.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="84 c084-v126227 left thumb_01.l:5.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 084</h2>
+                  <code>C084-V126227</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C084-context.png" target="_blank">
+                <img src="images/C084-context.png" alt="Componente contextual 084">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>5</dd>
+
+                <dt>Faces</dt>
+                <dd>3</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_01.L:5.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="85 c085-v127561 right clavicle.r:230.814835|neck:149.631319|head:141.553845 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 085</h2>
+                  <code>C085-V127561</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C085-context.png" target="_blank">
+                <img src="images/C085-context.png" alt="Componente contextual 085">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>522</dd>
+
+                <dt>Faces</dt>
+                <dd>925</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>clavicle.R:230.814835|neck:149.631319|head:141.553845</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="86 c086-v127699 center head:3583.148513|neck:113.851512 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 086</h2>
+                  <code>C086-V127699</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C086-context.png" target="_blank">
+                <img src="images/C086-context.png" alt="Componente contextual 086">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>3697</dd>
+
+                <dt>Faces</dt>
+                <dd>7086</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:3583.148513|neck:113.851512</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="87 c087-v128662 left hand.l:179.312240|index_01.l:178.850556|forearm.l:150.063545|middle_03.l:132.119524|index_03.l:120.463059|ring_03.l:91.866294|ring_02.l:79.322184|pinky_03.l:71.251671 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 087</h2>
+                  <code>C087-V128662</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C087-context.png" target="_blank">
+                <img src="images/C087-context.png" alt="Componente contextual 087">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1137</dd>
+
+                <dt>Faces</dt>
+                <dd>2077</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>hand.L:179.312240|index_01.L:178.850556|forearm.L:150.063545|middle_03.L:132.119524|index_03.L:120.463059|ring_03.L:91.866294|ring_02.L:79.322184|pinky_03.L:71.251671</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="88 c088-v128680 left thumb_01.l:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 088</h2>
+                  <code>C088-V128680</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C088-context.png" target="_blank">
+                <img src="images/C088-context.png" alt="Componente contextual 088">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_01.L:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="89 c089-v131306 right index_01.r:64.390506|thumb_01.r:62.834753|thumb_02.r:32.774744 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 089</h2>
+                  <code>C089-V131306</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C089-context.png" target="_blank">
+                <img src="images/C089-context.png" alt="Componente contextual 089">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>160</dd>
+
+                <dt>Faces</dt>
+                <dd>275</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>index_01.R:64.390506|thumb_01.R:62.834753|thumb_02.R:32.774744</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="90 c090-v133696 left middle_03.l:2.204409|index_03.l:0.795591 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 090</h2>
+                  <code>C090-V133696</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C090-context.png" target="_blank">
+                <img src="images/C090-context.png" alt="Componente contextual 090">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>middle_03.L:2.204409|index_03.L:0.795591</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="91 c091-v133740 right thumb_02.r:327.240394|index_03.r:264.577715|pinky_03.r:158.674653|ring_02.r:137.589005|ring_03.r:135.893428|hand.r:97.747556|middle_03.r:86.671561|ring_01.r:23.444375 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 091</h2>
+                  <code>C091-V133740</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C091-context.png" target="_blank">
+                <img src="images/C091-context.png" alt="Componente contextual 091">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>1247</dd>
+
+                <dt>Faces</dt>
+                <dd>2319</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_02.R:327.240394|index_03.R:264.577715|pinky_03.R:158.674653|ring_02.R:137.589005|ring_03.R:135.893428|hand.R:97.747556|middle_03.R:86.671561|ring_01.R:23.444375</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="92 c092-v140831 right forearm.r:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 092</h2>
+                  <code>C092-V140831</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C092-context.png" target="_blank">
+                <img src="images/C092-context.png" alt="Componente contextual 092">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.R:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="93 c093-v141561 left neck:325.413070|head:247.586909 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 093</h2>
+                  <code>C093-V141561</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C093-context.png" target="_blank">
+                <img src="images/C093-context.png" alt="Componente contextual 093">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>573</dd>
+
+                <dt>Faces</dt>
+                <dd>1034</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>neck:325.413070|head:247.586909</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="94 c094-v145565 right neck:439.255671|head:50.744317 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 094</h2>
+                  <code>C094-V145565</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C094-context.png" target="_blank">
+                <img src="images/C094-context.png" alt="Componente contextual 094">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>490</dd>
+
+                <dt>Faces</dt>
+                <dd>892</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>neck:439.255671|head:50.744317</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="95 c095-v146776 left thumb_02.l:70.022331|thumb_01.l:30.977670 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 095</h2>
+                  <code>C095-V146776</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C095-context.png" target="_blank">
+                <img src="images/C095-context.png" alt="Componente contextual 095">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>101</dd>
+
+                <dt>Faces</dt>
+                <dd>173</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_02.L:70.022331|thumb_01.L:30.977670</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="96 c096-v148739 left thumb_02.l:99.660033|thumb_01.l:53.339970 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 096</h2>
+                  <code>C096-V148739</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C096-context.png" target="_blank">
+                <img src="images/C096-context.png" alt="Componente contextual 096">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>153</dd>
+
+                <dt>Faces</dt>
+                <dd>264</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_02.L:99.660033|thumb_01.L:53.339970</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="97 c097-v148799 right thumb_01.r:13.671040|index_01.r:11.951177|thumb_02.r:1.377783 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 097</h2>
+                  <code>C097-V148799</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C097-context.png" target="_blank">
+                <img src="images/C097-context.png" alt="Componente contextual 097">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>27</dd>
+
+                <dt>Faces</dt>
+                <dd>30</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_01.R:13.671040|index_01.R:11.951177|thumb_02.R:1.377783</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="98 c098-v148800 right index_01.r:38.653172|thumb_01.r:16.346829 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 098</h2>
+                  <code>C098-V148800</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C098-context.png" target="_blank">
+                <img src="images/C098-context.png" alt="Componente contextual 098">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>55</dd>
+
+                <dt>Faces</dt>
+                <dd>90</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>index_01.R:38.653172|thumb_01.R:16.346829</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="99 c099-v148810 left index_01.l:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 099</h2>
+                  <code>C099-V148810</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C099-context.png" target="_blank">
+                <img src="images/C099-context.png" alt="Componente contextual 099">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>index_01.L:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="100 c100-v150928 left index_01.l:9.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 100</h2>
+                  <code>C100-V150928</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C100-context.png" target="_blank">
+                <img src="images/C100-context.png" alt="Componente contextual 100">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>9</dd>
+
+                <dt>Faces</dt>
+                <dd>8</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>index_01.L:9.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="101 c101-v151564 left head:4.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 101</h2>
+                  <code>C101-V151564</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C101-context.png" target="_blank">
+                <img src="images/C101-context.png" alt="Componente contextual 101">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>4</dd>
+
+                <dt>Faces</dt>
+                <dd>2</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>head:4.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="102 c102-v161362 left forearm.l:3.000000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 102</h2>
+                  <code>C102-V161362</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C102-context.png" target="_blank">
+                <img src="images/C102-context.png" alt="Componente contextual 102">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>3</dd>
+
+                <dt>Faces</dt>
+                <dd>1</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>forearm.L:3.000000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="103 c103-v167183 left thumb_02.l:141.373568|thumb_01.l:83.023598|forearm.l:2.870999|index_02.l:0.731836 ">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 103</h2>
+                  <code>C103-V167183</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C103-context.png" target="_blank">
+                <img src="images/C103-context.png" alt="Componente contextual 103">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>228</dd>
+
+                <dt>Faces</dt>
+                <dd>393</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>thumb_02.L:141.373568|thumb_01.L:83.023598|forearm.L:2.870999|index_02.L:0.731836</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>Nenhuma</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="104 c104-v174307 center spine_02:1743.203137|chest:1195.796861 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 104</h2>
+                  <code>C104-V174307</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C104-context.png" target="_blank">
+                <img src="images/C104-context.png" alt="Componente contextual 104">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>2939</dd>
+
+                <dt>Faces</dt>
+                <dd>5604</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:1743.203137|chest:1195.796861</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="105 c105-v177904 center spine_02:1365.923956|chest:369.076069 crosses_center_plane">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 105</h2>
+                  <code>C105-V177904</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C105-context.png" target="_blank">
+                <img src="images/C105-context.png" alt="Componente contextual 105">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>CENTER</dd>
+
+                <dt>Vértices</dt>
+                <dd>1735</dd>
+
+                <dt>Faces</dt>
+                <dd>3277</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>spine_02:1365.923956|chest:369.076069</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>CROSSES_CENTER_PLANE</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="106 c106-v190469 right chest:49.680002|spine_02:19.320000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 106</h2>
+                  <code>C106-V190469</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C106-context.png" target="_blank">
+                <img src="images/C106-context.png" alt="Componente contextual 106">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>69</dd>
+
+                <dt>Faces</dt>
+                <dd>111</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>chest:49.680002|spine_02:19.320000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="107 c107-v190484 left chest:60.480002|spine_02:23.520000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 107</h2>
+                  <code>C107-V190484</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C107-context.png" target="_blank">
+                <img src="images/C107-context.png" alt="Componente contextual 107">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>84</dd>
+
+                <dt>Faces</dt>
+                <dd>140</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>chest:60.480002|spine_02:23.520000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="108 c108-v192344 right chest:45.360002|spine_02:17.640000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 108</h2>
+                  <code>C108-V192344</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C108-context.png" target="_blank">
+                <img src="images/C108-context.png" alt="Componente contextual 108">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>RIGHT</dd>
+
+                <dt>Vértices</dt>
+                <dd>63</dd>
+
+                <dt>Faces</dt>
+                <dd>97</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>chest:45.360002|spine_02:17.640000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+
+            <article class="card" data-search="109 c109-v192356 left chest:56.160002|spine_02:21.840000 very_small_component">
+              <header class="card-header">
+                <div>
+                  <h2>Componente 109</h2>
+                  <code>C109-V192356</code>
+                </div>
+                <strong class="pending">PENDENTE</strong>
+              </header>
+
+              <a class="image-wrap" href="images/C109-context.png" target="_blank">
+                <img src="images/C109-context.png" alt="Componente contextual 109">
+                <span class="label front">FRENTE</span>
+                <span class="label back">COSTAS</span>
+                <span class="label left">ESQUERDA</span>
+                <span class="label right">DIREITA</span>
+                <span class="label detail">DETALHE ISOLADO</span>
+              </a>
+
+              <dl>
+                <dt>Lado provisório</dt>
+                <dd>LEFT</dd>
+
+                <dt>Vértices</dt>
+                <dd>78</dd>
+
+                <dt>Faces</dt>
+                <dd>125</dd>
+
+                <dt>Grupos dominantes</dt>
+                <dd>chest:56.160002|spine_02:21.840000</dd>
+
+                <dt>Flags técnicas</dt>
+                <dd>VERY_SMALL_COMPONENT</dd>
+              </dl>
+            </article>
+            
+  </main>
+
+  <script>
+    const input = document.getElementById("search");
+    const cards = [...document.querySelectorAll(".card")];
+
+    input.addEventListener("input", () => {
+      const query = input.value.trim().toLowerCase();
+
+      for (const card of cards) {
+        card.classList.toggle(
+          "hidden",
+          query.length > 0 && !card.dataset.search.includes(query)
+        );
+      }
+    });
+  </script>
+</body>
+</html>

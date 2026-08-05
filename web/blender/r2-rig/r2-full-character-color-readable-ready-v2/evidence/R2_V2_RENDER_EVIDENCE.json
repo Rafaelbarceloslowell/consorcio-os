@@ -1,0 +1,166 @@
+{
+    "schema_version":  1,
+    "ExecutionStatus":  "COMPLETED",
+    "TechnicalVerdict":  "APROVADO",
+    "PublishedBlend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\r2-full-character-color-readable-ready-v2.blend",
+    "PublishedBlendSHA256":  "2EEC504BFC6F3C0D0B1BF6B1EFA932445142DCB61527E94A64F9C4A3A5EE491D",
+    "Renderer":  "BLENDER_EEVEE_NEXT",
+    "EvidenceCount":  5,
+    "Evidence":  [
+                     {
+                         "View":  "front",
+                         "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_front.png",
+                         "SHA256":  "6902CDF5A8CB602C31F32386AB5C149294C3A0CDF9A6C6A732196D7B6F3C9EBD",
+                         "SizeBytes":  659524,
+                         "Resolution":  [
+                                            700,
+                                            850
+                                        ],
+                         "Camera":  {
+                                        "aspect":  0.8235294117647058,
+                                        "coverage":  0.72,
+                                        "distance":  5.194963075,
+                                        "fov_degrees":  32.0,
+                                        "position":  [
+                                                         0.0,
+                                                         -5.194333553,
+                                                         0.103878483
+                                                     ],
+                                        "target":  [
+                                                       0.0,
+                                                       -0.000409797,
+                                                       0.0
+                                                   ]
+                                    },
+                         "VisualReview":  "APROVADO"
+                     },
+                     {
+                         "View":  "three_quarter",
+                         "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_three_quarter.png",
+                         "SHA256":  "199F54436483BBEC8D2914AB9FF9A8238E19B3DEB8A22F271A798F61844EBECE",
+                         "SizeBytes":  706462,
+                         "Resolution":  [
+                                            760,
+                                            850
+                                        ],
+                         "Camera":  {
+                                        "aspect":  0.8941176470588236,
+                                        "coverage":  0.72,
+                                        "distance":  5.490551051,
+                                        "fov_degrees":  32.0,
+                                        "position":  [
+                                                         2.973779917,
+                                                         -4.609767914,
+                                                         0.237902373
+                                                     ],
+                                        "target":  [
+                                                       0.0,
+                                                       -0.000409797,
+                                                       0.0
+                                                   ]
+                                    },
+                         "VisualReview":  "APROVADO"
+                     },
+                     {
+                         "View":  "back",
+                         "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_back.png",
+                         "SHA256":  "F8F98EC22C6C743D5D4550E90184F1B477BCC75566ED5CA10A6CB1A1DFFC225A",
+                         "SizeBytes":  652580,
+                         "Resolution":  [
+                                            700,
+                                            850
+                                        ],
+                         "Camera":  {
+                                        "aspect":  0.8235294117647058,
+                                        "coverage":  0.72,
+                                        "distance":  5.194545641,
+                                        "fov_degrees":  32.0,
+                                        "position":  [
+                                                         0.0,
+                                                         5.193097591,
+                                                         0.103870139
+                                                     ],
+                                        "target":  [
+                                                       0.0,
+                                                       -0.000409797,
+                                                       0.0
+                                                   ]
+                                    },
+                         "VisualReview":  "APROVADO"
+                     },
+                     {
+                         "View":  "left_arm_close",
+                         "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_left_arm_close.png",
+                         "SHA256":  "B5AD8E40B469511031F3C17841BD9774E51EC1CB02CF829BC5FC1C71D516260E",
+                         "SizeBytes":  758845,
+                         "Resolution":  [
+                                            800,
+                                            800
+                                        ],
+                         "Camera":  {
+                                        "aspect":  1.0,
+                                        "coverage":  0.62,
+                                        "distance":  2.056273082,
+                                        "fov_degrees":  32.0,
+                                        "position":  [
+                                                         2.108567715,
+                                                         -1.25589323,
+                                                         0.482408226
+                                                     ],
+                                        "target":  [
+                                                       0.436157465,
+                                                       -0.07126952,
+                                                       0.315167218
+                                                   ]
+                                    },
+                         "VisualReview":  "APROVADO"
+                     },
+                     {
+                         "View":  "dashboard",
+                         "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_dashboard.png",
+                         "SHA256":  "17A1B0F0C512C1844802E379BEFB93C354028BEBEFDF1A2DAEDB095B56F9DAA3",
+                         "SizeBytes":  548665,
+                         "Resolution":  [
+                                            960,
+                                            540
+                                        ],
+                         "Camera":  {
+                                        "aspect":  1.7777777777777777,
+                                        "coverage":  0.72,
+                                        "distance":  5.194963075,
+                                        "fov_degrees":  32.0,
+                                        "position":  [
+                                                         0.0,
+                                                         -5.194333553,
+                                                         0.103878483
+                                                     ],
+                                        "target":  [
+                                                       0.0,
+                                                       -0.000409797,
+                                                       0.0
+                                                   ]
+                                    },
+                         "VisualReview":  "APROVADO"
+                     }
+                 ],
+    "VisualCriteria":  {
+                           "NaturalCharcoalFurVisible":  true,
+                           "MossGreenHoodieVisible":  true,
+                           "LeadGrayPantsVisible":  true,
+                           "BlackBootsSeparated":  true,
+                           "FaceAndHandsReadable":  true,
+                           "RightChestLogoVisible":  true,
+                           "LeftArmR2ImmediatelyLegible":  true,
+                           "UpperBackLogoVisible":  true,
+                           "BrandingIntegratedToFabric":  true,
+                           "FullBodyFramed":  true,
+                           "DashboardUsefulHeightCoverage":  0.72
+                       },
+    "BrowserValidation":  {
+                              "Attempted":  true,
+                              "ConsoleErrors":  0,
+                              "Limitation":  "The in-app browser test surface does not expose ResizeObserver, so the component intentionally rendered its no-canvas fallback.",
+                              "Substitution":  "Published dashboard-equivalent controlled render plus the approved headless Three.js responsive audit."
+                          },
+    "FailedGates":  "NONE"
+}

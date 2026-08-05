@@ -1,0 +1,2436 @@
+﻿{
+    "schema_version":  1,
+    "phase":  "HEAD_RIGGING_AND_EXPRESSION_SYSTEM",
+    "execution_status":  "COMPLETED",
+    "technical_verdict":  "APROVADO",
+    "recoverable":  true,
+    "current_checkpoint":  "FINAL_RIG_PUBLICATION_APPROVED",
+    "blocked_audit_turns_observed":  3,
+    "blocked_audit_history":  [
+                                  {
+                                      "sequence":  1,
+                                      "result":  "BLOCKER_CONFIRMED",
+                                      "evidence":  "R2_HEAD_RIG_FEASIBILITY_AUDIT.json"
+                                  },
+                                  {
+                                      "sequence":  2,
+                                      "result":  "SAME_BLOCKER_CONFIRMED",
+                                      "new_input_search":  "NO_CERTIFIED_ANATOMICAL_OR_OCULAR_ORAL_PACKAGE_FOUND",
+                                      "evidence":  "R2_HEAD_RIG_FEASIBILITY_AUDIT_2.json"
+                                  },
+                                  {
+                                      "sequence":  3,
+                                      "result":  "SAME_BLOCKER_CONFIRMED_TERMINAL",
+                                      "new_input_search":  "NO_NEW_RELEVANT_INPUT_SINCE_AUDIT_2",
+                                      "evidence":  "R2_HEAD_RIG_FEASIBILITY_AUDIT_3.json"
+                                  }
+                              ],
+    "resumed_blocked_audit_turns_observed":  3,
+    "resumed_blocked_audit_history":  [
+                                          {
+                                              "sequence":  1,
+                                              "result":  "SAME_BLOCKER_CONFIRMED_AFTER_RESUME",
+                                              "new_input_search":  "NO_NEW_CERTIFIED_ANATOMICAL_OR_OCULAR_ORAL_INPUT",
+                                              "evidence":  "R2_HEAD_RIG_FEASIBILITY_RESUME_AUDIT_1.json"
+                                          },
+                                          {
+                                              "sequence":  2,
+                                              "result":  "SAME_BLOCKER_CONFIRMED_AFTER_RESUME",
+                                              "new_input_search":  "NO_NEW_RELEVANT_PROJECT_OR_R2_DOWNLOAD_INPUT",
+                                              "evidence":  "R2_HEAD_RIG_FEASIBILITY_RESUME_AUDIT_2.json"
+                                          },
+                                          {
+                                              "sequence":  3,
+                                              "result":  "SAME_BLOCKER_CONFIRMED_AFTER_RESUME_TERMINAL",
+                                              "new_input_search":  "NO_NEW_RELEVANT_PROJECT_OR_R2_DOWNLOAD_INPUT",
+                                              "evidence":  "R2_HEAD_RIG_FEASIBILITY_RESUME_AUDIT_3.json"
+                                          }
+                                      ],
+    "explicit_user_resume_audit_turns_observed":  3,
+    "explicit_user_resume_audit_history":  [
+                                               {
+                                                   "sequence":  1,
+                                                   "administrative_wait_resolved":  true,
+                                                   "technical_blocker_persists":  true,
+                                                   "result":  "SAME_TECHNICAL_BLOCKER_CONFIRMED",
+                                                   "manifest_failures":  "NONE",
+                                                   "v40_v57_hash_failures":  "NONE",
+                                                   "new_relevant_input_candidates":  0,
+                                                   "evidence":  "R2_HEAD_RIG_FEASIBILITY_EXPLICIT_RESUME_AUDIT_1.json"
+                                               },
+                                               {
+                                                   "sequence":  2,
+                                                   "administrative_wait_resolved":  true,
+                                                   "technical_blocker_persists":  true,
+                                                   "result":  "SAME_TECHNICAL_BLOCKER_CONFIRMED",
+                                                   "new_relevant_input_candidates":  0,
+                                                   "evidence":  "R2_HEAD_RIG_FEASIBILITY_EXPLICIT_RESUME_AUDIT_2.json"
+                                               },
+                                               {
+                                                   "sequence":  3,
+                                                   "administrative_wait_resolved":  true,
+                                                   "technical_blocker_persists":  true,
+                                                   "result":  "SAME_TECHNICAL_BLOCKER_CONFIRMED_TERMINAL",
+                                                   "new_relevant_input_candidates":  0,
+                                                   "evidence":  "R2_HEAD_RIG_FEASIBILITY_EXPLICIT_RESUME_AUDIT_3.json"
+                                               }
+                                           ],
+    "last_resume_evaluation":  {
+                                   "administrative_blocker":  false,
+                                   "administrative_conditions_resolved_by_user_message":  true,
+                                   "technical_blocker":  false,
+                                   "state_transition_to_in_progress_authorized":  true,
+                                   "reason":  "Resolved by approved facial ocular/oral asset publication and 38-landmark certificate."
+                               },
+    "source_path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-facial-ocular-oral-assets-ready-v1\\r2-facial-ocular-oral-assets-ready-v1.blend",
+    "source_sha256":  "50D04CFBAEC2A431D96D4060E2AE82045AFBC56A0E74AD1759D156C0222825B3",
+    "source_sha256_after":  "50D04CFBAEC2A431D96D4060E2AE82045AFBC56A0E74AD1759D156C0222825B3",
+    "source_size_bytes":  37083315,
+    "source_timestamp":  "2026-08-01T02:39:45.0625472-03:00",
+    "transactional_candidate_path":  null,
+    "transactional_directory":  null,
+    "temporary_directories_remaining":  0,
+    "blender_version":  "4.5.10 LTS",
+    "discovered_armature":  "R2_Rig",
+    "discovered_deformable_meshes":  [
+                                         "R2_Head_Face_Foundation"
+                                     ],
+    "bone_architecture":  {
+                              "armature":  "R2_Rig",
+                              "jaw_deform_group":  {
+                                                       "name":  "DEF-face-jaw",
+                                                       "vertices":  [
+                                                                        2759,
+                                                                        2761,
+                                                                        2762,
+                                                                        2763,
+                                                                        2764,
+                                                                        2765,
+                                                                        2821,
+                                                                        2822,
+                                                                        2823,
+                                                                        2824,
+                                                                        2825,
+                                                                        2826,
+                                                                        2827,
+                                                                        2828,
+                                                                        2829,
+                                                                        2830,
+                                                                        2831,
+                                                                        2832,
+                                                                        2833,
+                                                                        2834,
+                                                                        2835,
+                                                                        2884,
+                                                                        2885,
+                                                                        2886,
+                                                                        2887,
+                                                                        2888,
+                                                                        2889,
+                                                                        2890,
+                                                                        2891,
+                                                                        2892,
+                                                                        2893,
+                                                                        2894,
+                                                                        2895,
+                                                                        2896,
+                                                                        2897,
+                                                                        2898,
+                                                                        2899,
+                                                                        2900,
+                                                                        2953,
+                                                                        2954,
+                                                                        2955,
+                                                                        2956,
+                                                                        2957,
+                                                                        2958,
+                                                                        2959,
+                                                                        2960,
+                                                                        2961,
+                                                                        2962,
+                                                                        2963,
+                                                                        2964,
+                                                                        2965,
+                                                                        2966,
+                                                                        2967,
+                                                                        2968,
+                                                                        2969,
+                                                                        2970,
+                                                                        2971,
+                                                                        3018,
+                                                                        3019,
+                                                                        3020,
+                                                                        3021,
+                                                                        3022,
+                                                                        3023,
+                                                                        3024,
+                                                                        3025,
+                                                                        3026,
+                                                                        3027,
+                                                                        3028,
+                                                                        3029,
+                                                                        3030,
+                                                                        3031,
+                                                                        3032,
+                                                                        3033,
+                                                                        3034,
+                                                                        3035,
+                                                                        3036,
+                                                                        3080,
+                                                                        3081,
+                                                                        3082,
+                                                                        3083,
+                                                                        3084,
+                                                                        3085,
+                                                                        3086,
+                                                                        3087,
+                                                                        3088,
+                                                                        3089,
+                                                                        3090,
+                                                                        3091,
+                                                                        3092,
+                                                                        3093,
+                                                                        3094,
+                                                                        3095,
+                                                                        3096,
+                                                                        3097,
+                                                                        3098,
+                                                                        3146,
+                                                                        3147,
+                                                                        3148,
+                                                                        3149,
+                                                                        3150,
+                                                                        3151,
+                                                                        3152,
+                                                                        3153,
+                                                                        3154,
+                                                                        3155,
+                                                                        3156,
+                                                                        3157,
+                                                                        3158,
+                                                                        3159,
+                                                                        3160,
+                                                                        3161,
+                                                                        3162,
+                                                                        3198,
+                                                                        3199,
+                                                                        3200,
+                                                                        3201,
+                                                                        3202,
+                                                                        3203,
+                                                                        3204,
+                                                                        3205,
+                                                                        3206,
+                                                                        3207,
+                                                                        3208,
+                                                                        3209,
+                                                                        3210,
+                                                                        3211,
+                                                                        3212,
+                                                                        3213,
+                                                                        3214,
+                                                                        3215,
+                                                                        3216,
+                                                                        3217,
+                                                                        3218,
+                                                                        3219,
+                                                                        3220,
+                                                                        3221,
+                                                                        3222,
+                                                                        3223,
+                                                                        3224,
+                                                                        3225,
+                                                                        3226,
+                                                                        3228,
+                                                                        3266,
+                                                                        3267,
+                                                                        3268,
+                                                                        3269,
+                                                                        3270,
+                                                                        3271,
+                                                                        3272,
+                                                                        3273,
+                                                                        3274,
+                                                                        3275,
+                                                                        3276,
+                                                                        3277,
+                                                                        3278,
+                                                                        3279,
+                                                                        3280,
+                                                                        3281,
+                                                                        3282,
+                                                                        3283,
+                                                                        3284,
+                                                                        3285,
+                                                                        3286,
+                                                                        3287,
+                                                                        3288,
+                                                                        3289,
+                                                                        3290,
+                                                                        3291,
+                                                                        3292,
+                                                                        3293,
+                                                                        3294,
+                                                                        3297,
+                                                                        3339,
+                                                                        3340,
+                                                                        3341,
+                                                                        3342,
+                                                                        3343,
+                                                                        3344,
+                                                                        3345,
+                                                                        3346,
+                                                                        3347,
+                                                                        3348,
+                                                                        3349,
+                                                                        3350,
+                                                                        3351,
+                                                                        3352,
+                                                                        3353,
+                                                                        3354,
+                                                                        3355,
+                                                                        3356,
+                                                                        3357,
+                                                                        3358,
+                                                                        3359,
+                                                                        3360,
+                                                                        3361,
+                                                                        3362,
+                                                                        3363,
+                                                                        3364,
+                                                                        3365,
+                                                                        3366,
+                                                                        3367,
+                                                                        3368,
+                                                                        3369,
+                                                                        3370,
+                                                                        3371,
+                                                                        3372,
+                                                                        3403,
+                                                                        3404,
+                                                                        3405,
+                                                                        3406,
+                                                                        3407,
+                                                                        3408,
+                                                                        3409,
+                                                                        3410,
+                                                                        3411,
+                                                                        3412,
+                                                                        3413,
+                                                                        3414,
+                                                                        3415,
+                                                                        3416,
+                                                                        3417,
+                                                                        3418,
+                                                                        3419,
+                                                                        3420,
+                                                                        3421,
+                                                                        3422,
+                                                                        3423,
+                                                                        3424,
+                                                                        3425,
+                                                                        3426,
+                                                                        3427,
+                                                                        3428,
+                                                                        3429,
+                                                                        3430,
+                                                                        3431,
+                                                                        3432,
+                                                                        3433,
+                                                                        3434,
+                                                                        3435,
+                                                                        3436,
+                                                                        3437,
+                                                                        3438,
+                                                                        3468,
+                                                                        3469,
+                                                                        3470,
+                                                                        3471,
+                                                                        3472,
+                                                                        3473,
+                                                                        3474,
+                                                                        3475,
+                                                                        3476,
+                                                                        3477,
+                                                                        3478,
+                                                                        3479,
+                                                                        3480,
+                                                                        3481,
+                                                                        3482,
+                                                                        3483,
+                                                                        3484,
+                                                                        3485,
+                                                                        3486,
+                                                                        3487,
+                                                                        3488,
+                                                                        3489,
+                                                                        3490,
+                                                                        3491,
+                                                                        3492,
+                                                                        3493,
+                                                                        3494,
+                                                                        3495,
+                                                                        3496,
+                                                                        3497,
+                                                                        3498,
+                                                                        3499,
+                                                                        3500,
+                                                                        3501,
+                                                                        3502,
+                                                                        3503,
+                                                                        3504,
+                                                                        3505,
+                                                                        3506,
+                                                                        3507,
+                                                                        3508,
+                                                                        3509,
+                                                                        3510,
+                                                                        3511,
+                                                                        3512,
+                                                                        3513,
+                                                                        3514,
+                                                                        3515,
+                                                                        3516,
+                                                                        3517,
+                                                                        3533,
+                                                                        3534,
+                                                                        3535,
+                                                                        3536,
+                                                                        3537,
+                                                                        3538,
+                                                                        3539,
+                                                                        3540,
+                                                                        3541,
+                                                                        3542,
+                                                                        3543,
+                                                                        3544,
+                                                                        3548,
+                                                                        3549,
+                                                                        3553,
+                                                                        3554,
+                                                                        3555,
+                                                                        3558,
+                                                                        3569,
+                                                                        3570,
+                                                                        3571,
+                                                                        3572,
+                                                                        3573,
+                                                                        3574,
+                                                                        3575,
+                                                                        3576,
+                                                                        3577,
+                                                                        3578,
+                                                                        3579,
+                                                                        3580,
+                                                                        3581,
+                                                                        3582,
+                                                                        3583,
+                                                                        3584,
+                                                                        3585,
+                                                                        3586,
+                                                                        3587,
+                                                                        3606,
+                                                                        3607,
+                                                                        3608,
+                                                                        3609,
+                                                                        3610,
+                                                                        3611,
+                                                                        3612,
+                                                                        3613,
+                                                                        3614,
+                                                                        3615,
+                                                                        3616,
+                                                                        3617,
+                                                                        3618,
+                                                                        3619,
+                                                                        3620,
+                                                                        3621,
+                                                                        3622,
+                                                                        3623,
+                                                                        3635,
+                                                                        3636,
+                                                                        3637,
+                                                                        3638
+                                                                    ],
+                                                       "weight":  0.68
+                                                   },
+                              "new_bones":  [
+                                                {
+                                                    "head":  [
+                                                                 0.04954143241047859,
+                                                                 -0.24171464145183563,
+                                                                 0.757319986820221
+                                                             ],
+                                                    "name":  "CTRL-face-root",
+                                                    "parent":  "head",
+                                                    "tail":  [
+                                                                 0.04954143241047859,
+                                                                 -0.2410155087709427,
+                                                                 0.7713025212287903
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 0.01105880830436945,
+                                                                 -0.21429984271526337,
+                                                                 0.8490406274795532
+                                                             ],
+                                                    "name":  "CTRL-face-eye.L",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 0.01105880830436945,
+                                                                 -0.22628487646579742,
+                                                                 0.849639892578125
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 -0.014793476089835167,
+                                                                 -0.22213289141654968,
+                                                                 0.831754207611084
+                                                             ],
+                                                    "name":  "CTRL-face-eye.R",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 -0.014793476089835167,
+                                                                 -0.23411792516708374,
+                                                                 0.8323534727096558
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 -0.031153474003076553,
+                                                                 -0.2929005026817322,
+                                                                 0.725739061832428
+                                                             ],
+                                                    "name":  "CTRL-face-jaw",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 0.031153474003076553,
+                                                                 -0.2929005026817322,
+                                                                 0.725739061832428
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 0.01115458831191063,
+                                                                 -0.21998697519302368,
+                                                                 0.8543692231178284
+                                                             ],
+                                                    "name":  "CTRL-face-brow.L",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 0.01115458831191063,
+                                                                 -0.21953754127025604,
+                                                                 0.8633580207824707
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 0.01237720251083374,
+                                                                 -0.25798216462135315,
+                                                                 0.779973566532135
+                                                             ],
+                                                    "name":  "CTRL-face-cheek.L",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 0.01237720251083374,
+                                                                 -0.2575327157974243,
+                                                                 0.7889623641967773
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 0.020099015906453133,
+                                                                 -0.3060470521450043,
+                                                                 0.7121194005012512
+                                                             ],
+                                                    "name":  "CTRL-face-mouth-corner.L",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 0.020099015906453133,
+                                                                 -0.305697500705719,
+                                                                 0.7191106677055359
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 -0.015257780440151691,
+                                                                 -0.23156821727752686,
+                                                                 0.841367244720459
+                                                             ],
+                                                    "name":  "CTRL-face-brow.R",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 -0.015257780440151691,
+                                                                 -0.23111878335475922,
+                                                                 0.8503560423851013
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 -0.011836003512144089,
+                                                                 -0.24951045215129852,
+                                                                 0.7823452353477478
+                                                             ],
+                                                    "name":  "CTRL-face-cheek.R",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 -0.011836003512144089,
+                                                                 -0.24906101822853088,
+                                                                 0.7913340330123901
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 -0.020099015906453133,
+                                                                 -0.3060470521450043,
+                                                                 0.7121194005012512
+                                                             ],
+                                                    "name":  "CTRL-face-mouth-corner.R",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 -0.020099015906453133,
+                                                                 -0.305697500705719,
+                                                                 0.7191106677055359
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 -3.1877789297141135E-06,
+                                                                 -0.30559760332107544,
+                                                                 0.7213103771209717
+                                                             ],
+                                                    "name":  "CTRL-face-muzzle",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 -3.1877789297141135E-06,
+                                                                 -0.3145863711833954,
+                                                                 0.7217597961425781
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 0.0,
+                                                                 -0.3056264817714691,
+                                                                 0.7155249118804932
+                                                             ],
+                                                    "name":  "CTRL-face-lip-upper",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 0.0,
+                                                                 -0.30527693033218384,
+                                                                 0.7225161790847778
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 0.0,
+                                                                 -0.3059587776660919,
+                                                                 0.7088788747787476
+                                                             ],
+                                                    "name":  "CTRL-face-lip-lower",
+                                                    "parent":  "CTRL-face-root",
+                                                    "tail":  [
+                                                                 0.0,
+                                                                 -0.30560922622680664,
+                                                                 0.7158701419830322
+                                                             ],
+                                                    "use_deform":  false
+                                                },
+                                                {
+                                                    "head":  [
+                                                                 -0.031153474003076553,
+                                                                 -0.2929005026817322,
+                                                                 0.725739061832428
+                                                             ],
+                                                    "name":  "DEF-face-jaw",
+                                                    "parent":  "head",
+                                                    "tail":  [
+                                                                 0.031153474003076553,
+                                                                 -0.2929005026817322,
+                                                                 0.725739061832428
+                                                             ],
+                                                    "use_deform":  true
+                                                }
+                                            ],
+                              "preserved_existing_bones":  [
+                                                               {
+                                                                   "head":  [
+                                                                                0.0,
+                                                                                -0.05999999865889549,
+                                                                                -1.0
+                                                                            ],
+                                                                   "name":  "root",
+                                                                   "parent":  null,
+                                                                   "tail":  [
+                                                                                0.0,
+                                                                                -0.05999999865889549,
+                                                                                -0.8500000238418579
+                                                                            ],
+                                                                   "use_deform":  false
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.0,
+                                                                                -0.06499999761581421,
+                                                                                -0.3400000035762787
+                                                                            ],
+                                                                   "name":  "pelvis",
+                                                                   "parent":  "root",
+                                                                   "tail":  [
+                                                                                0.0,
+                                                                                -0.06499999761581421,
+                                                                                -0.18000000715255737
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.0,
+                                                                                -0.06499999761581421,
+                                                                                -0.18000000715255737
+                                                                            ],
+                                                                   "name":  "spine_01",
+                                                                   "parent":  "pelvis",
+                                                                   "tail":  [
+                                                                                0.0,
+                                                                                -0.05999999865889549,
+                                                                                -0.05000000074505806
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.0,
+                                                                                -0.05999999865889549,
+                                                                                -0.05000000074505806
+                                                                            ],
+                                                                   "name":  "spine_02",
+                                                                   "parent":  "spine_01",
+                                                                   "tail":  [
+                                                                                0.0,
+                                                                                -0.03999999910593033,
+                                                                                0.2199999988079071
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.0,
+                                                                                -0.03999999910593033,
+                                                                                0.2199999988079071
+                                                                            ],
+                                                                   "name":  "chest",
+                                                                   "parent":  "spine_02",
+                                                                   "tail":  [
+                                                                                0.0,
+                                                                                -0.019999999552965164,
+                                                                                0.5
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.0,
+                                                                                -0.019999999552965164,
+                                                                                0.5
+                                                                            ],
+                                                                   "name":  "neck",
+                                                                   "parent":  "chest",
+                                                                   "tail":  [
+                                                                                0.0,
+                                                                                -0.009999999776482582,
+                                                                                0.6100000143051147
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.0,
+                                                                                -0.009999999776482582,
+                                                                                0.6100000143051147
+                                                                            ],
+                                                                   "name":  "head",
+                                                                   "parent":  "neck",
+                                                                   "tail":  [
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.8999999761581421
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.0,
+                                                                                -0.019999999552965164,
+                                                                                0.5
+                                                                            ],
+                                                                   "name":  "clavicle.L",
+                                                                   "parent":  "chest",
+                                                                   "tail":  [
+                                                                                0.30000001192092896,
+                                                                                -0.014999999664723873,
+                                                                                0.5600000023841858
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.30000001192092896,
+                                                                                -0.014999999664723873,
+                                                                                0.5600000023841858
+                                                                            ],
+                                                                   "name":  "upper_arm.L",
+                                                                   "parent":  "clavicle.L",
+                                                                   "tail":  [
+                                                                                0.4000000059604645,
+                                                                                -0.05999999865889549,
+                                                                                0.23999999463558197
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.4000000059604645,
+                                                                                -0.05999999865889549,
+                                                                                0.23999999463558197
+                                                                            ],
+                                                                   "name":  "forearm.L",
+                                                                   "parent":  "upper_arm.L",
+                                                                   "tail":  [
+                                                                                0.4000000059604645,
+                                                                                -0.1550000011920929,
+                                                                                -0.11999999731779099
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.4000000059604645,
+                                                                                -0.1550000011920929,
+                                                                                -0.11999999731779099
+                                                                            ],
+                                                                   "name":  "hand.L",
+                                                                   "parent":  "forearm.L",
+                                                                   "tail":  [
+                                                                                0.4000000059604645,
+                                                                                -0.18000000715255737,
+                                                                                -0.25
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.3720000088214874,
+                                                                                -0.14499999582767487,
+                                                                                -0.15000000596046448
+                                                                            ],
+                                                                   "name":  "thumb_01.L",
+                                                                   "parent":  "hand.L",
+                                                                   "tail":  [
+                                                                                0.35199999809265137,
+                                                                                -0.17800000309944153,
+                                                                                -0.19499999284744263
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.35199999809265137,
+                                                                                -0.17800000309944153,
+                                                                                -0.19499999284744263
+                                                                            ],
+                                                                   "name":  "thumb_02.L",
+                                                                   "parent":  "thumb_01.L",
+                                                                   "tail":  [
+                                                                                0.34200000762939453,
+                                                                                -0.20499999821186066,
+                                                                                -0.23499999940395355
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.37299999594688416,
+                                                                                -0.15800000727176666,
+                                                                                -0.14499999582767487
+                                                                            ],
+                                                                   "name":  "index_01.L",
+                                                                   "parent":  "hand.L",
+                                                                   "tail":  [
+                                                                                0.37299999594688416,
+                                                                                -0.16099999845027924,
+                                                                                -0.17900000512599945
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.37299999594688416,
+                                                                                -0.16099999845027924,
+                                                                                -0.17900000512599945
+                                                                            ],
+                                                                   "name":  "index_02.L",
+                                                                   "parent":  "index_01.L",
+                                                                   "tail":  [
+                                                                                0.37299999594688416,
+                                                                                -0.16500000655651093,
+                                                                                -0.21299999952316284
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.37299999594688416,
+                                                                                -0.16500000655651093,
+                                                                                -0.21299999952316284
+                                                                            ],
+                                                                   "name":  "index_03.L",
+                                                                   "parent":  "index_02.L",
+                                                                   "tail":  [
+                                                                                0.37299999594688416,
+                                                                                -0.16899999976158142,
+                                                                                -0.24500000476837158
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.3889999985694885,
+                                                                                -0.16599999368190765,
+                                                                                -0.14499999582767487
+                                                                            ],
+                                                                   "name":  "middle_01.L",
+                                                                   "parent":  "hand.L",
+                                                                   "tail":  [
+                                                                                0.3889999985694885,
+                                                                                -0.16899999976158142,
+                                                                                -0.18172000348567963
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.3889999985694885,
+                                                                                -0.16899999976158142,
+                                                                                -0.18172000348567963
+                                                                            ],
+                                                                   "name":  "middle_02.L",
+                                                                   "parent":  "middle_01.L",
+                                                                   "tail":  [
+                                                                                0.3889999985694885,
+                                                                                -0.17299999296665192,
+                                                                                -0.2184399962425232
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.3889999985694885,
+                                                                                -0.17299999296665192,
+                                                                                -0.2184399962425232
+                                                                            ],
+                                                                   "name":  "middle_03.L",
+                                                                   "parent":  "middle_02.L",
+                                                                   "tail":  [
+                                                                                0.3889999985694885,
+                                                                                -0.1770000010728836,
+                                                                                -0.2529999911785126
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.4050000011920929,
+                                                                                -0.17399999499320984,
+                                                                                -0.14499999582767487
+                                                                            ],
+                                                                   "name":  "ring_01.L",
+                                                                   "parent":  "hand.L",
+                                                                   "tail":  [
+                                                                                0.4050000011920929,
+                                                                                -0.1770000010728836,
+                                                                                -0.17900000512599945
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.4050000011920929,
+                                                                                -0.1770000010728836,
+                                                                                -0.17900000512599945
+                                                                            ],
+                                                                   "name":  "ring_02.L",
+                                                                   "parent":  "ring_01.L",
+                                                                   "tail":  [
+                                                                                0.4050000011920929,
+                                                                                -0.1809999942779541,
+                                                                                -0.21299999952316284
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.4050000011920929,
+                                                                                -0.1809999942779541,
+                                                                                -0.21299999952316284
+                                                                            ],
+                                                                   "name":  "ring_03.L",
+                                                                   "parent":  "ring_02.L",
+                                                                   "tail":  [
+                                                                                0.4050000011920929,
+                                                                                -0.1850000023841858,
+                                                                                -0.24500000476837158
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.41999998688697815,
+                                                                                -0.18199999630451202,
+                                                                                -0.14499999582767487
+                                                                            ],
+                                                                   "name":  "pinky_01.L",
+                                                                   "parent":  "hand.L",
+                                                                   "tail":  [
+                                                                                0.41999998688697815,
+                                                                                -0.1850000023841858,
+                                                                                -0.174919992685318
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.41999998688697815,
+                                                                                -0.1850000023841858,
+                                                                                -0.174919992685318
+                                                                            ],
+                                                                   "name":  "pinky_02.L",
+                                                                   "parent":  "pinky_01.L",
+                                                                   "tail":  [
+                                                                                0.41999998688697815,
+                                                                                -0.1889999955892563,
+                                                                                -0.20484000444412231
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.41999998688697815,
+                                                                                -0.1889999955892563,
+                                                                                -0.20484000444412231
+                                                                            ],
+                                                                   "name":  "pinky_03.L",
+                                                                   "parent":  "pinky_02.L",
+                                                                   "tail":  [
+                                                                                0.41999998688697815,
+                                                                                -0.19300000369548798,
+                                                                                -0.2329999953508377
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.0,
+                                                                                -0.019999999552965164,
+                                                                                0.5
+                                                                            ],
+                                                                   "name":  "clavicle.R",
+                                                                   "parent":  "chest",
+                                                                   "tail":  [
+                                                                                -0.30000001192092896,
+                                                                                -0.014999999664723873,
+                                                                                0.5600000023841858
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.30000001192092896,
+                                                                                -0.014999999664723873,
+                                                                                0.5600000023841858
+                                                                            ],
+                                                                   "name":  "upper_arm.R",
+                                                                   "parent":  "clavicle.R",
+                                                                   "tail":  [
+                                                                                -0.4000000059604645,
+                                                                                -0.05999999865889549,
+                                                                                0.23999999463558197
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.4000000059604645,
+                                                                                -0.05999999865889549,
+                                                                                0.23999999463558197
+                                                                            ],
+                                                                   "name":  "forearm.R",
+                                                                   "parent":  "upper_arm.R",
+                                                                   "tail":  [
+                                                                                -0.4000000059604645,
+                                                                                -0.1550000011920929,
+                                                                                -0.11999999731779099
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.4000000059604645,
+                                                                                -0.1550000011920929,
+                                                                                -0.11999999731779099
+                                                                            ],
+                                                                   "name":  "hand.R",
+                                                                   "parent":  "forearm.R",
+                                                                   "tail":  [
+                                                                                -0.4000000059604645,
+                                                                                -0.18000000715255737,
+                                                                                -0.25
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.3720000088214874,
+                                                                                -0.14499999582767487,
+                                                                                -0.15000000596046448
+                                                                            ],
+                                                                   "name":  "thumb_01.R",
+                                                                   "parent":  "hand.R",
+                                                                   "tail":  [
+                                                                                -0.35199999809265137,
+                                                                                -0.17800000309944153,
+                                                                                -0.19499999284744263
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.35199999809265137,
+                                                                                -0.17800000309944153,
+                                                                                -0.19499999284744263
+                                                                            ],
+                                                                   "name":  "thumb_02.R",
+                                                                   "parent":  "thumb_01.R",
+                                                                   "tail":  [
+                                                                                -0.34200000762939453,
+                                                                                -0.20499999821186066,
+                                                                                -0.23499999940395355
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.37299999594688416,
+                                                                                -0.15800000727176666,
+                                                                                -0.14499999582767487
+                                                                            ],
+                                                                   "name":  "index_01.R",
+                                                                   "parent":  "hand.R",
+                                                                   "tail":  [
+                                                                                -0.37299999594688416,
+                                                                                -0.16099999845027924,
+                                                                                -0.17900000512599945
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.37299999594688416,
+                                                                                -0.16099999845027924,
+                                                                                -0.17900000512599945
+                                                                            ],
+                                                                   "name":  "index_02.R",
+                                                                   "parent":  "index_01.R",
+                                                                   "tail":  [
+                                                                                -0.37299999594688416,
+                                                                                -0.16500000655651093,
+                                                                                -0.21299999952316284
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.37299999594688416,
+                                                                                -0.16500000655651093,
+                                                                                -0.21299999952316284
+                                                                            ],
+                                                                   "name":  "index_03.R",
+                                                                   "parent":  "index_02.R",
+                                                                   "tail":  [
+                                                                                -0.37299999594688416,
+                                                                                -0.16899999976158142,
+                                                                                -0.24500000476837158
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.3889999985694885,
+                                                                                -0.16599999368190765,
+                                                                                -0.14499999582767487
+                                                                            ],
+                                                                   "name":  "middle_01.R",
+                                                                   "parent":  "hand.R",
+                                                                   "tail":  [
+                                                                                -0.3889999985694885,
+                                                                                -0.16899999976158142,
+                                                                                -0.18172000348567963
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.3889999985694885,
+                                                                                -0.16899999976158142,
+                                                                                -0.18172000348567963
+                                                                            ],
+                                                                   "name":  "middle_02.R",
+                                                                   "parent":  "middle_01.R",
+                                                                   "tail":  [
+                                                                                -0.3889999985694885,
+                                                                                -0.17299999296665192,
+                                                                                -0.2184399962425232
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.3889999985694885,
+                                                                                -0.17299999296665192,
+                                                                                -0.2184399962425232
+                                                                            ],
+                                                                   "name":  "middle_03.R",
+                                                                   "parent":  "middle_02.R",
+                                                                   "tail":  [
+                                                                                -0.3889999985694885,
+                                                                                -0.1770000010728836,
+                                                                                -0.2529999911785126
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.4050000011920929,
+                                                                                -0.17399999499320984,
+                                                                                -0.14499999582767487
+                                                                            ],
+                                                                   "name":  "ring_01.R",
+                                                                   "parent":  "hand.R",
+                                                                   "tail":  [
+                                                                                -0.4050000011920929,
+                                                                                -0.1770000010728836,
+                                                                                -0.17900000512599945
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.4050000011920929,
+                                                                                -0.1770000010728836,
+                                                                                -0.17900000512599945
+                                                                            ],
+                                                                   "name":  "ring_02.R",
+                                                                   "parent":  "ring_01.R",
+                                                                   "tail":  [
+                                                                                -0.4050000011920929,
+                                                                                -0.1809999942779541,
+                                                                                -0.21299999952316284
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.4050000011920929,
+                                                                                -0.1809999942779541,
+                                                                                -0.21299999952316284
+                                                                            ],
+                                                                   "name":  "ring_03.R",
+                                                                   "parent":  "ring_02.R",
+                                                                   "tail":  [
+                                                                                -0.4050000011920929,
+                                                                                -0.1850000023841858,
+                                                                                -0.24500000476837158
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.41999998688697815,
+                                                                                -0.18199999630451202,
+                                                                                -0.14499999582767487
+                                                                            ],
+                                                                   "name":  "pinky_01.R",
+                                                                   "parent":  "hand.R",
+                                                                   "tail":  [
+                                                                                -0.41999998688697815,
+                                                                                -0.1850000023841858,
+                                                                                -0.174919992685318
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.41999998688697815,
+                                                                                -0.1850000023841858,
+                                                                                -0.174919992685318
+                                                                            ],
+                                                                   "name":  "pinky_02.R",
+                                                                   "parent":  "pinky_01.R",
+                                                                   "tail":  [
+                                                                                -0.41999998688697815,
+                                                                                -0.1889999955892563,
+                                                                                -0.20484000444412231
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.41999998688697815,
+                                                                                -0.1889999955892563,
+                                                                                -0.20484000444412231
+                                                                            ],
+                                                                   "name":  "pinky_03.R",
+                                                                   "parent":  "pinky_02.R",
+                                                                   "tail":  [
+                                                                                -0.41999998688697815,
+                                                                                -0.19300000369548798,
+                                                                                -0.2329999953508377
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.18000000715255737,
+                                                                                -0.05999999865889549,
+                                                                                -0.3199999928474426
+                                                                            ],
+                                                                   "name":  "thigh.L",
+                                                                   "parent":  "pelvis",
+                                                                   "tail":  [
+                                                                                0.20999999344348907,
+                                                                                0.009999999776482582,
+                                                                                -0.5699999928474426
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.20999999344348907,
+                                                                                0.009999999776482582,
+                                                                                -0.5699999928474426
+                                                                            ],
+                                                                   "name":  "shin.L",
+                                                                   "parent":  "thigh.L",
+                                                                   "tail":  [
+                                                                                0.25,
+                                                                                -0.07500000298023224,
+                                                                                -0.8399999737739563
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.25,
+                                                                                -0.07500000298023224,
+                                                                                -0.8399999737739563
+                                                                            ],
+                                                                   "name":  "foot.L",
+                                                                   "parent":  "shin.L",
+                                                                   "tail":  [
+                                                                                0.27000001072883606,
+                                                                                -0.20000000298023224,
+                                                                                -0.9549999833106995
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                0.27000001072883606,
+                                                                                -0.20000000298023224,
+                                                                                -0.9549999833106995
+                                                                            ],
+                                                                   "name":  "toe.L",
+                                                                   "parent":  "foot.L",
+                                                                   "tail":  [
+                                                                                0.27000001072883606,
+                                                                                -0.28999999165534973,
+                                                                                -0.9549999833106995
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.18000000715255737,
+                                                                                -0.05999999865889549,
+                                                                                -0.3199999928474426
+                                                                            ],
+                                                                   "name":  "thigh.R",
+                                                                   "parent":  "pelvis",
+                                                                   "tail":  [
+                                                                                -0.20999999344348907,
+                                                                                0.009999999776482582,
+                                                                                -0.5699999928474426
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.20999999344348907,
+                                                                                0.009999999776482582,
+                                                                                -0.5699999928474426
+                                                                            ],
+                                                                   "name":  "shin.R",
+                                                                   "parent":  "thigh.R",
+                                                                   "tail":  [
+                                                                                -0.25,
+                                                                                -0.07500000298023224,
+                                                                                -0.8399999737739563
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.25,
+                                                                                -0.07500000298023224,
+                                                                                -0.8399999737739563
+                                                                            ],
+                                                                   "name":  "foot.R",
+                                                                   "parent":  "shin.R",
+                                                                   "tail":  [
+                                                                                -0.27000001072883606,
+                                                                                -0.20000000298023224,
+                                                                                -0.9549999833106995
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               },
+                                                               {
+                                                                   "head":  [
+                                                                                -0.27000001072883606,
+                                                                                -0.20000000298023224,
+                                                                                -0.9549999833106995
+                                                                            ],
+                                                                   "name":  "toe.R",
+                                                                   "parent":  "foot.R",
+                                                                   "tail":  [
+                                                                                -0.27000001072883606,
+                                                                                -0.28999999165534973,
+                                                                                -0.9549999833106995
+                                                                            ],
+                                                                   "use_deform":  true
+                                                               }
+                                                           ],
+                              "schema_version":  1
+                          },
+    "control_architecture":  {
+                                 "control_bones":  [
+                                                       "CTRL-face-root",
+                                                       "CTRL-face-eye.L",
+                                                       "CTRL-face-eye.R",
+                                                       "CTRL-face-jaw",
+                                                       "CTRL-face-brow.L",
+                                                       "CTRL-face-brow.R",
+                                                       "CTRL-face-cheek.L",
+                                                       "CTRL-face-cheek.R",
+                                                       "CTRL-face-muzzle",
+                                                       "CTRL-face-lip-upper",
+                                                       "CTRL-face-lip-lower",
+                                                       "CTRL-face-mouth-corner.L",
+                                                       "CTRL-face-mouth-corner.R"
+                                                   ],
+                                 "eye_pivot_objects":  [
+                                                           "R2_EyePivot.L",
+                                                           "R2_EyePivot.R"
+                                                       ],
+                                 "jaw_driver_object":  "R2_JawDriver",
+                                 "runtime_properties":  {
+                                                            "EXP_BLINK_BOTH":  {
+                                                                                   "maximum":  1.0,
+                                                                                   "minimum":  0.0,
+                                                                                   "neutral":  0.0
+                                                                               },
+                                                            "EXP_BLINK_LEFT":  {
+                                                                                   "maximum":  1.0,
+                                                                                   "minimum":  0.0,
+                                                                                   "neutral":  0.0
+                                                                               },
+                                                            "EXP_BLINK_RIGHT":  {
+                                                                                    "maximum":  1.0,
+                                                                                    "minimum":  0.0,
+                                                                                    "neutral":  0.0
+                                                                                },
+                                                            "EXP_BROW_FROWN":  {
+                                                                                   "maximum":  1.0,
+                                                                                   "minimum":  0.0,
+                                                                                   "neutral":  0.0
+                                                                               },
+                                                            "EXP_BROW_RAISE":  {
+                                                                                   "maximum":  1.0,
+                                                                                   "minimum":  0.0,
+                                                                                   "neutral":  0.0
+                                                                               },
+                                                            "EXP_CHEEK_RAISE":  {
+                                                                                    "maximum":  1.0,
+                                                                                    "minimum":  0.0,
+                                                                                    "neutral":  0.0
+                                                                                },
+                                                            "EXP_FROWN":  {
+                                                                              "maximum":  1.0,
+                                                                              "minimum":  0.0,
+                                                                              "neutral":  0.0
+                                                                          },
+                                                            "EXP_JAW_OPEN":  {
+                                                                                 "maximum":  1.0,
+                                                                                 "minimum":  0.0,
+                                                                                 "neutral":  0.0
+                                                                             },
+                                                            "EXP_LIPS_CLOSED":  {
+                                                                                    "maximum":  1.0,
+                                                                                    "minimum":  0.0,
+                                                                                    "neutral":  0.0
+                                                                                },
+                                                            "EXP_MOUTH_E":  {
+                                                                                "maximum":  1.0,
+                                                                                "minimum":  0.0,
+                                                                                "neutral":  0.0
+                                                                            },
+                                                            "EXP_MOUTH_NARROW":  {
+                                                                                     "maximum":  1.0,
+                                                                                     "minimum":  0.0,
+                                                                                     "neutral":  0.0
+                                                                                 },
+                                                            "EXP_MOUTH_O":  {
+                                                                                "maximum":  1.0,
+                                                                                "minimum":  0.0,
+                                                                                "neutral":  0.0
+                                                                            },
+                                                            "EXP_MOUTH_WIDE":  {
+                                                                                   "maximum":  1.0,
+                                                                                   "minimum":  0.0,
+                                                                                   "neutral":  0.0
+                                                                               },
+                                                            "EXP_MUZZLE":  {
+                                                                               "maximum":  1.0,
+                                                                               "minimum":  0.0,
+                                                                               "neutral":  0.0
+                                                                           },
+                                                            "EXP_SMILE":  {
+                                                                              "maximum":  1.0,
+                                                                              "minimum":  0.0,
+                                                                              "neutral":  0.0
+                                                                          },
+                                                            "EYE_AIM_PITCH":  {
+                                                                                  "maximum":  1.0,
+                                                                                  "minimum":  -1.0,
+                                                                                  "neutral":  0.0
+                                                                              },
+                                                            "EYE_AIM_YAW":  {
+                                                                                "maximum":  1.0,
+                                                                                "minimum":  -1.0,
+                                                                                "neutral":  0.0
+                                                                            },
+                                                            "EYE_PITCH.L":  {
+                                                                                "maximum":  1.0,
+                                                                                "minimum":  -1.0,
+                                                                                "neutral":  0.0
+                                                                            },
+                                                            "EYE_PITCH.R":  {
+                                                                                "maximum":  1.0,
+                                                                                "minimum":  -1.0,
+                                                                                "neutral":  0.0
+                                                                            },
+                                                            "EYE_YAW.L":  {
+                                                                              "maximum":  1.0,
+                                                                              "minimum":  -1.0,
+                                                                              "neutral":  0.0
+                                                                          },
+                                                            "EYE_YAW.R":  {
+                                                                              "maximum":  1.0,
+                                                                              "minimum":  -1.0,
+                                                                              "neutral":  0.0
+                                                                          },
+                                                            "VISEME_A":  {
+                                                                             "maximum":  1.0,
+                                                                             "minimum":  0.0,
+                                                                             "neutral":  0.0
+                                                                         },
+                                                            "VISEME_E":  {
+                                                                             "maximum":  1.0,
+                                                                             "minimum":  0.0,
+                                                                             "neutral":  0.0
+                                                                         },
+                                                            "VISEME_FV":  {
+                                                                              "maximum":  1.0,
+                                                                              "minimum":  0.0,
+                                                                              "neutral":  0.0
+                                                                          },
+                                                            "VISEME_L":  {
+                                                                             "maximum":  1.0,
+                                                                             "minimum":  0.0,
+                                                                             "neutral":  0.0
+                                                                         },
+                                                            "VISEME_MBP":  {
+                                                                               "maximum":  1.0,
+                                                                               "minimum":  0.0,
+                                                                               "neutral":  0.0
+                                                                           },
+                                                            "VISEME_O":  {
+                                                                             "maximum":  1.0,
+                                                                             "minimum":  0.0,
+                                                                             "neutral":  0.0
+                                                                         }
+                                                        },
+                                 "schema_version":  1
+                             },
+    "constraints":  [
+
+                    ],
+    "vertex_group_mappings":  {
+                                  "preserved_foundation_groups":  [
+                                                                      "neck",
+                                                                      "head"
+                                                                  ],
+                                  "new_facial_groups":  {
+
+                                                        }
+                              },
+    "shape_key_mappings":  {
+                               "R2_Head_Face_Foundation":  [
+                                                               "Basis",
+                                                               "EXP_BROW_RAISE",
+                                                               "EXP_BROW_FROWN",
+                                                               "EXP_CHEEK_RAISE",
+                                                               "EXP_MUZZLE"
+                                                           ],
+                               "R2_LipLower":  [
+                                                   "Basis",
+                                                   "EXP_LIPS_CLOSED",
+                                                   "EXP_SMILE",
+                                                   "EXP_FROWN",
+                                                   "EXP_MOUTH_NARROW",
+                                                   "EXP_MOUTH_WIDE",
+                                                   "EXP_MOUTH_O",
+                                                   "EXP_MOUTH_E",
+                                                   "EXP_VISEME_FV"
+                                               ],
+                               "R2_LipUpper":  [
+                                                   "Basis",
+                                                   "EXP_LIPS_CLOSED",
+                                                   "EXP_SMILE",
+                                                   "EXP_FROWN",
+                                                   "EXP_MOUTH_NARROW",
+                                                   "EXP_MOUTH_WIDE",
+                                                   "EXP_MOUTH_O",
+                                                   "EXP_MOUTH_E"
+                                               ],
+                               "R2_LowerEyelid.L":  [
+                                                        "Basis",
+                                                        "EXP_BLINK"
+                                                    ],
+                               "R2_LowerEyelid.R":  [
+                                                        "Basis",
+                                                        "EXP_BLINK"
+                                                    ],
+                               "R2_Tongue":  [
+                                                 "Basis",
+                                                 "EXP_VISEME_L"
+                                             ],
+                               "R2_UpperEyelid.L":  [
+                                                        "Basis",
+                                                        "EXP_BLINK"
+                                                    ],
+                               "R2_UpperEyelid.R":  [
+                                                        "Basis",
+                                                        "EXP_BLINK"
+                                                    ]
+                           },
+    "corrective_shape_mappings":  {
+
+                                  },
+    "expression_channels":  {
+                                "BLINK_BOTH":  {
+                                                   "observed":  1.0,
+                                                   "passed":  true,
+                                                   "property":  "EXP_BLINK_BOTH",
+                                                   "status":  "READY"
+                                               },
+                                "BLINK_LEFT":  {
+                                                   "observed":  1.0,
+                                                   "passed":  true,
+                                                   "property":  "EXP_BLINK_LEFT",
+                                                   "status":  "READY"
+                                               },
+                                "BLINK_RIGHT":  {
+                                                    "observed":  1.0,
+                                                    "passed":  true,
+                                                    "property":  "EXP_BLINK_RIGHT",
+                                                    "status":  "READY"
+                                                },
+                                "BROW_FROWN":  {
+                                                   "observed":  1.0,
+                                                   "passed":  true,
+                                                   "property":  "EXP_BROW_FROWN",
+                                                   "status":  "READY"
+                                               },
+                                "BROW_RAISE":  {
+                                                   "observed":  1.0,
+                                                   "passed":  true,
+                                                   "property":  "EXP_BROW_RAISE",
+                                                   "status":  "READY"
+                                               },
+                                "CHEEK_RAISE":  {
+                                                    "observed":  1.0,
+                                                    "passed":  true,
+                                                    "property":  "EXP_CHEEK_RAISE",
+                                                    "status":  "READY"
+                                                },
+                                "EYE_AIM":  {
+                                                "observed":  0.48869219422340393,
+                                                "passed":  true,
+                                                "property":  "EYE_AIM_YAW",
+                                                "status":  "READY"
+                                            },
+                                "EYE_LEFT":  {
+                                                 "observed":  0.48869219422340393,
+                                                 "passed":  true,
+                                                 "property":  "EYE_YAW.L",
+                                                 "status":  "READY"
+                                             },
+                                "EYE_RIGHT":  {
+                                                  "observed":  0.48869219422340393,
+                                                  "passed":  true,
+                                                  "property":  "EYE_YAW.R",
+                                                  "status":  "READY"
+                                              },
+                                "FROWN":  {
+                                              "observed":  1.0,
+                                              "passed":  true,
+                                              "property":  "EXP_FROWN",
+                                              "status":  "READY"
+                                          },
+                                "JAW_OPEN":  {
+                                                 "observed":  0.5585053563117981,
+                                                 "passed":  true,
+                                                 "property":  "EXP_JAW_OPEN",
+                                                 "status":  "READY"
+                                             },
+                                "LIPS_CLOSED":  {
+                                                    "observed":  1.0,
+                                                    "passed":  true,
+                                                    "property":  "EXP_LIPS_CLOSED",
+                                                    "status":  "READY"
+                                                },
+                                "MOUTH_E":  {
+                                                "observed":  1.0,
+                                                "passed":  true,
+                                                "property":  "EXP_MOUTH_E",
+                                                "status":  "READY"
+                                            },
+                                "MOUTH_NARROW":  {
+                                                     "observed":  1.0,
+                                                     "passed":  true,
+                                                     "property":  "EXP_MOUTH_NARROW",
+                                                     "status":  "READY"
+                                                 },
+                                "MOUTH_O":  {
+                                                "observed":  1.0,
+                                                "passed":  true,
+                                                "property":  "EXP_MOUTH_O",
+                                                "status":  "READY"
+                                            },
+                                "MOUTH_WIDE":  {
+                                                   "observed":  1.0,
+                                                   "passed":  true,
+                                                   "property":  "EXP_MOUTH_WIDE",
+                                                   "status":  "READY"
+                                               },
+                                "MUZZLE":  {
+                                               "observed":  1.0,
+                                               "passed":  true,
+                                               "property":  "EXP_MUZZLE",
+                                               "status":  "READY"
+                                           },
+                                "NEUTRAL":  {
+                                                "neutral_reset_exact":  true,
+                                                "property_values":  0.0,
+                                                "status":  "READY"
+                                            },
+                                "SMILE":  {
+                                              "observed":  1.0,
+                                              "passed":  true,
+                                              "property":  "EXP_SMILE",
+                                              "status":  "READY"
+                                          }
+                            },
+    "viseme_channels":  {
+                            "VISEME_A":  {
+                                             "property":  "VISEME_A",
+                                             "runtime_test":  {
+                                                                  "observed":  0.550000011920929,
+                                                                  "passed":  true,
+                                                                  "property":  "VISEME_A"
+                                                              },
+                                             "status":  "READY"
+                                         },
+                            "VISEME_E":  {
+                                             "property":  "VISEME_E",
+                                             "runtime_test":  {
+                                                                  "observed":  1.0,
+                                                                  "passed":  true,
+                                                                  "property":  "VISEME_E"
+                                                              },
+                                             "status":  "READY"
+                                         },
+                            "VISEME_FV":  {
+                                              "property":  "VISEME_FV",
+                                              "runtime_test":  {
+                                                                   "observed":  1.0,
+                                                                   "passed":  true,
+                                                                   "property":  "VISEME_FV"
+                                                               },
+                                              "status":  "READY"
+                                          },
+                            "VISEME_L":  {
+                                             "property":  "VISEME_L",
+                                             "runtime_test":  {
+                                                                  "observed":  1.0,
+                                                                  "passed":  true,
+                                                                  "property":  "VISEME_L"
+                                                              },
+                                             "status":  "READY"
+                                         },
+                            "VISEME_MBP":  {
+                                               "property":  "VISEME_MBP",
+                                               "runtime_test":  {
+                                                                    "observed":  1.0,
+                                                                    "passed":  true,
+                                                                    "property":  "VISEME_MBP"
+                                                                },
+                                               "status":  "READY"
+                                           },
+                            "VISEME_O":  {
+                                             "property":  "VISEME_O",
+                                             "runtime_test":  {
+                                                                  "observed":  1.0,
+                                                                  "passed":  true,
+                                                                  "property":  "VISEME_O"
+                                                              },
+                                             "status":  "READY"
+                                         }
+                        },
+    "runtime_tests":  {
+                          "BLINK_BOTH":  {
+                                             "observed":  1.0,
+                                             "passed":  true,
+                                             "property":  "EXP_BLINK_BOTH"
+                                         },
+                          "BLINK_LEFT":  {
+                                             "observed":  1.0,
+                                             "passed":  true,
+                                             "property":  "EXP_BLINK_LEFT"
+                                         },
+                          "BLINK_RIGHT":  {
+                                              "observed":  1.0,
+                                              "passed":  true,
+                                              "property":  "EXP_BLINK_RIGHT"
+                                          },
+                          "BROW_FROWN":  {
+                                             "observed":  1.0,
+                                             "passed":  true,
+                                             "property":  "EXP_BROW_FROWN"
+                                         },
+                          "BROW_RAISE":  {
+                                             "observed":  1.0,
+                                             "passed":  true,
+                                             "property":  "EXP_BROW_RAISE"
+                                         },
+                          "CHEEK_RAISE":  {
+                                              "observed":  1.0,
+                                              "passed":  true,
+                                              "property":  "EXP_CHEEK_RAISE"
+                                          },
+                          "EYE_AIM":  {
+                                          "observed":  0.48869219422340393,
+                                          "passed":  true,
+                                          "property":  "EYE_AIM_YAW"
+                                      },
+                          "EYE_LEFT":  {
+                                           "observed":  0.48869219422340393,
+                                           "passed":  true,
+                                           "property":  "EYE_YAW.L"
+                                       },
+                          "EYE_RIGHT":  {
+                                            "observed":  0.48869219422340393,
+                                            "passed":  true,
+                                            "property":  "EYE_YAW.R"
+                                        },
+                          "FROWN":  {
+                                        "observed":  1.0,
+                                        "passed":  true,
+                                        "property":  "EXP_FROWN"
+                                    },
+                          "JAW_OPEN":  {
+                                           "observed":  0.5585053563117981,
+                                           "passed":  true,
+                                           "property":  "EXP_JAW_OPEN"
+                                       },
+                          "LIPS_CLOSED":  {
+                                              "observed":  1.0,
+                                              "passed":  true,
+                                              "property":  "EXP_LIPS_CLOSED"
+                                          },
+                          "MOUTH_E":  {
+                                          "observed":  1.0,
+                                          "passed":  true,
+                                          "property":  "EXP_MOUTH_E"
+                                      },
+                          "MOUTH_NARROW":  {
+                                               "observed":  1.0,
+                                               "passed":  true,
+                                               "property":  "EXP_MOUTH_NARROW"
+                                           },
+                          "MOUTH_O":  {
+                                          "observed":  1.0,
+                                          "passed":  true,
+                                          "property":  "EXP_MOUTH_O"
+                                      },
+                          "MOUTH_WIDE":  {
+                                             "observed":  1.0,
+                                             "passed":  true,
+                                             "property":  "EXP_MOUTH_WIDE"
+                                         },
+                          "MUZZLE":  {
+                                         "observed":  1.0,
+                                         "passed":  true,
+                                         "property":  "EXP_MUZZLE"
+                                     },
+                          "SMILE":  {
+                                        "observed":  1.0,
+                                        "passed":  true,
+                                        "property":  "EXP_SMILE"
+                                    },
+                          "VISEME_A":  {
+                                           "observed":  0.550000011920929,
+                                           "passed":  true,
+                                           "property":  "VISEME_A"
+                                       },
+                          "VISEME_E":  {
+                                           "observed":  1.0,
+                                           "passed":  true,
+                                           "property":  "VISEME_E"
+                                       },
+                          "VISEME_FV":  {
+                                            "observed":  1.0,
+                                            "passed":  true,
+                                            "property":  "VISEME_FV"
+                                        },
+                          "VISEME_L":  {
+                                           "observed":  1.0,
+                                           "passed":  true,
+                                           "property":  "VISEME_L"
+                                       },
+                          "VISEME_MBP":  {
+                                             "observed":  1.0,
+                                             "passed":  true,
+                                             "property":  "VISEME_MBP"
+                                         },
+                          "VISEME_O":  {
+                                           "observed":  1.0,
+                                           "passed":  true,
+                                           "property":  "VISEME_O"
+                                       }
+                      },
+    "failed_attempts":  [
+                            {
+                                "checkpoint":  "CHECKPOINT_2_INDEPENDENT_FEASIBILITY_AUDIT",
+                                "result":  "REJECTED_INCONCLUSIVE",
+                                "root_cause":  "Substring semantic matching treated forearm as containing the facial token ear.",
+                                "correction":  "Tokenized names before semantic matching and reran the full independent Blender audit."
+                            },
+                            {
+                                "checkpoint":  "RIG_BUILD_ATTEMPT_1",
+                                "result":  "REJECTED_BEFORE_SAVE",
+                                "root_cause":  "Positional bone-order comparison and same-frame driver evaluation produced false-negative gates.",
+                                "correction":  "Compared bones by identity and forced a frame advance/restore for every driver test; reran build and audits."
+                            }
+                        ],
+    "corrections_performed":  [
+                                  "Replaced substring semantic detection with delimiter-tokenized matching in the independent auditor.",
+                                  "Repeated static syntax/AST validation and the complete Blender feasibility audit.",
+                                  "Restored the unchanged semantic input candidate, corrected bone identity and driver evaluation checks, and reran all affected checkpoints."
+                              ],
+    "published_blend_path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-rig-expression-ready-v1\\r2-head-rig-expression-ready-v1.blend",
+    "published_sha256":  "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97",
+    "independent_audit_result":  {
+                                     "aggregate":  {
+                                                       "invalid_non_manifold":  0,
+                                                       "inverted_closed_meshes":  [
+
+                                                                                  ],
+                                                       "inverted_faces":  0,
+                                                       "unweighted_deform_vertices":  0,
+                                                       "wire_edges":  0,
+                                                       "zero_area_faces":  0
+                                                   },
+                                     "audit_kind":  "INDEPENDENT_HEAD_RIG_EXPRESSION_RUNTIME_AUDIT",
+                                     "candidate":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-rig-expression-ready-v1\\r2-head-rig-expression-ready-v1.blend",
+                                     "candidate_sha256":  "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97",
+                                     "created_images":  0,
+                                     "execution_status":  "COMPLETED",
+                                     "existing_bone_failures":  [
+
+                                                                ],
+                                     "failed_gates":  [
+
+                                                      ],
+                                     "gates":  {
+                                                   "AllRuntimeChannelsPass":  true,
+                                                   "CandidateHashConfirmed":  true,
+                                                   "CreatedImages":  true,
+                                                   "ExistingBonesPreserved":  true,
+                                                   "ExistingObjectsNeutralPreserved":  true,
+                                                   "GLBRoundTrip":  true,
+                                                   "InvalidNonManifold":  true,
+                                                   "InvertedFaces":  true,
+                                                   "NeutralResetExact":  true,
+                                                   "RigStructureConfirmed":  true,
+                                                   "SemanticSourceUnchanged":  true,
+                                                   "ShapeKeyMapConfirmed":  true,
+                                                   "TemporaryGLBRemoved":  true,
+                                                   "UnexpectedMaterialChanges":  true,
+                                                   "UnexpectedWeightChanges":  true,
+                                                   "UnweightedDeformVertices":  true,
+                                                   "WireEdges":  true,
+                                                   "ZeroAreaFaces":  true
+                                               },
+                                     "glb_roundtrip":  {
+                                                           "armatures":  [
+                                                                             "R2_Rig"
+                                                                         ],
+                                                           "foundation_shape_keys":  [
+                                                                                         "Basis",
+                                                                                         "EXP_BROW_RAISE",
+                                                                                         "EXP_BROW_FROWN",
+                                                                                         "EXP_CHEEK_RAISE",
+                                                                                         "EXP_MUZZLE"
+                                                                                     ],
+                                                           "glb_sha256":  "E8BB3EAE7D68659C2E3D5E5A4D2E265F34B03D3763B6FFDFAD82401CB9F2EFE0",
+                                                           "glb_size_bytes":  11567560,
+                                                           "images":  0,
+                                                           "missing_required_objects":  [
+
+                                                                                        ],
+                                                           "passed":  true
+                                                       },
+                                     "independent_audit_approved":  true,
+                                     "jaw_weight_failures":  [
+
+                                                             ],
+                                     "material_failures":  [
+
+                                                           ],
+                                     "neutral_reset":  {
+                                                           "basis_exact":  true,
+                                                           "final_properties_zero":  true,
+                                                           "final_shape_values_zero":  true,
+                                                           "initial_properties_zero":  true,
+                                                           "initial_shape_values_zero":  true
+                                                       },
+                                     "official_consolidated_source_unchanged":  true,
+                                     "preservation_failures":  [
+
+                                                               ],
+                                     "rig_structure_failures":  [
+
+                                                                ],
+                                     "runtime_tests":  {
+                                                           "BLINK_BOTH":  {
+                                                                              "observed":  1.0,
+                                                                              "passed":  true,
+                                                                              "property":  "EXP_BLINK_BOTH"
+                                                                          },
+                                                           "BLINK_LEFT":  {
+                                                                              "observed":  1.0,
+                                                                              "passed":  true,
+                                                                              "property":  "EXP_BLINK_LEFT"
+                                                                          },
+                                                           "BLINK_RIGHT":  {
+                                                                               "observed":  1.0,
+                                                                               "passed":  true,
+                                                                               "property":  "EXP_BLINK_RIGHT"
+                                                                           },
+                                                           "BROW_FROWN":  {
+                                                                              "observed":  1.0,
+                                                                              "passed":  true,
+                                                                              "property":  "EXP_BROW_FROWN"
+                                                                          },
+                                                           "BROW_RAISE":  {
+                                                                              "observed":  1.0,
+                                                                              "passed":  true,
+                                                                              "property":  "EXP_BROW_RAISE"
+                                                                          },
+                                                           "CHEEK_RAISE":  {
+                                                                               "observed":  1.0,
+                                                                               "passed":  true,
+                                                                               "property":  "EXP_CHEEK_RAISE"
+                                                                           },
+                                                           "EYE_AIM":  {
+                                                                           "observed":  0.48869219422340393,
+                                                                           "passed":  true,
+                                                                           "property":  "EYE_AIM_YAW"
+                                                                       },
+                                                           "EYE_LEFT":  {
+                                                                            "observed":  0.48869219422340393,
+                                                                            "passed":  true,
+                                                                            "property":  "EYE_YAW.L"
+                                                                        },
+                                                           "EYE_RIGHT":  {
+                                                                             "observed":  0.48869219422340393,
+                                                                             "passed":  true,
+                                                                             "property":  "EYE_YAW.R"
+                                                                         },
+                                                           "FROWN":  {
+                                                                         "observed":  1.0,
+                                                                         "passed":  true,
+                                                                         "property":  "EXP_FROWN"
+                                                                     },
+                                                           "JAW_OPEN":  {
+                                                                            "observed":  0.5585053563117981,
+                                                                            "passed":  true,
+                                                                            "property":  "EXP_JAW_OPEN"
+                                                                        },
+                                                           "LIPS_CLOSED":  {
+                                                                               "observed":  1.0,
+                                                                               "passed":  true,
+                                                                               "property":  "EXP_LIPS_CLOSED"
+                                                                           },
+                                                           "MOUTH_E":  {
+                                                                           "observed":  1.0,
+                                                                           "passed":  true,
+                                                                           "property":  "EXP_MOUTH_E"
+                                                                       },
+                                                           "MOUTH_NARROW":  {
+                                                                                "observed":  1.0,
+                                                                                "passed":  true,
+                                                                                "property":  "EXP_MOUTH_NARROW"
+                                                                            },
+                                                           "MOUTH_O":  {
+                                                                           "observed":  1.0,
+                                                                           "passed":  true,
+                                                                           "property":  "EXP_MOUTH_O"
+                                                                       },
+                                                           "MOUTH_WIDE":  {
+                                                                              "observed":  1.0,
+                                                                              "passed":  true,
+                                                                              "property":  "EXP_MOUTH_WIDE"
+                                                                          },
+                                                           "MUZZLE":  {
+                                                                          "observed":  1.0,
+                                                                          "passed":  true,
+                                                                          "property":  "EXP_MUZZLE"
+                                                                      },
+                                                           "SMILE":  {
+                                                                         "observed":  1.0,
+                                                                         "passed":  true,
+                                                                         "property":  "EXP_SMILE"
+                                                                     },
+                                                           "VISEME_A":  {
+                                                                            "observed":  0.550000011920929,
+                                                                            "passed":  true,
+                                                                            "property":  "VISEME_A"
+                                                                        },
+                                                           "VISEME_E":  {
+                                                                            "observed":  1.0,
+                                                                            "passed":  true,
+                                                                            "property":  "VISEME_E"
+                                                                        },
+                                                           "VISEME_FV":  {
+                                                                             "observed":  1.0,
+                                                                             "passed":  true,
+                                                                             "property":  "VISEME_FV"
+                                                                         },
+                                                           "VISEME_L":  {
+                                                                            "observed":  1.0,
+                                                                            "passed":  true,
+                                                                            "property":  "VISEME_L"
+                                                                        },
+                                                           "VISEME_MBP":  {
+                                                                              "observed":  1.0,
+                                                                              "passed":  true,
+                                                                              "property":  "VISEME_MBP"
+                                                                          },
+                                                           "VISEME_O":  {
+                                                                            "observed":  1.0,
+                                                                            "passed":  true,
+                                                                            "property":  "VISEME_O"
+                                                                        }
+                                                       },
+                                     "schema_version":  1,
+                                     "semantic_source":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-facial-ocular-oral-assets-ready-v1\\r2-facial-ocular-oral-assets-ready-v1.blend",
+                                     "semantic_source_sha256":  "50D04CFBAEC2A431D96D4060E2AE82045AFBC56A0E74AD1759D156C0222825B3",
+                                     "semantic_source_unchanged":  true,
+                                     "shape_map_failures":  [
+
+                                                            ],
+                                     "source_group_failures":  [
+
+                                                               ],
+                                     "technical_verdict":  "APROVADO",
+                                     "topology":  {
+                                                      "R2_Arm_Fur_R":  {
+                                                                           "boundary_edges":  54,
+                                                                           "connected_islands":  1,
+                                                                           "invalid_non_manifold":  0,
+                                                                           "wire_edges":  0,
+                                                                           "zero_area_faces":  0
+                                                                       },
+                                                      "R2_Eye.L":  {
+                                                                       "boundary_edges":  0,
+                                                                       "connected_islands":  1,
+                                                                       "invalid_non_manifold":  0,
+                                                                       "wire_edges":  0,
+                                                                       "zero_area_faces":  0
+                                                                   },
+                                                      "R2_Eye.R":  {
+                                                                       "boundary_edges":  0,
+                                                                       "connected_islands":  1,
+                                                                       "invalid_non_manifold":  0,
+                                                                       "wire_edges":  0,
+                                                                       "zero_area_faces":  0
+                                                                   },
+                                                      "R2_Hand_L":  {
+                                                                        "boundary_edges":  1266,
+                                                                        "connected_islands":  9,
+                                                                        "invalid_non_manifold":  0,
+                                                                        "wire_edges":  0,
+                                                                        "zero_area_faces":  0
+                                                                    },
+                                                      "R2_Hand_R":  {
+                                                                        "boundary_edges":  1423,
+                                                                        "connected_islands":  14,
+                                                                        "invalid_non_manifold":  0,
+                                                                        "wire_edges":  0,
+                                                                        "zero_area_faces":  0
+                                                                    },
+                                                      "R2_Head_Face":  {
+                                                                           "boundary_edges":  354,
+                                                                           "connected_islands":  1,
+                                                                           "invalid_non_manifold":  0,
+                                                                           "wire_edges":  0,
+                                                                           "zero_area_faces":  0
+                                                                       },
+                                                      "R2_Head_Face_Foundation":  {
+                                                                                      "boundary_edges":  371,
+                                                                                      "connected_islands":  1,
+                                                                                      "invalid_non_manifold":  0,
+                                                                                      "wire_edges":  0,
+                                                                                      "zero_area_faces":  0
+                                                                                  },
+                                                      "R2_Head_Fur":  {
+                                                                          "boundary_edges":  2531,
+                                                                          "connected_islands":  14,
+                                                                          "invalid_non_manifold":  0,
+                                                                          "wire_edges":  0,
+                                                                          "zero_area_faces":  0
+                                                                      },
+                                                      "R2_Hood":  {
+                                                                      "boundary_edges":  1764,
+                                                                      "connected_islands":  6,
+                                                                      "invalid_non_manifold":  0,
+                                                                      "wire_edges":  0,
+                                                                      "zero_area_faces":  0
+                                                                  },
+                                                      "R2_Hood_Cord_L":  {
+                                                                             "boundary_edges":  55,
+                                                                             "connected_islands":  2,
+                                                                             "invalid_non_manifold":  0,
+                                                                             "wire_edges":  0,
+                                                                             "zero_area_faces":  0
+                                                                         },
+                                                      "R2_Hood_Cord_R":  {
+                                                                             "boundary_edges":  54,
+                                                                             "connected_islands":  2,
+                                                                             "invalid_non_manifold":  0,
+                                                                             "wire_edges":  0,
+                                                                             "zero_area_faces":  0
+                                                                         },
+                                                      "R2_Hoodie_Sleeve_L":  {
+                                                                                 "boundary_edges":  751,
+                                                                                 "connected_islands":  3,
+                                                                                 "invalid_non_manifold":  0,
+                                                                                 "wire_edges":  0,
+                                                                                 "zero_area_faces":  0
+                                                                             },
+                                                      "R2_Hoodie_Sleeve_R":  {
+                                                                                 "boundary_edges":  1298,
+                                                                                 "connected_islands":  5,
+                                                                                 "invalid_non_manifold":  0,
+                                                                                 "wire_edges":  0,
+                                                                                 "zero_area_faces":  0
+                                                                             },
+                                                      "R2_Hoodie_Torso":  {
+                                                                              "boundary_edges":  3300,
+                                                                              "connected_islands":  13,
+                                                                              "invalid_non_manifold":  0,
+                                                                              "wire_edges":  0,
+                                                                              "zero_area_faces":  0
+                                                                          },
+                                                      "R2_LipLower":  {
+                                                                          "boundary_edges":  42,
+                                                                          "connected_islands":  1,
+                                                                          "invalid_non_manifold":  0,
+                                                                          "wire_edges":  0,
+                                                                          "zero_area_faces":  0
+                                                                      },
+                                                      "R2_LipUpper":  {
+                                                                          "boundary_edges":  42,
+                                                                          "connected_islands":  1,
+                                                                          "invalid_non_manifold":  0,
+                                                                          "wire_edges":  0,
+                                                                          "zero_area_faces":  0
+                                                                      },
+                                                      "R2_LowerEyelid.L":  {
+                                                                               "boundary_edges":  34,
+                                                                               "connected_islands":  1,
+                                                                               "invalid_non_manifold":  0,
+                                                                               "wire_edges":  0,
+                                                                               "zero_area_faces":  0
+                                                                           },
+                                                      "R2_LowerEyelid.R":  {
+                                                                               "boundary_edges":  34,
+                                                                               "connected_islands":  1,
+                                                                               "invalid_non_manifold":  0,
+                                                                               "wire_edges":  0,
+                                                                               "zero_area_faces":  0
+                                                                           },
+                                                      "R2_MouthInterior":  {
+                                                                               "boundary_edges":  0,
+                                                                               "connected_islands":  1,
+                                                                               "invalid_non_manifold":  0,
+                                                                               "wire_edges":  0,
+                                                                               "zero_area_faces":  0
+                                                                           },
+                                                      "R2_Pants":  {
+                                                                       "boundary_edges":  5041,
+                                                                       "connected_islands":  18,
+                                                                       "invalid_non_manifold":  0,
+                                                                       "wire_edges":  0,
+                                                                       "zero_area_faces":  0
+                                                                   },
+                                                      "R2_Shoe_L":  {
+                                                                        "boundary_edges":  957,
+                                                                        "connected_islands":  3,
+                                                                        "invalid_non_manifold":  0,
+                                                                        "wire_edges":  0,
+                                                                        "zero_area_faces":  0
+                                                                    },
+                                                      "R2_Shoe_R":  {
+                                                                        "boundary_edges":  815,
+                                                                        "connected_islands":  2,
+                                                                        "invalid_non_manifold":  0,
+                                                                        "wire_edges":  0,
+                                                                        "zero_area_faces":  0
+                                                                    },
+                                                      "R2_TeethLower":  {
+                                                                            "boundary_edges":  0,
+                                                                            "connected_islands":  1,
+                                                                            "invalid_non_manifold":  0,
+                                                                            "wire_edges":  0,
+                                                                            "zero_area_faces":  0
+                                                                        },
+                                                      "R2_TeethUpper":  {
+                                                                            "boundary_edges":  0,
+                                                                            "connected_islands":  1,
+                                                                            "invalid_non_manifold":  0,
+                                                                            "wire_edges":  0,
+                                                                            "zero_area_faces":  0
+                                                                        },
+                                                      "R2_Tongue":  {
+                                                                        "boundary_edges":  0,
+                                                                        "connected_islands":  1,
+                                                                        "invalid_non_manifold":  0,
+                                                                        "wire_edges":  0,
+                                                                        "zero_area_faces":  0
+                                                                    },
+                                                      "R2_UpperEyelid.L":  {
+                                                                               "boundary_edges":  34,
+                                                                               "connected_islands":  1,
+                                                                               "invalid_non_manifold":  0,
+                                                                               "wire_edges":  0,
+                                                                               "zero_area_faces":  0
+                                                                           },
+                                                      "R2_UpperEyelid.R":  {
+                                                                               "boundary_edges":  34,
+                                                                               "connected_islands":  1,
+                                                                               "invalid_non_manifold":  0,
+                                                                               "wire_edges":  0,
+                                                                               "zero_area_faces":  0
+                                                                           }
+                                                  }
+                                 },
+    "next_phase":  "FULL_CHARACTER_RIG_INTEGRATION_AND_WEB_RUNTIME",
+    "next_action":  "FULL_CHARACTER_RIG_INTEGRATION_AND_WEB_RUNTIME",
+    "blocking_reason":  null,
+    "official_source_unchanged":  true,
+    "previous_official_versions_unchanged":  true,
+    "created_images":  0,
+    "local_datetime":  "2026-08-01T14:17:20.0995766-03:00",
+    "historical_consolidated_source":  {
+                                           "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-consolidated-rig-ready-v1\\r2-head-consolidated-rig-ready-v1.blend",
+                                           "sha256":  "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B"
+                                       },
+    "certified_semantic_input":  {
+                                     "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-facial-ocular-oral-assets-ready-v1\\r2-facial-ocular-oral-assets-ready-v1.blend",
+                                     "sha256":  "50D04CFBAEC2A431D96D4060E2AE82045AFBC56A0E74AD1759D156C0222825B3",
+                                     "landmark_certificate":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FACIAL_LANDMARK_CERTIFICATE.json",
+                                     "ocular_certificate":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_OCULAR_ASSET_CERTIFICATE.json",
+                                     "oral_certificate":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_ORAL_ASSET_CERTIFICATE.json",
+                                     "independent_audit":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FACIAL_ASSET_PUBLICATION_REOPEN_AUDIT.json"
+                                 },
+    "head_rigging_and_expression_system_complete":  true,
+    "head_rigging_confirmed":  true,
+    "expression_system_confirmed":  true,
+    "published_blend_reopened":  true,
+    "neutral_reset_exact":  true,
+    "final_gates":  {
+                        "UnexpectedGeometryChanges":  0,
+                        "UnexpectedWeightChanges":  0,
+                        "UnexpectedMaterialChanges":  0,
+                        "WireEdges":  0,
+                        "InvalidNonManifold":  0,
+                        "UnweightedDeformVertices":  0,
+                        "InvertedFaces":  0,
+                        "ZeroAreaFaces":  0,
+                        "FailedGates":  "NONE",
+                        "CreatedImages":  0
+                    },
+    "artifact_sha256":  {
+                            "R2_HEAD_RIG_BUILD_REPORT.json":  "3255E80CF5C9921694A48D5754E976F729AE2F4DCF3F418C578C80543D7B9073",
+                            "R2_HEAD_RIG_BONE_MAP.json":  "90457E735F5D8BBB08D856BDC93247D88C4D5CBB3AA8B58548FE96C9AEA0C44E",
+                            "R2_HEAD_RIG_CONTROL_MAP.json":  "15CDDA47BBE250CA7D89EB4D66AB182B60D678ECABAAEA7040895EF95A53A941",
+                            "R2_HEAD_RIG_SHAPE_KEY_MAP.json":  "58A7F2D725211C4DD45EA7B4CB277433081C7FC1F2AD4D0E0CF5D7A90777F1E2",
+                            "R2_EXPRESSION_SYSTEM_SPEC.json":  "3D76BAA34AC4CEE4355D054DB3A65BFFE5FE5D8F43E49F37187AAF4069CBB591",
+                            "R2_EXPRESSION_CHANNEL_MAP.json":  "34AC358EFBE29DF04D3B1DDBE50AD84D8DAB88FF8AE5E704B193A902EE14A828",
+                            "R2_VISEME_READINESS_MAP.json":  "14DFBDF9440FE926D750F6B3375578C7E85FEA662CFE91B9D2C6D8E13F4DECC5",
+                            "R2_HEAD_RIG_RUNTIME_TEST_RESULTS.json":  "5D47069B52585418552998E54A4EAB8C115501E49F3A291F19F2E4D26853AAB1",
+                            "R2_HEAD_RIG_INDEPENDENT_AUDIT.json":  "9FD82E9F22D5F3AE3EDB5A5E3E9D63D501DD7894607EFA70423B5B4AE2A146F5",
+                            "R2_HEAD_RIG_PUBLICATION_REOPEN_AUDIT.json":  "821DC33673885B6EF6ED63218336359B2CB2293CC74F72B79BB2424E7D30CB8D",
+                            "R2_HEAD_RIG_INDEPENDENT_AUDIT.md":  "CD618B5AFB4F0449B93DDB4BDC0749A6C78354940E51F53954F50F6DDF3E24B5",
+                            "R2_HEAD_RIG_FINAL_INTEGRITY_REPORT.md":  "586D73828B1D9AAB4B99DB918364787E3E60175380D75817011097E96BA4C849",
+                            "R2_HEAD_RIGGING_FINAL_REPORT.md":  "1B526594FD04C46EE003A703C325164AFAF56BA3E052BB4A62D32E57706F8733",
+                            "R2_FACIAL_ASSET_AND_RIG_RESUME_FINAL_REPORT.md":  "64A769C364EE7DEFF59C0CB591D37215E23BB7632409DED6BF5C6887808C343A"
+                        }
+}

@@ -38,6 +38,8 @@ export default async function MissionControlPage() {
   const dashboardData =
     await getAsyncDashboardData(
       {
+        workspaceId:
+          workspace.id,
         now: new Date(),
       },
       {

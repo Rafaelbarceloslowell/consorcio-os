@@ -1,0 +1,427 @@
+{
+  "schemaVersion": 1,
+  "audit": "R2_STATE_ANIMATION_ORCHESTRATION_V1_THREE_RUNTIME",
+  "glbPath": "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-color-readable-ready-v2.glb",
+  "blendPath": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\r2-full-character-color-readable-ready-v2.blend",
+  "glbSha256": "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE",
+  "blendSha256": "2EEC504BFC6F3C0D0B1BF6B1EFA932445142DCB61527E94A64F9C4A3A5EE491D",
+  "metrics": {
+    "threeObjectCount": 115,
+    "threePrimitiveMeshCount": 37,
+    "threeVisiblePrimitiveMeshCount": 37,
+    "gltfNodeCount": 100,
+    "gltfMeshAssetCount": 29,
+    "gltfRenderableNodeCount": 29,
+    "materialCount": 17,
+    "renderablesWithoutMaterial": [],
+    "boneCount": 65,
+    "morphTargetOccurrences": 24,
+    "animationCount": 9
+  },
+  "morphTargets": [
+    {
+      "object": "R2_Head_Face_Foundation",
+      "name": "EXP_BROW_RAISE",
+      "index": 0
+    },
+    {
+      "object": "R2_Head_Face_Foundation",
+      "name": "EXP_BROW_FROWN",
+      "index": 1
+    },
+    {
+      "object": "R2_Head_Face_Foundation",
+      "name": "EXP_CHEEK_RAISE",
+      "index": 2
+    },
+    {
+      "object": "R2_Head_Face_Foundation",
+      "name": "EXP_MUZZLE",
+      "index": 3
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_LIPS_CLOSED",
+      "index": 0
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_SMILE",
+      "index": 1
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_FROWN",
+      "index": 2
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_MOUTH_NARROW",
+      "index": 3
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_MOUTH_WIDE",
+      "index": 4
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_MOUTH_O",
+      "index": 5
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_MOUTH_E",
+      "index": 6
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_VISEME_FV",
+      "index": 7
+    },
+    {
+      "object": "R2_Tongue",
+      "name": "EXP_VISEME_L",
+      "index": 0
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_LIPS_CLOSED",
+      "index": 0
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_SMILE",
+      "index": 1
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_FROWN",
+      "index": 2
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_MOUTH_NARROW",
+      "index": 3
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_MOUTH_WIDE",
+      "index": 4
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_MOUTH_O",
+      "index": 5
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_MOUTH_E",
+      "index": 6
+    },
+    {
+      "object": "R2_LowerEyelidL",
+      "name": "EXP_BLINK",
+      "index": 0
+    },
+    {
+      "object": "R2_LowerEyelidR",
+      "name": "EXP_BLINK",
+      "index": 0
+    },
+    {
+      "object": "R2_UpperEyelidL",
+      "name": "EXP_BLINK",
+      "index": 0
+    },
+    {
+      "object": "R2_UpperEyelidR",
+      "name": "EXP_BLINK",
+      "index": 0
+    }
+  ],
+  "clipNames": [
+    "R2_ALERT",
+    "R2_AWAITING_ACTION",
+    "R2_CELEBRATING_SALE",
+    "R2_ERROR_ATTENTION",
+    "R2_IDLE",
+    "R2_LISTENING",
+    "R2_NEUTRAL",
+    "R2_THINKING",
+    "R2_WORKING"
+  ],
+  "stateNames": [
+    "neutral",
+    "idle",
+    "working",
+    "listening",
+    "thinking",
+    "awaiting_action",
+    "alert",
+    "speaking",
+    "celebrating_sale",
+    "error_attention"
+  ],
+  "transitionsChecked": 100,
+  "averageTransitionAuditMs": 21.482778,
+  "stressDiagnostics": {
+    "requestedState": "neutral",
+    "effectiveState": "celebrating_sale",
+    "activeClip": "R2_CELEBRATING_SALE",
+    "elapsedInStateMs": 320,
+    "reducedMotion": true,
+    "actionsCreated": 9,
+    "actionsReused": 703,
+    "maximumSimultaneousActions": 2,
+    "activeActions": 0,
+    "transitionsApplied": 653,
+    "transitionsIgnored": 392,
+    "fallbacks": 14,
+    "mixerListeners": 1,
+    "pendingState": "neutral"
+  },
+  "disposedDiagnostics": {
+    "requestedState": "neutral",
+    "effectiveState": "neutral",
+    "activeClip": null,
+    "elapsedInStateMs": 0,
+    "reducedMotion": true,
+    "actionsCreated": 0,
+    "actionsReused": 703,
+    "maximumSimultaneousActions": 2,
+    "activeActions": 0,
+    "transitionsApplied": 653,
+    "transitionsIgnored": 392,
+    "fallbacks": 14,
+    "mixerListeners": 0,
+    "pendingState": null
+  },
+  "mountUnmountCycles": 100,
+  "transformsFinite": true,
+  "stateBounds": {
+    "neutral": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    },
+    "idle": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    },
+    "working": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    },
+    "listening": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    },
+    "thinking": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    },
+    "awaiting_action": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    },
+    "alert": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    },
+    "speaking": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    },
+    "celebrating_sale": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    },
+    "error_attention": {
+      "minimum": [
+        -0.5331110435586307,
+        -0.999999631917856,
+        -0.3057898099530167
+      ],
+      "maximum": [
+        0.5331110287652281,
+        0.9999997504771301,
+        0.30660946387797594
+      ],
+      "center": [
+        -7.3967013070053156e-9,
+        5.927963703244998e-8,
+        0.0004098269624796258
+      ],
+      "size": [
+        1.0662220723238587,
+        1.9999993823949862,
+        0.6123992738309927
+      ]
+    }
+  },
+  "boundsPassed": true,
+  "passed": true,
+  "verdict": "APROVADO"
+}

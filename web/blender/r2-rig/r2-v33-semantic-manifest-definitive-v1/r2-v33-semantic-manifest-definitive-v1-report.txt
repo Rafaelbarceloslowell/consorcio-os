@@ -1,0 +1,16 @@
+R2 AAA-WEB - MANIFESTO SEMANTICO DEFINITIVO
+
+generated_at_utc=2026-07-30T00:31:52.517771+00:00
+classification_completed=true
+component_count=110
+pending_count=0
+retopology_count=48
+rebuild_count=43
+rigid_count=2
+delete_count=17
+blend_executed=false
+blend_saved=false
+source_modified=false
+source_sha256=392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1
+
+delete_component_ids=C025,C040,C041,C043,C055,C056,C060,C071,C072,C083,C084,C088,C090,C092,C099,C101,C102

@@ -1,0 +1,15 @@
+R2 AAA-WEB - DIAGNOSTICO DOS COMPONENTES OCULTOS
+
+generated_at_utc=2026-07-30T00:13:42.862138+00:00
+source=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend
+source_sha256_before=392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1
+source_sha256_after=392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1
+source_unchanged=true
+package=r2-v32-semantic-hidden-components-diagnostic-v1
+pending_components=11
+frames=88
+views_per_component=8
+semantic_classification_completed=false
+blend_saved=false
+
+pending_component_ids=C009,C013,C014,C028,C034,C055,C057,C066,C069,C070,C074

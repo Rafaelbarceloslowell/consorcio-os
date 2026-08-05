@@ -1,0 +1,136 @@
+{
+  "authorized_zone": "ORAL_OPENING_WITHIN_R2_REGION_ID_1",
+  "created_objects": [
+    "R2_Eye.L",
+    "R2_Eye.R",
+    "R2_EyePivot.L",
+    "R2_EyePivot.R",
+    "R2_JawPivot.L",
+    "R2_JawPivot.R",
+    "R2_LipLower",
+    "R2_LipUpper",
+    "R2_LowerEyelid.L",
+    "R2_LowerEyelid.R",
+    "R2_MouthInterior",
+    "R2_TeethLower",
+    "R2_TeethUpper",
+    "R2_Tongue",
+    "R2_UpperEyelid.L",
+    "R2_UpperEyelid.R"
+  ],
+  "existing_vertex_coordinates_changed": 0,
+  "foundation_mesh": "R2_Head_Face_Foundation_Mesh",
+  "foundation_object": "R2_Head_Face_Foundation",
+  "mask_sha256": "6045D6C3CB6C1A167C3D1B2E279D405C3C47F3E32BF21051CA4C876EE4FEED7A",
+  "removed_original_face_indices": [
+    6766,
+    6767,
+    6768,
+    6769,
+    6770,
+    6797,
+    6798,
+    6799,
+    6800,
+    6801,
+    6804,
+    6805,
+    6806,
+    6807,
+    6843
+  ],
+  "removed_original_face_vertices": {
+    "6766": [
+      3580,
+      3534,
+      3533,
+      3579
+    ],
+    "6767": [
+      3581,
+      3535,
+      3534,
+      3580
+    ],
+    "6768": [
+      3582,
+      3536,
+      3535,
+      3581
+    ],
+    "6769": [
+      3583,
+      3539,
+      3536,
+      3582
+    ],
+    "6770": [
+      3584,
+      3540,
+      3539,
+      3583
+    ],
+    "6797": [
+      3611,
+      3574,
+      3573,
+      3610
+    ],
+    "6798": [
+      3612,
+      3575,
+      3574,
+      3611
+    ],
+    "6799": [
+      3613,
+      3576,
+      3575,
+      3612
+    ],
+    "6800": [
+      3614,
+      3577,
+      3576,
+      3613
+    ],
+    "6801": [
+      3615,
+      3578,
+      3577,
+      3614
+    ],
+    "6804": [
+      3618,
+      3581,
+      3580,
+      3617
+    ],
+    "6805": [
+      3619,
+      3582,
+      3581,
+      3618
+    ],
+    "6806": [
+      3620,
+      3583,
+      3582,
+      3619
+    ],
+    "6807": [
+      3621,
+      3584,
+      3583,
+      3620
+    ],
+    "6843": [
+      3511,
+      3621,
+      3620,
+      3507
+    ]
+  },
+  "schema_version": 1,
+  "source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B"
+}

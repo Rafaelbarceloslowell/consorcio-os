@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "seed": 20260802,
+  "requests": 1000,
+  "invalidRequests": 14,
+  "statusCounts": {
+    "applied": 594,
+    "fallback": 14,
+    "deferred": 333,
+    "repeated": 50,
+    "cooldown": 9
+  },
+  "effectiveTransitions": 653,
+  "ignoredTransitions": 392,
+  "fallbacks": 14,
+  "errors": 0,
+  "maximumSimultaneousActions": 2,
+  "maximumSimultaneousMixers": 1,
+  "actionsCreated": 9,
+  "mixerListenersBeforeDispose": 1,
+  "mixerListenersAfterDispose": 0,
+  "controllerTimersBeforeDispose": 0,
+  "controllerTimersAfterDispose": 0,
+  "heapStartBytes": 22940592,
+  "heapBeforeDisposeBytes": 26708936,
+  "heapEndBytes": 28621888,
+  "elapsedMs": 3244.768900000001,
+  "mountUnmountCycles": 100,
+  "lifecycleElapsedMs": 3629.317899999998,
+  "maximumMountedActions": 9,
+  "verdict": "APROVADO"
+}

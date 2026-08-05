@@ -1,0 +1,10 @@
+R2_DEFORMATION_CAGE_OK
+blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v17-deformation-cage.blend
+source_vertices=197505
+cage_vertices=43272
+cage_polygons=43270
+cage_components=3
+voxel_size=0.0125
+dimensions=1.064696,0.609951,1.998224
+original_body_unchanged=true
+status=deformation_cage_created

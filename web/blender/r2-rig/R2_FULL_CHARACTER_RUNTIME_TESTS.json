@@ -1,0 +1,1122 @@
+{
+  "animation_clips_tested": 9,
+  "audit_kind": "R2_FULL_CHARACTER_COMBINED_DEFORMATION_RUNTIME_TESTS",
+  "candidate": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\._r2_full_character_integration_20260801_143352\\r2-full-character-runtime-ready-v1.candidate.blend",
+  "candidate_sha256": "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269",
+  "channel_failures": [],
+  "channel_results": {
+    "BLINK_BOTH": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_BLINK_BOTH"
+    },
+    "BLINK_LEFT": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_BLINK_LEFT"
+    },
+    "BLINK_RIGHT": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_BLINK_RIGHT"
+    },
+    "BROW_FROWN": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_BROW_FROWN"
+    },
+    "BROW_RAISE": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_BROW_RAISE"
+    },
+    "CHEEK_RAISE": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_CHEEK_RAISE"
+    },
+    "EYE_AIM": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.12217304855585098
+        },
+        {
+          "level": 0.5,
+          "observed": 0.24434609711170197
+        },
+        {
+          "level": 0.75,
+          "observed": 0.36651915311813354
+        },
+        {
+          "level": 1.0,
+          "observed": 0.48869219422340393
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EYE_AIM_YAW"
+    },
+    "EYE_LEFT": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.12217304855585098
+        },
+        {
+          "level": 0.5,
+          "observed": 0.24434609711170197
+        },
+        {
+          "level": 0.75,
+          "observed": 0.36651915311813354
+        },
+        {
+          "level": 1.0,
+          "observed": 0.48869219422340393
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EYE_YAW.L"
+    },
+    "EYE_RIGHT": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.12217304855585098
+        },
+        {
+          "level": 0.5,
+          "observed": 0.24434609711170197
+        },
+        {
+          "level": 0.75,
+          "observed": 0.36651915311813354
+        },
+        {
+          "level": 1.0,
+          "observed": 0.48869219422340393
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EYE_YAW.R"
+    },
+    "FROWN": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_FROWN"
+    },
+    "JAW_OPEN": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.13962633907794952
+        },
+        {
+          "level": 0.5,
+          "observed": 0.27925267815589905
+        },
+        {
+          "level": 0.75,
+          "observed": 0.41887903213500977
+        },
+        {
+          "level": 1.0,
+          "observed": 0.5585053563117981
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_JAW_OPEN"
+    },
+    "LIPS_CLOSED": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_LIPS_CLOSED"
+    },
+    "MOUTH_E": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_MOUTH_E"
+    },
+    "MOUTH_NARROW": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_MOUTH_NARROW"
+    },
+    "MOUTH_O": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_MOUTH_O"
+    },
+    "MOUTH_WIDE": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_MOUTH_WIDE"
+    },
+    "MUZZLE": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_MUZZLE"
+    },
+    "SMILE": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "EXP_SMILE"
+    },
+    "VISEME_A": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.13750000298023224
+        },
+        {
+          "level": 0.5,
+          "observed": 0.2750000059604645
+        },
+        {
+          "level": 0.75,
+          "observed": 0.4124999940395355
+        },
+        {
+          "level": 1.0,
+          "observed": 0.550000011920929
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "VISEME_A"
+    },
+    "VISEME_E": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "VISEME_E"
+    },
+    "VISEME_FV": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "VISEME_FV"
+    },
+    "VISEME_L": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "VISEME_L"
+    },
+    "VISEME_MBP": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "VISEME_MBP"
+    },
+    "VISEME_O": {
+      "levels": [
+        {
+          "level": 0.0,
+          "observed": 0.0
+        },
+        {
+          "level": 0.25,
+          "observed": 0.25
+        },
+        {
+          "level": 0.5,
+          "observed": 0.5
+        },
+        {
+          "level": 0.75,
+          "observed": 0.75
+        },
+        {
+          "level": 1.0,
+          "observed": 1.0
+        }
+      ],
+      "monotonic": true,
+      "neutral_reset_exact": true,
+      "passed": true,
+      "property": "VISEME_O"
+    }
+  },
+  "combined_failures": [],
+  "combined_results": {
+    "alert_expression_plus_body_alert": {
+      "action": "R2_ALERT",
+      "frame": 18,
+      "neutral_reset_exact": true,
+      "observed": 0.75,
+      "passed": true,
+      "property": "EXP_BROW_RAISE"
+    },
+    "all_pair_transitions": {
+      "failures": [],
+      "passed": true,
+      "tested": 100
+    },
+    "blink_during_every_state": {
+      "alert": {
+        "clip": "R2_ALERT",
+        "observed": 1.0,
+        "passed": true
+      },
+      "awaiting_action": {
+        "clip": "R2_AWAITING_ACTION",
+        "observed": 1.0,
+        "passed": true
+      },
+      "celebrating_sale": {
+        "clip": "R2_CELEBRATING_SALE",
+        "observed": 1.0,
+        "passed": true
+      },
+      "error_attention": {
+        "clip": "R2_ERROR_ATTENTION",
+        "observed": 1.0,
+        "passed": true
+      },
+      "idle": {
+        "clip": "R2_IDLE",
+        "observed": 1.0,
+        "passed": true
+      },
+      "listening": {
+        "clip": "R2_LISTENING",
+        "observed": 1.0,
+        "passed": true
+      },
+      "neutral": {
+        "clip": "R2_NEUTRAL",
+        "observed": 1.0,
+        "passed": true
+      },
+      "speaking": {
+        "clip": "R2_IDLE",
+        "observed": 1.0,
+        "passed": true
+      },
+      "thinking": {
+        "clip": "R2_THINKING",
+        "observed": 1.0,
+        "passed": true
+      },
+      "working": {
+        "clip": "R2_WORKING",
+        "observed": 1.0,
+        "passed": true
+      }
+    },
+    "head_rotation_plus_blink": {
+      "action": "R2_LISTENING",
+      "frame": 46,
+      "neutral_reset_exact": true,
+      "observed": 0.75,
+      "passed": true,
+      "property": "EXP_BLINK_BOTH"
+    },
+    "interruptions": {
+      "celebrating_by_neutral": {
+        "passed": true
+      },
+      "speaking_by_alert": {
+        "passed": true
+      }
+    },
+    "jaw_open_plus_head_rotation": {
+      "action": "R2_ALERT",
+      "frame": 18,
+      "neutral_reset_exact": true,
+      "observed": 0.41887903213500977,
+      "passed": true,
+      "property": "EXP_JAW_OPEN"
+    },
+    "listening_expression_plus_eye_target": {
+      "action": "R2_LISTENING",
+      "frame": 46,
+      "neutral_reset_exact": true,
+      "observed": 0.36651915311813354,
+      "passed": true,
+      "property": "EYE_AIM_YAW"
+    },
+    "long_running_idle": {
+      "cycles": 100,
+      "failures": [],
+      "passed": true,
+      "samples": 500
+    },
+    "neck_rotation_plus_eye_aim": {
+      "action": "R2_THINKING",
+      "frame": 46,
+      "neutral_reset_exact": true,
+      "observed": 0.36651915311813354,
+      "passed": true,
+      "property": "EYE_AIM_YAW"
+    },
+    "repeated_transition_cycles": {
+      "cycles": 10,
+      "failures": [],
+      "passed": true,
+      "state_applications": 100
+    },
+    "smile_plus_celebrating": {
+      "action": "R2_CELEBRATING_SALE",
+      "frame": 36,
+      "neutral_reset_exact": true,
+      "observed": 0.75,
+      "passed": true,
+      "property": "EXP_SMILE"
+    },
+    "speaking_viseme_plus_idle": {
+      "action": "R2_IDLE",
+      "frame": 60,
+      "neutral_reset_exact": true,
+      "observed": 0.4124999940395355,
+      "passed": true,
+      "property": "VISEME_A"
+    },
+    "thinking_expression_plus_eye_target": {
+      "action": "R2_THINKING",
+      "frame": 46,
+      "neutral_reset_exact": true,
+      "observed": 0.75,
+      "passed": true,
+      "property": "EXP_BROW_RAISE"
+    }
+  },
+  "created_images": 0,
+  "execution_status": "COMPLETED",
+  "expression_channels_preserved": 24,
+  "expression_level_samples": 120,
+  "failed_gates": [],
+  "head_body_attachment_stable": true,
+  "neutral_reset_exact": true,
+  "official_sources_unchanged": true,
+  "runtime_states_tested": 10,
+  "schema_version": 1,
+  "source_hashes": {
+    "anatomical": "50D04CFBAEC2A431D96D4060E2AE82045AFBC56A0E74AD1759D156C0222825B3",
+    "body": "392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1",
+    "head": "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97"
+  },
+  "technical_verdict": "APROVADO",
+  "topology": {
+    "invalid_non_manifold": 0,
+    "inverted_closed_meshes": [],
+    "inverted_faces": 0,
+    "per_mesh": {
+      "R2_Arm_Fur_R": {
+        "boundary_edges": 54,
+        "connected_islands": 1,
+        "edges": 354,
+        "faces": 218,
+        "invalid_non_manifold": 0,
+        "vertices": 137,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Eye.L": {
+        "boundary_edges": 0,
+        "connected_islands": 1,
+        "edges": 992,
+        "faces": 512,
+        "invalid_non_manifold": 0,
+        "vertices": 482,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Eye.R": {
+        "boundary_edges": 0,
+        "connected_islands": 1,
+        "edges": 992,
+        "faces": 512,
+        "invalid_non_manifold": 0,
+        "vertices": 482,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Hand_L": {
+        "boundary_edges": 1266,
+        "connected_islands": 9,
+        "edges": 27603,
+        "faces": 17980,
+        "invalid_non_manifold": 0,
+        "vertices": 9586,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Hand_R": {
+        "boundary_edges": 1423,
+        "connected_islands": 14,
+        "edges": 30467,
+        "faces": 19837,
+        "invalid_non_manifold": 0,
+        "vertices": 10588,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Head_Face": {
+        "boundary_edges": 354,
+        "connected_islands": 1,
+        "edges": 10806,
+        "faces": 7086,
+        "invalid_non_manifold": 0,
+        "vertices": 3697,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Head_Face_Foundation": {
+        "boundary_edges": 371,
+        "connected_islands": 4,
+        "edges": 10508,
+        "faces": 6832,
+        "invalid_non_manifold": 0,
+        "vertices": 3654,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Head_Fur": {
+        "boundary_edges": 2531,
+        "connected_islands": 14,
+        "edges": 53788,
+        "faces": 35015,
+        "invalid_non_manifold": 0,
+        "vertices": 18673,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Hood": {
+        "boundary_edges": 1764,
+        "connected_islands": 6,
+        "edges": 53562,
+        "faces": 35120,
+        "invalid_non_manifold": 0,
+        "vertices": 18418,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Hood_Cord_L": {
+        "boundary_edges": 55,
+        "connected_islands": 2,
+        "edges": 425,
+        "faces": 265,
+        "invalid_non_manifold": 0,
+        "vertices": 162,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Hood_Cord_R": {
+        "boundary_edges": 54,
+        "connected_islands": 2,
+        "edges": 339,
+        "faces": 208,
+        "invalid_non_manifold": 0,
+        "vertices": 132,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Hoodie_Sleeve_L": {
+        "boundary_edges": 751,
+        "connected_islands": 3,
+        "edges": 21137,
+        "faces": 13841,
+        "invalid_non_manifold": 0,
+        "vertices": 7290,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Hoodie_Sleeve_R": {
+        "boundary_edges": 1298,
+        "connected_islands": 5,
+        "edges": 41548,
+        "faces": 27266,
+        "invalid_non_manifold": 0,
+        "vertices": 14274,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Hoodie_Torso": {
+        "boundary_edges": 3300,
+        "connected_islands": 13,
+        "edges": 110166,
+        "faces": 72344,
+        "invalid_non_manifold": 0,
+        "vertices": 37815,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_LipLower": {
+        "boundary_edges": 42,
+        "connected_islands": 1,
+        "edges": 61,
+        "faces": 20,
+        "invalid_non_manifold": 0,
+        "vertices": 42,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_LipUpper": {
+        "boundary_edges": 42,
+        "connected_islands": 1,
+        "edges": 61,
+        "faces": 20,
+        "invalid_non_manifold": 0,
+        "vertices": 42,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_LowerEyelid.L": {
+        "boundary_edges": 34,
+        "connected_islands": 1,
+        "edges": 49,
+        "faces": 16,
+        "invalid_non_manifold": 0,
+        "vertices": 34,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_LowerEyelid.R": {
+        "boundary_edges": 34,
+        "connected_islands": 1,
+        "edges": 49,
+        "faces": 16,
+        "invalid_non_manifold": 0,
+        "vertices": 34,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_MouthInterior": {
+        "boundary_edges": 0,
+        "connected_islands": 1,
+        "edges": 756,
+        "faces": 392,
+        "invalid_non_manifold": 0,
+        "vertices": 366,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Pants": {
+        "boundary_edges": 5041,
+        "connected_islands": 18,
+        "edges": 158981,
+        "faces": 104307,
+        "invalid_non_manifold": 0,
+        "vertices": 54599,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Shoe_L": {
+        "boundary_edges": 957,
+        "connected_islands": 3,
+        "edges": 32577,
+        "faces": 21399,
+        "invalid_non_manifold": 0,
+        "vertices": 11144,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Shoe_R": {
+        "boundary_edges": 815,
+        "connected_islands": 2,
+        "edges": 32014,
+        "faces": 21071,
+        "invalid_non_manifold": 0,
+        "vertices": 10911,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_TeethLower": {
+        "boundary_edges": 0,
+        "connected_islands": 1,
+        "edges": 108,
+        "faces": 54,
+        "invalid_non_manifold": 0,
+        "vertices": 56,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_TeethUpper": {
+        "boundary_edges": 0,
+        "connected_islands": 1,
+        "edges": 108,
+        "faces": 54,
+        "invalid_non_manifold": 0,
+        "vertices": 56,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_Tongue": {
+        "boundary_edges": 0,
+        "connected_islands": 1,
+        "edges": 552,
+        "faces": 288,
+        "invalid_non_manifold": 0,
+        "vertices": 266,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_UpperEyelid.L": {
+        "boundary_edges": 34,
+        "connected_islands": 1,
+        "edges": 49,
+        "faces": 16,
+        "invalid_non_manifold": 0,
+        "vertices": 34,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      },
+      "R2_UpperEyelid.R": {
+        "boundary_edges": 34,
+        "connected_islands": 1,
+        "edges": 49,
+        "faces": 16,
+        "invalid_non_manifold": 0,
+        "vertices": 34,
+        "wire_edges": 0,
+        "zero_area_faces": 0
+      }
+    },
+    "unweighted_deform_vertices": 0,
+    "unweighted_samples": [],
+    "wire_edges": 0,
+    "zero_area_faces": 0
+  }
+}

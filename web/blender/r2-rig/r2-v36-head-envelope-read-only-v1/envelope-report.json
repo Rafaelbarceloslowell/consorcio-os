@@ -1,0 +1,345 @@
+{
+  "audit": "R2 v36 head external envelope read-only diagnostic v1",
+  "blender_version": "4.5.10 LTS",
+  "source_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v35-logical-separation-v1\\r2-rig-v35-logical-separation.blend",
+  "source_sha256": "9BDAE28936686773708FCE9E8D6A3F0CDFECC7F5CA753D1EF65D0D6957F7909F",
+  "source_read_only": true,
+  "blend_saved": false,
+  "new_blends_created": 0,
+  "rig_used_in_renders": false,
+  "weights_used_in_renders": false,
+  "voxel_remesh_used": false,
+  "source_reports": {
+    "R2_Head_Face": {
+      "name": "R2_Head_Face",
+      "vertices": 3697,
+      "edges": 10806,
+      "faces": 7086,
+      "mesh_topology_sha256": "6903376494A7DA85BD24ECFD938421733B26900881D6493DB35817294F9A7CCB",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent": "R2_Rig",
+      "modifier_count": 1,
+      "vertex_group_count": 50
+    },
+    "R2_Head_Fur": {
+      "name": "R2_Head_Fur",
+      "vertices": 18673,
+      "edges": 53788,
+      "faces": 35015,
+      "mesh_topology_sha256": "C41451C95D792E33B713F14047BBED51ECCC1AD81279024329BBC762C21C71C5",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent": "R2_Rig",
+      "modifier_count": 1,
+      "vertex_group_count": 50
+    }
+  },
+  "bbox": {
+    "minimum": [
+      -0.15849032998085022,
+      -0.30578985810279846,
+      0.49768760800361633
+    ],
+    "maximum": [
+      0.26328033208847046,
+      0.20984448492527008,
+      1.0
+    ],
+    "dimensions": [
+      0.4217706620693207,
+      0.5156343579292297,
+      0.502312421798706
+    ],
+    "diagonal": 0.8343183130302816,
+    "camera_scale": 0.7012627267837525
+  },
+  "classification": {
+    "method": "first-hit visibility rays",
+    "directions": {
+      "front": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "back": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "left": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "right": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "top": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bottom": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "front_left": [
+        -0.6963106393814087,
+        -0.6963106393814087,
+        0.17407765984535217
+      ],
+      "front_right": [
+        0.6963106393814087,
+        -0.6963106393814087,
+        0.17407765984535217
+      ],
+      "back_left": [
+        -0.6963106393814087,
+        0.6963106393814087,
+        0.17407765984535217
+      ],
+      "back_right": [
+        0.6963106393814087,
+        0.6963106393814087,
+        0.17407765984535217
+      ],
+      "front_top": [
+        0.0,
+        -0.7071067690849304,
+        0.7071067690849304
+      ],
+      "back_top": [
+        0.0,
+        0.7071067690849304,
+        0.7071067690849304
+      ],
+      "front_bottom": [
+        0.0,
+        -0.7071067690849304,
+        -0.7071067690849304
+      ],
+      "back_bottom": [
+        0.0,
+        0.7071067690849304,
+        -0.7071067690849304
+      ]
+    },
+    "direction_count": 14,
+    "ray_distance": 3.3372732521211264,
+    "hit_tolerance": 0.0012514774695454225,
+    "overlap_threshold": 0.002502954939090845,
+    "visibility_counts": {
+      "front": 26359,
+      "back": 24465,
+      "right": 19935,
+      "top": 25055,
+      "front_right": 22429,
+      "back_right": 21699,
+      "front_top": 26312,
+      "front_bottom": 18164,
+      "back_bottom": 25026,
+      "left": 19164,
+      "front_left": 20903,
+      "back_left": 22848,
+      "back_top": 17101,
+      "bottom": 23543
+    },
+    "source_triangle_counts": {
+      "FACE": 7086,
+      "FUR": 35015
+    },
+    "overlap_counts": {
+      "FACE": 321,
+      "FUR": 325
+    }
+  },
+  "category_reports": {
+    "face_front_external": {
+      "label": "Face frontal externa",
+      "triangles": 5581,
+      "surface_area": 0.054338398660382016,
+      "source_kinds": {
+        "FACE": 5581
+      }
+    },
+    "face_side_external": {
+      "label": "Laterais externas",
+      "triangles": 1482,
+      "surface_area": 0.014724314459552846,
+      "source_kinds": {
+        "FACE": 1482
+      }
+    },
+    "face_rear_external": {
+      "label": "Traseira externa",
+      "triangles": 23,
+      "surface_area": 0.00025796520163519885,
+      "source_kinds": {
+        "FACE": 23
+      }
+    },
+    "fur_external": {
+      "label": "Pelo externo",
+      "triangles": 34965,
+      "surface_area": 0.3505684554879222,
+      "source_kinds": {
+        "FUR": 34965
+      }
+    },
+    "internal_invisible": {
+      "label": "Internas invisiveis",
+      "triangles": 50,
+      "surface_area": 0.0003109688943295115,
+      "source_kinds": {
+        "FUR": 50
+      }
+    },
+    "overlap_suspect": {
+      "label": "Sobreposicoes suspeitas",
+      "triangles": 646,
+      "surface_area": 0.005887711213145681,
+      "source_kinds": {
+        "FACE": 321,
+        "FUR": 325
+      }
+    }
+  },
+  "total_source_triangles": 42101,
+  "image_count": 16,
+  "images": [
+    {
+      "file": "neutral-front.png",
+      "render_set": "neutral",
+      "view": "front"
+    },
+    {
+      "file": "neutral-back.png",
+      "render_set": "neutral",
+      "view": "back"
+    },
+    {
+      "file": "neutral-left.png",
+      "render_set": "neutral",
+      "view": "left"
+    },
+    {
+      "file": "neutral-right.png",
+      "render_set": "neutral",
+      "view": "right"
+    },
+    {
+      "file": "semantic-front.png",
+      "render_set": "semantic",
+      "view": "front"
+    },
+    {
+      "file": "semantic-back.png",
+      "render_set": "semantic",
+      "view": "back"
+    },
+    {
+      "file": "semantic-left.png",
+      "render_set": "semantic",
+      "view": "left"
+    },
+    {
+      "file": "semantic-right.png",
+      "render_set": "semantic",
+      "view": "right"
+    },
+    {
+      "file": "external-only-front.png",
+      "render_set": "external-only",
+      "view": "front"
+    },
+    {
+      "file": "external-only-back.png",
+      "render_set": "external-only",
+      "view": "back"
+    },
+    {
+      "file": "external-only-left.png",
+      "render_set": "external-only",
+      "view": "left"
+    },
+    {
+      "file": "external-only-right.png",
+      "render_set": "external-only",
+      "view": "right"
+    },
+    {
+      "file": "suspect-only-front.png",
+      "render_set": "suspect-only",
+      "view": "front"
+    },
+    {
+      "file": "suspect-only-back.png",
+      "render_set": "suspect-only",
+      "view": "back"
+    },
+    {
+      "file": "suspect-only-left.png",
+      "render_set": "suspect-only",
+      "view": "left"
+    },
+    {
+      "file": "suspect-only-right.png",
+      "render_set": "suspect-only",
+      "view": "right"
+    }
+  ],
+  "diagnostic_completed": true,
+  "visual_validation_completed": false
+}

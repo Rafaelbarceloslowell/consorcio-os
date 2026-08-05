@@ -2,38 +2,40 @@ import type {
     Prisma,
     PrismaClient,
   } from "@/lib/generated/prisma/client"
-  
+
   import type {
     AsyncCommercialTransactionRepository,
   } from "@/repositories/commercial/async-commercial-repositories"
-  
+
   import type {
+    CommitJourneyCreationInput,
+    CommitJourneyCreationResult,
     CommitJourneyTransitionInput,
     CommitJourneyTransitionResult,
     ReplaceOpenNextBestActionsInput,
     ReplaceOpenNextBestActionsResult,
   } from "@/repositories/commercial/commercial-repository"
-  
+
   import {
     prisma,
   } from "@/infrastructure/prisma/client"
-  
+
   import {
     CommercialJourneyConcurrencyError,
   } from "@/infrastructure/prisma/errors/commercial-journey-concurrency-error"
-  
+
   import {
     CommercialEventMapper,
   } from "@/infrastructure/prisma/mappers/commercial-event-mapper"
-  
+
   import {
     CommercialJourneyMapper,
   } from "@/infrastructure/prisma/mappers/commercial-journey-mapper"
-  
+
   import {
     NextBestActionMapper,
   } from "@/infrastructure/prisma/mappers/next-best-action-mapper"
-  
+
   function buildJourneyUpdateData({
     workspaceId,
     journey,
@@ -44,27 +46,27 @@ import type {
     const persistence =
       CommercialJourneyMapper.toPersistence({
         workspaceId,
-  
+
         journey,
       })
-  
+
     const {
       id: _id,
       workspaceId: _workspaceId,
       createdAt: _createdAt,
       ...updateData
     } = persistence
-  
+
     return updateData
   }
-  
+
   export class PrismaCommercialTransactionRepository
     implements AsyncCommercialTransactionRepository
   {
     constructor(
       private readonly workspaceId:
         string,
-  
+
       private readonly database:
         PrismaClient = prisma,
     ) {
@@ -74,7 +76,152 @@ import type {
         )
       }
     }
-  
+
+    async commitJourneyCreation(
+      {
+        journey,
+        event,
+      }: CommitJourneyCreationInput,
+    ): Promise<CommitJourneyCreationResult> {
+      if (
+        journey.workspaceId !==
+        this.workspaceId
+      ) {
+        throw new Error(
+          `A jornada comercial "${journey.id}" pertence a outro workspace.`,
+        )
+      }
+
+      if (
+        event.journeyId !==
+        journey.id
+      ) {
+        throw new Error(
+          `O evento comercial "${event.id}" não pertence à jornada "${journey.id}".`,
+        )
+      }
+
+      if (
+        event.workspaceId !==
+        journey.workspaceId
+      ) {
+        throw new Error(
+          `O evento comercial "${event.id}" não pertence ao mesmo workspace da jornada "${journey.id}".`,
+        )
+      }
+
+      if (
+        event.type !==
+        "OPPORTUNITY_CREATED"
+      ) {
+        throw new Error(
+          `O evento comercial "${event.id}" deve ser do tipo OPPORTUNITY_CREATED.`,
+        )
+      }
+
+      if (
+        journey.version !==
+        1
+      ) {
+        throw new Error(
+          `A versão inicial da jornada comercial "${journey.id}" deve ser 1.`,
+        )
+      }
+
+      if (
+        journey.leadId === null &&
+        journey.clientId === null
+      ) {
+        throw new Error(
+          `A jornada comercial "${journey.id}" deve possuir leadId ou clientId.`,
+        )
+      }
+
+      return this.database.$transaction(
+        async (transaction) => {
+          const duplicatedJourney =
+            await transaction
+              .commercialJourney
+              .findUnique({
+                where: {
+                  id:
+                    journey.id,
+                },
+
+                select: {
+                  id:
+                    true,
+                },
+              })
+
+          if (duplicatedJourney) {
+            throw new Error(
+              `Já existe uma jornada comercial com o ID "${journey.id}".`,
+            )
+          }
+
+          const duplicatedEvent =
+            await transaction
+              .commercialEvent
+              .findUnique({
+                where: {
+                  id:
+                    event.id,
+                },
+
+                select: {
+                  id:
+                    true,
+                },
+              })
+
+          if (duplicatedEvent) {
+            throw new Error(
+              `Já existe um evento comercial com o ID "${event.id}".`,
+            )
+          }
+
+          const createdJourney =
+            await transaction
+              .commercialJourney
+              .create({
+                data:
+                  CommercialJourneyMapper.toPersistence({
+                    workspaceId:
+                      this.workspaceId,
+
+                    journey,
+                  }),
+              })
+
+          const createdEvent =
+            await transaction
+              .commercialEvent
+              .create({
+                data:
+                  CommercialEventMapper.toPersistence({
+                    workspaceId:
+                      this.workspaceId,
+
+                    event,
+                  }),
+              })
+
+          return {
+            journey:
+              CommercialJourneyMapper.toDomain(
+                createdJourney,
+              ),
+
+            event:
+              CommercialEventMapper.toDomain(
+                createdEvent,
+              ),
+          }
+        },
+      )
+    }
+
     async commitJourneyTransition(
       {
         journey,
@@ -89,7 +236,7 @@ import type {
           `A jornada comercial "${journey.id}" pertence a outro workspace.`,
         )
       }
-  
+
       if (
         event.journeyId !==
         journey.id
@@ -98,7 +245,7 @@ import type {
           `O evento comercial "${event.id}" não pertence à jornada "${journey.id}".`,
         )
       }
-  
+
       if (
         event.workspaceId !==
         journey.workspaceId
@@ -107,10 +254,10 @@ import type {
           `O evento comercial "${event.id}" não pertence ao mesmo workspace da jornada "${journey.id}".`,
         )
       }
-  
+
       const expectedVersion =
         journey.version - 1
-  
+
       if (
         !Number.isInteger(
           journey.version,
@@ -124,7 +271,7 @@ import type {
           `A versão da jornada comercial "${journey.id}" é inválida: ${journey.version}.`,
         )
       }
-  
+
       return this.database.$transaction(
         async (transaction) => {
           const existingJourney =
@@ -135,25 +282,25 @@ import type {
                   id:
                     journey.id,
                 },
-  
+
                 select: {
                   id:
                     true,
-  
+
                   workspaceId:
                     true,
-  
+
                   version:
                     true,
                 },
               })
-  
+
           if (!existingJourney) {
             throw new Error(
               `Jornada comercial não encontrada para o ID "${journey.id}".`,
             )
           }
-  
+
           if (
             existingJourney.workspaceId !==
             this.workspaceId
@@ -162,7 +309,7 @@ import type {
               `A jornada comercial "${journey.id}" pertence a outro workspace.`,
             )
           }
-  
+
           const duplicatedEvent =
             await transaction
               .commercialEvent
@@ -171,19 +318,19 @@ import type {
                   id:
                     event.id,
                 },
-  
+
                 select: {
                   id:
                     true,
                 },
               })
-  
+
           if (duplicatedEvent) {
             throw new Error(
               `Já existe um evento comercial com o ID "${event.id}".`,
             )
           }
-  
+
           const updateResult =
             await transaction
               .commercialJourney
@@ -191,23 +338,23 @@ import type {
                 where: {
                   id:
                     journey.id,
-  
+
                   workspaceId:
                     this.workspaceId,
-  
+
                   version:
                     expectedVersion,
                 },
-  
+
                 data:
                   buildJourneyUpdateData({
                     workspaceId:
                       this.workspaceId,
-  
+
                     journey,
                   }),
               })
-  
+
           if (
             updateResult.count !==
             1
@@ -220,22 +367,22 @@ import type {
                     id:
                       journey.id,
                   },
-  
+
                   select: {
                     workspaceId:
                       true,
-  
+
                     version:
                       true,
                   },
                 })
-  
+
             if (!currentJourney) {
               throw new Error(
                 `A jornada comercial "${journey.id}" não existe mais.`,
               )
             }
-  
+
             if (
               currentJourney.workspaceId !==
               this.workspaceId
@@ -244,21 +391,21 @@ import type {
                 `A jornada comercial "${journey.id}" pertence a outro workspace.`,
               )
             }
-  
+
             throw new CommercialJourneyConcurrencyError({
               journeyId:
                 journey.id,
-  
+
               workspaceId:
                 this.workspaceId,
-  
+
               expectedVersion,
-  
+
               currentVersion:
                 currentJourney.version,
             })
           }
-  
+
           const createdEvent =
             await transaction
               .commercialEvent
@@ -267,11 +414,11 @@ import type {
                   CommercialEventMapper.toPersistence({
                     workspaceId:
                       this.workspaceId,
-  
+
                     event,
                   }),
               })
-  
+
           const updatedJourney =
             await transaction
               .commercialJourney
@@ -281,19 +428,19 @@ import type {
                     journey.id,
                 },
               })
-  
+
           if (!updatedJourney) {
             throw new Error(
               `A jornada comercial "${journey.id}" não foi encontrada após a atualização.`,
             )
           }
-  
+
           return {
             journey:
               CommercialJourneyMapper.toDomain(
                 updatedJourney,
               ),
-  
+
             event:
               CommercialEventMapper.toDomain(
                 createdEvent,
@@ -302,7 +449,7 @@ import type {
         },
       )
     }
-  
+
     async replaceOpenNextBestActions(
       {
         workspaceId,
@@ -318,7 +465,7 @@ import type {
           `O workspace "${workspaceId}" não corresponde ao workspace deste repositório.`,
         )
       }
-  
+
       const duplicatedInputIds =
         nextBestActions
           .map(
@@ -335,7 +482,7 @@ import type {
                 nextBestActionId,
               ) !== index,
           )
-  
+
       if (
         duplicatedInputIds.length >
         0
@@ -348,7 +495,7 @@ import type {
           ].join(", ")}.`,
         )
       }
-  
+
       for (
         const nextBestAction of
           nextBestActions
@@ -361,7 +508,7 @@ import type {
             `A recomendação comercial "${nextBestAction.id}" pertence a outro workspace.`,
           )
         }
-  
+
         if (
           nextBestAction.journeyId !==
           journeyId
@@ -371,7 +518,7 @@ import type {
           )
         }
       }
-  
+
       return this.database.$transaction(
         async (transaction) => {
           const journey =
@@ -382,22 +529,22 @@ import type {
                   id:
                     journeyId,
                 },
-  
+
                 select: {
                   id:
                     true,
-  
+
                   workspaceId:
                     true,
                 },
               })
-  
+
           if (!journey) {
             throw new Error(
               `Jornada comercial não encontrada para o ID "${journeyId}".`,
             )
           }
-  
+
           if (
             journey.workspaceId !==
             workspaceId
@@ -406,13 +553,13 @@ import type {
               `A jornada comercial "${journey.id}" pertence a outro workspace.`,
             )
           }
-  
+
           const inputIds =
             nextBestActions.map(
               (nextBestAction) =>
                 nextBestAction.id,
             )
-  
+
           if (
             inputIds.length >
             0
@@ -427,13 +574,13 @@ import type {
                         inputIds,
                     },
                   },
-  
+
                   select: {
                     id:
                       true,
                   },
                 })
-  
+
             if (
               duplicatedNextBestActions.length >
               0
@@ -445,7 +592,7 @@ import type {
                       nextBestAction.id,
                   ),
                 )
-  
+
               const duplicatedNextBestAction =
                 nextBestActions.find(
                   (nextBestAction) =>
@@ -453,7 +600,7 @@ import type {
                       nextBestAction.id,
                     ),
                 )
-  
+
               if (
                 duplicatedNextBestAction
               ) {
@@ -463,23 +610,23 @@ import type {
               }
             }
           }
-  
+
           const currentJourneyNextBestActions =
             await transaction
               .nextBestAction
               .findMany({
                 where: {
                   workspaceId,
-  
+
                   journeyId,
                 },
-  
+
                 orderBy: {
                   createdAt:
                     "asc",
                 },
               })
-  
+
           const preservedRecords =
             currentJourneyNextBestActions.filter(
               (nextBestAction) =>
@@ -490,7 +637,7 @@ import type {
                 nextBestAction.executedActionId !==
                   null,
             )
-  
+
           const removedRecords =
             currentJourneyNextBestActions.filter(
               (nextBestAction) =>
@@ -501,28 +648,29 @@ import type {
                 nextBestAction.executedActionId ===
                   null,
             )
-  
+
           await transaction
             .nextBestAction
             .deleteMany({
               where: {
                 workspaceId,
-  
+
                 journeyId,
-  
+
                 acceptedAt:
                   null,
-  
+
                 rejectedAt:
                   null,
-  
+
                 executedActionId:
                   null,
               },
             })
-  
-          const createdRecords = []
-  
+
+          const createdNextBestActions:
+            ReplaceOpenNextBestActionsResult["createdNextBestActions"] = []
+
           for (
             const nextBestAction of
               nextBestActions
@@ -534,16 +682,18 @@ import type {
                   data:
                     NextBestActionMapper.toPersistence({
                       workspaceId,
-  
+
                       nextBestAction,
                     }),
                 })
-  
-            createdRecords.push(
-              createdNextBestAction,
+
+            createdNextBestActions.push(
+              NextBestActionMapper.toDomain(
+                createdNextBestAction,
+              ),
             )
           }
-  
+
           const preservedNextBestActions =
             preservedRecords.map(
               (nextBestAction) =>
@@ -551,7 +701,7 @@ import type {
                   nextBestAction,
                 ),
             )
-  
+
           const removedNextBestActions =
             removedRecords.map(
               (nextBestAction) =>
@@ -559,22 +709,14 @@ import type {
                   nextBestAction,
                 ),
             )
-  
-          const createdNextBestActions =
-            createdRecords.map(
-              (nextBestAction) =>
-                NextBestActionMapper.toDomain(
-                  nextBestAction,
-                ),
-            )
-  
+
           return {
             preservedNextBestActions,
-  
+
             removedNextBestActions,
-  
+
             createdNextBestActions,
-  
+
             nextBestActions: [
               ...preservedNextBestActions,
               ...createdNextBestActions,

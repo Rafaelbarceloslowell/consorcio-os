@@ -1,0 +1,503 @@
+{
+  "aggregate": {
+    "created_images": 0,
+    "invalid_non_manifold": 0,
+    "material_image_nodes": 0,
+    "wire_edges": 0,
+    "zero_area_faces": 0
+  },
+  "authorized_topology_change_mask": {
+    "authorized_zone": "ORAL_OPENING_WITHIN_R2_REGION_ID_1",
+    "created_objects": [
+      "R2_Eye.L",
+      "R2_Eye.R",
+      "R2_EyePivot.L",
+      "R2_EyePivot.R",
+      "R2_JawPivot.L",
+      "R2_JawPivot.R",
+      "R2_LipLower",
+      "R2_LipUpper",
+      "R2_LowerEyelid.L",
+      "R2_LowerEyelid.R",
+      "R2_MouthInterior",
+      "R2_TeethLower",
+      "R2_TeethUpper",
+      "R2_Tongue",
+      "R2_UpperEyelid.L",
+      "R2_UpperEyelid.R"
+    ],
+    "existing_vertex_coordinates_changed": 0,
+    "foundation_mesh": "R2_Head_Face_Foundation_Mesh",
+    "foundation_object": "R2_Head_Face_Foundation",
+    "mask_sha256": "6045D6C3CB6C1A167C3D1B2E279D405C3C47F3E32BF21051CA4C876EE4FEED7A",
+    "removed_original_face_indices": [
+      6766,
+      6767,
+      6768,
+      6769,
+      6770,
+      6797,
+      6798,
+      6799,
+      6800,
+      6801,
+      6804,
+      6805,
+      6806,
+      6807,
+      6843
+    ],
+    "removed_original_face_vertices": {
+      "6766": [
+        3580,
+        3534,
+        3533,
+        3579
+      ],
+      "6767": [
+        3581,
+        3535,
+        3534,
+        3580
+      ],
+      "6768": [
+        3582,
+        3536,
+        3535,
+        3581
+      ],
+      "6769": [
+        3583,
+        3539,
+        3536,
+        3582
+      ],
+      "6770": [
+        3584,
+        3540,
+        3539,
+        3583
+      ],
+      "6797": [
+        3611,
+        3574,
+        3573,
+        3610
+      ],
+      "6798": [
+        3612,
+        3575,
+        3574,
+        3611
+      ],
+      "6799": [
+        3613,
+        3576,
+        3575,
+        3612
+      ],
+      "6800": [
+        3614,
+        3577,
+        3576,
+        3613
+      ],
+      "6801": [
+        3615,
+        3578,
+        3577,
+        3614
+      ],
+      "6804": [
+        3618,
+        3581,
+        3580,
+        3617
+      ],
+      "6805": [
+        3619,
+        3582,
+        3581,
+        3618
+      ],
+      "6806": [
+        3620,
+        3583,
+        3582,
+        3619
+      ],
+      "6807": [
+        3621,
+        3584,
+        3583,
+        3620
+      ],
+      "6843": [
+        3511,
+        3621,
+        3620,
+        3507
+      ]
+    },
+    "schema_version": 1,
+    "source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B"
+  },
+  "blender_version": "4.5.10 LTS",
+  "checkpoints": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "execution_status": "COMPLETED",
+  "failed_gates": [],
+  "foundation_vertex_order_sha256": "B67AD7CDAFC66A8A591E13D6EE2AF8C645F84F9B3285F61A313A44B855F5D3B2",
+  "gates": {
+    "CreatedImages": true,
+    "FoundationVertexOrderPreserved": true,
+    "GeometryChangesOutsideAuthorizedZones": true,
+    "InvalidNonManifold": true,
+    "LandmarkCertificateConfirmed": true,
+    "NeutralEyeFitValid": true,
+    "NeutralMouthClosureValid": true,
+    "OcularAssetsValid": true,
+    "OfficialSourceUnchanged": true,
+    "OralAssetsValid": true,
+    "UnauthorizedGeometryChanges": true,
+    "UnexpectedMaterialChanges": true,
+    "UnexpectedMaterialDuplicates": true,
+    "UnexpectedMeshDuplicates": true,
+    "UnexpectedObjectDuplicates": true,
+    "UnexpectedUVChanges": true,
+    "UnexpectedWeightChanges": true,
+    "WireEdges": true,
+    "ZeroAreaFaces": true
+  },
+  "landmark_count": 38,
+  "meshes_after": 27,
+  "meshes_before": 15,
+  "mission": "FACIAL_OCULAR_ORAL_ASSET_AUTHORING_AND_RIG_RESUME",
+  "new_materials": [
+    "R2_Mat_EyeSclera",
+    "R2_Mat_Eyelid",
+    "R2_Mat_IrisTechGreen",
+    "R2_Mat_Lip",
+    "R2_Mat_MouthInterior",
+    "R2_Mat_Pupil",
+    "R2_Mat_Teeth",
+    "R2_Mat_Tongue"
+  ],
+  "new_meshes": [
+    "R2_Eye.L_Mesh",
+    "R2_Eye.R_Mesh",
+    "R2_LipLower_Mesh",
+    "R2_LipUpper_Mesh",
+    "R2_LowerEyelid.L_Mesh",
+    "R2_LowerEyelid.R_Mesh",
+    "R2_MouthInterior_Mesh",
+    "R2_TeethLower_Mesh",
+    "R2_TeethUpper_Mesh",
+    "R2_Tongue_Mesh",
+    "R2_UpperEyelid.L_Mesh",
+    "R2_UpperEyelid.R_Mesh"
+  ],
+  "new_objects": [
+    "R2_Eye.L",
+    "R2_Eye.R",
+    "R2_EyePivot.L",
+    "R2_EyePivot.R",
+    "R2_JawPivot.L",
+    "R2_JawPivot.R",
+    "R2_LipLower",
+    "R2_LipUpper",
+    "R2_LowerEyelid.L",
+    "R2_LowerEyelid.R",
+    "R2_MouthInterior",
+    "R2_TeethLower",
+    "R2_TeethUpper",
+    "R2_Tongue",
+    "R2_UpperEyelid.L",
+    "R2_UpperEyelid.R"
+  ],
+  "objects_after": 32,
+  "objects_before": 16,
+  "preservation": {
+    "all_existing_vertex_coordinates_preserved": true,
+    "all_polygons_outside_authorized_mask_preserved": true,
+    "non_foundation_objects_preserved": [
+      "R2_Arm_Fur_R",
+      "R2_Hand_L",
+      "R2_Hand_R",
+      "R2_Head_Face",
+      "R2_Head_Fur",
+      "R2_Hood",
+      "R2_Hood_Cord_L",
+      "R2_Hood_Cord_R",
+      "R2_Hoodie_Sleeve_L",
+      "R2_Hoodie_Sleeve_R",
+      "R2_Hoodie_Torso",
+      "R2_Pants",
+      "R2_Rig",
+      "R2_Shoe_L",
+      "R2_Shoe_R"
+    ],
+    "schema_version": 1,
+    "source_material_slots_preserved": true,
+    "source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+    "source_uv_names_preserved": true,
+    "source_vertex_groups_preserved": true,
+    "source_vertex_order_sha256": "B67AD7CDAFC66A8A591E13D6EE2AF8C645F84F9B3285F61A313A44B855F5D3B2"
+  },
+  "schema_version": 1,
+  "semantic_region_count": 20,
+  "source_sha256_before": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "source_sha256_before_save": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "technical_verdict": "APROVADO",
+  "topology_metrics": {
+    "R2_Arm_Fur_R": {
+      "boundary_edges": 54,
+      "edges": 354,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 218,
+      "vertices": 137,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Eye.L": {
+      "boundary_edges": 0,
+      "edges": 992,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 512,
+      "vertices": 482,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Eye.R": {
+      "boundary_edges": 0,
+      "edges": 992,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 512,
+      "vertices": 482,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hand_L": {
+      "boundary_edges": 1266,
+      "edges": 27603,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 17980,
+      "vertices": 9586,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hand_R": {
+      "boundary_edges": 1423,
+      "edges": 30467,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 19837,
+      "vertices": 10588,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Head_Face": {
+      "boundary_edges": 354,
+      "edges": 10806,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 7086,
+      "vertices": 3697,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Head_Face_Foundation": {
+      "boundary_edges": 371,
+      "edges": 10524,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 6832,
+      "vertices": 3654,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Head_Fur": {
+      "boundary_edges": 2531,
+      "edges": 53788,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 35015,
+      "vertices": 18673,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hood": {
+      "boundary_edges": 1764,
+      "edges": 53562,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 35120,
+      "vertices": 18418,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hood_Cord_L": {
+      "boundary_edges": 55,
+      "edges": 425,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 265,
+      "vertices": 162,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hood_Cord_R": {
+      "boundary_edges": 54,
+      "edges": 339,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 208,
+      "vertices": 132,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hoodie_Sleeve_L": {
+      "boundary_edges": 751,
+      "edges": 21137,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 13841,
+      "vertices": 7290,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hoodie_Sleeve_R": {
+      "boundary_edges": 1298,
+      "edges": 41548,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 27266,
+      "vertices": 14274,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Hoodie_Torso": {
+      "boundary_edges": 3300,
+      "edges": 110166,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 72344,
+      "vertices": 37815,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_LipLower": {
+      "boundary_edges": 42,
+      "edges": 61,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 20,
+      "vertices": 42,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_LipUpper": {
+      "boundary_edges": 42,
+      "edges": 61,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 20,
+      "vertices": 42,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_LowerEyelid.L": {
+      "boundary_edges": 34,
+      "edges": 49,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 16,
+      "vertices": 34,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_LowerEyelid.R": {
+      "boundary_edges": 34,
+      "edges": 49,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 16,
+      "vertices": 34,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_MouthInterior": {
+      "boundary_edges": 0,
+      "edges": 756,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 392,
+      "vertices": 366,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Pants": {
+      "boundary_edges": 5041,
+      "edges": 158981,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 104307,
+      "vertices": 54599,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Shoe_L": {
+      "boundary_edges": 957,
+      "edges": 32577,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 21399,
+      "vertices": 11144,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Shoe_R": {
+      "boundary_edges": 815,
+      "edges": 32014,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 21071,
+      "vertices": 10911,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_TeethLower": {
+      "boundary_edges": 0,
+      "edges": 108,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 54,
+      "vertices": 56,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_TeethUpper": {
+      "boundary_edges": 0,
+      "edges": 108,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 54,
+      "vertices": 56,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_Tongue": {
+      "boundary_edges": 0,
+      "edges": 552,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 288,
+      "vertices": 266,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_UpperEyelid.L": {
+      "boundary_edges": 34,
+      "edges": 49,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 16,
+      "vertices": 34,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    },
+    "R2_UpperEyelid.R": {
+      "boundary_edges": 34,
+      "edges": 49,
+      "invalid_non_manifold_edges": 0,
+      "polygons": 16,
+      "vertices": 34,
+      "wire_edges": 0,
+      "zero_area_faces": 0
+    }
+  }
+}

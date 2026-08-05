@@ -1,0 +1,409 @@
+{
+    "schema_version":  1,
+    "ExecutionStatus":  "COMPLETED",
+    "TechnicalVerdict":  "APROVADO",
+    "InputBlend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-material-branded-ready-v1\\r2-full-character-material-branded-ready-v1.blend",
+    "InputBlendSHA256":  "AD7501A2828DAA76749C6ABE367597F1645BB79C1A205E83BED265B556F52E57",
+    "NewBlend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\r2-full-character-color-readable-ready-v2.blend",
+    "NewBlendSHA256":  "2EEC504BFC6F3C0D0B1BF6B1EFA932445142DCB61527E94A64F9C4A3A5EE491D",
+    "NewBlendSizeBytes":  40307451,
+    "NewGLB":  "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-color-readable-ready-v2.glb",
+    "NewGLBSHA256":  "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE",
+    "NewGLBSizeBytes":  13160568,
+    "ObjectCount":  36,
+    "MeshCount":  30,
+    "RenderableMeshCount":  29,
+    "GLBNodeCount":  100,
+    "GLBMeshCount":  29,
+    "GLBPrimitiveCount":  37,
+    "MaterialCount":  17,
+    "MaterialNames":  [
+                          "R2_Mat_Fur_MidGraphite",
+                          "R2_Mat_Embroidery_Gray",
+                          "R2_Mat_Embroidery_White",
+                          "R2_Mat_EyeSclera",
+                          "R2_Mat_IrisTechGreen",
+                          "R2_Mat_Pupil",
+                          "R2_Mat_Skin_Anthracite",
+                          "R2_Mat_Fur_DarkGraphite",
+                          "R2_Mat_Hoodie_Black",
+                          "R2_Mat_GorillaOS_Green",
+                          "R2_Mat_Pants_Charcoal",
+                          "R2_Mat_Lip",
+                          "R2_Mat_Teeth",
+                          "R2_Mat_Tongue",
+                          "R2_Mat_Eyelid",
+                          "R2_Mat_MouthInterior",
+                          "R2_Mat_Shoes_Black"
+                      ],
+    "RenderableMeshesWithoutMaterial":  0,
+    "BoneCount":  65,
+    "MorphTargetOccurrences":  24,
+    "AnimationCount":  9,
+    "AnimationNames":  [
+                           "R2_ALERT",
+                           "R2_AWAITING_ACTION",
+                           "R2_CELEBRATING_SALE",
+                           "R2_ERROR_ATTENTION",
+                           "R2_IDLE",
+                           "R2_LISTENING",
+                           "R2_NEUTRAL",
+                           "R2_THINKING",
+                           "R2_WORKING"
+                       ],
+    "MaterialPalette":  {
+                            "R2_Mat_Fur_DarkGraphite":  {
+                                                            "BaseColor":  "#2D312E",
+                                                            "Roughness":  0.8,
+                                                            "Metallic":  0,
+                                                            "Role":  "head fur"
+                                                        },
+                            "R2_Mat_Fur_MidGraphite":  {
+                                                           "BaseColor":  "#303431",
+                                                           "Roughness":  0.78,
+                                                           "Metallic":  0,
+                                                           "Role":  "exposed arm fur"
+                                                       },
+                            "R2_Mat_Skin_Anthracite":  {
+                                                           "BaseColor":  "#414743",
+                                                           "Roughness":  0.68,
+                                                           "Metallic":  0,
+                                                           "Role":  "face, ears and hands"
+                                                       },
+                            "R2_Mat_Hoodie_Black":  {
+                                                        "BaseColor":  "#4F5C3A",
+                                                        "Roughness":  0.82,
+                                                        "Metallic":  0,
+                                                        "Role":  "moss-green hoodie"
+                                                    },
+                            "R2_Mat_Pants_Charcoal":  {
+                                                          "BaseColor":  "#363A3E",
+                                                          "Roughness":  0.78,
+                                                          "Metallic":  0,
+                                                          "Role":  "dark lead-gray cargo pants"
+                                                      },
+                            "R2_Mat_Shoes_Black":  {
+                                                       "BaseColor":  "#141718",
+                                                       "Roughness":  0.54,
+                                                       "Metallic":  0,
+                                                       "Role":  "black boots"
+                                                   }
+                        },
+    "FurMaterials":  [
+                         "R2_Mat_Fur_DarkGraphite",
+                         "R2_Mat_Fur_MidGraphite"
+                     ],
+    "FaceAndHandMaterials":  [
+                                 "R2_Mat_Skin_Anthracite"
+                             ],
+    "HoodieMaterials":  [
+                            "R2_Mat_Hoodie_Black"
+                        ],
+    "PantsMaterials":  [
+                           "R2_Mat_Pants_Charcoal"
+                       ],
+    "BootMaterials":  [
+                          "R2_Mat_Shoes_Black"
+                      ],
+    "BrandingMaterials":  [
+                              "R2_Mat_Embroidery_Gray",
+                              "R2_Mat_Embroidery_White",
+                              "R2_Mat_GorillaOS_Green"
+                          ],
+    "ClothAndFurMetallic":  false,
+    "MissingTextures":  0,
+    "BrokenExternalDependencies":  0,
+    "RigPreserved":  true,
+    "SkinWeightsPreservedExceptAuthorizedPatchReprojection":  true,
+    "MorphTargetsPreserved":  true,
+    "AnimationsPreserved":  true,
+    "GLBRoundTripApproved":  true,
+    "RuntimeComponent":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx",
+    "RuntimeModelPath":  "/models/r2/r2-full-character-color-readable-ready-v2.glb",
+    "RuntimeConfiguration":  {
+                                 "schema_version":  1,
+                                 "ExecutionStatus":  "COMPLETED",
+                                 "TechnicalVerdict":  "APROVADO",
+                                 "RuntimeComponent":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\gorila-r2-3d.tsx",
+                                 "PresentationConfiguration":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-character-presentation.ts",
+                                 "RuntimeContract":  "C:\\Projetos\\consorcio-os\\web\\components\\dashboard\\3d\\r2\\real\\r2-full-character-runtime.ts",
+                                 "ModelPathBefore":  "/models/r2/r2-full-character-material-branded-ready-v1.glb",
+                                 "ModelPathAfter":  "/models/r2/r2-full-character-color-readable-ready-v2.glb",
+                                 "RollbackModelPath":  "/models/r2/r2-full-character-material-branded-ready-v1.glb",
+                                 "Camera":  {
+                                                "FovBefore":  32,
+                                                "FovAfter":  32,
+                                                "PositionBefore":  "auto-framed from bounds at target coverage 0.85",
+                                                "PositionAfter":  "auto-framed from bounds at raw coverage 0.6315789474",
+                                                "TargetBefore":  "renderable bounds center",
+                                                "TargetAfter":  "renderable bounds center",
+                                                "ModelScaleBefore":  1,
+                                                "ModelScaleAfter":  1.14,
+                                                "ModelScaleIncreasePercent":  14,
+                                                "EffectiveVerticalCoverageAfter":  0.72,
+                                                "ResponsiveEffectiveCoverageRange":  [
+                                                                                         0.6752813116,
+                                                                                         0.72
+                                                                                     ]
+                                            },
+                                 "Renderer":  {
+                                                  "ToneMapping":  "ACESFilmicToneMapping",
+                                                  "ExposureBefore":  0.9,
+                                                  "ExposureAfter":  1,
+                                                  "OutputColorSpace":  "SRGBColorSpace",
+                                                  "ShadowsEnabled":  false
+                                              },
+                                 "LightingBefore":  {
+                                                        "Hemisphere":  {
+                                                                           "Sky":  "#DFF7E8",
+                                                                           "Ground":  "#07100B",
+                                                                           "Intensity":  0.55
+                                                                       },
+                                                        "Key":  {
+                                                                    "Color":  "#FFF7EC",
+                                                                    "Intensity":  2,
+                                                                    "Position":  [
+                                                                                     3,
+                                                                                     4,
+                                                                                     5
+                                                                                 ]
+                                                                },
+                                                        "Fill":  {
+                                                                     "Color":  "#9EDCBA",
+                                                                     "Intensity":  0.75,
+                                                                     "Position":  [
+                                                                                      -4,
+                                                                                      1.5,
+                                                                                      3
+                                                                                  ]
+                                                                 },
+                                                        "Rim":  {
+                                                                    "Color":  "#43A972",
+                                                                    "Intensity":  1.05,
+                                                                    "Position":  [
+                                                                                     1,
+                                                                                     3,
+                                                                                     -4
+                                                                                 ]
+                                                                }
+                                                    },
+                                 "LightingAfter":  {
+                                                       "Hemisphere":  {
+                                                                          "Sky":  "#E8EEE9",
+                                                                          "Ground":  "#07100B",
+                                                                          "Intensity":  0.62
+                                                                      },
+                                                       "Key":  {
+                                                                   "Color":  "#FFF8F0",
+                                                                   "Intensity":  2.15,
+                                                                   "Position":  [
+                                                                                    3.2,
+                                                                                    4.2,
+                                                                                    5
+                                                                                ]
+                                                               },
+                                                       "Fill":  {
+                                                                    "Color":  "#C0D0C6",
+                                                                    "Intensity":  0.82,
+                                                                    "Position":  [
+                                                                                     -4,
+                                                                                     1.8,
+                                                                                     3
+                                                                                 ]
+                                                                },
+                                                       "Rim":  {
+                                                                   "Color":  "#6FA786",
+                                                                   "Intensity":  0.9,
+                                                                   "Position":  [
+                                                                                    1.5,
+                                                                                    3.2,
+                                                                                    -4
+                                                                                ]
+                                                               }
+                                                   },
+                                 "RuntimeStatesPreserved":  10,
+                                 "RuntimeMaterialOverrides":  0,
+                                 "RuntimeConsoleErrors":  0,
+                                 "FailedGates":  "NONE"
+                             },
+    "TypeScript":  "PASSED",
+    "FocusedTests":  "32/32 PASSED",
+    "PhaseLint":  "PASSED",
+    "VisualEvidence":  [
+                           {
+                               "View":  "front",
+                               "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_front.png",
+                               "SHA256":  "6902CDF5A8CB602C31F32386AB5C149294C3A0CDF9A6C6A732196D7B6F3C9EBD",
+                               "SizeBytes":  659524,
+                               "Resolution":  [
+                                                  700,
+                                                  850
+                                              ],
+                               "Camera":  {
+                                              "aspect":  0.8235294117647058,
+                                              "coverage":  0.72,
+                                              "distance":  5.194963075,
+                                              "fov_degrees":  32.0,
+                                              "position":  [
+                                                               0.0,
+                                                               -5.194333553,
+                                                               0.103878483
+                                                           ],
+                                              "target":  [
+                                                             0.0,
+                                                             -0.000409797,
+                                                             0.0
+                                                         ]
+                                          },
+                               "VisualReview":  "APROVADO"
+                           },
+                           {
+                               "View":  "three_quarter",
+                               "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_three_quarter.png",
+                               "SHA256":  "199F54436483BBEC8D2914AB9FF9A8238E19B3DEB8A22F271A798F61844EBECE",
+                               "SizeBytes":  706462,
+                               "Resolution":  [
+                                                  760,
+                                                  850
+                                              ],
+                               "Camera":  {
+                                              "aspect":  0.8941176470588236,
+                                              "coverage":  0.72,
+                                              "distance":  5.490551051,
+                                              "fov_degrees":  32.0,
+                                              "position":  [
+                                                               2.973779917,
+                                                               -4.609767914,
+                                                               0.237902373
+                                                           ],
+                                              "target":  [
+                                                             0.0,
+                                                             -0.000409797,
+                                                             0.0
+                                                         ]
+                                          },
+                               "VisualReview":  "APROVADO"
+                           },
+                           {
+                               "View":  "back",
+                               "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_back.png",
+                               "SHA256":  "F8F98EC22C6C743D5D4550E90184F1B477BCC75566ED5CA10A6CB1A1DFFC225A",
+                               "SizeBytes":  652580,
+                               "Resolution":  [
+                                                  700,
+                                                  850
+                                              ],
+                               "Camera":  {
+                                              "aspect":  0.8235294117647058,
+                                              "coverage":  0.72,
+                                              "distance":  5.194545641,
+                                              "fov_degrees":  32.0,
+                                              "position":  [
+                                                               0.0,
+                                                               5.193097591,
+                                                               0.103870139
+                                                           ],
+                                              "target":  [
+                                                             0.0,
+                                                             -0.000409797,
+                                                             0.0
+                                                         ]
+                                          },
+                               "VisualReview":  "APROVADO"
+                           },
+                           {
+                               "View":  "left_arm_close",
+                               "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_left_arm_close.png",
+                               "SHA256":  "B5AD8E40B469511031F3C17841BD9774E51EC1CB02CF829BC5FC1C71D516260E",
+                               "SizeBytes":  758845,
+                               "Resolution":  [
+                                                  800,
+                                                  800
+                                              ],
+                               "Camera":  {
+                                              "aspect":  1.0,
+                                              "coverage":  0.62,
+                                              "distance":  2.056273082,
+                                              "fov_degrees":  32.0,
+                                              "position":  [
+                                                               2.108567715,
+                                                               -1.25589323,
+                                                               0.482408226
+                                                           ],
+                                              "target":  [
+                                                             0.436157465,
+                                                             -0.07126952,
+                                                             0.315167218
+                                                         ]
+                                          },
+                               "VisualReview":  "APROVADO"
+                           },
+                           {
+                               "View":  "dashboard",
+                               "Path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\evidence\\R2_V2_dashboard.png",
+                               "SHA256":  "17A1B0F0C512C1844802E379BEFB93C354028BEBEFDF1A2DAEDB095B56F9DAA3",
+                               "SizeBytes":  548665,
+                               "Resolution":  [
+                                                  960,
+                                                  540
+                                              ],
+                               "Camera":  {
+                                              "aspect":  1.7777777777777777,
+                                              "coverage":  0.72,
+                                              "distance":  5.194963075,
+                                              "fov_degrees":  32.0,
+                                              "position":  [
+                                                               0.0,
+                                                               -5.194333553,
+                                                               0.103878483
+                                                           ],
+                                              "target":  [
+                                                             0.0,
+                                                             -0.000409797,
+                                                             0.0
+                                                         ]
+                                          },
+                               "VisualReview":  "APROVADO"
+                           }
+                       ],
+    "BrowserLimitation":  {
+                              "Attempted":  true,
+                              "ConsoleErrors":  0,
+                              "Limitation":  "The in-app browser test surface does not expose ResizeObserver, so the component intentionally rendered its no-canvas fallback.",
+                              "Substitution":  "Published dashboard-equivalent controlled render plus the approved headless Three.js responsive audit."
+                          },
+    "CreatedFiles":  [
+                         "web/public/models/r2/r2-full-character-color-readable-ready-v2.glb",
+                         "web/blender/r2-rig/r2-full-character-color-readable-ready-v2/r2-full-character-color-readable-ready-v2.blend",
+                         "web/blender/r2-rig/r2-full-character-color-readable-ready-v2/evidence/R2_V2_front.png",
+                         "web/blender/r2-rig/r2-full-character-color-readable-ready-v2/evidence/R2_V2_three_quarter.png",
+                         "web/blender/r2-rig/r2-full-character-color-readable-ready-v2/evidence/R2_V2_back.png",
+                         "web/blender/r2-rig/r2-full-character-color-readable-ready-v2/evidence/R2_V2_left_arm_close.png",
+                         "web/blender/r2-rig/r2-full-character-color-readable-ready-v2/evidence/R2_V2_dashboard.png",
+                         "web/blender/r2-rig/R2_BUILD_COLOR_READABILITY_V2.py",
+                         "web/blender/r2-rig/R2_VALIDATE_COLOR_READABILITY_V2.py",
+                         "web/blender/r2-rig/R2_EXPORT_COLOR_READABILITY_V2_GLB.py",
+                         "web/blender/r2-rig/R2_AUDIT_COLOR_READABILITY_V2_GLB_ROUNDTRIP.py",
+                         "web/blender/r2-rig/R2_V2_INSPECT_SOURCE.py",
+                         "web/blender/r2-rig/R2_V2_ANALYZE_COMPONENTS.py",
+                         "web/blender/r2-rig/R2_V2_RENDER_EVIDENCE.py",
+                         "web/blender/r2-rig/R2_PUBLISH_COLOR_READABILITY_V2_ATOMIC.ps1",
+                         "web/blender/r2-rig/R2_FINALIZE_COLOR_READABILITY_V2.ps1"
+                     ],
+    "AlteredFiles":  [
+                         "web/components/dashboard/3d/gorila-r2-3d.tsx",
+                         "web/components/dashboard/3d/gorila-r2-3d.test.tsx",
+                         "web/components/dashboard/3d/r2/real/r2-character-presentation.ts",
+                         "web/components/dashboard/3d/r2/real/r2-character-presentation.test.ts",
+                         "web/components/dashboard/3d/r2/real/r2-full-character-runtime.ts",
+                         "web/components/dashboard/3d/r2/real/r2-full-character-runtime.test.ts",
+                         "web/blender/r2-rig/R2_VALIDATE_MATERIAL_BRANDING_WEB_RUNTIME.ts"
+                     ],
+    "PhaseScopedFilesOnly":  true,
+    "PreviousOfficialSourcesUnchanged":  true,
+    "GitHeadUnchanged":  true,
+    "GitStagedFiles":  0,
+    "CommitsCreated":  0,
+    "PushPerformed":  false,
+    "FailedGates":  "NONE"
+}

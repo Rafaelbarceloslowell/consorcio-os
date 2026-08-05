@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "transitionsChecked": 100,
+  "elapsedMs": 2148.2778,
+  "matrix": {
+    "neutral": {
+      "neutral": "repeated",
+      "idle": "applied",
+      "working": "applied",
+      "listening": "applied",
+      "thinking": "applied",
+      "awaiting_action": "applied",
+      "alert": "applied",
+      "speaking": "applied",
+      "celebrating_sale": "applied",
+      "error_attention": "applied"
+    },
+    "idle": {
+      "neutral": "applied",
+      "idle": "repeated",
+      "working": "applied",
+      "listening": "applied",
+      "thinking": "applied",
+      "awaiting_action": "applied",
+      "alert": "applied",
+      "speaking": "applied",
+      "celebrating_sale": "applied",
+      "error_attention": "applied"
+    },
+    "working": {
+      "neutral": "deferred",
+      "idle": "deferred",
+      "working": "repeated",
+      "listening": "applied",
+      "thinking": "applied",
+      "awaiting_action": "applied",
+      "alert": "applied",
+      "speaking": "applied",
+      "celebrating_sale": "applied",
+      "error_attention": "applied"
+    },
+    "listening": {
+      "neutral": "deferred",
+      "idle": "deferred",
+      "working": "applied",
+      "listening": "repeated",
+      "thinking": "applied",
+      "awaiting_action": "applied",
+      "alert": "applied",
+      "speaking": "applied",
+      "celebrating_sale": "applied",
+      "error_attention": "applied"
+    },
+    "thinking": {
+      "neutral": "deferred",
+      "idle": "deferred",
+      "working": "applied",
+      "listening": "applied",
+      "thinking": "repeated",
+      "awaiting_action": "applied",
+      "alert": "applied",
+      "speaking": "applied",
+      "celebrating_sale": "applied",
+      "error_attention": "applied"
+    },
+    "awaiting_action": {
+      "neutral": "deferred",
+      "idle": "deferred",
+      "working": "applied",
+      "listening": "applied",
+      "thinking": "applied",
+      "awaiting_action": "repeated",
+      "alert": "applied",
+      "speaking": "applied",
+      "celebrating_sale": "applied",
+      "error_attention": "applied"
+    },
+    "alert": {
+      "neutral": "deferred",
+      "idle": "deferred",
+      "working": "deferred",
+      "listening": "deferred",
+      "thinking": "deferred",
+      "awaiting_action": "deferred",
+      "alert": "repeated",
+      "speaking": "deferred",
+      "celebrating_sale": "deferred",
+      "error_attention": "applied"
+    },
+    "speaking": {
+      "neutral": "deferred",
+      "idle": "deferred",
+      "working": "deferred",
+      "listening": "deferred",
+      "thinking": "deferred",
+      "awaiting_action": "deferred",
+      "alert": "applied",
+      "speaking": "repeated",
+      "celebrating_sale": "applied",
+      "error_attention": "applied"
+    },
+    "celebrating_sale": {
+      "neutral": "deferred",
+      "idle": "deferred",
+      "working": "deferred",
+      "listening": "deferred",
+      "thinking": "deferred",
+      "awaiting_action": "deferred",
+      "alert": "deferred",
+      "speaking": "deferred",
+      "celebrating_sale": "repeated",
+      "error_attention": "deferred"
+    },
+    "error_attention": {
+      "neutral": "deferred",
+      "idle": "deferred",
+      "working": "deferred",
+      "listening": "deferred",
+      "thinking": "deferred",
+      "awaiting_action": "deferred",
+      "alert": "deferred",
+      "speaking": "deferred",
+      "celebrating_sale": "deferred",
+      "error_attention": "repeated"
+    }
+  }
+}

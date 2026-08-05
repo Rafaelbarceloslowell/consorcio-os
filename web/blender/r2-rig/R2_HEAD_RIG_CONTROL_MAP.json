@@ -1,0 +1,160 @@
+{
+  "control_bones": [
+    "CTRL-face-root",
+    "CTRL-face-eye.L",
+    "CTRL-face-eye.R",
+    "CTRL-face-jaw",
+    "CTRL-face-brow.L",
+    "CTRL-face-brow.R",
+    "CTRL-face-cheek.L",
+    "CTRL-face-cheek.R",
+    "CTRL-face-muzzle",
+    "CTRL-face-lip-upper",
+    "CTRL-face-lip-lower",
+    "CTRL-face-mouth-corner.L",
+    "CTRL-face-mouth-corner.R"
+  ],
+  "eye_pivot_objects": [
+    "R2_EyePivot.L",
+    "R2_EyePivot.R"
+  ],
+  "jaw_driver_object": "R2_JawDriver",
+  "runtime_properties": {
+    "EXP_BLINK_BOTH": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_BLINK_LEFT": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_BLINK_RIGHT": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_BROW_FROWN": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_BROW_RAISE": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_CHEEK_RAISE": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_FROWN": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_JAW_OPEN": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_LIPS_CLOSED": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_MOUTH_E": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_MOUTH_NARROW": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_MOUTH_O": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_MOUTH_WIDE": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_MUZZLE": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EXP_SMILE": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "EYE_AIM_PITCH": {
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "neutral": 0.0
+    },
+    "EYE_AIM_YAW": {
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "neutral": 0.0
+    },
+    "EYE_PITCH.L": {
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "neutral": 0.0
+    },
+    "EYE_PITCH.R": {
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "neutral": 0.0
+    },
+    "EYE_YAW.L": {
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "neutral": 0.0
+    },
+    "EYE_YAW.R": {
+      "maximum": 1.0,
+      "minimum": -1.0,
+      "neutral": 0.0
+    },
+    "VISEME_A": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "VISEME_E": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "VISEME_FV": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "VISEME_L": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "VISEME_MBP": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    },
+    "VISEME_O": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "neutral": 0.0
+    }
+  },
+  "schema_version": 1
+}

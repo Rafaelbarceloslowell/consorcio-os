@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "phase": "FULL_CHARACTER_RIG_INTEGRATION_AND_WEB_RUNTIME",
+  "specification_status": "APPROVED_FOR_TRANSACTIONAL_CONSTRUCTION",
+  "technical_verdict": "APROVADO",
+  "authoritative_body_rig": {
+    "baseline_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-rig-v13-weights-refined.blend",
+    "baseline_sha256": "392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1",
+    "integrated_instance_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-rig-expression-ready-v1\\r2-head-rig-expression-ready-v1.blend",
+    "armature": "R2_Rig",
+    "body_bone_count": 51,
+    "hierarchy_fingerprint": "357DE2348FCD85B15C859E55729819CCED6D419DEF96DEACCD83CA3513120547",
+    "rest_pose_fingerprint": "136AFE30FB18D024E8BA683C5611E201154040DBA17D3D08C193207DC4FCEEC9"
+  },
+  "authoritative_facial_rig": {
+    "source_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-rig-expression-ready-v1\\r2-head-rig-expression-ready-v1.blend",
+    "source_sha256": "7AE3C98EEF99AE60FF3C0470370147559B6B1CE7EE8455BAFD81D9852D8C0B97",
+    "armature": "R2_Rig",
+    "facial_bone_count": 14,
+    "expression_and_viseme_channels": 24
+  },
+  "integration_architecture": {
+    "armature_strategy": "SINGLE_EXISTING_ARMATURE_NO_MERGE",
+    "construction_source": "APPROVED_HEAD_RIG_PUBLICATION",
+    "reason": "The approved source already contains the complete body geometry, the exact certified V13 body hierarchy/rest pose, and the approved facial additions in one R2_Rig.",
+    "head_root_attachment": "head",
+    "neck_to_head_relationship": "neck -> head",
+    "transform_space": "IDENTITY_OBJECT_SPACE_AND_ARMATURE_LOCAL_POSE_SPACE",
+    "rest_pose_mapping": "IDENTITY_FOR_ALL_51_BODY_BONES",
+    "facial_control_ownership": "R2_Rig custom properties and facial bones",
+    "body_control_ownership": "R2_Rig pose bones and deterministic actions",
+    "eye_control_ownership": "R2_EyePivot.L/R objects plus R2_Eye.L/R bones and runtime controller",
+    "jaw_control_ownership": "R2_JawDriver plus DEF-face-jaw and R2_Jaw mappings",
+    "morph_target_ownership": "Per-mesh shape keys driven directly by the Three.js runtime",
+    "mesh_to_armature_relationship": "PRESERVE_EXISTING_MODIFIERS_AND_PARENTS",
+    "weight_policy": "NO_WEIGHT_CHANGES",
+    "geometry_policy": "NO_GEOMETRY_CHANGES",
+    "material_policy": "PRESERVE_EXISTING_MATERIAL_SLOTS",
+    "uv_attribute_policy": "PRESERVE_BY_EXACT_INVENTORY_FINGERPRINT",
+    "duplicate_name_policy": "PROHIBIT_DOT_001_AND_DUPLICATE_EXPORT_NAMES"
+  },
+  "body_bone_mapping": {
+    "strategy": "IDENTITY",
+    "bones": [
+      "root", "pelvis", "spine_01", "spine_02", "chest", "neck", "head",
+      "clavicle.L", "upper_arm.L", "forearm.L", "hand.L", "thumb_01.L", "thumb_02.L",
+      "index_01.L", "index_02.L", "index_03.L", "middle_01.L", "middle_02.L", "middle_03.L",
+      "ring_01.L", "ring_02.L", "ring_03.L", "pinky_01.L", "pinky_02.L", "pinky_03.L",
+      "clavicle.R", "upper_arm.R", "forearm.R", "hand.R", "thumb_01.R", "thumb_02.R",
+      "index_01.R", "index_02.R", "index_03.R", "middle_01.R", "middle_02.R", "middle_03.R",
+      "ring_01.R", "ring_02.R", "ring_03.R", "pinky_01.R", "pinky_02.R", "pinky_03.R",
+      "thigh.L", "shin.L", "foot.L", "toe.L", "thigh.R", "shin.R", "foot.R", "toe.R"
+    ]
+  },
+  "mesh_mapping": {
+    "strategy": "IDENTITY",
+    "preserved_body_and_clothing_meshes": [
+      "R2_Arm_Fur_R", "R2_Hand_L", "R2_Hand_R", "R2_Head_Face", "R2_Head_Fur", "R2_Hood",
+      "R2_Hood_Cord_L", "R2_Hood_Cord_R", "R2_Hoodie_Sleeve_L", "R2_Hoodie_Sleeve_R",
+      "R2_Hoodie_Torso", "R2_Pants", "R2_Shoe_L", "R2_Shoe_R"
+    ],
+    "preserved_facial_and_oral_meshes": [
+      "R2_Head_Face_Foundation", "R2_Eye.L", "R2_Eye.R", "R2_UpperEyelid.L", "R2_UpperEyelid.R",
+      "R2_LowerEyelid.L", "R2_LowerEyelid.R", "R2_LipUpper", "R2_LipLower", "R2_MouthInterior",
+      "R2_TeethUpper", "R2_TeethLower", "R2_Tongue"
+    ]
+  },
+  "animation_architecture": {
+    "owner": "R2_Rig",
+    "clip_mode": "BLENDER_ACTIONS_EXPORTED_AS_GLTF_ANIMATIONS",
+    "fps": 30,
+    "root_motion": "NONE",
+    "scale_animation": "NONE",
+    "facial_speech": "RUNTIME_MORPH_AND_BONE_CONTROL",
+    "neutral_reset": "STOP_ACTIONS_RESET_ALL_65_BONES_TO_REST_ZERO_ALL_MORPHS_AND_RUNTIME_PROPERTIES",
+    "clips": [
+      "R2_NEUTRAL", "R2_IDLE", "R2_WORKING", "R2_LISTENING", "R2_THINKING",
+      "R2_AWAITING_ACTION", "R2_ALERT", "R2_CELEBRATING_SALE", "R2_ERROR_ATTENTION"
+    ]
+  },
+  "glb_export_architecture": {
+    "format": "GLB",
+    "self_contained": true,
+    "external_dependencies": 0,
+    "include": ["visible geometry", "R2_Rig", "skinning", "morph targets", "materials", "nine actions"],
+    "exclude": ["hidden historical R2_Head_Face", "test actions", "images created by this phase"]
+  },
+  "threejs_architecture": {
+    "loader": "useGLTF with deterministic official URL",
+    "controller": "typed imperative R2FullCharacterRuntimeController",
+    "mixer_ownership": "one AnimationMixer per mounted clone",
+    "action_cache": "deterministic clip-name map",
+    "state_transitions": "validated crossfades with documented fallback",
+    "facial_control": "exact morph dictionary and bone mappings",
+    "cleanup": "stop actions, uncache clips/root, dispose clone-owned GPU resources, reject post-dispose calls",
+    "rollback_model": "/models/r2/r2-gorilla-geometry-only.glb"
+  },
+  "construction_authorized": true,
+  "publication_authorized_after_all_gates": true
+}

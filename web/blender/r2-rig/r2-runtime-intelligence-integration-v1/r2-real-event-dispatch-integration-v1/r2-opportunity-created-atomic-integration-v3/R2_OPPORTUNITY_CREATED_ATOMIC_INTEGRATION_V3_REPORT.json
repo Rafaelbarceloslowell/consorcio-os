@@ -1,0 +1,23 @@
+﻿{
+    "schemaVersion":  3,
+    "package":  "R2_OPPORTUNITY_CREATED_ATOMIC_INTEGRATION_V3",
+    "generatedAt":  "2026-08-02T22:21:10.2795382-03:00",
+    "workspace":  "C:\\Projetos\\consorcio-os\\web",
+    "backupRoot":  "C:\\Users\\rafae\\AppData\\Local\\Temp\\r2-opportunity-created-v3-backup-3e41430e5d9344a2b5b9109c04f88b68",
+    "backupComplete":  true,
+    "sourceWriteStarted":  true,
+    "rollbackPerformed":  true,
+    "rollbackComplete":  true,
+    "preDeployIntegrityPassed":  false,
+    "migrationDeployStarted":  false,
+    "migrationDeploySucceeded":  false,
+    "postMigrationFailure":  false,
+    "generatedClientHashBefore":  "D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170",
+    "generatedClientHashFinal":  "",
+    "error":  "TypeScript falhou com exit code 134; esperado 0.",
+    "rollbackError":  "TypeScript do rollback falhou com exit code 134; esperado 0.",
+    "commitCreated":  false,
+    "pushPerformed":  false,
+    "verdict":  "REPROVADO_ROLLBACK_INCOMPLETO",
+    "nextStep":  "PARAR_E_ANALISAR_ESTADO"
+}

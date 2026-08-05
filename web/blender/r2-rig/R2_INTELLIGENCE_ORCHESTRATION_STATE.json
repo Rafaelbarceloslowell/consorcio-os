@@ -1,0 +1,214 @@
+{
+    "schema_version":  1,
+    "phase":  "GORILLAOS_R2_INTELLIGENCE_AND_EVENT_ORCHESTRATION",
+    "execution_status":  "COMPLETED",
+    "technical_verdict":  "APROVADO",
+    "current_checkpoint":  "CHECKPOINT_11_PUBLICATION_AND_REVALIDATION_APPROVED",
+    "checkpoints":  {
+                        "checkpoint_1_read_only_inventory":  {
+                                                                 "status":  "APPROVED",
+                                                                 "official_glb_sha256":  "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+                                                                 "official_blend_sha256":  "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269",
+                                                                 "existing_runtime_states_confirmed":  10,
+                                                                 "existing_morph_targets_confirmed":  24,
+                                                                 "existing_commercial_event_types":  14,
+                                                                 "git_baseline_captured":  true,
+                                                                 "official_assets_unchanged":  true
+                                                             },
+                        "checkpoint_2_architecture_and_contracts":  {
+                                                                        "status":  "APPROVED",
+                                                                        "canonical_event_types":  62,
+                                                                        "intelligence_port":  "R2IntelligencePort",
+                                                                        "typed_runtime_command":  "R2RuntimeCommand",
+                                                                        "workspace_and_user_isolation":  true,
+                                                                        "event_runtime_mapping_created":  true,
+                                                                        "isolated_typescript_exit_code":  0
+                                                                    },
+                        "checkpoint_3_functional_vertical":  {
+                                                                 "status":  "APPROVED",
+                                                                 "flows":  7,
+                                                                 "real_commercial_events_used":  true
+                                                             },
+                        "checkpoint_4_complete_orchestrator":  {
+                                                                   "status":  "APPROVED",
+                                                                   "queue":  true,
+                                                                   "priorities":  true,
+                                                                   "interruptions":  true,
+                                                                   "cooldowns":  true,
+                                                                   "idempotency":  true,
+                                                                   "expiry":  true,
+                                                                   "receipts":  true,
+                                                                   "fallback":  true
+                                                               },
+                        "checkpoint_5_deterministic_intelligence":  {
+                                                                        "status":  "APPROVED",
+                                                                        "provider":  "gorillaos-deterministic-local-v1",
+                                                                        "network_calls":  0,
+                                                                        "structured_results":  true
+                                                                    },
+                        "checkpoint_6_runtime_and_dashboard":  {
+                                                                   "status":  "APPROVED",
+                                                                   "official_controller_reused":  true,
+                                                                   "layout_changed":  false,
+                                                                   "legacy_fallback_preserved":  true,
+                                                                   "strict_mode":  true
+                                                               },
+                        "checkpoint_7_priority_and_interruption_tests":  {
+                                                                             "status":  "APPROVED",
+                                                                             "required_transitions":  true,
+                                                                             "workspace_and_user_isolation":  true,
+                                                                             "disposed_runtime":  true,
+                                                                             "neutral_reset":  true
+                                                                         },
+                        "checkpoint_8_application_tests":  {
+                                                               "status":  "APPROVED",
+                                                               "focused_tests":  "57/57",
+                                                               "typescript_exit_code":  0,
+                                                               "phase_lint_errors":  0,
+                                                               "full_suite":  "1528/1541 passed; 13 exact pre-existing failures",
+                                                               "regressions_introduced":  0
+                                                           },
+                        "checkpoint_9_headless_runtime":  {
+                                                              "status":  "APPROVED",
+                                                              "orchestration_headless":  true,
+                                                              "glb_parse_attempts":  3,
+                                                              "runtime_console_errors":  0,
+                                                              "dispose_remount":  true
+                                                          },
+                        "checkpoint_10_independent_audit":  {
+                                                                "status":  "APPROVED",
+                                                                "independent_audit_approved":  true,
+                                                                "failed_gates":  "NONE"
+                                                            },
+                        "checkpoint_11_publication_and_revalidation":  {
+                                                                           "status":  "APPROVED",
+                                                                           "focused_tests":  "57/57",
+                                                                           "typescript_exit_code":  0,
+                                                                           "phase_lint_errors":  0,
+                                                                           "headless_validators":  "2/2",
+                                                                           "official_assets_unchanged":  true
+                                                                       }
+                    },
+    "official_glb":  "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-runtime-ready-v1.glb",
+    "official_glb_sha256":  "E3B9702C0367A8CAFB138B5C9AB94D6CC448C470CD69D74A46333A9953207A59",
+    "official_blend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-runtime-ready-v1\\r2-full-character-runtime-ready-v1.blend",
+    "official_blend_sha256":  "3D60D28B852566ABEC764D2DE0EB55D63F42AC26F8F75936109D33898B25E269",
+    "repository_architecture":  {
+                                    "domain_contracts":  "types/domain",
+                                    "application":  "application",
+                                    "decision_engine":  "engine/decision",
+                                    "repository_ports":  "repositories",
+                                    "r2_runtime":  "components/dashboard/3d/r2"
+                                },
+    "write_justifications_outside_components_dashboard_3d_r2":  [
+                                                                    {
+                                                                        "scope":  "types/r2-intelligence-orchestration.ts",
+                                                                        "reason":  "Canonical events, decisions, commands and receipts must be shared without importing React or Three.js."
+                                                                    },
+                                                                    {
+                                                                        "scope":  "application/r2",
+                                                                        "reason":  "Commercial normalization, workspace context, deterministic intelligence and pure orchestration are application responsibilities and must not live in 3D components."
+                                                                    },
+                                                                    {
+                                                                        "scope":  "types/dashboard.ts and application/dashboard/get-async-dashboard-data.ts",
+                                                                        "reason":  "The active dashboard must carry the already-resolved workspace identity so canonical events cannot be created without workspace scope."
+                                                                    },
+                                                                    {
+                                                                        "scope":  "components/dashboard/dashboard-shell.tsx, dashboard-content.tsx, dashboard-header.tsx and gorila-r2-avatar-3d.tsx",
+                                                                        "reason":  "These are the proven active data/visual path and must pass workspace, user and existing briefing to the R2 lifecycle bridge without embedding business rules."
+                                                                    },
+                                                                    {
+                                                                        "scope":  "blender/r2-rig phase evidence and validators",
+                                                                        "reason":  "The authorized phase requires transactional state, event mapping, headless validation logs, test results, independent audit and final integrity evidence beside the approved R2 pipeline artifacts."
+                                                                    }
+                                                                ],
+    "git_baseline":  "main...origin/main [ahead 63]; pre-existing modified and untracked files preserved; staged files 0",
+    "files_created":  [
+                          "types/r2-intelligence-orchestration.ts",
+                          "application/r2/normalize-r2-event.ts",
+                          "application/r2/r2-deterministic-intelligence.ts",
+                          "application/r2/r2-presentation-planner.ts",
+                          "application/r2/r2-orchestrator.ts",
+                          "application/r2/index.ts",
+                          "application/r2/r2-intelligence-orchestration.test.ts",
+                          "components/dashboard/3d/r2/orchestration/r2-runtime-command-adapter.ts",
+                          "components/dashboard/3d/r2/orchestration/r2-runtime-command-adapter.test.ts",
+                          "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx",
+                          "components/dashboard/gorila-r2-avatar-3d.test.tsx",
+                          "blender/r2-rig/R2_INTELLIGENCE_ORCHESTRATION_RUNBOOK.md",
+                          "blender/r2-rig/R2_EVENT_CATALOG.json",
+                          "blender/r2-rig/R2_EVENT_TO_RUNTIME_MAPPING.json",
+                          "components/dashboard/3d/r2/orchestration/r2-orchestration-provider.test.tsx",
+                          "blender/r2-rig/R2_VALIDATE_INTELLIGENCE_ORCHESTRATION_HEADLESS.ts",
+                          "blender/r2-rig/R2_INTELLIGENCE_ORCHESTRATION_HEADLESS_REPORT.json",
+                          "blender/r2-rig/R2_INTELLIGENCE_ORCHESTRATION_GLTF_REVALIDATION.json",
+                          "blender/r2-rig/R2_ORCHESTRATION_TEST_RESULTS.json",
+                          "blender/r2-rig/R2_INTELLIGENCE_ORCHESTRATION_AUDIT.md",
+                          "blender/r2-rig/R2_INTELLIGENCE_ORCHESTRATION_FINAL_REPORT.md"
+                      ],
+    "files_modified":  [
+                           "types/dashboard.ts",
+                           "application/dashboard/get-async-dashboard-data.ts",
+                           "components/dashboard/dashboard-shell.tsx",
+                           "components/dashboard/dashboard-content.tsx",
+                           "components/dashboard/dashboard-header.tsx",
+                           "components/dashboard/gorila-r2-avatar-3d.tsx",
+                           "components/dashboard/3d/gorila-r2-3d.tsx",
+                           "components/dashboard/3d/r2/real/r2-full-character-model.tsx",
+                           "components/dashboard/3d/r2/real/r2-full-character-model.test.tsx"
+                       ],
+    "test_results":  {
+                         "focused_tests":  "57 passed, 0 failed",
+                         "r2_orchestration_runtime_tests":  "46 passed, 0 failed",
+                         "full_source_typescript_exit_code":  0,
+                         "phase_lint_errors":  0,
+                         "full_suite":  "1541 total, 1528 passed, 13 exact pre-existing dashboard assertion failures",
+                         "runtime_headless":  "APPROVED",
+                         "glb_revalidation":  "APPROVED",
+                         "regressions_introduced":  0
+                     },
+    "failed_attempts":  [
+                            {
+                                "checkpoint":  "8",
+                                "cause":  "PowerShell execution policy blocked npx.ps1",
+                                "recovery":  "Used project-local .cmd binaries",
+                                "recoverable":  true
+                            },
+                            {
+                                "checkpoint":  "8",
+                                "cause":  "Generated .next/dev/types/validator.ts is truncated",
+                                "recovery":  "Used clean all-source temporary tsconfig excluding generated artifacts",
+                                "recoverable":  true
+                            },
+                            {
+                                "checkpoint":  "8",
+                                "cause":  "First full suite exceeded 120 seconds",
+                                "recovery":  "Repeated with 300-second JSON reporter; completed in 209.3 seconds",
+                                "recoverable":  true
+                            },
+                            {
+                                "checkpoint":  "8",
+                                "cause":  "Global lint reproduced 26 unrelated pre-existing errors",
+                                "recovery":  "Recorded separately; phase scope has zero lint errors and unrelated files were not changed",
+                                "recoverable":  false
+                            }
+                        ],
+    "corrections":  [
+                        "Corrected active priority access to current.command.priority.",
+                        "Replaced render-time ref access with a keyed workspace/user React scope.",
+                        "Protected CRITICAL presentations from lower-priority interruption.",
+                        "Added explicit user-context isolation and confirmation metadata.",
+                        "Prevented queued commands from reaching the runtime adapter before execution.",
+                        "Corrected intermediate canonical event count to the exhaustive value 62."
+                    ],
+    "official_assets_unchanged":  true,
+    "previous_official_versions_unchanged":  true,
+    "created_images":  0,
+    "temporary_directories_remaining":  0,
+    "git_staged_files":  0,
+    "commits_created":  0,
+    "push_performed":  false,
+    "next_action":  "NONE",
+    "next_phase":  "R2_REAL_DATA_CONNECTORS_AND_COMMUNICATION_CHANNELS",
+    "local_datetime":  "2026-08-01T17:12:39.6256080-03:00"
+}

@@ -1,0 +1,1706 @@
+{
+  "audit": "R2 v36 Head Face Foundation v1 read-only audit",
+  "blender_version": "4.5.10 LTS",
+  "execution_status": "COMPLETED",
+  "technical_verdict": "APROVADO",
+  "audit_passed": true,
+  "blend_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\.__r2_v36_head_face_foundation_848e121795f14fd58dcfba73bde9ba40\\r2-rig-v36-head-face-foundation-v1.blend",
+  "blend_saved": false,
+  "mesh_objects": 15,
+  "armature_objects": 1,
+  "preserved_original_objects": {
+    "R2_Arm_Fur_R": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Arm_Fur_R",
+        "vertices": 137,
+        "edges": 354,
+        "faces": 218,
+        "mesh_topology_sha256": "AF9EE387946088302C1E719D7612E2BE6C11C2F8BC38F9C0A4615E4E1B5E48CE",
+        "named_weights_sha256": "08C8FB3931B6E21BB8C1760CD7B206D9C061DEFCE5DF5169F0ECAAF5492D106D",
+        "used_group_names": [
+          "chest",
+          "clavicle.R",
+          "spine_02",
+          "upper_arm.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Arm_Fur_R",
+        "vertices": 137,
+        "edges": 354,
+        "faces": 218,
+        "mesh_topology_sha256": "AF9EE387946088302C1E719D7612E2BE6C11C2F8BC38F9C0A4615E4E1B5E48CE",
+        "named_weights_sha256": "08C8FB3931B6E21BB8C1760CD7B206D9C061DEFCE5DF5169F0ECAAF5492D106D",
+        "used_group_names": [
+          "chest",
+          "clavicle.R",
+          "spine_02",
+          "upper_arm.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Hand_L": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Hand_L",
+        "vertices": 9586,
+        "edges": 27603,
+        "faces": 17980,
+        "mesh_topology_sha256": "1247170DCC8C502D66BB55B25061FB7C610F3661594029D6F4F81CCDC144055E",
+        "named_weights_sha256": "7E84914CA4BE7136FEEC67ECEC22BC5DAAA897349827D695D1EDBD4DDC8DCC52",
+        "used_group_names": [
+          "forearm.L",
+          "hand.L",
+          "index_01.L",
+          "index_02.L",
+          "index_03.L",
+          "middle_01.L",
+          "middle_03.L",
+          "pinky_01.L",
+          "pinky_02.L",
+          "pinky_03.L",
+          "ring_01.L",
+          "ring_02.L",
+          "ring_03.L",
+          "thumb_01.L",
+          "thumb_02.L"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Hand_L",
+        "vertices": 9586,
+        "edges": 27603,
+        "faces": 17980,
+        "mesh_topology_sha256": "1247170DCC8C502D66BB55B25061FB7C610F3661594029D6F4F81CCDC144055E",
+        "named_weights_sha256": "7E84914CA4BE7136FEEC67ECEC22BC5DAAA897349827D695D1EDBD4DDC8DCC52",
+        "used_group_names": [
+          "forearm.L",
+          "hand.L",
+          "index_01.L",
+          "index_02.L",
+          "index_03.L",
+          "middle_01.L",
+          "middle_03.L",
+          "pinky_01.L",
+          "pinky_02.L",
+          "pinky_03.L",
+          "ring_01.L",
+          "ring_02.L",
+          "ring_03.L",
+          "thumb_01.L",
+          "thumb_02.L"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Hand_R": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Hand_R",
+        "vertices": 10588,
+        "edges": 30467,
+        "faces": 19837,
+        "mesh_topology_sha256": "F0C3C74BBAF554FAC7DDC3794E920F2A4587CE45EC9372211604C0F96882952D",
+        "named_weights_sha256": "76F8A6886243D5A8C610B421256E4F6DC979ECCD11147C11030C5D72A71DBDA6",
+        "used_group_names": [
+          "forearm.R",
+          "hand.R",
+          "index_01.R",
+          "index_03.R",
+          "middle_01.R",
+          "middle_03.R",
+          "pinky_01.R",
+          "pinky_02.R",
+          "pinky_03.R",
+          "ring_01.R",
+          "ring_02.R",
+          "ring_03.R",
+          "thigh.R",
+          "thumb_01.R",
+          "thumb_02.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Hand_R",
+        "vertices": 10588,
+        "edges": 30467,
+        "faces": 19837,
+        "mesh_topology_sha256": "F0C3C74BBAF554FAC7DDC3794E920F2A4587CE45EC9372211604C0F96882952D",
+        "named_weights_sha256": "76F8A6886243D5A8C610B421256E4F6DC979ECCD11147C11030C5D72A71DBDA6",
+        "used_group_names": [
+          "forearm.R",
+          "hand.R",
+          "index_01.R",
+          "index_03.R",
+          "middle_01.R",
+          "middle_03.R",
+          "pinky_01.R",
+          "pinky_02.R",
+          "pinky_03.R",
+          "ring_01.R",
+          "ring_02.R",
+          "ring_03.R",
+          "thigh.R",
+          "thumb_01.R",
+          "thumb_02.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Head_Face": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Head_Face",
+        "vertices": 3697,
+        "edges": 10806,
+        "faces": 7086,
+        "mesh_topology_sha256": "6903376494A7DA85BD24ECFD938421733B26900881D6493DB35817294F9A7CCB",
+        "named_weights_sha256": "9FFDA3605AC555C86670DFD426602D40209252606DFBB8DAC10645046933DB31",
+        "used_group_names": [
+          "head",
+          "neck"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Head_Face",
+        "vertices": 3697,
+        "edges": 10806,
+        "faces": 7086,
+        "mesh_topology_sha256": "6903376494A7DA85BD24ECFD938421733B26900881D6493DB35817294F9A7CCB",
+        "named_weights_sha256": "9FFDA3605AC555C86670DFD426602D40209252606DFBB8DAC10645046933DB31",
+        "used_group_names": [
+          "head",
+          "neck"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Head_Fur": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Head_Fur",
+        "vertices": 18673,
+        "edges": 53788,
+        "faces": 35015,
+        "mesh_topology_sha256": "C41451C95D792E33B713F14047BBED51ECCC1AD81279024329BBC762C21C71C5",
+        "named_weights_sha256": "8C17C70E7957929E70DC1B4F5C771793BFBFFAEECC23DE204A76DE61AEDAC062",
+        "used_group_names": [
+          "chest",
+          "clavicle.L",
+          "clavicle.R",
+          "head",
+          "neck",
+          "spine_02"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Head_Fur",
+        "vertices": 18673,
+        "edges": 53788,
+        "faces": 35015,
+        "mesh_topology_sha256": "C41451C95D792E33B713F14047BBED51ECCC1AD81279024329BBC762C21C71C5",
+        "named_weights_sha256": "8C17C70E7957929E70DC1B4F5C771793BFBFFAEECC23DE204A76DE61AEDAC062",
+        "used_group_names": [
+          "chest",
+          "clavicle.L",
+          "clavicle.R",
+          "head",
+          "neck",
+          "spine_02"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Hood": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Hood",
+        "vertices": 18418,
+        "edges": 53562,
+        "faces": 35120,
+        "mesh_topology_sha256": "000268B0FCCB99337E04E33FC32361711AACDCB4775104E5A3263126FA5ED5EB",
+        "named_weights_sha256": "968A9EC0D2EDF66C6310C3E2B02D3AE542356AB996FABCAACF1064962DE1CBF7",
+        "used_group_names": [
+          "chest",
+          "clavicle.L",
+          "clavicle.R",
+          "head",
+          "neck",
+          "spine_02",
+          "upper_arm.L",
+          "upper_arm.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Hood",
+        "vertices": 18418,
+        "edges": 53562,
+        "faces": 35120,
+        "mesh_topology_sha256": "000268B0FCCB99337E04E33FC32361711AACDCB4775104E5A3263126FA5ED5EB",
+        "named_weights_sha256": "968A9EC0D2EDF66C6310C3E2B02D3AE542356AB996FABCAACF1064962DE1CBF7",
+        "used_group_names": [
+          "chest",
+          "clavicle.L",
+          "clavicle.R",
+          "head",
+          "neck",
+          "spine_02",
+          "upper_arm.L",
+          "upper_arm.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Hood_Cord_L": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Hood_Cord_L",
+        "vertices": 162,
+        "edges": 425,
+        "faces": 265,
+        "mesh_topology_sha256": "8F09F0BEAC843D85D81B4459F5088B7764970678CE39328076B20660DF0C24D6",
+        "named_weights_sha256": "5AAF98DB7C66D863ACEA32EBA8EF3C5AE15D8F3F3EDC7FD236EA95B2145B08B3",
+        "used_group_names": [
+          "chest",
+          "spine_02"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Hood_Cord_L",
+        "vertices": 162,
+        "edges": 425,
+        "faces": 265,
+        "mesh_topology_sha256": "8F09F0BEAC843D85D81B4459F5088B7764970678CE39328076B20660DF0C24D6",
+        "named_weights_sha256": "5AAF98DB7C66D863ACEA32EBA8EF3C5AE15D8F3F3EDC7FD236EA95B2145B08B3",
+        "used_group_names": [
+          "chest",
+          "spine_02"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Hood_Cord_R": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Hood_Cord_R",
+        "vertices": 132,
+        "edges": 339,
+        "faces": 208,
+        "mesh_topology_sha256": "862F5B0947FA83A012C73D16F6E775BAF9E0DAB25EE7B6748A39EC75E67A08AF",
+        "named_weights_sha256": "86473041AFE590562E9DA499F9088C0EF5E5D671436848453C5BEA7D87C02EC6",
+        "used_group_names": [
+          "chest",
+          "spine_02"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Hood_Cord_R",
+        "vertices": 132,
+        "edges": 339,
+        "faces": 208,
+        "mesh_topology_sha256": "862F5B0947FA83A012C73D16F6E775BAF9E0DAB25EE7B6748A39EC75E67A08AF",
+        "named_weights_sha256": "86473041AFE590562E9DA499F9088C0EF5E5D671436848453C5BEA7D87C02EC6",
+        "used_group_names": [
+          "chest",
+          "spine_02"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Hoodie_Sleeve_L": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Hoodie_Sleeve_L",
+        "vertices": 7290,
+        "edges": 21137,
+        "faces": 13841,
+        "mesh_topology_sha256": "363A5F9665259AD5A36160C7FA38AE9486724F029264D80682F72F88F13522E5",
+        "named_weights_sha256": "D0381AA9408ADE90961952DB6BF1CF33E24AE236E87300B94B2AA7335652F71B",
+        "used_group_names": [
+          "chest",
+          "clavicle.L",
+          "forearm.L",
+          "spine_02",
+          "upper_arm.L"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Hoodie_Sleeve_L",
+        "vertices": 7290,
+        "edges": 21137,
+        "faces": 13841,
+        "mesh_topology_sha256": "363A5F9665259AD5A36160C7FA38AE9486724F029264D80682F72F88F13522E5",
+        "named_weights_sha256": "D0381AA9408ADE90961952DB6BF1CF33E24AE236E87300B94B2AA7335652F71B",
+        "used_group_names": [
+          "chest",
+          "clavicle.L",
+          "forearm.L",
+          "spine_02",
+          "upper_arm.L"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Hoodie_Sleeve_R": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Hoodie_Sleeve_R",
+        "vertices": 14274,
+        "edges": 41548,
+        "faces": 27266,
+        "mesh_topology_sha256": "63AAB271F089FAFBD76B6B6702808EF1DB960F775172F66A260DE2804FD1DD7F",
+        "named_weights_sha256": "CD9A6F86D8645A151EFC37FF2685827A39CD0DA030254A4FB172E9060C3549A4",
+        "used_group_names": [
+          "chest",
+          "clavicle.R",
+          "forearm.R",
+          "spine_02",
+          "upper_arm.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Hoodie_Sleeve_R",
+        "vertices": 14274,
+        "edges": 41548,
+        "faces": 27266,
+        "mesh_topology_sha256": "63AAB271F089FAFBD76B6B6702808EF1DB960F775172F66A260DE2804FD1DD7F",
+        "named_weights_sha256": "CD9A6F86D8645A151EFC37FF2685827A39CD0DA030254A4FB172E9060C3549A4",
+        "used_group_names": [
+          "chest",
+          "clavicle.R",
+          "forearm.R",
+          "spine_02",
+          "upper_arm.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Hoodie_Torso": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Hoodie_Torso",
+        "vertices": 37815,
+        "edges": 110166,
+        "faces": 72344,
+        "mesh_topology_sha256": "FA8945230A6A825C9A702145E8A41C51D2B0BF996C830C6A72D6C30B638B9E77",
+        "named_weights_sha256": "3D94AD23336F588CF224B7A729C6D420D878D6D2D4276D2C23CDA1ED6003BFF8",
+        "used_group_names": [
+          "chest",
+          "clavicle.L",
+          "clavicle.R",
+          "forearm.L",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "thigh.L",
+          "upper_arm.L",
+          "upper_arm.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Hoodie_Torso",
+        "vertices": 37815,
+        "edges": 110166,
+        "faces": 72344,
+        "mesh_topology_sha256": "FA8945230A6A825C9A702145E8A41C51D2B0BF996C830C6A72D6C30B638B9E77",
+        "named_weights_sha256": "3D94AD23336F588CF224B7A729C6D420D878D6D2D4276D2C23CDA1ED6003BFF8",
+        "used_group_names": [
+          "chest",
+          "clavicle.L",
+          "clavicle.R",
+          "forearm.L",
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "thigh.L",
+          "upper_arm.L",
+          "upper_arm.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Pants": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Pants",
+        "vertices": 54599,
+        "edges": 158981,
+        "faces": 104307,
+        "mesh_topology_sha256": "7E5DCD95A95A3BA7EF7F45EE36BDC2798BDAFC990955E5C67D9076463AC3A59D",
+        "named_weights_sha256": "A677DDAD9EC5E539D09A8632F2434E369B8C131E2FC5E7C5FFC3A43EBA4BEB4A",
+        "used_group_names": [
+          "index_02.R",
+          "index_03.L",
+          "pelvis",
+          "shin.L",
+          "shin.R",
+          "spine_01",
+          "spine_02",
+          "thigh.L",
+          "thigh.R",
+          "thumb_01.L",
+          "thumb_01.R",
+          "thumb_02.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Pants",
+        "vertices": 54599,
+        "edges": 158981,
+        "faces": 104307,
+        "mesh_topology_sha256": "7E5DCD95A95A3BA7EF7F45EE36BDC2798BDAFC990955E5C67D9076463AC3A59D",
+        "named_weights_sha256": "A677DDAD9EC5E539D09A8632F2434E369B8C131E2FC5E7C5FFC3A43EBA4BEB4A",
+        "used_group_names": [
+          "index_02.R",
+          "index_03.L",
+          "pelvis",
+          "shin.L",
+          "shin.R",
+          "spine_01",
+          "spine_02",
+          "thigh.L",
+          "thigh.R",
+          "thumb_01.L",
+          "thumb_01.R",
+          "thumb_02.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Shoe_L": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Shoe_L",
+        "vertices": 11144,
+        "edges": 32577,
+        "faces": 21399,
+        "mesh_topology_sha256": "A99A2BA4336B9ECB8B34189C443B7000D9DDAF91BD3C3193785D6AE4072D2BE8",
+        "named_weights_sha256": "A34442C319490E8DC777D1714194D039A10534F476E9EAA974DF9D1270C99A46",
+        "used_group_names": [
+          "foot.L",
+          "shin.L",
+          "toe.L"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Shoe_L",
+        "vertices": 11144,
+        "edges": 32577,
+        "faces": 21399,
+        "mesh_topology_sha256": "A99A2BA4336B9ECB8B34189C443B7000D9DDAF91BD3C3193785D6AE4072D2BE8",
+        "named_weights_sha256": "A34442C319490E8DC777D1714194D039A10534F476E9EAA974DF9D1270C99A46",
+        "used_group_names": [
+          "foot.L",
+          "shin.L",
+          "toe.L"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    },
+    "R2_Shoe_R": {
+      "equal": true,
+      "expected": {
+        "name": "R2_Shoe_R",
+        "vertices": 10911,
+        "edges": 32014,
+        "faces": 21071,
+        "mesh_topology_sha256": "6B0A0743262DDB44AED45999B9208B85611D19A1535BEA3B3FBAC4D5F57785C4",
+        "named_weights_sha256": "59186FAFE43B5ADAB70F59131670DF43EBF6A218CB7E26022E6AF11B0DD1BA14",
+        "used_group_names": [
+          "foot.R",
+          "shin.R",
+          "toe.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      },
+      "actual": {
+        "name": "R2_Shoe_R",
+        "vertices": 10911,
+        "edges": 32014,
+        "faces": 21071,
+        "mesh_topology_sha256": "6B0A0743262DDB44AED45999B9208B85611D19A1535BEA3B3FBAC4D5F57785C4",
+        "named_weights_sha256": "59186FAFE43B5ADAB70F59131670DF43EBF6A218CB7E26022E6AF11B0DD1BA14",
+        "used_group_names": [
+          "foot.R",
+          "shin.R",
+          "toe.R"
+        ],
+        "matrix_world": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "R2_Rig",
+        "modifiers": [
+          {
+            "name": "R2_Armature",
+            "type": "ARMATURE",
+            "show_viewport": true,
+            "show_render": true,
+            "object": "R2_Rig"
+          }
+        ],
+        "materials": [],
+        "shape_keys": [],
+        "uv_layers": []
+      }
+    }
+  },
+  "rig_equal": true,
+  "foundation": {
+    "state": {
+      "name": "R2_Head_Face_Foundation",
+      "vertices": 3697,
+      "edges": 10806,
+      "faces": 7086,
+      "mesh_topology_sha256": "6903376494A7DA85BD24ECFD938421733B26900881D6493DB35817294F9A7CCB",
+      "named_weights_sha256": "9FFDA3605AC555C86670DFD426602D40209252606DFBB8DAC10645046933DB31",
+      "used_group_names": [
+        "head",
+        "neck"
+      ],
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "parent": "R2_Rig",
+      "modifiers": [
+        {
+          "name": "R2_Armature",
+          "type": "ARMATURE",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "R2_Rig"
+        }
+      ],
+      "materials": [],
+      "shape_keys": [],
+      "uv_layers": []
+    },
+    "topology": {
+      "vertices": 3697,
+      "edges": 10806,
+      "faces": 7086,
+      "boundary_edges": 354,
+      "invalid_non_manifold_edges": 0,
+      "wire_edges": 0,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "connected_islands": 1,
+      "island_vertex_sizes": [
+        3697
+      ]
+    },
+    "coordinate_max_delta": 0.0,
+    "unweighted_vertices": 0,
+    "gates": {
+      "topology_hash_exact": true,
+      "named_weights_exact": true,
+      "coordinates_exact": true,
+      "one_island": true,
+      "intentional_boundaries": true,
+      "no_invalid_non_manifold": true,
+      "no_wire_edges": true,
+      "no_loose_vertices": true,
+      "no_zero_area_faces": true,
+      "groups_exact": true,
+      "used_groups_exact": true,
+      "no_unweighted_vertices": true,
+      "correct_parent": true,
+      "one_correct_armature_modifier": true,
+      "source_face_hidden": true,
+      "fur_visible": true,
+      "foundation_visible": true,
+      "metadata_gate": true
+    }
+  },
+  "errors": [],
+  "new_blends_created": 0,
+  "images_created": 0,
+  "visual_validation_required": false,
+  "next_step": "HEAD_FACE_FOUNDATION_READY_FOR_REGION_RETAPOLOGY"
+}

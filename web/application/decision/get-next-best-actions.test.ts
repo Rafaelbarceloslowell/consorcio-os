@@ -1,7 +1,8 @@
-﻿import {
+import {
   describe,
   expect,
   it,
+  vi,
 } from "vitest"
 
 import {
@@ -67,7 +68,7 @@ function createNextBestAction(
     description:
       "Enviar uma mensagem personalizada ao lead.",
     reason:
-      "A jornada estÃ¡ sem interaÃ§Ã£o recente.",
+      "A jornada estÃƒÂ¡ sem interaÃƒÂ§ÃƒÂ£o recente.",
     confidence: 0.8,
     priority: "NORMAL",
     source: "RULE_ENGINE",
@@ -103,7 +104,7 @@ describe(
   "getNextBestActions",
   () => {
     it(
-      "deve retornar recomendaÃ§Ãµes abertas com os dados operacionais da jornada",
+      "deve retornar recomendaÃƒÂ§ÃƒÂµes abertas com os dados operacionais da jornada",
       async () => {
         const journey =
           createJourney()
@@ -121,6 +122,18 @@ describe(
 
         const crmRepository =
           new MockCrmRepository()
+        const recommendationFindAll =
+          vi.spyOn(
+            commercialRepository
+              .nextBestActions,
+            "findAll",
+          )
+        const recommendationFindByJourneyId =
+          vi.spyOn(
+            commercialRepository
+              .nextBestActions,
+            "findByJourneyId",
+          )
 
         const result =
           await getNextBestActions({
@@ -138,13 +151,21 @@ describe(
             leadId: journey.leadId,
             clientId:
               journey.clientId,
+            contactName: null,
+            approachType: null,
           },
         ])
+        expect(
+          recommendationFindAll,
+        ).toHaveBeenCalledTimes(1)
+        expect(
+          recommendationFindByJourneyId,
+        ).not.toHaveBeenCalled()
       },
     )
 
     it(
-      "deve retornar recomendaÃ§Ãµes de todas as jornadas quando nenhum consultor for informado",
+      "deve retornar recomendaÃƒÂ§ÃƒÂµes de todas as jornadas quando nenhum consultor for informado",
       async () => {
         const firstJourney =
           createJourney({
@@ -297,13 +318,15 @@ describe(
               selectedJourney.leadId,
             clientId:
               selectedJourney.clientId,
+            contactName: null,
+            approachType: null,
           },
         ])
       },
     )
 
     it(
-      "deve ignorar recomendaÃ§Ãµes aceitas, rejeitadas, executadas, expiradas ou com expiraÃ§Ã£o invÃ¡lida",
+      "deve ignorar recomendaÃƒÂ§ÃƒÂµes aceitas, rejeitadas, executadas, expiradas ou com expiraÃƒÂ§ÃƒÂ£o invÃƒÂ¡lida",
       async () => {
         const journey =
           createJourney()
@@ -408,7 +431,7 @@ describe(
     )
 
     it(
-      "deve considerar aberta uma recomendaÃ§Ã£o sem data de expiraÃ§Ã£o",   
+      "deve considerar aberta uma recomendaÃƒÂ§ÃƒÂ£o sem data de expiraÃƒÂ§ÃƒÂ£o",   
       async () => {
         const journey =
           createJourney()
@@ -446,7 +469,7 @@ describe(
     )
 
     it(
-      "deve ordenar recomendaÃ§Ãµes por prioridade, confianÃ§a e data de criaÃ§Ã£o",
+      "deve ordenar recomendaÃƒÂ§ÃƒÂµes por prioridade, confianÃƒÂ§a e data de criaÃƒÂ§ÃƒÂ£o",
       async () => {
         const journey =
           createJourney()
@@ -571,7 +594,7 @@ describe(
     )
 
     it(
-      "deve aplicar o limite apÃ³s ordenar as recomendaÃ§Ãµes",
+      "deve aplicar o limite apÃƒÂ³s ordenar as recomendaÃƒÂ§ÃƒÂµes",
       async () => {
         const journey =
           createJourney()
@@ -648,7 +671,7 @@ describe(
       Number.NaN,
       Number.POSITIVE_INFINITY,
     ])(
-      "deve rejeitar o limite invÃ¡lido %s",
+      "deve rejeitar o limite invÃƒÂ¡lido %s",
       async (limit) => {
         const journey =
           createJourney()
@@ -675,7 +698,7 @@ describe(
     )
 
     it(
-      "deve retornar uma lista vazia quando nÃ£o houver recomendaÃ§Ãµes abertas",
+      "deve retornar uma lista vazia quando nÃƒÂ£o houver recomendaÃƒÂ§ÃƒÂµes abertas",
       async () => {
         const journey =
           createJourney()

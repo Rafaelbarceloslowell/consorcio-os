@@ -3,6 +3,7 @@ import type { CommercialActorType } from "./commercial-actor"
 
 export type CommercialEventType =
   | "LEAD_CREATED"
+  | "OPPORTUNITY_CREATED"
   | "LEAD_REPLIED"
   | "MEETING_SCHEDULED"
   | "MEETING_COMPLETED"

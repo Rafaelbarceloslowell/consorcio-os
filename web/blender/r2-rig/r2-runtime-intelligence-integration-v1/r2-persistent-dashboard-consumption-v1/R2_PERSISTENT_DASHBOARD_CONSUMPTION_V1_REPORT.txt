@@ -1,0 +1,112 @@
+
+============================================================
+ R2 PERSISTENT DASHBOARD CONSUMPTION V1
+============================================================
+GENERATED_AT=2026-08-02T23:20:41.1654406-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+NODE_MAX_OLD_SPACE_SIZE_MB=4096
+NODE_OPTIONS_EFFECTIVE=--max-old-space-size=4096
+IMPLEMENTATION_MODE=FULL_FILE_REPLACEMENTS
+BACKUP_LOCATION=OUTSIDE_PROJECT
+DATABASE_WRITE=False
+PRISMA_GENERATE=False
+MIGRATION_DEPLOY=False
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+MANIFEST_SHA256=80FB4B2315E0553B67DE41CF0FC86334885F717840C141DBD9A96D72BC046122
+MANIFEST_HASH_MATCH=True
+
+============================================================
+ PREFLIGHT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_BASELINE_MATCH=True
+STAGED_FILE_COUNT=0
+GLB_SHA256=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_BASELINE_MATCH=True
+SCHEMA_SHA256=89F4AE2D2E4392016D3DF805E28ABC00355EBDF0FA9EDC9D7C8DB0C3063B2F80
+SCHEMA_BASELINE_MATCH=True
+OPPORTUNITY_MIGRATION_SHA256=01FD0F1049FCDCCC19CC712B8CB046A1CF7B257804AA3B50AB46F4A15A7164EB
+OPPORTUNITY_MIGRATION_MATCH=True
+DISPATCHER_SHA256=13BD007CA7A787AB63CF21E4CD60CB8C01C1AAFA2BC2F454C93208FA2E230258
+DISPATCHER_BASELINE_MATCH=True
+PAYLOAD_FILE_COUNT=11
+PAYLOAD_AND_BASELINE_HASHES_VERIFIED=True
+PERSISTENT_ROUTE_NEW=True
+DATABASE_SCHEMA_CHANGE=False
+GENERATED_CLIENT_HASH_BEFORE=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+
+============================================================
+ VERIFIED BACKUP OUTSIDE PROJECT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-persistent-dashboard-consumption-v1-backup-bd9d3de5f17b4a339c2e74c723ed901e
+GENERATED_CLIENT_BACKUP_HASH=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+BACKUP_COMPLETE=True
+
+============================================================
+ APPLY FULL FILE REPLACEMENTS
+============================================================
+APPLIED=components/dashboard/3d/r2/orchestration/r2-orchestration-provider.tsx
+APPLIED=components/dashboard/gorila-r2-avatar-3d.tsx
+APPLIED=components/dashboard/gorila-r2-avatar-3d.test.tsx
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.ts
+APPLIED=types/r2-persistent-commercial-events.ts
+APPLIED=components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-poller.ts
+APPLIED=app/api/r2/commercial-events/route.ts
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository.cursor.test.ts
+APPLIED=app/api/r2/commercial-events/route.test.ts
+APPLIED=components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-poller.test.ts
+APPLIED=components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-provider.test.tsx
+FULL_FILE_REPLACEMENTS_VERIFIED=True
+
+============================================================
+ TYPESCRIPT
+============================================================
+COMMAND=npx tsc --noEmit --pretty false
+----- STDOUT -----
+components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-poller.test.ts(133,41): error TS2493: Tuple type '[]' of length '0' has no element at index '0'.
+components/dashboard/3d/r2/orchestration/r2-persistent-commercial-event-poller.test.ts(133,52): error TS18048: 'value' is possibly 'undefined'.
+----- STDERR -----
+EXIT_CODE=2
+
+============================================================
+ FAILURE
+============================================================
+ERROR=TypeScript falhou com exit code 2; esperado 0.
+DATABASE_WRITE=False
+MIGRATION_DEPLOY=False
+
+============================================================
+ ROLLBACK
+============================================================
+GENERATED_CLIENT_RESTORED_HASH=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+ROLLBACK_COMPLETE=True
+
+============================================================
+ ROLLBACK TYPESCRIPT
+============================================================
+COMMAND=npx tsc --noEmit --pretty false
+----- STDOUT -----
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ FINAL RESULT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-persistent-dashboard-consumption-v1-backup-bd9d3de5f17b4a339c2e74c723ed901e
+BACKUP_COMPLETE=True
+SOURCE_WRITE_STARTED=True
+ROLLBACK_PERFORMED=True
+ROLLBACK_COMPLETE=True
+DATABASE_WRITE=False
+PRISMA_GENERATE=False
+MIGRATION_DEPLOY=False
+GENERATED_CLIENT_HASH_BEFORE=16636DF1CBA21831ABC367EDD8E9292082B7AA8C793DAB7660802923C47374DF
+GENERATED_CLIENT_HASH_FINAL=
+ERROR=TypeScript falhou com exit code 2; esperado 0.
+ROLLBACK_ERROR=
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+VEREDITO=REPROVADO_COM_ROLLBACK_COMPLETO
+NEXT_STEP=ANALISAR_RELATORIO_ANTES_DE_NOVA_EXECUCAO
+NODE_OPTIONS_RESTORED=True

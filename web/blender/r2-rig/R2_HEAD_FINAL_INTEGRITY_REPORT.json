@@ -1,0 +1,153 @@
+{
+  "armature_relationships_preserved": true,
+  "audit_type": "CHECKPOINT_8_FINAL_INTEGRITY_AUDIT",
+  "candidate_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-consolidated-rig-ready-v1\\r2-head-consolidated-rig-ready-v1.blend",
+  "candidate_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "connected_islands_match_documented_structure": true,
+  "created_images": 0,
+  "custom_properties_preserved": true,
+  "duplicate_vertices_unsafe": 0,
+  "execution_status": "COMPLETED",
+  "face_attributes_preserved": true,
+  "failed_gates": [],
+  "geometry_exact": true,
+  "head_consolidation_confirmed": true,
+  "images_created": 0,
+  "independent_audit_approved": true,
+  "invalid_non_manifold": 0,
+  "inverted_faces": 0,
+  "material_assignments_preserved": true,
+  "modifier_order_valid": true,
+  "negative_scale_unsafe": 0,
+  "normals_exact": true,
+  "official_v57_unchanged": true,
+  "orphaned_transactional_data": 0,
+  "preserved_weights_exact": true,
+  "previous_official_versions": {
+    "V40": {
+      "actual": "E770FF08D8945DFAA8BB2D1EC0E558A1F5CC2E12E0DAD8FDF6592F9E3AFAB3FC",
+      "expected": "E770FF08D8945DFAA8BB2D1EC0E558A1F5CC2E12E0DAD8FDF6592F9E3AFAB3FC",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v40-cheek-region-retopology-v2\\r2-rig-v40-cheek-region-retopology-v2.blend"
+    },
+    "V41": {
+      "actual": "4D19EA4F98B86592E43505814EF58CBF15252F445C2431D8D156F0DA7D8730CB",
+      "expected": "4D19EA4F98B86592E43505814EF58CBF15252F445C2431D8D156F0DA7D8730CB",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v41-center-lower-front-retopology-v1\\r2-rig-v41-center-lower-front-retopology-v1.blend"
+    },
+    "V42": {
+      "actual": "803D9DEEAB64D3AD16523DFBA59B9556CBA306BAEC94F02EB21EA7EB26AEA5DD",
+      "expected": "803D9DEEAB64D3AD16523DFBA59B9556CBA306BAEC94F02EB21EA7EB26AEA5DD",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v42-positive-x-lower-back-retopology-v1\\r2-rig-v42-positive-x-lower-back-retopology-v1.blend"
+    },
+    "V43": {
+      "actual": "CEB65B49D6B75AD1D6B5C2780046F68A22DDF15272C1A8747FF3BFDE535B91DA",
+      "expected": "CEB65B49D6B75AD1D6B5C2780046F68A22DDF15272C1A8747FF3BFDE535B91DA",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v43-positive-x-lower-back-retopology-v1\\r2-rig-v43-positive-x-lower-back-retopology-v1.blend"
+    },
+    "V44": {
+      "actual": "2572ACD4D563833A294C8C507C21C6B47B341F471C928BE2B63D073D2DD8790E",
+      "expected": "2572ACD4D563833A294C8C507C21C6B47B341F471C928BE2B63D073D2DD8790E",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v44-positive-x-lower-back-retopology-v1\\r2-rig-v44-positive-x-lower-back-retopology-v1.blend"
+    },
+    "V45": {
+      "actual": "917988C37BD125C391D85D166020243FD75192CBA16D34D4B5E70578EA41339B",
+      "expected": "917988C37BD125C391D85D166020243FD75192CBA16D34D4B5E70578EA41339B",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v45-negative-x-upper-back-retopology-v1\\r2-rig-v45-negative-x-upper-back-retopology-v1.blend"
+    },
+    "V46": {
+      "actual": "496B459EBB0350AFD10B5353C71692EC74CD11C08401E9AEA6DCFC1256D2A696",
+      "expected": "496B459EBB0350AFD10B5353C71692EC74CD11C08401E9AEA6DCFC1256D2A696",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v46-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v46-positive-x-lower-mid-depth-retopology-v1.blend"
+    },
+    "V47": {
+      "actual": "15ABA4E137DD2CC01B39842DA80AA81C8C8F3B85EF741F94A9915108D5DAAC19",
+      "expected": "15ABA4E137DD2CC01B39842DA80AA81C8C8F3B85EF741F94A9915108D5DAAC19",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v47-center-upper-back-retopology-v1\\r2-rig-v47-center-upper-back-retopology-v1.blend"
+    },
+    "V48": {
+      "actual": "4B6C58414920BF9B0A440B6BAE1FB887B76683077A2CDD92B465A9F81A562088",
+      "expected": "4B6C58414920BF9B0A440B6BAE1FB887B76683077A2CDD92B465A9F81A562088",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v48-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v48-positive-x-lower-mid-depth-retopology-v1.blend"
+    },
+    "V49": {
+      "actual": "F2CA2AB53B59AA6D8F60E665BB29E335273FB6E9AACEFC7A68E9C139899AD126",
+      "expected": "F2CA2AB53B59AA6D8F60E665BB29E335273FB6E9AACEFC7A68E9C139899AD126",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v49-positive-x-middle-mid-depth-retopology-v1\\r2-rig-v49-positive-x-middle-mid-depth-retopology-v1.blend"
+    },
+    "V50": {
+      "actual": "9BE98A43AFB6E5974057AA6C24CEB71486BC254077DA2DF20E23A3DF7ACAAACC",
+      "expected": "9BE98A43AFB6E5974057AA6C24CEB71486BC254077DA2DF20E23A3DF7ACAAACC",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v50-positive-x-lower-front-retopology-v1\\r2-rig-v50-positive-x-lower-front-retopology-v1.blend"
+    },
+    "V51": {
+      "actual": "23DCF9D94B1232A50F36ECF4B168EB70ED3AFCFFB2E3AEB00BBDB88B7D2E6C9C",
+      "expected": "23DCF9D94B1232A50F36ECF4B168EB70ED3AFCFFB2E3AEB00BBDB88B7D2E6C9C",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v51-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v51-positive-x-lower-mid-depth-retopology-v1.blend"
+    },
+    "V52": {
+      "actual": "F2139FAF062507DFBE05439836752DC05A20659B62E13F06F45C59F440B8637A",
+      "expected": "F2139FAF062507DFBE05439836752DC05A20659B62E13F06F45C59F440B8637A",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v52-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v52-positive-x-lower-mid-depth-retopology-v1.blend"
+    },
+    "V53": {
+      "actual": "AF8413D82E790134B541B97B19EF6D2E40893F3576CCA84D286B08105747BD1B",
+      "expected": "AF8413D82E790134B541B97B19EF6D2E40893F3576CCA84D286B08105747BD1B",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v53-negative-x-upper-back-retopology-v1\\r2-rig-v53-negative-x-upper-back-retopology-v1.blend"
+    },
+    "V54": {
+      "actual": "3C1E373AE64B0B5C017FCCE9F3C0D7489D89AD500AE536CF05BA2A1337EF2435",
+      "expected": "3C1E373AE64B0B5C017FCCE9F3C0D7489D89AD500AE536CF05BA2A1337EF2435",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v54-positive-x-lower-front-retopology-v1\\r2-rig-v54-positive-x-lower-front-retopology-v1.blend"
+    },
+    "V55": {
+      "actual": "2CB36F889303C98D8A8FAEA69F8BBD2AEFEBB3A13C27050071D8DBA7269653CD",
+      "expected": "2CB36F889303C98D8A8FAEA69F8BBD2AEFEBB3A13C27050071D8DBA7269653CD",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v55-negative-x-upper-back-retopology-v1\\r2-rig-v55-negative-x-upper-back-retopology-v1.blend"
+    },
+    "V56": {
+      "actual": "FB374635A16B5305AAF316726BA1AA0BB4A75B21F33A3225A49B3CDEEF504BB8",
+      "expected": "FB374635A16B5305AAF316726BA1AA0BB4A75B21F33A3225A49B3CDEEF504BB8",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v56-negative-x-upper-back-retopology-v1\\r2-rig-v56-negative-x-upper-back-retopology-v1.blend"
+    },
+    "V57": {
+      "actual": "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+      "expected": "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+      "match": true,
+      "path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v57-negative-x-middle-mid-depth-retopology-v1\\r2-rig-v57-negative-x-middle-mid-depth-retopology-v1.blend"
+    }
+  },
+  "previous_official_versions_unchanged": true,
+  "published_blend_reopened": true,
+  "published_blend_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "rig_preparation_confirmed": true,
+  "source_sha256": "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+  "technical_verdict": "APROVADO",
+  "temporary_directories": [],
+  "temporary_directories_remaining": 0,
+  "unexpected_data_block_renames": 0,
+  "unexpected_material_duplicates": 0,
+  "unexpected_mesh_duplicates": 0,
+  "unexpected_object_renames": 0,
+  "unweighted_deform_vertices": 0,
+  "uv_maps_preserved": true,
+  "vertex_group_names_preserved_or_canonically_mapped": true,
+  "wire_edges": 0,
+  "zero_area_faces": 0
+}

@@ -1,0 +1,17 @@
+R2_AAA_WEB_VISUAL_ATLAS_REPORT
+generated_at_utc=2026-07-29T22:08:16.895256+00:00
+blender_version=4.5.10 LTS
+source_blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend
+source_sha256=392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1
+technical_atlas=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-v26-semantic-atlas-technical-v1
+visual_atlas_version=27
+visual_atlas_package=r2-v27-semantic-atlas-visual-v1
+component_count=110
+image_count=110
+render_resolution=768x768
+visual_rotations=Z0|Z180|Z90|Z270
+visual_scale_normalized=true
+semantic_classification_completed=false
+blend_saved=false
+source_unchanged=true
+status=visual_semantic_atlas_created

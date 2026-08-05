@@ -1,0 +1,930 @@
+{
+    "AnimationClipsPreserved":  9,
+    "BackLogoCentered":  true,
+    "BackLogoUsesOfficialSource":  true,
+    "BrandingAnimationClipping":  0,
+    "BrandingFloating":  0,
+    "BrandingGeometryValid":  true,
+    "BrandingHierarchyConfirmed":  true,
+    "BrandingPlacementCount":  3,
+    "BrandingSizes":  {
+                          "arm":  0.238211334,
+                          "back":  0.364898996,
+                          "chest":  0.168388113
+                      },
+    "BrandingZFighting":  0,
+    "ClipValidationMatrix":  {
+                                 "R2_ALERT":  {
+                                                  "1":  {
+                                                            "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                          "clipping_vertices":  0,
+                                                                                                          "floating_vertices":  0,
+                                                                                                          "maximum_distance":  0.004000114,
+                                                                                                          "mean_distance":  0.002746815,
+                                                                                                          "minimum_distance":  0.001165247,
+                                                                                                          "sampled_vertices":  996,
+                                                                                                          "z_fighting_vertices":  0
+                                                                                                      },
+                                                            "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                    "clipping_vertices":  0,
+                                                                                                    "floating_vertices":  0,
+                                                                                                    "maximum_distance":  0.004000044,
+                                                                                                    "mean_distance":  0.002749992,
+                                                                                                    "minimum_distance":  0.001499674,
+                                                                                                    "sampled_vertices":  660,
+                                                                                                    "z_fighting_vertices":  0
+                                                                                                },
+                                                            "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                   "clipping_vertices":  0,
+                                                                                                   "floating_vertices":  0,
+                                                                                                   "maximum_distance":  0.004200056,
+                                                                                                   "mean_distance":  0.002849949,
+                                                                                                   "minimum_distance":  0.00149768,
+                                                                                                   "sampled_vertices":  660,
+                                                                                                   "z_fighting_vertices":  0
+                                                                                               }
+                                                        },
+                                                  "18":  {
+                                                             "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                           "clipping_vertices":  0,
+                                                                                                           "floating_vertices":  0,
+                                                                                                           "maximum_distance":  0.004000114,
+                                                                                                           "mean_distance":  0.002746815,
+                                                                                                           "minimum_distance":  0.001165247,
+                                                                                                           "sampled_vertices":  996,
+                                                                                                           "z_fighting_vertices":  0
+                                                                                                       },
+                                                             "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                     "clipping_vertices":  0,
+                                                                                                     "floating_vertices":  0,
+                                                                                                     "maximum_distance":  0.004000044,
+                                                                                                     "mean_distance":  0.002749992,
+                                                                                                     "minimum_distance":  0.001499674,
+                                                                                                     "sampled_vertices":  660,
+                                                                                                     "z_fighting_vertices":  0
+                                                                                                 },
+                                                             "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                    "clipping_vertices":  0,
+                                                                                                    "floating_vertices":  0,
+                                                                                                    "maximum_distance":  0.004200056,
+                                                                                                    "mean_distance":  0.002849949,
+                                                                                                    "minimum_distance":  0.00149768,
+                                                                                                    "sampled_vertices":  660,
+                                                                                                    "z_fighting_vertices":  0
+                                                                                                }
+                                                         },
+                                                  "36":  {
+                                                             "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                           "clipping_vertices":  0,
+                                                                                                           "floating_vertices":  0,
+                                                                                                           "maximum_distance":  0.004000114,
+                                                                                                           "mean_distance":  0.002746815,
+                                                                                                           "minimum_distance":  0.001165247,
+                                                                                                           "sampled_vertices":  996,
+                                                                                                           "z_fighting_vertices":  0
+                                                                                                       },
+                                                             "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                     "clipping_vertices":  0,
+                                                                                                     "floating_vertices":  0,
+                                                                                                     "maximum_distance":  0.004000044,
+                                                                                                     "mean_distance":  0.002749992,
+                                                                                                     "minimum_distance":  0.001499674,
+                                                                                                     "sampled_vertices":  660,
+                                                                                                     "z_fighting_vertices":  0
+                                                                                                 },
+                                                             "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                    "clipping_vertices":  0,
+                                                                                                    "floating_vertices":  0,
+                                                                                                    "maximum_distance":  0.004200056,
+                                                                                                    "mean_distance":  0.002849949,
+                                                                                                    "minimum_distance":  0.00149768,
+                                                                                                    "sampled_vertices":  660,
+                                                                                                    "z_fighting_vertices":  0
+                                                                                                }
+                                                         }
+                                              },
+                                 "R2_AWAITING_ACTION":  {
+                                                            "1":  {
+                                                                      "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                                    "clipping_vertices":  0,
+                                                                                                                    "floating_vertices":  0,
+                                                                                                                    "maximum_distance":  0.004000114,
+                                                                                                                    "mean_distance":  0.002746815,
+                                                                                                                    "minimum_distance":  0.001165247,
+                                                                                                                    "sampled_vertices":  996,
+                                                                                                                    "z_fighting_vertices":  0
+                                                                                                                },
+                                                                      "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004000044,
+                                                                                                              "mean_distance":  0.002749992,
+                                                                                                              "minimum_distance":  0.001499674,
+                                                                                                              "sampled_vertices":  660,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          },
+                                                                      "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                             "clipping_vertices":  0,
+                                                                                                             "floating_vertices":  0,
+                                                                                                             "maximum_distance":  0.004200056,
+                                                                                                             "mean_distance":  0.002849949,
+                                                                                                             "minimum_distance":  0.00149768,
+                                                                                                             "sampled_vertices":  660,
+                                                                                                             "z_fighting_vertices":  0
+                                                                                                         }
+                                                                  },
+                                                            "38":  {
+                                                                       "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                                     "clipping_vertices":  0,
+                                                                                                                     "floating_vertices":  0,
+                                                                                                                     "maximum_distance":  0.004000114,
+                                                                                                                     "mean_distance":  0.002746815,
+                                                                                                                     "minimum_distance":  0.001165247,
+                                                                                                                     "sampled_vertices":  996,
+                                                                                                                     "z_fighting_vertices":  0
+                                                                                                                 },
+                                                                       "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                               "clipping_vertices":  0,
+                                                                                                               "floating_vertices":  0,
+                                                                                                               "maximum_distance":  0.004000044,
+                                                                                                               "mean_distance":  0.002749992,
+                                                                                                               "minimum_distance":  0.001499674,
+                                                                                                               "sampled_vertices":  660,
+                                                                                                               "z_fighting_vertices":  0
+                                                                                                           },
+                                                                       "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004200056,
+                                                                                                              "mean_distance":  0.002849949,
+                                                                                                              "minimum_distance":  0.00149768,
+                                                                                                              "sampled_vertices":  660,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          }
+                                                                   },
+                                                            "75":  {
+                                                                       "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                                     "clipping_vertices":  0,
+                                                                                                                     "floating_vertices":  0,
+                                                                                                                     "maximum_distance":  0.004000114,
+                                                                                                                     "mean_distance":  0.002746815,
+                                                                                                                     "minimum_distance":  0.001165247,
+                                                                                                                     "sampled_vertices":  996,
+                                                                                                                     "z_fighting_vertices":  0
+                                                                                                                 },
+                                                                       "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                               "clipping_vertices":  0,
+                                                                                                               "floating_vertices":  0,
+                                                                                                               "maximum_distance":  0.004000044,
+                                                                                                               "mean_distance":  0.002749992,
+                                                                                                               "minimum_distance":  0.001499674,
+                                                                                                               "sampled_vertices":  660,
+                                                                                                               "z_fighting_vertices":  0
+                                                                                                           },
+                                                                       "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004200056,
+                                                                                                              "mean_distance":  0.002849949,
+                                                                                                              "minimum_distance":  0.00149768,
+                                                                                                              "sampled_vertices":  660,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          }
+                                                                   }
+                                                        },
+                                 "R2_CELEBRATING_SALE":  {
+                                                             "1":  {
+                                                                       "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                                     "clipping_vertices":  0,
+                                                                                                                     "floating_vertices":  0,
+                                                                                                                     "maximum_distance":  0.004000114,
+                                                                                                                     "mean_distance":  0.002746815,
+                                                                                                                     "minimum_distance":  0.001165247,
+                                                                                                                     "sampled_vertices":  996,
+                                                                                                                     "z_fighting_vertices":  0
+                                                                                                                 },
+                                                                       "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                               "clipping_vertices":  0,
+                                                                                                               "floating_vertices":  0,
+                                                                                                               "maximum_distance":  0.004000044,
+                                                                                                               "mean_distance":  0.002749992,
+                                                                                                               "minimum_distance":  0.001499674,
+                                                                                                               "sampled_vertices":  660,
+                                                                                                               "z_fighting_vertices":  0
+                                                                                                           },
+                                                                       "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004200056,
+                                                                                                              "mean_distance":  0.002849949,
+                                                                                                              "minimum_distance":  0.00149768,
+                                                                                                              "sampled_vertices":  660,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          }
+                                                                   },
+                                                             "36":  {
+                                                                        "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                                      "clipping_vertices":  0,
+                                                                                                                      "floating_vertices":  0,
+                                                                                                                      "maximum_distance":  0.004000114,
+                                                                                                                      "mean_distance":  0.002746815,
+                                                                                                                      "minimum_distance":  0.001165247,
+                                                                                                                      "sampled_vertices":  996,
+                                                                                                                      "z_fighting_vertices":  0
+                                                                                                                  },
+                                                                        "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                                "clipping_vertices":  0,
+                                                                                                                "floating_vertices":  0,
+                                                                                                                "maximum_distance":  0.004000044,
+                                                                                                                "mean_distance":  0.002749992,
+                                                                                                                "minimum_distance":  0.001499674,
+                                                                                                                "sampled_vertices":  660,
+                                                                                                                "z_fighting_vertices":  0
+                                                                                                            },
+                                                                        "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                               "clipping_vertices":  0,
+                                                                                                               "floating_vertices":  0,
+                                                                                                               "maximum_distance":  0.004200056,
+                                                                                                               "mean_distance":  0.002849949,
+                                                                                                               "minimum_distance":  0.00149768,
+                                                                                                               "sampled_vertices":  660,
+                                                                                                               "z_fighting_vertices":  0
+                                                                                                           }
+                                                                    },
+                                                             "72":  {
+                                                                        "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                                      "clipping_vertices":  0,
+                                                                                                                      "floating_vertices":  0,
+                                                                                                                      "maximum_distance":  0.004000114,
+                                                                                                                      "mean_distance":  0.002746815,
+                                                                                                                      "minimum_distance":  0.001165247,
+                                                                                                                      "sampled_vertices":  996,
+                                                                                                                      "z_fighting_vertices":  0
+                                                                                                                  },
+                                                                        "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                                "clipping_vertices":  0,
+                                                                                                                "floating_vertices":  0,
+                                                                                                                "maximum_distance":  0.004000044,
+                                                                                                                "mean_distance":  0.002749992,
+                                                                                                                "minimum_distance":  0.001499674,
+                                                                                                                "sampled_vertices":  660,
+                                                                                                                "z_fighting_vertices":  0
+                                                                                                            },
+                                                                        "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                               "clipping_vertices":  0,
+                                                                                                               "floating_vertices":  0,
+                                                                                                               "maximum_distance":  0.004200056,
+                                                                                                               "mean_distance":  0.002849949,
+                                                                                                               "minimum_distance":  0.00149768,
+                                                                                                               "sampled_vertices":  660,
+                                                                                                               "z_fighting_vertices":  0
+                                                                                                           }
+                                                                    }
+                                                         },
+                                 "R2_ERROR_ATTENTION":  {
+                                                            "1":  {
+                                                                      "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                                    "clipping_vertices":  0,
+                                                                                                                    "floating_vertices":  0,
+                                                                                                                    "maximum_distance":  0.004000114,
+                                                                                                                    "mean_distance":  0.002746815,
+                                                                                                                    "minimum_distance":  0.001165247,
+                                                                                                                    "sampled_vertices":  996,
+                                                                                                                    "z_fighting_vertices":  0
+                                                                                                                },
+                                                                      "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004000044,
+                                                                                                              "mean_distance":  0.002749992,
+                                                                                                              "minimum_distance":  0.001499674,
+                                                                                                              "sampled_vertices":  660,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          },
+                                                                      "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                             "clipping_vertices":  0,
+                                                                                                             "floating_vertices":  0,
+                                                                                                             "maximum_distance":  0.004200056,
+                                                                                                             "mean_distance":  0.002849949,
+                                                                                                             "minimum_distance":  0.00149768,
+                                                                                                             "sampled_vertices":  660,
+                                                                                                             "z_fighting_vertices":  0
+                                                                                                         }
+                                                                  },
+                                                            "30":  {
+                                                                       "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                                     "clipping_vertices":  0,
+                                                                                                                     "floating_vertices":  0,
+                                                                                                                     "maximum_distance":  0.004000114,
+                                                                                                                     "mean_distance":  0.002746815,
+                                                                                                                     "minimum_distance":  0.001165247,
+                                                                                                                     "sampled_vertices":  996,
+                                                                                                                     "z_fighting_vertices":  0
+                                                                                                                 },
+                                                                       "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                               "clipping_vertices":  0,
+                                                                                                               "floating_vertices":  0,
+                                                                                                               "maximum_distance":  0.004000044,
+                                                                                                               "mean_distance":  0.002749992,
+                                                                                                               "minimum_distance":  0.001499674,
+                                                                                                               "sampled_vertices":  660,
+                                                                                                               "z_fighting_vertices":  0
+                                                                                                           },
+                                                                       "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004200056,
+                                                                                                              "mean_distance":  0.002849949,
+                                                                                                              "minimum_distance":  0.00149768,
+                                                                                                              "sampled_vertices":  660,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          }
+                                                                   },
+                                                            "60":  {
+                                                                       "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                                     "clipping_vertices":  0,
+                                                                                                                     "floating_vertices":  0,
+                                                                                                                     "maximum_distance":  0.004000114,
+                                                                                                                     "mean_distance":  0.002746815,
+                                                                                                                     "minimum_distance":  0.001165247,
+                                                                                                                     "sampled_vertices":  996,
+                                                                                                                     "z_fighting_vertices":  0
+                                                                                                                 },
+                                                                       "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                               "clipping_vertices":  0,
+                                                                                                               "floating_vertices":  0,
+                                                                                                               "maximum_distance":  0.004000044,
+                                                                                                               "mean_distance":  0.002749992,
+                                                                                                               "minimum_distance":  0.001499674,
+                                                                                                               "sampled_vertices":  660,
+                                                                                                               "z_fighting_vertices":  0
+                                                                                                           },
+                                                                       "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004200056,
+                                                                                                              "mean_distance":  0.002849949,
+                                                                                                              "minimum_distance":  0.00149768,
+                                                                                                              "sampled_vertices":  660,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          }
+                                                                   }
+                                                        },
+                                 "R2_IDLE":  {
+                                                 "1":  {
+                                                           "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                         "clipping_vertices":  0,
+                                                                                                         "floating_vertices":  0,
+                                                                                                         "maximum_distance":  0.004000114,
+                                                                                                         "mean_distance":  0.002746815,
+                                                                                                         "minimum_distance":  0.001165247,
+                                                                                                         "sampled_vertices":  996,
+                                                                                                         "z_fighting_vertices":  0
+                                                                                                     },
+                                                           "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                   "clipping_vertices":  0,
+                                                                                                   "floating_vertices":  0,
+                                                                                                   "maximum_distance":  0.004000044,
+                                                                                                   "mean_distance":  0.002749992,
+                                                                                                   "minimum_distance":  0.001499674,
+                                                                                                   "sampled_vertices":  660,
+                                                                                                   "z_fighting_vertices":  0
+                                                                                               },
+                                                           "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                  "clipping_vertices":  0,
+                                                                                                  "floating_vertices":  0,
+                                                                                                  "maximum_distance":  0.004200056,
+                                                                                                  "mean_distance":  0.002849949,
+                                                                                                  "minimum_distance":  0.00149768,
+                                                                                                  "sampled_vertices":  660,
+                                                                                                  "z_fighting_vertices":  0
+                                                                                              }
+                                                       },
+                                                 "120":  {
+                                                             "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                           "clipping_vertices":  0,
+                                                                                                           "floating_vertices":  0,
+                                                                                                           "maximum_distance":  0.004000114,
+                                                                                                           "mean_distance":  0.002746815,
+                                                                                                           "minimum_distance":  0.001165247,
+                                                                                                           "sampled_vertices":  996,
+                                                                                                           "z_fighting_vertices":  0
+                                                                                                       },
+                                                             "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                     "clipping_vertices":  0,
+                                                                                                     "floating_vertices":  0,
+                                                                                                     "maximum_distance":  0.004000044,
+                                                                                                     "mean_distance":  0.002749992,
+                                                                                                     "minimum_distance":  0.001499674,
+                                                                                                     "sampled_vertices":  660,
+                                                                                                     "z_fighting_vertices":  0
+                                                                                                 },
+                                                             "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                    "clipping_vertices":  0,
+                                                                                                    "floating_vertices":  0,
+                                                                                                    "maximum_distance":  0.004200056,
+                                                                                                    "mean_distance":  0.002849949,
+                                                                                                    "minimum_distance":  0.00149768,
+                                                                                                    "sampled_vertices":  660,
+                                                                                                    "z_fighting_vertices":  0
+                                                                                                }
+                                                         },
+                                                 "60":  {
+                                                            "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                          "clipping_vertices":  0,
+                                                                                                          "floating_vertices":  0,
+                                                                                                          "maximum_distance":  0.004000114,
+                                                                                                          "mean_distance":  0.002746815,
+                                                                                                          "minimum_distance":  0.001165247,
+                                                                                                          "sampled_vertices":  996,
+                                                                                                          "z_fighting_vertices":  0
+                                                                                                      },
+                                                            "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                    "clipping_vertices":  0,
+                                                                                                    "floating_vertices":  0,
+                                                                                                    "maximum_distance":  0.004000044,
+                                                                                                    "mean_distance":  0.002749992,
+                                                                                                    "minimum_distance":  0.001499674,
+                                                                                                    "sampled_vertices":  660,
+                                                                                                    "z_fighting_vertices":  0
+                                                                                                },
+                                                            "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                   "clipping_vertices":  0,
+                                                                                                   "floating_vertices":  0,
+                                                                                                   "maximum_distance":  0.004200056,
+                                                                                                   "mean_distance":  0.002849949,
+                                                                                                   "minimum_distance":  0.00149768,
+                                                                                                   "sampled_vertices":  660,
+                                                                                                   "z_fighting_vertices":  0
+                                                                                               }
+                                                        }
+                                             },
+                                 "R2_LISTENING":  {
+                                                      "1":  {
+                                                                "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004000114,
+                                                                                                              "mean_distance":  0.002746815,
+                                                                                                              "minimum_distance":  0.001165247,
+                                                                                                              "sampled_vertices":  996,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          },
+                                                                "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                        "clipping_vertices":  0,
+                                                                                                        "floating_vertices":  0,
+                                                                                                        "maximum_distance":  0.004000044,
+                                                                                                        "mean_distance":  0.002749992,
+                                                                                                        "minimum_distance":  0.001499674,
+                                                                                                        "sampled_vertices":  660,
+                                                                                                        "z_fighting_vertices":  0
+                                                                                                    },
+                                                                "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                       "clipping_vertices":  0,
+                                                                                                       "floating_vertices":  0,
+                                                                                                       "maximum_distance":  0.004200056,
+                                                                                                       "mean_distance":  0.002849949,
+                                                                                                       "minimum_distance":  0.00149768,
+                                                                                                       "sampled_vertices":  660,
+                                                                                                       "z_fighting_vertices":  0
+                                                                                                   }
+                                                            },
+                                                      "46":  {
+                                                                 "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                               "clipping_vertices":  0,
+                                                                                                               "floating_vertices":  0,
+                                                                                                               "maximum_distance":  0.004000114,
+                                                                                                               "mean_distance":  0.002746815,
+                                                                                                               "minimum_distance":  0.001165247,
+                                                                                                               "sampled_vertices":  996,
+                                                                                                               "z_fighting_vertices":  0
+                                                                                                           },
+                                                                 "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                         "clipping_vertices":  0,
+                                                                                                         "floating_vertices":  0,
+                                                                                                         "maximum_distance":  0.004000044,
+                                                                                                         "mean_distance":  0.002749992,
+                                                                                                         "minimum_distance":  0.001499674,
+                                                                                                         "sampled_vertices":  660,
+                                                                                                         "z_fighting_vertices":  0
+                                                                                                     },
+                                                                 "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                        "clipping_vertices":  0,
+                                                                                                        "floating_vertices":  0,
+                                                                                                        "maximum_distance":  0.004200056,
+                                                                                                        "mean_distance":  0.002849949,
+                                                                                                        "minimum_distance":  0.00149768,
+                                                                                                        "sampled_vertices":  660,
+                                                                                                        "z_fighting_vertices":  0
+                                                                                                    }
+                                                             },
+                                                      "90":  {
+                                                                 "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                               "clipping_vertices":  0,
+                                                                                                               "floating_vertices":  0,
+                                                                                                               "maximum_distance":  0.004000114,
+                                                                                                               "mean_distance":  0.002746815,
+                                                                                                               "minimum_distance":  0.001165247,
+                                                                                                               "sampled_vertices":  996,
+                                                                                                               "z_fighting_vertices":  0
+                                                                                                           },
+                                                                 "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                         "clipping_vertices":  0,
+                                                                                                         "floating_vertices":  0,
+                                                                                                         "maximum_distance":  0.004000044,
+                                                                                                         "mean_distance":  0.002749992,
+                                                                                                         "minimum_distance":  0.001499674,
+                                                                                                         "sampled_vertices":  660,
+                                                                                                         "z_fighting_vertices":  0
+                                                                                                     },
+                                                                 "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                        "clipping_vertices":  0,
+                                                                                                        "floating_vertices":  0,
+                                                                                                        "maximum_distance":  0.004200056,
+                                                                                                        "mean_distance":  0.002849949,
+                                                                                                        "minimum_distance":  0.00149768,
+                                                                                                        "sampled_vertices":  660,
+                                                                                                        "z_fighting_vertices":  0
+                                                                                                    }
+                                                             }
+                                                  },
+                                 "R2_NEUTRAL":  {
+                                                    "1":  {
+                                                              "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                            "clipping_vertices":  0,
+                                                                                                            "floating_vertices":  0,
+                                                                                                            "maximum_distance":  0.004000114,
+                                                                                                            "mean_distance":  0.002746815,
+                                                                                                            "minimum_distance":  0.001165247,
+                                                                                                            "sampled_vertices":  996,
+                                                                                                            "z_fighting_vertices":  0
+                                                                                                        },
+                                                              "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                      "clipping_vertices":  0,
+                                                                                                      "floating_vertices":  0,
+                                                                                                      "maximum_distance":  0.004000044,
+                                                                                                      "mean_distance":  0.002749992,
+                                                                                                      "minimum_distance":  0.001499674,
+                                                                                                      "sampled_vertices":  660,
+                                                                                                      "z_fighting_vertices":  0
+                                                                                                  },
+                                                              "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                     "clipping_vertices":  0,
+                                                                                                     "floating_vertices":  0,
+                                                                                                     "maximum_distance":  0.004200056,
+                                                                                                     "mean_distance":  0.002849949,
+                                                                                                     "minimum_distance":  0.00149768,
+                                                                                                     "sampled_vertices":  660,
+                                                                                                     "z_fighting_vertices":  0
+                                                                                                 }
+                                                          },
+                                                    "16":  {
+                                                               "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                             "clipping_vertices":  0,
+                                                                                                             "floating_vertices":  0,
+                                                                                                             "maximum_distance":  0.004000114,
+                                                                                                             "mean_distance":  0.002746815,
+                                                                                                             "minimum_distance":  0.001165247,
+                                                                                                             "sampled_vertices":  996,
+                                                                                                             "z_fighting_vertices":  0
+                                                                                                         },
+                                                               "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                       "clipping_vertices":  0,
+                                                                                                       "floating_vertices":  0,
+                                                                                                       "maximum_distance":  0.004000044,
+                                                                                                       "mean_distance":  0.002749992,
+                                                                                                       "minimum_distance":  0.001499674,
+                                                                                                       "sampled_vertices":  660,
+                                                                                                       "z_fighting_vertices":  0
+                                                                                                   },
+                                                               "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                      "clipping_vertices":  0,
+                                                                                                      "floating_vertices":  0,
+                                                                                                      "maximum_distance":  0.004200056,
+                                                                                                      "mean_distance":  0.002849949,
+                                                                                                      "minimum_distance":  0.00149768,
+                                                                                                      "sampled_vertices":  660,
+                                                                                                      "z_fighting_vertices":  0
+                                                                                                  }
+                                                           },
+                                                    "30":  {
+                                                               "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                             "clipping_vertices":  0,
+                                                                                                             "floating_vertices":  0,
+                                                                                                             "maximum_distance":  0.004000114,
+                                                                                                             "mean_distance":  0.002746815,
+                                                                                                             "minimum_distance":  0.001165247,
+                                                                                                             "sampled_vertices":  996,
+                                                                                                             "z_fighting_vertices":  0
+                                                                                                         },
+                                                               "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                       "clipping_vertices":  0,
+                                                                                                       "floating_vertices":  0,
+                                                                                                       "maximum_distance":  0.004000044,
+                                                                                                       "mean_distance":  0.002749992,
+                                                                                                       "minimum_distance":  0.001499674,
+                                                                                                       "sampled_vertices":  660,
+                                                                                                       "z_fighting_vertices":  0
+                                                                                                   },
+                                                               "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                      "clipping_vertices":  0,
+                                                                                                      "floating_vertices":  0,
+                                                                                                      "maximum_distance":  0.004200056,
+                                                                                                      "mean_distance":  0.002849949,
+                                                                                                      "minimum_distance":  0.00149768,
+                                                                                                      "sampled_vertices":  660,
+                                                                                                      "z_fighting_vertices":  0
+                                                                                                  }
+                                                           }
+                                                },
+                                 "R2_THINKING":  {
+                                                     "1":  {
+                                                               "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                             "clipping_vertices":  0,
+                                                                                                             "floating_vertices":  0,
+                                                                                                             "maximum_distance":  0.004000114,
+                                                                                                             "mean_distance":  0.002746815,
+                                                                                                             "minimum_distance":  0.001165247,
+                                                                                                             "sampled_vertices":  996,
+                                                                                                             "z_fighting_vertices":  0
+                                                                                                         },
+                                                               "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                       "clipping_vertices":  0,
+                                                                                                       "floating_vertices":  0,
+                                                                                                       "maximum_distance":  0.004000044,
+                                                                                                       "mean_distance":  0.002749992,
+                                                                                                       "minimum_distance":  0.001499674,
+                                                                                                       "sampled_vertices":  660,
+                                                                                                       "z_fighting_vertices":  0
+                                                                                                   },
+                                                               "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                      "clipping_vertices":  0,
+                                                                                                      "floating_vertices":  0,
+                                                                                                      "maximum_distance":  0.004200056,
+                                                                                                      "mean_distance":  0.002849949,
+                                                                                                      "minimum_distance":  0.00149768,
+                                                                                                      "sampled_vertices":  660,
+                                                                                                      "z_fighting_vertices":  0
+                                                                                                  }
+                                                           },
+                                                     "46":  {
+                                                                "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004000114,
+                                                                                                              "mean_distance":  0.002746815,
+                                                                                                              "minimum_distance":  0.001165247,
+                                                                                                              "sampled_vertices":  996,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          },
+                                                                "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                        "clipping_vertices":  0,
+                                                                                                        "floating_vertices":  0,
+                                                                                                        "maximum_distance":  0.004000044,
+                                                                                                        "mean_distance":  0.002749992,
+                                                                                                        "minimum_distance":  0.001499674,
+                                                                                                        "sampled_vertices":  660,
+                                                                                                        "z_fighting_vertices":  0
+                                                                                                    },
+                                                                "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                       "clipping_vertices":  0,
+                                                                                                       "floating_vertices":  0,
+                                                                                                       "maximum_distance":  0.004200056,
+                                                                                                       "mean_distance":  0.002849949,
+                                                                                                       "minimum_distance":  0.00149768,
+                                                                                                       "sampled_vertices":  660,
+                                                                                                       "z_fighting_vertices":  0
+                                                                                                   }
+                                                            },
+                                                     "90":  {
+                                                                "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                              "clipping_vertices":  0,
+                                                                                                              "floating_vertices":  0,
+                                                                                                              "maximum_distance":  0.004000114,
+                                                                                                              "mean_distance":  0.002746815,
+                                                                                                              "minimum_distance":  0.001165247,
+                                                                                                              "sampled_vertices":  996,
+                                                                                                              "z_fighting_vertices":  0
+                                                                                                          },
+                                                                "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                        "clipping_vertices":  0,
+                                                                                                        "floating_vertices":  0,
+                                                                                                        "maximum_distance":  0.004000044,
+                                                                                                        "mean_distance":  0.002749992,
+                                                                                                        "minimum_distance":  0.001499674,
+                                                                                                        "sampled_vertices":  660,
+                                                                                                        "z_fighting_vertices":  0
+                                                                                                    },
+                                                                "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                       "clipping_vertices":  0,
+                                                                                                       "floating_vertices":  0,
+                                                                                                       "maximum_distance":  0.004200056,
+                                                                                                       "mean_distance":  0.002849949,
+                                                                                                       "minimum_distance":  0.00149768,
+                                                                                                       "sampled_vertices":  660,
+                                                                                                       "z_fighting_vertices":  0
+                                                                                                   }
+                                                            }
+                                                 },
+                                 "R2_WORKING":  {
+                                                    "1":  {
+                                                              "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                            "clipping_vertices":  0,
+                                                                                                            "floating_vertices":  0,
+                                                                                                            "maximum_distance":  0.004000114,
+                                                                                                            "mean_distance":  0.002746815,
+                                                                                                            "minimum_distance":  0.001165247,
+                                                                                                            "sampled_vertices":  996,
+                                                                                                            "z_fighting_vertices":  0
+                                                                                                        },
+                                                              "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                      "clipping_vertices":  0,
+                                                                                                      "floating_vertices":  0,
+                                                                                                      "maximum_distance":  0.004000044,
+                                                                                                      "mean_distance":  0.002749992,
+                                                                                                      "minimum_distance":  0.001499674,
+                                                                                                      "sampled_vertices":  660,
+                                                                                                      "z_fighting_vertices":  0
+                                                                                                  },
+                                                              "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                     "clipping_vertices":  0,
+                                                                                                     "floating_vertices":  0,
+                                                                                                     "maximum_distance":  0.004200056,
+                                                                                                     "mean_distance":  0.002849949,
+                                                                                                     "minimum_distance":  0.00149768,
+                                                                                                     "sampled_vertices":  660,
+                                                                                                     "z_fighting_vertices":  0
+                                                                                                 }
+                                                          },
+                                                    "36":  {
+                                                               "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                             "clipping_vertices":  0,
+                                                                                                             "floating_vertices":  0,
+                                                                                                             "maximum_distance":  0.004000114,
+                                                                                                             "mean_distance":  0.002746815,
+                                                                                                             "minimum_distance":  0.001165247,
+                                                                                                             "sampled_vertices":  996,
+                                                                                                             "z_fighting_vertices":  0
+                                                                                                         },
+                                                               "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                       "clipping_vertices":  0,
+                                                                                                       "floating_vertices":  0,
+                                                                                                       "maximum_distance":  0.004000044,
+                                                                                                       "mean_distance":  0.002749992,
+                                                                                                       "minimum_distance":  0.001499674,
+                                                                                                       "sampled_vertices":  660,
+                                                                                                       "z_fighting_vertices":  0
+                                                                                                   },
+                                                               "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                      "clipping_vertices":  0,
+                                                                                                      "floating_vertices":  0,
+                                                                                                      "maximum_distance":  0.004200056,
+                                                                                                      "mean_distance":  0.002849949,
+                                                                                                      "minimum_distance":  0.00149768,
+                                                                                                      "sampled_vertices":  660,
+                                                                                                      "z_fighting_vertices":  0
+                                                                                                  }
+                                                           },
+                                                    "72":  {
+                                                               "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                                                             "clipping_vertices":  0,
+                                                                                                             "floating_vertices":  0,
+                                                                                                             "maximum_distance":  0.004000114,
+                                                                                                             "mean_distance":  0.002746815,
+                                                                                                             "minimum_distance":  0.001165247,
+                                                                                                             "sampled_vertices":  996,
+                                                                                                             "z_fighting_vertices":  0
+                                                                                                         },
+                                                               "R2_Brand_RightChest_GorillaMark":  {
+                                                                                                       "clipping_vertices":  0,
+                                                                                                       "floating_vertices":  0,
+                                                                                                       "maximum_distance":  0.004000044,
+                                                                                                       "mean_distance":  0.002749992,
+                                                                                                       "minimum_distance":  0.001499674,
+                                                                                                       "sampled_vertices":  660,
+                                                                                                       "z_fighting_vertices":  0
+                                                                                                   },
+                                                               "R2_Brand_UpperBack_GorillaMark":  {
+                                                                                                      "clipping_vertices":  0,
+                                                                                                      "floating_vertices":  0,
+                                                                                                      "maximum_distance":  0.004200056,
+                                                                                                      "mean_distance":  0.002849949,
+                                                                                                      "minimum_distance":  0.00149768,
+                                                                                                      "sampled_vertices":  660,
+                                                                                                      "z_fighting_vertices":  0
+                                                                                                  }
+                                                           }
+                                                }
+                             },
+    "CreatedImages":  0,
+    "DuplicateMaterialNames":  [
+
+                               ],
+    "ExecutionStatus":  "COMPLETED",
+    "ExpressionChannelsPreserved":  24,
+    "FailedGates":  "NONE",
+    "InvalidNonManifold":  0,
+    "InvertedFaces":  0,
+    "LargeBackLogoConfirmed":  true,
+    "LeftArmGorillaOSLogoConfirmed":  true,
+    "LeftArmPatchConfirmed":  true,
+    "LeftArmR2MarkConfirmed":  true,
+    "MaterialCount":  17,
+    "NeutralDistances":  {
+                             "R2_Brand_LeftArm_GorillaMark_R2_Patch":  {
+                                                                           "clipping_vertices":  0,
+                                                                           "floating_vertices":  0,
+                                                                           "maximum_distance":  0.004000114,
+                                                                           "mean_distance":  0.002746815,
+                                                                           "minimum_distance":  0.001165247,
+                                                                           "sampled_vertices":  996,
+                                                                           "z_fighting_vertices":  0
+                                                                       },
+                             "R2_Brand_RightChest_GorillaMark":  {
+                                                                     "clipping_vertices":  0,
+                                                                     "floating_vertices":  0,
+                                                                     "maximum_distance":  0.004000044,
+                                                                     "mean_distance":  0.002749992,
+                                                                     "minimum_distance":  0.001499674,
+                                                                     "sampled_vertices":  660,
+                                                                     "z_fighting_vertices":  0
+                                                                 },
+                             "R2_Brand_UpperBack_GorillaMark":  {
+                                                                    "clipping_vertices":  0,
+                                                                    "floating_vertices":  0,
+                                                                    "maximum_distance":  0.004200056,
+                                                                    "mean_distance":  0.002849949,
+                                                                    "minimum_distance":  0.00149768,
+                                                                    "sampled_vertices":  660,
+                                                                    "z_fighting_vertices":  0
+                                                                }
+                         },
+    "NeutralResetExact":  true,
+    "OfficialLogoMirroringErrors":  0,
+    "OfficialSourcesUnchanged":  true,
+    "RenderableMeshesWithoutMaterial":  0,
+    "RightChestLogoConfirmed":  true,
+    "RightChestLogoUsesOfficialSource":  true,
+    "RuntimeStatesPreserved":  10,
+    "SpeakingCombinedValidation":  true,
+    "TechnicalVerdict":  "APROVADO",
+    "UnexpectedGeometryChangeObjects":  [
+
+                                        ],
+    "UnexpectedGeometryChanges":  0,
+    "UnexpectedMorphTargetChanges":  0,
+    "UnexpectedRigChanges":  0,
+    "UnexpectedWeightChangeObjects":  [
+
+                                      ],
+    "UnexpectedWeightChanges":  0,
+    "UnweightedDeformVertices":  0,
+    "WireEdges":  0,
+    "ZeroAreaFaces":  0,
+    "schema_version":  1,
+    "RepositoryValidation":  {
+                                 "focused_vitest":  {
+                                                        "status":  "PASSED",
+                                                        "files":  6,
+                                                        "tests":  32,
+                                                        "failed":  0
+                                                    },
+                                 "full_vitest":  {
+                                                     "status":  "BASELINE_FAILURES_OUTSIDE_PHASE",
+                                                     "files_passed":  122,
+                                                     "files_failed":  2,
+                                                     "tests_passed":  1542,
+                                                     "tests_failed":  13,
+                                                     "failure_files":  [
+                                                                           "components/dashboard/dashboard-content.test.tsx",
+                                                                           "components/dashboard/dashboard-header.test.tsx"
+                                                                       ],
+                                                     "phase_regression":  false,
+                                                     "note":  "The failing dashboard expectations predate this phase; the phase did not edit DashboardHeader or DashboardContent layout."
+                                                 },
+                                 "typescript":  {
+                                                    "status":  "PASSED",
+                                                    "command":  "node_modules/.bin/tsc.cmd --noEmit"
+                                                },
+                                 "phase_lint":  {
+                                                    "status":  "PASSED",
+                                                    "errors":  0,
+                                                    "warnings":  0
+                                                },
+                                 "full_lint":  {
+                                                   "status":  "BASELINE_FAILURES_OUTSIDE_PHASE",
+                                                   "errors":  26,
+                                                   "warnings":  26,
+                                                   "note":  "Errors are in pre-existing client pages, legacy R2 controllers, r2-lab and components/ui/dialog; none is in a phase-authored or phase-modified production file."
+                                               },
+                                 "headless_runtime":  {
+                                                          "status":  "PASSED",
+                                                          "parse_attempts":  3,
+                                                          "runtime_console_errors":  0
+                                                      }
+                             },
+    "WebRuntimeApproved":  true,
+    "IndependentAuditApproved":  true,
+    "RegressionsIntroduced":  0,
+    "PhaseFailedGates":  "NONE"
+}

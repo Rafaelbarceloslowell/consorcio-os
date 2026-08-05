@@ -1,0 +1,258 @@
+{
+  "audit": "R2 pre-v36 head interface read-only diagnostic v1",
+  "blender_version": "4.5.10 LTS",
+  "blend_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v35-logical-separation-v1\\r2-rig-v35-logical-separation.blend",
+  "blend_saved": false,
+  "objects": {
+    "R2_Head_Face": {
+      "name": "R2_Head_Face",
+      "vertices": 3697,
+      "edges": 10806,
+      "faces": 7086,
+      "parent": "R2_Rig",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [
+        {
+          "name": "R2_Armature",
+          "type": "ARMATURE",
+          "object": "R2_Rig",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ],
+      "mesh_topology_sha256": "6903376494A7DA85BD24ECFD938421733B26900881D6493DB35817294F9A7CCB",
+      "weights_sha256": "461E28983E338C6A9B95F9BB64B2D4A0EF668B8153870A291DDB6ECAE30A3A6E",
+      "boundary": {
+        "edge_count": 354,
+        "vertex_count": 352,
+        "component_count": 23,
+        "closed_components": 22,
+        "open_components": 0,
+        "branched_components": 1
+      }
+    },
+    "R2_Head_Fur": {
+      "name": "R2_Head_Fur",
+      "vertices": 18673,
+      "edges": 53788,
+      "faces": 35015,
+      "parent": "R2_Rig",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [
+        {
+          "name": "R2_Armature",
+          "type": "ARMATURE",
+          "object": "R2_Rig",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ],
+      "mesh_topology_sha256": "C41451C95D792E33B713F14047BBED51ECCC1AD81279024329BBC762C21C71C5",
+      "weights_sha256": "43E40BD97672F285E864372E8CC70332C301BE79A98822338A12C0AAF518E4D1",
+      "boundary": {
+        "edge_count": 2531,
+        "vertex_count": 2517,
+        "component_count": 114,
+        "closed_components": 104,
+        "open_components": 0,
+        "branched_components": 10
+      }
+    }
+  },
+  "combined": {
+    "vertices": 22370,
+    "edges": 64594,
+    "faces": 42101,
+    "bbox_diagonal": 0.8343182415891465,
+    "rendered_bbox_diagonal": 0.8343182415891465,
+    "bvh_overlap_triangle_pairs": 22
+  },
+  "interface_distance": {
+    "face_boundary_to_fur_surface": {
+      "samples": 352,
+      "min": 0.0,
+      "median": 0.0,
+      "mean": 0.011303415375517793,
+      "p95": 0.06815002007791347,
+      "max": 0.09194319708752098,
+      "within_relative_thresholds": {
+        "0.0005_bbox": {
+          "distance": 0.00041715912079457325,
+          "count": 256,
+          "percentage": 72.72727272727273
+        },
+        "0.0010_bbox": {
+          "distance": 0.0008343182415891465,
+          "count": 256,
+          "percentage": 72.72727272727273
+        },
+        "0.0025_bbox": {
+          "distance": 0.002085795603972866,
+          "count": 257,
+          "percentage": 73.01136363636364
+        },
+        "0.0050_bbox": {
+          "distance": 0.004171591207945732,
+          "count": 263,
+          "percentage": 74.7159090909091
+        },
+        "0.0100_bbox": {
+          "distance": 0.008343182415891465,
+          "count": 274,
+          "percentage": 77.8409090909091
+        }
+      }
+    },
+    "fur_boundary_to_face_surface": {
+      "samples": 2517,
+      "min": 0.0,
+      "median": 0.13646572811057206,
+      "mean": 0.1429846904287301,
+      "p95": 0.28130799241764803,
+      "max": 0.3275633853709792,
+      "within_relative_thresholds": {
+        "0.0005_bbox": {
+          "distance": 0.00041715912079457325,
+          "count": 261,
+          "percentage": 10.369487485101311
+        },
+        "0.0010_bbox": {
+          "distance": 0.0008343182415891465,
+          "count": 261,
+          "percentage": 10.369487485101311
+        },
+        "0.0025_bbox": {
+          "distance": 0.002085795603972866,
+          "count": 261,
+          "percentage": 10.369487485101311
+        },
+        "0.0050_bbox": {
+          "distance": 0.004171591207945732,
+          "count": 265,
+          "percentage": 10.528406833531983
+        },
+        "0.0100_bbox": {
+          "distance": 0.008343182415891465,
+          "count": 278,
+          "percentage": 11.044894715931665
+        }
+      }
+    }
+  },
+  "images": [
+    {
+      "file": "head-interface-assembled-neutral-front.png",
+      "sha256": "2C303569E95F17CAF4E971211F6BBD8D23C322C87A598EBBEC733B10C3527299"
+    },
+    {
+      "file": "head-interface-assembled-neutral-back.png",
+      "sha256": "E3AE17397DE5EF25B1FA3C8669DA4BDA94FA8147B4633170FE95BAD6C474689D"
+    },
+    {
+      "file": "head-interface-assembled-neutral-left.png",
+      "sha256": "FFAAE6E73E35A6527765C18FAB804858798C216D4A01C00954F02551818AAF1C"
+    },
+    {
+      "file": "head-interface-assembled-neutral-right.png",
+      "sha256": "5B146A9286D509DDE592A96BE78409982BBF74929863EAEB4819EC9C47D076D6"
+    },
+    {
+      "file": "head-interface-semantic-front.png",
+      "sha256": "7717618A62A2C1F73D17FAD0A3F8EBDDA31639DEB4CCA3E439D00008F216BB78"
+    },
+    {
+      "file": "head-interface-semantic-back.png",
+      "sha256": "6CD3E994CBFF393A78910CD6985265BC5700D0BDD6D0B60B83A85C47F68A3F22"
+    },
+    {
+      "file": "head-interface-semantic-left.png",
+      "sha256": "9908A054E72A2E39B63E757B61D11B460EA6C769F607C7DC568D4A47A3E2B5AB"
+    },
+    {
+      "file": "head-interface-semantic-right.png",
+      "sha256": "2CF5BBD07BE4A94F1CAE1B1406F5A4C9C6E8B3288AD41737B94872D0A7778986"
+    },
+    {
+      "file": "head-interface-boundaries-front.png",
+      "sha256": "7C6C74F0A87DA6827B7976E45AF205C7684D75E83B86950CF1CD6890068330BD"
+    },
+    {
+      "file": "head-interface-boundaries-back.png",
+      "sha256": "CA3E9D285566B45EC8F80FC735FF3130F120C6B0A7F0DC57F425B30B69AFDB6F"
+    },
+    {
+      "file": "head-interface-boundaries-left.png",
+      "sha256": "89C171E7C5D67C4414A45DCF7A961E30EC0A938B41534645FB28959E334BF1EB"
+    },
+    {
+      "file": "head-interface-boundaries-right.png",
+      "sha256": "849057302123689931F958F5CE63B6801721EBBD1361C768D4243253EC194563"
+    },
+    {
+      "file": "head-interface-exploded-front.png",
+      "sha256": "839F9A345B9E34BA00706BEBA4451957ED8D4913FC3DD0E500DCBF2E13B9527F"
+    },
+    {
+      "file": "head-interface-exploded-back.png",
+      "sha256": "E9B3C10CFD5BE59DA7FCCA18E44C616D81CADA7B973960933FF778350CF8468A"
+    },
+    {
+      "file": "head-interface-exploded-left.png",
+      "sha256": "F1DC6181439307D208EB304BF215885FC7EF5A08907ABDC07E676A09E2125349"
+    },
+    {
+      "file": "head-interface-exploded-right.png",
+      "sha256": "B2813947A63E9F94A0D055AC784E786BA7C22CD17A9211B7A3EF31277263E1D8"
+    }
+  ]
+}

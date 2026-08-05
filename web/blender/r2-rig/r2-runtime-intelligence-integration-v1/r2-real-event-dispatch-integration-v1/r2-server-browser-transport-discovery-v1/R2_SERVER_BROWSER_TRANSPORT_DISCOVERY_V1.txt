@@ -1,0 +1,401 @@
+
+============================================================
+ R2 SERVER BROWSER TRANSPORT DISCOVERY V1
+============================================================
+GENERATED_AT=2026-08-02T15:04:27-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+MODE=READ_ONLY
+BRIDGE_ALREADY_APPROVED=PROCESS_LOCAL_LIVE_EVENTS
+TARGET=REAL_CALLER_EXECUTION_ENVIRONMENT_AND_SERVER_BROWSER_TRANSPORT
+
+============================================================
+ GIT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+STAGED_FILE_COUNT=0
+
+============================================================
+ APPROVED BRIDGE BASELINE
+============================================================
+APPROVED_REPORT_EXISTS=True
+APPROVED_REPORT_PATH=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-process-local-commercial-event-bridge-v1\R2_PROCESS_LOCAL_COMMERCIAL_EVENT_BRIDGE_V1_REPORT.txt
+APPROVED_REPORT_SHA256=C6B644165763EDA92769E6D8EEE74025C7B40CAE3BADB6EA5F5C4AC3E544F427
+COMMON_DISPATCH_INTEGRATED=True
+PROVIDER_SUBSCRIBED=True
+NORMALIZER_CONNECTED=True
+typescript_EXIT_CODE=0
+GLB_UNCHANGED=True
+HEAD_UNCHANGED=True
+STAGED_FILE_COUNT_FINAL=0
+COMMON_DISPATCH_INTEGRATED=True
+PROVIDER_SUBSCRIBED=True
+NORMALIZER_CONNECTED=True
+TYPESCRIPT_EXIT_CODE=0
+NEW_BRIDGE_TEST_EXIT_CODE=0
+RELEVANT_TEST_EXIT_CODE=0
+HEAD_UNCHANGED=True
+STAGED_FILE_COUNT_FINAL=0
+GLB_UNCHANGED=True
+VEREDITO=APROVADO_PROCESS_LOCAL_BRIDGE_V1
+
+============================================================
+ SOURCE INVENTORY
+============================================================
+SOURCE_FILE_COUNT=240
+
+============================================================
+ REAL CALLER SEARCH
+============================================================
+
+PRODUCER=receiveLeadReply
+EVENT=lead.replied
+DEFINITION_MATCH_COUNT=1
+IMPORT_OR_EXPORT_MATCH_COUNT=4
+REAL_CALL_MATCH_COUNT=0
+
+PRODUCER=scheduleMeeting
+EVENT=meeting.scheduled
+DEFINITION_MATCH_COUNT=2
+IMPORT_OR_EXPORT_MATCH_COUNT=7
+REAL_CALL_MATCH_COUNT=0
+
+PRODUCER=completeMeeting
+EVENT=meeting.completed
+DEFINITION_MATCH_COUNT=1
+IMPORT_OR_EXPORT_MATCH_COUNT=4
+REAL_CALL_MATCH_COUNT=0
+
+PRODUCER=sendProposal
+EVENT=proposal.sent
+DEFINITION_MATCH_COUNT=1
+IMPORT_OR_EXPORT_MATCH_COUNT=4
+REAL_CALL_MATCH_COUNT=0
+
+PRODUCER=acceptProposal
+EVENT=proposal.accepted
+DEFINITION_MATCH_COUNT=1
+IMPORT_OR_EXPORT_MATCH_COUNT=4
+REAL_CALL_MATCH_COUNT=0
+
+PRODUCER=closeSale
+EVENT=sale.completed
+DEFINITION_MATCH_COUNT=2
+IMPORT_OR_EXPORT_MATCH_COUNT=7
+REAL_CALL_MATCH_COUNT=0
+
+============================================================
+ TRANSPORT CAPABILITY SEARCH
+============================================================
+
+TRANSPORT_PATTERN=EventSource
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=text/event-stream
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=WebSocket
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=new WebSocket
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=BroadcastChannel
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=ReadableStream
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=server-sent
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=SSE
+MATCH_COUNT=50
+FILE_COUNT=13
+C:\Projetos\consorcio-os\web\app\globals.css:85: ENV=UNKNOWN TEXT=--gorila-control-shadow-pressed: inset 0 3px 6px rgba(20,23,21,.18), inset 0 1px 0 rgba(255,255,255,.52), 0 1px 2px rgba(20,23,21,.08);
+C:\Projetos\consorcio-os\web\app\globals.css:139: ENV=UNKNOWN TEXT=--gorila-control-shadow-pressed: inset 0 3px 6px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.07), 0 1px 2px rgba(0,0,0,.22);
+C:\Projetos\consorcio-os\web\application\client\list-clients.ts:43: ENV=APPLICATION_LAYER TEXT=const matchesSearch = (
+C:\Projetos\consorcio-os\web\application\client\list-clients.ts:137: ENV=APPLICATION_LAYER TEXT=matchesSearch(
+C:\Projetos\consorcio-os\web\application\lead\list-leads.ts:42: ENV=APPLICATION_LAYER TEXT=const matchesSearch = (
+C:\Projetos\consorcio-os\web\application\lead\list-leads.ts:108: ENV=APPLICATION_LAYER TEXT=matchesSearch(
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:34: ENV=APPLICATION_LAYER TEXT=processedEventTtlMs?: number
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:74: ENV=APPLICATION_LAYER TEXT=private readonly processedEventTtlMs: number
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:83: ENV=APPLICATION_LAYER TEXT=private readonly processed = new Map<string, number>()
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:101: ENV=APPLICATION_LAYER TEXT=this.processedEventTtlMs = milliseconds(config.processedEventTtlMs, 5 * 60_000)
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:114: ENV=APPLICATION_LAYER TEXT=processedEventIds: [...this.processed.keys()],
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:128: ENV=APPLICATION_LAYER TEXT=const task = this.dispatchTail.then(() => this.processEvent(event, context))
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:139: ENV=APPLICATION_LAYER TEXT=for (const [eventId, expires] of this.processed) {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:140: ENV=APPLICATION_LAYER TEXT=if (expires <= nowMs) this.processed.delete(eventId)
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:147: ENV=APPLICATION_LAYER TEXT=private markProcessed(event: R2DomainEvent, nowMs: number) {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:148: ENV=APPLICATION_LAYER TEXT=this.processed.set(event.eventId, nowMs + this.processedEventTtlMs)
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:293: ENV=APPLICATION_LAYER TEXT=private async processEvent(
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:313: ENV=APPLICATION_LAYER TEXT=if (this.processed.has(event.eventId)) {
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:314: ENV=APPLICATION_LAYER TEXT=return this.decision({ type: "DISCARD", event, reason: "EVENT_DUPLICATE", priority: "BACKGROUND", runtimeState: null, discardedReason: "eventId was already processed.", now })
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:318: ENV=APPLICATION_LAYER TEXT=this.markProcessed(event, nowMs)
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:322: ENV=APPLICATION_LAYER TEXT=this.markProcessed(event, nowMs)
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:335: ENV=APPLICATION_LAYER TEXT=this.markProcessed(event, nowMs)
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:376: ENV=APPLICATION_LAYER TEXT=this.markProcessed(event, nowMs)
+C:\Projetos\consorcio-os\web\application\r2\r2-orchestrator.ts:493: ENV=APPLICATION_LAYER TEXT=this.processed.clear()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-controller.tsx:5: ENV=CLIENT_COMPONENT TEXT=hasSeenR2Intro,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-controller.tsx:18: ENV=CLIENT_COMPONENT TEXT=hasSeenR2Intro()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-storage.ts:5: ENV=COMPONENT_MODULE TEXT=export function hasSeenR2Intro() {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:434: ENV=COMPONENT_MODULE TEXT=readonly assetName: string,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:436: ENV=COMPONENT_MODULE TEXT=super(`${code}: ${assetName}`)
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:756: ENV=COMPONENT_MODULE TEXT=private assertActive() {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:938: ENV=COMPONENT_MODULE TEXT=this.assertActive()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:1099: ENV=COMPONENT_MODULE TEXT=this.assertActive()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:1133: ENV=COMPONENT_MODULE TEXT=this.assertActive()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:1145: ENV=COMPONENT_MODULE TEXT=this.assertActive()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:1159: ENV=COMPONENT_MODULE TEXT=this.assertActive()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:1171: ENV=COMPONENT_MODULE TEXT=this.assertActive()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:1218: ENV=COMPONENT_MODULE TEXT=this.assertActive()
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar.tsx:14: ENV=COMPONENT_MODULE TEXT=const sizeClasses = {
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar.tsx:43: ENV=COMPONENT_MODULE TEXT=sizeClasses[size],
+C:\Projetos\consorcio-os\web\components\ui\button.tsx:244: ENV=CLIENT_COMPONENT TEXT="--button-active-shadow": "var(--gorila-control-shadow-pressed)",
+C:\Projetos\consorcio-os\web\components\ui\dialog.tsx:71: ENV=CLIENT_COMPONENT TEXT=const dialogSizeClasses: Record<
+C:\Projetos\consorcio-os\web\components\ui\dialog.tsx:392: ENV=CLIENT_COMPONENT TEXT=dialogSizeClasses[size],
+C:\Projetos\consorcio-os\web\components\ui\glass-card.tsx:72: ENV=COMPONENT_MODULE TEXT="active:[--card-shadow:var(--glass-card-shadow-pressed)]",
+C:\Projetos\consorcio-os\web\components\ui\glass-card.tsx:142: ENV=COMPONENT_MODULE TEXT="--glass-card-shadow-pressed": `
+C:\Projetos\consorcio-os\web\components\ui\icon-container.tsx:8: ENV=COMPONENT_MODULE TEXT=* Componentes de negócio não devem conhecer esses detalhes visuais.
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\consortium-mapper.ts:127: ENV=UNKNOWN TEXT=return ConsortiumMapper.assertNever(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\consortium-mapper.ts:154: ENV=UNKNOWN TEXT=return ConsortiumMapper.assertNever(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\consortium-mapper.ts:175: ENV=UNKNOWN TEXT=return ConsortiumMapper.assertNever(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\consortium-mapper.ts:196: ENV=UNKNOWN TEXT=return ConsortiumMapper.assertNever(
+C:\Projetos\consorcio-os\web\infrastructure\prisma\mappers\consortium-mapper.ts:203: ENV=UNKNOWN TEXT=private static assertNever(
+
+TRANSPORT_PATTERN=revalidatePath
+MATCH_COUNT=12
+FILE_COUNT=5
+C:\Projetos\consorcio-os\web\app\clients\[clientId]\actions.ts:4: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath,
+C:\Projetos\consorcio-os\web\app\clients\[clientId]\actions.ts:112: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath(detailsPath)
+C:\Projetos\consorcio-os\web\app\clients\[clientId]\actions.ts:113: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath("/clients")
+C:\Projetos\consorcio-os\web\app\clients\[clientId]\edit\actions.ts:4: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath,
+C:\Projetos\consorcio-os\web\app\clients\[clientId]\edit\actions.ts:233: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath(detailsPath)
+C:\Projetos\consorcio-os\web\app\clients\[clientId]\edit\actions.ts:234: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath("/clients")
+C:\Projetos\consorcio-os\web\app\clients\new\actions.ts:3: ENV=SERVER_ACTION_MODULE TEXT=import { revalidatePath } from "next/cache"
+C:\Projetos\consorcio-os\web\app\clients\new\actions.ts:272: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath("/")
+C:\Projetos\consorcio-os\web\app\opportunities\[opportunityId]\edit\actions.ts:4: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath,
+C:\Projetos\consorcio-os\web\app\opportunities\[opportunityId]\edit\actions.ts:211: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath(detailsPath)
+C:\Projetos\consorcio-os\web\app\opportunities\new\actions.ts:4: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath,
+C:\Projetos\consorcio-os\web\app\opportunities\new\actions.ts:281: ENV=SERVER_ACTION_MODULE TEXT=revalidatePath("/")
+
+TRANSPORT_PATTERN=router.refresh
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=window.dispatchEvent
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=addEventListener(
+MATCH_COUNT=2
+FILE_COUNT=2
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-runtime.ts:711: ENV=COMPONENT_MODULE TEXT=this.mixer.addEventListener("finished", this.handleMixerFinished)
+C:\Projetos\consorcio-os\web\components\ui\dialog.tsx:115: ENV=CLIENT_COMPONENT TEXT=document.addEventListener(
+
+TRANSPORT_PATTERN=postMessage(
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=fetch(
+MATCH_COUNT=0
+FILE_COUNT=0
+
+TRANSPORT_PATTERN=use server
+MATCH_COUNT=5
+FILE_COUNT=5
+C:\Projetos\consorcio-os\web\app\clients\[clientId]\actions.ts:1: ENV=SERVER_ACTION_MODULE TEXT="use server"
+C:\Projetos\consorcio-os\web\app\clients\[clientId]\edit\actions.ts:1: ENV=SERVER_ACTION_MODULE TEXT="use server"
+C:\Projetos\consorcio-os\web\app\clients\new\actions.ts:1: ENV=SERVER_ACTION_MODULE TEXT="use server"
+C:\Projetos\consorcio-os\web\app\opportunities\[opportunityId]\edit\actions.ts:1: ENV=SERVER_ACTION_MODULE TEXT="use server"
+C:\Projetos\consorcio-os\web\app\opportunities\new\actions.ts:1: ENV=SERVER_ACTION_MODULE TEXT="use server"
+
+TRANSPORT_PATTERN=route.ts
+MATCH_COUNT=0
+FILE_COUNT=0
+
+============================================================
+ DASHBOARD CLIENT ENTRY SEARCH
+============================================================
+
+DASHBOARD_PATTERN="use client"
+MATCH_COUNT=49
+FILE_COUNT=49
+C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx.20260729-115825.bak:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx.20260729-123325.bak:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\dialogue\r2-dialogue-bubble.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\dialogue\r2-dialogue-controller.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\head\r2-head.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-first-login.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-controller.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-face.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-intro-look.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\intro\r2-reveal-animation.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\memory\r2-memory-provider.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\r2-avatar.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\r2-body.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\r2-dashboard-avatar.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\r2-face.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\r2-neck.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-animation-controller.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-core.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-customization.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-expression.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-eye-controller.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-face-controller.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-fur.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-geometry-smoke-test.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-hoodie.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-life-controller.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-material.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-model-smoke-test.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-real-model.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-115825.bak:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-123325.bak:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-124749.bak:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-125151.bak:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-webgl-smoke-test.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-web-model.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-controller.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-gltf-model.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-lab.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-model.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-placeholder.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-scene.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2-status.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-shell.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:1: "use client"
+C:\Projetos\consorcio-os\web\components\dashboard\sidebar.tsx:1: "use client"
+
+DASHBOARD_PATTERN=R2OrchestrationProvider
+MATCH_COUNT=7
+FILE_COUNT=2
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:150: function R2OrchestrationProviderScope({
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:202: export function R2OrchestrationProvider(props: Readonly<{
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:209: <R2OrchestrationProviderScope
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:218: if (!value) throw new Error("useR2Orchestration must be used inside R2OrchestrationProvider.")
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:8: R2OrchestrationProvider,
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:53: <R2OrchestrationProvider
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:59: </R2OrchestrationProvider>
+
+DASHBOARD_PATTERN=GorilaR2Avatar3D
+MATCH_COUNT=5
+FILE_COUNT=2
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-header.tsx:11: import { GorilaR2Avatar3D } from "@/components/dashboard/gorila-r2-avatar-3d"
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-header.tsx:159: <GorilaR2Avatar3D
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:13: type GorilaR2Avatar3DProps = {
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:32: export function GorilaR2Avatar3D({
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:37: }: GorilaR2Avatar3DProps) {
+
+DASHBOARD_PATTERN=workspaceId
+MATCH_COUNT=44
+FILE_COUNT=8
+C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx:29: workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx:33: workspaceId?: string
+C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx:147: runtimeWorkspaceId={workspaceId}
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:52: readonly workspaceId: string,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:56: workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:87: workspaceId: this.workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:151: workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:156: workspaceId: string
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:161: const [store] = useState(() => new R2OrchestrationStore(workspaceId, userId ?? null))
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:168: event.workspaceId !==
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:169: workspaceId
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:184: workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:203: workspaceId: string
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:210: key={`${props.workspaceId}:${props.userId ?? "anonymous"}`}
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:16: workspaceId: string
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:29: private readonly workspaceId: string
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:39: const workspaceId = config.workspaceId.trim()
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:40: if (!workspaceId) throw new Error("R2 runtime adapter workspaceId is required.")
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:42: this.workspaceId = workspaceId
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:54: if (command.workspaceId !== this.workspaceId) {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-runtime-command-adapter.ts:173: workspaceId: command.workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:57: runtimeWorkspaceId?: string
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:129: runtimeWorkspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:179: const adapter = runtimeWorkspaceId
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:182: workspaceId: runtimeWorkspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:245: runtimeWorkspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-content.tsx:11: | "workspaceId"
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-content.tsx:22: workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-content.tsx:59: workspaceId={workspaceId}
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-header.tsx:18: workspaceId?: string
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-header.tsx:40: workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-header.tsx:161: workspaceId={workspaceId}
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-shell.tsx:16: workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\dashboard-shell.tsx:78: workspaceId={workspaceId}
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:16: workspaceId?: string
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:21: function OrchestratedR2({ workspaceId }: Readonly<{ workspaceId: string }>) {
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:25: workspaceId={workspaceId}
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:34: workspaceId,
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:39: if (!workspaceId || !userId || !briefing) return null
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:40: return normalizeDashboardBriefing({ workspaceId, userId, briefing })
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:41: }, [briefing, userId, workspaceId])
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:52: {workspaceId && userId && initialEvent ? (
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:54: workspaceId={workspaceId}
+C:\Projetos\consorcio-os\web\components\dashboard\gorila-r2-avatar-3d.tsx:58: <OrchestratedR2 workspaceId={workspaceId} />
+
+DASHBOARD_PATTERN=useEffect(
+MATCH_COUNT=18
+FILE_COUNT=9
+C:\Projetos\consorcio-os\web\components\dashboard\3d\gorila-r2-3d.tsx:40: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:164: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:189: useEffect(() => store.activate(), [store])
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\orchestration\r2-orchestration-provider.tsx:191: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:102: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:138: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:153: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:165: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:249: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:263: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:269: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-full-character-model.tsx:289: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-real-model.tsx:41: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx:616: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-115825.bak:122: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-123325.bak:126: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-124749.bak:616: useEffect(() => {
+C:\Projetos\consorcio-os\web\components\dashboard\3d\r2\real\r2-stable-model.tsx.20260729-125151.bak:616: useEffect(() => {
+
+DASHBOARD_PATTERN=fetch(
+MATCH_COUNT=0
+FILE_COUNT=0
+
+DASHBOARD_PATTERN=EventSource
+MATCH_COUNT=0
+FILE_COUNT=0
+
+DASHBOARD_PATTERN=router.refresh
+MATCH_COUNT=0
+FILE_COUNT=0
+
+============================================================
+ DISCOVERY METRICS
+============================================================
+PRODUCER_COUNT=6
+ALL_PRODUCER_DEFINITIONS_PRESENT=True
+REAL_CALL_COUNT=0
+SERVER_SIDE_CALL_COUNT=0
+CLIENT_SIDE_CALL_COUNT=0
+EVENTSOURCE_MATCH_COUNT=0
+SSE_MATCH_COUNT=0
+WEBSOCKET_MATCH_COUNT=0
+BROADCAST_CHANNEL_MATCH_COUNT=0
+CROSS_PROCESS_TRANSPORT_ALREADY_EXISTS=False
+STAGED_FILE_COUNT=0
+
+============================================================
+ FINAL VERDICT
+============================================================
+VEREDITO=APROVADO_PARA_DESENHO_DO_TRANSPORTE_SERVER_BROWSER
+NEXT_STEP=ESCOLHER_TRANSPORTE_COM_BASE_NOS_CHAMADORES_REAIS_ENCONTRADOS

@@ -1,0 +1,299 @@
+{
+  "schemaVersion": 1,
+  "stateCount": 10,
+  "states": [
+    {
+      "requestedState": "neutral",
+      "effectiveState": "idle",
+      "activeClip": "R2_IDLE",
+      "activationMs": 945.9210999999923,
+      "actionsCreated": 9,
+      "activeActions": 2,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": null,
+      "screenshot": {
+        "path": "evidence/state-neutral.png",
+        "bytes": 23891,
+        "sha256": "F35DFE717F1307B798A3E4AF31308E7C37FCFD354A8CE9C47DE4550CC077B4B9",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    },
+    {
+      "requestedState": "idle",
+      "effectiveState": "idle",
+      "activeClip": "R2_IDLE",
+      "activationMs": 865.4213000000018,
+      "actionsCreated": 9,
+      "activeActions": 1,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": null,
+      "screenshot": {
+        "path": "evidence/state-idle.png",
+        "bytes": 23891,
+        "sha256": "F35DFE717F1307B798A3E4AF31308E7C37FCFD354A8CE9C47DE4550CC077B4B9",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    },
+    {
+      "requestedState": "working",
+      "effectiveState": "working",
+      "activeClip": "R2_WORKING",
+      "activationMs": 798.8930999999866,
+      "actionsCreated": 9,
+      "activeActions": 1,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": null,
+      "screenshot": {
+        "path": "evidence/state-working.png",
+        "bytes": 23892,
+        "sha256": "538F155E22078C0C0B6A09E77C8F5190478CBD1A82C2E411CA8F9A0F3F19144F",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    },
+    {
+      "requestedState": "listening",
+      "effectiveState": "listening",
+      "activeClip": "R2_LISTENING",
+      "activationMs": 963.9128000000055,
+      "actionsCreated": 9,
+      "activeActions": 1,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": null,
+      "screenshot": {
+        "path": "evidence/state-listening.png",
+        "bytes": 23894,
+        "sha256": "D43ABF9EAA5324F2AB7C415A40DDB61D6604D1445DBECFB241A91E5606B8FF75",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    },
+    {
+      "requestedState": "thinking",
+      "effectiveState": "thinking",
+      "activeClip": "R2_THINKING",
+      "activationMs": 601.1111999999994,
+      "actionsCreated": 9,
+      "activeActions": 1,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": null,
+      "screenshot": {
+        "path": "evidence/state-thinking.png",
+        "bytes": 23890,
+        "sha256": "6791C59EEB970C682B894D81C66E1C83A2EE7F76231A018CCFF4FBB2EB9C9CBC",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    },
+    {
+      "requestedState": "awaiting_action",
+      "effectiveState": "awaiting_action",
+      "activeClip": "R2_AWAITING_ACTION",
+      "activationMs": 554.262699999992,
+      "actionsCreated": 9,
+      "activeActions": 1,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": null,
+      "screenshot": {
+        "path": "evidence/state-awaiting_action.png",
+        "bytes": 23893,
+        "sha256": "7D05F232A5491528ADC7D14B4A1A4CF56E833C4021EB39099C432867F67E6565",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    },
+    {
+      "requestedState": "alert",
+      "effectiveState": "alert",
+      "activeClip": "R2_ALERT",
+      "activationMs": 572.6714999999967,
+      "actionsCreated": 9,
+      "activeActions": 1,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": null,
+      "screenshot": {
+        "path": "evidence/state-alert.png",
+        "bytes": 23890,
+        "sha256": "A5D879CD5AE76AEBE07F2905598DF0E0173709422959067A5B052A68DF6988C8",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    },
+    {
+      "requestedState": "speaking",
+      "effectiveState": "speaking",
+      "activeClip": "R2_IDLE",
+      "activationMs": 560.2278000000078,
+      "actionsCreated": 9,
+      "activeActions": 1,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": null,
+      "screenshot": {
+        "path": "evidence/state-speaking.png",
+        "bytes": 23890,
+        "sha256": "A4F79D1A4F71BA79A8541BEC54A812FC1B76310D2CC2976A32CC070ED0B6C492",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    },
+    {
+      "requestedState": "celebrating_sale",
+      "effectiveState": "celebrating_sale",
+      "activeClip": "R2_CELEBRATING_SALE",
+      "activationMs": 2587.1399999999994,
+      "actionsCreated": 9,
+      "activeActions": 1,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": {
+        "requestedState": "idle",
+        "effectiveState": "idle",
+        "activeClip": "R2_IDLE",
+        "elapsedInStateMs": 199,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 12,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 12,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      },
+      "screenshot": {
+        "path": "evidence/state-celebrating_sale.png",
+        "bytes": 23883,
+        "sha256": "2C69A165828B6EC48F4A53E0E10BE036C85BB2AE1B4318B6B074DFC5A426CB15",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    },
+    {
+      "requestedState": "error_attention",
+      "effectiveState": "error_attention",
+      "activeClip": "R2_ERROR_ATTENTION",
+      "activationMs": 2563.449099999998,
+      "actionsCreated": 9,
+      "activeActions": 1,
+      "maximumSimultaneousActions": 2,
+      "reducedMotion": false,
+      "pendingState": null,
+      "valuesFinite": true,
+      "principalActionWeight": null,
+      "morphTargets": "not exposed by the approved diagnostics contract",
+      "completion": {
+        "requestedState": "neutral",
+        "effectiveState": "neutral",
+        "activeClip": "R2_NEUTRAL",
+        "elapsedInStateMs": 632,
+        "reducedMotion": false,
+        "actionsCreated": 9,
+        "actionsReused": 14,
+        "maximumSimultaneousActions": 2,
+        "activeActions": 1,
+        "transitionsApplied": 14,
+        "transitionsIgnored": 0,
+        "fallbacks": 0,
+        "mixerListeners": 1,
+        "pendingState": null
+      },
+      "screenshot": {
+        "path": "evidence/state-error_attention.png",
+        "bytes": 23891,
+        "sha256": "9A481EDD98EBABB110C42CB16E7F2FC41B03D1D34BC74D6B895FA62108C4DA7B",
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        }
+      }
+    }
+  ],
+  "allActivated": false,
+  "celebratingReturn": "idle",
+  "errorReturn": "neutral"
+}

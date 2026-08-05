@@ -1,0 +1,43 @@
+{
+  "body_bones": 51,
+  "exact": true,
+  "facial_bones": 14,
+  "operation_order": [
+    "stop and uncache active AnimationMixer actions",
+    "restore all 65 bone transforms to rest-local identity",
+    "set all morph target influences to zero",
+    "set all 27 approved runtime properties to zero",
+    "restore eye pivots and jaw node to neutral local transforms",
+    "evaluate one frame and assert exact neutral fingerprints"
+  ],
+  "runtime_properties": [
+    "EXP_BLINK_LEFT",
+    "EXP_BLINK_RIGHT",
+    "EXP_BLINK_BOTH",
+    "EXP_BROW_RAISE",
+    "EXP_BROW_FROWN",
+    "EXP_CHEEK_RAISE",
+    "EXP_MUZZLE",
+    "EXP_JAW_OPEN",
+    "EXP_LIPS_CLOSED",
+    "EXP_SMILE",
+    "EXP_FROWN",
+    "EXP_MOUTH_NARROW",
+    "EXP_MOUTH_WIDE",
+    "EXP_MOUTH_O",
+    "EXP_MOUTH_E",
+    "EYE_AIM_YAW",
+    "EYE_AIM_PITCH",
+    "EYE_YAW.L",
+    "EYE_PITCH.L",
+    "EYE_YAW.R",
+    "EYE_PITCH.R",
+    "VISEME_A",
+    "VISEME_E",
+    "VISEME_O",
+    "VISEME_MBP",
+    "VISEME_FV",
+    "VISEME_L"
+  ],
+  "schema_version": 1
+}

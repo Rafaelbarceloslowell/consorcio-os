@@ -1,0 +1,17 @@
+R2_AAA_WEB_CONTEXTUAL_ATLAS_REPORT
+generated_at_utc=2026-07-29T22:37:47.183060+00:00
+blender_version=4.5.10 LTS
+source_blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend
+source_sha256=392EA67AEBC3BA0FF72E65BE18F599E22A0C4C1296F2F6D365FFB989F35CF9C1
+technical_atlas=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-v26-semantic-atlas-technical-v1
+contextual_atlas_version=29
+contextual_atlas_package=r2-v29-semantic-atlas-contextual-layout-validation-v1
+component_count=3
+image_count=3
+render_resolution=1536x1024
+context_views=FRONT|BACK|LEFT|RIGHT|DETAIL
+detail_scale_normalized=true
+semantic_classification_completed=false
+blend_saved=false
+source_unchanged=true
+status=contextual_semantic_atlas_created

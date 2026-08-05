@@ -1,0 +1,961 @@
+﻿{
+    "schema_version":  1,
+    "phase":  "FACIAL_ANATOMICAL_LANDMARK_AND_OCULAR_ORAL_ASSET_CERTIFICATION",
+    "execution_status":  "BLOCKED",
+    "technical_verdict":  "REPROVADO",
+    "recoverable":  false,
+    "current_checkpoint":  "CHECKPOINT_4_LANDMARK_CERTIFICATION_BLOCKED",
+    "source_path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-consolidated-rig-ready-v1\\r2-head-consolidated-rig-ready-v1.blend",
+    "source_sha256":  "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+    "foundation_identity":  {
+                                "source_blend":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-head-consolidated-rig-ready-v1\\r2-head-consolidated-rig-ready-v1.blend",
+                                "source_sha256":  "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+                                "object_name":  "R2_Head_Face_Foundation",
+                                "mesh_name":  "R2_Head_Face_Foundation_Mesh",
+                                "vertex_count":  3654,
+                                "edge_count":  10524,
+                                "polygon_count":  6847,
+                                "loop_count":  20705,
+                                "ordered_vertex_coordinates_sha256":  "B67AD7CDAFC66A8A591E13D6EE2AF8C645F84F9B3285F61A313A44B855F5D3B2",
+                                "ordered_polygon_vertex_indices_sha256":  "34435D35F08DC26655EBD843E9B746B24A3C5ADC5C515FD0C09F8E29B83DD318",
+                                "ordered_edges_sha256":  "B1ED370E9A3E8DE16011AF9BACFACD5E79668495DD3CBEC3E459BA177E889205",
+                                "combined_foundation_identity_sha256":  "A374A44A37CFA41A09CF653826D346CF40A71E2C88A14AAD14ECAFDC374358C4"
+                            },
+    "checkpoints":  {
+                        "CHECKPOINT_1_SOURCE_AND_FOUNDATION_IDENTITY":  "APROVADO",
+                        "CHECKPOINT_2_ANATOMICAL_AXES_AND_REFERENCE_SYSTEM":  "APROVADO",
+                        "CHECKPOINT_3_LANDMARK_CANDIDATE_DISCOVERY":  "COMPLETED_WITH_INSUFFICIENT_MANDATORY_EVIDENCE",
+                        "CHECKPOINT_4_LANDMARK_CERTIFICATION":  "BLOCKED",
+                        "CHECKPOINT_5_OCULAR_ASSET_AUDIT":  "DIAGNOSTIC_COMPLETED_BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "CHECKPOINT_6_OCULAR_SUPPORT_ASSET_PREPARATION":  "NOT_AUTHORIZED_BY_EVIDENCE",
+                        "CHECKPOINT_7_ORAL_ASSET_AUDIT":  "DIAGNOSTIC_COMPLETED_BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "CHECKPOINT_8_ORAL_SUPPORT_ASSET_PREPARATION":  "NOT_AUTHORIZED_BY_EVIDENCE",
+                        "CHECKPOINT_9_RIG_READINESS_SEMANTIC_MAP":  "NOT_RUN",
+                        "CHECKPOINT_10_INDEPENDENT_AUDIT":  "NOT_RUN",
+                        "CHECKPOINT_11_PUBLICATION":  "NOT_RUN"
+                    },
+    "fingerprints":  {
+                         "attributes_sha256":  "D2A76A7E125AD290C4FE0BE8D03D078C592ED494E95D0B542FEACF42F9D6FF56",
+                         "combined_foundation_identity_sha256":  "A374A44A37CFA41A09CF653826D346CF40A71E2C88A14AAD14ECAFDC374358C4",
+                         "material_assignments_sha256":  "60CAF402309264E79832BD1B8965C0A30743975C2F73E683D3CC5908D4681CE9",
+                         "ordered_edges_sha256":  "B1ED370E9A3E8DE16011AF9BACFACD5E79668495DD3CBEC3E459BA177E889205",
+                         "ordered_polygon_vertex_indices_sha256":  "34435D35F08DC26655EBD843E9B746B24A3C5ADC5C515FD0C09F8E29B83DD318",
+                         "ordered_vertex_coordinates_sha256":  "B67AD7CDAFC66A8A591E13D6EE2AF8C645F84F9B3285F61A313A44B855F5D3B2",
+                         "uv_layers_sha256":  "4F53CDA18C2BAA0C0354BB5F9A3ECBE5ED12AB4D8E11BA873C2F11161202B945",
+                         "vertex_groups_sha256":  "E88B37D19172AE0CD682712FDDD5549FA79FA8105763B573F52416D274FB643E"
+                     },
+    "anatomical_axes":  {
+                            "anatomical_back":  [
+                                                    0.0,
+                                                    0.9987523555755615,
+                                                    -0.049937646836042404
+                                                ],
+                            "anatomical_down":  [
+                                                    0.0,
+                                                    -0.049937620759010315,
+                                                    -0.9987523555755615
+                                                ],
+                            "anatomical_front":  [
+                                                     0.0,
+                                                     -0.9987523555755615,
+                                                     0.049937646836042404
+                                                 ],
+                            "anatomical_left":  [
+                                                    1.0,
+                                                    0.0,
+                                                    0.0
+                                                ],
+                            "anatomical_right":  [
+                                                     -1.0,
+                                                     0.0,
+                                                     0.0
+                                                 ],
+                            "anatomical_up":  [
+                                                  0.0,
+                                                  0.049937620759010315,
+                                                  0.9987523555755615
+                                              ],
+                            "confidence":  {
+                                               "center_plane":  1.0,
+                                               "front_back":  0.98,
+                                               "left_right":  1.0,
+                                               "up_down":  1.0
+                                           },
+                            "evidence":  {
+                                             "front_reference":  "centroid of r2_region_id=1 muzzle lineage relative to foundation bounds center",
+                                             "left_right_bone_pairs":  [
+                                                                           {
+                                                                               "left":  "clavicle.L",
+                                                                               "left_head":  [
+                                                                                                 0.0,
+                                                                                                 -0.019999999552965164,
+                                                                                                 0.5
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.0,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "clavicle.R",
+                                                                               "right_head":  [
+                                                                                                  0.0,
+                                                                                                  -0.019999999552965164,
+                                                                                                  0.5
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "upper_arm.L",
+                                                                               "left_head":  [
+                                                                                                 0.30000001192092896,
+                                                                                                 -0.014999999664723873,
+                                                                                                 0.5600000023841858
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.6000000238418579,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "upper_arm.R",
+                                                                               "right_head":  [
+                                                                                                  -0.30000001192092896,
+                                                                                                  -0.014999999664723873,
+                                                                                                  0.5600000023841858
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "forearm.L",
+                                                                               "left_head":  [
+                                                                                                 0.4000000059604645,
+                                                                                                 -0.05999999865889549,
+                                                                                                 0.23999999463558197
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.800000011920929,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "forearm.R",
+                                                                               "right_head":  [
+                                                                                                  -0.4000000059604645,
+                                                                                                  -0.05999999865889549,
+                                                                                                  0.23999999463558197
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "hand.L",
+                                                                               "left_head":  [
+                                                                                                 0.4000000059604645,
+                                                                                                 -0.1550000011920929,
+                                                                                                 -0.11999999731779099
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.800000011920929,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "hand.R",
+                                                                               "right_head":  [
+                                                                                                  -0.4000000059604645,
+                                                                                                  -0.1550000011920929,
+                                                                                                  -0.11999999731779099
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "thumb_01.L",
+                                                                               "left_head":  [
+                                                                                                 0.3720000088214874,
+                                                                                                 -0.14499999582767487,
+                                                                                                 -0.15000000596046448
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.7440000176429749,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "thumb_01.R",
+                                                                               "right_head":  [
+                                                                                                  -0.3720000088214874,
+                                                                                                  -0.14499999582767487,
+                                                                                                  -0.15000000596046448
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "thumb_02.L",
+                                                                               "left_head":  [
+                                                                                                 0.35199999809265137,
+                                                                                                 -0.17800000309944153,
+                                                                                                 -0.19499999284744263
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.7039999961853027,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "thumb_02.R",
+                                                                               "right_head":  [
+                                                                                                  -0.35199999809265137,
+                                                                                                  -0.17800000309944153,
+                                                                                                  -0.19499999284744263
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "index_01.L",
+                                                                               "left_head":  [
+                                                                                                 0.37299999594688416,
+                                                                                                 -0.15800000727176666,
+                                                                                                 -0.14499999582767487
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.7459999918937683,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "index_01.R",
+                                                                               "right_head":  [
+                                                                                                  -0.37299999594688416,
+                                                                                                  -0.15800000727176666,
+                                                                                                  -0.14499999582767487
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "index_02.L",
+                                                                               "left_head":  [
+                                                                                                 0.37299999594688416,
+                                                                                                 -0.16099999845027924,
+                                                                                                 -0.17900000512599945
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.7459999918937683,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "index_02.R",
+                                                                               "right_head":  [
+                                                                                                  -0.37299999594688416,
+                                                                                                  -0.16099999845027924,
+                                                                                                  -0.17900000512599945
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "index_03.L",
+                                                                               "left_head":  [
+                                                                                                 0.37299999594688416,
+                                                                                                 -0.16500000655651093,
+                                                                                                 -0.21299999952316284
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.7459999918937683,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "index_03.R",
+                                                                               "right_head":  [
+                                                                                                  -0.37299999594688416,
+                                                                                                  -0.16500000655651093,
+                                                                                                  -0.21299999952316284
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "middle_01.L",
+                                                                               "left_head":  [
+                                                                                                 0.3889999985694885,
+                                                                                                 -0.16599999368190765,
+                                                                                                 -0.14499999582767487
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.777999997138977,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "middle_01.R",
+                                                                               "right_head":  [
+                                                                                                  -0.3889999985694885,
+                                                                                                  -0.16599999368190765,
+                                                                                                  -0.14499999582767487
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "middle_02.L",
+                                                                               "left_head":  [
+                                                                                                 0.3889999985694885,
+                                                                                                 -0.16899999976158142,
+                                                                                                 -0.18172000348567963
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.777999997138977,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "middle_02.R",
+                                                                               "right_head":  [
+                                                                                                  -0.3889999985694885,
+                                                                                                  -0.16899999976158142,
+                                                                                                  -0.18172000348567963
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "middle_03.L",
+                                                                               "left_head":  [
+                                                                                                 0.3889999985694885,
+                                                                                                 -0.17299999296665192,
+                                                                                                 -0.2184399962425232
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.777999997138977,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "middle_03.R",
+                                                                               "right_head":  [
+                                                                                                  -0.3889999985694885,
+                                                                                                  -0.17299999296665192,
+                                                                                                  -0.2184399962425232
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "ring_01.L",
+                                                                               "left_head":  [
+                                                                                                 0.4050000011920929,
+                                                                                                 -0.17399999499320984,
+                                                                                                 -0.14499999582767487
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.8100000023841858,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "ring_01.R",
+                                                                               "right_head":  [
+                                                                                                  -0.4050000011920929,
+                                                                                                  -0.17399999499320984,
+                                                                                                  -0.14499999582767487
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "ring_02.L",
+                                                                               "left_head":  [
+                                                                                                 0.4050000011920929,
+                                                                                                 -0.1770000010728836,
+                                                                                                 -0.17900000512599945
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.8100000023841858,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "ring_02.R",
+                                                                               "right_head":  [
+                                                                                                  -0.4050000011920929,
+                                                                                                  -0.1770000010728836,
+                                                                                                  -0.17900000512599945
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "ring_03.L",
+                                                                               "left_head":  [
+                                                                                                 0.4050000011920929,
+                                                                                                 -0.1809999942779541,
+                                                                                                 -0.21299999952316284
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.8100000023841858,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "ring_03.R",
+                                                                               "right_head":  [
+                                                                                                  -0.4050000011920929,
+                                                                                                  -0.1809999942779541,
+                                                                                                  -0.21299999952316284
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "pinky_01.L",
+                                                                               "left_head":  [
+                                                                                                 0.41999998688697815,
+                                                                                                 -0.18199999630451202,
+                                                                                                 -0.14499999582767487
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.8399999737739563,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "pinky_01.R",
+                                                                               "right_head":  [
+                                                                                                  -0.41999998688697815,
+                                                                                                  -0.18199999630451202,
+                                                                                                  -0.14499999582767487
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "pinky_02.L",
+                                                                               "left_head":  [
+                                                                                                 0.41999998688697815,
+                                                                                                 -0.1850000023841858,
+                                                                                                 -0.174919992685318
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.8399999737739563,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "pinky_02.R",
+                                                                               "right_head":  [
+                                                                                                  -0.41999998688697815,
+                                                                                                  -0.1850000023841858,
+                                                                                                  -0.174919992685318
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "pinky_03.L",
+                                                                               "left_head":  [
+                                                                                                 0.41999998688697815,
+                                                                                                 -0.1889999955892563,
+                                                                                                 -0.20484000444412231
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.8399999737739563,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "pinky_03.R",
+                                                                               "right_head":  [
+                                                                                                  -0.41999998688697815,
+                                                                                                  -0.1889999955892563,
+                                                                                                  -0.20484000444412231
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "thigh.L",
+                                                                               "left_head":  [
+                                                                                                 0.18000000715255737,
+                                                                                                 -0.05999999865889549,
+                                                                                                 -0.3199999928474426
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.36000001430511475,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "thigh.R",
+                                                                               "right_head":  [
+                                                                                                  -0.18000000715255737,
+                                                                                                  -0.05999999865889549,
+                                                                                                  -0.3199999928474426
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "shin.L",
+                                                                               "left_head":  [
+                                                                                                 0.20999999344348907,
+                                                                                                 0.009999999776482582,
+                                                                                                 -0.5699999928474426
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.41999998688697815,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "shin.R",
+                                                                               "right_head":  [
+                                                                                                  -0.20999999344348907,
+                                                                                                  0.009999999776482582,
+                                                                                                  -0.5699999928474426
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "foot.L",
+                                                                               "left_head":  [
+                                                                                                 0.25,
+                                                                                                 -0.07500000298023224,
+                                                                                                 -0.8399999737739563
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.5,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "foot.R",
+                                                                               "right_head":  [
+                                                                                                  -0.25,
+                                                                                                  -0.07500000298023224,
+                                                                                                  -0.8399999737739563
+                                                                                              ]
+                                                                           },
+                                                                           {
+                                                                               "left":  "toe.L",
+                                                                               "left_head":  [
+                                                                                                 0.27000001072883606,
+                                                                                                 -0.20000000298023224,
+                                                                                                 -0.9549999833106995
+                                                                                             ],
+                                                                               "left_minus_right":  [
+                                                                                                        0.5400000214576721,
+                                                                                                        0.0,
+                                                                                                        0.0
+                                                                                                    ],
+                                                                               "right":  "toe.R",
+                                                                               "right_head":  [
+                                                                                                  -0.27000001072883606,
+                                                                                                  -0.20000000298023224,
+                                                                                                  -0.9549999833106995
+                                                                                              ]
+                                                                           }
+                                                                       ],
+                                             "up_chain":  [
+                                                              "neck",
+                                                              "head"
+                                                          ]
+                                         },
+                            "facial_center_plane":  {
+                                                        "equation_local":  [
+                                                                               1.0,
+                                                                               0.0,
+                                                                               0.0,
+                                                                               0.0
+                                                                           ],
+                                                        "normal":  [
+                                                                       1.0,
+                                                                       0.0,
+                                                                       0.0
+                                                                   ],
+                                                        "point":  [
+                                                                      0.0,
+                                                                      -0.009999999776482582,
+                                                                      0.6100000143051147
+                                                                  ]
+                                                    }
+                        },
+    "landmark_candidates":  {
+                                "mandatory":  38,
+                                "candidates":  8,
+                                "certifiable":  4,
+                                "duplicate_eye_coordinate_pairs":  [
+                                                                       {
+                                                                           "coordinates":  [
+                                                                                               -0.015013218,
+                                                                                               -0.231909156,
+                                                                                               0.831264734
+                                                                                           ],
+                                                                           "vertex_indices":  [
+                                                                                                  2395,
+                                                                                                  2396
+                                                                                              ]
+                                                                       },
+                                                                       {
+                                                                           "coordinates":  [
+                                                                                               0.011140991,
+                                                                                               -0.224362329,
+                                                                                               0.849095106
+                                                                                           ],
+                                                                           "vertex_indices":  [
+                                                                                                  2285,
+                                                                                                  2286
+                                                                                              ]
+                                                                       }
+                                                                   ],
+                                "missing":  [
+                                                "chin_center",
+                                                "jaw_center",
+                                                "left_brow_center",
+                                                "left_brow_inner",
+                                                "left_brow_outer",
+                                                "left_cheek_center",
+                                                "left_ear_base",
+                                                "left_jaw_hinge_region",
+                                                "left_lower_eyelid",
+                                                "left_mouth_corner",
+                                                "left_muzzle",
+                                                "left_nostril",
+                                                "left_upper_eyelid",
+                                                "lower_lip_boundary",
+                                                "lower_lip_center",
+                                                "mouth_opening_boundary",
+                                                "muzzle_center",
+                                                "neck_attachment_center",
+                                                "nose_bridge_lower",
+                                                "nose_bridge_upper",
+                                                "nose_tip",
+                                                "right_brow_center",
+                                                "right_brow_inner",
+                                                "right_brow_outer",
+                                                "right_cheek_center",
+                                                "right_ear_base",
+                                                "right_jaw_hinge_region",
+                                                "right_lower_eyelid",
+                                                "right_mouth_corner",
+                                                "right_muzzle",
+                                                "right_nostril",
+                                                "right_upper_eyelid",
+                                                "upper_lip_boundary",
+                                                "upper_lip_center"
+                                            ]
+                            },
+    "certified_landmarks":  {
+                                "phase_approved":  false,
+                                "partial_entries":  {
+                                                        "left_inner_eye_corner":  {
+                                                                                      "canonical_name":  "left_inner_eye_corner",
+                                                                                      "certification_status":  "CERTIFIABLE_FROM_CURRENT_SOURCE",
+                                                                                      "confidence_score":  0.99,
+                                                                                      "evidence":  "Unique closed four-edge boundary wholly adjacent to approved r2_region_id=2 eye-brow lineage; side is certified from existing .L/.R armature convention.",
+                                                                                      "intended_rigging_use":  "eye and eyelid anchor",
+                                                                                      "mesh_name":  "R2_Head_Face_Foundation_Mesh",
+                                                                                      "normal_direction":  [
+                                                                                                               -0.1730896383523941,
+                                                                                                               -0.8014447689056396,
+                                                                                                               0.5724738836288452
+                                                                                                           ],
+                                                                                      "object_name":  "R2_Head_Face_Foundation",
+                                                                                      "object_space_coordinates":  [
+                                                                                                                       0.0065881055779755116,
+                                                                                                                       -0.22368541359901428,
+                                                                                                                       0.8488261103630066
+                                                                                                                   ],
+                                                                                      "primary_vertex_index":  2137,
+                                                                                      "semantic_description":  "Medial canthus boundary vertex",
+                                                                                      "supporting_face_indices":  [
+                                                                                                                      4436,
+                                                                                                                      4439,
+                                                                                                                      4471,
+                                                                                                                      4492
+                                                                                                                  ],
+                                                                                      "supporting_vertex_indices":  [
+                                                                                                                        2137,
+                                                                                                                        2138,
+                                                                                                                        2285,
+                                                                                                                        2286
+                                                                                                                    ],
+                                                                                      "symmetry_error":  null,
+                                                                                      "symmetry_partner":  "right_inner_eye_corner",
+                                                                                      "topology_neighborhood_fingerprint":  "B236D0E657AF16F30ABD72085C100760F27F257B9DB32B4A8708E62A0E35F12B",
+                                                                                      "world_space_coordinates":  [
+                                                                                                                      0.0065881055779755116,
+                                                                                                                      -0.22368541359901428,
+                                                                                                                      0.8488261103630066
+                                                                                                                  ]
+                                                                                  },
+                                                        "left_outer_eye_corner":  {
+                                                                                      "canonical_name":  "left_outer_eye_corner",
+                                                                                      "certification_status":  "CERTIFIABLE_FROM_CURRENT_SOURCE",
+                                                                                      "confidence_score":  0.99,
+                                                                                      "evidence":  "Unique closed four-edge boundary wholly adjacent to approved r2_region_id=2 eye-brow lineage; side is certified from existing .L/.R armature convention.",
+                                                                                      "intended_rigging_use":  "eye and eyelid anchor",
+                                                                                      "mesh_name":  "R2_Head_Face_Foundation_Mesh",
+                                                                                      "normal_direction":  [
+                                                                                                               -0.1730896383523941,
+                                                                                                               -0.8014447689056396,
+                                                                                                               0.5724738836288452
+                                                                                                           ],
+                                                                                      "object_name":  "R2_Head_Face_Foundation",
+                                                                                      "object_space_coordinates":  [
+                                                                                                                       0.015365147031843662,
+                                                                                                                       -0.2239403873682022,
+                                                                                                                       0.8511037230491638
+                                                                                                                   ],
+                                                                                      "primary_vertex_index":  2138,
+                                                                                      "semantic_description":  "Lateral canthus boundary vertex",
+                                                                                      "supporting_face_indices":  [
+                                                                                                                      4436,
+                                                                                                                      4439,
+                                                                                                                      4471,
+                                                                                                                      4492
+                                                                                                                  ],
+                                                                                      "supporting_vertex_indices":  [
+                                                                                                                        2137,
+                                                                                                                        2138,
+                                                                                                                        2285,
+                                                                                                                        2286
+                                                                                                                    ],
+                                                                                      "symmetry_error":  null,
+                                                                                      "symmetry_partner":  "right_outer_eye_corner",
+                                                                                      "topology_neighborhood_fingerprint":  "B236D0E657AF16F30ABD72085C100760F27F257B9DB32B4A8708E62A0E35F12B",
+                                                                                      "world_space_coordinates":  [
+                                                                                                                      0.015365147031843662,
+                                                                                                                      -0.2239403873682022,
+                                                                                                                      0.8511037230491638
+                                                                                                                  ]
+                                                                                  },
+                                                        "right_inner_eye_corner":  {
+                                                                                       "canonical_name":  "right_inner_eye_corner",
+                                                                                       "certification_status":  "CERTIFIABLE_FROM_CURRENT_SOURCE",
+                                                                                       "confidence_score":  0.99,
+                                                                                       "evidence":  "Unique closed four-edge boundary wholly adjacent to approved r2_region_id=2 eye-brow lineage; side is certified from existing .L/.R armature convention.",
+                                                                                       "intended_rigging_use":  "eye and eyelid anchor",
+                                                                                       "mesh_name":  "R2_Head_Face_Foundation_Mesh",
+                                                                                       "normal_direction":  [
+                                                                                                                0.11074697226285934,
+                                                                                                                -0.9627547860145569,
+                                                                                                                -0.24665427207946777
+                                                                                                            ],
+                                                                                       "object_name":  "R2_Head_Face_Foundation",
+                                                                                       "object_space_coordinates":  [
+                                                                                                                        -0.010386424139142036,
+                                                                                                                        -0.23160021007061005,
+                                                                                                                        0.8347072005271912
+                                                                                                                    ],
+                                                                                       "primary_vertex_index":  2410,
+                                                                                       "semantic_description":  "Medial canthus boundary vertex",
+                                                                                       "supporting_face_indices":  [
+                                                                                                                       4546,
+                                                                                                                       4547,
+                                                                                                                       4772,
+                                                                                                                       4799
+                                                                                                                   ],
+                                                                                       "supporting_vertex_indices":  [
+                                                                                                                         2394,
+                                                                                                                         2395,
+                                                                                                                         2396,
+                                                                                                                         2410
+                                                                                                                     ],
+                                                                                       "symmetry_error":  null,
+                                                                                       "symmetry_partner":  "left_inner_eye_corner",
+                                                                                       "topology_neighborhood_fingerprint":  "0F6742084460DB8F6DE85D7D1DF8C90BACAC6081B50D3EAAFA263D7094D37955",
+                                                                                       "world_space_coordinates":  [
+                                                                                                                       -0.010386424139142036,
+                                                                                                                       -0.23160021007061005,
+                                                                                                                       0.8347072005271912
+                                                                                                                   ]
+                                                                                   },
+                                                        "right_outer_eye_corner":  {
+                                                                                       "canonical_name":  "right_outer_eye_corner",
+                                                                                       "certification_status":  "CERTIFIABLE_FROM_CURRENT_SOURCE",
+                                                                                       "confidence_score":  0.99,
+                                                                                       "evidence":  "Unique closed four-edge boundary wholly adjacent to approved r2_region_id=2 eye-brow lineage; side is certified from existing .L/.R armature convention.",
+                                                                                       "intended_rigging_use":  "eye and eyelid anchor",
+                                                                                       "mesh_name":  "R2_Head_Face_Foundation_Mesh",
+                                                                                       "normal_direction":  [
+                                                                                                                0.11074697226285934,
+                                                                                                                -0.9627547860145569,
+                                                                                                                -0.24665427207946777
+                                                                                                            ],
+                                                                                       "object_name":  "R2_Head_Face_Foundation",
+                                                                                       "object_space_coordinates":  [
+                                                                                                                        -0.018761046230793,
+                                                                                                                        -0.23226411640644073,
+                                                                                                                        0.8317376971244812
+                                                                                                                    ],
+                                                                                       "primary_vertex_index":  2394,
+                                                                                       "semantic_description":  "Lateral canthus boundary vertex",
+                                                                                       "supporting_face_indices":  [
+                                                                                                                       4546,
+                                                                                                                       4547,
+                                                                                                                       4772,
+                                                                                                                       4799
+                                                                                                                   ],
+                                                                                       "supporting_vertex_indices":  [
+                                                                                                                         2394,
+                                                                                                                         2395,
+                                                                                                                         2396,
+                                                                                                                         2410
+                                                                                                                     ],
+                                                                                       "symmetry_error":  null,
+                                                                                       "symmetry_partner":  "left_outer_eye_corner",
+                                                                                       "topology_neighborhood_fingerprint":  "0F6742084460DB8F6DE85D7D1DF8C90BACAC6081B50D3EAAFA263D7094D37955",
+                                                                                       "world_space_coordinates":  [
+                                                                                                                       -0.018761046230793,
+                                                                                                                       -0.23226411640644073,
+                                                                                                                       0.8317376971244812
+                                                                                                                   ]
+                                                                                   }
+                                                    }
+                            },
+    "ocular_assets":  {
+                          "left_eyeball":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                          "right_eyeball":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                          "eye_centers":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                          "eye_radii":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                          "rotational_pivots":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                          "eye_sockets":  "REPAIRABLE_TRANSACTIONALLY_AFTER_APPROVED_EYEBALL_DESIGN",
+                          "upper_and_lower_eyelid_boundary_seeds":  "READY",
+                          "corneal_direction":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                          "material_assignments":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                          "glb_compatibility":  "NOT_AUDITABLE_WITHOUT_ASSETS"
+                      },
+    "oral_assets":  {
+                        "upper_lip":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "lower_lip":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "mouth_corners":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "mouth_opening_boundary":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "oral_cavity":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "jaw_relationship":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "mandibular_pivot":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "lip_closure_topology":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "teeth":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "tongue":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "gum_surfaces":  "BLOCKED_MISSING_DESIGN_EVIDENCE",
+                        "glb_compatibility":  "NOT_AUDITABLE_WITHOUT_ASSETS"
+                    },
+    "created_support_assets":  [
+
+                               ],
+    "rig_readiness_semantic_map":  {
+
+                                   },
+    "independent_audit_result":  "NOT_RUN_INCOMPLETE_CERTIFICATES",
+    "published_blend_path":  null,
+    "published_sha256":  null,
+    "failed_attempts":  [
+                            {
+                                "checkpoint":  "CHECKPOINT_2_3_PROBE",
+                                "error":  "TypeError: float object is not subscriptable",
+                                "rejected_log":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FACIAL_ANATOMY_CHECKPOINT2_3_REJECTED.runtime.log",
+                                "recovered":  true
+                            }
+                        ],
+    "corrections_performed":  [
+                                  "Corrected vector component conversion before float coercion; reran the complete affected probe and promoted only the passing output."
+                              ],
+    "blocker":  {
+                    "reason":  "The official source certifies two eyelid apertures but contains no separate ocular assets or approved eye dimensions/pivots, and it contains no deterministic oral opening, lip, jaw-hinge, oral-cavity, dental, tongue, or ear-base semantics. Constructing these would require human design evidence and, for the mandatory mouth deformation system, external facial topology decisions outside a neutral support-asset derivation.",
+                    "evidence":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\R2_FACIAL_SEMANTIC_SUFFICIENCY_AUDIT.json",
+                    "recommended_recovery":  "Provide an approved anatomical design package or artist-authored source containing left/right eyeball meshes with centers/radii/forward axes, certified lip and mouth-opening edge loops, jaw hinge/pivot and affected region, oral cavity/closure topology, and ear-base landmarks, all registered to this exact foundation vertex order; then rerun Checkpoints 3 through 11."
+                },
+    "official_source_unchanged":  true,
+    "previous_official_versions_unchanged":  true,
+    "previous_version_hash_evidence":  [
+                                           {
+                                               "version":  "V40",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v40-cheek-region-retopology-v2\\r2-rig-v40-cheek-region-retopology-v2.blend",
+                                               "expected_sha256":  "E770FF08D8945DFAA8BB2D1EC0E558A1F5CC2E12E0DAD8FDF6592F9E3AFAB3FC",
+                                               "actual_sha256":  "E770FF08D8945DFAA8BB2D1EC0E558A1F5CC2E12E0DAD8FDF6592F9E3AFAB3FC",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V41",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v41-center-lower-front-retopology-v1\\r2-rig-v41-center-lower-front-retopology-v1.blend",
+                                               "expected_sha256":  "4D19EA4F98B86592E43505814EF58CBF15252F445C2431D8D156F0DA7D8730CB",
+                                               "actual_sha256":  "4D19EA4F98B86592E43505814EF58CBF15252F445C2431D8D156F0DA7D8730CB",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V42",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v42-positive-x-lower-back-retopology-v1\\r2-rig-v42-positive-x-lower-back-retopology-v1.blend",
+                                               "expected_sha256":  "803D9DEEAB64D3AD16523DFBA59B9556CBA306BAEC94F02EB21EA7EB26AEA5DD",
+                                               "actual_sha256":  "803D9DEEAB64D3AD16523DFBA59B9556CBA306BAEC94F02EB21EA7EB26AEA5DD",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V43",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v43-positive-x-lower-back-retopology-v1\\r2-rig-v43-positive-x-lower-back-retopology-v1.blend",
+                                               "expected_sha256":  "CEB65B49D6B75AD1D6B5C2780046F68A22DDF15272C1A8747FF3BFDE535B91DA",
+                                               "actual_sha256":  "CEB65B49D6B75AD1D6B5C2780046F68A22DDF15272C1A8747FF3BFDE535B91DA",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V44",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v44-positive-x-lower-back-retopology-v1\\r2-rig-v44-positive-x-lower-back-retopology-v1.blend",
+                                               "expected_sha256":  "2572ACD4D563833A294C8C507C21C6B47B341F471C928BE2B63D073D2DD8790E",
+                                               "actual_sha256":  "2572ACD4D563833A294C8C507C21C6B47B341F471C928BE2B63D073D2DD8790E",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V45",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v45-negative-x-upper-back-retopology-v1\\r2-rig-v45-negative-x-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "917988C37BD125C391D85D166020243FD75192CBA16D34D4B5E70578EA41339B",
+                                               "actual_sha256":  "917988C37BD125C391D85D166020243FD75192CBA16D34D4B5E70578EA41339B",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V46",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v46-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v46-positive-x-lower-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "496B459EBB0350AFD10B5353C71692EC74CD11C08401E9AEA6DCFC1256D2A696",
+                                               "actual_sha256":  "496B459EBB0350AFD10B5353C71692EC74CD11C08401E9AEA6DCFC1256D2A696",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V47",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v47-center-upper-back-retopology-v1\\r2-rig-v47-center-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "15ABA4E137DD2CC01B39842DA80AA81C8C8F3B85EF741F94A9915108D5DAAC19",
+                                               "actual_sha256":  "15ABA4E137DD2CC01B39842DA80AA81C8C8F3B85EF741F94A9915108D5DAAC19",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V48",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v48-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v48-positive-x-lower-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "4B6C58414920BF9B0A440B6BAE1FB887B76683077A2CDD92B465A9F81A562088",
+                                               "actual_sha256":  "4B6C58414920BF9B0A440B6BAE1FB887B76683077A2CDD92B465A9F81A562088",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V49",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v49-positive-x-middle-mid-depth-retopology-v1\\r2-rig-v49-positive-x-middle-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "F2CA2AB53B59AA6D8F60E665BB29E335273FB6E9AACEFC7A68E9C139899AD126",
+                                               "actual_sha256":  "F2CA2AB53B59AA6D8F60E665BB29E335273FB6E9AACEFC7A68E9C139899AD126",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V50",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v50-positive-x-lower-front-retopology-v1\\r2-rig-v50-positive-x-lower-front-retopology-v1.blend",
+                                               "expected_sha256":  "9BE98A43AFB6E5974057AA6C24CEB71486BC254077DA2DF20E23A3DF7ACAAACC",
+                                               "actual_sha256":  "9BE98A43AFB6E5974057AA6C24CEB71486BC254077DA2DF20E23A3DF7ACAAACC",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V51",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v51-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v51-positive-x-lower-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "23DCF9D94B1232A50F36ECF4B168EB70ED3AFCFFB2E3AEB00BBDB88B7D2E6C9C",
+                                               "actual_sha256":  "23DCF9D94B1232A50F36ECF4B168EB70ED3AFCFFB2E3AEB00BBDB88B7D2E6C9C",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V52",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v52-positive-x-lower-mid-depth-retopology-v1\\r2-rig-v52-positive-x-lower-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "F2139FAF062507DFBE05439836752DC05A20659B62E13F06F45C59F440B8637A",
+                                               "actual_sha256":  "F2139FAF062507DFBE05439836752DC05A20659B62E13F06F45C59F440B8637A",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V53",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v53-negative-x-upper-back-retopology-v1\\r2-rig-v53-negative-x-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "AF8413D82E790134B541B97B19EF6D2E40893F3576CCA84D286B08105747BD1B",
+                                               "actual_sha256":  "AF8413D82E790134B541B97B19EF6D2E40893F3576CCA84D286B08105747BD1B",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V54",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v54-positive-x-lower-front-retopology-v1\\r2-rig-v54-positive-x-lower-front-retopology-v1.blend",
+                                               "expected_sha256":  "3C1E373AE64B0B5C017FCCE9F3C0D7489D89AD500AE536CF05BA2A1337EF2435",
+                                               "actual_sha256":  "3C1E373AE64B0B5C017FCCE9F3C0D7489D89AD500AE536CF05BA2A1337EF2435",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V55",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v55-negative-x-upper-back-retopology-v1\\r2-rig-v55-negative-x-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "2CB36F889303C98D8A8FAEA69F8BBD2AEFEBB3A13C27050071D8DBA7269653CD",
+                                               "actual_sha256":  "2CB36F889303C98D8A8FAEA69F8BBD2AEFEBB3A13C27050071D8DBA7269653CD",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V56",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v56-negative-x-upper-back-retopology-v1\\r2-rig-v56-negative-x-upper-back-retopology-v1.blend",
+                                               "expected_sha256":  "FB374635A16B5305AAF316726BA1AA0BB4A75B21F33A3225A49B3CDEEF504BB8",
+                                               "actual_sha256":  "FB374635A16B5305AAF316726BA1AA0BB4A75B21F33A3225A49B3CDEEF504BB8",
+                                               "unchanged":  true
+                                           },
+                                           {
+                                               "version":  "V57",
+                                               "path":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v57-negative-x-middle-mid-depth-retopology-v1\\r2-rig-v57-negative-x-middle-mid-depth-retopology-v1.blend",
+                                               "expected_sha256":  "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+                                               "actual_sha256":  "63F7F71988B171A37DF9A09EC8F957729DEF6D35E2D0C093A73577702F892752",
+                                               "unchanged":  true
+                                           }
+                                       ],
+    "artifact_sha256":  {
+                            "R2_FACIAL_FOUNDATION_IDENTITY.json":  "1329E73C8A14FBD007C8990224B6ED8D2AA6DDCE720498A5C8B0EC409C18A35F",
+                            "R2_FACIAL_ANATOMICAL_AXES_AND_CANDIDATE_PROBE.json":  "67ED1DDF12E4E9C0749E3CB0D16B19E774AFB79104EE71B781F9A7D754304C86",
+                            "R2_FACIAL_SEMANTIC_SUFFICIENCY_AUDIT.json":  "D5A3CD9D982F4C435641E963B856CC713B7C3404B457F974C788960C9133BEF1",
+                            "R2_FACIAL_LANDMARK_CERTIFICATE.json":  "09C45FD100F67BEE5BCCC70E2E66810DB1701C534720C3C9FDE99BAC0652E4ED",
+                            "R2_OCULAR_ASSET_CERTIFICATE.json":  "69542B6C72CF02F9339591F5AD0E5F6773F9F9189FFEE808C7AA86EECE17CB50",
+                            "R2_ORAL_ASSET_CERTIFICATE.json":  "FC0A7E5585440530C809E740620563DB493924C05189964834B018E0B3041E12",
+                            "R2_FACIAL_ANATOMY_RUNTIME_LOGS.md":  "E21908A0BAEB4BC0EA47E7622E19BC2D8DDD3A6819FBBB29D7DE546BD536CDAD",
+                            "R2_FACIAL_ANATOMY_CERTIFICATION_FINAL_REPORT.md":  "D1B486E4803F385E8290F930C4AF7F5F393F7435D1371BB88E80CF15504E4FC8",
+                            "R2_FACIAL_ANATOMY_CERTIFICATION_BLOCKED_REPORT.md":  "41BF4C0697B5D382EAF5E904AD782BB61F54366B280400102D0AB31F01DAB436"
+                        },
+    "created_images":  0,
+    "blend_saved":  false,
+    "temporary_directories_remaining":  0,
+    "next_action":  "AWAIT_APPROVED_ANATOMICAL_DESIGN_PACKAGE_THEN_RERUN_CHECKPOINTS_3_TO_11",
+    "local_datetime":  "2026-08-01T12:56:46.5649986-03:00"
+}

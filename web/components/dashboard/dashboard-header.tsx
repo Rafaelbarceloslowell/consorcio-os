@@ -1,21 +1,24 @@
 import {
   Bell,
-  Bot,
-  CheckCircle2,
   ChevronDown,
-  Command,
   Search,
   Sparkles,
 } from "lucide-react"
 
 import { formatGreeting } from "@/lib/formatters"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
-import type { User } from "@/types/dashboard"
+import { useState } from "react"
+import { GorilaR2Avatar3D } from "@/components/dashboard/gorila-r2-avatar-3d"
+import { R2PendingActionControls } from "@/components/dashboard/r2-pending-action-controls"
+import { R2PilotActions } from "@/components/dashboard/r2-pilot-actions"
+import { GlobalSearch } from "@/components/search/global-search"
+import type { GorilaR2Briefing, User } from "@/types/dashboard"
 
 type DashboardHeaderProps = {
+  workspaceId?: string
   user: User
   summary: string
   priorityCount?: number
+  gorilaR2?: GorilaR2Briefing
 }
 
 function getUserInitials(name: string) {
@@ -33,18 +36,24 @@ function getUserInitials(name: string) {
 }
 
 export function DashboardHeader({
+  workspaceId,
   user,
   summary,
   priorityCount = 0,
+  gorilaR2,
 }: DashboardHeaderProps) {
+  const [searchOpen, setSearchOpen] = useState(false)
+
   const initials = getUserInitials(user.name)
 
   const operationalContext =
-    priorityCount === 1
+    gorilaR2?.analysis ??
+    (priorityCount === 1
       ? "Hoje existe 1 ação prioritária na operação."
-      : `Hoje existem ${priorityCount} ações prioritárias na operação.`
+      : `Hoje existem ${priorityCount} ações prioritárias na operação.`)
 
   return (
+    <>
     <header className="gorila-material relative overflow-hidden rounded-[28px] border border-white/[0.065] bg-[#15191F]/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.13),inset_0_-1px_0_rgba(0,0,0,0.24),0_4px_7px_rgba(0,0,0,0.20),0_24px_56px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
       <div
         aria-hidden="true"
@@ -76,27 +85,18 @@ export function DashboardHeader({
             </div>
           </div>
 
-          <div className="flex min-w-0 flex-1 flex-col gap-3 lg:max-w-[760px] lg:flex-row lg:items-center lg:justify-end">
-            <label className="group relative block min-w-0 flex-1 lg:max-w-[420px]">
-              <span className="sr-only">
-                Buscar clientes, leads, grupos ou cotas
-              </span>
-
-              <Search className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-[#747A76] transition-colors duration-200 group-focus-within:text-[#43A972]" />
-
-              <input
-                type="search"
-                placeholder="Buscar clientes, leads, grupos, cotas..."
-                className="h-11 w-full rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] pl-11 pr-14 text-sm text-[var(--gorila-text)] shadow-[inset_0_2px_5px_rgba(0,0,0,0.22),inset_0_-1px_0_rgba(255,255,255,0.08)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-200 placeholder:text-[var(--gorila-text-muted)] hover:-translate-y-px hover:border-[#2F8F5B]/30 hover:shadow-[inset_0_2px_5px_rgba(0,0,0,0.24),inset_0_-1px_0_rgba(255,255,255,0.12),0_4px_6px_rgba(0,0,0,0.18),0_12px_26px_rgba(0,0,0,0.17)] focus:border-[#2F8F5B]/45 focus:shadow-[inset_0_2px_5px_rgba(0,0,0,0.24),0_5px_8px_rgba(0,0,0,0.18),0_16px_30px_rgba(0,0,0,0.18),0_0_0_4px_rgba(47,143,91,0.10)]"
-              />
-
-              <span className="pointer-events-none absolute right-3 top-1/2 hidden -translate-y-1/2 items-center gap-1 rounded-lg border border-white/[0.06] bg-white/[0.035] px-2 py-1 text-[10px] font-medium text-[#697384] sm:inline-flex">
-                <Command className="size-3" />K
-              </span>
-            </label>
+          <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
+            <button
+              type="button"
+              onClick={() => setSearchOpen(true)}
+              aria-label="Abrir pesquisa global"
+              className="group flex size-11 shrink-0 items-center justify-center rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-subtle)] text-[var(--gorila-text-soft)] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-2px_1px_rgba(0,0,0,0.24),0_2px_3px_rgba(0,0,0,0.24),0_8px_18px_rgba(0,0,0,0.16)] transition-all duration-200 hover:border-[#2F8F5B]/30 hover:text-[#43A972]"
+            >
+              <Search className="size-[18px]" />
+            </button>
 
             <div className="flex items-center gap-2">
-              <ThemeToggle />
+
               <button
                 type="button"
                 aria-label="Abrir notificações"
@@ -140,7 +140,7 @@ export function DashboardHeader({
                   </span>
 
                   <span className="mt-1 block text-[10px] font-medium uppercase tracking-[0.10em] text-[#697384]">
-                    Supervisor
+                    {user.positionTitle ?? "Consultor Sênior"}
                   </span>
                 </span>
 
@@ -150,48 +150,62 @@ export function DashboardHeader({
           </div>
         </div>
 
-        <div className="grid gap-6 px-5 py-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.42fr)] lg:px-7 lg:py-7">
-          <div>
-            <p className="text-sm font-medium text-[#43A972]">
-              {formatGreeting(user.name)}
-            </p>
+        <div className="px-5 py-7 sm:px-6 sm:py-8 lg:px-7 xl:py-9">
+          <div
+            data-testid="r2-hero-layout"
+            className="grid items-center gap-6 xl:min-h-[420px] xl:grid-cols-[minmax(0,42%)_minmax(0,58%)] xl:gap-9 2xl:min-h-[460px]"
+          >
+            <GorilaR2Avatar3D
+              size="hero"
+              workspaceId={workspaceId}
+              userId={user.id}
+              briefing={gorilaR2}
+              status={
+                gorilaR2?.confidence === "low"
+                  ? "alert"
+                  : gorilaR2
+                    ? "online"
+                    : "thinking"
+              }
+            />
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-[#43A972]">
+                {gorilaR2?.greeting ?? formatGreeting(user.name)}
+              </p>
 
-            <h2 className="mt-2 max-w-3xl text-2xl font-semibold leading-tight tracking-[-0.045em] text-[#F5F7FA] sm:text-3xl lg:text-[34px]">
-              O R2 organizou o que merece sua atenção hoje.
-            </h2>
+              <h2 className="mt-2 max-w-3xl text-2xl font-semibold leading-tight tracking-[-0.045em] text-[#F5F7FA] sm:text-3xl lg:text-[34px]">
+                {gorilaR2?.recommendation ??
+                  "O R2 organizou o que merece sua atenção hoje."}
+              </h2>
 
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-[#96A0AF] sm:text-[15px]">
-              Consulte os indicadores, priorize os próximos movimentos e
-              acompanhe o ritmo da operação em um único ambiente.
-            </p>
-          </div>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-[#96A0AF] sm:text-[15px]">
+                {gorilaR2?.analysis ??
+                  "Consulte os indicadores, priorize os próximos movimentos e acompanhe o ritmo da operação em um único ambiente."}
+              </p>
 
-          <div className="group relative overflow-hidden rounded-[20px] border border-white/[0.08] bg-black/[0.13] p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.28),0_3px_4px_rgba(0,0,0,0.22),0_16px_34px_rgba(0,0,0,0.18)] transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-1 hover:border-white/[0.12] hover:bg-black/[0.13] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-2px_1px_rgba(0,0,0,0.28),0_5px_6px_rgba(0,0,0,0.26),0_24px_46px_rgba(0,0,0,0.24)] sm:p-5">
-            <div className="flex items-start gap-3.5">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-2xl border border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10] text-[#43A972]">
-                <Bot className="size-[18px]" />
-              </div>
-
-              <div className="min-w-0">
-                <div className="flex flex-wrap items-center gap-2">
-                  <h3 className="text-sm font-semibold tracking-[-0.02em] text-[#F5F7FA]">
-                    Resumo do R2
-                  </h3>
-
-                  <span className="inline-flex items-center gap-1 text-[11px] text-[#697384]">
-                    <CheckCircle2 className="size-3.5 text-[#3FB980]" />
-                    atualizado agora
-                  </span>
-                </div>
-
-                <p className="mt-2 text-sm leading-6 text-[#D6DBE3]">
-                  {summary}
-                </p>
-              </div>
+              {workspaceId && gorilaR2?.pendingAction ? (
+                <R2PendingActionControls
+                  workspaceId={workspaceId}
+                  consultantId={user.id}
+                  action={gorilaR2.pendingAction}
+                />
+              ) : workspaceId && gorilaR2?.pilotAction ? (
+                <R2PilotActions
+                  workspaceId={workspaceId}
+                  consultantId={user.id}
+                  action={gorilaR2.pilotAction}
+                />
+              ) : null}
             </div>
           </div>
         </div>
       </div>
     </header>
+
+    <GlobalSearch
+      open={searchOpen}
+      onClose={() => setSearchOpen(false)}
+    />
+    </>
   )
 }

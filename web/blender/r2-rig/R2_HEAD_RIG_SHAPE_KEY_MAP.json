@@ -1,0 +1,50 @@
+{
+  "R2_Head_Face_Foundation": [
+    "Basis",
+    "EXP_BROW_RAISE",
+    "EXP_BROW_FROWN",
+    "EXP_CHEEK_RAISE",
+    "EXP_MUZZLE"
+  ],
+  "R2_LipLower": [
+    "Basis",
+    "EXP_LIPS_CLOSED",
+    "EXP_SMILE",
+    "EXP_FROWN",
+    "EXP_MOUTH_NARROW",
+    "EXP_MOUTH_WIDE",
+    "EXP_MOUTH_O",
+    "EXP_MOUTH_E",
+    "EXP_VISEME_FV"
+  ],
+  "R2_LipUpper": [
+    "Basis",
+    "EXP_LIPS_CLOSED",
+    "EXP_SMILE",
+    "EXP_FROWN",
+    "EXP_MOUTH_NARROW",
+    "EXP_MOUTH_WIDE",
+    "EXP_MOUTH_O",
+    "EXP_MOUTH_E"
+  ],
+  "R2_LowerEyelid.L": [
+    "Basis",
+    "EXP_BLINK"
+  ],
+  "R2_LowerEyelid.R": [
+    "Basis",
+    "EXP_BLINK"
+  ],
+  "R2_Tongue": [
+    "Basis",
+    "EXP_VISEME_L"
+  ],
+  "R2_UpperEyelid.L": [
+    "Basis",
+    "EXP_BLINK"
+  ],
+  "R2_UpperEyelid.R": [
+    "Basis",
+    "EXP_BLINK"
+  ]
+}

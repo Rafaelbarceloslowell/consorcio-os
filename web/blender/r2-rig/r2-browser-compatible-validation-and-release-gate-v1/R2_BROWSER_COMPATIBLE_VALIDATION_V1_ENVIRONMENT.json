@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "phase": "R2_BROWSER_COMPATIBLE_VALIDATION_AND_RELEASE_GATE_V1",
+  "startedAt": "2026-08-02T15:05:45.633Z",
+  "browser": "Microsoft Edge",
+  "executablePath": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "product": "Edg/151.0.4129.59",
+  "revision": "@400e1a29bee558c0c1dec28b2d8b3506a7302ce3",
+  "protocolVersion": "1.3",
+  "jsVersion": "15.1.23.5",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+  "executionMode": "--headless=new controlled through native Chrome DevTools Protocol",
+  "app": {
+    "appPort": 49428,
+    "cdpPort": 49429,
+    "appUrl": "http://localhost:49428/",
+    "serverPid": 15152,
+    "browserPid": 9624,
+    "profilePath": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-browser-compatible-validation-and-release-gate-v1\\.edge-profile-temp",
+    "initialHttpStatus": 200,
+    "browserArguments": [
+      "--headless=new",
+      "--remote-debugging-port=49429",
+      "--remote-debugging-address=127.0.0.1",
+      "--remote-allow-origins=*",
+      "--disable-background-networking",
+      "--disable-component-update",
+      "--disable-default-apps",
+      "--disable-sync",
+      "--metrics-recording-only",
+      "--no-first-run",
+      "--no-default-browser-check",
+      "--enable-webgl",
+      "--ignore-gpu-blocklist",
+      "--force-device-scale-factor=1",
+      "--window-size=1440,900",
+      "--user-data-dir=C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-browser-compatible-validation-and-release-gate-v1\\.edge-profile-temp",
+      "about:blank"
+    ]
+  },
+  "artifactHashes": {
+    "blend": "2EEC504BFC6F3C0D0B1BF6B1EFA932445142DCB61527E94A64F9C4A3A5EE491D",
+    "glb": "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE"
+  },
+  "capabilities": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36 Edg/151.0.0.0",
+    "resizeObserver": true,
+    "fetch": true,
+    "resourceTiming": true,
+    "webgl": true,
+    "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "webglVendor": "WebKit",
+    "webglRenderer": "ANGLE (AMD, AMD Radeon(TM) Graphics (0x00001636) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "innerWidth": 1440,
+    "innerHeight": 900,
+    "devicePixelRatio": 1,
+    "canvases": [
+      {
+        "index": 0,
+        "width": 426,
+        "height": 360,
+        "clientWidth": 426,
+        "clientHeight": 360,
+        "rect": {
+          "x": 349,
+          "y": 227,
+          "width": 426.296875,
+          "height": 360
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1"
+      }
+    ],
+    "fallbackActive": true,
+    "diagnosticsAvailable": true,
+    "diagnostics": {
+      "requestedState": "awaiting_action",
+      "effectiveState": "awaiting_action",
+      "activeClip": "R2_AWAITING_ACTION",
+      "elapsedInStateMs": 2159,
+      "reducedMotion": false,
+      "actionsCreated": 9,
+      "actionsReused": 1,
+      "maximumSimultaneousActions": 1,
+      "activeActions": 1,
+      "transitionsApplied": 1,
+      "transitionsIgnored": 0,
+      "fallbacks": 0,
+      "mixerListeners": 1,
+      "pendingState": null
+    }
+  },
+  "playwrightInstalled": false,
+  "puppeteerInstalled": false,
+  "externalDependenciesAdded": []
+}

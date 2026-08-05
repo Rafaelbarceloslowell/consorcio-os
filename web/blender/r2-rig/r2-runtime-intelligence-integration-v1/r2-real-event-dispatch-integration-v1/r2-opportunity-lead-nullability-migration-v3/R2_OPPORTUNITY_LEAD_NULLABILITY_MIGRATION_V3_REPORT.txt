@@ -1,0 +1,225 @@
+
+============================================================
+ R2 OPPORTUNITY LEAD NULLABILITY MIGRATION V3
+============================================================
+GENERATED_AT=2026-08-02T16:17:46-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+DATABASE_CHANGE=APPLY_EXISTING_PENDING_MIGRATION
+NEW_MIGRATION_FILE_CREATED=False
+MODEL_OR_GLB_CHANGE_AUTHORIZED=False
+
+============================================================
+ PREFLIGHT
+============================================================
+POWERSHELL_VERSION=5.1.26100.8875
+GIT_HEAD_BEFORE=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+EXPECTED_GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_BASELINE_MATCH=True
+STAGED_FILE_COUNT_BEFORE=0
+DISCOVERY_REPORT_PATH=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-opportunity-lead-nullability-database-discovery-v2\R2_OPPORTUNITY_LEAD_NULLABILITY_DATABASE_DISCOVERY_V2.txt
+DISCOVERY_REPORT_SHA256=04B1FEA561A9F2D5E1B3A2EA3BD486500204778F2240142A79D8A46F15D85C4A
+DISCOVERY_REPORT_HASH_MATCH=True
+SCHEMA_PATH=C:\Projetos\consorcio-os\web\prisma\schema.prisma
+SCHEMA_SHA256_BEFORE=A548E79BBE190060066B15866707C1715FD8FBC829F10395E894D22CF10A8F48
+SCHEMA_BASELINE_MATCH=True
+MIGRATION_NAME=20260726180000_support_client_originated_opportunities
+MIGRATION_PATH=C:\Projetos\consorcio-os\web\prisma\migrations\20260726180000_support_client_originated_opportunities\migration.sql
+MIGRATION_SHA256_BEFORE=9E83401A2CDDFB9F7D999A306D21AB99004D06361069AD8704D3B3DC738E6DCA
+MIGRATION_HASH_MATCH=True
+GLB_SHA256_BEFORE=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_BASELINE_MATCH=True
+
+============================================================
+ INTERNAL SELF TESTS
+============================================================
+MIGRATION_PARSER_SELF_TEST=True
+GENERATOR_OUTPUT_CONFIGURED=../lib/generated/prisma
+GENERATED_OUTPUT_PATH=C:\Projetos\consorcio-os\web\lib\generated\prisma
+GENERATED_OUTPUT_RELATIVE=lib/generated/prisma
+GENERATED_OUTPUT_HASH_BEFORE=6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3
+GENERATED_OUTPUT_PHASE_ROOT_OVERLAP=False
+MIGRATION_DROPS_LEAD_NOT_NULL=True
+MIGRATION_ADDS_ORIGIN_CHECK=True
+
+============================================================
+ MIGRATION STATUS BEFORE
+============================================================
+
+----- migrate-status-before STDOUT -----
+Datasource "db": PostgreSQL database "consorcio_os", schema "public" at "localhost:5432"
+
+2 migrations found in prisma/migrations
+Following migration have not yet been applied:
+20260726180000_support_client_originated_opportunities
+
+To apply migrations in development run prisma migrate dev.
+To apply migrations in production run prisma migrate deploy.
+
+----- migrate-status-before STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+
+migrate-status-before_EXIT_CODE=1
+MIGRATE_STATUS_BEFORE_EXPECTED_EXIT_CODE=1
+PENDING_MIGRATION_COUNT_BEFORE=1
+SINGLE_PENDING_MIGRATION_BEFORE=20260726180000_support_client_originated_opportunities
+PENDING_MIGRATION_BEFORE=20260726180000_support_client_originated_opportunities
+PENDING_MIGRATION_MATCH=True
+
+============================================================
+ GENERATED CLIENT BACKUP
+============================================================
+GENERATED_OUTPUT_EXISTED_BEFORE=True
+GENERATED_OUTPUT_BACKUP_CREATED=True
+GENERATED_OUTPUT_BACKUP_CAPTURED=True
+GENERATED_OUTPUT_BACKUP_PATH=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-opportunity-lead-nullability-migration-v3\generated-client.before-v3
+GENERATED_OUTPUT_BACKUP_HASH=6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3
+
+============================================================
+ SCHEMA TRANSFORMATION
+============================================================
+OLD_LEAD_ID_LINE_COUNT=1
+NEW_LEAD_ID_LINE_COUNT_BEFORE=0
+OLD_LEAD_RELATION_LINE_COUNT=1
+NEW_LEAD_RELATION_LINE_COUNT_BEFORE=0
+SCHEMA_BACKUP=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-opportunity-lead-nullability-migration-v3\schema.before-lead-nullability-v3.prisma.bak
+SCHEMA_BACKUP_SHA256=A548E79BBE190060066B15866707C1715FD8FBC829F10395E894D22CF10A8F48
+SCHEMA_CANDIDATE_PATH=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-runtime-intelligence-integration-v1\r2-real-event-dispatch-integration-v1\r2-opportunity-lead-nullability-migration-v3\schema.lead-nullable-v3.prisma.candidate
+SCHEMA_CANDIDATE_SHA256=B568D1DAD16A91B41B3DC8171EB73CECA40465A027984A310C4CD39898CDC1CE
+SCHEMA_WRITE_ATTEMPTED=True
+SCHEMA_WRITTEN=True
+SCHEMA_SHA256_AFTER_WRITE=B568D1DAD16A91B41B3DC8171EB73CECA40465A027984A310C4CD39898CDC1CE
+
+============================================================
+ PRISMA VALIDATE
+============================================================
+
+----- prisma-validate STDOUT -----
+The schema at prisma\schema.prisma is valid ðŸš€
+
+----- prisma-validate STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+
+prisma-validate_EXIT_CODE=0
+
+============================================================
+ PRISMA GENERATE
+============================================================
+
+----- prisma-generate STDOUT -----
+
+âœ” Generated Prisma Client (7.9.0) to .\lib\generated\prisma in 428ms
+
+
+----- prisma-generate STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+
+prisma-generate_EXIT_CODE=0
+
+============================================================
+ TYPESCRIPT VALIDATION
+============================================================
+
+----- typescript STDOUT -----
+
+----- typescript STDERR -----
+
+typescript_EXIT_CODE=0
+
+============================================================
+ TARGETED REGRESSION TESTS
+============================================================
+TARGETED_TEST_FILE_COUNT=2
+TARGETED_TEST_FILE=application/opportunity/create-opportunity-async.test.ts
+TARGETED_TEST_FILE=app/opportunities/new/actions.test.ts
+
+----- targeted-tests STDOUT -----
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.10 [39m[90mC:/Projetos/consorcio-os/web[39m
+
+ [32mâœ“[39m app/opportunities/new/actions.test.ts [2m([22m[2m24 tests[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32mâœ“[39m application/opportunity/create-opportunity-async.test.ts [2m([22m[2m28 tests[22m[2m)[22m[32m 222[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m2 passed[39m[22m[90m (2)[39m
+[2m      Tests [22m [1m[32m52 passed[39m[22m[90m (52)[39m
+[2m   Start at [22m 16:18:30
+[2m   Duration [22m 2.04s[2m (transform 221ms, setup 2.39s, import 247ms, tests 274ms, environment 0ms)[22m
+
+
+----- targeted-tests STDERR -----
+
+targeted-tests_EXIT_CODE=0
+
+============================================================
+ PRE-DEPLOY INTEGRITY
+============================================================
+
+============================================================
+ FAILURE
+============================================================
+ERROR=Os tipos de argumento não correspondem
+MIGRATION_DEPLOY_STARTED=False
+MIGRATION_DEPLOY_SUCCEEDED=False
+POST_MIGRATION_FAILURE=False
+SCHEMA_ROLLBACK_PERFORMED=True
+SCHEMA_HASH_AFTER_ROLLBACK=A548E79BBE190060066B15866707C1715FD8FBC829F10395E894D22CF10A8F48
+GENERATED_OUTPUT_ROLLBACK_PERFORMED=True
+GENERATED_OUTPUT_HASH_AFTER_ROLLBACK=6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3
+
+============================================================
+ FINAL RESULT
+============================================================
+SCHEMA_WRITE_ATTEMPTED=True
+SCHEMA_WRITTEN=True
+SCHEMA_ROLLBACK_PERFORMED=True
+GENERATED_OUTPUT_PATH=C:\Projetos\consorcio-os\web\lib\generated\prisma
+GENERATED_OUTPUT_RELATIVE=lib/generated/prisma
+GENERATED_OUTPUT_EXISTED_BEFORE=True
+GENERATED_OUTPUT_BACKUP_CREATED=True
+GENERATED_OUTPUT_BACKUP_CAPTURED=True
+GENERATED_OUTPUT_ROLLBACK_PERFORMED=True
+PRE_MIGRATION_ROLLBACK_PERFORMED=True
+MIGRATION_PARSER_SELF_TEST=True
+PRE_DEPLOY_INTEGRITY_PASSED=False
+SCHEMA_NULLABLE_CONTRACT_PRE_DEPLOY=False
+SCHEMA_NULLABLE_CONTRACT_FINAL=False
+MIGRATION_DEPLOY_STARTED=False
+MIGRATION_DEPLOY_SUCCEEDED=False
+POST_MIGRATION_FAILURE=False
+PENDING_MIGRATION_COUNT_BEFORE=1
+PENDING_MIGRATION_COUNT_AFTER=-1
+PRISMA_VALIDATE_EXIT_CODE=0
+PRISMA_GENERATE_EXIT_CODE=0
+TYPESCRIPT_EXIT_CODE=0
+TARGETED_TESTS_EXIT_CODE=0
+MIGRATE_STATUS_BEFORE_EXIT_CODE=1
+MIGRATE_DEPLOY_EXIT_CODE=-1
+MIGRATE_STATUS_AFTER_EXIT_CODE=-1
+DB_PULL_AFTER_EXIT_CODE=-1
+DATABASE_LEAD_ID_COLUMN_FOUND_AFTER=False
+DATABASE_LEAD_ID_NULLABLE_AFTER=
+DATABASE_LEAD_RELATION_NULLABLE_AFTER=
+GIT_HEAD_BEFORE=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+GIT_HEAD_FINAL=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_UNCHANGED=True
+STAGED_FILE_COUNT_FINAL=0
+DISCOVERY_REPORT_SHA256=04B1FEA561A9F2D5E1B3A2EA3BD486500204778F2240142A79D8A46F15D85C4A
+SCHEMA_SHA256_BEFORE=A548E79BBE190060066B15866707C1715FD8FBC829F10395E894D22CF10A8F48
+SCHEMA_SHA256_FINAL=A548E79BBE190060066B15866707C1715FD8FBC829F10395E894D22CF10A8F48
+GENERATED_OUTPUT_HASH_BEFORE=6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3
+GENERATED_OUTPUT_HASH_FINAL=6B2B84F30FE82FE09ABCB2E56660454E494E7FA33FC00B2BF25E4562F4FAD5F3
+MIGRATION_SHA256_BEFORE=9E83401A2CDDFB9F7D999A306D21AB99004D06361069AD8704D3B3DC738E6DCA
+MIGRATION_SHA256_FINAL=9E83401A2CDDFB9F7D999A306D21AB99004D06361069AD8704D3B3DC738E6DCA
+MIGRATION_FILE_UNCHANGED=True
+GLB_SHA256_BEFORE=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_SHA256_FINAL=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_UNCHANGED=True
+ERROR=Os tipos de argumento não correspondem
+ROLLBACK_ERROR=
+VEREDITO=REPROVADO_COM_ROLLBACK_PRE_MIGRACAO
+NEXT_STEP=ANALISAR_FALHA_ANTES_DE_APLICAR_MIGRATION

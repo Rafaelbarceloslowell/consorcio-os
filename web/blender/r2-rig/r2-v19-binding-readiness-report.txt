@@ -1,0 +1,129 @@
+R2_BINDING_READINESS_AUDIT
+rig_blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend
+cage_blend=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v18-single-component-cage.blend
+
+===== RIG_V13 =====
+filepath=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v13-weights-refined.blend
+scene=R2_Rig_Scene
+objects=2
+mesh_objects=1
+armature_objects=1
+
+OBJECT_INDEX
+object=R2_Rig|type=ARMATURE|parent=NONE|location=0.000000,0.000000,0.000000|rotation=0.000000,0.000000,0.000000|scale=1.000000,1.000000,1.000000|dimensions=0.840000,0.300000,1.900000|hide_viewport=False|hide_render=False
+object=R2_Body|type=MESH|parent=R2_Rig|location=0.000000,0.000000,0.000000|rotation=0.000000,0.000000,0.000000|scale=1.000000,1.000000,1.000000|dimensions=1.066222,0.611580,2.000000|hide_viewport=False|hide_render=False
+
+MESH_DETAILS
+
+mesh_1_name=R2_Body
+mesh_1_data=R2_Body_Mesh
+mesh_1_vertices=197505
+mesh_1_edges=573879
+mesh_1_polygons=376007
+mesh_1_materials=0
+mesh_1_vertex_groups=50
+mesh_1_shape_keys=0
+mesh_1_world_minimum=-0.533111,-0.305790,-1.000000
+mesh_1_world_maximum=0.533111,0.305790,1.000000
+mesh_1_matrix_world=
+  1.000000,0.000000,0.000000,0.000000
+  0.000000,1.000000,0.000000,0.000000
+  0.000000,0.000000,1.000000,0.000000
+  0.000000,0.000000,0.000000,1.000000
+mesh_1_vertex_group_names=pelvis|spine_01|spine_02|chest|neck|head|clavicle.L|upper_arm.L|forearm.L|hand.L|thumb_01.L|thumb_02.L|index_01.L|index_02.L|index_03.L|middle_01.L|middle_02.L|middle_03.L|ring_01.L|ring_02.L|ring_03.L|pinky_01.L|pinky_02.L|pinky_03.L|clavicle.R|upper_arm.R|forearm.R|hand.R|thumb_01.R|thumb_02.R|index_01.R|index_02.R|index_03.R|middle_01.R|middle_02.R|middle_03.R|ring_01.R|ring_02.R|ring_03.R|pinky_01.R|pinky_02.R|pinky_03.R|thigh.L|shin.L|foot.L|toe.L|thigh.R|shin.R|foot.R|toe.R
+mesh_1_modifiers=1
+mesh_1_modifier_1=R2_Armature|type=ARMATURE|object=R2_Rig|show_viewport=True|show_render=True
+
+ARMATURE_DETAILS
+
+armature_1_name=R2_Rig
+armature_1_data=R2_Rig_Data
+armature_1_bones=51
+armature_1_deform_bones=50
+armature_1_parent=NONE
+armature_1_location=0.000000,0.000000,0.000000
+armature_1_rotation=0.000000,0.000000,0.000000
+armature_1_scale=1.000000,1.000000,1.000000
+armature_1_dimensions=0.840000,0.300000,1.900000
+armature_1_bone_names=root|pelvis|spine_01|spine_02|chest|neck|head|clavicle.L|upper_arm.L|forearm.L|hand.L|thumb_01.L|thumb_02.L|index_01.L|index_02.L|index_03.L|middle_01.L|middle_02.L|middle_03.L|ring_01.L|ring_02.L|ring_03.L|pinky_01.L|pinky_02.L|pinky_03.L|clavicle.R|upper_arm.R|forearm.R|hand.R|thumb_01.R|thumb_02.R|index_01.R|index_02.R|index_03.R|middle_01.R|middle_02.R|middle_03.R|ring_01.R|ring_02.R|ring_03.R|pinky_01.R|pinky_02.R|pinky_03.R|thigh.L|shin.L|foot.L|toe.L|thigh.R|shin.R|foot.R|toe.R
+armature_1_deform_bone_names=pelvis|spine_01|spine_02|chest|neck|head|clavicle.L|upper_arm.L|forearm.L|hand.L|thumb_01.L|thumb_02.L|index_01.L|index_02.L|index_03.L|middle_01.L|middle_02.L|middle_03.L|ring_01.L|ring_02.L|ring_03.L|pinky_01.L|pinky_02.L|pinky_03.L|clavicle.R|upper_arm.R|forearm.R|hand.R|thumb_01.R|thumb_02.R|index_01.R|index_02.R|index_03.R|middle_01.R|middle_02.R|middle_03.R|ring_01.R|ring_02.R|ring_03.R|pinky_01.R|pinky_02.R|pinky_03.R|thigh.L|shin.L|foot.L|toe.L|thigh.R|shin.R|foot.R|toe.R
+
+AUTOMATIC_CANDIDATES
+largest_mesh=R2_Body
+largest_mesh_vertices=197505
+named_cage=NONE
+named_cage_vertices=0
+primary_armature=R2_Rig
+
+===== CAGE_V18 =====
+filepath=C:\Projetos\consorcio-os\web\blender\r2-rig\r2-rig-v18-single-component-cage.blend
+scene=R2_Rig_Scene
+objects=3
+mesh_objects=2
+armature_objects=1
+
+OBJECT_INDEX
+object=R2_Rig|type=ARMATURE|parent=NONE|location=0.000000,0.000000,0.000000|rotation=0.000000,0.000000,0.000000|scale=1.000000,1.000000,1.000000|dimensions=0.840000,0.300000,1.900000|hide_viewport=True|hide_render=True
+object=R2_Body|type=MESH|parent=NONE|location=0.000000,0.000000,0.000000|rotation=0.000000,0.000000,0.000000|scale=1.000000,1.000000,1.000000|dimensions=1.066222,0.611580,2.000000|hide_viewport=False|hide_render=False
+object=R2_Deformation_Cage|type=MESH|parent=NONE|location=0.000000,0.000000,0.000000|rotation=0.000000,0.000000,0.000000|scale=1.000000,1.000000,1.000000|dimensions=1.064696,0.609951,1.998224|hide_viewport=False|hide_render=True
+
+MESH_DETAILS
+
+mesh_1_name=R2_Body
+mesh_1_data=R2_Body_Mesh
+mesh_1_vertices=197505
+mesh_1_edges=573879
+mesh_1_polygons=376007
+mesh_1_materials=0
+mesh_1_vertex_groups=0
+mesh_1_shape_keys=0
+mesh_1_world_minimum=-0.533111,-0.305790,-1.000000
+mesh_1_world_maximum=0.533111,0.305790,1.000000
+mesh_1_matrix_world=
+  1.000000,0.000000,0.000000,0.000000
+  0.000000,1.000000,0.000000,0.000000
+  0.000000,0.000000,1.000000,0.000000
+  0.000000,0.000000,0.000000,1.000000
+mesh_1_vertex_group_names=NONE
+mesh_1_modifiers=0
+
+mesh_2_name=R2_Deformation_Cage
+mesh_2_data=R2_Body_Mesh.001
+mesh_2_vertices=43226
+mesh_2_edges=86456
+mesh_2_polygons=43228
+mesh_2_materials=0
+mesh_2_vertex_groups=0
+mesh_2_shape_keys=0
+mesh_2_world_minimum=-0.532361,-0.304369,-0.999918
+mesh_2_world_maximum=0.532334,0.305582,0.998306
+mesh_2_matrix_world=
+  1.000000,0.000000,0.000000,0.000000
+  0.000000,1.000000,0.000000,0.000000
+  0.000000,0.000000,1.000000,0.000000
+  0.000000,0.000000,0.000000,1.000000
+mesh_2_vertex_group_names=NONE
+mesh_2_modifiers=0
+
+ARMATURE_DETAILS
+
+armature_1_name=R2_Rig
+armature_1_data=R2_Rig_Data
+armature_1_bones=51
+armature_1_deform_bones=50
+armature_1_parent=NONE
+armature_1_location=0.000000,0.000000,0.000000
+armature_1_rotation=0.000000,0.000000,0.000000
+armature_1_scale=1.000000,1.000000,1.000000
+armature_1_dimensions=0.840000,0.300000,1.900000
+armature_1_bone_names=root|pelvis|spine_01|spine_02|chest|neck|head|clavicle.L|upper_arm.L|forearm.L|hand.L|thumb_01.L|thumb_02.L|index_01.L|index_02.L|index_03.L|middle_01.L|middle_02.L|middle_03.L|ring_01.L|ring_02.L|ring_03.L|pinky_01.L|pinky_02.L|pinky_03.L|clavicle.R|upper_arm.R|forearm.R|hand.R|thumb_01.R|thumb_02.R|index_01.R|index_02.R|index_03.R|middle_01.R|middle_02.R|middle_03.R|ring_01.R|ring_02.R|ring_03.R|pinky_01.R|pinky_02.R|pinky_03.R|thigh.L|shin.L|foot.L|toe.L|thigh.R|shin.R|foot.R|toe.R
+armature_1_deform_bone_names=pelvis|spine_01|spine_02|chest|neck|head|clavicle.L|upper_arm.L|forearm.L|hand.L|thumb_01.L|thumb_02.L|index_01.L|index_02.L|index_03.L|middle_01.L|middle_02.L|middle_03.L|ring_01.L|ring_02.L|ring_03.L|pinky_01.L|pinky_02.L|pinky_03.L|clavicle.R|upper_arm.R|forearm.R|hand.R|thumb_01.R|thumb_02.R|index_01.R|index_02.R|index_03.R|middle_01.R|middle_02.R|middle_03.R|ring_01.R|ring_02.R|ring_03.R|pinky_01.R|pinky_02.R|pinky_03.R|thigh.L|shin.L|foot.L|toe.L|thigh.R|shin.R|foot.R|toe.R
+
+AUTOMATIC_CANDIDATES
+largest_mesh=R2_Body
+largest_mesh_vertices=197505
+named_cage=R2_Deformation_Cage
+named_cage_vertices=43226
+primary_armature=R2_Rig
+
+status=audit_completed_no_blend_saved

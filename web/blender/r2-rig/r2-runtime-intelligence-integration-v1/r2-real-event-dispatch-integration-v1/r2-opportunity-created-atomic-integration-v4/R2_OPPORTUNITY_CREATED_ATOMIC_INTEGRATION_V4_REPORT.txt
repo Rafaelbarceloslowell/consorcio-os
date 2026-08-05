@@ -1,0 +1,238 @@
+
+============================================================
+ R2 OPPORTUNITY_CREATED ATOMIC INTEGRATION V4
+============================================================
+GENERATED_AT=2026-08-02T22:33:47.4611027-03:00
+WORKSPACE=C:\Projetos\consorcio-os\web
+NODE_MAX_OLD_SPACE_SIZE_MB=4096
+NODE_OPTIONS_EFFECTIVE=--max-old-space-size=4096
+IMPLEMENTATION_MODE=FULL_FILE_REPLACEMENTS
+BACKUP_LOCATION=OUTSIDE_PROJECT
+NODE_TRANSFORMER=False
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+MANIFEST_SHA256=D8C8464B5ABD4EB32DF2E4E4689C9392066EC437B98F59E9B0EC04B598544737
+MANIFEST_HASH_MATCH=True
+MIGRATION_PARSER_SELF_TEST=True
+
+============================================================
+ PREFLIGHT BASELINE
+============================================================
+GIT_HEAD=5db7dba5618eca83d14437d50aa0d4665c8bdf9b
+HEAD_BASELINE_MATCH=True
+STAGED_FILE_COUNT=0
+GLB_SHA256=0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE
+GLB_BASELINE_MATCH=True
+DISPATCHER_SHA256=13BD007CA7A787AB63CF21E4CD60CB8C01C1AAFA2BC2F454C93208FA2E230258
+DISPATCHER_BASELINE_MATCH=True
+DATABASE_ENUM_TYPE_CONFIRMED=True
+PAYLOAD_FILE_COUNT=17
+PAYLOAD_AND_BASELINE_HASHES_VERIFIED=True
+GENERATED_CLIENT_HASH_BEFORE=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+
+============================================================
+ PRISMA MIGRATE STATUS BEFORE
+============================================================
+COMMAND=npx prisma migrate status
+----- STDOUT -----
+Datasource "db": PostgreSQL database "consorcio_os", schema "public" at "localhost:5432"
+
+2 migrations found in prisma/migrations
+
+Database schema is up to date!
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ VERIFIED BACKUP OUTSIDE PROJECT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v3-backup-cc8830d1795e465d918ae5755dbb86df
+GENERATED_CLIENT_BACKUP_HASH=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+BACKUP_COMPLETE=True
+
+============================================================
+ APPLY FULL FILE REPLACEMENTS
+============================================================
+APPLIED=app/opportunities/new/actions.test.ts
+APPLIED=app/opportunities/new/actions.ts
+APPLIED=application/opportunity/create-opportunity-async.test.ts
+APPLIED=application/opportunity/create-opportunity-async.ts
+APPLIED=application/r2/normalize-r2-event.ts
+APPLIED=application/r2/r2-intelligence-orchestration.test.ts
+APPLIED=infrastructure/prisma/mappers/commercial-event-mapper.opportunity-created.test.ts
+APPLIED=infrastructure/prisma/mappers/commercial-event-mapper.ts
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts
+APPLIED=infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts
+APPLIED=lib/commercial-event-presenter.test.ts
+APPLIED=lib/commercial-event-presenter.ts
+APPLIED=prisma/migrations/20260802220000_add_opportunity_created_commercial_event/migration.sql
+APPLIED=prisma/schema.prisma
+APPLIED=repositories/commercial/async-commercial-repositories.ts
+APPLIED=repositories/commercial/commercial-repository.ts
+APPLIED=types/domain/commercial-event.ts
+FULL_FILE_REPLACEMENTS_VERIFIED=True
+
+============================================================
+ PRISMA VALIDATE
+============================================================
+COMMAND=npx prisma validate
+----- STDOUT -----
+The schema at prisma\schema.prisma is valid ðŸš€
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ PRISMA GENERATE
+============================================================
+COMMAND=npx prisma generate
+----- STDOUT -----
+
+âœ” Generated Prisma Client (7.9.0) to .\lib\generated\prisma in 403ms
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ TYPESCRIPT
+============================================================
+COMMAND=npx tsc --noEmit --pretty false
+----- STDOUT -----
+----- STDERR -----
+
+<--- Last few GCs --->
+
+[28252:000001416751C000]    17688 ms: Scavenge (interleaved) 772.8 (838.8) -> 720.9 (843.3) MB, pooled: 0 MB, 12.58 / 0.00 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[28252:000001416751C000]    18057 ms: Scavenge (interleaved) 778.2 (844.2) -> 730.6 (851.7) MB, pooled: 0 MB, 14.85 / 0.00 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+
+<--- Last few GCs --->
+
+[28252:000001416751C000]    17688 ms: Scavenge (interleaved) 772.8 (838.8) -> 720.9 (843.3) MB, pooled: 0 MB, 12.58 / 0.00 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+[28252:000001416751C000]    18057 ms: Scavenge (interleaved) 778.2 (844.2) -> 730.6 (851.7) MB, pooled: 0 MB, 14.85 / 0.00 ms  (average mu = 0.996, current mu = 0.997) allocation failure; 
+
+FATAL ERROR: Zone Allocation failed - process out of memory
+FATAL ERROR: Zone Allocation failed - process out of memory
+----- Native stack trace -----
+
+----- Native stack trace -----
+
+ 1: 00007FF6EEC43D9F node::OnFatalError+1343
+ 1: 00007FF6EEC43D9F node::OnFatalError+1343
+ 2: 00007FF6ED88DCB7 v8::Function::NewInstance+423
+ 2: 00007FF6ED88DCB7 v8::Function::NewInstance+423
+ 3: 00007FF6ED205B96 v8::SnapshotCreator::GetIsolate+56918
+ 3: 00007FF6ED205B96 v8::SnapshotCreator::GetIsolate+56918
+ 4: 00007FF6ECDC1EC2 X509_get0_tbs_sigalg+8706
+ 4: 00007FF6EE035206 v8::internal::compiler::CompilationDependencies::FieldTypeDependencyOffTheRecord+67030
+ 5: 00007FF6EE596BE7 v8::platform::DelayedTaskQueue::Terminate+2882695
+ 5: 00007FF6EE02EE72 v8::internal::compiler::CompilationDependencies::FieldTypeDependencyOffTheRecord+41538
+ 6: 00007FF6EE59E290 v8::platform::DelayedTaskQueue::Terminate+2913072
+ 6: 00007FF6EE02E95E v8::internal::compiler::CompilationDependencies::FieldTypeDependencyOffTheRecord+40238
+ 7: 00007FF6EE59DFEB v8::platform::DelayedTaskQueue::Terminate+2912395
+ 7: 00007FF6EE031526 v8::internal::compiler::CompilationDependencies::FieldTypeDependencyOffTheRecord+51446
+ 8: 00007FF6EE5B0E76 v8::platform::DelayedTaskQueue::Terminate+2989846
+ 8: 00007FF6EE748161 v8::platform::DelayedTaskQueue::Terminate+4657665
+ 9: 00007FF6EE7416E7 v8::platform::DelayedTaskQueue::Terminate+4630407
+ 9: 00007FF6EE5D45B6 v8::platform::DelayedTaskQueue::Terminate+3135062
+10: 00007FF6EE73D81F v8::platform::DelayedTaskQueue::Terminate+4614335
+11: 00007FF6EE36992D v8::platform::DelayedTaskQueue::Terminate+600525
+12: 00007FF6EE2A27F9 v8::Extension::auto_enable+488585
+10: 00007FF6EE59CB73 v8::platform::DelayedTaskQueue::Terminate+2907155
+11: 00007FF6EE5998D1 v8::platform::DelayedTaskQueue::Terminate+2894193
+13: 00007FF6EE36A1D8 v8::platform::DelayedTaskQueue::Terminate+602744
+14: 00007FF6EE369E9C v8::platform::DelayedTaskQueue::Terminate+601916
+12: 00007FF6EE596777 v8::platform::DelayedTaskQueue::Terminate+2881559
+13: 00007FF6EE5962E9 v8::platform::DelayedTaskQueue::Terminate+2880393
+15: 00007FF6EE369C08 v8::platform::DelayedTaskQueue::Terminate+601256
+16: 00007FF6EE2A239D v8::Extension::auto_enable+487469
+17: 00007FF6EE27C210 v8::Extension::auto_enable+331424
+18: 00007FF6EE279312 v8::Extension::auto_enable+319394
+19: 00007FF6EE278F2E v8::Extension::auto_enable+318398
+14: 00007FF6EE595DA4 v8::platform::DelayedTaskQueue::Terminate+2879044
+20: 00007FF6ED80196F X509_STORE_CTX_set_verify+200623
+15: 00007FF6EE5951FF v8::platform::DelayedTaskQueue::Terminate+2876063
+16: 00007FF6EE594E7E v8::platform::DelayedTaskQueue::Terminate+2875166
+17: 00007FF6EE282956 v8::Extension::auto_enable+357862
+18: 00007FF6EE279B08 v8::Extension::auto_enable+321432
+19: 00007FF6EE279010 v8::Extension::auto_enable+318624
+20: 00007FF6ED80196F X509_STORE_CTX_set_verify+200623
+21: 00007FF6ED7C69BD v8::internal::OptimizingCompileInputQueue::Prioritize+1773
+22: 00007FF6ED7C66B5 v8::internal::OptimizingCompileInputQueue::Prioritize+997
+21: 00007FF6ED7C69BD v8::internal::OptimizingCompileInputQueue::Prioritize+1773
+22: 00007FF6ED7C66B5 v8::internal::OptimizingCompileInputQueue::Prioritize+997
+23: 00007FF6EE066C6F v8::platform::DefaultJobHandle::UpdatePriority+591
+24: 00007FF6EEB8944B node::GetNodeReport+93163
+25: 00007FF6ED8E2D76 uv_thread_detach+150
+23: 00007FF6EE066C6F v8::platform::DefaultJobHandle::UpdatePriority+591
+24: 00007FF6EEB8944B node::GetNodeReport+93163
+25: 00007FF6ED8E2D76 uv_thread_detach+150
+26: 00007FF6EEF8DC73 node::AsyncResource::CallbackScope::CallbackScope+2297011
+27: 00007FFEF113E957 BaseThreadInitThunk+23
+28: 00007FFEF1DAAD6C RtlUserThreadStart+44
+26: 00007FF6EEF8DC73 node::AsyncResource::CallbackScope::CallbackScope+2297011
+27: 00007FFEF113E957 
+28: 00007FFEF1DAAD6C
+EXIT_CODE=134
+
+============================================================
+ FAILURE
+============================================================
+ERROR=TypeScript falhou com exit code 134; esperado 0.
+MIGRATION_DEPLOY_STARTED=False
+MIGRATION_DEPLOY_SUCCEEDED=False
+
+============================================================
+ ROLLBACK PRE-MIGRATION
+============================================================
+GENERATED_CLIENT_RESTORED_HASH=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+ROLLBACK_COMPLETE=True
+
+============================================================
+ ROLLBACK PRISMA VALIDATE
+============================================================
+COMMAND=npx prisma validate
+----- STDOUT -----
+The schema at prisma\schema.prisma is valid ðŸš€
+----- STDERR -----
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma\schema.prisma.
+EXIT_CODE=0
+
+============================================================
+ ROLLBACK TYPESCRIPT
+============================================================
+COMMAND=npx tsc --noEmit --pretty false
+----- STDOUT -----
+----- STDERR -----
+EXIT_CODE=0
+
+============================================================
+ FINAL RESULT
+============================================================
+BACKUP_ROOT=C:\Users\rafae\AppData\Local\Temp\r2-opportunity-created-v3-backup-cc8830d1795e465d918ae5755dbb86df
+BACKUP_COMPLETE=True
+SOURCE_WRITE_STARTED=True
+ROLLBACK_PERFORMED=True
+ROLLBACK_COMPLETE=True
+PRE_DEPLOY_INTEGRITY_PASSED=False
+MIGRATION_DEPLOY_STARTED=False
+MIGRATION_DEPLOY_SUCCEEDED=False
+POST_MIGRATION_FAILURE=False
+GENERATED_CLIENT_HASH_BEFORE=D25ABBFEE1D985A19B4528DF3C34EE644DFA5E34AB2DCED8B3B153BFC7676170
+GENERATED_CLIENT_HASH_FINAL=
+ERROR=TypeScript falhou com exit code 134; esperado 0.
+ROLLBACK_ERROR=
+COMMIT_CREATED=False
+PUSH_PERFORMED=False
+VEREDITO=REPROVADO_COM_ROLLBACK_PRE_MIGRACAO_COMPLETO
+NEXT_STEP=ANALISAR_RELATORIO_ANTES_DE_NOVA_EXECUCAO
+NODE_OPTIONS_RESTORED=True

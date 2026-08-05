@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 2,
+  "package": "R2_OPPORTUNITY_CREATED_ATOMIC_INTEGRATION_V2",
+  "root": "C:\\Projetos\\consorcio-os\\web",
+  "createdAt": "2026-08-03T00:41:51.103Z",
+  "backupComplete": true,
+  "applyComplete": false,
+  "rollbackComplete": true,
+  "backupRemoved": false,
+  "migrationName": "20260802210000_add_opportunity_created_commercial_event",
+  "migrationExistedBefore": false,
+  "originalFiles": {
+    "types/domain/commercial-event.ts": "1769E97025270FC3B48EF9E1FC49E7EB2A1699D0E5DBB667680802AE647DAB90",
+    "repositories/commercial/commercial-repository.ts": "6DA56D624594995C5BEBEC1912A9163FF38C8C7D4C1756FB26EC154082215758",
+    "repositories/commercial/async-commercial-repositories.ts": "818C824842C45F7674B9D206DA8758E36BAC96FBBDF7701CD906646EE4B7F5FE",
+    "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.ts": "4B372036BF61784B5734665F33DFF2D61B8D5D1CF52F1B0278187E9F6A2085BC",
+    "infrastructure/prisma/repositories/commercial/prisma-commercial-transaction-repository.test.ts": "9D976B46000C1FCD62E2CE1D2C0FD8000EE197C2E4BE5FF848C62705D8647591",
+    "prisma/schema.prisma": "B568D1DAD16A91B41B3DC8171EB73CECA40465A027984A310C4CD39898CDC1CE",
+    "infrastructure/prisma/mappers/commercial-event-mapper.ts": "3888280B926E7F5DC9824E6EEEC21B428BCBA60234A7FB06ABDF511B1F54537A",
+    "application/r2/normalize-r2-event.ts": "B6EBC6F331133E7E18D5BD448F256CF6C784EF023D745E085F655E9A69EC31ED",
+    "application/r2/r2-intelligence-orchestration.test.ts": "B9545B1A53474A61E386618838DB0C850F7302A6F8AA42A172C9AA018BD8566B",
+    "lib/commercial-event-presenter.ts": "1F73B404432D3BBAE6E74B525F3B49F10519DCA641BA3164A8C152716EC624FB",
+    "lib/commercial-event-presenter.test.ts": "B350991B8DC352E00E3BDF17D4D6B14AE9B0B27A61AC7B177E7D7CB904328EE2",
+    "application/opportunity/create-opportunity-async.ts": "AFDCFD5ACE091A8520D953725703299FD68F49A3B575CFFDEF79A42D7C41DFBA",
+    "application/opportunity/create-opportunity-async.test.ts": "927046D5C4A8D402C2C962464AFEB9EA857DB2046D869A809734B25BDD2B7009",
+    "app/opportunities/new/actions.ts": "BE50480D5DB83310336F59D405D8489B7FF19C7EFBAEF3EAB735E2C405185D77"
+  },
+  "transformedFiles": {},
+  "generatedHashBefore": "0857D6AC42B6C2491E3ACB3EB7B74EAD51CC6403E9EB681A9DE93CA0FB8424AB",
+  "generatedBackupHash": "0857D6AC42B6C2491E3ACB3EB7B74EAD51CC6403E9EB681A9DE93CA0FB8424AB",
+  "migrationHash": "",
+  "rollbackAt": "2026-08-03T00:41:52.108Z"
+}

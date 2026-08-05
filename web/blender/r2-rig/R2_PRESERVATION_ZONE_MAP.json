@@ -1,0 +1,27 @@
+{
+  "all_existing_vertex_coordinates_preserved": true,
+  "all_polygons_outside_authorized_mask_preserved": true,
+  "non_foundation_objects_preserved": [
+    "R2_Arm_Fur_R",
+    "R2_Hand_L",
+    "R2_Hand_R",
+    "R2_Head_Face",
+    "R2_Head_Fur",
+    "R2_Hood",
+    "R2_Hood_Cord_L",
+    "R2_Hood_Cord_R",
+    "R2_Hoodie_Sleeve_L",
+    "R2_Hoodie_Sleeve_R",
+    "R2_Hoodie_Torso",
+    "R2_Pants",
+    "R2_Rig",
+    "R2_Shoe_L",
+    "R2_Shoe_R"
+  ],
+  "schema_version": 1,
+  "source_material_slots_preserved": true,
+  "source_sha256": "340EEDFD0251432E6B8326B23EAE3AD268D560CC9D2FEE0940C8F03F9DC5B64B",
+  "source_uv_names_preserved": true,
+  "source_vertex_groups_preserved": true,
+  "source_vertex_order_sha256": "B67AD7CDAFC66A8A591E13D6EE2AF8C645F84F9B3285F61A313A44B855F5D3B2"
+}

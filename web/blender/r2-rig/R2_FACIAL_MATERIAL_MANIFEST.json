@@ -1,0 +1,103 @@
+{
+  "all_image_texture_nodes": 0,
+  "materials_before": [],
+  "new_materials": [
+    {
+      "base_color": [
+        0.7200000286102295,
+        0.7400000095367432,
+        0.6899999976158142,
+        1.0
+      ],
+      "image_texture_nodes": 0,
+      "metallic": 0.0,
+      "name": "R2_Mat_EyeSclera",
+      "roughness": 0.3400000035762787
+    },
+    {
+      "base_color": [
+        0.12999999523162842,
+        0.07500000298023224,
+        0.052000001072883606,
+        1.0
+      ],
+      "image_texture_nodes": 0,
+      "metallic": 0.0,
+      "name": "R2_Mat_Eyelid",
+      "roughness": 0.5799999833106995
+    },
+    {
+      "base_color": [
+        0.04500000178813934,
+        0.3400000035762787,
+        0.1599999964237213,
+        1.0
+      ],
+      "image_texture_nodes": 0,
+      "metallic": 0.18000000715255737,
+      "name": "R2_Mat_IrisTechGreen",
+      "roughness": 0.27000001072883606
+    },
+    {
+      "base_color": [
+        0.1599999964237213,
+        0.054999999701976776,
+        0.04500000178813934,
+        1.0
+      ],
+      "image_texture_nodes": 0,
+      "metallic": 0.0,
+      "name": "R2_Mat_Lip",
+      "roughness": 0.6200000047683716
+    },
+    {
+      "base_color": [
+        0.04500000178813934,
+        0.00800000037997961,
+        0.012000000104308128,
+        1.0
+      ],
+      "image_texture_nodes": 0,
+      "metallic": 0.0,
+      "name": "R2_Mat_MouthInterior",
+      "roughness": 0.7200000286102295
+    },
+    {
+      "base_color": [
+        0.004000000189989805,
+        0.006000000052154064,
+        0.004999999888241291,
+        1.0
+      ],
+      "image_texture_nodes": 0,
+      "metallic": 0.0,
+      "name": "R2_Mat_Pupil",
+      "roughness": 0.2199999988079071
+    },
+    {
+      "base_color": [
+        0.6899999976158142,
+        0.6499999761581421,
+        0.5,
+        1.0
+      ],
+      "image_texture_nodes": 0,
+      "metallic": 0.0,
+      "name": "R2_Mat_Teeth",
+      "roughness": 0.46000000834465027
+    },
+    {
+      "base_color": [
+        0.2800000011920929,
+        0.054999999701976776,
+        0.06499999761581421,
+        1.0
+      ],
+      "image_texture_nodes": 0,
+      "metallic": 0.0,
+      "name": "R2_Mat_Tongue",
+      "roughness": 0.6600000262260437
+    }
+  ],
+  "schema_version": 1
+}

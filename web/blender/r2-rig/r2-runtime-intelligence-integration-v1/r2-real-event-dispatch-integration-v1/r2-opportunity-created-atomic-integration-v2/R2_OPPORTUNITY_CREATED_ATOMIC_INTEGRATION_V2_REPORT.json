@@ -1,0 +1,18 @@
+{
+    "schemaVersion":  2,
+    "generatedAt":  "2026-08-02T21:41:39.8825863-03:00",
+    "verdict":  "REPROVADO_ROLLBACK_INCOMPLETO",
+    "nextStep":  "PARAR_E_ANALISAR_RELATORIO",
+    "error":  "APPLY TRANSFORMATIONS WITH VERIFIED BACKUP falhou com exit code 1.",
+    "migrationDeployStarted":  false,
+    "migrationDeploySucceeded":  false,
+    "rollbackPerformed":  true,
+    "postMigrationFailure":  false,
+    "headBefore":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+    "headFinal":  "5db7dba5618eca83d14437d50aa0d4665c8bdf9b",
+    "stagedCountBefore":  0,
+    "stagedCountFinal":  0,
+    "glbHashBefore":  "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE",
+    "glbHashFinal":  "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE",
+    "reportPath":  "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-runtime-intelligence-integration-v1\\r2-real-event-dispatch-integration-v1\\r2-opportunity-created-atomic-integration-v2\\R2_OPPORTUNITY_CREATED_ATOMIC_INTEGRATION_V2_REPORT.txt"
+}

@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "audit": "R2_STATE_ANIMATION_ORCHESTRATION_V1_AUTHORING_READ_ONLY",
+  "blendPath": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-full-character-color-readable-ready-v2\\r2-full-character-color-readable-ready-v2.blend",
+  "blendSha256": "2EEC504BFC6F3C0D0B1BF6B1EFA932445142DCB61527E94A64F9C4A3A5EE491D",
+  "objectCount": 36,
+  "meshObjectCount": 30,
+  "renderableMeshCount": 29,
+  "renderableMeshesWithoutMaterial": [],
+  "materialCount": 17,
+  "materialNames": [
+    "R2_Mat_Embroidery_Gray",
+    "R2_Mat_Embroidery_White",
+    "R2_Mat_EyeSclera",
+    "R2_Mat_Eyelid",
+    "R2_Mat_Fur_DarkGraphite",
+    "R2_Mat_Fur_MidGraphite",
+    "R2_Mat_GorillaOS_Green",
+    "R2_Mat_Hoodie_Black",
+    "R2_Mat_IrisTechGreen",
+    "R2_Mat_Lip",
+    "R2_Mat_MouthInterior",
+    "R2_Mat_Pants_Charcoal",
+    "R2_Mat_Pupil",
+    "R2_Mat_Shoes_Black",
+    "R2_Mat_Skin_Anthracite",
+    "R2_Mat_Teeth",
+    "R2_Mat_Tongue"
+  ],
+  "armatureCount": 1,
+  "boneCount": 65,
+  "boneNames": [
+    "CTRL-face-brow.L",
+    "CTRL-face-brow.R",
+    "CTRL-face-cheek.L",
+    "CTRL-face-cheek.R",
+    "CTRL-face-eye.L",
+    "CTRL-face-eye.R",
+    "CTRL-face-jaw",
+    "CTRL-face-lip-lower",
+    "CTRL-face-lip-upper",
+    "CTRL-face-mouth-corner.L",
+    "CTRL-face-mouth-corner.R",
+    "CTRL-face-muzzle",
+    "CTRL-face-root",
+    "DEF-face-jaw",
+    "chest",
+    "clavicle.L",
+    "clavicle.R",
+    "foot.L",
+    "foot.R",
+    "forearm.L",
+    "forearm.R",
+    "hand.L",
+    "hand.R",
+    "head",
+    "index_01.L",
+    "index_01.R",
+    "index_02.L",
+    "index_02.R",
+    "index_03.L",
+    "index_03.R",
+    "middle_01.L",
+    "middle_01.R",
+    "middle_02.L",
+    "middle_02.R",
+    "middle_03.L",
+    "middle_03.R",
+    "neck",
+    "pelvis",
+    "pinky_01.L",
+    "pinky_01.R",
+    "pinky_02.L",
+    "pinky_02.R",
+    "pinky_03.L",
+    "pinky_03.R",
+    "ring_01.L",
+    "ring_01.R",
+    "ring_02.L",
+    "ring_02.R",
+    "ring_03.L",
+    "ring_03.R",
+    "root",
+    "shin.L",
+    "shin.R",
+    "spine_01",
+    "spine_02",
+    "thigh.L",
+    "thigh.R",
+    "thumb_01.L",
+    "thumb_01.R",
+    "thumb_02.L",
+    "thumb_02.R",
+    "toe.L",
+    "toe.R",
+    "upper_arm.L",
+    "upper_arm.R"
+  ],
+  "morphTargetOccurrences": 24,
+  "morphTargets": [
+    {
+      "object": "R2_Head_Face_Foundation",
+      "name": "EXP_BROW_RAISE",
+      "index": 0
+    },
+    {
+      "object": "R2_Head_Face_Foundation",
+      "name": "EXP_BROW_FROWN",
+      "index": 1
+    },
+    {
+      "object": "R2_Head_Face_Foundation",
+      "name": "EXP_CHEEK_RAISE",
+      "index": 2
+    },
+    {
+      "object": "R2_Head_Face_Foundation",
+      "name": "EXP_MUZZLE",
+      "index": 3
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_LIPS_CLOSED",
+      "index": 0
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_SMILE",
+      "index": 1
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_FROWN",
+      "index": 2
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_MOUTH_NARROW",
+      "index": 3
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_MOUTH_WIDE",
+      "index": 4
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_MOUTH_O",
+      "index": 5
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_MOUTH_E",
+      "index": 6
+    },
+    {
+      "object": "R2_LipLower",
+      "name": "EXP_VISEME_FV",
+      "index": 7
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_LIPS_CLOSED",
+      "index": 0
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_SMILE",
+      "index": 1
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_FROWN",
+      "index": 2
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_MOUTH_NARROW",
+      "index": 3
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_MOUTH_WIDE",
+      "index": 4
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_MOUTH_O",
+      "index": 5
+    },
+    {
+      "object": "R2_LipUpper",
+      "name": "EXP_MOUTH_E",
+      "index": 6
+    },
+    {
+      "object": "R2_LowerEyelid.L",
+      "name": "EXP_BLINK",
+      "index": 0
+    },
+    {
+      "object": "R2_LowerEyelid.R",
+      "name": "EXP_BLINK",
+      "index": 0
+    },
+    {
+      "object": "R2_Tongue",
+      "name": "EXP_VISEME_L",
+      "index": 0
+    },
+    {
+      "object": "R2_UpperEyelid.L",
+      "name": "EXP_BLINK",
+      "index": 0
+    },
+    {
+      "object": "R2_UpperEyelid.R",
+      "name": "EXP_BLINK",
+      "index": 0
+    }
+  ],
+  "animationCount": 9,
+  "animations": [
+    {
+      "name": "R2_ALERT",
+      "durationFrames": 35.0,
+      "durationSeconds": 1.1666666666666667,
+      "fCurveCount": 39
+    },
+    {
+      "name": "R2_AWAITING_ACTION",
+      "durationFrames": 74.0,
+      "durationSeconds": 2.466666666666667,
+      "fCurveCount": 39
+    },
+    {
+      "name": "R2_CELEBRATING_SALE",
+      "durationFrames": 71.0,
+      "durationSeconds": 2.3666666666666667,
+      "fCurveCount": 39
+    },
+    {
+      "name": "R2_ERROR_ATTENTION",
+      "durationFrames": 59.0,
+      "durationSeconds": 1.9666666666666666,
+      "fCurveCount": 39
+    },
+    {
+      "name": "R2_IDLE",
+      "durationFrames": 119.0,
+      "durationSeconds": 3.966666666666667,
+      "fCurveCount": 39
+    },
+    {
+      "name": "R2_LISTENING",
+      "durationFrames": 89.0,
+      "durationSeconds": 2.966666666666667,
+      "fCurveCount": 39
+    },
+    {
+      "name": "R2_NEUTRAL",
+      "durationFrames": 29.0,
+      "durationSeconds": 0.9666666666666667,
+      "fCurveCount": 39
+    },
+    {
+      "name": "R2_THINKING",
+      "durationFrames": 89.0,
+      "durationSeconds": 2.966666666666667,
+      "fCurveCount": 39
+    },
+    {
+      "name": "R2_WORKING",
+      "durationFrames": 71.0,
+      "durationSeconds": 2.3666666666666667,
+      "fCurveCount": 39
+    }
+  ],
+  "readOnly": true,
+  "passed": true,
+  "verdict": "APROVADO"
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>R2 v35 — Separacao logica controlada</title>
+<style>
+:root{color-scheme:dark;font-family:"Segoe UI",sans-serif;background:#090d0b;color:#eef7f0}
+body{margin:0;padding:28px}
+h1{margin-bottom:6px}
+p{color:#a9bbae}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(520px,1fr));gap:18px}
+.card{background:#111a15;border:1px solid #314a39;border-radius:14px;padding:14px;overflow:hidden}
+img{width:100%;height:auto;border-radius:8px;background:#080c0a}
+table{width:100%;border-collapse:collapse;background:#111a15;border:1px solid #314a39}
+th,td{padding:10px;border-bottom:1px solid #263a2d;text-align:left;vertical-align:top}
+th{color:#9ed0ad}
+code{color:#8de5a9}
+</style>
+</head>
+<body>
+<h1>R2 v35 — Separacao logica controlada</h1>
+<p>O v34 permanece visualmente identico. As cores mostram os 14 objetos semanticos criados.</p>
+<h2>Comparacao de integridade</h2>
+<section class="grid"><article class="card"><h2>Comparacao front</h2><a href="validation/comparison-front.png"><img src="validation/comparison-front.png" alt="Comparacao front"></a></article><article class="card"><h2>Comparacao back</h2><a href="validation/comparison-back.png"><img src="validation/comparison-back.png" alt="Comparacao back"></a></article><article class="card"><h2>Comparacao left</h2><a href="validation/comparison-left.png"><img src="validation/comparison-left.png" alt="Comparacao left"></a></article><article class="card"><h2>Comparacao right</h2><a href="validation/comparison-right.png"><img src="validation/comparison-right.png" alt="Comparacao right"></a></article></section>
+<h2>Mapa dos objetos semanticos</h2>
+<section class="grid"><article class="card"><h2>Separacao front</h2><a href="validation/semantic-front.png"><img src="validation/semantic-front.png" alt="Separacao front"></a></article><article class="card"><h2>Separacao back</h2><a href="validation/semantic-back.png"><img src="validation/semantic-back.png" alt="Separacao back"></a></article><article class="card"><h2>Separacao left</h2><a href="validation/semantic-left.png"><img src="validation/semantic-left.png" alt="Separacao left"></a></article><article class="card"><h2>Separacao right</h2><a href="validation/semantic-right.png"><img src="validation/semantic-right.png" alt="Separacao right"></a></article></section>
+<h2>Inventario</h2>
+<table>
+<thead>
+<tr>
+<th>Objeto</th>
+<th>Regiao</th>
+<th>Componentes</th>
+<th>Vertices</th>
+<th>Faces</th>
+<th>IDs originais</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>R2_Head_Face</td><td>FACE</td><td>1</td><td>3697</td><td>7086</td><td>C086</td></tr><tr><td>R2_Head_Fur</td><td>HEAD_NECK_FUR</td><td>14</td><td>18673</td><td>35015</td><td>C009,C013,C014,C015,C018,C020,C024,C034,C054,C057,C065,C085,C093,C094</td></tr><tr><td>R2_Hood</td><td>HOOD</td><td>6</td><td>18418</td><td>35120</td><td>C000,C001,C002,C011,C012,C052</td></tr><tr><td>R2_Hoodie_Torso</td><td>HOODIE_TORSO</td><td>13</td><td>37815</td><td>72344</td><td>C003,C004,C005,C028,C030,C042,C061,C068,C075,C077,C080,C104,C105</td></tr><tr><td>R2_Hoodie_Sleeve_L</td><td>SLEEVE_LEFT</td><td>3</td><td>7290</td><td>13841</td><td>C045,C046,C047</td></tr><tr><td>R2_Hoodie_Sleeve_R</td><td>SLEEVE_RIGHT</td><td>5</td><td>14274</td><td>27266</td><td>C010,C031,C035,C036,C049</td></tr><tr><td>R2_Pants</td><td>PANTS</td><td>18</td><td>54599</td><td>104307</td><td>C006,C007,C008,C019,C023,C026,C027,C029,C032,C033,C037,C038,C039,C044,C048,C051,C064,C076</td></tr><tr><td>R2_Hand_L</td><td>HAND_LEFT</td><td>9</td><td>9586</td><td>17980</td><td>C050,C059,C079,C081,C087,C095,C096,C100,C103</td></tr><tr><td>R2_Hand_R</td><td>HAND_RIGHT</td><td>14</td><td>10588</td><td>19837</td><td>C053,C058,C062,C063,C066,C069,C070,C074,C078,C082,C089,C091,C097,C098</td></tr><tr><td>R2_Arm_Fur_R</td><td>ARM_FUR_RIGHT</td><td>1</td><td>137</td><td>218</td><td>C067</td></tr><tr><td>R2_Shoe_L</td><td>SHOE_LEFT</td><td>3</td><td>11144</td><td>21399</td><td>C021,C022,C073</td></tr><tr><td>R2_Shoe_R</td><td>SHOE_RIGHT</td><td>2</td><td>10911</td><td>21071</td><td>C016,C017</td></tr><tr><td>R2_Hood_Cord_L</td><td>HOOD_ACCESSORY_LEFT</td><td>2</td><td>162</td><td>265</td><td>C107,C109</td></tr><tr><td>R2_Hood_Cord_R</td><td>HOOD_ACCESSORY_RIGHT</td><td>2</td><td>132</td><td>208</td><td>C106,C108</td></tr>
+</tbody>
+</table>
+</body>
+</html>

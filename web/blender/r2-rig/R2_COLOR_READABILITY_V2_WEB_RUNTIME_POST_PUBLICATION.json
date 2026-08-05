@@ -1,0 +1,180 @@
+{
+  "SchemaVersion": 1,
+  "Audit": "COLOR_READABILITY_V2_WEB_RUNTIME_HEADLESS",
+  "AssetPath": "C:\\Projetos\\consorcio-os\\web\\public\\models\\r2\\r2-full-character-color-readable-ready-v2.glb",
+  "SourceSha256": "0D960B9E263F17B6B03C52F855B7D5606AE2822524A1DB4EA38FB5552D8696DE",
+  "FileSizeBytes": 13160568,
+  "ParseAttempts": 3,
+  "ParseDurationsMs": [
+    160.966,
+    110.506,
+    82.063
+  ],
+  "NodeCount": 115,
+  "MeshCount": 37,
+  "BoneCount": 65,
+  "MaterialCount": 17,
+  "MorphTargetCount": 24,
+  "AnimationNames": [
+    "R2_ALERT",
+    "R2_AWAITING_ACTION",
+    "R2_CELEBRATING_SALE",
+    "R2_ERROR_ATTENTION",
+    "R2_IDLE",
+    "R2_LISTENING",
+    "R2_NEUTRAL",
+    "R2_THINKING",
+    "R2_WORKING"
+  ],
+  "RuntimeStateCount": 10,
+  "PairwiseTransitions": 100,
+  "RepeatedTransitionCycles": 25,
+  "ExpressionChannelCount": 18,
+  "VisemeCount": 6,
+  "BrandingPresent": true,
+  "BrandingAssignments": {
+    "R2_Brand_RightChest_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Brand_LeftArm_GorillaMark_R2_Patch": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ],
+    "R2_Brand_UpperBack_GorillaMark": [
+      "R2_Mat_Embroidery_Gray",
+      "R2_Mat_Embroidery_White"
+    ]
+  },
+  "BrandingHierarchy": true,
+  "BrandingPlacementValid": true,
+  "MainAssignments": {
+    "R2_Arm_Fur_R": [
+      "R2_Mat_Fur_MidGraphite"
+    ],
+    "R2_Hand_L": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Hand_R": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Head_Face_Foundation": [
+      "R2_Mat_Skin_Anthracite"
+    ],
+    "R2_Head_Fur": [
+      "R2_Mat_Fur_DarkGraphite"
+    ],
+    "R2_Hood": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_Hood_Cord_L": [
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "R2_Hood_Cord_R": [
+      "R2_Mat_GorillaOS_Green"
+    ],
+    "R2_Hoodie_Sleeve_L": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_Hoodie_Sleeve_R": [
+      "R2_Mat_Hoodie_Black"
+    ],
+    "R2_Hoodie_Torso": [
+      "R2_Mat_Hoodie_Black",
+      "R2_Mat_Pants_Charcoal"
+    ],
+    "R2_Pants": [
+      "R2_Mat_Pants_Charcoal"
+    ],
+    "R2_Shoe_L": [
+      "R2_Mat_Shoes_Black"
+    ],
+    "R2_Shoe_R": [
+      "R2_Mat_Shoes_Black"
+    ]
+  },
+  "AllMainMeshesMaterialized": true,
+  "NoDefaultWhiteMainMeshes": true,
+  "ExpectedBrandingAssignments": true,
+  "MaterialPalette": {
+    "R2_Mat_Fur_DarkGraphite": {
+      "color": 2961710,
+      "roughness": 0.800000011920929,
+      "metalness": 0,
+      "passed": true
+    },
+    "R2_Mat_Fur_MidGraphite": {
+      "color": 3159089,
+      "roughness": 0.7799999713897705,
+      "metalness": 0,
+      "passed": true
+    },
+    "R2_Mat_Skin_Anthracite": {
+      "color": 4278083,
+      "roughness": 0.6800000071525574,
+      "metalness": 0,
+      "passed": true
+    },
+    "R2_Mat_Hoodie_Black": {
+      "color": 5200954,
+      "roughness": 0.8199999928474426,
+      "metalness": 0,
+      "passed": true
+    },
+    "R2_Mat_Pants_Charcoal": {
+      "color": 3553854,
+      "roughness": 0.7799999713897705,
+      "metalness": 0,
+      "passed": true
+    },
+    "R2_Mat_Shoes_Black": {
+      "color": 1316632,
+      "roughness": 0.5400000214576721,
+      "metalness": 0,
+      "passed": true
+    }
+  },
+  "MaterialPalettePassed": true,
+  "NeutralResetExact": true,
+  "ControllerDisposed": true,
+  "RemountDistinct": true,
+  "RemountDisposed": true,
+  "RuntimeMaterialOverrides": 0,
+  "ResponsiveFraming": [
+    {
+      "aspect": 0.5,
+      "distance": 6.1948434312577545,
+      "cameraVerticalCoverage": 0.592352027720367,
+      "modelScale": 1.14,
+      "effectiveVerticalCoverage": 0.6752813116012183,
+      "passed": true
+    },
+    {
+      "aspect": 0.75,
+      "distance": 5.829181083594446,
+      "cameraVerticalCoverage": 0.6315789473684211,
+      "modelScale": 1.14,
+      "effectiveVerticalCoverage": 0.72,
+      "passed": true
+    },
+    {
+      "aspect": 1,
+      "distance": 5.829181083594446,
+      "cameraVerticalCoverage": 0.6315789473684211,
+      "modelScale": 1.14,
+      "effectiveVerticalCoverage": 0.72,
+      "passed": true
+    },
+    {
+      "aspect": 2,
+      "distance": 5.829181083594446,
+      "cameraVerticalCoverage": 0.6315789473684211,
+      "modelScale": 1.14,
+      "effectiveVerticalCoverage": 0.72,
+      "passed": true
+    }
+  ],
+  "CreatedImages": 0,
+  "RuntimeConsoleErrors": 0,
+  "Passed": true
+}

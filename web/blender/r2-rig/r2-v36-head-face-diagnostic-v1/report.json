@@ -1,0 +1,537 @@
+{
+  "audit": "R2 pre-v36 head face read-only diagnostic v1",
+  "blender_version": "4.5.10 LTS",
+  "blend_path": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v35-logical-separation-v1\\r2-rig-v35-logical-separation.blend",
+  "blend_saved": false,
+  "object": {
+    "name": "R2_Head_Face",
+    "type": "MESH",
+    "vertices": 3697,
+    "edges": 10806,
+    "faces": 7086,
+    "materials": [],
+    "uv_layers": [],
+    "shape_keys": [],
+    "parent": "R2_Rig",
+    "parent_type": "ARMATURE",
+    "matrix_world": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "modifiers": [
+      {
+        "name": "R2_Armature",
+        "type": "ARMATURE",
+        "show_viewport": true,
+        "show_render": true,
+        "object": "R2_Rig"
+      }
+    ],
+    "mesh_topology_sha256": "6903376494A7DA85BD24ECFD938421733B26900881D6493DB35817294F9A7CCB",
+    "weights_sha256": "461E28983E338C6A9B95F9BB64B2D4A0EF668B8153870A291DDB6ECAE30A3A6E"
+  },
+  "topology": {
+    "polygon_sides": {
+      "3": 7086
+    },
+    "triangles": 7086,
+    "quads": 0,
+    "ngons": 0,
+    "boundary_edges": 354,
+    "wire_edges": 0,
+    "non_manifold_edges": 354,
+    "loose_vertices": 0,
+    "degenerate_edges": 0,
+    "zero_area_faces": 0,
+    "connected_islands": 1,
+    "island_vertex_sizes": [
+      3697
+    ],
+    "vertex_valence_histogram": {
+      "2": 33,
+      "3": 63,
+      "4": 290,
+      "5": 850,
+      "6": 1568,
+      "7": 663,
+      "8": 182,
+      "9": 42,
+      "10": 4,
+      "12": 2
+    },
+    "edge_length": {
+      "min": 0.0010064280359074473,
+      "median": 0.004828488687053323,
+      "mean": 0.005030300584169253,
+      "max": 0.016720516607165337
+    },
+    "face_area": {
+      "min": 2.4931568987085484e-07,
+      "median": 9.21800710784737e-06,
+      "mean": 9.782765844791666e-06,
+      "max": 5.4996828112052754e-05
+    }
+  },
+  "vertex_groups": {
+    "group_count": 50,
+    "unweighted_vertices": 0,
+    "groups": [
+      {
+        "index": 3,
+        "name": "chest",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 6,
+        "name": "clavicle.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 24,
+        "name": "clavicle.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 44,
+        "name": "foot.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 48,
+        "name": "foot.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 8,
+        "name": "forearm.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 26,
+        "name": "forearm.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 9,
+        "name": "hand.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 27,
+        "name": "hand.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 5,
+        "name": "head",
+        "assigned_vertices": 3697,
+        "weight_min": 0.916448175907135,
+        "weight_mean": 0.9692043583877414,
+        "weight_max": 1.0
+      },
+      {
+        "index": 12,
+        "name": "index_01.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 30,
+        "name": "index_01.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 13,
+        "name": "index_02.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 31,
+        "name": "index_02.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 14,
+        "name": "index_03.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 32,
+        "name": "index_03.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 15,
+        "name": "middle_01.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 33,
+        "name": "middle_01.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 16,
+        "name": "middle_02.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 34,
+        "name": "middle_02.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 17,
+        "name": "middle_03.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 35,
+        "name": "middle_03.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 4,
+        "name": "neck",
+        "assigned_vertices": 2800,
+        "weight_min": 2.1640820705215447e-05,
+        "weight_mean": 0.040661254205729164,
+        "weight_max": 0.0835517942905426
+      },
+      {
+        "index": 0,
+        "name": "pelvis",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 21,
+        "name": "pinky_01.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 39,
+        "name": "pinky_01.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 22,
+        "name": "pinky_02.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 40,
+        "name": "pinky_02.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 23,
+        "name": "pinky_03.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 41,
+        "name": "pinky_03.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 18,
+        "name": "ring_01.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 36,
+        "name": "ring_01.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 19,
+        "name": "ring_02.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 37,
+        "name": "ring_02.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 20,
+        "name": "ring_03.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 38,
+        "name": "ring_03.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 43,
+        "name": "shin.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 47,
+        "name": "shin.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 1,
+        "name": "spine_01",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 2,
+        "name": "spine_02",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 42,
+        "name": "thigh.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 46,
+        "name": "thigh.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 10,
+        "name": "thumb_01.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 28,
+        "name": "thumb_01.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 11,
+        "name": "thumb_02.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 29,
+        "name": "thumb_02.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 45,
+        "name": "toe.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 49,
+        "name": "toe.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 7,
+        "name": "upper_arm.L",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      },
+      {
+        "index": 25,
+        "name": "upper_arm.R",
+        "assigned_vertices": 0,
+        "weight_min": 0.0,
+        "weight_mean": 0.0,
+        "weight_max": 0.0
+      }
+    ]
+  },
+  "images": [
+    {
+      "file": "head-face-solid-front.png",
+      "sha256": "E31C685A74E8E4DA2F0B5942AB2C3E775BD0E695F680948C4194C7FFC55F4258"
+    },
+    {
+      "file": "head-face-solid-left_three_quarter.png",
+      "sha256": "61505F7AB61821F141B850CCDE9DA7D06CD50EECA5EEAFD2D0FAAD2E0933E072"
+    },
+    {
+      "file": "head-face-solid-right_three_quarter.png",
+      "sha256": "215F7E3B683168B7711C341E911CA62A6D11EEF4466E113670341045FD5C1ECC"
+    },
+    {
+      "file": "head-face-solid-side.png",
+      "sha256": "67CA86EB7DD9B018D84FB0A31A7BEDA4689F0768146202D0262FCF5AF5369504"
+    },
+    {
+      "file": "head-face-wire-front.png",
+      "sha256": "32C876364204E11C2041C657A27AFC19F6BE81D77B7F50DD3017FF17379AF6E5"
+    },
+    {
+      "file": "head-face-wire-left_three_quarter.png",
+      "sha256": "2E4DC3D6852B05122383E93E01CBDF9DC6EB1B4DFF3D9C683F7022AEE593B852"
+    },
+    {
+      "file": "head-face-wire-right_three_quarter.png",
+      "sha256": "6AA3943B5E6375851BD5119999FA00CD29330C603D57DA74EBB0B4DF2F53AB7F"
+    },
+    {
+      "file": "head-face-wire-side.png",
+      "sha256": "651F309D7F634660DBCFEF3B43F2F72A4539C0ACCB6521D9426B829EF53397E4"
+    }
+  ]
+}

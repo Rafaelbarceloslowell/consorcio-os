@@ -1,0 +1,561 @@
+{
+  "audit": "R2 V39 Nasal Bridge Region Read-Only V1",
+  "blender_version": "4.5.10 LTS",
+  "execution_status": "COMPLETED",
+  "technical_verdict": "APROVADO",
+  "audit_passed": true,
+  "source_blend": "C:\\Projetos\\consorcio-os\\web\\blender\\r2-rig\\r2-v38-eye-brow-region-retopology-v2\\r2-rig-v38-eye-brow-region-retopology-v2.blend",
+  "source_sha256": "466A5DAAFE1123A0922DF54CB85ECCBB60B1FB6C573E2D308C9B112CCAF928C2",
+  "source_read_only": true,
+  "blend_saved": false,
+  "new_blends_created": 0,
+  "images_created": 0,
+  "visual_validation_required": false,
+  "json_serialization_safe": true,
+  "json_roundtrip_validated": true,
+  "foundation": {
+    "mesh_topology_sha256": "C2569747C2213F25174D6B6C672702D8F0A14B0306E886DD754F05607F3728ED",
+    "topology": {
+      "vertices": 3699,
+      "edges": 10701,
+      "faces": 6979,
+      "boundary_edges": 354,
+      "invalid_non_manifold_edges": 0,
+      "wire_edges": 0,
+      "loose_vertices": 0,
+      "zero_area_faces": 0,
+      "connected_islands": 1,
+      "island_vertex_sizes": [
+        3699
+      ]
+    },
+    "muzzle_patch_faces": 148,
+    "eye_patch_faces": 37,
+    "unweighted_vertices": 0
+  },
+  "preflight": {
+    "source_faces": true,
+    "boundary_edges": true,
+    "one_island": true,
+    "invalid_non_manifold": true,
+    "wire_edges": true,
+    "loose_vertices": true,
+    "zero_area_faces": true,
+    "muzzle_patch_faces": true,
+    "eye_patch_faces": true,
+    "unweighted_vertices": true,
+    "used_groups": true,
+    "parent": true,
+    "armature_modifier": true
+  },
+  "bbox": {
+    "minimum": [
+      -0.043171923607587814,
+      -0.30559760332107544,
+      0.6516481637954712
+    ],
+    "maximum": [
+      0.11104054749011993,
+      -0.10961980372667313,
+      0.9505565762519836
+    ],
+    "diagonal": 0.3892749990257039,
+    "symmetry_plane_local_x": 0.0
+  },
+  "protected_faces": 185,
+  "blocked_faces": 251,
+  "allowed_faces": 6728,
+  "muzzle_centroid": [
+    -9.993029379984364e-05,
+    -0.3009192943572998,
+    0.7221599817276001
+  ],
+  "eye_centroid": [
+    -0.0007877942989580333,
+    -0.22728900611400604,
+    0.8418607115745544
+  ],
+  "target_height_fractions": [
+    0.36,
+    0.44,
+    0.52,
+    0.6
+  ],
+  "radius_fractions": [
+    0.012,
+    0.015,
+    0.018,
+    0.021,
+    0.024,
+    0.027,
+    0.03
+  ],
+  "seed_failures": [],
+  "target_candidates_tested": 28,
+  "passing_candidates": 8,
+  "selected_candidate": {
+    "target_height_fraction": 0.6,
+    "radius_fraction": 0.03,
+    "radius": 0.011678249970771116,
+    "seeds": {
+      "positive_index": 2794,
+      "negative_index": 2792,
+      "indices": [
+        2792,
+        2794
+      ],
+      "positive_point": [
+        0.002118377946317196,
+        -0.24930749833583832,
+        0.792272686958313
+      ],
+      "negative_point": [
+        -0.0011591921793296933,
+        -0.24924251437187195,
+        0.7922626733779907
+      ],
+      "mirror_error_normalized": 0.0024698136287583596
+    },
+    "selected_faces": 38,
+    "selected_vertices": 27,
+    "selected_area": 0.00029389165598363987,
+    "selected_area_percent": 0.42400364583087286,
+    "face_components": 1,
+    "boundary": {
+      "edges": [
+        [
+          2651,
+          2653
+        ],
+        [
+          2651,
+          2719
+        ],
+        [
+          2653,
+          2656
+        ],
+        [
+          2656,
+          2723
+        ],
+        [
+          2716,
+          2718
+        ],
+        [
+          2716,
+          2786
+        ],
+        [
+          2718,
+          2720
+        ],
+        [
+          2719,
+          2791
+        ],
+        [
+          2720,
+          2723
+        ],
+        [
+          2786,
+          2855
+        ],
+        [
+          2791,
+          2861
+        ],
+        [
+          2855,
+          2924
+        ],
+        [
+          2861,
+          2925
+        ],
+        [
+          2924,
+          2925
+        ]
+      ],
+      "edge_count": 14,
+      "components": [
+        {
+          "vertices": [
+            2651,
+            2653,
+            2656,
+            2716,
+            2718,
+            2719,
+            2720,
+            2723,
+            2786,
+            2791,
+            2855,
+            2861,
+            2924,
+            2925
+          ],
+          "edge_count": 14,
+          "closed": true,
+          "branched": false,
+          "global_boundary_touch": 0,
+          "degree_histogram": {
+            "2": 14
+          }
+        }
+      ],
+      "component_count": 1,
+      "closed_count": 1,
+      "branched_count": 0,
+      "global_boundary_touch": 0
+    },
+    "euler": 1,
+    "centroid": [
+      0.0003607407270465046,
+      -0.2481086105108261,
+      0.7922037839889526
+    ],
+    "crosses_x0": true,
+    "centrality_error": 0.002339244781983789,
+    "vertex_balance": 0.9285714285714286,
+    "span_balance": 0.9439581038083169,
+    "between_muzzle_and_eyes": true,
+    "protected_overlap_faces": 0,
+    "blocked_overlap_faces": 0,
+    "non_outside_overlap_faces": 0,
+    "head_weight_average": 0.9401129616631402,
+    "head_weight_minimum": 0.9342197179794312,
+    "neck_weight_average": 0.05988703309385865,
+    "selected_face_indices": [
+      5145,
+      5146,
+      5147,
+      5148,
+      5149,
+      5150,
+      5151,
+      5152,
+      5153,
+      5276,
+      5280,
+      5281,
+      5282,
+      5283,
+      5284,
+      5285,
+      5286,
+      5287,
+      5289,
+      5290,
+      5291,
+      5292,
+      5409,
+      5410,
+      5411,
+      5412,
+      5413,
+      5414,
+      5417,
+      5418,
+      5419,
+      5420,
+      5421,
+      5422,
+      5541,
+      5542,
+      5543,
+      5544
+    ],
+    "selected_vertex_indices": [
+      2651,
+      2653,
+      2656,
+      2716,
+      2718,
+      2719,
+      2720,
+      2721,
+      2722,
+      2723,
+      2724,
+      2725,
+      2786,
+      2789,
+      2791,
+      2792,
+      2793,
+      2794,
+      2795,
+      2855,
+      2858,
+      2859,
+      2860,
+      2861,
+      2862,
+      2924,
+      2925
+    ],
+    "selection_sha256": "5F630E0B8A4CDE6F4326DC72B4148B4F42ABBE8A5FB97EF8C593265DA8096335",
+    "gates": {
+      "face_count": true,
+      "area_percent": true,
+      "one_face_component": true,
+      "one_boundary_component": true,
+      "boundary_closed": true,
+      "boundary_not_branched": true,
+      "no_global_boundary_touch": true,
+      "disk_euler": true,
+      "crosses_x0": true,
+      "centrality": true,
+      "vertex_balance": true,
+      "span_balance": true,
+      "between_muzzle_and_eyes": true,
+      "no_protected_overlap": true,
+      "no_blocked_overlap": true,
+      "outside_region_only": true,
+      "seed_mirror_error": true,
+      "head_weight_average": true,
+      "head_weight_minimum": true,
+      "neck_weight_average": true
+    },
+    "passed": true,
+    "score": 2.278427209347581
+  },
+  "best_observed_candidate": {
+    "target_height_fraction": 0.6,
+    "radius_fraction": 0.03,
+    "radius": 0.011678249970771116,
+    "seeds": {
+      "positive_index": 2794,
+      "negative_index": 2792,
+      "indices": [
+        2792,
+        2794
+      ],
+      "positive_point": [
+        0.002118377946317196,
+        -0.24930749833583832,
+        0.792272686958313
+      ],
+      "negative_point": [
+        -0.0011591921793296933,
+        -0.24924251437187195,
+        0.7922626733779907
+      ],
+      "mirror_error_normalized": 0.0024698136287583596
+    },
+    "selected_faces": 38,
+    "selected_vertices": 27,
+    "selected_area": 0.00029389165598363987,
+    "selected_area_percent": 0.42400364583087286,
+    "face_components": 1,
+    "boundary": {
+      "edges": [
+        [
+          2651,
+          2653
+        ],
+        [
+          2651,
+          2719
+        ],
+        [
+          2653,
+          2656
+        ],
+        [
+          2656,
+          2723
+        ],
+        [
+          2716,
+          2718
+        ],
+        [
+          2716,
+          2786
+        ],
+        [
+          2718,
+          2720
+        ],
+        [
+          2719,
+          2791
+        ],
+        [
+          2720,
+          2723
+        ],
+        [
+          2786,
+          2855
+        ],
+        [
+          2791,
+          2861
+        ],
+        [
+          2855,
+          2924
+        ],
+        [
+          2861,
+          2925
+        ],
+        [
+          2924,
+          2925
+        ]
+      ],
+      "edge_count": 14,
+      "components": [
+        {
+          "vertices": [
+            2651,
+            2653,
+            2656,
+            2716,
+            2718,
+            2719,
+            2720,
+            2723,
+            2786,
+            2791,
+            2855,
+            2861,
+            2924,
+            2925
+          ],
+          "edge_count": 14,
+          "closed": true,
+          "branched": false,
+          "global_boundary_touch": 0,
+          "degree_histogram": {
+            "2": 14
+          }
+        }
+      ],
+      "component_count": 1,
+      "closed_count": 1,
+      "branched_count": 0,
+      "global_boundary_touch": 0
+    },
+    "euler": 1,
+    "centroid": [
+      0.0003607407270465046,
+      -0.2481086105108261,
+      0.7922037839889526
+    ],
+    "crosses_x0": true,
+    "centrality_error": 0.002339244781983789,
+    "vertex_balance": 0.9285714285714286,
+    "span_balance": 0.9439581038083169,
+    "between_muzzle_and_eyes": true,
+    "protected_overlap_faces": 0,
+    "blocked_overlap_faces": 0,
+    "non_outside_overlap_faces": 0,
+    "head_weight_average": 0.9401129616631402,
+    "head_weight_minimum": 0.9342197179794312,
+    "neck_weight_average": 0.05988703309385865,
+    "selected_face_indices": [
+      5145,
+      5146,
+      5147,
+      5148,
+      5149,
+      5150,
+      5151,
+      5152,
+      5153,
+      5276,
+      5280,
+      5281,
+      5282,
+      5283,
+      5284,
+      5285,
+      5286,
+      5287,
+      5289,
+      5290,
+      5291,
+      5292,
+      5409,
+      5410,
+      5411,
+      5412,
+      5413,
+      5414,
+      5417,
+      5418,
+      5419,
+      5420,
+      5421,
+      5422,
+      5541,
+      5542,
+      5543,
+      5544
+    ],
+    "selected_vertex_indices": [
+      2651,
+      2653,
+      2656,
+      2716,
+      2718,
+      2719,
+      2720,
+      2721,
+      2722,
+      2723,
+      2724,
+      2725,
+      2786,
+      2789,
+      2791,
+      2792,
+      2793,
+      2794,
+      2795,
+      2855,
+      2858,
+      2859,
+      2860,
+      2861,
+      2862,
+      2924,
+      2925
+    ],
+    "selection_sha256": "5F630E0B8A4CDE6F4326DC72B4148B4F42ABBE8A5FB97EF8C593265DA8096335",
+    "gates": {
+      "face_count": true,
+      "area_percent": true,
+      "one_face_component": true,
+      "one_boundary_component": true,
+      "boundary_closed": true,
+      "boundary_not_branched": true,
+      "no_global_boundary_touch": true,
+      "disk_euler": true,
+      "crosses_x0": true,
+      "centrality": true,
+      "vertex_balance": true,
+      "span_balance": true,
+      "between_muzzle_and_eyes": true,
+      "no_protected_overlap": true,
+      "no_blocked_overlap": true,
+      "outside_region_only": true,
+      "seed_mirror_error": true,
+      "head_weight_average": true,
+      "head_weight_minimum": true,
+      "neck_weight_average": true
+    },
+    "passed": true,
+    "score": 2.278427209347581
+  },
+  "next_step": "CREATE_V39_NASAL_BRIDGE_REGION_RETAPOLOGY"
+}

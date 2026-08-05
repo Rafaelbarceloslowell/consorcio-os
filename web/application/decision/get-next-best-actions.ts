@@ -24,6 +24,13 @@ export type OperationalNextBestAction = {
   leadId: string | null
 
   clientId: string | null
+
+  contactName?: string | null
+
+  approachType?:
+    | "new"
+    | "reactivation"
+    | null
 }
 
 type GetNextBestActionsCommonInput = {
@@ -136,7 +143,7 @@ function validateLimit(
     limit < 1
   ) {
     throw new Error(
-      `O limite de recomendações deve ser um número inteiro maior que zero. Valor recebido: "${limit}".`,
+      `O limite de recomendaÃƒÂ§ÃƒÂµes deve ser um nÃƒÂºmero inteiro maior que zero. Valor recebido: "${limit}".`,
     )
   }
 }
@@ -243,12 +250,16 @@ function isAsyncCommercialRepositories(
 
 function getLegacyNextBestActions({
   commercialRepository,
+  crmRepository,
   consultantId,
   now,
   limit,
 }: {
   commercialRepository:
     CommercialRepository
+
+
+  crmRepository?: CrmRepository
 
   consultantId?: string
 
@@ -294,6 +305,36 @@ function getLegacyNextBestActions({
 
             clientId:
               journey.clientId,
+
+            ...(
+              crmRepository
+                ? {
+                    contactName:
+                      journey.leadId
+                        ? crmRepository
+                            .getLeadById(
+                              journey.leadId,
+                            )
+                            ?.name ?? null
+                        : journey.clientId
+                          ? crmRepository
+                              .getClientById(
+                                journey.clientId,
+                              )
+                              ?.name ?? null
+                          : null,
+
+                    approachType:
+                      journey.leadId
+                        ? crmRepository
+                            .getLeadById(
+                              journey.leadId,
+                            )
+                            ?.approachType ?? null
+                        : null,
+                  }
+                : {}
+            ),
           }),
         )
       },
@@ -308,12 +349,16 @@ function getLegacyNextBestActions({
 
 async function getAsyncNextBestActions({
   commercialRepository,
+  crmRepository,
   consultantId,
   now,
   limit,
 }: {
   commercialRepository:
     AsyncCommercialRepositories
+
+
+  crmRepository?: CrmRepository
 
   consultantId?: string
 
@@ -333,46 +378,87 @@ async function getAsyncNextBestActions({
         .journeys
         .findAll()
 
-  const operationalActionGroups =
-    await Promise.all(
+  const journeysById =
+    new Map(
       journeys.map(
-        async (
+        (journey) => [
+          journey.id,
           journey,
-        ): Promise<
-          OperationalNextBestAction[]
-        > => {
-          const recommendations =
-            await commercialRepository
-              .nextBestActions
-              .findByJourneyId(
-                journey.id,
-              )
-
-          return recommendations.map(
-            (
-              recommendation,
-            ): OperationalNextBestAction => ({
-              recommendation,
-
-              journeyId:
-                journey.id,
-
-              journeyTitle:
-                journey.title,
-
-              leadId:
-                journey.leadId,
-
-              clientId:
-                journey.clientId,
-            }),
-          )
-        },
+        ] as const,
       ),
     )
 
+  const recommendations =
+    await commercialRepository
+      .nextBestActions
+      .findAll()
+
+  const operationalActions =
+    recommendations.flatMap(
+      (
+        recommendation,
+      ): OperationalNextBestAction[] => {
+        const journey =
+          journeysById.get(
+            recommendation.journeyId,
+          )
+
+        if (!journey) {
+          return []
+        }
+
+        return [
+          {
+            recommendation,
+
+            journeyId:
+              journey.id,
+
+            journeyTitle:
+              journey.title,
+
+            leadId:
+              journey.leadId,
+
+            clientId:
+              journey.clientId,
+
+            ...(
+              crmRepository
+                ? {
+                    contactName:
+                      journey.leadId
+                        ? crmRepository
+                            .getLeadById(
+                              journey.leadId,
+                            )
+                            ?.name ?? null
+                        : journey.clientId
+                          ? crmRepository
+                              .getClientById(
+                                journey.clientId,
+                              )
+                              ?.name ?? null
+                          : null,
+
+                    approachType:
+                      journey.leadId
+                        ? crmRepository
+                            .getLeadById(
+                              journey.leadId,
+                            )
+                            ?.approachType ?? null
+                        : null,
+                  }
+                : {}
+            ),
+          },
+        ]
+      },
+    )
+
   return finalizeOperationalActions(
-    operationalActionGroups.flat(),
+    operationalActions,
     now,
     limit,
   )
@@ -390,6 +476,7 @@ export function getNextBestActions(
 
 export function getNextBestActions({
   commercialRepository,
+  crmRepository,
   consultantId,
   now = new Date(),
   limit = 10,
@@ -407,6 +494,7 @@ export function getNextBestActions({
   ) {
     return getAsyncNextBestActions({
       commercialRepository,
+      crmRepository,
       consultantId,
       now,
       limit,
@@ -415,6 +503,7 @@ export function getNextBestActions({
 
   return getLegacyNextBestActions({
     commercialRepository,
+    crmRepository,
     consultantId,
     now,
     limit,
