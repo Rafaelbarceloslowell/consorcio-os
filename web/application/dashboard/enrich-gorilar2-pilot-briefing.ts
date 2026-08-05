@@ -145,8 +145,8 @@ export function enrichGorilaR2PilotBriefing(
       isReactivation
         ? "Fila de reativa\u00e7\u00e3o pronta. O R2 selecionou o pr\u00f3ximo contato."
         : isNew
-          ? "Fila de novos atendimentos pronta. O R2 selecionou o prÃƒÂ³ximo contato."
-          : "Tipo de atendimento ainda nÃƒÂ£o definido.",
+          ? "Fila de novos atendimentos pronta. O R2 selecionou o prÃƒÆ’Ã‚Â³ximo contato."
+          : "Tipo de atendimento ainda n\u00e3o definido.",
     analysis:
       isReactivation
         ? (

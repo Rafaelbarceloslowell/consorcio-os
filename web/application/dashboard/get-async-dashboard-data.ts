@@ -200,7 +200,7 @@ function formatScheduledDateLabel(
   }
 
   if (dayDifference === 1) {
-    return "amanhã"
+    return "amanh\u00e3"
   }
 
   return new Intl.DateTimeFormat(
@@ -238,7 +238,7 @@ function consultantPositionTitle(
     return "Administrador"
   }
 
-  return "Consultor Sênior"
+  return "Consultor S\u00eanior"
 }
 
 function isDataCrazyReactivationStage(
@@ -248,7 +248,7 @@ function isDataCrazyReactivationStage(
     stageName
       .trim()
       .toLocaleLowerCase("pt-BR") ===
-    "reativação data crazy"
+    "reativa\u00e7\u00e3o data crazy"
   )
 }
 
@@ -266,7 +266,7 @@ export async function getAsyncDashboardData(
 
   if (!normalizedWorkspaceId) {
     throw new Error(
-      "O workspace é obrigatório para carregar o Mission Control.",
+      "O workspace \u00e9 obrigat\u00f3rio para carregar o Mission Control.",
     )
   }
 
@@ -379,6 +379,40 @@ export async function getAsyncDashboardData(
       .findAll(),
   ])
 
+  const enrichedOperationalActions =
+    operationalActions.map(
+      (action) => {
+        const lead =
+          action.leadId
+            ? leads.find(
+                (item) =>
+                  item.id ===
+                  action.leadId,
+              )
+            : undefined
+
+        const client =
+          action.clientId
+            ? clients.find(
+                (item) =>
+                  item.id ===
+                  action.clientId,
+              )
+            : undefined
+
+        return {
+          ...action,
+          contactName:
+            lead?.name ??
+            client?.name ??
+            null,
+          approachType:
+            lead?.approachType ??
+            null,
+        }
+      },
+    )
+
   const baseDashboardData: DashboardData = {
     user: selectedConsultant
       ? {
@@ -395,7 +429,7 @@ export async function getAsyncDashboardData(
           id: "commercial-team",
           name: "Equipe Comercial",
           positionTitle:
-            "Operação comercial",
+            "Opera\u00e7\u00e3o comercial",
         },
 
     summary: "",
@@ -416,7 +450,8 @@ export async function getAsyncDashboardData(
   const dashboardData =
     mapOperationalDashboardData({
       baseDashboardData,
-      operationalActions,
+      operationalActions:
+        enrichedOperationalActions,
     })
 
   const consultantLeads =
@@ -637,25 +672,25 @@ export async function getAsyncDashboardData(
             opportunity.leadId
               ? (
                   lead?.name ??
-                  "Lead não identificado"
+                  "Lead n\u00e3o identificado"
                 )
               : (
                   client?.name ??
-                  "Cliente não identificado"
+                  "Cliente n\u00e3o identificado"
                 ),
           consultantName:
             consultant?.name ??
-            "Consultor não identificado",
+            "Consultor n\u00e3o identificado",
           priority:
             opportunity.priority,
           score:
             opportunity.score,
           phaseName:
             phase?.name ??
-            "Fase indisponível",
+            "Fase indispon\u00edvel",
           stateName:
             state?.name ??
-            "Estado indisponível",
+            "Estado indispon\u00edvel",
           consortiumType:
             opportunity
               .consortiumType,
@@ -727,7 +762,7 @@ export async function getAsyncDashboardData(
             clientName:
               client?.name ??
               lead?.name ??
-              "Contato não identificado",
+              "Contato nÃƒÂ£o identificado",
           }
         },
       )
@@ -899,9 +934,9 @@ export async function getAsyncDashboardData(
     ).length
 
   const recommendedLead =
-    operationalActions[0]?.leadId
+    enrichedOperationalActions[0]?.leadId
       ? leadsById.get(
-          operationalActions[0].leadId,
+          enrichedOperationalActions[0].leadId,
         )
       : undefined
 
@@ -997,7 +1032,7 @@ export async function getAsyncDashboardData(
       buildGorilaR2Briefing({
         intelligence,
       }),
-      operationalActions,
+      enrichedOperationalActions,
       pendingCommercialAction
         ? {
             action:
@@ -1036,20 +1071,23 @@ export async function getAsyncDashboardData(
     pipeline,
 
     summary:
-      operationalActions[0]?.recommendation.id
-        .startsWith(
-          "dc_reactivation_nba_",
-        )
-        ? `O R2 organizou ${reactivatedLeads.length} leads reativados e selecionou o próximo contato da fila.`
-        : criticalCount > 0
-          ? `Hoje existem ${criticalCount} oportunidades críticas. Resolver a primeira ação aumenta sua chance de avançar ainda hoje.`
+      enrichedOperationalActions[0]
+        ?.approachType ===
+      "reactivation"
+        ? `O R2 organizou ${reactivatedLeads.length} leads reativados e selecionou o pr\u00f3ximo contato da fila.`
+        : enrichedOperationalActions[0]
+              ?.approachType ===
+            "new"
+          ? "O R2 selecionou o pr\u00f3ximo novo atendimento da fila."
+          : criticalCount > 0
+          ? `Hoje existem ${criticalCount} oportunidades crÃƒÂ­ticas. Resolver a primeira aÃƒÂ§ÃƒÂ£o aumenta sua chance de avanÃƒÂ§ar ainda hoje.`
         : unpreparedMeetings > 0
-          ? `Você possui ${unpreparedMeetings} reuniões sem preparação. Organize o contexto antes do próximo compromisso.`
+          ? `VocÃƒÂª possui ${unpreparedMeetings} reuniÃƒÂµes sem preparaÃƒÂ§ÃƒÂ£o. Organize o contexto antes do prÃƒÂ³ximo compromisso.`
           : staleOpportunities > 0
-            ? `${staleOpportunities} oportunidades aguardam retomada há mais de 48 horas.`
+            ? `${staleOpportunities} oportunidades aguardam retomada hÃƒÂ¡ mais de 48 horas.`
             : scheduledFollowUp
-              ? `Próximo retorno com ${scheduledFollowUp.contactName}: ${scheduledFollowUp.dateLabel} às ${scheduledFollowUp.time}.`
-              : "Sua operação está organizada. Comece pela próxima ação recomendada.",
+              ? `PrÃƒÂ³ximo retorno com ${scheduledFollowUp.contactName}: ${scheduledFollowUp.dateLabel} ÃƒÂ s ${scheduledFollowUp.time}.`
+              : "Sua operaÃƒÂ§ÃƒÂ£o estÃƒÂ¡ organizada. Comece pela prÃƒÂ³xima aÃƒÂ§ÃƒÂ£o recomendada.",
 
     intelligence,
   }
