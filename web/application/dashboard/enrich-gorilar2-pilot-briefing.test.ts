@@ -125,7 +125,7 @@ describe(
     )
 
     it(
-      "apresenta a fila de reativaÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Â£o do Data Crazy sem mensagem genÃƒÆ’Ã‚Â©rica",
+      "pede o contexto recente antes de formular qualquer mensagem de reativa\u00e7\u00e3o",
       () => {
         const action =
           operationalAction()
@@ -137,9 +137,9 @@ describe(
         action.recommendation.description =
           "Entre em contato com Sarah e registre o resultado."
         action.recommendation.reason =
-          "Lead reativado do Data Crazy Ãƒâ€šÃ‚Â· Inbound."
+          "Lead reativado do Data Crazy \u00b7 Inbound."
         action.journeyTitle =
-          "ReativaÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Â£o - Sarah"
+          "Reativa\u00e7\u00e3o - Sarah"
         action.contactName =
           "Sarah"
         action.approachType =
@@ -149,17 +149,78 @@ describe(
           enrichGorilaR2PilotBriefing(
             baseBriefing,
             [action],
+            undefined,
+            {
+              hasRecentConversationContext:
+                false,
+            },
           )
 
         expect(result).toMatchObject({
           greeting:
-            "Fila de reativa\u00e7\u00e3o pronta. O R2 selecionou o pr\u00f3ximo contato.",
+            "Reativa\u00e7\u00e3o selecionada. Antes de falar com Sarah, o R2 precisa do contexto recente.",
           analysis:
-            "Entre em contato com Sarah e registre o resultado.",
+            "Cole no GorillaOS as \u00faltimas mensagens trocadas com Sarah. O R2 precisa entender onde a conversa parou antes de preparar qualquer nova mensagem.",
           recommendation:
-            "Retomar contato com Sarah",
+            "Informar contexto recente de Sarah",
           reason:
-            "Lead reativado do Data Crazy Ãƒâ€šÃ‚Â· Inbound.",
+            "Sem o hist\u00f3rico recente, qualquer mensagem seria um chute. O R2 n\u00e3o deve formular uma abordagem sem contexto.",
+          nextAction: {
+            title:
+              "Informar contexto recente de Sarah",
+            priority: "high",
+          },
+          pilotAction: {
+            opportunityHref:
+              "/opportunities/journey-1#opportunity-manual-whatsapp-title",
+            title:
+              "Informar contexto recente de Sarah",
+            requiresConversationContext:
+              true,
+          },
+        })
+      },
+    )
+
+    it(
+      "libera a revis\u00e3o da retomada somente depois que o contexto foi analisado",
+      () => {
+        const action =
+          operationalAction()
+
+        action.contactName =
+          "Sarah"
+        action.approachType =
+          "reactivation"
+
+        const result =
+          enrichGorilaR2PilotBriefing(
+            baseBriefing,
+            [action],
+            undefined,
+            {
+              hasRecentConversationContext:
+                true,
+            },
+          )
+
+        expect(result).toMatchObject({
+          greeting:
+            "Contexto da reativa\u00e7\u00e3o carregado. O R2 pode preparar uma retomada coerente.",
+          analysis:
+            "O contexto recente de Sarah est\u00e1 salvo. Abra a oportunidade, revise a resposta preparada pelo R2 e confirme a abordagem.",
+          recommendation:
+            "Revisar retomada com Sarah",
+          reason:
+            "A mem\u00f3ria comercial foi analisada. A retomada deve continuar exatamente do ponto em que a conversa parou.",
+          pilotAction: {
+            opportunityHref:
+              "/opportunities/journey-1",
+            title:
+              "Revisar retomada com Sarah",
+            requiresConversationContext:
+              false,
+          },
         })
       },
     )

@@ -1,8 +1,9 @@
-﻿import {
+import {
   CommercialActionOrigin,
   CommercialActionStatus,
   CommercialActorType,
   CommercialEventType,
+  LeadApproachType,
 } from "@/lib/generated/prisma/client"
 
 import {
@@ -235,6 +236,18 @@ export async function POST(
           select: {
             id: true,
             consultantId: true,
+            lead: {
+              select: {
+                approachType: true,
+              },
+            },
+            conversationMemory: {
+              select: {
+                lastIncomingMessage:
+                  true,
+                analyzedAt: true,
+              },
+            },
           },
         },
       },
@@ -275,6 +288,38 @@ export async function POST(
       {
         error:
           "A recomendaÃ§Ã£o jÃ¡ foi decidida ou expirou.",
+      },
+      409,
+    )
+  }
+
+  const isReactivation =
+    recommendation.journey
+      .lead?.approachType ===
+    LeadApproachType.REACTIVATION
+
+  const hasRecentConversationContext =
+    Boolean(
+      recommendation.journey
+        .conversationMemory
+        ?.lastIncomingMessage
+        ?.trim(),
+    ) &&
+    Boolean(
+      recommendation.journey
+        .conversationMemory
+        ?.analyzedAt,
+    )
+
+  if (
+    input.decision === "ACCEPT" &&
+    isReactivation &&
+    !hasRecentConversationContext
+  ) {
+    return json(
+      {
+        error:
+          "Antes de aceitar esta reativa\u00e7\u00e3o, informe e analise as \u00faltimas mensagens da conversa no GorillaOS.",
       },
       409,
     )

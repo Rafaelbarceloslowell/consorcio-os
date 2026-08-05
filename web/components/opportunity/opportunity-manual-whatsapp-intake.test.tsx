@@ -57,7 +57,7 @@ describe(
         ).toBeInTheDocument()
         expect(
           screen.getByText(
-            /não lê o WhatsApp e não grava/i,
+            /não lê o WhatsApp e salva apenas/i,
           ),
         ).toBeInTheDocument()
         expect(
@@ -70,6 +70,94 @@ describe(
             name: /enviar/i,
           }),
         ).not.toBeInTheDocument()
+      },
+    )
+
+    it(
+      "pede as últimas mensagens quando a oportunidade é uma reativação",
+      () => {
+        render(
+          <OpportunityManualWhatsAppIntake
+            contactName="Sarah"
+            approachType="reactivation"
+          />,
+        )
+
+        expect(
+          screen.getByRole("region", {
+            name:
+              "Informar contexto recente",
+          }),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByText(
+            /últimas mensagens trocadas entre você e o cliente/i,
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByRole("textbox", {
+            name:
+              "Últimas mensagens da conversa",
+          }).getAttribute(
+            "placeholder",
+          ),
+        ).toContain(
+          "Cliente: Ainda quero analisar.",
+        )
+
+        expect(
+          screen.getByRole("button", {
+            name:
+              "Analisar contexto",
+          }),
+        ).toBeDisabled()
+      },
+    )
+
+    it(
+      "entende que o cliente nunca respondeu e prepara uma nova abertura",
+      () => {
+        render(
+          <OpportunityManualWhatsAppIntake
+            contactName="Janaina Rodrigues"
+            approachType="reactivation"
+          />,
+        )
+
+        fireEvent.change(
+          screen.getByRole("textbox", {
+            name:
+              "Últimas mensagens da conversa",
+          }),
+          {
+            target: {
+              value:
+                "O cliente nunca me respondeu.",
+            },
+          },
+        )
+
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Analisar contexto",
+          }),
+        )
+
+        expect(
+          screen.getByText(
+            "Cliente ainda não respondeu",
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByRole("textbox", {
+            name: "Resposta preparada pelo R2",
+          }),
+        ).toHaveValue(
+          "Oi, Janaina, tudo bem? Tentei falar com você há um tempo, mas ainda não conseguimos conversar. Hoje você está buscando imóvel, veículo ou quer entender o consórcio como investimento?",
+        )
       },
     )
 

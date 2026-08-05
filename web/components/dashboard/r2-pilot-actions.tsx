@@ -53,6 +53,10 @@ export function R2PilotActions({
   const [error, setError] =
     useState<string | null>(null)
 
+  const requiresConversationContext =
+    action.requiresConversationContext ===
+    true
+
   function decide(
     decision: R2PilotDecision,
   ): void {
@@ -126,19 +130,23 @@ export function R2PilotActions({
           href={action.opportunityHref}
           className={`${buttonBase} border-white/[0.10] bg-white/[0.035] text-[#D6DBE3] hover:border-white/[0.18] hover:bg-white/[0.06]`}
         >
-          Abrir oportunidade
+          {requiresConversationContext
+            ? "Informar últimas mensagens"
+            : "Abrir oportunidade"}
         </Link>
 
-        <button
-          type="button"
-          disabled={isPending}
-          onClick={() => decide("ACCEPT")}
-          className={`${buttonBase} border-[#2F8F5B]/35 bg-[#2F8F5B]/15 text-[#6FD39B] hover:border-[#43A972]/55 hover:bg-[#2F8F5B]/22`}
-        >
-          {isPending && activeDecision === "ACCEPT"
-            ? "Registrando..."
-            : decisionLabels.ACCEPT}
-        </button>
+        {!requiresConversationContext ? (
+          <button
+            type="button"
+            disabled={isPending}
+            onClick={() => decide("ACCEPT")}
+            className={`${buttonBase} border-[#2F8F5B]/35 bg-[#2F8F5B]/15 text-[#6FD39B] hover:border-[#43A972]/55 hover:bg-[#2F8F5B]/22`}
+          >
+            {isPending && activeDecision === "ACCEPT"
+              ? "Registrando..."
+              : decisionLabels.ACCEPT}
+          </button>
+        ) : null}
 
         <button
           type="button"
@@ -177,7 +185,9 @@ export function R2PilotActions({
           </span>
         ) : (
           <span className="text-[#697384]">
-            Você decide. O R2 registra e reorganiza a próxima prioridade.
+            {requiresConversationContext
+              ? "O R2 não vai formular nem aceitar uma mensagem até analisar o contexto recente."
+              : "Você decide. O R2 registra e reorganiza a próxima prioridade."}
           </span>
         )}
       </p>

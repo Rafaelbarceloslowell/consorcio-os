@@ -120,6 +120,7 @@ export type GorilaR2PilotAction = {
   reason: string
   priority: NextBestActionPriority
   confidence: number
+  requiresConversationContext?: boolean
 }
 
 

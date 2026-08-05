@@ -52,6 +52,8 @@ const recommendation = {
   journey: {
     id: "journey-1",
     consultantId: "consultant-1",
+    lead: null,
+    conversationMemory: null,
   },
 }
 
@@ -244,6 +246,88 @@ describe(
         })
         expect(
           mocks.createEvent,
+        ).toHaveBeenCalledTimes(1)
+      },
+    )
+
+    it(
+      "bloqueia o aceite da reativação enquanto faltar contexto analisado",
+      async () => {
+        mocks.findRecommendation
+          .mockResolvedValue({
+            ...recommendation,
+            journey: {
+              ...recommendation.journey,
+              lead: {
+                approachType:
+                  "REACTIVATION",
+              },
+              conversationMemory:
+                null,
+            },
+          })
+
+        const response = await POST(
+          request({
+            workspaceId:
+              "workspace-1",
+            consultantId:
+              "consultant-1",
+            decision: "ACCEPT",
+          }),
+          context,
+        )
+
+        expect(response.status).toBe(409)
+        expect(
+          await response.json(),
+        ).toEqual({
+          error:
+            "Antes de aceitar esta reativação, informe e analise as últimas mensagens da conversa no GorillaOS.",
+        })
+        expect(
+          mocks.transaction,
+        ).not.toHaveBeenCalled()
+      },
+    )
+
+    it(
+      "aceita a reativação quando o contexto analisado informa que o cliente nunca respondeu",
+      async () => {
+        mocks.findRecommendation
+          .mockResolvedValue({
+            ...recommendation,
+            journey: {
+              ...recommendation.journey,
+              lead: {
+                approachType:
+                  "REACTIVATION",
+              },
+              conversationMemory: {
+                lastIncomingMessage:
+                  "O cliente nunca me respondeu.",
+                analyzedAt:
+                  new Date(
+                    "2026-08-05T18:00:00.000Z",
+                  ),
+              },
+            },
+          })
+
+        const response = await POST(
+          request({
+            workspaceId:
+              "workspace-1",
+            consultantId:
+              "consultant-1",
+            decision: "ACCEPT",
+          }),
+          context,
+        )
+
+        expect(response.status).toBe(200)
+        expect(
+          mocks.transaction,
         ).toHaveBeenCalledTimes(1)
       },
     )

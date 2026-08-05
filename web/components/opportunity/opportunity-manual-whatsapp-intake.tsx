@@ -167,6 +167,15 @@ export function OpportunityManualWhatsAppIntake({
   contactName,
   approachType,
 }: OpportunityManualWhatsAppIntakeProps) {
+  const resolvedApproachType =
+    approachType === undefined
+      ? "new"
+      : approachType
+
+  const isReactivation =
+    resolvedApproachType ===
+    "reactivation"
+
   const [incomingMessage, setIncomingMessage] =
     useState("")
   const [analysis, setAnalysis] =
@@ -181,9 +190,10 @@ export function OpportunityManualWhatsAppIntake({
     useState(false)
 
   const commercialGoal =
-    analysis && approachType
+    analysis && resolvedApproachType
       ? buildNextGoal({
-          approachType,
+          approachType:
+            resolvedApproachType,
           stage: mapConversationStage(
             analysis.stage,
           ),
@@ -200,7 +210,8 @@ export function OpportunityManualWhatsAppIntake({
       buildManualWhatsAppReply({
         contactName,
         incomingMessage,
-        approachType,
+        approachType:
+          resolvedApproachType,
         analysis: nextAnalysis,
       })
 
@@ -211,7 +222,7 @@ export function OpportunityManualWhatsAppIntake({
 
     if (
       !nextAnalysis ||
-      !approachType ||
+      !resolvedApproachType ||
       !opportunityId
     ) {
       return
@@ -224,7 +235,8 @@ export function OpportunityManualWhatsAppIntake({
 
     const nextCommercialGoal =
       buildNextGoal({
-        approachType,
+        approachType:
+          resolvedApproachType,
         stage: nextStage,
       })
 
@@ -325,7 +337,9 @@ export function OpportunityManualWhatsAppIntake({
             id="opportunity-manual-whatsapp-title"
             className="mt-2 text-xl font-semibold tracking-[-0.035em]"
           >
-            Analisar mensagem recebida
+            {isReactivation
+              ? "Informar contexto recente"
+              : "Analisar mensagem recebida"}
           </h2>
         </div>
         <span className="rounded-full border border-[#43A972]/30 bg-[#2F8F5B]/12 px-3 py-1 text-xs font-semibold text-[#6FD39B]">
@@ -334,7 +348,9 @@ export function OpportunityManualWhatsAppIntake({
       </div>
 
       <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--gorila-text-soft)]">
-        {"Cole abaixo a \u00faltima mensagem recebida do cliente. A an\u00e1lise \u00e9 local, n\u00e3o l\u00ea o WhatsApp e salva apenas a mem\u00f3ria comercial no GorillaOS. Nenhuma mensagem ser\u00e1 enviada automaticamente."}
+        {isReactivation
+          ? "Cole abaixo as \u00faltimas mensagens trocadas entre voc\u00ea e o cliente, na ordem em que aconteceram. Como o WhatsApp ainda n\u00e3o est\u00e1 integrado, esse contexto \u00e9 obrigat\u00f3rio antes de o R2 formular qualquer nova mensagem."
+          : "Cole abaixo a \u00faltima mensagem recebida do cliente. A an\u00e1lise \u00e9 local, n\u00e3o l\u00ea o WhatsApp e salva apenas a mem\u00f3ria comercial no GorillaOS. Nenhuma mensagem ser\u00e1 enviada automaticamente."}
       </p>
 
       {initialMemory ? (
@@ -345,7 +361,9 @@ export function OpportunityManualWhatsAppIntake({
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#6FD39B]">
-                {"\u00daltima atualiza\u00e7\u00e3o manual"}
+                {isReactivation
+                  ? "\u00daltimo contexto analisado"
+                  : "\u00daltima atualiza\u00e7\u00e3o manual"}
               </p>
               <p className="mt-2 text-xs text-[var(--gorila-text-muted)]">
                 {formatMemoryDate(
@@ -374,7 +392,9 @@ export function OpportunityManualWhatsAppIntake({
           {initialMemory.lastIncomingMessage ? (
             <div className="mt-3 rounded-xl border border-[var(--gorila-line)] bg-[var(--gorila-surface)] p-3">
               <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]">
-                {"\u00daltima mensagem recebida"}
+                {isReactivation
+                  ? "\u00daltimo contexto informado"
+                  : "\u00daltima mensagem recebida"}
               </p>
               <p className="mt-2 whitespace-pre-wrap text-sm leading-6">
                 {
@@ -403,7 +423,9 @@ export function OpportunityManualWhatsAppIntake({
         htmlFor="opportunity-manual-whatsapp-message"
         className="mt-5 block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]"
       >
-        Mensagem recebida do cliente
+        {isReactivation
+          ? "\u00daltimas mensagens da conversa"
+          : "Mensagem recebida do cliente"}
       </label>
       <textarea
         id="opportunity-manual-whatsapp-message"
@@ -418,7 +440,11 @@ export function OpportunityManualWhatsAppIntake({
           setCopyStatus("")
           setMemoryStatus("")
         }}
-        placeholder="Cole aqui a mensagem recebida no WhatsApp"
+        placeholder={
+          isReactivation
+            ? "Ex.: Cliente: Ainda quero analisar.\nConsultor: Combinado, retorno na quarta.\nCliente: Pode me chamar pela manhã."
+            : "Cole aqui a mensagem recebida no WhatsApp"
+        }
         className="mt-3 w-full resize-y rounded-2xl border border-white/[0.10] bg-[#0F1412] px-4 py-3 text-sm leading-6 text-[#F5F7FA] outline-none transition focus:border-[#43A972]/55 focus:ring-4 focus:ring-[#2F8F5B]/10"
       />
 
@@ -434,7 +460,9 @@ export function OpportunityManualWhatsAppIntake({
         >
           {isSavingMemory
             ? "Analisando e salvando..."
-            : "Analisar mensagem"}
+            : isReactivation
+              ? "Analisar contexto"
+              : "Analisar mensagem"}
         </button>
         <button
           type="button"

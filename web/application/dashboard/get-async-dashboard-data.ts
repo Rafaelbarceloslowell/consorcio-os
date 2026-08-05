@@ -413,6 +413,40 @@ export async function getAsyncDashboardData(
       },
     )
 
+  const primaryOperationalAction =
+    enrichedOperationalActions[0]
+
+  const primaryConversationMemory =
+    primaryOperationalAction
+      ?.approachType ===
+    "reactivation"
+      ? await dependencies
+          .commercialRepository
+          .conversationMemories
+          .findByJourneyId(
+            primaryOperationalAction
+              .journeyId,
+          )
+      : undefined
+
+  const primaryConversationContext =
+    primaryOperationalAction
+      ?.approachType ===
+    "reactivation"
+      ? {
+          hasRecentConversationContext:
+            Boolean(
+              primaryConversationMemory
+                ?.lastIncomingMessage
+                ?.trim(),
+            ) &&
+            Boolean(
+              primaryConversationMemory
+                ?.analyzedAt,
+            ),
+        }
+      : undefined
+
   const baseDashboardData: DashboardData = {
     user: selectedConsultant
       ? {
@@ -1044,6 +1078,7 @@ export async function getAsyncDashboardData(
                 .title,
           }
         : undefined,
+      primaryConversationContext,
     )
 
   return {
@@ -1074,7 +1109,10 @@ export async function getAsyncDashboardData(
       enrichedOperationalActions[0]
         ?.approachType ===
       "reactivation"
-        ? `O R2 organizou ${reactivatedLeads.length} leads reativados e selecionou o pr\u00f3ximo contato da fila.`
+        ? primaryConversationContext
+            ?.hasRecentConversationContext
+          ? `O contexto da reativa\u00e7\u00e3o foi analisado. Revise a resposta preparada antes de continuar o contato.`
+          : `O R2 selecionou uma reativa\u00e7\u00e3o e aguarda as \u00faltimas mensagens antes de formular qualquer abordagem.`
         : enrichedOperationalActions[0]
               ?.approachType ===
             "new"

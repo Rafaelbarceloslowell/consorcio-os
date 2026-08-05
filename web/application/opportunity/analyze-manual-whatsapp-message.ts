@@ -5,6 +5,7 @@ export type ManualWhatsAppIntent =
   | "meeting_interest"
   | "interest_area"
   | "interested"
+  | "no_previous_response"
   | "needs_review"
 
 export type ManualWhatsAppStage =
@@ -57,6 +58,34 @@ export function analyzeManualWhatsAppMessage(
 
   if (!message) {
     return null
+  }
+
+  if (
+    containsAny(message, [
+      "cliente nunca me respondeu",
+      "cliente nao me respondeu",
+      "cliente nunca respondeu",
+      "cliente nao respondeu",
+      "ele nunca me respondeu",
+      "ela nunca me respondeu",
+      "nunca recebi resposta",
+      "nao recebi resposta",
+      "nao tive resposta",
+      "sem resposta do cliente",
+    ])
+  ) {
+    return {
+      intent:
+        "no_previous_response",
+      stage:
+        "opening",
+      label:
+        "Cliente ainda não respondeu",
+      summary:
+        "O histórico informado mostra tentativas anteriores sem resposta do cliente. Não existe uma conversa anterior para continuar.",
+      recommendedAction:
+        "Faça uma nova abertura curta, sem fingir continuidade, e busque a primeira resposta.",
+    }
   }
 
   if (

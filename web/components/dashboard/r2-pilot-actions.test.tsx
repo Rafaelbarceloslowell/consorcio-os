@@ -94,6 +94,50 @@ describe(
       },
     )
 
+    it(
+      "exige as últimas mensagens e não permite aceitar a reativação sem contexto",
+      () => {
+        render(
+          <R2PilotActions
+            workspaceId="workspace-1"
+            consultantId="consultant-1"
+            action={{
+              ...action,
+              opportunityHref:
+                "/opportunities/journey-1#opportunity-manual-whatsapp-title",
+              requiresConversationContext:
+                true,
+            }}
+          />,
+        )
+
+        expect(
+          screen.getByRole("link", {
+            name:
+              "Informar últimas mensagens",
+          }),
+        ).toHaveAttribute(
+          "href",
+          "/opportunities/journey-1#opportunity-manual-whatsapp-title",
+        )
+
+        expect(
+          screen.queryByRole("button", {
+            name:
+              "Aceitar recomendação",
+          }),
+        ).not.toBeInTheDocument()
+
+        expect(
+          screen.getByText(
+            /não vai formular nem aceitar uma mensagem/i,
+          ),
+        ).toBeInTheDocument()
+
+        expect(fetch).not.toHaveBeenCalled()
+      },
+    )
+
     it.each([
       [
         "Aceitar recomendação",

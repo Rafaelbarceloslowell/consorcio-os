@@ -51,6 +51,22 @@ describe(
     )
 
     it(
+      "prepara nova abertura quando o cliente nunca respondeu",
+      () => {
+        expect(
+          build({
+            message:
+              "O cliente nunca me respondeu.",
+            approachType:
+              "reactivation",
+          }),
+        ).toBe(
+          "Oi, Janaina, tudo bem? Tentei falar com você há um tempo, mas ainda não conseguimos conversar. Hoje você está buscando imóvel, veículo ou quer entender o consórcio como investimento?",
+        )
+      },
+    )
+
+    it(
       "continua o fluxo Seals quando o novo lead responde imovel",
       () => {
         expect(

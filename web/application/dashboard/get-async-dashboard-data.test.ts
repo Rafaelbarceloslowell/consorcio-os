@@ -18,6 +18,7 @@ import type {
 import type {
   Client,
   CommercialAction,
+  CommercialConversationMemory,
   CommercialJourney,
   Consortium,
   Consultant,
@@ -25,6 +26,7 @@ import type {
   JourneyState,
   Lead,
   Meeting,
+  NextBestAction,
   PipelineStage,
   Proposal,
   Sale,
@@ -245,6 +247,69 @@ function createJourney(
     version: 1,
     createdAt: TIMESTAMP,
     updatedAt: TIMESTAMP,
+    ...overrides,
+  }
+}
+
+
+
+function createRecommendation(
+  overrides:
+    Partial<NextBestAction> = {},
+): NextBestAction {
+  return {
+    id: "recommendation-1",
+    workspaceId:
+      "workspace-1",
+    journeyId:
+      "journey-reactivation",
+    actionType:
+      "SEND_MESSAGE",
+    title:
+      "Retomar contato",
+    description:
+      "Entre em contato e registre o resultado.",
+    reason:
+      "Lead reativado aguardando retomada.",
+    confidence: 0.92,
+    priority: "HIGH",
+    source:
+      "RULE_ENGINE",
+    expiresAt: null,
+    acceptedAt: null,
+    rejectedAt: null,
+    executedActionId: null,
+    createdAt: TIMESTAMP,
+    updatedAt: TIMESTAMP,
+    ...overrides,
+  }
+}
+
+function createConversationMemory(
+  overrides:
+    Partial<CommercialConversationMemory> = {},
+): CommercialConversationMemory {
+  return {
+    id: "memory-1",
+    workspaceId:
+      "workspace-1",
+    journeyId:
+      "journey-reactivation",
+    stage: "follow_up",
+    goal:
+      "confirm_follow_up",
+    lastIntent:
+      "retomar conversa",
+    lastIncomingMessage:
+      "Cliente: Ainda tenho interesse.\nConsultor: Vou revisar e te retorno.",
+    lastSuggestedReply:
+      "Oi, Sarah. Revisei nosso histórico e queria retomar do ponto combinado.",
+    analyzedAt:
+      TIMESTAMP,
+    createdAt:
+      TIMESTAMP,
+    updatedAt:
+      TIMESTAMP,
     ...overrides,
   }
 }
@@ -1099,6 +1164,143 @@ describe(
           recommendation:
             "Retornar contato com Lead real",
         })
+      },
+    )
+
+    it(
+      "exige contexto antes da reativação e libera a retomada depois da memória analisada",
+      async () => {
+        const reactivationStage =
+          createPipelineStage({
+            id:
+              "pipeline-reactivation",
+            name:
+              "Reativação Data Crazy",
+          })
+
+        const reactivatedLead = {
+          ...createLead(),
+          id: "lead-reactivation",
+          name: "Sarah",
+          approachType:
+            "reactivation" as const,
+          pipelineStageId:
+            reactivationStage.id,
+        }
+
+        const journey =
+          createJourney({
+            id:
+              "journey-reactivation",
+            leadId:
+              reactivatedLead.id,
+            clientId: null,
+          })
+
+        const commercialRepository =
+          createMockAsyncCommercialRepositories({
+            journeys: [journey],
+            nextBestActions: [
+              createRecommendation(),
+            ],
+            phases: [
+              createPhase(),
+            ],
+            states: [
+              createState(),
+            ],
+          })
+
+        const findConversationMemory =
+          vi.fn<
+            (
+              journeyId: string,
+            ) => Promise<
+              CommercialConversationMemory |
+              undefined
+            >
+          >()
+            .mockResolvedValueOnce(
+              undefined,
+            )
+            .mockResolvedValueOnce(
+              createConversationMemory(),
+            )
+
+        commercialRepository
+          .conversationMemories = {
+            findByJourneyId:
+              findConversationMemory,
+          }
+
+        const input = {
+          workspaceId:
+            "workspace-1",
+          consultantId:
+            "consultant-1",
+          now:
+            new Date(TIMESTAMP),
+        }
+
+        const dependencies = {
+          commercialRepository,
+          crmRepository:
+            createCrmRepositories({
+              leads: [
+                reactivatedLead,
+              ],
+              pipelineStages: [
+                reactivationStage,
+              ],
+            }),
+        }
+
+        const withoutContext =
+          await getAsyncDashboardData(
+            input,
+            dependencies,
+          )
+
+        expect(
+          withoutContext.gorilaR2,
+        ).toMatchObject({
+          recommendation:
+            "Informar contexto recente de Sarah",
+          pilotAction: {
+            requiresConversationContext:
+              true,
+          },
+        })
+
+        const withContext =
+          await getAsyncDashboardData(
+            input,
+            dependencies,
+          )
+
+        expect(
+          withContext.gorilaR2,
+        ).toMatchObject({
+          recommendation:
+            "Revisar retomada com Sarah",
+          pilotAction: {
+            requiresConversationContext:
+              false,
+          },
+        })
+
+        expect(
+          findConversationMemory,
+        ).toHaveBeenNthCalledWith(
+          1,
+          "journey-reactivation",
+        )
+        expect(
+          findConversationMemory,
+        ).toHaveBeenNthCalledWith(
+          2,
+          "journey-reactivation",
+        )
       },
     )
 

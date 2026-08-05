@@ -23,6 +23,28 @@ describe(
     )
 
     it(
+      "entende quando o cliente nunca respondeu",
+      () => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            "O cliente nunca me respondeu.",
+          ),
+        ).toEqual({
+          intent:
+            "no_previous_response",
+          stage:
+            "opening",
+          label:
+            "Cliente ainda não respondeu",
+          summary:
+            "O histórico informado mostra tentativas anteriores sem resposta do cliente. Não existe uma conversa anterior para continuar.",
+          recommendedAction:
+            "Faça uma nova abertura curta, sem fingir continuidade, e busque a primeira resposta.",
+        })
+      },
+    )
+
+    it(
       "identifica falta de interesse com prioridade",
       () => {
         expect(
