@@ -30,6 +30,9 @@ function build({
     analysis:
       analyzeManualWhatsAppMessage(
         message,
+        {
+          approachType,
+        },
       ),
   })
 }
@@ -62,6 +65,38 @@ describe(
           }),
         ).toBe(
           "Oi, Janaina, tudo bem? Tentei falar com você há um tempo, mas ainda não conseguimos conversar. Hoje você está buscando imóvel, veículo ou quer entender o consórcio como investimento?",
+        )
+      },
+    )
+
+    it(
+      "usa interesse conhecido mesmo quando o cliente nunca respondeu",
+      () => {
+        expect(
+          build({
+            message:
+              "O cliente queria um Corolla, mas nunca me respondeu.",
+            approachType:
+              "reactivation",
+          }),
+        ).toBe(
+          "Oi, Janaina, tudo bem? Vi que você tinha interesse em um Corolla, mas ainda não conseguimos conversar. Esse projeto continua nos seus planos?",
+        )
+      },
+    )
+
+    it(
+      "retoma pelo Corolla e pela data sem pular direto para uma reuniao",
+      () => {
+        expect(
+          build({
+            message:
+              "O cliente estava a procura de um automovel corola. Tentei marcar uma reunião, mas ele não respondeu mais. A última mensagem foi no dia 23/04/2026.",
+            approachType:
+              "reactivation",
+          }),
+        ).toBe(
+          "Oi, Janaina, tudo bem? Quando conversamos em 23/04/2026, você estava buscando um Corolla. Esse projeto ainda está de pé ou seus planos mudaram desde então?",
         )
       },
     )

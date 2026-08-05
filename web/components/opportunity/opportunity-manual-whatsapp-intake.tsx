@@ -56,6 +56,8 @@ function formatConversationStage(
       return "Estrat\u00e9gia"
     case "call_to_action":
       return "Pr\u00f3ximo passo"
+    case "follow_up":
+      return "Acompanhamento"
   }
 }
 
@@ -75,6 +77,8 @@ function mapConversationStage(
       return "strategy"
     case "call_to_action":
       return "meeting"
+    case "follow_up":
+      return "follow_up"
   }
 }
 
@@ -204,6 +208,10 @@ export function OpportunityManualWhatsAppIntake({
     const nextAnalysis =
       analyzeManualWhatsAppMessage(
         incomingMessage,
+        {
+          approachType:
+            resolvedApproachType,
+        },
       )
 
     const nextReply =
@@ -349,7 +357,7 @@ export function OpportunityManualWhatsAppIntake({
 
       <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--gorila-text-soft)]">
         {isReactivation
-          ? "Cole abaixo as \u00faltimas mensagens trocadas entre voc\u00ea e o cliente, na ordem em que aconteceram. Como o WhatsApp ainda n\u00e3o est\u00e1 integrado, esse contexto \u00e9 obrigat\u00f3rio antes de o R2 formular qualquer nova mensagem."
+          ? "Cole as \u00faltimas mensagens ou escreva um resumo do hist\u00f3rico, deixando claro o que o cliente queria, o que voc\u00ea fez e como ele respondeu. O R2 separa a fala do cliente da a\u00e7\u00e3o do consultor antes de preparar qualquer nova mensagem."
           : "Cole abaixo a \u00faltima mensagem recebida do cliente. A an\u00e1lise \u00e9 local, n\u00e3o l\u00ea o WhatsApp e salva apenas a mem\u00f3ria comercial no GorillaOS. Nenhuma mensagem ser\u00e1 enviada automaticamente."}
       </p>
 
@@ -424,7 +432,7 @@ export function OpportunityManualWhatsAppIntake({
         className="mt-5 block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]"
       >
         {isReactivation
-          ? "\u00daltimas mensagens da conversa"
+          ? "\u00daltimas mensagens ou resumo do hist\u00f3rico"
           : "Mensagem recebida do cliente"}
       </label>
       <textarea
@@ -442,7 +450,7 @@ export function OpportunityManualWhatsAppIntake({
         }}
         placeholder={
           isReactivation
-            ? "Ex.: Cliente: Ainda quero analisar.\nConsultor: Combinado, retorno na quarta.\nCliente: Pode me chamar pela manhã."
+            ? "Ex.: O cliente buscava um Corolla. Tentei marcar uma reuni\u00e3o, mas ele n\u00e3o respondeu mais. Meu \u00faltimo contato foi em 23/04/2026.\n\nOu use: Cliente: ... / Consultor: ..."
             : "Cole aqui a mensagem recebida no WhatsApp"
         }
         className="mt-3 w-full resize-y rounded-2xl border border-white/[0.10] bg-[#0F1412] px-4 py-3 text-sm leading-6 text-[#F5F7FA] outline-none transition focus:border-[#43A972]/55 focus:ring-4 focus:ring-[#2F8F5B]/10"

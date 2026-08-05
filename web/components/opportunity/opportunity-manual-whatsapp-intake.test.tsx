@@ -92,19 +92,19 @@ describe(
 
         expect(
           screen.getByText(
-            /últimas mensagens trocadas entre você e o cliente/i,
+            /últimas mensagens ou escreva um resumo do histórico/i,
           ),
         ).toBeInTheDocument()
 
         expect(
           screen.getByRole("textbox", {
             name:
-              "Últimas mensagens da conversa",
+              "Últimas mensagens ou resumo do histórico",
           }).getAttribute(
             "placeholder",
           ),
         ).toContain(
-          "Cliente: Ainda quero analisar.",
+          "O cliente buscava um Corolla.",
         )
 
         expect(
@@ -129,7 +129,7 @@ describe(
         fireEvent.change(
           screen.getByRole("textbox", {
             name:
-              "Últimas mensagens da conversa",
+              "Últimas mensagens ou resumo do histórico",
           }),
           {
             target: {
@@ -157,6 +157,79 @@ describe(
           }),
         ).toHaveValue(
           "Oi, Janaina, tudo bem? Tentei falar com você há um tempo, mas ainda não conseguimos conversar. Hoje você está buscando imóvel, veículo ou quer entender o consórcio como investimento?",
+        )
+      },
+    )
+
+    it(
+      "usa o contexto do Corolla e nao confunde tentativa de reuniao com aceite do cliente",
+      () => {
+        render(
+          <OpportunityManualWhatsAppIntake
+            contactName="Diego Fernandes"
+            approachType="reactivation"
+          />,
+        )
+
+        fireEvent.change(
+          screen.getByRole("textbox", {
+            name:
+              "Últimas mensagens ou resumo do histórico",
+          }),
+          {
+            target: {
+              value:
+                "O cliente estava a procura de um automovel corola. Tentei marcar uma reunião, mas ele não respondeu mais. A última mensagem foi no dia 23/04/2026.",
+            },
+          },
+        )
+
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Analisar contexto",
+          }),
+        )
+
+        expect(
+          screen.getByText(
+            "Conversa interrompida sem resposta",
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByText(
+            /O cliente buscava um Corolla/i,
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByText(
+            /último movimento do consultor foi uma tentativa de agendar uma reunião/i,
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByText(
+            /não respondeu mais depois do contato de 23\/04\/2026/i,
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByRole("textbox", {
+            name: "Resposta preparada pelo R2",
+          }),
+        ).toHaveValue(
+          "Oi, Diego, tudo bem? Quando conversamos em 23/04/2026, você estava buscando um Corolla. Esse projeto ainda está de pé ou seus planos mudaram desde então?",
+        )
+
+        expect(
+          (
+            screen.getByRole("textbox", {
+              name: "Resposta preparada pelo R2",
+            }) as HTMLTextAreaElement
+          ).value,
+        ).not.toContain(
+          "Qual horário funciona melhor?",
         )
       },
     )

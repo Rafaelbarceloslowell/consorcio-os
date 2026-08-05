@@ -28,18 +28,89 @@ describe(
         expect(
           analyzeManualWhatsAppMessage(
             "O cliente nunca me respondeu.",
+            {
+              approachType:
+                "reactivation",
+            },
           ),
-        ).toEqual({
+        ).toMatchObject({
           intent:
             "no_previous_response",
           stage:
             "opening",
           label:
             "Cliente ainda não respondeu",
-          summary:
-            "O histórico informado mostra tentativas anteriores sem resposta do cliente. Não existe uma conversa anterior para continuar.",
-          recommendedAction:
-            "Faça uma nova abertura curta, sem fingir continuidade, e busque a primeira resposta.",
+          context: {
+            customerResponseState:
+              "never_replied",
+          },
+        })
+      },
+    )
+
+    it(
+      "entende resumo de reativacao sem confundir acao do consultor com resposta do cliente",
+      () => {
+        const analysis =
+          analyzeManualWhatsAppMessage(
+            "O cliente estava a procura de um automovel corola. Tentei marcar uma reunião, mas ele não respondeu mais. A última mensagem foi no dia 23/04/2026.",
+            {
+              approachType:
+                "reactivation",
+            },
+          )
+
+        expect(
+          analysis,
+        ).toMatchObject({
+          intent:
+            "stopped_replying",
+          stage:
+            "follow_up",
+          label:
+            "Conversa interrompida sem resposta",
+          context: {
+            customerInterest:
+              "um Corolla",
+            previousConsultantAction:
+              "tentativa de agendar uma reunião",
+            customerResponseState:
+              "stopped_replying",
+            lastContactDate:
+              "23/04/2026",
+          },
+        })
+
+        expect(
+          analysis?.summary,
+        ).toContain(
+          "O cliente buscava um Corolla.",
+        )
+
+        expect(
+          analysis?.summary,
+        ).toContain(
+          "O último movimento do consultor foi uma tentativa de agendar uma reunião.",
+        )
+      },
+    )
+
+    it(
+      "analisa somente falas do cliente quando o contexto usa marcadores de papel",
+      () => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            "Cliente: Ainda estou analisando o Corolla.\nConsultor: Podemos marcar uma reunião?",
+            {
+              approachType:
+                "reactivation",
+            },
+          ),
+        ).toMatchObject({
+          intent:
+            "interest_area",
+          stage:
+            "discovery",
         })
       },
     )

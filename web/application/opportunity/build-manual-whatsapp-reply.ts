@@ -65,7 +65,54 @@ function mapAnalysisStage(
 
     case "call_to_action":
       return "meeting"
+
+    case "follow_up":
+      return "follow_up"
   }
+}
+
+function buildStoppedReplyingReply(
+  name: string,
+  analysis: ManualWhatsAppAnalysis,
+): string {
+  const customerInterest =
+    analysis.context?.customerInterest ??
+    null
+  const lastContactDate =
+    analysis.context?.lastContactDate ??
+    null
+
+  if (
+    customerInterest &&
+    lastContactDate
+  ) {
+    return `Oi, ${name}, tudo bem? Quando conversamos em ${lastContactDate}, você estava buscando ${customerInterest}. Esse projeto ainda está de pé ou seus planos mudaram desde então?`
+  }
+
+  if (customerInterest) {
+    return `Oi, ${name}, tudo bem? Na nossa última conversa, você estava buscando ${customerInterest}. Esse projeto ainda está de pé ou seus planos mudaram desde então?`
+  }
+
+  if (lastContactDate) {
+    return `Oi, ${name}, tudo bem? Retomando nosso contato de ${lastContactDate}: seu projeto ainda está de pé ou seus planos mudaram desde então?`
+  }
+
+  return `Oi, ${name}, tudo bem? Retomando nosso último contato: seu projeto ainda está de pé ou seus planos mudaram desde então?`
+}
+
+function buildNoPreviousResponseReply(
+  name: string,
+  analysis: ManualWhatsAppAnalysis,
+): string {
+  const customerInterest =
+    analysis.context?.customerInterest ??
+    null
+
+  if (customerInterest) {
+    return `Oi, ${name}, tudo bem? Vi que você tinha interesse em ${customerInterest}, mas ainda não conseguimos conversar. Esse projeto continua nos seus planos?`
+  }
+
+  return `Oi, ${name}, tudo bem? Tentei falar com você há um tempo, mas ainda não conseguimos conversar. Hoje você está buscando imóvel, veículo ou quer entender o consórcio como investimento?`
 }
 
 export function buildManualWhatsAppReply({
@@ -95,7 +142,16 @@ export function buildManualWhatsAppReply({
 
   switch (analysis.intent) {
     case "no_previous_response":
-      return `Oi, ${name}, tudo bem? Tentei falar com você há um tempo, mas ainda não conseguimos conversar. Hoje você está buscando imóvel, veículo ou quer entender o consórcio como investimento?`
+      return buildNoPreviousResponseReply(
+        name,
+        analysis,
+      )
+
+    case "stopped_replying":
+      return buildStoppedReplyingReply(
+        name,
+        analysis,
+      )
 
     case "not_interested":
       return `Entendo, ${name}. Para eu respeitar seu momento e não insistir de forma errada, posso confirmar se mudou a prioridade ou se o consórcio deixou de fazer sentido para você?`
