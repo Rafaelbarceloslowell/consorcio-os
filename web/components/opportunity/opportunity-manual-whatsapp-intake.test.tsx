@@ -276,6 +276,68 @@ describe(
     )
 
     it(
+      "mostra a técnica comercial e pede prova social ao consultor",
+      () => {
+        render(
+          <OpportunityManualWhatsAppIntake
+            contactName="Janaina Rodrigues"
+          />,
+        )
+
+        fireEvent.change(
+          screen.getByRole("textbox", {
+            name: "Mensagem recebida do cliente",
+          }),
+          {
+            target: {
+              value:
+                "Qual o valor da parcela?",
+            },
+          },
+        )
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Analisar mensagem",
+          }),
+        )
+
+        expect(
+          screen.getByText(
+            "Script Comercial da Seal’s",
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByText(
+            "SPIN Selling",
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByText(
+            /Construção de valor/,
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByTestId(
+            "r2-social-proof-consultant-prompt",
+          ),
+        ).toHaveTextContent(
+          "histórico da Seal’s",
+        )
+
+        expect(
+          screen.getByTestId(
+            "r2-social-proof-consultant-prompt",
+          ),
+        ).toHaveTextContent(
+          "caso real, semelhante e autorizado",
+        )
+      },
+    )
+
+    it(
       "descarta análise anterior quando a mensagem recebida é alterada",
       () => {
         render(

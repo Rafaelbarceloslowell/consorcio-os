@@ -13,6 +13,11 @@ import {
 } from "@/application/opportunity/build-manual-whatsapp-reply"
 
 import {
+  buildR2CommercialPlaybookRecommendation,
+  formatR2CommercialTechnique,
+} from "@/application/opportunity/build-r2-commercial-playbook-recommendation"
+
+import {
   buildNextGoal,
 } from "@/application/opportunity/conversation/build-next-goal"
 
@@ -201,6 +206,15 @@ export function OpportunityManualWhatsAppIntake({
           stage: mapConversationStage(
             analysis.stage,
           ),
+        })
+      : null
+
+  const commercialPlaybook =
+    analysis && resolvedApproachType
+      ? buildR2CommercialPlaybookRecommendation({
+          approachType:
+            resolvedApproachType,
+          analysis,
         })
       : null
 
@@ -528,7 +542,71 @@ export function OpportunityManualWhatsAppIntake({
               label={"\u0050r\u00f3xima a\u00e7\u00e3o"}
               value={analysis.recommendedAction}
             />
+            {commercialPlaybook ? (
+              <>
+                <ResultItem
+                  label="Base do playbook"
+                  value={formatR2CommercialTechnique(
+                    commercialPlaybook.foundation,
+                  )}
+                />
+                <ResultItem
+                  label="Técnica principal"
+                  value={formatR2CommercialTechnique(
+                    commercialPlaybook.primaryTechnique,
+                  )}
+                />
+                <ResultItem
+                  label="Técnicas de apoio"
+                  value={commercialPlaybook
+                    .supportingTechniques
+                    .map(
+                      formatR2CommercialTechnique,
+                    )
+                    .join(" · ")}
+                />
+                <ResultItem
+                  label="Por que agora"
+                  value={commercialPlaybook.rationale}
+                />
+                <ResultItem
+                  label="Orientação ao consultor"
+                  value={commercialPlaybook.consultantInstruction}
+                />
+                <ResultItem
+                  label="Evitar agora"
+                  value={commercialPlaybook.avoid.join(
+                    " ",
+                  )}
+                />
+              </>
+            ) : null}
           </div>
+
+          {commercialPlaybook
+            ?.socialProof
+            .shouldAskConsultant ? (
+            <div
+              className="mt-4 rounded-xl border border-[#D9A441]/30 bg-[#D9A441]/[0.08] p-4"
+              data-testid="r2-social-proof-consultant-prompt"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#F4C96B]">
+                Prova social · confirmação humana obrigatória
+              </p>
+              <p className="mt-2 text-sm leading-6 text-[var(--gorila-text)]">
+                {
+                  commercialPlaybook
+                    .socialProof.prompt
+                }
+              </p>
+              <p className="mt-2 text-xs leading-5 text-[var(--gorila-text-muted)]">
+                {
+                  commercialPlaybook
+                    .socialProof.rule
+                }
+              </p>
+            </div>
+          ) : null}
 
           <label
             htmlFor="opportunity-manual-whatsapp-reply"

@@ -1,0 +1,251 @@
+import {
+  describe,
+  expect,
+  it,
+} from "vitest"
+
+import {
+  analyzeManualWhatsAppMessage,
+} from "./analyze-manual-whatsapp-message"
+
+import {
+  buildR2CommercialPlaybookRecommendation,
+  formatR2CommercialTechnique,
+  R2_COMMERCIAL_TECHNIQUE_LIBRARY,
+} from "./build-r2-commercial-playbook-recommendation"
+
+function build({
+  message,
+  approachType,
+}: {
+  message: string
+  approachType:
+    | "new"
+    | "reactivation"
+}) {
+  const analysis =
+    analyzeManualWhatsAppMessage(
+      message,
+      {
+        approachType,
+      },
+    )
+
+  if (!analysis) {
+    throw new Error(
+      "A análise era obrigatória para este teste.",
+    )
+  }
+
+  return buildR2CommercialPlaybookRecommendation({
+    approachType,
+    analysis,
+  })
+}
+
+describe(
+  "R2 commercial playbook",
+  () => {
+    it(
+      "mantem a biblioteca oficial completa e sem ids duplicados",
+      () => {
+        const ids =
+          R2_COMMERCIAL_TECHNIQUE_LIBRARY.map(
+            (technique) =>
+              technique.id,
+          )
+
+        expect(
+          new Set(ids).size,
+        ).toBe(ids.length)
+
+        expect(ids).toEqual(
+          expect.arrayContaining([
+            "seals_commercial_script",
+            "rapport",
+            "aida",
+            "spin",
+            "ethical_fomo",
+            "objection_handling",
+            "social_proof",
+            "value_building",
+            "price_anchoring",
+            "next_step_closing",
+            "diagnostic_selling",
+            "gap_selling",
+            "challenger_sale",
+            "sandler_selling",
+            "bant",
+            "gpct",
+            "storytelling",
+            "three_options",
+            "decision_maker_qualification",
+            "cost_of_inaction",
+            "consultative_closing",
+          ]),
+        )
+      },
+    )
+
+    it(
+      "usa SPIN e construção de valor quando o cliente pergunta preço",
+      () => {
+        const recommendation =
+          build({
+            message:
+              "Qual o valor da parcela?",
+            approachType:
+              "new",
+          })
+
+        expect(recommendation).toMatchObject({
+          foundation:
+            "seals_commercial_script",
+          primaryTechnique:
+            "spin",
+          closingTechnique:
+            "next_step_closing",
+          socialProof: {
+            shouldAskConsultant:
+              true,
+          },
+        })
+
+        expect(
+          recommendation.supportingTechniques,
+        ).toEqual(
+          expect.arrayContaining([
+            "value_building",
+            "price_anchoring",
+            "social_proof",
+          ]),
+        )
+
+        expect(
+          recommendation.socialProof.prompt,
+        ).toContain(
+          "histórico da Seal’s",
+        )
+
+        expect(
+          recommendation.socialProof.prompt,
+        ).toContain(
+          "real, semelhante e autorizado",
+        )
+      },
+    )
+
+    it(
+      "reativa pelo contexto e limita o FOMO a consequência real",
+      () => {
+        const recommendation =
+          build({
+            message:
+              "O cliente queria um Corolla, mas parou de responder.",
+            approachType:
+              "reactivation",
+          })
+
+        expect(recommendation).toMatchObject({
+          primaryTechnique:
+            "rapport",
+          socialProof: {
+            shouldAskConsultant:
+              false,
+          },
+        })
+
+        expect(
+          recommendation.supportingTechniques,
+        ).toEqual(
+          expect.arrayContaining([
+            "aida",
+            "ethical_fomo",
+            "cost_of_inaction",
+          ]),
+        )
+
+        expect(
+          recommendation.consultantInstruction,
+        ).toContain(
+          "consequência real confirmada",
+        )
+      },
+    )
+
+    it(
+      "não pressiona quando o cliente declara falta de interesse",
+      () => {
+        const recommendation =
+          build({
+            message:
+              "Não tenho interesse.",
+            approachType:
+              "reactivation",
+          })
+
+        expect(recommendation).toMatchObject({
+          primaryTechnique:
+            "objection_handling",
+        })
+
+        expect(
+          recommendation.supportingTechniques,
+        ).not.toContain(
+          "ethical_fomo",
+        )
+
+        expect(
+          recommendation.avoid,
+        ).toContain(
+          "Pressionar.",
+        )
+      },
+    )
+
+    it(
+      "não finge continuidade quando o cliente nunca respondeu",
+      () => {
+        const recommendation =
+          build({
+            message:
+              "O cliente nunca me respondeu.",
+            approachType:
+              "reactivation",
+          })
+
+        expect(recommendation).toMatchObject({
+          primaryTechnique:
+            "aida",
+        })
+
+        expect(
+          recommendation.avoid,
+        ).toContain(
+          "Fingir que já existiu conversa.",
+        )
+      },
+    )
+
+    it(
+      "formata os nomes exibidos ao consultor",
+      () => {
+        expect(
+          formatR2CommercialTechnique(
+            "seals_commercial_script",
+          ),
+        ).toBe(
+          "Script Comercial da Seal’s",
+        )
+
+        expect(
+          formatR2CommercialTechnique(
+            "ethical_fomo",
+          ),
+        ).toBe(
+          "FOMO ético",
+        )
+      },
+    )
+  },
+)
