@@ -33,21 +33,20 @@ describe(
           )
         }
 
-        expect(schema).toContain(
-          "workspaceId   String",
+        expect(schema).toMatch(
+          /workspaceId\s+String/,
         )
-        expect(schema).toContain(
-          "consultantId  String",
+        expect(schema).toMatch(
+          /consultantId\s+String/,
         )
-        expect(schema).toContain(
-          "authUsers         User[]",
+        expect(schema).toMatch(
+          /authUsers\s+User\[\]/,
         )
-        expect(schema).toContain(
-          "authUser           User?",
+        expect(schema).toMatch(
+          /authUser\s+User\?/,
         )
       },
     )
-
 
     it(
       "keeps workspace and consultant server-owned while the database hook supplies them",
@@ -70,12 +69,12 @@ describe(
           "databaseHooks",
         )
 
-        expect(authSource).toContain(
-          "workspaceId:\n                  consultant.workspaceId",
+        expect(authSource).toMatch(
+          /workspaceId:\s*consultant\.workspaceId/,
         )
 
-        expect(authSource).toContain(
-          "consultantId:\n                  consultant.id",
+        expect(authSource).toMatch(
+          /consultantId:\s*consultant\.id/,
         )
       },
     )

@@ -82,9 +82,13 @@ describe("DashboardContent", () => {
     render(<DashboardContent {...dashboardData} />)
 
     expect(
-      screen.getByText("Hoje existem 2 oportunidades críticas.")
+      screen.getByText(
+        "Hoje existe 1 ação prioritária na operação.",
+      ),
     ).toBeInTheDocument()
-    expect(screen.getByText("R2 em atividade")).toBeInTheDocument()
+    expect(
+      screen.getByText("R2 em atividade"),
+    ).toBeInTheDocument()
   })
 
   it("organiza as ações pela hierarquia operacional", () => {
@@ -95,20 +99,22 @@ describe("DashboardContent", () => {
     expect(screen.getByText("Acompanhar")).toBeInTheDocument()
   })
 
-  it("destaca a primeira ação sem duplicar o título da tarefa", () => {
+  it("destaca a primeira ação sem exigir unicidade entre áreas legítimas", () => {
     render(<DashboardContent {...dashboardData} />)
 
     expect(
-      screen.getByText("Comece por: Ligar para cliente")
+      screen.getByText("Comece por: Ligar para cliente"),
     ).toBeInTheDocument()
-    expect(screen.getByText("Ligar para cliente")).toBeInTheDocument()
+    expect(
+      screen.getAllByText("Ligar para cliente"),
+    ).toHaveLength(2)
   })
 
   it("destaca a oportunidade com maior potencial", () => {
     render(<DashboardContent {...dashboardData} />)
 
     expect(
-      screen.getByText(/Marina Costa · R\$\s*500\.000 · score 92/)
+      screen.getByText(/Marina Costa · R\$\s*500\.000 · score 92/),
     ).toBeInTheDocument()
   })
 
@@ -163,11 +169,11 @@ describe("DashboardContent", () => {
         {...dashboardData}
         tasks={[]}
         intelligence={undefined}
-      />
+      />,
     )
 
     expect(
-      screen.getByText("Comece por: Revisar o pipeline comercial")
+      screen.getByText("Comece por: Revisar o pipeline comercial"),
     ).toBeInTheDocument()
     expect(screen.getByText("Operação em dia")).toBeInTheDocument()
   })

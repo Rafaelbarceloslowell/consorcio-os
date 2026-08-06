@@ -47,7 +47,7 @@ export default async function OpportunityDetailsPage({
 
   if (!workspace) {
     throw new Error(
-      'Workspace "consorcio-os" nÃƒÂ£o encontrado.',
+      'Workspace "consorcio-os" não encontrado.',
     )
   }
 
@@ -96,7 +96,7 @@ export default async function OpportunityDetailsPage({
     if (
       error instanceof Error &&
       error.message ===
-        `Oportunidade comercial nÃƒÂ£o encontrada para o ID "${normalizedOpportunityId}".`
+        `Oportunidade comercial não encontrada para o ID "${normalizedOpportunityId}".`
     ) {
       notFound()
     }

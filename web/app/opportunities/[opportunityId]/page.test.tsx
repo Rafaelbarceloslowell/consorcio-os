@@ -33,6 +33,10 @@ const mocks = vi.hoisted(() => ({
   journeys: {
     repository: "journeys",
   },
+  conversationMemories: {
+    repository:
+      "conversation-memories",
+  },
   events: {
     repository: "events",
   },
@@ -61,6 +65,8 @@ vi.mock(
         constructor(
           dependencies: {
             journeys: unknown
+            conversationMemories:
+              unknown
             events: unknown
             leads: unknown
             clients: unknown
@@ -72,6 +78,8 @@ vi.mock(
           mocks
             .constructorDependencies(
               dependencies.journeys,
+              dependencies
+                .conversationMemories,
               dependencies.events,
               dependencies.leads,
               dependencies.clients,
@@ -143,7 +151,7 @@ function createView():
     consortiumType:
       "real_estate",
     phaseId: "phase-1",
-    phaseName: "NegociaÃ§Ã£o",
+    phaseName: "Negociação",
     stateId: "state-1",
     stateName:
       "Proposta enviada",
@@ -176,6 +184,8 @@ describe(
         .mockReturnValue({
           journeys:
             mocks.journeys,
+          conversationMemories:
+            mocks.conversationMemories,
           events: mocks.events,
           phases: mocks.phases,
           states: mocks.states,
@@ -195,7 +205,7 @@ describe(
     })
 
     it(
-      "propaga workspace e parÃ¢metro e renderiza detalhes",
+      "propaga workspace e parâmetro e renderiza detalhes",
       async () => {
         const page =
           await OpportunityDetailsPage({
@@ -244,6 +254,7 @@ describe(
             .constructorDependencies,
         ).toHaveBeenCalledExactlyOnceWith(
           mocks.journeys,
+          mocks.conversationMemories,
           mocks.events,
           mocks.leads,
           mocks.clients,
@@ -264,7 +275,7 @@ describe(
     )
 
     it(
-      "nÃ£o compÃµe repositories quando o workspace nÃ£o existe",
+      "não compõe repositories quando o workspace não existe",
       async () => {
         mocks.findWorkspace
           .mockResolvedValue(null)
@@ -278,7 +289,7 @@ describe(
               }),
           }),
         ).rejects.toThrow(
-          'Workspace "consorcio-os" nÃ£o encontrado.',
+          'Workspace "consorcio-os" não encontrado.',
         )
 
         expect(
@@ -307,7 +318,7 @@ describe(
         mocks.execute
           .mockRejectedValue(
             new Error(
-              'Oportunidade comercial nÃ£o encontrada para o ID "journey-404".',
+              'Oportunidade comercial não encontrada para o ID "journey-404".',
             ),
           )
 
