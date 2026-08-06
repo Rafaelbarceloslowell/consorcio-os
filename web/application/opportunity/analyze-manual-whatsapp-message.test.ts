@@ -196,6 +196,74 @@ describe(
     )
 
     it(
+      "reconhece que o projeto continua ativo e avanca para diagnostico",
+      () => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            "Boa noite, meus planos continuam de pé.",
+            {
+              approachType:
+                "reactivation",
+            },
+          ),
+        ).toMatchObject({
+          intent:
+            "interested",
+          stage:
+            "diagnosis",
+          label:
+            "Projeto continua ativo",
+          context: {
+            projectActiveConfirmed:
+              true,
+          },
+        })
+      },
+    )
+
+    it(
+      "preserva pedido de retorno mesmo com projeto ativo",
+      () => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            "Meus planos continuam de pé, mas me chama depois.",
+            {
+              approachType:
+                "reactivation",
+            },
+          ),
+        ).toMatchObject({
+          intent:
+            "callback_requested",
+          stage:
+            "call_to_action",
+        })
+      },
+    )
+
+    it(
+      "reconhece confirmacao curta somente na fala do cliente",
+      () => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            "Consultor: O projeto ainda está de pé?\nCliente: Sim, continua.",
+            {
+              approachType:
+                "reactivation",
+            },
+          ),
+        ).toMatchObject({
+          stage:
+            "diagnosis",
+          context: {
+            projectActiveConfirmed:
+              true,
+          },
+        })
+      },
+    )
+
+    it(
       "identifica resposta sobre imovel como descoberta",
       () => {
         expect(

@@ -29,6 +29,7 @@ export type ManualWhatsAppContext = {
     | ManualWhatsAppCustomerResponseState
     | null
   lastContactDate: string | null
+  projectActiveConfirmed?: boolean
 }
 
 export type ManualWhatsAppAnalysis = {
@@ -443,6 +444,100 @@ function buildNoPreviousResponseAnalysis(
   }
 }
 
+function isProjectActiveConfirmation(
+  normalizedCustomerMessage: string,
+): boolean {
+  const comparableMessage =
+    normalizedCustomerMessage
+      .replace(
+        /[^\p{L}\p{N}\s]/gu,
+        " ",
+      )
+      .replace(/\s+/gu, " ")
+      .trim()
+
+  if (
+    containsAny(
+      comparableMessage,
+      [
+        "nao quero continuar",
+        "nao vou continuar",
+        "nao continuo interessado",
+        "nao continuo interessada",
+        "nao esta mais nos meus planos",
+        "nao esta mais nos nossos planos",
+        "nao continua de pe",
+        "desisti do projeto",
+      ],
+    )
+  ) {
+    return false
+  }
+
+  if (
+    [
+      "sim continua",
+      "continua sim",
+      "sim esta de pe",
+      "sim ainda esta de pe",
+    ].includes(
+      comparableMessage,
+    )
+  ) {
+    return true
+  }
+
+  return containsAny(
+    comparableMessage,
+    [
+      "meus planos continuam de pe",
+      "meu plano continua de pe",
+      "nossos planos continuam de pe",
+      "o projeto continua de pe",
+      "projeto continua de pe",
+      "continua nos meus planos",
+      "continua nos nossos planos",
+      "ainda esta nos meus planos",
+      "ainda esta nos nossos planos",
+      "ainda quero seguir",
+      "quero continuar com o projeto",
+      "continuo interessado",
+      "continuo interessada",
+    ],
+  )
+}
+
+function buildProjectActiveConfirmationAnalysis(
+  normalizedCustomerMessage: string,
+): ManualWhatsAppAnalysis {
+  return {
+    intent:
+      "interested",
+    stage:
+      "diagnosis",
+    label:
+      "Projeto continua ativo",
+    summary:
+      "O cliente confirmou que o projeto continua ativo.",
+    recommendedAction:
+      "Reconheça a confirmação e avance para prazo, prioridade ou mudança de contexto sem perguntar novamente se o projeto está de pé.",
+    context: {
+      customerInterest:
+        extractCustomerInterest(
+          normalizedCustomerMessage,
+        ),
+      previousConsultantAction:
+        null,
+      customerResponseState:
+        null,
+      lastContactDate:
+        null,
+      projectActiveConfirmed:
+        true,
+    },
+  }
+}
+
 export function analyzeManualWhatsAppMessage(
   incomingMessage: string,
   options: AnalyzeManualWhatsAppMessageOptions = {},
@@ -638,6 +733,18 @@ export function analyzeManualWhatsAppMessage(
       recommendedAction:
         "Confirme objetivo, valor desejado e prazo antes de apresentar uma condição.",
     }
+  }
+
+  if (
+    options.approachType ===
+      "reactivation" &&
+    isProjectActiveConfirmation(
+      messageForCustomerSignals,
+    )
+  ) {
+    return buildProjectActiveConfirmationAnalysis(
+      messageForCustomerSignals,
+    )
   }
 
   if (

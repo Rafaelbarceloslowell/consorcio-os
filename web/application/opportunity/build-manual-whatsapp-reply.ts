@@ -35,12 +35,17 @@ function firstName(
     return "Tudo bem"
   }
 
-  return (
+  const name =
     normalized
       .split(" ")
       .filter(Boolean)
       .at(0) ??
     "Tudo bem"
+
+  return (
+    name.charAt(0)
+      .toLocaleUpperCase("pt-BR") +
+    name.slice(1)
   )
 }
 
@@ -139,6 +144,13 @@ export function buildManualWhatsAppReply({
         analysis.stage,
       ),
     })
+
+  if (
+    analysis.context
+      ?.projectActiveConfirmed
+  ) {
+    return `Perfeito, ${name}. Que bom que o projeto continua de pé. Hoje, em quanto tempo você pretende realizá-lo?`
+  }
 
   switch (analysis.intent) {
     case "no_previous_response":

@@ -15,15 +15,17 @@ import {
 function build({
   message,
   approachType,
+  contactName =
+    "Janaina Rodrigues",
 }: {
   message: string
   approachType:
     | "new"
     | "reactivation"
+  contactName?: string
 }): string | null {
   return buildManualWhatsAppReply({
-    contactName:
-      "Janaina Rodrigues",
+    contactName,
     incomingMessage:
       message,
     approachType,
@@ -129,6 +131,29 @@ describe(
           }),
         ).toBe(
           "Entendi, Janaina. Mudou alguma coisa desde a nossa última conversa ou o objetivo continua o mesmo?",
+        )
+      },
+    )
+
+    it(
+      "reconhece projeto ativo, capitaliza o nome e avanca para prazo",
+      () => {
+        const reply =
+          build({
+            message:
+              "Boa noite, meus planos continuam de pé.",
+            approachType:
+              "reactivation",
+            contactName:
+              "alex",
+          })
+
+        expect(reply).toBe(
+          "Perfeito, Alex. Que bom que o projeto continua de pé. Hoje, em quanto tempo você pretende realizá-lo?",
+        )
+
+        expect(reply).not.toContain(
+          "esse projeto ainda está de pé",
         )
       },
     )

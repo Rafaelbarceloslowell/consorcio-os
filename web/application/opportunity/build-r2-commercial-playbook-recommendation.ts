@@ -300,6 +300,32 @@ export function buildR2CommercialPlaybookRecommendation({
   analysis,
 }: BuildR2CommercialPlaybookRecommendationInput): R2CommercialPlaybookRecommendation {
   if (
+    analysis.context
+      ?.projectActiveConfirmed
+  ) {
+    return buildRecommendation({
+      primaryTechnique:
+        "spin",
+      supportingTechniques: [
+        "rapport",
+        "gpct",
+        "diagnostic_selling",
+      ],
+      objective:
+        "Entender prazo, prioridade e cenário atual sem repetir a confirmação do projeto.",
+      rationale:
+        "O cliente já confirmou que o projeto continua ativo; a próxima decisão deve aprofundar o momento de realização.",
+      consultantInstruction:
+        "Reconheça a confirmação e faça uma única pergunta sobre prazo ou prioridade antes de avançar para orçamento, proposta ou reunião.",
+      avoid: [
+        "Perguntar novamente se o projeto continua ativo.",
+        "Ignorar a confirmação do cliente.",
+        "Pular diretamente para proposta ou reunião.",
+      ],
+    })
+  }
+
+  if (
     analysis.stage ===
     "strategy"
   ) {

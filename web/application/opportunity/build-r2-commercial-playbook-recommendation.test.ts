@@ -174,6 +174,42 @@ describe(
     )
 
     it(
+      "usa SPIN e GPCT quando o cliente confirma que o projeto continua ativo",
+      () => {
+        const recommendation =
+          build({
+            message:
+              "Boa noite, meus planos continuam de pé.",
+            approachType:
+              "reactivation",
+          })
+
+        expect(recommendation).toMatchObject({
+          primaryTechnique:
+            "spin",
+          objective:
+            "Entender prazo, prioridade e cenário atual sem repetir a confirmação do projeto.",
+        })
+
+        expect(
+          recommendation.supportingTechniques,
+        ).toEqual(
+          expect.arrayContaining([
+            "rapport",
+            "gpct",
+            "diagnostic_selling",
+          ]),
+        )
+
+        expect(
+          recommendation.avoid,
+        ).toContain(
+          "Perguntar novamente se o projeto continua ativo.",
+        )
+      },
+    )
+
+    it(
       "não pressiona quando o cliente declara falta de interesse",
       () => {
         const recommendation =
