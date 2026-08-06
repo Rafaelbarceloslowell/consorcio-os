@@ -47,8 +47,10 @@ function formatDateTime(
     {
       timeZone:
         "America/Sao_Paulo",
-      dateStyle: "short",
-      timeStyle: "short",
+      dateStyle:
+        "short",
+      timeStyle:
+        "short",
     },
   ).format(new Date(value))
 }
@@ -58,7 +60,7 @@ function formatOptionalDateTime(
 ): string {
   return value
     ? formatDateTime(value)
-    : "N\u00e3o registrada"
+    : "Não registrada"
 }
 
 export function OpportunityDetails({
@@ -74,8 +76,9 @@ export function OpportunityDetails({
         : "Encerrada"
 
   const displayTitle =
-    opportunity.contactContext?.isReactivated
-      ? `Reativa\u00e7\u00e3o \u2014 ${opportunity.originName}`
+    opportunity.contactContext
+      ?.isReactivated
+      ? `Reativação — ${opportunity.originName}`
       : opportunity.title
 
   return (
@@ -106,22 +109,46 @@ export function OpportunityDetails({
               <span className="rounded-full border border-[var(--gorila-line)] bg-[var(--gorila-surface-strong)] px-3 py-1 text-xs font-semibold">
                 {statusLabel}
               </span>
-              <Link
-                href={`/opportunities/${encodeURIComponent(opportunity.id)}/edit`}
-                className="ml-auto rounded-lg border border-[var(--gorila-line)] px-3 py-2 text-sm font-medium text-[#43A972] hover:bg-[var(--gorila-surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
-              >
-                Editar oportunidade
-              </Link>
+
+              <div className="ml-auto flex flex-wrap items-center gap-2">
+                {opportunity.status ===
+                "open" ? (
+                  <Link
+                    href={`/opportunities/${encodeURIComponent(
+                      opportunity.id,
+                    )}/learning`}
+                    className="rounded-lg border border-[#43A972]/35 bg-[#2F8F5B]/10 px-3 py-2 text-sm font-medium text-[#63C68C] hover:bg-[#2F8F5B]/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+                  >
+                    Registrar aprendizado R2
+                  </Link>
+                ) : null}
+
+                <Link
+                  href={`/opportunities/${encodeURIComponent(
+                    opportunity.id,
+                  )}/edit`}
+                  className="rounded-lg border border-[var(--gorila-line)] px-3 py-2 text-sm font-medium text-[#43A972] hover:bg-[var(--gorila-surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+                >
+                  Editar oportunidade
+                </Link>
+              </div>
             </div>
           </header>
 
-          {opportunity.origin === "lead" ? (
+          {opportunity.origin ===
+          "lead" ? (
             <OpportunityApproachSelector
-              opportunityId={opportunity.id}
-              leadId={opportunity.leadId}
+              opportunityId={
+                opportunity.id
+              }
+              leadId={
+                opportunity.leadId
+              }
               approachType={
-                opportunity.contactContext
-                  ?.approachType ?? null
+                opportunity
+                  .contactContext
+                  ?.approachType ??
+                null
               }
             />
           ) : null}
@@ -129,7 +156,8 @@ export function OpportunityDetails({
           {opportunity.contactContext ? (
             <OpportunityContactContext
               contactContext={
-                opportunity.contactContext
+                opportunity
+                  .contactContext
               }
             />
           ) : null}
@@ -145,15 +173,19 @@ export function OpportunityDetails({
           {opportunity.suggestedMessage ? (
             <OpportunitySuggestedMessage
               initialMessage={
-                opportunity.suggestedMessage
+                opportunity
+                  .suggestedMessage
               }
             />
           ) : null}
 
-          {opportunity.suggestedQuestions?.length ? (
+          {opportunity
+            .suggestedQuestions
+            ?.length ? (
             <OpportunitySuggestedQuestions
               questions={
-                opportunity.suggestedQuestions
+                opportunity
+                  .suggestedQuestions
               }
             />
           ) : null}
@@ -164,14 +196,18 @@ export function OpportunityDetails({
                 opportunity.id
               }
               initialMemory={
-                opportunity.conversationMemory
+                opportunity
+                  .conversationMemory
               }
               contactName={
-                opportunity.originName
+                opportunity
+                  .originName
               }
               approachType={
-                opportunity.contactContext
-                  ?.approachType ?? null
+                opportunity
+                  .contactContext
+                  ?.approachType ??
+                null
               }
             />
           ) : null}
@@ -179,17 +215,21 @@ export function OpportunityDetails({
           <dl className="grid gap-px bg-[var(--gorila-line)] sm:grid-cols-2 lg:grid-cols-3">
             <Detail
               label="Origem"
-              value={`${opportunity.origin === "lead" ? "Lead" : "Cliente"} \u00b7 ${opportunity.originName}`}
+              value={`${opportunity.origin === "lead" ? "Lead" : "Cliente"} · ${opportunity.originName}`}
             />
             <Detail
-              label={"Respons\u00e1vel"}
-              value={opportunity.consultantName}
+              label="Responsável"
+              value={
+                opportunity
+                  .consultantName
+              }
             />
             <Detail
-              label={"Tipo de cons\u00f3rcio"}
+              label="Tipo de consórcio"
               value={
                 OPPORTUNITY_CONSORTIUM_LABELS[
-                  opportunity.consortiumType
+                  opportunity
+                    .consortiumType
                 ]
               }
             />
@@ -197,7 +237,8 @@ export function OpportunityDetails({
               label="Prioridade"
               value={
                 OPPORTUNITY_PRIORITY_LABELS[
-                  opportunity.priority
+                  opportunity
+                    .priority
                 ]
               }
             />
@@ -208,25 +249,30 @@ export function OpportunityDetails({
               )}
             />
             <Detail
-              label={"Vers\u00e3o"}
+              label="Versão"
               value={String(
                 opportunity.version,
               )}
             />
             <Detail
               label="Fase"
-              value={opportunity.phaseName}
+              value={
+                opportunity.phaseName
+              }
             />
             <Detail
               label="Estado"
-              value={opportunity.stateName}
+              value={
+                opportunity.stateName
+              }
             />
             <Detail
               label="Resultado"
               value={
                 opportunity.outcome
                   ? OPPORTUNITY_OUTCOME_LABELS[
-                      opportunity.outcome
+                      opportunity
+                        .outcome
                     ]
                   : "Sem resultado registrado"
               }
@@ -234,13 +280,15 @@ export function OpportunityDetails({
             <Detail
               label="Entrada no estado"
               value={formatDateTime(
-                opportunity.stateEnteredAt,
+                opportunity
+                  .stateEnteredAt,
               )}
             />
             <Detail
-              label={"\u00daltima intera\u00e7\u00e3o"}
+              label="Última interação"
               value={formatOptionalDateTime(
-                opportunity.lastInteractionAt,
+                opportunity
+                  .lastInteractionAt,
               )}
             />
             <Detail
@@ -263,7 +311,9 @@ export function OpportunityDetails({
             />
             <Detail
               label="ID"
-              value={opportunity.id}
+              value={
+                opportunity.id
+              }
             />
           </dl>
         </section>
