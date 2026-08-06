@@ -135,7 +135,17 @@ export function LeadList({
                     </Data>
                   </dl>
 
-                  <div className="mt-5 border-t border-white/[0.06] pt-4">
+                  <div className="mt-5 flex flex-wrap gap-2 border-t border-white/[0.06] pt-4">
+                    <Link
+                      href={`/leads/${encodeURIComponent(
+                        lead.id,
+                      )}/edit`}
+                      aria-label={`Editar dados de ${lead.name}`}
+                      className="inline-flex rounded-lg border border-[#D0B96C]/25 bg-[#D0B96C]/8 px-3 py-2 text-xs font-semibold text-[#E0CF8A] transition hover:border-[#D0B96C]/45 hover:bg-[#D0B96C]/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D0B96C]"
+                    >
+                      Editar dados
+                    </Link>
+
                     {lead.opportunityHref ? (
                       <Link
                         href={lead.opportunityHref}
@@ -145,7 +155,7 @@ export function LeadList({
                         Abrir oportunidade
                       </Link>
                     ) : (
-                      <span className="text-xs text-[#697384]">
+                      <span className="self-center text-xs text-[#697384]">
                         Nenhuma oportunidade aberta.
                       </span>
                     )}

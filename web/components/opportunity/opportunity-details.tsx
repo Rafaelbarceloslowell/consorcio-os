@@ -47,10 +47,8 @@ function formatDateTime(
     {
       timeZone:
         "America/Sao_Paulo",
-      dateStyle:
-        "short",
-      timeStyle:
-        "short",
+      dateStyle: "short",
+      timeStyle: "short",
     },
   ).format(new Date(value))
 }
@@ -60,7 +58,7 @@ function formatOptionalDateTime(
 ): string {
   return value
     ? formatDateTime(value)
-    : "Não registrada"
+    : "N\u00e3o registrada"
 }
 
 export function OpportunityDetails({
@@ -76,10 +74,25 @@ export function OpportunityDetails({
         : "Encerrada"
 
   const displayTitle =
-    opportunity.contactContext
-      ?.isReactivated
-      ? `Reativação — ${opportunity.originName}`
+    opportunity.contactContext?.isReactivated
+      ? `Reativa\u00e7\u00e3o \u2014 ${opportunity.originName}`
       : opportunity.title
+
+  const opportunityPath =
+    `/opportunities/${encodeURIComponent(
+      opportunity.id,
+    )}`
+
+  const contactEditHref =
+    opportunity.origin === "lead"
+      ? `/leads/${encodeURIComponent(
+          opportunity.leadId,
+        )}/edit?returnTo=${encodeURIComponent(
+          opportunityPath,
+        )}`
+      : `/clients/${encodeURIComponent(
+          opportunity.clientId,
+        )}/edit`
 
   return (
     <main className="min-h-screen bg-[var(--gorila-canvas)] px-4 py-8 text-[var(--gorila-text)] sm:px-8 lg:px-12">
@@ -109,10 +122,15 @@ export function OpportunityDetails({
               <span className="rounded-full border border-[var(--gorila-line)] bg-[var(--gorila-surface-strong)] px-3 py-1 text-xs font-semibold">
                 {statusLabel}
               </span>
-
               <div className="ml-auto flex flex-wrap items-center gap-2">
-                {opportunity.status ===
-                "open" ? (
+                <Link
+                  href={contactEditHref}
+                  className="rounded-lg border border-[#D0B96C]/35 bg-[#D0B96C]/10 px-3 py-2 text-sm font-medium text-[#E0CF8A] hover:bg-[#D0B96C]/16 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D0B96C]"
+                >
+                  Editar dados do contato
+                </Link>
+
+                {opportunity.status === "open" ? (
                   <Link
                     href={`/opportunities/${encodeURIComponent(
                       opportunity.id,
@@ -124,9 +142,7 @@ export function OpportunityDetails({
                 ) : null}
 
                 <Link
-                  href={`/opportunities/${encodeURIComponent(
-                    opportunity.id,
-                  )}/edit`}
+                  href={`/opportunities/${encodeURIComponent(opportunity.id)}/edit`}
                   className="rounded-lg border border-[var(--gorila-line)] px-3 py-2 text-sm font-medium text-[#43A972] hover:bg-[var(--gorila-surface-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
                 >
                   Editar oportunidade
@@ -135,20 +151,13 @@ export function OpportunityDetails({
             </div>
           </header>
 
-          {opportunity.origin ===
-          "lead" ? (
+          {opportunity.origin === "lead" ? (
             <OpportunityApproachSelector
-              opportunityId={
-                opportunity.id
-              }
-              leadId={
-                opportunity.leadId
-              }
+              opportunityId={opportunity.id}
+              leadId={opportunity.leadId}
               approachType={
-                opportunity
-                  .contactContext
-                  ?.approachType ??
-                null
+                opportunity.contactContext
+                  ?.approachType ?? null
               }
             />
           ) : null}
@@ -156,8 +165,7 @@ export function OpportunityDetails({
           {opportunity.contactContext ? (
             <OpportunityContactContext
               contactContext={
-                opportunity
-                  .contactContext
+                opportunity.contactContext
               }
             />
           ) : null}
@@ -173,19 +181,15 @@ export function OpportunityDetails({
           {opportunity.suggestedMessage ? (
             <OpportunitySuggestedMessage
               initialMessage={
-                opportunity
-                  .suggestedMessage
+                opportunity.suggestedMessage
               }
             />
           ) : null}
 
-          {opportunity
-            .suggestedQuestions
-            ?.length ? (
+          {opportunity.suggestedQuestions?.length ? (
             <OpportunitySuggestedQuestions
               questions={
-                opportunity
-                  .suggestedQuestions
+                opportunity.suggestedQuestions
               }
             />
           ) : null}
@@ -196,18 +200,14 @@ export function OpportunityDetails({
                 opportunity.id
               }
               initialMemory={
-                opportunity
-                  .conversationMemory
+                opportunity.conversationMemory
               }
               contactName={
-                opportunity
-                  .originName
+                opportunity.originName
               }
               approachType={
-                opportunity
-                  .contactContext
-                  ?.approachType ??
-                null
+                opportunity.contactContext
+                  ?.approachType ?? null
               }
             />
           ) : null}
@@ -215,21 +215,17 @@ export function OpportunityDetails({
           <dl className="grid gap-px bg-[var(--gorila-line)] sm:grid-cols-2 lg:grid-cols-3">
             <Detail
               label="Origem"
-              value={`${opportunity.origin === "lead" ? "Lead" : "Cliente"} · ${opportunity.originName}`}
+              value={`${opportunity.origin === "lead" ? "Lead" : "Cliente"} \u00b7 ${opportunity.originName}`}
             />
             <Detail
-              label="Responsável"
-              value={
-                opportunity
-                  .consultantName
-              }
+              label={"Respons\u00e1vel"}
+              value={opportunity.consultantName}
             />
             <Detail
-              label="Tipo de consórcio"
+              label={"Tipo de cons\u00f3rcio"}
               value={
                 OPPORTUNITY_CONSORTIUM_LABELS[
-                  opportunity
-                    .consortiumType
+                  opportunity.consortiumType
                 ]
               }
             />
@@ -237,8 +233,7 @@ export function OpportunityDetails({
               label="Prioridade"
               value={
                 OPPORTUNITY_PRIORITY_LABELS[
-                  opportunity
-                    .priority
+                  opportunity.priority
                 ]
               }
             />
@@ -249,30 +244,25 @@ export function OpportunityDetails({
               )}
             />
             <Detail
-              label="Versão"
+              label={"Vers\u00e3o"}
               value={String(
                 opportunity.version,
               )}
             />
             <Detail
               label="Fase"
-              value={
-                opportunity.phaseName
-              }
+              value={opportunity.phaseName}
             />
             <Detail
               label="Estado"
-              value={
-                opportunity.stateName
-              }
+              value={opportunity.stateName}
             />
             <Detail
               label="Resultado"
               value={
                 opportunity.outcome
                   ? OPPORTUNITY_OUTCOME_LABELS[
-                      opportunity
-                        .outcome
+                      opportunity.outcome
                     ]
                   : "Sem resultado registrado"
               }
@@ -280,15 +270,13 @@ export function OpportunityDetails({
             <Detail
               label="Entrada no estado"
               value={formatDateTime(
-                opportunity
-                  .stateEnteredAt,
+                opportunity.stateEnteredAt,
               )}
             />
             <Detail
-              label="Última interação"
+              label={"\u00daltima intera\u00e7\u00e3o"}
               value={formatOptionalDateTime(
-                opportunity
-                  .lastInteractionAt,
+                opportunity.lastInteractionAt,
               )}
             />
             <Detail
@@ -311,9 +299,7 @@ export function OpportunityDetails({
             />
             <Detail
               label="ID"
-              value={
-                opportunity.id
-              }
+              value={opportunity.id}
             />
           </dl>
         </section>
