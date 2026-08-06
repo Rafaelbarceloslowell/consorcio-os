@@ -294,5 +294,35 @@ describe(
         })
       },
     )
+
+    it(
+      "reconhece projeto ativo adiado por organizacao financeira sem repetir a qualificacao",
+      () => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            "Consultor: como esta a correria.\n\nCliente: Cara ta uma correria ai, mas o planejamento do consórcio é algo que eu já estou fazendo faz tem, só preciso me organizar com as contas e o que eu tenho a pagar, a partir do ano que vem as coisas já vão ficar melhor então eu quero dar início a esse consórcio, valeu amigo abraço.",
+            {
+              approachType:
+                "reactivation",
+            },
+          ),
+        ).toMatchObject({
+          intent:
+            "interested",
+          stage:
+            "follow_up",
+          label:
+            "Projeto ativo com início adiado",
+          context: {
+            projectActiveConfirmed:
+              true,
+            projectTimingDeferred:
+              true,
+            projectTimingHint:
+              "next_year",
+          },
+        })
+      },
+    )
   },
 )

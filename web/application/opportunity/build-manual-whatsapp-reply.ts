@@ -147,9 +147,28 @@ export function buildManualWhatsAppReply({
 
   if (
     analysis.context
+      ?.projectTimingDeferred
+  ) {
+    switch (
+      analysis.context
+        .projectTimingHint
+    ) {
+      case "next_year":
+        return `Entendi, ${name}. Faz sentido organizar as contas primeiro. Como você acredita que a partir do ano que vem estará mais tranquilo, posso te chamar no começo do ano para vermos como está?`
+
+      case "next_month":
+        return `Entendi, ${name}. Faz sentido organizar as contas primeiro. Posso te chamar no próximo mês para vermos como está?`
+
+      default:
+        return `Entendi, ${name}. Faz sentido organizar as contas antes de avançar. Para eu acompanhar sem te pressionar, você imagina retomar isso em algumas semanas ou em alguns meses?`
+    }
+  }
+
+  if (
+    analysis.context
       ?.projectActiveConfirmed
   ) {
-    return `Perfeito, ${name}. Que bom que o projeto continua de pé. Hoje, em quanto tempo você pretende realizá-lo?`
+    return `Perfeito, ${name}. Que bom que o projeto continua de pé. Você já tem uma previsão de quando pretende realizá-lo?`
   }
 
   switch (analysis.intent) {

@@ -149,7 +149,7 @@ describe(
           })
 
         expect(reply).toBe(
-          "Perfeito, Alex. Que bom que o projeto continua de pé. Hoje, em quanto tempo você pretende realizá-lo?",
+          "Perfeito, Alex. Que bom que o projeto continua de pé. Você já tem uma previsão de quando pretende realizá-lo?",
         )
 
         expect(reply).not.toContain(
@@ -218,6 +218,29 @@ describe(
           }),
         ).toBe(
           "Obrigado por me responder, Janaina. Só para eu me atualizar: esse projeto ainda está de pé ou seus planos mudaram desde a última vez?",
+        )
+      },
+    )
+
+    it(
+      "reconhece projeto ativo adiado e combina acompanhamento sem perguntar se ainda esta de pe",
+      () => {
+        const reply =
+          build({
+            message:
+              "Consultor: como esta a correria.\n\nCliente: Cara ta uma correria ai, mas o planejamento do consórcio é algo que eu já estou fazendo faz tem, só preciso me organizar com as contas e o que eu tenho a pagar, a partir do ano que vem as coisas já vão ficar melhor então eu quero dar início a esse consórcio, valeu amigo abraço.",
+            approachType:
+              "reactivation",
+            contactName:
+              "alex",
+          })
+
+        expect(reply).toBe(
+          "Entendi, Alex. Faz sentido organizar as contas primeiro. Como você acredita que a partir do ano que vem estará mais tranquilo, posso te chamar no começo do ano para vermos como está?",
+        )
+
+        expect(reply).not.toContain(
+          "ainda está de pé",
         )
       },
     )

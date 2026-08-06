@@ -283,5 +283,42 @@ describe(
         )
       },
     )
+
+    it(
+      "trata organizacao financeira como projeto ativo adiado e nao como contexto incompleto",
+      () => {
+        const recommendation =
+          build({
+            message:
+              "Consultor: como esta a correria.\n\nCliente: Cara ta uma correria ai, mas o planejamento do consórcio é algo que eu já estou fazendo faz tem, só preciso me organizar com as contas e o que eu tenho a pagar, a partir do ano que vem as coisas já vão ficar melhor então eu quero dar início a esse consórcio, valeu amigo abraço.",
+            approachType:
+              "reactivation",
+          })
+
+        expect(recommendation).toMatchObject({
+          primaryTechnique:
+            "rapport",
+          objective:
+            "Entender o horizonte de organização financeira e combinar acompanhamento com permissão.",
+        })
+
+        expect(
+          recommendation.supportingTechniques,
+        ).toEqual(
+          expect.arrayContaining([
+            "spin",
+            "gpct",
+            "diagnostic_selling",
+            "consultative_closing",
+          ]),
+        )
+
+        expect(
+          recommendation.avoid,
+        ).toContain(
+          "Perguntar novamente se o projeto continua ativo.",
+        )
+      },
+    )
   },
 )

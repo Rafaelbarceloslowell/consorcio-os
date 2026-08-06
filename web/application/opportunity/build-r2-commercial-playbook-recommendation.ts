@@ -301,6 +301,33 @@ export function buildR2CommercialPlaybookRecommendation({
 }: BuildR2CommercialPlaybookRecommendationInput): R2CommercialPlaybookRecommendation {
   if (
     analysis.context
+      ?.projectTimingDeferred
+  ) {
+    return buildRecommendation({
+      primaryTechnique:
+        "rapport",
+      supportingTechniques: [
+        "spin",
+        "gpct",
+        "diagnostic_selling",
+        "consultative_closing",
+      ],
+      objective:
+        "Entender o horizonte de organização financeira e combinar acompanhamento com permissão.",
+      rationale:
+        "O cliente deixou claro que o projeto continua ativo, mas adiou o início para organizar as contas.",
+      consultantInstruction:
+        "Reconheça o momento, respeite o adiamento e faça uma única pergunta para combinar quando ou como retomar o contato.",
+      avoid: [
+        "Perguntar novamente se o projeto continua ativo.",
+        "Tratar a organização financeira como falta de interesse.",
+        "Pressionar por proposta, orçamento ou reunião.",
+      ],
+    })
+  }
+
+  if (
+    analysis.context
       ?.projectActiveConfirmed
   ) {
     return buildRecommendation({

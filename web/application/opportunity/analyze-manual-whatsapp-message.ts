@@ -30,6 +30,11 @@ export type ManualWhatsAppContext = {
     | null
   lastContactDate: string | null
   projectActiveConfirmed?: boolean
+  projectTimingDeferred?: boolean
+  projectTimingHint?:
+    | "next_month"
+    | "next_year"
+    | null
 }
 
 export type ManualWhatsAppAnalysis = {
@@ -444,6 +449,119 @@ function buildNoPreviousResponseAnalysis(
   }
 }
 
+
+function hasProjectRejection(
+  normalizedCustomerMessage: string,
+): boolean {
+  return containsAny(
+    normalizedCustomerMessage,
+    [
+      "nao quero continuar",
+      "nao vou continuar",
+      "nao continuo interessado",
+      "nao continuo interessada",
+      "nao esta mais nos meus planos",
+      "nao esta mais nos nossos planos",
+      "nao continua de pe",
+      "desisti do projeto",
+      "desisti do consorcio",
+      "nao quero dar inicio",
+      "nao pretendo dar inicio",
+    ],
+  )
+}
+
+function extractDeferredTimingHint(
+  normalizedCustomerMessage: string,
+): ManualWhatsAppContext[
+  "projectTimingHint"
+] {
+  if (
+    containsAny(
+      normalizedCustomerMessage,
+      [
+        "ano que vem",
+        "proximo ano",
+      ],
+    )
+  ) {
+    return "next_year"
+  }
+
+  if (
+    containsAny(
+      normalizedCustomerMessage,
+      [
+        "mes que vem",
+        "proximo mes",
+      ],
+    )
+  ) {
+    return "next_month"
+  }
+
+  return null
+}
+
+function isProjectActiveWithDeferredTiming(
+  normalizedCustomerMessage: string,
+): boolean {
+  if (
+    hasProjectRejection(
+      normalizedCustomerMessage,
+    )
+  ) {
+    return false
+  }
+
+  const hasActiveProjectSignal =
+    containsAny(
+      normalizedCustomerMessage,
+      [
+        "planejamento do consorcio",
+        "planejando o consorcio",
+        "me planejando para o consorcio",
+        "quero dar inicio",
+        "vou dar inicio",
+        "pretendo dar inicio",
+        "quero comecar o consorcio",
+        "vou comecar o consorcio",
+        "pretendo comecar o consorcio",
+        "quero seguir com o consorcio",
+        "ainda quero fazer o consorcio",
+      ],
+    )
+
+  const hasDeferredTimingSignal =
+    containsAny(
+      normalizedCustomerMessage,
+      [
+        "preciso me organizar",
+        "so preciso me organizar",
+        "me organizar com as contas",
+        "organizar as contas",
+        "organizar minhas contas",
+        "o que eu tenho a pagar",
+        "quando as coisas ficarem melhor",
+        "quando as coisas vao ficar melhor",
+        "quando melhorar",
+        "assim que melhorar",
+        "quando estiver mais tranquilo",
+        "quando estiver mais tranquila",
+        "mais pra frente",
+        "ano que vem",
+        "proximo ano",
+        "mes que vem",
+        "proximo mes",
+      ],
+    )
+
+  return (
+    hasActiveProjectSignal &&
+    hasDeferredTimingSignal
+  )
+}
+
 function isProjectActiveConfirmation(
   normalizedCustomerMessage: string,
 ): boolean {
@@ -457,18 +575,8 @@ function isProjectActiveConfirmation(
       .trim()
 
   if (
-    containsAny(
+    hasProjectRejection(
       comparableMessage,
-      [
-        "nao quero continuar",
-        "nao vou continuar",
-        "nao continuo interessado",
-        "nao continuo interessada",
-        "nao esta mais nos meus planos",
-        "nao esta mais nos nossos planos",
-        "nao continua de pe",
-        "desisti do projeto",
-      ],
     )
   ) {
     return false
@@ -505,6 +613,44 @@ function isProjectActiveConfirmation(
       "continuo interessada",
     ],
   )
+}
+
+
+function buildProjectActiveDeferredAnalysis(
+  normalizedCustomerMessage: string,
+): ManualWhatsAppAnalysis {
+  return {
+    intent:
+      "interested",
+    stage:
+      "follow_up",
+    label:
+      "Projeto ativo com início adiado",
+    summary:
+      "O cliente mantém o projeto, mas precisa organizar as finanças antes de iniciar.",
+    recommendedAction:
+      "Reconheça o momento financeiro, não pergunte novamente se o projeto está de pé e combine um acompanhamento com permissão, sem pressionar.",
+    context: {
+      customerInterest:
+        extractCustomerInterest(
+          normalizedCustomerMessage,
+        ),
+      previousConsultantAction:
+        null,
+      customerResponseState:
+        null,
+      lastContactDate:
+        null,
+      projectActiveConfirmed:
+        true,
+      projectTimingDeferred:
+        true,
+      projectTimingHint:
+        extractDeferredTimingHint(
+          normalizedCustomerMessage,
+        ),
+    },
+  }
 }
 
 function buildProjectActiveConfirmationAnalysis(
@@ -733,6 +879,18 @@ export function analyzeManualWhatsAppMessage(
       recommendedAction:
         "Confirme objetivo, valor desejado e prazo antes de apresentar uma condição.",
     }
+  }
+
+  if (
+    options.approachType ===
+      "reactivation" &&
+    isProjectActiveWithDeferredTiming(
+      messageForCustomerSignals,
+    )
+  ) {
+    return buildProjectActiveDeferredAnalysis(
+      messageForCustomerSignals,
+    )
   }
 
   if (
