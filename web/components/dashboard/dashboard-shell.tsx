@@ -3,14 +3,20 @@
 import { Menu } from "lucide-react"
 import { useState } from "react"
 
-import { DashboardContent } from "@/components/dashboard/dashboard-content"
-import { Sidebar } from "@/components/dashboard/sidebar"
 import { BrandIdentity } from "@/components/brand/brand-identity"
+import { DashboardContent } from "@/components/dashboard/dashboard-content"
+import { ExternalCrmPilotCard } from "@/components/dashboard/external-crm-pilot-card"
+import { Sidebar } from "@/components/dashboard/sidebar"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import type { DashboardData } from "@/types/dashboard"
+import type { ExternalCrmPilotView } from "@/types/external-crm-pilot"
 
-type DashboardShellProps = DashboardData
+type DashboardShellProps =
+  DashboardData & {
+    externalCrmPilot?:
+      ExternalCrmPilotView
+  }
 
 export function DashboardShell({
   workspaceId,
@@ -21,6 +27,7 @@ export function DashboardShell({
   opportunities = [],
   intelligence,
   gorilaR2,
+  externalCrmPilot,
 }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
@@ -75,6 +82,14 @@ export function DashboardShell({
         </header>
 
         <main className="min-h-screen">
+          {externalCrmPilot ? (
+            <div className="mx-auto w-full max-w-[1680px] px-4 pt-4 sm:px-6 sm:pt-6 lg:px-8 lg:pt-8 2xl:px-10">
+              <ExternalCrmPilotCard
+                view={externalCrmPilot}
+              />
+            </div>
+          ) : null}
+
           <DashboardContent
             workspaceId={workspaceId}
             user={user}
@@ -92,5 +107,3 @@ export function DashboardShell({
     </div>
   )
 }
-
-

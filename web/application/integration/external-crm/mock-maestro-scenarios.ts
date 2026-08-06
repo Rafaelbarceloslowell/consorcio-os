@@ -13,6 +13,7 @@ export type MockMaestroScenarioId =
   | "CADENCE_PAUSED_NEXT_ACTION"
   | "MEETING_SCHEDULED"
   | "CADENCE_COMPLETED"
+  | "REACTIVATION_POSITIVE_RESPONSE"
 
 export type MockMaestroScenario = {
   id: MockMaestroScenarioId
@@ -754,6 +755,69 @@ function buildScenario(
     }
   }
 
+
+  if (
+    id ===
+    "REACTIVATION_POSITIVE_RESPONSE"
+  ) {
+    const lead =
+      createLead({
+        id:
+          "maestro-lead-reactivation-positive",
+        name:
+          "Lead reativado com interesse",
+        stage:
+          "atendimento_ativo",
+        status:
+          "active",
+        updatedAt:
+          "2026-08-05T21:57:00.000Z",
+      })
+
+    return {
+      id,
+      description:
+        "Cliente respondeu positivamente durante a reativação e voltou ao atendimento ativo.",
+      consultants: [
+        consultant,
+      ],
+      leads: [
+        lead,
+      ],
+      cadences: [
+        createCadence({
+          leadId:
+            lead.externalLeadId,
+          status:
+            "PAUSED",
+          currentCheck:
+            5,
+          completedCount:
+            7,
+          paused:
+            true,
+          pauseReason:
+            "CUSTOMER_REPLIED",
+        }),
+      ],
+      meetings: [],
+      timelineEvents: [
+        createTimelineEvent({
+          leadId:
+            lead.externalLeadId,
+          id:
+            "maestro-event-customer-replied",
+          eventType:
+            "CUSTOMER_REPLIED",
+          summary:
+            "Cliente respondeu durante a reativação.",
+          occurredAt:
+            "2026-08-05T21:56:00.000Z",
+        }),
+      ],
+    }
+  }
+
   const lead =
     createLead({
       id:
@@ -815,6 +879,7 @@ export const MOCK_MAESTRO_SCENARIO_IDS: MockMaestroScenarioId[] = [
   "CADENCE_PAUSED_NEXT_ACTION",
   "MEETING_SCHEDULED",
   "CADENCE_COMPLETED",
+  "REACTIVATION_POSITIVE_RESPONSE",
 ]
 
 export function createMockMaestroScenario(
