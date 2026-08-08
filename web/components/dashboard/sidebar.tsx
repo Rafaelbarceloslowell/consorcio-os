@@ -232,6 +232,7 @@ export function Sidebar({
           <Link
             href="/settings"
             aria-label={`Abrir perfil de ${resolvedUser.name}`}
+            title={`${resolvedUser.name} · ${resolvedUser.positionTitle ?? "Operação"}`}
             className={cn(
               "flex items-center rounded-[16px] border border-transparent transition duration-200 hover:border-[var(--gorila-line)] hover:bg-white/[0.025]",
               collapsed ? "justify-center p-1" : "gap-3 p-2",
@@ -242,10 +243,10 @@ export function Sidebar({
             </span>
             {!collapsed ? (
               <span className="min-w-0 flex-1">
-                <span className="block truncate text-xs font-medium text-[var(--gorila-text)]">
+                <span title={resolvedUser.name} className="block truncate text-xs font-medium text-[var(--gorila-text)]">
                   {resolvedUser.name}
                 </span>
-                <span className="mt-1 block truncate text-[10px] text-[var(--gorila-text-muted)]">
+                <span title={resolvedUser.positionTitle ?? "Operação"} className="mt-1 block truncate text-[10px] text-[var(--gorila-text-muted)]">
                   {resolvedUser.positionTitle ?? "Operação"}
                 </span>
               </span>

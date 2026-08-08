@@ -113,7 +113,9 @@ export function LeadList({
                       {lead.consortiumTypeLabel}
                     </Data>
                     <Data label="Crédito desejado">
-                      {lead.desiredCreditValueLabel}
+                      <span className="whitespace-nowrap tabular-nums">
+                        {lead.desiredCreditValueLabel}
+                      </span>
                     </Data>
                     <Data label="Prazo">
                       {lead.desiredTermLabel}

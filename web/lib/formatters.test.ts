@@ -5,6 +5,7 @@ import {
   } from "vitest"
   
   import {
+    formatCompactCurrency,
     formatCurrency,
     formatGreeting,
   } from "./formatters"
@@ -18,7 +19,7 @@ import {
           expect(
             formatCurrency(0),
           ).toBe(
-            "R$\u00A00",
+            "R$\u00A00,00",
           )
         },
       )
@@ -31,33 +32,33 @@ import {
               450_000,
             ),
           ).toBe(
-            "R$\u00A0450.000",
+            "R$\u00A0450.000,00",
           )
         },
       )
   
       it(
-        "deve arredondar valores decimais",
+        "deve preservar centavos",
         () => {
           expect(
             formatCurrency(
               1_234.56,
             ),
           ).toBe(
-            "R$\u00A01.235",
+            "R$\u00A01.234,56",
           )
         },
       )
   
       it(
-        "deve arredondar valores decimais para baixo",
+        "deve preservar centavos abaixo de cinquenta",
         () => {
           expect(
             formatCurrency(
               1_234.49,
             ),
           ).toBe(
-            "R$\u00A01.234",
+            "R$\u00A01.234,49",
           )
         },
       )
@@ -70,7 +71,7 @@ import {
               -1_500,
             ),
           ).toBe(
-            "-R$\u00A01.500",
+            "-R$\u00A01.500,00",
           )
         },
       )
@@ -225,3 +226,23 @@ import {
       )
     },
   )
+
+  describe("formatCompactCurrency", () => {
+    it.each([
+      [0, "R$\u00A00"],
+      [500, "R$\u00A0500"],
+      [500.5, "R$\u00A0500,50"],
+      [1_500, "R$\u00A01,5 mil"],
+      [250_000, "R$\u00A0250 mil"],
+      [1_200_000, "R$\u00A01,2 mi"],
+      [10_500_000, "R$\u00A010,5 mi"],
+      [-1_500, "-R$\u00A01,5 mil"],
+    ])("formata %s como %s", (value, expected) => {
+      expect(formatCompactCurrency(value)).toBe(expected)
+    })
+
+    it("não presume valor ausente", () => {
+      expect(formatCurrency(null)).toBe("—")
+      expect(formatCompactCurrency(undefined)).toBe("—")
+    })
+  })

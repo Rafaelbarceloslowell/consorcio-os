@@ -59,7 +59,7 @@ export function StatCard({
         </div>
 
         <div className="mt-auto pt-6">
-          <span className="block break-words text-[30px] font-semibold leading-none tracking-[-0.055em] text-[#F5F7FA] sm:text-[32px]">
+          <span className="block min-w-0 whitespace-nowrap text-[clamp(1.45rem,2.25vw,2rem)] font-semibold leading-none tracking-[-0.045em] text-[#F5F7FA] tabular-nums">
             {value}
           </span>
         </div>

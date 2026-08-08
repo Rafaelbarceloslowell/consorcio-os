@@ -1,5 +1,9 @@
 import Link from "next/link"
 
+import {
+  ThemeToggle,
+} from "@/components/ui/theme-toggle"
+
 import type {
   SettingsView,
 } from "@/types/settings-operational"
@@ -29,7 +33,7 @@ export function SettingsPanel({
 
   return (
     <main className="min-h-screen bg-[#0B0F0D] p-4 text-[#F5F7FA] sm:p-8">
-      <section className="mx-auto max-w-7xl overflow-hidden rounded-[26px] border border-white/[0.08] bg-[#131814] shadow-[0_30px_90px_rgba(0,0,0,0.34)]">
+      <section className="mx-auto max-w-7xl overflow-hidden rounded-[26px] border border-white/[0.08] bg-[#131814] shadow-[var(--gorilla-shadow-raised)]">
         <header className="flex flex-col gap-5 border-b border-white/[0.07] px-6 py-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#697384]">
@@ -43,12 +47,15 @@ export function SettingsPanel({
             </p>
           </div>
 
-          <Link
-            href="/"
-            className="inline-flex min-h-10 items-center justify-center rounded-xl border border-white/[0.10] px-4 text-sm font-semibold text-[#B7C0CC] transition hover:-translate-y-0.5 hover:border-white/[0.18] hover:bg-white/[0.04]"
-          >
-            Mission Control
-          </Link>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            <Link
+              href="/"
+              className="inline-flex min-h-10 items-center justify-center rounded-xl border border-white/[0.10] px-4 text-sm font-semibold text-[#B7C0CC] transition hover:-translate-y-0.5 hover:border-white/[0.18] hover:bg-white/[0.04]"
+            >
+              Mission Control
+            </Link>
+          </div>
         </header>
 
         <div className="grid gap-5 p-6 xl:grid-cols-2">
@@ -243,7 +250,11 @@ export function SettingsPanel({
             </div>
 
             <p className="mt-4 text-xs leading-5 text-[#697384]">
-              Meta atual de crédito: {consultant.monthlySalesTargetLabel}. Use 0 para deixar a meta pessoal de leads dependente da distribuição real da empresa.
+              Meta atual de crédito:{" "}
+              <span className="whitespace-nowrap tabular-nums">
+                {consultant.monthlySalesTargetLabel}
+              </span>
+              . Use 0 para deixar a meta pessoal de leads dependente da distribuição real da empresa.
             </p>
 
             <SubmitButton>

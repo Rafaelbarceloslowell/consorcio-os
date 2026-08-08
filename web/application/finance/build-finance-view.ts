@@ -3,15 +3,9 @@ import type {
   FinanceSummary,
   FinanceView,
 } from "@/types/finance-operational"
-
-const currencyFormatter =
-  new Intl.NumberFormat(
-    "pt-BR",
-    {
-      style: "currency",
-      currency: "BRL",
-    },
-  )
+import {
+  formatCurrency,
+} from "@/lib/formatters"
 
 export function summarizeFinanceSales(
   sales: readonly FinanceSaleRecord[],
@@ -99,22 +93,22 @@ export function buildFinanceView(
         summary
           .cancelledSalesCount,
       confirmedCreditValueLabel:
-        currencyFormatter.format(
+        formatCurrency(
           summary
             .confirmedCreditValue,
         ),
       pendingCreditValueLabel:
-        currencyFormatter.format(
+        formatCurrency(
           summary
             .pendingCreditValue,
         ),
       confirmedCommissionValueLabel:
-        currencyFormatter.format(
+        formatCurrency(
           summary
             .confirmedCommissionValue,
         ),
       forecastCommissionValueLabel:
-        currencyFormatter.format(
+        formatCurrency(
           summary
             .forecastCommissionValue,
         ),

@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { brand } from "@/components/brand/brand"
+import { ThemeProvider } from "@/components/theme/theme-provider"
+import { themeInitializationScript } from "@/lib/theme"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,10 +57,17 @@ export default function RootLayout({
     <html
       lang="pt-BR"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} gorila-night`}
+      className={`${geistSans.variable} ${geistMono.variable} gorila-night dark`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeInitializationScript }}
+        />
+      </head>
       <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

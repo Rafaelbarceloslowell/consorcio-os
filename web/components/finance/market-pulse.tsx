@@ -84,7 +84,7 @@ export function MarketPulse({
       ) : null}
 
       {failed || view?.status === "unavailable" ? (
-        <p className="px-5 py-5 text-xs leading-5 text-amber-100/75">
+        <p className="px-5 py-5 text-xs leading-5 text-[var(--gorilla-warning)]">
           Dados de mercado temporariamente indisponíveis. Nenhum valor foi presumido.
         </p>
       ) : null}

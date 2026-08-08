@@ -226,7 +226,7 @@ describe("MetricsGrid", () => {
 
     expect(
       screen.getByText(
-        /R\$\s*1\.850\.000/
+        /R\$\s*1,9 mi/
       )
     ).toBeInTheDocument()
   })
@@ -308,7 +308,7 @@ describe("MetricsGrid", () => {
         description:
           "Quanto a operação já converteu neste mês",
         value: expect.stringMatching(
-          /R\$\s*1\.850\.000/
+          /R\$\s*1,9 mi/
         ),
         iconClassName:
           "border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10] text-[#43A972]",
@@ -431,9 +431,8 @@ describe("MetricsGrid", () => {
 
     expect(grid).toHaveClass(
       "grid",
-      "gap-4",
-      "sm:grid-cols-2",
-      "xl:grid-cols-4"
+      "gorilla-kpi-strip",
+      "overflow-hidden"
     )
   })
 

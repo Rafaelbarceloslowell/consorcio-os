@@ -3,6 +3,9 @@ import Link from "next/link"
 import {
   MarketPulse,
 } from "@/components/finance/market-pulse"
+import {
+  formatCurrency,
+} from "@/lib/formatters"
 
 import type {
   FinanceView,
@@ -54,7 +57,7 @@ export function FinanceOverview({
 
   return (
     <main className="min-h-screen bg-[#0B0F0D] p-4 text-[#F5F7FA] sm:p-8">
-      <section className="mx-auto max-w-7xl overflow-hidden rounded-[26px] border border-white/[0.08] bg-[#131814] shadow-[0_30px_90px_rgba(0,0,0,0.34)]">
+      <section className="mx-auto max-w-7xl overflow-hidden rounded-[26px] border border-white/[0.08] bg-[#131814] shadow-[var(--gorilla-shadow-raised)]">
         <header className="flex flex-col gap-5 border-b border-white/[0.07] px-6 py-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#697384]">
@@ -85,7 +88,7 @@ export function FinanceOverview({
               <p className="text-xs text-[#697384]">
                 {metric.label}
               </p>
-              <p className="mt-3 text-xl font-semibold tracking-[-0.035em]">
+              <p className="mt-3 whitespace-nowrap text-xl font-semibold tracking-[-0.035em] tabular-nums">
                 {metric.value}
               </p>
               <p className="mt-2 text-xs text-[#96A0AF]">
@@ -161,32 +164,12 @@ export function FinanceOverview({
                       </div>
 
                       <div className="text-left lg:text-right">
-                        <p className="text-lg font-semibold">
-                          {new Intl.NumberFormat(
-                            "pt-BR",
-                            {
-                              style:
-                                "currency",
-                              currency:
-                                "BRL",
-                            },
-                          ).format(
-                            sale.creditValue,
-                          )}
+                        <p className="whitespace-nowrap text-lg font-semibold tabular-nums">
+                          {formatCurrency(sale.creditValue)}
                         </p>
-                        <p className="mt-1 text-xs text-[#697384]">
+                        <p className="mt-1 whitespace-nowrap text-xs text-[#697384] tabular-nums">
                           Comissão{" "}
-                          {new Intl.NumberFormat(
-                            "pt-BR",
-                            {
-                              style:
-                                "currency",
-                              currency:
-                                "BRL",
-                            },
-                          ).format(
-                            sale.commissionValue,
-                          )}{" "}
+                          {formatCurrency(sale.commissionValue)}{" "}
                           ({sale.commissionPercent}%)
                         </p>
                       </div>
@@ -206,17 +189,9 @@ export function FinanceOverview({
                         {sale.saleDateLabel}
                       </Data>
                       <Data label="Parcela">
-                        {new Intl.NumberFormat(
-                          "pt-BR",
-                          {
-                            style:
-                              "currency",
-                            currency:
-                              "BRL",
-                          },
-                        ).format(
-                          sale.installmentValue,
-                        )}
+                        <span className="whitespace-nowrap tabular-nums">
+                          {formatCurrency(sale.installmentValue)}
+                        </span>
                       </Data>
                       <Data label="Primeira parcela">
                         {sale.firstInstallmentDateLabel}

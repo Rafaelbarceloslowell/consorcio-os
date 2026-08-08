@@ -101,7 +101,7 @@ export function DashboardHeader({
 
           <section
             aria-labelledby="next-best-action-title"
-            className="mt-7 max-w-2xl rounded-[22px] border border-[var(--gorila-material-border-strong)] bg-[rgba(24,24,20,0.82)] p-5 shadow-[inset_0_1px_0_rgba(255,247,229,0.06),0_20px_48px_rgba(0,0,0,0.24)] backdrop-blur-xl sm:p-6"
+            className="mt-7 max-w-2xl rounded-[22px] border border-[var(--gorilla-border-strong)] bg-[var(--gorilla-surface-raised)] p-5 shadow-[var(--gorilla-shadow)] backdrop-blur-xl sm:p-6"
           >
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.17em] text-[var(--gorila-bronze)]">

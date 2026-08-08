@@ -8,6 +8,9 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+import {
+  formatCurrency,
+} from "@/lib/formatters"
 
 import type {
   ProposalListView,
@@ -19,12 +22,6 @@ import {
   rejectProposalAction,
   sendProposalAction,
 } from "./actions"
-
-const currencyFormatter =
-  new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  })
 
 const dateFormatter =
   new Intl.DateTimeFormat("pt-BR")
@@ -169,13 +166,13 @@ export default async function ProposalsPage() {
           consortiumName:
             proposal.consortium.name,
           creditValueLabel:
-            currencyFormatter.format(
+            formatCurrency(
               Number(
                 proposal.creditValue,
               ),
             ),
           installmentValueLabel:
-            currencyFormatter.format(
+            formatCurrency(
               Number(
                 proposal.installmentValue,
               ),

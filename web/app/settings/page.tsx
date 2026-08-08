@@ -13,6 +13,9 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+import {
+  formatCurrency,
+} from "@/lib/formatters"
 
 import type {
   SettingsConsultantView,
@@ -26,15 +29,6 @@ import {
 
 const CURRENT_CONSULTANT_EMAIL =
   "rafaelbconsorcio@gmail.com"
-
-const currencyFormatter =
-  new Intl.NumberFormat(
-    "pt-BR",
-    {
-      style: "currency",
-      currency: "BRL",
-    },
-  )
 
 function accessRoleLabel(
   role: ConsultantRole,
@@ -201,7 +195,7 @@ export default async function SettingsPage() {
         monthlySalesTarget
           .toFixed(2),
       monthlySalesTargetLabel:
-        currencyFormatter.format(
+        formatCurrency(
           monthlySalesTarget,
         ),
       monthlyLeadsTarget:

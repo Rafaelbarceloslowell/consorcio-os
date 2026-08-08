@@ -8,7 +8,7 @@ import {
 } from "lucide-react"
 
 import { StatCard } from "@/components/dashboard/stat-card"
-import { formatCurrency } from "@/lib/formatters"
+import { formatCompactCurrency } from "@/lib/formatters"
 import type { DashboardMetrics } from "@/types/dashboard"
 
 type MetricsGridProps = {
@@ -57,7 +57,7 @@ export function MetricsGrid({
       key: "monthly-sales",
       title: "Produção no mês",
       description: "Quanto a operação já converteu neste mês",
-      value: formatCurrency(metrics.monthlySales),
+      value: formatCompactCurrency(metrics.monthlySales),
       icon: CircleDollarSign,
       iconClassName:
         "border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10] text-[#43A972]",
@@ -82,7 +82,7 @@ export function MetricsGrid({
       key: "pipeline-value",
       title: "Pipeline ativo",
       description: "Volume potencial nas etapas comerciais",
-      value: formatCurrency(pipelineValue),
+      value: formatCompactCurrency(pipelineValue),
       icon: ChartNoAxesCombined,
       iconClassName:
         "border-[#8A7557]/25 bg-[#8A7557]/[0.10] text-[#A9906A]",
@@ -120,7 +120,7 @@ export function MetricsGrid({
         </div>
       </div>
 
-      <div className="gorilla-kpi-strip gorilla-panel grid gap-4 overflow-hidden sm:grid-cols-2 xl:grid-cols-4">
+      <div className="gorilla-kpi-strip gorilla-panel grid overflow-hidden">
         {items.map((item) => (
           <StatCard
             key={item.key}

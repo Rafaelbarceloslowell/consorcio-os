@@ -5,7 +5,7 @@ import {
 import Link from "next/link"
 
 import {
-  formatCurrency,
+  formatCompactCurrency,
 } from "@/lib/formatters"
 import type {
   PipelineStage,
@@ -90,8 +90,8 @@ export function PipelineOverview({
                   />
                 </div>
 
-                <p className="text-xs font-medium tabular-nums text-[var(--gorila-text)] sm:min-w-24 sm:text-right">
-                  {formatCurrency(stage.value)}
+                <p className="whitespace-nowrap text-xs font-medium tabular-nums text-[var(--gorila-text)] sm:min-w-24 sm:text-right">
+                  {formatCompactCurrency(stage.value)}
                 </p>
               </article>
             )

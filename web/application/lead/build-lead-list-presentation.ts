@@ -3,6 +3,7 @@ import {
   getLeadSourceLabel,
   getLeadStatusLabel,
 } from "@/components/lead/lead-labels"
+import { formatCurrency } from "@/lib/formatters"
 
 import type {
   LeadListClassification,
@@ -15,12 +16,6 @@ const DATA_CRAZY_MARKER =
 
 const DATA_CRAZY_STAGE_NAME =
   "Reativação Data Crazy"
-
-const currencyFormatter =
-  new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  })
 
 const dateFormatter =
   new Intl.DateTimeFormat("pt-BR")
@@ -300,9 +295,7 @@ function formatDesiredCreditValue(
 
   return Number.isFinite(numberValue) &&
     numberValue > 0
-    ? currencyFormatter.format(
-        numberValue,
-      )
+    ? formatCurrency(numberValue)
     : "Não informado"
 }
 

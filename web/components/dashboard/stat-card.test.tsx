@@ -440,13 +440,14 @@ describe("StatCard", () => {
       screen.getByText("12")
     ).toHaveClass(
       "block",
-      "break-words",
-      "text-[30px]",
+      "min-w-0",
+      "whitespace-nowrap",
+      "text-[clamp(1.45rem,2.25vw,2rem)]",
       "font-semibold",
       "leading-none",
-      "tracking-[-0.055em]",
+      "tracking-[-0.045em]",
       "text-[#F5F7FA]",
-      "sm:text-[32px]"
+      "tabular-nums"
     )
   })
 

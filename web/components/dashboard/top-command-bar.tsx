@@ -16,6 +16,9 @@ import {
 import {
   GlobalSearch,
 } from "@/components/search/global-search"
+import {
+  ThemeToggle,
+} from "@/components/ui/theme-toggle"
 import type {
   User,
 } from "@/types/dashboard"
@@ -88,6 +91,8 @@ export function TopCommandBar({
           </nav>
 
           <div className="flex shrink-0 items-center gap-2 border-l border-[var(--gorila-line)] pl-3">
+            <ThemeToggle />
+
             <button
               type="button"
               aria-label="Abrir pesquisa global"
@@ -109,16 +114,17 @@ export function TopCommandBar({
             <Link
               href="/settings"
               aria-label={`Abrir perfil de ${user.name}`}
+              title={`${user.name} · ${user.positionTitle ?? "Operação"}`}
               className="flex h-11 max-w-44 items-center gap-2 rounded-full border border-[var(--gorila-line)] px-2.5 text-left transition duration-200 hover:border-[var(--gorila-material-border-strong)] hover:bg-white/[0.035] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]"
             >
               <span className="flex size-7 items-center justify-center rounded-full bg-[var(--gorila-green-soft)] text-[10px] font-semibold text-[var(--gorila-green-bright)]">
                 {user.name.trim().charAt(0).toUpperCase() || "U"}
               </span>
               <span className="min-w-0 flex-1">
-                <span className="block truncate text-xs font-medium text-[var(--gorila-text)]">
+                <span title={user.name} className="block truncate text-xs font-medium text-[var(--gorila-text)]">
                   {user.name}
                 </span>
-                <span className="block truncate text-[9px] uppercase tracking-[0.1em] text-[var(--gorila-text-muted)]">
+                <span title={user.positionTitle ?? "Operação"} className="block truncate text-[9px] uppercase tracking-[0.1em] text-[var(--gorila-text-muted)]">
                   {user.positionTitle ?? "Operação"}
                 </span>
               </span>

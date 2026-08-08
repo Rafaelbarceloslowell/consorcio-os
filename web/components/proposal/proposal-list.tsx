@@ -112,10 +112,14 @@ export function ProposalList({
                       {proposal.consortiumName}
                     </Data>
                     <Data label="Crédito">
-                      {proposal.creditValueLabel}
+                      <span className="whitespace-nowrap tabular-nums">
+                        {proposal.creditValueLabel}
+                      </span>
                     </Data>
                     <Data label="Parcela">
-                      {proposal.installmentValueLabel}
+                      <span className="whitespace-nowrap tabular-nums">
+                        {proposal.installmentValueLabel}
+                      </span>
                     </Data>
                     <Data label="Prazo">
                       {proposal.termMonths} meses

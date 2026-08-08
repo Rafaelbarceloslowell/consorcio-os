@@ -26,7 +26,7 @@ describe("PipelineOverview", () => {
     expect(screen.getByRole("heading", { name: "Pipeline de oportunidades" })).toBeInTheDocument()
     expect(screen.getByText("Prospecção")).toBeInTheDocument()
     expect(screen.getByText("3 oportunidades")).toBeInTheDocument()
-    expect(screen.getByText(/R\$\s*750\.000/)).toBeInTheDocument()
+    expect(screen.getByText(/R\$\s*750 mil/)).toBeInTheDocument()
     expect(screen.getByRole("link", { name: /Nova oportunidade/i })).toHaveAttribute("href", "/opportunities/new")
   })
 
