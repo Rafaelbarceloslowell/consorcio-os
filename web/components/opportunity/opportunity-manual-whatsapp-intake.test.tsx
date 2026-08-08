@@ -405,12 +405,6 @@ describe(
               intelligence,
             }),
           })
-          .mockResolvedValueOnce({
-            ok: true,
-            json: async () => ({
-              message: "saved",
-            }),
-          })
 
         render(
           <OpportunityManualWhatsAppIntake
@@ -450,13 +444,21 @@ describe(
           "Resposta segura do servidor.",
         )
         await waitFor(() => {
-          expect(fetchMock).toHaveBeenCalledTimes(2)
+          expect(fetchMock).toHaveBeenCalledOnce()
         })
         expect(fetchMock.mock.calls[0]?.[0]).toBe(
           "/api/opportunities/journey-1/r2-intelligence",
         )
-        expect(fetchMock.mock.calls[1]?.[0]).toBe(
-          "/api/opportunities/journey-1/conversation-memory",
+        expect(
+          screen.getByText(
+            /memória comercial salva/i,
+          ),
+        ).toBeInTheDocument()
+        expect(fetchMock).not.toHaveBeenCalledWith(
+          expect.stringContaining(
+            "/conversation-memory",
+          ),
+          expect.anything(),
         )
       },
     )

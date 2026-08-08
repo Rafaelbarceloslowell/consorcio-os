@@ -11,6 +11,8 @@ const mocks = vi.hoisted(
     getContext: vi.fn(),
     findJourney: vi.fn(),
     createEvent: vi.fn(),
+    upsertMemory: vi.fn(),
+    transaction: vi.fn(),
     listCandidates: vi.fn(),
     findAllEvents: vi.fn(),
   }),
@@ -36,6 +38,8 @@ vi.mock(
         create:
           mocks.createEvent,
       },
+      $transaction:
+        mocks.transaction,
     },
   }),
 )
@@ -145,6 +149,25 @@ describe(
       mocks.createEvent.mockResolvedValue({
         id: "event-1",
       })
+      mocks.upsertMemory.mockResolvedValue({
+        id: "memory-1",
+      })
+      mocks.transaction.mockImplementation(
+        async (
+          operation: (
+            transaction: unknown,
+          ) => unknown,
+        ) => operation({
+          commercialConversationMemory: {
+            upsert:
+              mocks.upsertMemory,
+          },
+          commercialEvent: {
+            create:
+              mocks.createEvent,
+          },
+        }),
+      )
     })
 
     it(
@@ -221,6 +244,23 @@ describe(
               expect.any(Array),
             learningEvidenceCount:
               expect.any(Number),
+          }),
+        )
+        expect(
+          mocks.upsertMemory,
+        ).toHaveBeenCalledWith(
+          expect.objectContaining({
+            where: {
+              journeyId:
+                "journey-1",
+            },
+            create:
+              expect.objectContaining({
+                workspaceId:
+                  "workspace-1",
+                lastIncomingMessage:
+                  sensitiveContext,
+              }),
           }),
         )
       },

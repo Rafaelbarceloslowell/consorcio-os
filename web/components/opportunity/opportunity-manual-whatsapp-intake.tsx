@@ -297,6 +297,13 @@ export function OpportunityManualWhatsAppIntake({
         setIntelligence(
           responseBody.intelligence,
         )
+        setAnalysis(nextAnalysis)
+        setReply(nextReply ?? "")
+        setMemoryStatus(
+          "Mem\u00f3ria comercial salva. O R2 vai lembrar onde a conversa parou.",
+        )
+        setIsSavingMemory(false)
+        return
       } catch (error) {
         setAnalysis(null)
         setReply("")
@@ -312,79 +319,6 @@ export function OpportunityManualWhatsAppIntake({
 
     setAnalysis(nextAnalysis)
     setReply(nextReply ?? "")
-
-    if (
-      !nextAnalysis ||
-      !resolvedApproachType ||
-      !opportunityId
-    ) {
-      return
-    }
-
-    const nextStage =
-      mapConversationStage(
-        nextAnalysis.stage,
-      )
-
-    const nextCommercialGoal =
-      buildNextGoal({
-        approachType:
-          resolvedApproachType,
-        stage: nextStage,
-      })
-
-    setIsSavingMemory(true)
-
-    try {
-      const response =
-        await fetch(
-          `/api/opportunities/${encodeURIComponent(
-            opportunityId,
-          )}/conversation-memory`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type":
-                "application/json",
-            },
-            body: JSON.stringify({
-              stage: nextStage,
-              goal:
-                nextCommercialGoal.goal,
-              intent:
-                nextAnalysis.intent,
-              incomingMessage,
-              suggestedReply:
-                nextReply,
-            }),
-          },
-        )
-
-      const responseBody =
-        await response.json() as {
-          error?: string
-          message?: string
-        }
-
-      if (!response.ok) {
-        throw new Error(
-          responseBody.error ??
-            "N\u00e3o foi poss\u00edvel salvar a mem\u00f3ria comercial.",
-        )
-      }
-
-      setMemoryStatus(
-        "Mem\u00f3ria comercial salva. O R2 vai lembrar onde a conversa parou.",
-      )
-    } catch (error) {
-      setMemoryStatus(
-        error instanceof Error
-          ? error.message
-          : "N\u00e3o foi poss\u00edvel salvar a mem\u00f3ria comercial.",
-      )
-    } finally {
-      setIsSavingMemory(false)
-    }
   }
 
   function handleClear() {

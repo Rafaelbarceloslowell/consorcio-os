@@ -1,5 +1,7 @@
 import {
   CommercialActorType,
+  CommercialConversationGoal,
+  CommercialConversationStage,
   CommercialEventType,
   ConsortiumType as PrismaConsortiumType,
 } from "@/lib/generated/prisma/client"
@@ -12,9 +14,21 @@ import {
   analyzeManualWhatsAppMessage,
 } from "@/application/opportunity/analyze-manual-whatsapp-message"
 
+import type {
+  ManualWhatsAppAnalysis,
+} from "@/application/opportunity/analyze-manual-whatsapp-message"
+
 import {
   buildManualWhatsAppReply,
 } from "@/application/opportunity/build-manual-whatsapp-reply"
+
+import {
+  buildNextGoal,
+} from "@/application/opportunity/conversation/build-next-goal"
+
+import type {
+  ConversationStage,
+} from "@/application/opportunity/conversation/conversation-stage"
 
 import {
   resolveR2Intelligence,
@@ -58,6 +72,74 @@ const consortiumTypeToDomain: Record<
     "services",
   [PrismaConsortiumType.OTHER]:
     "other",
+}
+
+const stageToPrisma: Record<
+  ConversationStage,
+  CommercialConversationStage
+> = {
+  opening:
+    CommercialConversationStage.OPENING,
+  rapport:
+    CommercialConversationStage.RAPPORT,
+  discovery:
+    CommercialConversationStage.DISCOVERY,
+  qualification:
+    CommercialConversationStage.QUALIFICATION,
+  diagnosis:
+    CommercialConversationStage.DIAGNOSIS,
+  strategy:
+    CommercialConversationStage.STRATEGY,
+  meeting:
+    CommercialConversationStage.MEETING,
+  follow_up:
+    CommercialConversationStage.FOLLOW_UP,
+  closing:
+    CommercialConversationStage.CLOSING,
+}
+
+const goalToPrisma = {
+  get_first_response:
+    CommercialConversationGoal.GET_FIRST_RESPONSE,
+  understand_interest_area:
+    CommercialConversationGoal.UNDERSTAND_INTEREST_AREA,
+  understand_project_purpose:
+    CommercialConversationGoal.UNDERSTAND_PROJECT_PURPOSE,
+  understand_timing:
+    CommercialConversationGoal.UNDERSTAND_TIMING,
+  understand_budget:
+    CommercialConversationGoal.UNDERSTAND_BUDGET,
+  understand_objection:
+    CommercialConversationGoal.UNDERSTAND_OBJECTION,
+  present_strategy:
+    CommercialConversationGoal.PRESENT_STRATEGY,
+  schedule_meeting:
+    CommercialConversationGoal.SCHEDULE_MEETING,
+  confirm_follow_up:
+    CommercialConversationGoal.CONFIRM_FOLLOW_UP,
+  close_next_step:
+    CommercialConversationGoal.CLOSE_NEXT_STEP,
+} as const
+
+function toConversationStage(
+  stage: ManualWhatsAppAnalysis["stage"],
+): ConversationStage {
+  switch (stage) {
+    case "opening":
+      return "opening"
+    case "discovery":
+      return "discovery"
+    case "diagnosis":
+      return "diagnosis"
+    case "qualification":
+      return "qualification"
+    case "strategy":
+      return "strategy"
+    case "call_to_action":
+      return "meeting"
+    case "follow_up":
+      return "follow_up"
+  }
 }
 
 function json(
@@ -285,52 +367,114 @@ export async function POST(
       approachType,
       analysis,
     })
+  const preparedReply =
+    intelligence.commercialStrategy
+      .requiresRecentContext
+      ? null
+      : reply
+  const conversationStage =
+    toConversationStage(
+      analysis.stage,
+    )
+  const conversationGoal =
+    buildNextGoal({
+      approachType,
+      stage: conversationStage,
+    }).goal
 
-  await prisma.commercialEvent.create({
-    data: {
-      workspaceId:
-        authenticated.workspaceId,
-      journeyId: journey.id,
-      type:
-        CommercialEventType.NOTE_ADDED,
-      actorType:
-        CommercialActorType.AI,
-      actorId: null,
-      payload: {
-        category:
-          "r2_intelligence_recommendation",
-        recommendationId,
-        opportunityId: journey.id,
-        commercialTechniqueIds:
-          intelligence.observability
-            .commercialTechniqueIds,
-        consortiumCandidateId:
-          intelligence.observability
-            .consortiumCandidateId,
-        learningApplied:
-          intelligence.learningApplied,
-        learningEvidenceCount:
-          intelligence.observability
-            .learningEvidenceCount,
-        confidence:
-          intelligence.confidence,
-        warnings:
-          intelligence.warnings,
-        generatedAt:
-          intelligence.observability
-            .generatedAt,
-      },
-      occurredAt: now,
+  await prisma.$transaction(
+    async (transaction) => {
+      await transaction
+        .commercialConversationMemory
+        .upsert({
+          where: {
+            journeyId: journey.id,
+          },
+          create: {
+            workspaceId:
+              authenticated.workspaceId,
+            journeyId: journey.id,
+            stage:
+              stageToPrisma[
+                conversationStage
+              ],
+            goal:
+              goalToPrisma[
+                conversationGoal
+              ],
+            lastIntent:
+              analysis.intent,
+            lastIncomingMessage:
+              incomingMessage,
+            lastSuggestedReply:
+              preparedReply,
+            analyzedAt: now,
+          },
+          update: {
+            stage:
+              stageToPrisma[
+                conversationStage
+              ],
+            goal:
+              goalToPrisma[
+                conversationGoal
+              ],
+            lastIntent:
+              analysis.intent,
+            lastIncomingMessage:
+              incomingMessage,
+            lastSuggestedReply:
+              preparedReply,
+            analyzedAt: now,
+          },
+        })
+
+      await transaction
+        .commercialEvent.create({
+          data: {
+            workspaceId:
+              authenticated.workspaceId,
+            journeyId: journey.id,
+            type:
+              CommercialEventType.NOTE_ADDED,
+            actorType:
+              CommercialActorType.AI,
+            actorId: null,
+            payload: {
+              category:
+                "r2_intelligence_recommendation",
+              recommendationId,
+              opportunityId:
+                journey.id,
+              commercialTechniqueIds:
+                intelligence.observability
+                  .commercialTechniqueIds,
+              consortiumCandidateId:
+                intelligence.observability
+                  .consortiumCandidateId,
+              learningApplied:
+                intelligence.learningApplied,
+              learningEvidenceCount:
+                intelligence.observability
+                  .learningEvidenceCount,
+              confidence:
+                intelligence.confidence,
+              warnings:
+                intelligence.warnings,
+              generatedAt:
+                intelligence.observability
+                  .generatedAt,
+            },
+            occurredAt: now,
+          },
+        })
     },
-  })
+  )
 
   return json({
     analysis,
-    reply:
-      intelligence.commercialStrategy
-        .requiresRecentContext
-        ? null
-        : reply,
+    reply: preparedReply,
     intelligence,
+    memorySaved: true,
   })
 }

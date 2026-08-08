@@ -67,6 +67,7 @@ O resultado diferencia dado ausente, regra não verificada e ausência de opçã
 - carrega catálogo e eventos somente do workspace;
 - preserva a NBA do Decision Engine quando disponível;
 - resolve a inteligência unificada;
+- grava memória comercial e observabilidade na mesma transação;
 - persiste apenas metadados auditáveis da recomendação, sem copiar a conversa integral;
 - retorna análise, mensagem manual opcional e o DTO unificado.
 
