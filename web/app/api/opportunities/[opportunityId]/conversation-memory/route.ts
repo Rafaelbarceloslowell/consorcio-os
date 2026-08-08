@@ -8,6 +8,10 @@ import {
 } from "@/infrastructure/prisma/client"
 
 import {
+  manualMessagingProvider,
+} from "@/application/messaging/manual-messaging-provider"
+
+import {
   getApiCommercialContext,
 } from "@/lib/auth/get-authenticated-commercial-context"
 
@@ -310,7 +314,19 @@ export async function POST(
     )
   }
 
+  const normalizedMessage =
+    input.incomingMessage
+      ? manualMessagingProvider
+          .normalizeInbound({
+            conversationId:
+              journey.id,
+            text:
+              input.incomingMessage,
+          })
+      : null
+
   const analyzedAt =
+    normalizedMessage?.occurredAt ??
     new Date()
 
   try {
@@ -338,7 +354,7 @@ export async function POST(
             lastIntent:
               input.intent,
             lastIncomingMessage:
-              input.incomingMessage,
+              normalizedMessage?.text ?? null,
             lastSuggestedReply:
               input.suggestedReply,
             analyzedAt,
@@ -355,7 +371,7 @@ export async function POST(
             lastIntent:
               input.intent,
             lastIncomingMessage:
-              input.incomingMessage,
+              normalizedMessage?.text ?? null,
             lastSuggestedReply:
               input.suggestedReply,
             analyzedAt,
