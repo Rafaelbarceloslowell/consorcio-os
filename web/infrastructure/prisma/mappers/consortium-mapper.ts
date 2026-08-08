@@ -1,5 +1,7 @@
 import {
-    ConsortiumStatus as PrismaConsortiumStatus,
+  ConsortiumRuleSource as PrismaConsortiumRuleSource,
+  ConsortiumRuleStatus as PrismaConsortiumRuleStatus,
+  ConsortiumStatus as PrismaConsortiumStatus,
     ConsortiumType as PrismaConsortiumType,
   } from "@/lib/generated/prisma/client"
   
@@ -9,8 +11,10 @@ import {
   } from "@/lib/generated/prisma/client"
   
   import type {
-    Consortium,
-    ConsortiumStatus,
+  Consortium,
+  ConsortiumRuleSource,
+  ConsortiumRuleStatus,
+  ConsortiumStatus,
   } from "@/types/domain/consortium"
   
   import type {
@@ -54,6 +58,35 @@ import {
           ),
         description:
           raw.description ?? undefined,
+        ruleStatus:
+          ConsortiumMapper.toDomainRuleStatus(
+            raw.ruleStatus,
+          ),
+        ruleSource:
+          raw.ruleSource
+            ? ConsortiumMapper.toDomainRuleSource(
+                raw.ruleSource,
+              )
+            : undefined,
+        sourceReference:
+          raw.sourceReference ?? undefined,
+        verifiedAt:
+          raw.verifiedAt?.toISOString(),
+        effectiveFrom:
+          raw.effectiveFrom?.toISOString(),
+        effectiveUntil:
+          raw.effectiveUntil?.toISOString(),
+        ruleVersion:
+          raw.ruleVersion,
+        minInstallmentValue:
+          raw.minInstallmentValue
+            ?.toNumber(),
+        maxInstallmentValue:
+          raw.maxInstallmentValue
+            ?.toNumber(),
+        embeddedBidAllowed:
+          raw.embeddedBidAllowed ??
+          undefined,
         createdAt:
           raw.createdAt.toISOString(),
         updatedAt:
@@ -97,6 +130,39 @@ import {
           ),
         description:
           consortium.description ?? null,
+        ruleStatus:
+          ConsortiumMapper.toPersistenceRuleStatus(
+            consortium.ruleStatus ??
+              "unverified",
+          ),
+        ruleSource:
+          consortium.ruleSource
+            ? ConsortiumMapper.toPersistenceRuleSource(
+                consortium.ruleSource,
+              )
+            : null,
+        sourceReference:
+          consortium.sourceReference ??
+          null,
+        verifiedAt:
+          consortium.verifiedAt ?? null,
+        effectiveFrom:
+          consortium.effectiveFrom ??
+          null,
+        effectiveUntil:
+          consortium.effectiveUntil ??
+          null,
+        ruleVersion:
+          consortium.ruleVersion ?? 1,
+        minInstallmentValue:
+          consortium.minInstallmentValue ??
+          null,
+        maxInstallmentValue:
+          consortium.maxInstallmentValue ??
+          null,
+        embeddedBidAllowed:
+          consortium.embeddedBidAllowed ??
+          null,
         createdAt:
           consortium.createdAt,
         updatedAt:
@@ -196,6 +262,82 @@ import {
           return ConsortiumMapper.assertNever(
             status,
             "status de consórcio do domínio",
+          )
+      }
+    }
+
+    private static toDomainRuleStatus(
+      status: PrismaConsortiumRuleStatus,
+    ): ConsortiumRuleStatus {
+      switch (status) {
+        case PrismaConsortiumRuleStatus.VERIFIED:
+          return "verified"
+        case PrismaConsortiumRuleStatus.STALE:
+          return "stale"
+        case PrismaConsortiumRuleStatus.UNVERIFIED:
+          return "unverified"
+        default:
+          return ConsortiumMapper.assertNever(
+            status,
+            "status de verificação da regra",
+          )
+      }
+    }
+
+    private static toPersistenceRuleStatus(
+      status: ConsortiumRuleStatus,
+    ): PrismaConsortiumRuleStatus {
+      switch (status) {
+        case "verified":
+          return PrismaConsortiumRuleStatus.VERIFIED
+        case "stale":
+          return PrismaConsortiumRuleStatus.STALE
+        case "unverified":
+          return PrismaConsortiumRuleStatus.UNVERIFIED
+        default:
+          return ConsortiumMapper.assertNever(
+            status,
+            "status de verificação da regra",
+          )
+      }
+    }
+
+    private static toDomainRuleSource(
+      source: PrismaConsortiumRuleSource,
+    ): ConsortiumRuleSource {
+      switch (source) {
+        case PrismaConsortiumRuleSource.MANUAL_VERIFIED:
+          return "manual_verified"
+        case PrismaConsortiumRuleSource.OFFICIAL_DOCUMENT:
+          return "official_document"
+        case PrismaConsortiumRuleSource.OFFICIAL_API:
+          return "official_api"
+        case PrismaConsortiumRuleSource.OPERATOR_VERIFIED:
+          return "operator_verified"
+        default:
+          return ConsortiumMapper.assertNever(
+            source,
+            "fonte da regra",
+          )
+      }
+    }
+
+    private static toPersistenceRuleSource(
+      source: ConsortiumRuleSource,
+    ): PrismaConsortiumRuleSource {
+      switch (source) {
+        case "manual_verified":
+          return PrismaConsortiumRuleSource.MANUAL_VERIFIED
+        case "official_document":
+          return PrismaConsortiumRuleSource.OFFICIAL_DOCUMENT
+        case "official_api":
+          return PrismaConsortiumRuleSource.OFFICIAL_API
+        case "operator_verified":
+          return PrismaConsortiumRuleSource.OPERATOR_VERIFIED
+        default:
+          return ConsortiumMapper.assertNever(
+            source,
+            "fonte da regra",
           )
       }
     }

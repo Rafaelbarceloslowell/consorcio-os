@@ -72,24 +72,34 @@ model Consultant {
 }
 
 model Consortium {
-  id                       String           @id @default(cuid())
-  workspaceId              String           @map("workspace_id")
+  id                       String                @id @default(cuid())
+  workspaceId              String                @map("workspace_id")
   name                     String
   administrator            String
   type                     ConsortiumType
-  groupNumber              String           @map("group_number")
-  minCreditValue           Decimal          @map("min_credit_value") @db.Decimal(18, 2)
-  maxCreditValue           Decimal          @map("max_credit_value") @db.Decimal(18, 2)
-  defaultTermMonths        Int              @map("default_term_months")
-  administrationFeePercent Decimal          @map("administration_fee_percent") @db.Decimal(8, 4)
-  reserveFundPercent       Decimal          @map("reserve_fund_percent") @db.Decimal(8, 4)
-  totalQuotas              Int              @map("total_quotas")
-  availableQuotas          Int              @map("available_quotas")
-  status                   ConsortiumStatus @default(FORMING)
+  groupNumber              String                @map("group_number")
+  minCreditValue           Decimal               @map("min_credit_value") @db.Decimal(18, 2)
+  maxCreditValue           Decimal               @map("max_credit_value") @db.Decimal(18, 2)
+  defaultTermMonths        Int                   @map("default_term_months")
+  administrationFeePercent Decimal               @map("administration_fee_percent") @db.Decimal(8, 4)
+  reserveFundPercent       Decimal               @map("reserve_fund_percent") @db.Decimal(8, 4)
+  totalQuotas              Int                   @map("total_quotas")
+  availableQuotas          Int                   @map("available_quotas")
+  status                   ConsortiumStatus      @default(FORMING)
   description              String?
-  createdAt                DateTime         @default(now()) @map("created_at")
-  updatedAt                DateTime         @updatedAt @map("updated_at")
-  workspace                Workspace        @relation(fields: [workspaceId], references: [id])
+  ruleStatus               ConsortiumRuleStatus  @default(UNVERIFIED) @map("rule_status")
+  ruleSource               ConsortiumRuleSource? @map("rule_source")
+  sourceReference          String?               @map("source_reference")
+  verifiedAt               DateTime?             @map("verified_at")
+  effectiveFrom            DateTime?             @map("effective_from")
+  effectiveUntil           DateTime?             @map("effective_until")
+  ruleVersion              Int                   @default(1) @map("rule_version")
+  minInstallmentValue      Decimal?              @map("min_installment_value") @db.Decimal(18, 2)
+  maxInstallmentValue      Decimal?              @map("max_installment_value") @db.Decimal(18, 2)
+  embeddedBidAllowed       Boolean?              @map("embedded_bid_allowed")
+  createdAt                DateTime              @default(now()) @map("created_at")
+  updatedAt                DateTime              @updatedAt @map("updated_at")
+  workspace                Workspace             @relation(fields: [workspaceId], references: [id])
   proposals                Proposal[]
   sales                    Sale[]
 
@@ -98,6 +108,7 @@ model Consortium {
   @@index([workspaceId, status], map: "consortiums_workspace_status_idx")
   @@index([workspaceId, type], map: "consortiums_workspace_type_idx")
   @@index([workspaceId, administrator], map: "consortiums_workspace_administrator_idx")
+  @@index([workspaceId, ruleStatus], map: "consortiums_workspace_rule_status_idx")
   @@map("consortiums")
 }
 
@@ -724,6 +735,23 @@ enum ConsortiumStatus {
   CLOSED  @map("closed")
 
   @@map("consortium_status")
+}
+
+enum ConsortiumRuleStatus {
+  VERIFIED   @map("verified")
+  STALE      @map("stale")
+  UNVERIFIED @map("unverified")
+
+  @@map("consortium_rule_status")
+}
+
+enum ConsortiumRuleSource {
+  MANUAL_VERIFIED   @map("manual_verified")
+  OFFICIAL_DOCUMENT @map("official_document")
+  OFFICIAL_API      @map("official_api")
+  OPERATOR_VERIFIED @map("operator_verified")
+
+  @@map("consortium_rule_source")
 }
 
 enum PipelineStageType {

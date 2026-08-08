@@ -48,6 +48,15 @@ export function SettingsPanel({
           </div>
 
           <div className="flex items-center gap-3">
+            {consultant.accessRoleLabel ===
+            "Administrador" ? (
+              <Link
+                href="/settings/consortium-catalog"
+                className="inline-flex min-h-10 items-center justify-center rounded-xl border border-[#8F9B63]/35 bg-[#8F9B63]/10 px-4 text-sm font-semibold text-[#CDD59B]"
+              >
+                Catálogo de consórcio
+              </Link>
+            ) : null}
             <ThemeToggle />
             <Link
               href="/"
