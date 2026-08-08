@@ -15,6 +15,10 @@ export type ProposalListItem = {
   rejectionReason: string | null
   opportunityHref: string | null
   clientId: string | null
+  convertedClientId: string | null
+  leadDocument: string | null
+  leadCompanyName: string | null
+  saleId: string | null
 }
 
 export type ProposalListView = {

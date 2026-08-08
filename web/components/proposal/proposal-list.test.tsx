@@ -19,7 +19,7 @@ const action =
   vi.fn(async () => {})
 
 describe("ProposalList", () => {
-  it("mostra proposta aceita sem converter lead em cliente", () => {
+  it("oferece fechamento explícito para proposta aceita", () => {
     render(
       <ProposalList
         view={{
@@ -54,25 +54,33 @@ describe("ProposalList", () => {
               opportunityHref:
                 "/opportunities/journey-1",
               clientId: null,
+              convertedClientId:
+                null,
+              leadDocument:
+                "12345678901",
+              leadCompanyName:
+                null,
+              saleId: null,
             },
           ],
         }}
         sendAction={action}
         acceptAction={action}
         rejectAction={action}
+        closeSaleAction={action}
       />,
     )
 
     expect(
       screen.getByText(
-        /continua como lead/i,
+        /registre os dados da cota/i,
       ),
     ).toBeInTheDocument()
     expect(
-      screen.queryByText(
-        /já possui cliente vinculado/i,
+      screen.getByText(
+        "Fechar venda",
       ),
-    ).not.toBeInTheDocument()
+    ).toBeInTheDocument()
   })
 
   it("oferece envio para rascunho", () => {
@@ -110,12 +118,19 @@ describe("ProposalList", () => {
               opportunityHref:
                 null,
               clientId: null,
+              convertedClientId:
+                null,
+              leadDocument: null,
+              leadCompanyName:
+                null,
+              saleId: null,
             },
           ],
         }}
         sendAction={action}
         acceptAction={action}
         rejectAction={action}
+        closeSaleAction={action}
       />,
     )
 
@@ -136,6 +151,7 @@ describe("ProposalList", () => {
         sendAction={action}
         acceptAction={action}
         rejectAction={action}
+        closeSaleAction={action}
       />,
     )
 

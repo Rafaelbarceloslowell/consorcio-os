@@ -15,6 +15,7 @@ import type {
 
 import {
   acceptProposalAction,
+  closeProposalSaleAction,
   rejectProposalAction,
   sendProposalAction,
 } from "./actions"
@@ -80,9 +81,18 @@ export default async function ProposalsPage() {
         createdAt: true,
         rejectionReason: true,
         clientId: true,
+        sale: {
+          select: {
+            id: true,
+          },
+        },
         lead: {
           select: {
             name: true,
+            document: true,
+            companyName: true,
+            convertedClientId:
+              true,
             commercialJourneys: {
               where: {
                 closedAt: null,
@@ -194,6 +204,19 @@ export default async function ProposalsPage() {
               : null,
           clientId:
             proposal.clientId,
+          convertedClientId:
+            proposal.lead
+              ?.convertedClientId ??
+            null,
+          leadDocument:
+            proposal.lead
+              ?.document ?? null,
+          leadCompanyName:
+            proposal.lead
+              ?.companyName ?? null,
+          saleId:
+            proposal.sale?.id ??
+            null,
         }
       },
     ),
@@ -210,6 +233,9 @@ export default async function ProposalsPage() {
       }
       rejectAction={
         rejectProposalAction
+      }
+      closeSaleAction={
+        closeProposalSaleAction
       }
     />
   )

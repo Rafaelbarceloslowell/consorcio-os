@@ -13,6 +13,7 @@ type ProposalListProps = Readonly<{
   sendAction: ProposalAction
   acceptAction: ProposalAction
   rejectAction: ProposalAction
+  closeSaleAction: ProposalAction
 }>
 
 export function ProposalList({
@@ -20,6 +21,7 @@ export function ProposalList({
   sendAction,
   acceptAction,
   rejectAction,
+  closeSaleAction,
 }: ProposalListProps) {
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -137,13 +139,20 @@ export function ProposalList({
 
                   {proposal.status === "ACCEPTED" ? (
                     <p className="mt-4 rounded-xl border border-amber-400/20 bg-amber-500/5 px-3 py-2 text-xs leading-5 text-amber-200">
-                      Proposta aceita. O lead continua como lead até o fechamento confirmado da cota.
+                      Proposta aceita. Registre os dados da cota para concluir a venda.
                     </p>
                   ) : null}
 
-                  {proposal.clientId ? (
-                    <p className="mt-4 rounded-xl border border-red-400/30 bg-red-500/10 px-3 py-2 text-xs text-red-200">
-                      Atenção: esta proposta já possui cliente vinculado.
+                  {proposal.clientId ||
+                  proposal.convertedClientId ? (
+                    <p className="mt-4 rounded-xl border border-white/[0.08] bg-white/[0.025] px-3 py-2 text-xs text-[#B7C0CC]">
+                      Cliente existente vinculado. O fechamento não criará outro cadastro.
+                    </p>
+                  ) : null}
+
+                  {proposal.saleId ? (
+                    <p className="mt-4 rounded-xl border border-[#43A972]/30 bg-[#2F8F5B]/10 px-3 py-2 text-xs text-[#63C68C]">
+                      Venda registrada e jornada comercial concluída.
                     </p>
                   ) : null}
 
@@ -224,6 +233,147 @@ export function ProposalList({
                       </form>
                     </details>
                   ) : null}
+
+                  {proposal.status === "ACCEPTED" &&
+                  !proposal.saleId ? (
+                    <details className="mt-3 rounded-xl border border-[#43A972]/20 bg-[#2F8F5B]/5 px-3 py-2">
+                      <summary className="cursor-pointer text-xs font-semibold text-[#63C68C]">
+                        Fechar venda
+                      </summary>
+                      <form
+                        action={closeSaleAction}
+                        className="mt-4 grid gap-3 sm:grid-cols-2"
+                      >
+                        <input
+                          type="hidden"
+                          name="proposalId"
+                          value={proposal.id}
+                        />
+
+                        <SaleField label="Contrato">
+                          <input
+                            name="contractNumber"
+                            required
+                            maxLength={80}
+                            className={inputClassName}
+                          />
+                        </SaleField>
+                        <SaleField label="Número da cota">
+                          <input
+                            name="quotaNumber"
+                            type="number"
+                            min={1}
+                            step={1}
+                            required
+                            className={inputClassName}
+                          />
+                        </SaleField>
+                        <SaleField label="Forma de pagamento">
+                          <select
+                            name="paymentMethod"
+                            required
+                            defaultValue="bank_slip"
+                            className={inputClassName}
+                          >
+                            <option value="bank_slip">Boleto</option>
+                            <option value="direct_debit">Débito automático</option>
+                            <option value="credit_card">Cartão de crédito</option>
+                            <option value="pix">Pix</option>
+                          </select>
+                        </SaleField>
+                        <SaleField label="Primeira parcela">
+                          <input
+                            name="firstInstallmentDate"
+                            type="date"
+                            required
+                            className={inputClassName}
+                          />
+                        </SaleField>
+                        <SaleField label="Comissão (%)">
+                          <input
+                            name="commissionPercent"
+                            type="number"
+                            min={0}
+                            max={100}
+                            step="0.01"
+                            required
+                            className={inputClassName}
+                          />
+                        </SaleField>
+
+                        {!proposal.clientId &&
+                        !proposal.convertedClientId ? (
+                          <>
+                            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#96A0AF] sm:col-span-2">
+                              Cadastro do cliente
+                            </p>
+                            <SaleField label="Tipo de pessoa">
+                              <select
+                                name="personType"
+                                required
+                                defaultValue="individual"
+                                className={inputClassName}
+                              >
+                                <option value="individual">Pessoa física</option>
+                                <option value="company">Pessoa jurídica</option>
+                              </select>
+                            </SaleField>
+                            <SaleField label="CPF/CNPJ">
+                              <input
+                                name="document"
+                                required
+                                defaultValue={proposal.leadDocument ?? ""}
+                                className={inputClassName}
+                              />
+                            </SaleField>
+                            <SaleField label="Razão social (se PJ)">
+                              <input
+                                name="companyName"
+                                defaultValue={proposal.leadCompanyName ?? ""}
+                                className={inputClassName}
+                              />
+                            </SaleField>
+                            <SaleField label="Rua">
+                              <input name="addressStreet" required className={inputClassName} />
+                            </SaleField>
+                            <SaleField label="Número">
+                              <input name="addressNumber" required className={inputClassName} />
+                            </SaleField>
+                            <SaleField label="Complemento">
+                              <input name="addressComplement" className={inputClassName} />
+                            </SaleField>
+                            <SaleField label="Bairro">
+                              <input name="addressNeighborhood" required className={inputClassName} />
+                            </SaleField>
+                            <SaleField label="Cidade">
+                              <input name="addressCity" required className={inputClassName} />
+                            </SaleField>
+                            <SaleField label="UF">
+                              <input name="addressState" required minLength={2} maxLength={2} className={inputClassName} />
+                            </SaleField>
+                            <SaleField label="CEP">
+                              <input name="addressZipCode" required className={inputClassName} />
+                            </SaleField>
+                          </>
+                        ) : null}
+
+                        <SaleField label="Observações" wide>
+                          <textarea
+                            name="saleNotes"
+                            rows={3}
+                            maxLength={1000}
+                            className={inputClassName}
+                          />
+                        </SaleField>
+                        <button
+                          type="submit"
+                          className="justify-self-start rounded-lg border border-[#43A972]/35 bg-[#2F8F5B]/10 px-3 py-2 text-xs font-semibold text-[#63C68C] hover:bg-[#43A972]/15 sm:col-span-2"
+                        >
+                          Confirmar fechamento
+                        </button>
+                      </form>
+                    </details>
+                  ) : null}
                 </li>
               ),
             )}
@@ -231,6 +381,32 @@ export function ProposalList({
         )}
       </section>
     </main>
+  )
+}
+
+const inputClassName =
+  "mt-1 w-full rounded-lg border border-white/[0.10] bg-[#0F1412] px-3 py-2 text-sm text-[#F5F7FA]"
+
+function SaleField({
+  label,
+  children,
+  wide = false,
+}: Readonly<{
+  label: string
+  children: React.ReactNode
+  wide?: boolean
+}>) {
+  return (
+    <label
+      className={
+        wide
+          ? "text-xs text-[#96A0AF] sm:col-span-2"
+          : "text-xs text-[#96A0AF]"
+      }
+    >
+      {label}
+      {children}
+    </label>
   )
 }
 

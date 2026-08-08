@@ -25,8 +25,22 @@ export type CloseSaleInput = {
 }
 
 export type CloseSaleDependencies = {
-  crmRepository: CrmRepository
-  commercialRepository: CommercialRepository
+  crmRepository: Pick<
+    CrmRepository,
+    | "getProposalById"
+    | "getSales"
+    | "getClientById"
+    | "getConsultantById"
+    | "getConsortiumById"
+    | "createSale"
+  >
+  commercialRepository: Pick<
+    CommercialRepository,
+    | "getJourneyById"
+    | "getStates"
+    | "getPhaseById"
+    | "updateJourney"
+  >
   now?: Date
   generateId?: () => string
 
