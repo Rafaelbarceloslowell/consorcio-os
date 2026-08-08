@@ -69,7 +69,9 @@ describe("Sidebar", () => {
     ).toBeInTheDocument()
 
     expect(
-      screen.getByText("Configurações")
+      screen.getByRole("link", {
+        name: /Abrir perfil de/i,
+      })
     ).toBeInTheDocument()
   })
 
@@ -83,7 +85,7 @@ describe("Sidebar", () => {
 
     expect(
       screen.getAllByRole("link")
-    ).toHaveLength(8)
+    ).toHaveLength(9)
 
     expect(
       screen.getByRole("link", {
@@ -132,7 +134,7 @@ describe("Sidebar", () => {
 
     expect(
       screen.getByRole("link", {
-        name: "Configurações",
+        name: /Abrir perfil de/i,
       }),
     ).toHaveAttribute(
       "href",
@@ -188,7 +190,7 @@ describe("Sidebar", () => {
     ).toBeInTheDocument()
 
     expect(
-      screen.getByText("Online")
+      screen.getByText("Monitorando")
     ).toBeInTheDocument()
 
     expect(
@@ -336,7 +338,7 @@ describe("Sidebar", () => {
 
     expect(
       container.querySelector("aside")
-    ).toHaveClass("w-[288px]")
+    ).toHaveClass("w-[248px]")
   })
 
   it("deve renderizar a Sidebar recolhida", () => {
@@ -350,7 +352,7 @@ describe("Sidebar", () => {
 
     expect(
       container.querySelector("aside")
-    ).toHaveClass("w-[88px]")
+    ).toHaveClass("w-[84px]")
 
     expect(
       screen.queryByText("Gorila OS")

@@ -103,8 +103,7 @@ describe(
             "gorila-r2-static-avatar",
           ),
         ).toHaveClass(
-          "h-32",
-          "w-32",
+          "size-11",
         )
       },
     )

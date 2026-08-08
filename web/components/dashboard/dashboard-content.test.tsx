@@ -1,180 +1,144 @@
 // @vitest-environment jsdom
 
-import { render, screen } from "@testing-library/react"
-import { describe, expect, it } from "vitest"
+import {
+  render,
+  screen,
+} from "@testing-library/react"
+import {
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest"
 
-import type { DashboardData } from "@/types/dashboard"
+import type {
+  DashboardData,
+} from "@/types/dashboard"
 
-import { DashboardContent } from "./dashboard-content"
+import {
+  DashboardContent,
+} from "./dashboard-content"
+
+const headerMock = vi.fn()
+const metricsMock = vi.fn()
+const pipelineMock = vi.fn()
+const railMock = vi.fn()
+
+vi.mock("@/components/dashboard/dashboard-header", () => ({
+  DashboardHeader: (props: unknown) => {
+    headerMock(props)
+    return <div data-testid="dashboard-hero" />
+  },
+}))
+
+vi.mock("@/components/dashboard/metrics-grid", () => ({
+  MetricsGrid: (props: unknown) => {
+    metricsMock(props)
+    return <div data-testid="metrics-strip" />
+  },
+}))
+
+vi.mock("@/components/dashboard/pipeline-overview", () => ({
+  PipelineOverview: (props: unknown) => {
+    pipelineMock(props)
+    return <div data-testid="pipeline-overview" />
+  },
+}))
+
+vi.mock("@/components/dashboard/intelligence-rail", () => ({
+  IntelligenceRail: (props: unknown) => {
+    railMock(props)
+    return <aside data-testid="intelligence-rail" />
+  },
+}))
+
+vi.mock("@/components/dashboard/upcoming-tasks", () => ({
+  UpcomingTasks: () => <section data-testid="next-actions" />,
+}))
+
+vi.mock("@/components/dashboard/opportunity-list", () => ({
+  OpportunityList: () => <section data-testid="opportunity-list" />,
+}))
 
 const dashboardData: DashboardData = {
+  workspaceId: "workspace-1",
   user: {
-    id: "user-1",
-    name: "Rafael",
+    id: "consultant-1",
+    name: "Rafael Ramos Barcelos",
   },
-  summary: "Hoje existem 2 oportunidades críticas.",
+  summary: "Resumo real da operação",
   metrics: {
-    newLeads: 18,
-    meetingsToday: 7,
-    monthlySales: 1250000,
-    pendingTasks: 2,
+    newLeads: 2,
+    meetingsToday: 1,
+    monthlySales: 500000,
+    pendingTasks: 3,
   },
   meetings: [],
   tasks: [
-    {
-      id: "task-1",
-      title: "Ligar para cliente",
-      time: "09:00",
-      priority: "high",
-    },
-    {
-      id: "task-2",
-      title: "Enviar proposta",
-      time: "11:30",
-      priority: "medium",
-    },
+    { id: "task-1", title: "Ligar", time: "Agora", priority: "high" },
+    { id: "task-2", title: "Retornar", time: "15:00", priority: "medium" },
   ],
-  pipeline: [],
-  opportunities: [
-    {
-      id: "journey-1",
-      title:
-        "Oportunidade real",
-      origin: "client",
-      originName:
-        "Cliente real",
-      consultantName:
-        "Rafael",
-      priority: "HIGH",
-      score: 90,
-      phaseName: "Negociação",
-      stateName:
-        "Proposta enviada",
-      consortiumType:
-        "real_estate",
-      lastInteractionAt:
-        null,
-      updatedAt:
-        "2026-07-26T18:00:00.000Z",
-      status: "open",
-      outcome: null,
-    },
+  pipeline: [
+    { id: "stage-1", name: "Prospecção", count: 2, value: 850000 },
   ],
+  opportunities: [],
   intelligence: {
     criticalCount: 1,
     importantCount: 1,
     monitoringCount: 0,
-    unpreparedMeetings: 2,
-    staleOpportunities: 1,
+    unpreparedMeetings: 0,
+    staleOpportunities: 0,
     pipelineValue: 850000,
-    nextAction: "Ligar para cliente",
-    topOpportunity: {
-      id: "lead-1",
-      name: "Marina Costa",
-      value: 500000,
-      score: 92,
-    },
   },
 }
 
-describe("DashboardContent", () => {
-  it("apresenta o resumo operacional do R2", () => {
+describe("DashboardContent premium cockpit composition", () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  it("organiza hero, métricas, próximas ações, pipeline e intelligence rail", () => {
     render(<DashboardContent {...dashboardData} />)
 
-    expect(
-      screen.getByText(
-        "Hoje existe 1 ação prioritária na operação.",
-      ),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText("R2 em atividade"),
-    ).toBeInTheDocument()
+    expect(screen.getByTestId("dashboard-hero")).toBeInTheDocument()
+    expect(screen.getByTestId("metrics-strip")).toBeInTheDocument()
+    expect(screen.getByTestId("next-actions")).toBeInTheDocument()
+    expect(screen.getByTestId("pipeline-overview")).toBeInTheDocument()
+    expect(screen.getByTestId("intelligence-rail")).toBeInTheDocument()
+    expect(screen.getByTestId("opportunity-list")).toBeInTheDocument()
   })
 
-  it("organiza as ações pela hierarquia operacional", () => {
+  it("encaminha somente dados reais para o hero e para o pipeline", () => {
     render(<DashboardContent {...dashboardData} />)
 
-    expect(screen.getAllByText("Crítico")).toHaveLength(2)
-    expect(screen.getAllByText("Importante")).toHaveLength(2)
-    expect(screen.getByText("Acompanhar")).toBeInTheDocument()
+    expect(headerMock).toHaveBeenCalledWith(expect.objectContaining({
+      user: dashboardData.user,
+      summary: dashboardData.summary,
+      priorityCount: 1,
+    }))
+    expect(pipelineMock).toHaveBeenCalledWith({ pipeline: dashboardData.pipeline })
   })
 
-  it("destaca a primeira ação sem exigir unicidade entre áreas legítimas", () => {
+  it("inclui o volume real do pipeline na faixa de KPIs", () => {
     render(<DashboardContent {...dashboardData} />)
 
-    expect(
-      screen.getByText("Comece por: Ligar para cliente"),
-    ).toBeInTheDocument()
-    expect(
-      screen.getAllByText("Ligar para cliente"),
-    ).toHaveLength(2)
+    expect(metricsMock).toHaveBeenCalledWith({
+      metrics: dashboardData.metrics,
+      pipelineValue: 850000,
+    })
   })
 
-  it("destaca a oportunidade com maior potencial", () => {
-    render(<DashboardContent {...dashboardData} />)
+  it("deriva a hierarquia de tarefas quando a inteligência não está disponível", () => {
+    render(<DashboardContent {...dashboardData} intelligence={undefined} />)
 
-    expect(
-      screen.getByText(/Marina Costa · R\$\s*500\.000 · score 92/),
-    ).toBeInTheDocument()
+    expect(railMock).toHaveBeenCalledWith(expect.objectContaining({
+      criticalCount: 1,
+      importantCount: 1,
+      monitoringCount: 0,
+    }))
   })
 
-  it("mantém os indicadores e a fila de tarefas existentes", () => {
-    render(<DashboardContent {...dashboardData} />)
-
-    expect(screen.getByText("Novas oportunidades")).toBeInTheDocument()
-    expect(screen.getByText("Compromissos hoje")).toBeInTheDocument()
-    expect(screen.getByText("Produção no mês")).toBeInTheDocument()
-    expect(screen.getByText("Ações pendentes")).toBeInTheDocument()
-    expect(screen.getByText("Próximas tarefas")).toBeInTheDocument()
-    expect(screen.getByText("Enviar proposta")).toBeInTheDocument()
-  })
-
-  it("renderiza as oportunidades reais", () => {
-    render(
-      <DashboardContent
-        {...dashboardData}
-      />,
-    )
-
-    expect(
-      screen.getByText(
-        "Oportunidade real",
-      ),
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText(
-        /Cliente real · Rafael/,
-      ),
-    ).toBeInTheDocument()
-  })
-
-  it("renderiza estado vazio de oportunidades", () => {
-    render(
-      <DashboardContent
-        {...dashboardData}
-        opportunities={[]}
-      />,
-    )
-
-    expect(
-      screen.getByText(
-        "Nenhuma oportunidade encontrada.",
-      ),
-    ).toBeInTheDocument()
-  })
-
-  it("oferece uma orientação segura quando não há tarefas", () => {
-    render(
-      <DashboardContent
-        {...dashboardData}
-        tasks={[]}
-        intelligence={undefined}
-      />,
-    )
-
-    expect(
-      screen.getByText("Comece por: Revisar o pipeline comercial"),
-    ).toBeInTheDocument()
-    expect(screen.getByText("Operação em dia")).toBeInTheDocument()
+  it("usa composição vertical antes do breakpoint do cockpit", () => {
+    const { container } = render(<DashboardContent {...dashboardData} />)
+    expect(container.querySelector(".xl\\:grid-cols-\\[minmax\\(0\\,1fr\\)_310px\\]")).toBeInTheDocument()
   })
 })

@@ -7,6 +7,7 @@ import { BrandIdentity } from "@/components/brand/brand-identity"
 import { DashboardContent } from "@/components/dashboard/dashboard-content"
 import { ExternalCrmPilotCard } from "@/components/dashboard/external-crm-pilot-card"
 import { Sidebar } from "@/components/dashboard/sidebar"
+import { TopCommandBar } from "@/components/dashboard/top-command-bar"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import type { DashboardData } from "@/types/dashboard"
@@ -24,9 +25,11 @@ export function DashboardShell({
   summary,
   metrics,
   tasks,
+  pipeline,
   opportunities = [],
   intelligence,
   gorilaR2,
+  gorilaR2Behavior,
   externalCrmPilot,
 }: DashboardShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -45,10 +48,10 @@ export function DashboardShell({
       <div
         className={cn(
           "min-h-screen transition-[padding-left] duration-250 ease-out",
-          sidebarCollapsed ? "lg:pl-[88px]" : "lg:pl-[288px]"
+          sidebarCollapsed ? "lg:pl-[84px]" : "lg:pl-[248px]"
         )}
       >
-        <header className="sticky top-0 z-30 border-b border-[var(--gorila-line)] bg-[var(--gorila-canvas)]/85 backdrop-blur-xl lg:hidden">
+        <header className="sticky top-0 z-30 border-b border-[var(--gorila-line)] bg-[var(--gorila-canvas)]/90 backdrop-blur-xl lg:hidden">
           <div className="flex h-16 items-center gap-3 px-4">
             <Button
               variant="ghost"
@@ -81,6 +84,8 @@ export function DashboardShell({
           </div>
         </header>
 
+        <TopCommandBar user={user} />
+
         <main className="min-h-screen">
           {externalCrmPilot ? (
             <div className="mx-auto w-full max-w-[1680px] px-4 pt-4 sm:px-6 sm:pt-6 lg:px-8 lg:pt-8 2xl:px-10">
@@ -96,11 +101,13 @@ export function DashboardShell({
             summary={summary}
             metrics={metrics}
             tasks={tasks}
+            pipeline={pipeline}
             opportunities={
               opportunities
             }
             intelligence={intelligence}
             gorilaR2={gorilaR2}
+            gorilaR2Behavior={gorilaR2Behavior}
           />
         </main>
       </div>

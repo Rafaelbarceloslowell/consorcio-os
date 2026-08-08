@@ -4,6 +4,7 @@ import {
   Clock,
   ListTodo,
 } from "lucide-react"
+import Link from "next/link"
 
 import {
   cn,
@@ -65,19 +66,19 @@ export function UpcomingTasks({
               id="upcoming-tasks-title"
               className="mt-1 text-lg font-semibold tracking-[-0.035em] text-[#F5F7FA]"
             >
-              Próximas tarefas
+              Próximas ações
             </h2>
           </div>
         </div>
 
-        <button
-          type="button"
+        <Link
+          href="/agenda"
           className="group inline-flex h-10 w-fit items-center gap-2 rounded-xl border border-white/[0.06] bg-white/[0.025] px-3.5 text-xs font-medium text-[#96A0AF] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),inset_0_-2px_1px_rgba(0,0,0,0.24),0_2px_3px_rgba(0,0,0,0.22),0_8px_16px_rgba(0,0,0,0.14)] outline-none transition-[border-color,background-color,box-shadow,color,transform] duration-200 hover:-translate-y-0.5 hover:scale-[1.015] hover:border-white/[0.10] hover:bg-white/[0.025] hover:text-[#F5F7FA] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-3px_2px_rgba(0,0,0,0.26),0_4px_4px_rgba(0,0,0,0.26),0_15px_28px_rgba(0,0,0,0.20)] focus-visible:border-[#2F8F5B]/50 focus-visible:shadow-[0_0_0_4px_rgba(47,143,91,0.12)] active:translate-y-px active:scale-[0.985] active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.28),0_1px_2px_rgba(0,0,0,0.18)]"
         >
-          Ver todas
+          Ver agenda
 
           <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-        </button>
+        </Link>
       </div>
 
       <div className="p-3 sm:p-4">

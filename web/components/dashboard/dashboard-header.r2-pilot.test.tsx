@@ -3,7 +3,6 @@
 import {
   render,
   screen,
-  within,
 } from "@testing-library/react"
 import {
   describe,
@@ -103,17 +102,16 @@ describe(
           screen.getByTestId("r2-avatar"),
         ).toBeInTheDocument()
         expect(
-          screen.getByText(
-            "Retome o contato com Marina.",
-          ),
+          screen.getByRole("heading", {
+            name: "Oportunidade Marina",
+          }),
         ).toBeInTheDocument()
-        const hero = screen.getByTestId(
-          "r2-hero-layout",
-        )
-
         expect(
-          within(hero).getByText(
-            "O cliente aguarda retorno há 48 horas.",
+          screen.getByText("Retomar contato"),
+        ).toBeInTheDocument()
+        expect(
+          screen.getByText(
+            "Esta é a oportunidade com maior urgência.",
           ),
         ).toBeInTheDocument()
         expect(

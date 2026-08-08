@@ -12,12 +12,20 @@ type GorilaR2VisualStatus =
   | "alert"
   | "offline"
 
+export type R2VisualState =
+  | "neutral"
+  | "working"
+  | "waiting"
+  | "alert"
+  | "celebrating"
+
 type GorilaR2Avatar3DProps = {
   size?: GorilaR2AvatarSize
   workspaceId?: string
   userId?: string
   briefing?: GorilaR2Briefing
   status?: GorilaR2VisualStatus
+  state?: R2VisualState
 }
 
 const statusLabels: Record<GorilaR2VisualStatus, string> = {
@@ -33,6 +41,7 @@ export function GorilaR2Avatar3D({
   userId,
   briefing,
   status = "online",
+  state = "neutral",
 }: Readonly<GorilaR2Avatar3DProps>) {
   const isHero = size === "hero"
 
@@ -42,13 +51,14 @@ export function GorilaR2Avatar3D({
       data-testid="gorila-r2-static-avatar"
       data-r2-render-mode="static-image"
       data-r2-status={status}
+      data-r2-state={state}
       data-workspace-id={workspaceId ?? "unscoped"}
       data-user-id={userId ?? "anonymous"}
       data-has-briefing={Boolean(briefing)}
       className={
         isHero
           ? "relative isolate flex min-h-[320px] w-full items-end justify-center overflow-visible sm:min-h-[360px] xl:min-h-[420px] 2xl:min-h-[460px]"
-          : "relative isolate flex h-32 w-32 items-end justify-center overflow-visible"
+          : "relative isolate flex size-11 items-end justify-center overflow-visible"
       }
     >
       <div
@@ -65,7 +75,7 @@ export function GorilaR2Avatar3D({
         className={
           isHero
             ? "relative z-10 h-[320px] w-full sm:h-[360px] xl:h-[420px] 2xl:h-[460px]"
-            : "relative z-10 h-32 w-32"
+            : "relative z-10 size-11"
         }
       >
         <Image
@@ -80,6 +90,7 @@ export function GorilaR2Avatar3D({
           }
           className="select-none object-contain object-bottom drop-shadow-[0_28px_36px_rgba(0,0,0,0.46)]"
           draggable={false}
+          unoptimized
         />
       </div>
 

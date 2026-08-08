@@ -1,38 +1,49 @@
 import {
-  Bell,
-  ChevronDown,
-  Search,
-  Sparkles,
+  ArrowUpRight,
+  Bot,
+  CircleDot,
 } from "lucide-react"
+import Link from "next/link"
 
-import { formatGreeting } from "@/lib/formatters"
-import { useState } from "react"
-import { GorilaR2Avatar3D } from "@/components/dashboard/gorila-r2-avatar-3d"
-import { R2PendingActionControls } from "@/components/dashboard/r2-pending-action-controls"
-import { R2PilotActions } from "@/components/dashboard/r2-pilot-actions"
-import { GlobalSearch } from "@/components/search/global-search"
-import type { GorilaR2Briefing, User } from "@/types/dashboard"
+import type {
+  R2Behavior,
+} from "@/components/dashboard/3d/r2-behavior"
+import {
+  GorilaR2Avatar3D,
+  type R2VisualState,
+} from "@/components/dashboard/gorila-r2-avatar-3d"
+import {
+  R2PendingActionControls,
+} from "@/components/dashboard/r2-pending-action-controls"
+import {
+  R2PilotActions,
+} from "@/components/dashboard/r2-pilot-actions"
+import {
+  formatGreeting,
+} from "@/lib/formatters"
+import type {
+  GorilaR2Briefing,
+  User,
+} from "@/types/dashboard"
 
-type DashboardHeaderProps = {
+type DashboardHeaderProps = Readonly<{
   workspaceId?: string
   user: User
   summary: string
   priorityCount?: number
   gorilaR2?: GorilaR2Briefing
-}
+  behavior?: R2Behavior
+}>
 
-function getUserInitials(name: string) {
-  const normalizedName = name.trim()
-
-  if (!normalizedName) {
-    return "US"
-  }
-
-  return normalizedName
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part.charAt(0).toUpperCase())
-    .join("")
+function resolveR2State(
+  gorilaR2?: GorilaR2Briefing,
+  behavior?: R2Behavior,
+): R2VisualState {
+  if (behavior?.mood === "success") return "celebrating"
+  if (behavior?.mood === "alert" || gorilaR2?.confidence === "low") return "alert"
+  if (gorilaR2?.pendingAction || behavior?.mood === "thinking") return "working"
+  if (gorilaR2?.pilotAction) return "waiting"
+  return "neutral"
 }
 
 export function DashboardHeader({
@@ -41,171 +52,139 @@ export function DashboardHeader({
   summary,
   priorityCount = 0,
   gorilaR2,
+  behavior,
 }: DashboardHeaderProps) {
-  const [searchOpen, setSearchOpen] = useState(false)
-
-  const initials = getUserInitials(user.name)
-
-  const operationalContext =
-    gorilaR2?.analysis ??
-    (priorityCount === 1
-      ? "Hoje existe 1 ação prioritária na operação."
-      : `Hoje existem ${priorityCount} ações prioritárias na operação.`)
+  const r2State = resolveR2State(gorilaR2, behavior)
+  const action = gorilaR2?.pendingAction ?? gorilaR2?.pilotAction
+  const actionTitle = action?.title ?? gorilaR2?.nextAction?.title ?? gorilaR2?.recommendation
+  const actionContext = action?.description ?? gorilaR2?.reason ?? gorilaR2?.analysis ?? summary
+  const actionHref = action?.opportunityHref
+  const contactName = action?.journeyTitle
+  const status = r2State === "alert"
+    ? "alert"
+    : r2State === "working" || r2State === "waiting"
+      ? "thinking"
+      : "online"
 
   return (
-    <>
-    <header className="gorila-material relative overflow-hidden rounded-[28px] border border-white/[0.065] bg-[#15191F]/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.13),inset_0_-1px_0_rgba(0,0,0,0.24),0_4px_7px_rgba(0,0,0,0.20),0_24px_56px_rgba(0,0,0,0.22)] backdrop-blur-2xl">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-32 -top-40 size-[420px] rounded-full bg-[#2F8F5B]/[0.09] blur-3xl"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-28 bottom-0 size-72 rounded-full bg-white/[0.018] blur-3xl"
-      />
-
-      <div className="relative">
-        <div className="flex flex-col gap-6 border-b border-white/[0.055] px-5 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-7">
-          <div className="min-w-0">
-            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#697384]">
-              <Sparkles className="size-3.5 text-[#43A972]" />
-
-              Operação comercial
-            </div>
-
-            <div className="mt-2 flex flex-col gap-1">
-              <h1 className="text-2xl font-semibold tracking-[-0.045em] text-[#F5F7FA] sm:text-3xl">
-                Dashboard
-              </h1>
-
-              <p className="text-sm leading-6 text-[#96A0AF]">
-                {operationalContext}
-              </p>
-            </div>
+    <header
+      id="r2-command"
+      className="gorilla-panel gorilla-hero-environment relative isolate overflow-hidden rounded-[30px]"
+    >
+      <div className="relative z-10 grid min-h-[500px] items-end lg:grid-cols-[minmax(320px,0.82fr)_minmax(0,1.18fr)] xl:min-h-[530px]">
+        <div className="relative flex min-h-[330px] items-end justify-center self-stretch lg:min-h-full">
+          <div className="absolute left-5 top-5 z-20 flex items-center gap-2 rounded-full border border-[var(--gorila-line)] bg-black/25 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-soft)] backdrop-blur-md">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-[var(--gorila-green-bright)] opacity-25" />
+              <span className="relative inline-flex size-2 rounded-full bg-[var(--gorila-green-bright)]" />
+            </span>
+            R2 monitorando
           </div>
 
-          <div className="flex min-w-0 flex-1 items-center justify-end gap-2">
-            <button
-              type="button"
-              onClick={() => setSearchOpen(true)}
-              aria-label="Abrir pesquisa global"
-              className="group flex size-11 shrink-0 items-center justify-center rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-subtle)] text-[var(--gorila-text-soft)] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-2px_1px_rgba(0,0,0,0.24),0_2px_3px_rgba(0,0,0,0.24),0_8px_18px_rgba(0,0,0,0.16)] transition-all duration-200 hover:border-[#2F8F5B]/30 hover:text-[#43A972]"
-            >
-              <Search className="size-[18px]" />
-            </button>
-
-            <div className="flex items-center gap-2">
-
-              <button
-                type="button"
-                aria-label="Abrir notificações"
-                className="group relative flex size-11 shrink-0 items-center justify-center rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-subtle)] text-[var(--gorila-text-soft)] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-2px_1px_rgba(0,0,0,0.24),0_2px_3px_rgba(0,0,0,0.24),0_8px_18px_rgba(0,0,0,0.16)] outline-none transition-[border-color,background-color,box-shadow,color,transform] duration-200 hover:-translate-y-0.5 hover:scale-[1.015] hover:border-[#2F8F5B]/30 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.23),inset_0_-3px_2px_rgba(0,0,0,0.26),0_4px_4px_rgba(0,0,0,0.28),0_16px_30px_rgba(0,0,0,0.22)] focus-visible:border-[#2F8F5B]/50 focus-visible:shadow-[0_0_0_4px_rgba(47,143,91,0.12)] active:translate-y-px active:scale-[0.985] active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.28),0_1px_2px_rgba(0,0,0,0.18)]"
-              >
-                <Bell className="size-[18px]" />
-
-                <span className="absolute right-2.5 top-2.5 size-1.5 rounded-full bg-[#43A972] shadow-[0_0_0_3px_rgba(47,143,91,0.14)]" />
-              </button>
-
-              <div className="hidden h-11 items-center gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.025] px-3 sm:flex">
-                <span className="relative flex size-2.5">
-                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#3FB980] opacity-25" />
-
-                  <span className="relative inline-flex size-2.5 rounded-full bg-[#3FB980]" />
-                </span>
-
-                <div className="leading-none">
-                  <span className="block text-xs font-semibold text-[#F5F7FA]">
-                    R2
-                  </span>
-
-                  <span className="mt-1 block text-[10px] font-medium uppercase tracking-[0.12em] text-[#697384]">
-                    Monitorando
-                  </span>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                aria-label="Abrir menu do usuário"
-                className="group flex h-11 min-w-0 flex-1 items-center gap-3 rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-subtle)] px-2.5 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-2px_1px_rgba(0,0,0,0.24),0_2px_3px_rgba(0,0,0,0.24),0_8px_18px_rgba(0,0,0,0.16)] outline-none transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:scale-[1.015] hover:border-[#2F8F5B]/30 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.23),inset_0_-3px_2px_rgba(0,0,0,0.26),0_4px_4px_rgba(0,0,0,0.28),0_16px_30px_rgba(0,0,0,0.22)] focus-visible:border-[#2F8F5B]/50 focus-visible:shadow-[0_0_0_4px_rgba(47,143,91,0.12)] active:translate-y-px active:scale-[0.985] active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.28),0_1px_2px_rgba(0,0,0,0.18)] sm:flex-none"
-              >
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-xl border border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10] text-[11px] font-semibold text-[#43A972]">
-                  {initials}
-                </span>
-
-                <span className="hidden min-w-0 sm:block">
-                  <span className="block max-w-32 truncate text-xs font-semibold text-[#F5F7FA]">
-                    {user.name}
-                  </span>
-
-                  <span className="mt-1 block text-[10px] font-medium uppercase tracking-[0.10em] text-[#697384]">
-                    {user.positionTitle ?? "Consultor Sênior"}
-                  </span>
-                </span>
-
-                <ChevronDown className="ml-auto hidden size-3.5 shrink-0 text-[#697384] sm:block" />
-              </button>
-            </div>
-          </div>
+          <GorilaR2Avatar3D
+            size="hero"
+            workspaceId={workspaceId}
+            userId={user.id}
+            briefing={gorilaR2}
+            status={status}
+            state={r2State}
+          />
         </div>
 
-        <div className="px-5 py-7 sm:px-6 sm:py-8 lg:px-7 xl:py-9">
-          <div
-            data-testid="r2-hero-layout"
-            className="grid items-center gap-6 xl:min-h-[420px] xl:grid-cols-[minmax(0,42%)_minmax(0,58%)] xl:gap-9 2xl:min-h-[460px]"
+        <div className="relative flex min-w-0 flex-col justify-center px-5 pb-7 pt-2 sm:px-8 lg:min-h-full lg:px-10 lg:py-10 xl:px-12">
+          <p className="text-sm font-medium text-[var(--gorila-text)] sm:text-base">
+            {gorilaR2?.greeting ?? formatGreeting(user.name)}
+          </p>
+          <p className="mt-2 max-w-2xl text-xs leading-5 text-[var(--gorila-text-muted)] sm:text-sm">
+            R2 está monitorando sua operação e identificou sua melhor ação agora.
+          </p>
+
+          <section
+            aria-labelledby="next-best-action-title"
+            className="mt-7 max-w-2xl rounded-[22px] border border-[var(--gorila-material-border-strong)] bg-[rgba(24,24,20,0.82)] p-5 shadow-[inset_0_1px_0_rgba(255,247,229,0.06),0_20px_48px_rgba(0,0,0,0.24)] backdrop-blur-xl sm:p-6"
           >
-            <GorilaR2Avatar3D
-              size="hero"
-              workspaceId={workspaceId}
-              userId={user.id}
-              briefing={gorilaR2}
-              status={
-                gorilaR2?.confidence === "low"
-                  ? "alert"
-                  : gorilaR2
-                    ? "online"
-                    : "thinking"
-              }
-            />
-            <div className="min-w-0">
-              <p className="text-sm font-medium text-[#43A972]">
-                {gorilaR2?.greeting ?? formatGreeting(user.name)}
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.17em] text-[var(--gorila-bronze)]">
+                <CircleDot className="size-3.5" />
+                Melhor ação agora
               </p>
-
-              <h2 className="mt-2 max-w-3xl text-2xl font-semibold leading-tight tracking-[-0.045em] text-[#F5F7FA] sm:text-3xl lg:text-[34px]">
-                {gorilaR2?.recommendation ??
-                  "O R2 organizou o que merece sua atenção hoje."}
-              </h2>
-
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-[#96A0AF] sm:text-[15px]">
-                {gorilaR2?.analysis ??
-                  "Consulte os indicadores, priorize os próximos movimentos e acompanhe o ritmo da operação em um único ambiente."}
-              </p>
-
-              {workspaceId && gorilaR2?.pendingAction ? (
-                <R2PendingActionControls
-                  workspaceId={workspaceId}
-                  consultantId={user.id}
-                  action={gorilaR2.pendingAction}
-                />
-              ) : workspaceId && gorilaR2?.pilotAction ? (
-                <R2PilotActions
-                  workspaceId={workspaceId}
-                  consultantId={user.id}
-                  action={gorilaR2.pilotAction}
-                />
-              ) : null}
+              <span
+                data-testid="r2-visual-state"
+                data-state={r2State}
+                className="rounded-full border border-[var(--gorila-line)] px-2.5 py-1 text-[8px] font-semibold uppercase tracking-[0.12em] text-[var(--gorila-text-muted)]"
+              >
+                {r2State}
+              </span>
             </div>
+
+            <h1
+              id="next-best-action-title"
+              className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.045em] text-[var(--gorila-text)] sm:text-3xl"
+            >
+              {contactName ?? actionTitle ?? "Operação acompanhada pelo R2"}
+            </h1>
+
+            {contactName && actionTitle ? (
+              <p className="mt-2 text-sm font-medium text-[var(--gorila-green-bright)]">
+                {actionTitle}
+              </p>
+            ) : null}
+
+            <p className="mt-3 max-w-xl text-xs leading-5 text-[var(--gorila-text-soft)] sm:text-sm sm:leading-6">
+              {actionContext || (
+                priorityCount > 0
+                  ? `${priorityCount} ações prioritárias aguardam decisão.`
+                  : "Sua operação está estável. O R2 seguirá buscando o próximo avanço comercial."
+              )}
+            </p>
+
+            <div className="mt-5 flex flex-wrap gap-2">
+              {actionHref ? (
+                <>
+                  <Link
+                    href={actionHref}
+                    className="inline-flex h-10 items-center gap-2 rounded-full border border-[var(--gorila-green)] bg-[var(--gorila-green-soft)] px-4 text-xs font-semibold text-[var(--gorila-text)] transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--gorila-green)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]"
+                  >
+                    <Bot className="size-3.5" />
+                    Atender agora
+                  </Link>
+                  <Link
+                    href={actionHref}
+                    className="inline-flex h-10 items-center gap-2 rounded-full border border-[var(--gorila-line)] px-4 text-xs font-medium text-[var(--gorila-text-soft)] transition duration-200 hover:-translate-y-0.5 hover:border-[var(--gorila-material-border-strong)] hover:bg-white/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]"
+                  >
+                    Ver detalhes
+                    <ArrowUpRight className="size-3.5" />
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  href="#pipeline"
+                  className="inline-flex h-10 items-center gap-2 rounded-full border border-[var(--gorila-line)] px-4 text-xs font-medium text-[var(--gorila-text-soft)] transition hover:border-[var(--gorila-green)] hover:bg-[var(--gorila-green-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]"
+                >
+                  Ver pipeline
+                  <ArrowUpRight className="size-3.5" />
+                </Link>
+              )}
+            </div>
+          </section>
+
+          <div id="r2-action-controls">
+            {workspaceId && gorilaR2?.pendingAction ? (
+              <R2PendingActionControls
+                workspaceId={workspaceId}
+                consultantId={user.id}
+                action={gorilaR2.pendingAction}
+              />
+            ) : workspaceId && gorilaR2?.pilotAction ? (
+              <R2PilotActions
+                workspaceId={workspaceId}
+                consultantId={user.id}
+                action={gorilaR2.pilotAction}
+              />
+            ) : null}
           </div>
         </div>
       </div>
     </header>
-
-    <GlobalSearch
-      open={searchOpen}
-      onClose={() => setSearchOpen(false)}
-    />
-    </>
   )
 }

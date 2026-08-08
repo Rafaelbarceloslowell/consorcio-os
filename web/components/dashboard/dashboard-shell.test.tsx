@@ -315,7 +315,7 @@ describe("DashboardShell", () => {
     )
   })
 
-  it("deve reservar 288 pixels para a sidebar expandida", () => {
+  it("deve reservar 248 pixels para a rail expandida", () => {
     const {
       container,
     } = render(
@@ -324,7 +324,7 @@ describe("DashboardShell", () => {
 
     const contentWrapper =
       container.querySelector(
-        ".lg\\:pl-\\[288px\\]"
+        ".lg\\:pl-\\[248px\\]"
       )
 
     expect(
@@ -334,11 +334,11 @@ describe("DashboardShell", () => {
     expect(
       contentWrapper
     ).not.toHaveClass(
-      "lg:pl-[88px]"
+      "lg:pl-[84px]"
     )
   })
 
-  it("deve reservar 88 pixels para a sidebar recolhida", () => {
+  it("deve reservar 84 pixels para a rail recolhida", () => {
     const {
       container,
     } = render(
@@ -353,7 +353,7 @@ describe("DashboardShell", () => {
 
     const contentWrapper =
       container.querySelector(
-        ".lg\\:pl-\\[88px\\]"
+        ".lg\\:pl-\\[84px\\]"
       )
 
     expect(
@@ -363,7 +363,7 @@ describe("DashboardShell", () => {
     expect(
       contentWrapper
     ).not.toHaveClass(
-      "lg:pl-[288px]"
+      "lg:pl-[248px]"
     )
   })
 
@@ -570,7 +570,7 @@ describe("DashboardShell", () => {
     )
   })
 
-  it("não deve encaminhar reuniões e pipeline para o DashboardContent", () => {
+  it("deve encaminhar o pipeline real para o DashboardContent", () => {
     render(
       <DashboardShell {...dashboardData} />
     )
@@ -587,8 +587,9 @@ describe("DashboardShell", () => {
 
     expect(
       receivedProps
-    ).not.toHaveProperty(
-      "pipeline"
+    ).toHaveProperty(
+      "pipeline",
+      dashboardData.pipeline,
     )
   })
 

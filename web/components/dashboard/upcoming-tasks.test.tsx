@@ -49,7 +49,7 @@ describe("UpcomingTasks", () => {
 
     expect(
       screen.getByRole("region", {
-        name: "Próximas tarefas",
+        name: "Próximas ações",
       })
     ).toBeInTheDocument()
   })
@@ -62,7 +62,7 @@ describe("UpcomingTasks", () => {
     expect(
       screen.getByRole("heading", {
         level: 2,
-        name: "Próximas tarefas",
+        name: "Próximas ações",
       })
     ).toBeInTheDocument()
   })
@@ -80,7 +80,7 @@ describe("UpcomingTasks", () => {
     const title =
       screen.getByRole("heading", {
         level: 2,
-        name: "Próximas tarefas",
+        name: "Próximas ações",
       })
 
     expect(section).toHaveAttribute(
@@ -112,24 +112,24 @@ describe("UpcomingTasks", () => {
     )
 
     expect(
-      screen.getByRole("button", {
-        name: "Ver todas",
+      screen.getByRole("link", {
+        name: "Ver agenda",
       })
     ).toBeInTheDocument()
   })
 
-  it("deve definir o tipo do botão como button", () => {
+  it("deve conectar o atalho à agenda real", () => {
     render(
       <UpcomingTasks tasks={tasks} />
     )
 
     expect(
-      screen.getByRole("button", {
-        name: "Ver todas",
+      screen.getByRole("link", {
+        name: "Ver agenda",
       })
     ).toHaveAttribute(
-      "type",
-      "button"
+      "href",
+      "/agenda"
     )
   })
 
@@ -155,8 +155,8 @@ describe("UpcomingTasks", () => {
     )
 
     const button =
-      screen.getByRole("button", {
-        name: "Ver todas",
+      screen.getByRole("link", {
+        name: "Ver agenda",
       })
 
     expect(
@@ -477,8 +477,8 @@ describe("UpcomingTasks", () => {
     )
 
     const button =
-      screen.getByRole("button", {
-        name: "Ver todas",
+      screen.getByRole("link", {
+        name: "Ver agenda",
       })
 
     expect(button).toHaveClass(
@@ -501,8 +501,8 @@ describe("UpcomingTasks", () => {
     )
 
     expect(
-      screen.getByRole("button", {
-        name: "Ver todas",
+      screen.getByRole("link", {
+        name: "Ver agenda",
       })
     ).toHaveClass(
       "focus-visible:border-[#2F8F5B]/50",
@@ -517,7 +517,7 @@ describe("UpcomingTasks", () => {
 
     expect(
       screen.getByRole("region", {
-        name: "Próximas tarefas",
+        name: "Próximas ações",
       })
     ).toHaveClass(
       "overflow-hidden",
@@ -660,8 +660,8 @@ describe("UpcomingTasks", () => {
     )
 
     expect(
-      screen.getByRole("button", {
-        name: "Ver todas",
+      screen.getByRole("link", {
+        name: "Ver agenda",
       })
     ).toBeInTheDocument()
   })

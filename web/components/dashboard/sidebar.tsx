@@ -9,158 +9,76 @@ import {
   FileText,
   LayoutDashboard,
   Settings,
-  UserCircle,
-  Users,
+  Target,
+  UserRound,
+  UsersRound,
   X,
   type LucideIcon,
 } from "lucide-react"
+import Link from "next/link"
+import {
+  usePathname,
+} from "next/navigation"
 
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
-import { BrandIdentity } from "@/components/brand/brand-identity"
-import { cn } from "@/lib/utils"
-import type { User } from "@/types/dashboard"
+import {
+  BrandIdentity,
+} from "@/components/brand/brand-identity"
+import {
+  GorilaR2Avatar3D,
+} from "@/components/dashboard/gorila-r2-avatar-3d"
+import {
+  cn,
+} from "@/lib/utils"
+import type {
+  User,
+} from "@/types/dashboard"
 
-type MenuItem = {
+type MenuItem = Readonly<{
   label: string
   icon: LucideIcon
   href: string
-  active?: boolean
-}
+}>
 
-const primaryMenuItems: MenuItem[] = [
-  {
-    label: "Dashboard",
-    icon: LayoutDashboard,
-    href: "#dashboard",
-    active: true,
-  },
-  {
-    label: "Pipeline",
-    icon: Users,
-    href: "#pipeline",
-  },
-  {
-    label: "Leads",
-    icon: UserCircle,
-    href: "/leads",
-  },
-  {
-    label: "Clientes",
-    icon: Users,
-    href: "/clients",
-  },
-  {
-    label: "Agenda",
-    icon: CalendarDays,
-    href: "/agenda",
-  },
-  {
-    label: "Propostas",
-    icon: FileText,
-    href: "/proposals",
-  },
-  {
-    label: "Financeiro",
-    icon: CircleDollarSign,
-    href: "/finance",
-  },
+const menuItems: MenuItem[] = [
+  { label: "Dashboard", icon: LayoutDashboard, href: "/" },
+  { label: "Pipeline", icon: Target, href: "/#pipeline" },
+  { label: "Leads", icon: UserRound, href: "/leads" },
+  { label: "Clientes", icon: UsersRound, href: "/clients" },
+  { label: "Agenda", icon: CalendarDays, href: "/agenda" },
+  { label: "Propostas", icon: FileText, href: "/proposals" },
+  { label: "Financeiro", icon: CircleDollarSign, href: "/finance" },
 ]
 
-const secondaryMenuItems: MenuItem[] = [
-  {
-    label: "Configurações",
-    icon: Settings,
-    href: "/settings",
-  },
-]
-
-type SidebarProps = {
+type SidebarProps = Readonly<{
   open: boolean
   onClose: () => void
   user?: User
   collapsed?: boolean
   onCollapsedChange?: (collapsed: boolean) => void
+}>
+
+function isActive(
+  pathname: string,
+  href: string,
+) {
+  if (href === "/") return pathname === "/"
+  if (href === "/#pipeline") return false
+  return pathname.startsWith(href)
 }
 
-type SidebarNavigationItemProps = {
-  item: MenuItem
-  collapsed: boolean
-  onNavigate: () => void
-}
+function UserInitials({
+  name,
+}: Readonly<{
+  name: string
+}>) {
+  const initials = name
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join("") || "US"
 
-function SidebarNavigationItem({
-  item,
-  collapsed,
-  onNavigate,
-}: SidebarNavigationItemProps) {
-  const Icon = item.icon
-
-  return (
-    <a
-      href={item.href}
-      aria-current={item.active ? "page" : undefined}
-      aria-label={collapsed ? item.label : undefined}
-      title={collapsed ? item.label : undefined}
-      onClick={onNavigate}
-      className={cn(
-        "group relative flex min-h-11 items-center rounded-xl border border-transparent text-sm font-medium outline-none",
-        "transition-[background-color,border-color,box-shadow,color,transform] duration-200 ease-out",
-        "focus-visible:border-[#2F8F5B]/55 focus-visible:shadow-[0_0_0_4px_rgba(47,143,91,0.12)]",
-        "hover:-translate-y-px hover:border-white/[0.07] hover:bg-white/[0.035]",
-        "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.13),inset_0_-2px_1px_rgba(0,0,0,0.24),0_3px_3px_rgba(0,0,0,0.24),0_12px_24px_rgba(0,0,0,0.20)]",
-        "active:translate-y-px active:scale-[0.992] active:shadow-[inset_0_2px_5px_rgba(0,0,0,0.28),0_1px_2px_rgba(0,0,0,0.18)]",
-        collapsed ? "justify-center px-3" : "gap-3 px-3.5",
-        item.active
-          ? "border-white/[0.10] bg-white/[0.045] text-[#F5F7FA] shadow-[inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-2px_1px_rgba(0,0,0,0.26),0_3px_3px_rgba(0,0,0,0.28),0_12px_26px_rgba(0,0,0,0.22)]"
-          : "text-[#96A0AF] hover:text-[#F5F7FA]"
-      )}
-    >
-      {item.active && (
-        <span
-          aria-hidden="true"
-          className="absolute left-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-r-full bg-[#43A972] shadow-[0_0_16px_rgba(47,143,91,0.28)]"
-        />
-      )}
-
-      <Icon
-        className={cn(
-          "size-[18px] shrink-0 transition-colors duration-200",
-          item.active
-            ? "text-[#43A972]"
-            : "text-[#697384] group-hover:text-[#D6DBE3]"
-        )}
-        strokeWidth={1.8}
-      />
-
-      {!collapsed && (
-        <>
-          <span className="min-w-0 flex-1 truncate">
-            {item.label}
-          </span>
-
-        </>
-      )}
-    </a>
-  )
-}
-
-function getUserInitials(
-  name: string,
-): string {
-  const initials =
-    name
-      .trim()
-      .split(/\s+/)
-      .filter(Boolean)
-      .slice(0, 2)
-      .map(
-        (part) =>
-          part.charAt(0).toUpperCase(),
-      )
-      .join("")
-
-  return initials || "US"
+  return <>{initials}</>
 }
 
 export function Sidebar({
@@ -170,234 +88,180 @@ export function Sidebar({
   collapsed = false,
   onCollapsedChange = () => {},
 }: SidebarProps) {
-  const resolvedUser =
-    user ?? {
-      id: "current-user",
-      name: "Rafael Ramos Barcelos",
-      positionTitle:
-        "Consultor Sênior",
-    }
-  function handleNavigation() {
-    onClose()
+  const pathname = usePathname() ?? "/"
+  const resolvedUser = user ?? {
+    id: "current-user",
+    name: "Rafael Ramos Barcelos",
+    positionTitle: "Consultor Sênior",
   }
 
   return (
     <>
-      {open && (
+      {open ? (
         <button
           type="button"
           aria-label="Fechar menu"
-          className="fixed inset-0 z-40 bg-black/65 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-40 bg-black/70 backdrop-blur-sm lg:hidden"
           onClick={onClose}
         />
-      )}
+      ) : null}
 
       <aside
         aria-label="Navegação principal"
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex flex-col overflow-hidden",
-          "border-r border-white/[0.055] bg-[#12151B] text-[#D6DBE3]",
-          "shadow-[inset_-1px_0_0_rgba(255,255,255,0.025),8px_0_32px_rgba(0,0,0,0.16)]",
-          "transition-[width,transform] duration-250 ease-out",
+          "fixed inset-y-0 left-0 z-50 flex flex-col border-r border-[var(--gorila-line)] bg-[var(--gorila-sidebar)]",
+          "shadow-[inset_-1px_0_0_rgba(255,247,229,0.025),12px_0_38px_rgba(0,0,0,0.18)] transition-[width,transform] duration-200",
           "lg:translate-x-0",
-          collapsed ? "w-[88px]" : "w-[288px]",
-          open ? "translate-x-0" : "-translate-x-full"
+          collapsed ? "w-[84px]" : "w-[248px]",
+          open ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div
-          className={cn(
-            "flex h-20 shrink-0 items-center border-b border-white/[0.055]",
-            collapsed ? "justify-center px-4" : "justify-between px-5"
-          )}
-        >
-          <div
-            className={cn(
-              "flex min-w-0 items-center",
-              collapsed ? "justify-center" : "gap-3"
-            )}
-          >
-            <BrandIdentity compact={collapsed} />
+        <div className={cn(
+          "flex h-[92px] shrink-0 items-center border-b border-[var(--gorila-line)]",
+          collapsed ? "justify-center px-3" : "justify-between px-5",
+        )}>
+          <BrandIdentity compact={collapsed} />
 
-          </div>
-
-          {!collapsed && (
-            <Button
-              variant="ghost"
-              size="icon-sm"
-              className="border border-white/[0.05] bg-white/[0.025] text-[#96A0AF] shadow-none hover:-translate-y-px hover:border-white/[0.09] hover:bg-white/[0.045] hover:text-[#F5F7FA] hover:shadow-[0_8px_20px_rgba(0,0,0,0.18)] lg:hidden"
-              onClick={onClose}
+          {!collapsed ? (
+            <button
+              type="button"
               aria-label="Fechar menu"
+              onClick={onClose}
+              className="flex size-9 items-center justify-center rounded-xl border border-[var(--gorila-line)] text-[var(--gorila-text-muted)] lg:hidden"
             >
               <X className="size-4" />
-            </Button>
-          )}
+            </button>
+          ) : null}
         </div>
 
-        <div className="flex min-h-0 flex-1 flex-col">
-          <nav
-            className={cn(
-              "flex flex-1 flex-col overflow-y-auto py-5",
-              collapsed ? "px-3" : "px-4"
-            )}
-          >
-            {!collapsed && (
-              <p className="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#697384]">
-                Operação
-              </p>
-            )}
+        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-3 py-5">
+          {!collapsed ? (
+            <p className="mb-3 px-3 text-[9px] font-semibold uppercase tracking-[0.18em] text-[var(--gorila-text-muted)]">
+              Operação comercial
+            </p>
+          ) : null}
 
-            <div className="flex flex-col gap-1.5">
-              {primaryMenuItems.map((item) => (
-                <SidebarNavigationItem
+          <nav className="space-y-1" aria-label="Operação comercial">
+            {menuItems.map((item) => {
+              const Icon = item.icon
+              const active = isActive(pathname, item.href)
+
+              return (
+                <Link
                   key={item.label}
-                  item={item}
-                  collapsed={collapsed}
-                  onNavigate={handleNavigation}
-                />
-              ))}
-            </div>
-
-            <div className="my-5 h-px bg-white/[0.055]" />
-
-            {!collapsed && (
-              <p className="mb-3 px-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#697384]">
-                Sistema
-              </p>
-            )}
-
-            <div className="flex flex-col gap-1.5">
-              {secondaryMenuItems.map((item) => (
-                <SidebarNavigationItem
-                  key={item.label}
-                  item={item}
-                  collapsed={collapsed}
-                  onNavigate={handleNavigation}
-                />
-              ))}
-            </div>
-
-            {!collapsed && (
-              <div className="mt-3 px-1">
-                <ThemeToggle />
-              </div>
-            )}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  aria-label={collapsed ? item.label : undefined}
+                  title={collapsed ? item.label : undefined}
+                  onClick={onClose}
+                  className={cn(
+                    "group flex h-11 items-center rounded-[14px] border text-[13px] font-medium outline-none transition duration-200",
+                    "focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]",
+                    collapsed ? "justify-center px-2" : "gap-3 px-3",
+                    active
+                      ? "border-[var(--gorila-material-border-strong)] bg-[var(--gorila-green-soft)] text-[var(--gorila-text)]"
+                      : "border-transparent text-[var(--gorila-text-muted)] hover:bg-white/[0.035] hover:text-[var(--gorila-text-soft)]",
+                  )}
+                >
+                  <Icon
+                    className={cn(
+                      "size-[17px] shrink-0",
+                      active
+                        ? "text-[var(--gorila-green-bright)]"
+                        : "text-[var(--gorila-text-muted)]",
+                    )}
+                    strokeWidth={1.7}
+                  />
+                  {!collapsed ? <span>{item.label}</span> : null}
+                </Link>
+              )
+            })}
           </nav>
 
-          <div
-            className={cn(
-              "shrink-0 border-t border-white/[0.055]",
-              collapsed ? "p-3" : "p-4"
-            )}
-          >
-            <div
+          <div className="mt-auto pt-6">
+            {!collapsed ? (
+              <p className="mb-3 px-3 text-[9px] font-semibold uppercase tracking-[0.18em] text-[var(--gorila-text-muted)]">
+                R2 Copilot
+              </p>
+            ) : null}
+
+            <Link
+              href="/#r2-command"
+              onClick={onClose}
+              aria-label="Ver ação do R2"
               className={cn(
-                "relative overflow-hidden rounded-2xl border border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.07]",
-                "shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-1px_0_rgba(0,0,0,0.24),0_3px_4px_rgba(0,0,0,0.22),0_16px_32px_rgba(0,0,0,0.20)]",
-                "transition-[border-color,box-shadow,transform,background-color] duration-200 ease-out",
-                "hover:-translate-y-px hover:border-[#2F8F5B]/35 hover:bg-[#2F8F5B]/[0.07]",
-                "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.19),inset_0_-2px_1px_rgba(0,0,0,0.26),0_4px_5px_rgba(0,0,0,0.24),0_22px_42px_rgba(0,0,0,0.25)]",
-                collapsed
-                  ? "flex h-12 items-center justify-center"
-                  : "p-3.5"
+                "block rounded-[18px] border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] transition duration-200 hover:border-[var(--gorila-green)] hover:bg-[var(--gorila-green-soft)]",
+                collapsed ? "p-1.5" : "p-3",
               )}
             >
-              <div className="flex items-center gap-3">
-                <div className="relative flex size-9 shrink-0 items-center justify-center rounded-xl border border-[#2F8F5B]/20 bg-[#2F8F5B]/[0.10] text-[#43A972]">
-                  <Bot
-                    className="size-[18px]"
-                    strokeWidth={1.8}
-                  />
-
-                  <span className="absolute -right-0.5 -top-0.5 size-2.5 rounded-full border-2 border-[#171B22] bg-[#3FB980]" />
-                </div>
-
-                {!collapsed && (
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-3">
-                      <p className="truncate text-sm font-semibold text-[#F5F7FA]">
-                        R2
-                      </p>
-
-                      <span className="text-[10px] font-medium text-[#3FB980]">
-                        Online
-                      </span>
-                    </div>
-
-                    <p className="mt-0.5 truncate text-xs text-[#96A0AF]">
+              <div className={cn(
+                "flex items-center",
+                collapsed ? "justify-center" : "gap-2.5",
+              )}>
+                <GorilaR2Avatar3D size="compact" state="working" />
+                {!collapsed ? (
+                  <span className="min-w-0">
+                    <span className="flex items-center gap-2 text-xs font-semibold text-[var(--gorila-text)]">
+                      R2
+                      <span className="size-1.5 rounded-full bg-[var(--gorila-green-bright)]" />
+                    </span>
+                    <span className="mt-1 block text-[9px] uppercase tracking-[0.12em] text-[var(--gorila-green-bright)]">
+                      Monitorando
+                    </span>
+                    <span className="mt-1 block text-[10px] text-[var(--gorila-text-muted)]">
                       Copiloto comercial ativo
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            <div
-              className={cn(
-                "mt-3 flex items-center rounded-2xl border border-transparent",
-                "transition-[background-color,border-color,box-shadow,transform] duration-200 ease-out",
-                "hover:-translate-y-px hover:border-white/[0.06] hover:bg-white/[0.025]",
-                "hover:shadow-[0_8px_20px_rgba(0,0,0,0.16)]",
-                collapsed
-                  ? "justify-center p-2"
-                  : "gap-3 p-2.5"
-              )}
-            >
-              <div className="flex size-9 shrink-0 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.035] text-xs font-semibold text-[#D6DBE3]">
-                {getUserInitials(
-                  resolvedUser.name,
-                )}
+                    </span>
+                  </span>
+                ) : null}
               </div>
 
-              {!collapsed && (
-                <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-medium text-[#F5F7FA]">
-                    {resolvedUser.name}
-                  </p>
-
-                  <p className="mt-0.5 truncate text-xs text-[#697384]">
-                    {resolvedUser.positionTitle ??
-                      "Consultor Sênior"}
-                  </p>
-                </div>
-              )}
-            </div>
+              {!collapsed ? (
+                <span className="mt-3 flex h-8 items-center justify-center gap-2 rounded-xl border border-[var(--gorila-line)] text-[10px] font-medium text-[var(--gorila-text-soft)]">
+                  <Bot className="size-3.5" />
+                  Ver ação do R2
+                </span>
+              ) : null}
+            </Link>
           </div>
         </div>
 
-        <Button
-          type="button"
-          variant="ghost"
-          size="icon-sm"
-          aria-label={
-            collapsed
-              ? "Expandir menu"
-              : "Recolher menu"
-          }
-          title={
-            collapsed
-              ? "Expandir menu"
-              : "Recolher menu"
-          }
-          onClick={() =>
-            onCollapsedChange(
-              !collapsed
-            )
-          }
-          className={cn(
-            "absolute -right-4 top-[92px] z-10 hidden rounded-full",
-            "border border-white/[0.08] bg-[#1D232D] text-[#96A0AF]",
-            "shadow-[0_8px_24px_rgba(0,0,0,0.28)]",
-            "hover:-translate-y-px hover:border-[#2F8F5B]/30 hover:bg-[#1D232D]",
-            "hover:text-[#F5F7FA] hover:shadow-[0_12px_28px_rgba(0,0,0,0.34)]",
-            "lg:inline-flex"
-          )}
-        >
-          {collapsed ? (
-            <ChevronRight className="size-4" />
-          ) : (
-            <ChevronLeft className="size-4" />
-          )}
-        </Button>
+        <div className={cn(
+          "border-t border-[var(--gorila-line)]",
+          collapsed ? "p-3" : "p-4",
+        )}>
+          <Link
+            href="/settings"
+            aria-label={`Abrir perfil de ${resolvedUser.name}`}
+            className={cn(
+              "flex items-center rounded-[16px] border border-transparent transition duration-200 hover:border-[var(--gorila-line)] hover:bg-white/[0.025]",
+              collapsed ? "justify-center p-1" : "gap-3 p-2",
+            )}
+          >
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-[var(--gorila-line)] bg-[var(--gorila-bronze-soft)] text-[10px] font-semibold text-[var(--gorila-text-soft)]">
+              <UserInitials name={resolvedUser.name} />
+            </span>
+            {!collapsed ? (
+              <span className="min-w-0 flex-1">
+                <span className="block truncate text-xs font-medium text-[var(--gorila-text)]">
+                  {resolvedUser.name}
+                </span>
+                <span className="mt-1 block truncate text-[10px] text-[var(--gorila-text-muted)]">
+                  {resolvedUser.positionTitle ?? "Operação"}
+                </span>
+              </span>
+            ) : null}
+            {!collapsed ? <Settings className="size-3.5 text-[var(--gorila-text-muted)]" /> : null}
+          </Link>
+
+          <button
+            type="button"
+            aria-label={collapsed ? "Expandir menu" : "Recolher menu"}
+            onClick={() => onCollapsedChange(!collapsed)}
+            className="mt-2 hidden h-8 w-full items-center justify-center rounded-xl text-[var(--gorila-text-muted)] transition hover:bg-white/[0.035] hover:text-[var(--gorila-text-soft)] lg:flex"
+          >
+            {collapsed ? <ChevronRight className="size-4" /> : <ChevronLeft className="size-4" />}
+          </button>
+        </div>
       </aside>
     </>
   )

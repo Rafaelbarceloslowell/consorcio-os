@@ -1,5 +1,6 @@
 import {
   CalendarCheck,
+  ChartNoAxesCombined,
   CircleDollarSign,
   ListTodo,
   UserPlus,
@@ -12,6 +13,7 @@ import type { DashboardMetrics } from "@/types/dashboard"
 
 type MetricsGridProps = {
   metrics: DashboardMetrics
+  pipelineValue?: number
 }
 
 type MetricItem = {
@@ -26,6 +28,7 @@ type MetricItem = {
 
 export function MetricsGrid({
   metrics,
+  pipelineValue,
 }: MetricsGridProps) {
   const items: MetricItem[] = [
     {
@@ -74,6 +77,20 @@ export function MetricsGrid({
     },
   ]
 
+  if (pipelineValue !== undefined) {
+    items.splice(3, 0, {
+      key: "pipeline-value",
+      title: "Pipeline ativo",
+      description: "Volume potencial nas etapas comerciais",
+      value: formatCurrency(pipelineValue),
+      icon: ChartNoAxesCombined,
+      iconClassName:
+        "border-[#8A7557]/25 bg-[#8A7557]/[0.10] text-[#A9906A]",
+      accentClassName:
+        "from-[#8A7557]/55 via-[#8A7557]/15 to-transparent",
+    })
+  }
+
   return (
     <section
       aria-labelledby="operation-overview-title"
@@ -103,7 +120,7 @@ export function MetricsGrid({
         </div>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="gorilla-kpi-strip gorilla-panel grid gap-4 overflow-hidden sm:grid-cols-2 xl:grid-cols-4">
         {items.map((item) => (
           <StatCard
             key={item.key}
