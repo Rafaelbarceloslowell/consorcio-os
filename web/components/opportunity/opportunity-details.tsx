@@ -34,9 +34,19 @@ import {
   OpportunityManualWhatsAppIntake,
 } from "./opportunity-manual-whatsapp-intake"
 
+import {
+  OpportunityR2Intelligence,
+} from "./opportunity-r2-intelligence"
+
+import type {
+  R2IntelligenceResult,
+} from "@/application/r2/resolve-r2-intelligence"
+
 type OpportunityDetailsProps = {
   opportunity:
     OpportunityDetailsView
+  intelligence?:
+    R2IntelligenceResult | null
 }
 
 function formatDateTime(
@@ -63,6 +73,7 @@ function formatOptionalDateTime(
 
 export function OpportunityDetails({
   opportunity,
+  intelligence = null,
 }: OpportunityDetailsProps) {
   const statusLabel =
     opportunity.status === "open"
@@ -175,6 +186,12 @@ export function OpportunityDetails({
               briefing={
                 opportunity.briefing
               }
+            />
+          ) : null}
+
+          {intelligence ? (
+            <OpportunityR2Intelligence
+              intelligence={intelligence}
             />
           ) : null}
 

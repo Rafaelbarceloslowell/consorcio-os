@@ -99,3 +99,18 @@ Status geral: **MISSING / NOT_RUNTIME_INTEGRATED**.
 - `NO_VERIFIED_PRODUCTION_CATALOG_SEEDED_BY_THIS_MISSION`
 
 Essas limitações não autorizam preenchimento por conhecimento geral, scraping, pseudo-probabilidade ou promessa de contemplação.
+
+## Estado depois da implementação
+
+Status geral: **RUNTIME_INTEGRATED**, condicionado à validação final de suíte, build e staging registrada na missão.
+
+- **COMMERCIAL ENGINE COMPLETED:** metadados e output foram estruturados; a reativação sem contexto recente bloqueia a mensagem ao cliente.
+- **LEARNING V2 COMPLETED:** o read model aplica segmentação, amostra mínima 10, smoothing, clamp, confidence, deduplicação e guardrails sobre eventos persistidos e outcomes reais.
+- **BEST PATTERN COMPLETED:** padrões comparáveis exigem amostra mínima e conversão observável, sem leaderboard nominal.
+- **CONSORTIUM ENGINE COMPLETED:** catálogo aditivo com fonte, versão e freshness; provider dedicado; elegibilidade antes do fit; manutenção somente por ADMIN; mocks permanecem não verificados.
+- **ORCHESTRATOR COMPLETED:** o DTO unificado combina contexto comercial, aprendizagem, catálogo, warnings, missing data, confidence e explicação, preservando a NBA operacional existente.
+- **OPPORTUNITY RUNTIME INTEGRATED:** a análise manual autenticada usa o orquestrador, apresenta a inteligência ao consultor e grava somente observabilidade segura.
+- **AUTH IMPROVED:** o detalhe da oportunidade usa o workspace da identidade autenticada em vez do slug fixo legado.
+- **MARKET BOUNDARY PRESERVED:** inteligência macroeconômica continua separada das regras de administradora.
+
+A arquitetura final e os contratos operacionais estão documentados em `docs/R2_INTELLIGENCE_CORE_V1.md`.

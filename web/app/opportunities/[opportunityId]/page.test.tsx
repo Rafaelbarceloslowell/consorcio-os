@@ -20,7 +20,7 @@ const mocks = vi.hoisted(() => ({
   execute: vi.fn(),
   constructorDependencies:
     vi.fn(),
-  findWorkspace: vi.fn(),
+  getContext: vi.fn(),
   createCommercialRepositories:
     vi.fn(),
   createCrmRepositories:
@@ -96,14 +96,10 @@ vi.mock(
 )
 
 vi.mock(
-  "@/infrastructure/prisma/client",
+  "@/lib/auth/get-authenticated-commercial-context",
   () => ({
-    prisma: {
-      workspace: {
-        findUnique:
-          mocks.findWorkspace,
-      },
-    },
+    getAuthenticatedCommercialContext:
+      mocks.getContext,
   }),
 )
 
@@ -175,9 +171,14 @@ describe(
   () => {
     beforeEach(() => {
       vi.clearAllMocks()
-      mocks.findWorkspace
+      mocks.getContext
         .mockResolvedValue({
-          id: "workspace-1",
+          userId: "user-1",
+          workspaceId:
+            "workspace-1",
+          consultantId:
+            "consultant-1",
+          role: "CONSULTANT",
         })
       mocks
         .createCommercialRepositories
@@ -219,15 +220,8 @@ describe(
         render(page)
 
         expect(
-          mocks.findWorkspace,
-        ).toHaveBeenCalledExactlyOnceWith({
-          where: {
-            slug: "consorcio-os",
-          },
-          select: {
-            id: true,
-          },
-        })
+          mocks.getContext,
+        ).toHaveBeenCalledExactlyOnceWith()
         expect(
           mocks
             .createCommercialRepositories,
@@ -275,10 +269,14 @@ describe(
     )
 
     it(
-      "não compõe repositories quando o workspace não existe",
+      "não compõe repositories quando o contexto autenticado falha",
       async () => {
-        mocks.findWorkspace
-          .mockResolvedValue(null)
+        mocks.getContext
+          .mockRejectedValue(
+            new Error(
+              "Acesso não autorizado.",
+            ),
+          )
 
         await expect(
           OpportunityDetailsPage({
@@ -289,7 +287,7 @@ describe(
               }),
           }),
         ).rejects.toThrow(
-          'Workspace "consorcio-os" não encontrado.',
+          "Acesso não autorizado.",
         )
 
         expect(

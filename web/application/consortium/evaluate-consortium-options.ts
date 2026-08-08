@@ -43,6 +43,7 @@ export type ConsortiumCandidateEvaluation =
     candidateId: string
     administratorId: string
     productId: string
+    productLabel: string
     eligibility:
       ConsortiumEligibility
     fitScore: number | null
@@ -379,6 +380,7 @@ function evaluateCandidate({
     administratorId:
       candidate.administrator,
     productId: candidate.id,
+    productLabel: candidate.name,
     eligibility,
     fitScore: score,
     fitBand: fitBand(score),

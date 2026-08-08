@@ -19,7 +19,16 @@ import {
   OpportunityManualWhatsAppIntake,
 } from "./opportunity-manual-whatsapp-intake"
 
+import {
+  analyzeManualWhatsAppMessage,
+} from "@/application/opportunity/analyze-manual-whatsapp-message"
+
+import {
+  resolveR2Intelligence,
+} from "@/application/r2/resolve-r2-intelligence"
+
 const writeText = vi.fn()
+const fetchMock = vi.fn()
 
 describe(
   "OpportunityManualWhatsAppIntake",
@@ -27,6 +36,11 @@ describe(
     beforeEach(() => {
       vi.clearAllMocks()
       writeText.mockResolvedValue(undefined)
+      fetchMock.mockReset()
+      vi.stubGlobal(
+        "fetch",
+        fetchMock,
+      )
       vi.stubGlobal(
         "navigator",
         {
@@ -346,6 +360,104 @@ describe(
             "Termine com uma pergunta simples ou um compromisso concreto coerente com o estágio atual.",
           ),
         ).toBeInTheDocument()
+      },
+    )
+
+    it(
+      "consome a inteligência unificada e depois salva a memória comercial",
+      async () => {
+        const incomingMessage =
+          "Qual o valor da parcela?"
+        const serverAnalysis =
+          analyzeManualWhatsAppMessage(
+            incomingMessage,
+            { approachType: "new" },
+          )
+
+        expect(serverAnalysis).not.toBeNull()
+
+        const intelligence =
+          resolveR2Intelligence({
+            recommendationId:
+              "recommendation-1",
+            workspaceId: "workspace-1",
+            opportunityId: "journey-1",
+            approachType: "new",
+            analysis: serverAnalysis!,
+            profile: {
+              assetCategory:
+                "real_estate",
+            },
+            candidates: [],
+            commercialEvents: [],
+            now: new Date(
+              "2026-08-08T15:00:00.000Z",
+            ),
+          })
+
+        fetchMock
+          .mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+              analysis: serverAnalysis,
+              reply:
+                "Resposta segura do servidor.",
+              intelligence,
+            }),
+          })
+          .mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+              message: "saved",
+            }),
+          })
+
+        render(
+          <OpportunityManualWhatsAppIntake
+            opportunityId="journey-1"
+            contactName="Janaina Rodrigues"
+          />,
+        )
+
+        fireEvent.change(
+          screen.getByRole("textbox", {
+            name: "Mensagem recebida do cliente",
+          }),
+          {
+            target: {
+              value: incomingMessage,
+            },
+          },
+        )
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Analisar mensagem",
+          }),
+        )
+
+        expect(
+          await screen.findByTestId(
+            "opportunity-r2-intelligence",
+          ),
+        ).toHaveTextContent(
+          intelligence.nextBestAction.title,
+        )
+        expect(
+          screen.getByRole("textbox", {
+            name: "Resposta preparada pelo R2",
+          }),
+        ).toHaveValue(
+          "Resposta segura do servidor.",
+        )
+        await waitFor(() => {
+          expect(fetchMock).toHaveBeenCalledTimes(2)
+        })
+        expect(fetchMock.mock.calls[0]?.[0]).toBe(
+          "/api/opportunities/journey-1/r2-intelligence",
+        )
+        expect(fetchMock.mock.calls[1]?.[0]).toBe(
+          "/api/opportunities/journey-1/conversation-memory",
+        )
       },
     )
 

@@ -33,6 +33,14 @@ import type {
   OpportunityConversationMemoryView,
 } from "@/types/opportunity-details"
 
+import type {
+  R2IntelligenceResult,
+} from "@/application/r2/resolve-r2-intelligence"
+
+import {
+  OpportunityR2Intelligence,
+} from "./opportunity-r2-intelligence"
+
 type OpportunityManualWhatsAppIntakeProps = {
   opportunityId?: string
   initialMemory?:
@@ -195,6 +203,8 @@ export function OpportunityManualWhatsAppIntake({
     useState("")
   const [memoryStatus, setMemoryStatus] =
     useState("")
+  const [intelligence, setIntelligence] =
+    useState<R2IntelligenceResult | null>(null)
   const [isSavingMemory, setIsSavingMemory] =
     useState(false)
 
@@ -219,7 +229,7 @@ export function OpportunityManualWhatsAppIntake({
       : null
 
   async function handleAnalyze() {
-    const nextAnalysis =
+    let nextAnalysis =
       analyzeManualWhatsAppMessage(
         incomingMessage,
         {
@@ -228,7 +238,7 @@ export function OpportunityManualWhatsAppIntake({
         },
       )
 
-    const nextReply =
+    let nextReply =
       buildManualWhatsAppReply({
         contactName,
         incomingMessage,
@@ -237,10 +247,71 @@ export function OpportunityManualWhatsAppIntake({
         analysis: nextAnalysis,
       })
 
-    setAnalysis(nextAnalysis)
-    setReply(nextReply ?? "")
     setCopyStatus("")
     setMemoryStatus("")
+    setIntelligence(null)
+
+    if (opportunityId) {
+      setIsSavingMemory(true)
+
+      try {
+        const response =
+          await fetch(
+            `/api/opportunities/${encodeURIComponent(
+              opportunityId,
+            )}/r2-intelligence`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type":
+                  "application/json",
+              },
+              body: JSON.stringify({
+                incomingMessage,
+              }),
+            },
+          )
+        const responseBody =
+          await response.json() as {
+            error?: string
+            analysis?: ManualWhatsAppAnalysis
+            reply?: string | null
+            intelligence?: R2IntelligenceResult
+          }
+
+        if (
+          !response.ok ||
+          !responseBody.analysis ||
+          !responseBody.intelligence
+        ) {
+          throw new Error(
+            responseBody.error ??
+              "N\u00e3o foi poss\u00edvel concluir a an\u00e1lise do R2.",
+          )
+        }
+
+        nextAnalysis =
+          responseBody.analysis
+        nextReply =
+          responseBody.reply ?? null
+        setIntelligence(
+          responseBody.intelligence,
+        )
+      } catch (error) {
+        setAnalysis(null)
+        setReply("")
+        setMemoryStatus(
+          error instanceof Error
+            ? error.message
+            : "N\u00e3o foi poss\u00edvel concluir a an\u00e1lise do R2.",
+        )
+        setIsSavingMemory(false)
+        return
+      }
+    }
+
+    setAnalysis(nextAnalysis)
+    setReply(nextReply ?? "")
 
     if (
       !nextAnalysis ||
@@ -322,6 +393,7 @@ export function OpportunityManualWhatsAppIntake({
     setReply("")
     setCopyStatus("")
     setMemoryStatus("")
+    setIntelligence(null)
     setIsSavingMemory(false)
   }
 
@@ -461,6 +533,7 @@ export function OpportunityManualWhatsAppIntake({
           setReply("")
           setCopyStatus("")
           setMemoryStatus("")
+          setIntelligence(null)
         }}
         placeholder={
           isReactivation
@@ -510,6 +583,14 @@ export function OpportunityManualWhatsAppIntake({
       >
         {memoryStatus}
       </p>
+
+      {intelligence ? (
+        <div className="mt-5 overflow-hidden rounded-2xl border border-[var(--gorila-line)]">
+          <OpportunityR2Intelligence
+            intelligence={intelligence}
+          />
+        </div>
+      ) : null}
 
       {analysis ? (
         <div

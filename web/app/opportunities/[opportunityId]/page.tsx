@@ -11,16 +11,20 @@ import {
 } from "@/components/opportunity/opportunity-details"
 
 import {
-  prisma,
-} from "@/infrastructure/prisma/client"
-
-import {
   createPrismaCommercialRepositories,
 } from "@/infrastructure/prisma/repositories/prisma-commercial-repositories"
 
 import {
   createPrismaCrmRepositories,
 } from "@/infrastructure/prisma/repositories/prisma-crm-repositories"
+
+import {
+  getAuthenticatedCommercialContext,
+} from "@/lib/auth/get-authenticated-commercial-context"
+
+import type {
+  OpportunityDetailsView,
+} from "@/types/opportunity-details"
 
 type OpportunityDetailsPageProps = {
   params: Promise<{
@@ -37,36 +41,27 @@ export default async function OpportunityDetailsPage({
     opportunityId,
   } = await params
 
-  const workspace =
-    await prisma.workspace.findUnique({
-      where: {
-        slug: "consorcio-os",
-      },
-      select: {
-        id: true,
-      },
-    })
-
-  if (!workspace) {
-    throw new Error(
-      'Workspace "consorcio-os" não encontrado.',
-    )
-  }
+  const authenticated =
+    await getAuthenticatedCommercialContext()
 
   const commercialRepository =
     createPrismaCommercialRepositories({
-      workspaceId: workspace.id,
+      workspaceId:
+        authenticated.workspaceId,
     })
 
   const crmRepository =
     createPrismaCrmRepositories({
-      workspaceId: workspace.id,
+      workspaceId:
+        authenticated.workspaceId,
     })
 
+  let opportunity:
+    OpportunityDetailsView
+
   try {
-    const {
-      opportunity,
-    } = await new GetOpportunityDetailsAsync({
+    const result =
+      await new GetOpportunityDetailsAsync({
       journeys:
         commercialRepository.journeys,
       conversationMemories:
@@ -81,16 +76,13 @@ export default async function OpportunityDetailsPage({
         commercialRepository.phases,
       states:
         commercialRepository.states,
-    }).execute({
-      workspaceId: workspace.id,
-      opportunityId,
-    })
+      }).execute({
+        workspaceId:
+          authenticated.workspaceId,
+        opportunityId,
+      })
 
-    return (
-      <OpportunityDetails
-        opportunity={opportunity}
-      />
-    )
+    opportunity = result.opportunity
   } catch (error) {
     const normalizedOpportunityId =
       opportunityId.trim()
@@ -105,4 +97,10 @@ export default async function OpportunityDetailsPage({
 
     throw error
   }
+
+  return (
+    <OpportunityDetails
+      opportunity={opportunity}
+    />
+  )
 }
