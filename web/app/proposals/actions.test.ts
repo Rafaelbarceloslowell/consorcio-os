@@ -389,6 +389,23 @@ describe("proposal sale actions", () => {
     )
 
     expect(
+      mocks.findPipelineStage,
+    ).toHaveBeenCalledWith({
+      where: {
+        workspaceId:
+          "workspace-1",
+        type: "DEAL",
+        isClosedStage: true,
+        isWonStage: true,
+      },
+      orderBy: {
+        order: "asc",
+      },
+      select: {
+        id: true,
+      },
+    })
+    expect(
       mocks.createClient,
     ).toHaveBeenCalledWith({
       data:

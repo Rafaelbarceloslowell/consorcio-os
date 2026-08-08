@@ -682,7 +682,7 @@ export async function closeProposalSaleAction(
                 where: {
                   workspaceId,
                   type:
-                    PipelineStageType.LEAD,
+                    PipelineStageType.DEAL,
                   isClosedStage: true,
                   isWonStage: true,
                 },
