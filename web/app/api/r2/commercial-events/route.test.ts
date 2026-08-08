@@ -7,22 +7,9 @@ import {
 } from "vitest"
 
 const mocks = vi.hoisted(() => ({
-  findWorkspace: vi.fn(),
   findAfterCursor: vi.fn(),
   repositoryConstructor: vi.fn(),
 }))
-
-vi.mock(
-  "@/infrastructure/prisma/client",
-  () => ({
-    prisma: {
-      workspace: {
-        findFirst:
-          mocks.findWorkspace,
-      },
-    },
-  }),
-)
 
 vi.mock(
   "@/infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository",
@@ -60,9 +47,6 @@ describe(
   () => {
     beforeEach(() => {
       vi.clearAllMocks()
-      mocks.findWorkspace.mockResolvedValue({
-        id: "workspace-1",
-      })
       mocks.findAfterCursor.mockResolvedValue([])
     })
 
@@ -76,15 +60,12 @@ describe(
         )
 
         expect(response.status).toBe(400)
-        expect(mocks.findWorkspace).not.toHaveBeenCalled()
       },
     )
 
     it(
-      "isola a leitura no workspace piloto",
+      "isola a leitura no workspace autenticado",
       async () => {
-        mocks.findWorkspace.mockResolvedValue(null)
-
         const response = await GET(
           request(
             "workspaceId=workspace-2&afterCreatedAt=2026-08-02T22%3A00%3A00.000Z",
@@ -92,15 +73,6 @@ describe(
         )
 
         expect(response.status).toBe(403)
-        expect(mocks.findWorkspace).toHaveBeenCalledExactlyOnceWith({
-          where: {
-            id: "workspace-2",
-            slug: "consorcio-os",
-          },
-          select: {
-            id: true,
-          },
-        })
         expect(mocks.findAfterCursor).not.toHaveBeenCalled()
       },
     )

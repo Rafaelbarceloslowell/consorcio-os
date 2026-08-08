@@ -7,6 +7,10 @@ import {
   prisma,
 } from "@/infrastructure/prisma/client"
 
+import {
+  getApiCommercialContext,
+} from "@/lib/auth/get-authenticated-commercial-context"
+
 const normalizeText = (
   value: string,
 ): string =>
@@ -27,6 +31,13 @@ const normalizeDigits = (
 export async function GET(
   request: NextRequest,
 ) {
+  const context =
+    await getApiCommercialContext()
+
+  if (context instanceof Response) {
+    return context
+  }
+
   const search =
     request.nextUrl.searchParams
       .get("q")
@@ -38,31 +49,10 @@ export async function GET(
     })
   }
 
-  const workspace =
-    await prisma.workspace.findUnique({
-      where: {
-        slug: "consorcio-os",
-      },
-      select: {
-        id: true,
-      },
-    })
-
-  if (!workspace) {
-    return NextResponse.json(
-      {
-        error: "Workspace não encontrado.",
-      },
-      {
-        status: 404,
-      },
-    )
-  }
-
   const leads =
     await prisma.lead.findMany({
       where: {
-        workspaceId: workspace.id,
+        workspaceId: context.workspaceId,
         convertedClientId: null,
       },
       select: {

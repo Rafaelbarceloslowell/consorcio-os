@@ -13,7 +13,9 @@ import {
   prisma,
 } from "@/infrastructure/prisma/client"
 
-const PILOT_WORKSPACE_SLUG = "consorcio-os"
+import {
+  getApiCommercialContext,
+} from "@/lib/auth/get-authenticated-commercial-context"
 
 const NO_ANSWER_CALL_DELAY_MINUTES = 5
 
@@ -308,6 +310,13 @@ export async function POST(
   request: Request,
   context: RouteContext,
 ): Promise<Response> {
+  const authenticatedContext =
+    await getApiCommercialContext()
+
+  if (authenticatedContext instanceof Response) {
+    return authenticatedContext
+  }
+
   const {
     actionId: rawActionId,
   } = await context.params
@@ -345,23 +354,14 @@ export async function POST(
     )
   }
 
-  const workspace =
-    await prisma.workspace.findFirst({
-      where: {
-        id: input.workspaceId,
-        slug:
-          PILOT_WORKSPACE_SLUG,
-      },
-      select: {
-        id: true,
-      },
-    })
-
-  if (!workspace) {
+  if (
+    input.workspaceId !== authenticatedContext.workspaceId ||
+    input.consultantId !== authenticatedContext.consultantId
+  ) {
     return json(
       {
         error:
-          "Workspace is not available for R2 pilot actions.",
+          "O contexto informado não corresponde ao usuário autenticado.",
       },
       403,
     )
@@ -372,7 +372,7 @@ export async function POST(
       where: {
         id: actionId,
         workspaceId:
-          workspace.id,
+          authenticatedContext.workspaceId,
       },
       select: {
         id: true,
@@ -496,7 +496,7 @@ export async function POST(
                 where: {
                   id: action.id,
                   workspaceId:
-                    workspace.id,
+                    authenticatedContext.workspaceId,
                   status: {
                     in: [
                       CommercialActionStatus.PENDING,
@@ -552,7 +552,7 @@ export async function POST(
                   id:
                     action.journeyId,
                   workspaceId:
-                    workspace.id,
+                    authenticatedContext.workspaceId,
                   consultantId:
                     input.consultantId,
                   closedAt: null,
@@ -585,7 +585,7 @@ export async function POST(
                 .create({
                   data: {
                     workspaceId:
-                      workspace.id,
+                      authenticatedContext.workspaceId,
                     title:
                       automaticNoAnswerCall
                         ? buildNoAnswerCallTaskTitle(
@@ -629,7 +629,7 @@ export async function POST(
               .create({
                 data: {
                   workspaceId:
-                    workspace.id,
+                    authenticatedContext.workspaceId,
                   journeyId:
                     action.journeyId,
                   type:
@@ -666,7 +666,7 @@ export async function POST(
             .create({
               data: {
                 workspaceId:
-                  workspace.id,
+                  authenticatedContext.workspaceId,
                 journeyId:
                   action.journeyId,
                 type:

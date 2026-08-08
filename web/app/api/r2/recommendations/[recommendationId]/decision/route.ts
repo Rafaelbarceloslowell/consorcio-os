@@ -10,7 +10,9 @@ import {
   prisma,
 } from "@/infrastructure/prisma/client"
 
-const PILOT_WORKSPACE_SLUG = "consorcio-os"
+import {
+  getApiCommercialContext,
+} from "@/lib/auth/get-authenticated-commercial-context"
 const DEFAULT_POSTPONE_MINUTES = 24 * 60
 const MIN_POSTPONE_MINUTES = 30
 const MAX_POSTPONE_MINUTES = 7 * 24 * 60
@@ -157,6 +159,13 @@ export async function POST(
   request: Request,
   context: RouteContext,
 ): Promise<Response> {
+  const authenticatedContext =
+    await getApiCommercialContext()
+
+  if (authenticatedContext instanceof Response) {
+    return authenticatedContext
+  }
+
   const {
     recommendationId: rawRecommendationId,
   } = await context.params
@@ -193,22 +202,14 @@ export async function POST(
     )
   }
 
-  const workspace =
-    await prisma.workspace.findFirst({
-      where: {
-        id: input.workspaceId,
-        slug: PILOT_WORKSPACE_SLUG,
-      },
-      select: {
-        id: true,
-      },
-    })
-
-  if (!workspace) {
+  if (
+    input.workspaceId !== authenticatedContext.workspaceId ||
+    input.consultantId !== authenticatedContext.consultantId
+  ) {
     return json(
       {
         error:
-          "Workspace is not available for R2 pilot decisions.",
+          "O contexto informado não corresponde ao usuário autenticado.",
       },
       403,
     )
@@ -218,7 +219,7 @@ export async function POST(
     await prisma.nextBestAction.findFirst({
       where: {
         id: recommendationId,
-        workspaceId: workspace.id,
+        workspaceId: authenticatedContext.workspaceId,
       },
       select: {
         id: true,
@@ -353,7 +354,7 @@ export async function POST(
                 .create({
                   data: {
                     workspaceId:
-                      workspace.id,
+                      authenticatedContext.workspaceId,
                     journeyId:
                       recommendation.journeyId,
                     type:
@@ -399,7 +400,7 @@ export async function POST(
                 where: {
                   id: recommendation.id,
                   workspaceId:
-                    workspace.id,
+                    authenticatedContext.workspaceId,
                   acceptedAt: null,
                   rejectedAt: null,
                   executedActionId: null,
@@ -427,7 +428,7 @@ export async function POST(
             .create({
               data: {
                 workspaceId:
-                  workspace.id,
+                  authenticatedContext.workspaceId,
                 journeyId:
                   recommendation.journeyId,
                 type:

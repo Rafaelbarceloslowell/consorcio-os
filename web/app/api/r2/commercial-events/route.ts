@@ -1,8 +1,4 @@
 import {
-  prisma,
-} from "@/infrastructure/prisma/client"
-
-import {
   PrismaCommercialEventRepository,
 } from "@/infrastructure/prisma/repositories/commercial/prisma-commercial-event-repository"
 
@@ -10,7 +6,9 @@ import type {
   R2CommercialEventCursor,
 } from "@/types/r2-persistent-commercial-events"
 
-const PILOT_WORKSPACE_SLUG = "consorcio-os"
+import {
+  getApiCommercialContext,
+} from "@/lib/auth/get-authenticated-commercial-context"
 const DEFAULT_BATCH_LIMIT = 25
 const MAX_BATCH_LIMIT = 25
 
@@ -73,6 +71,13 @@ export const dynamic = "force-dynamic"
 export async function GET(
   request: Request,
 ): Promise<Response> {
+  const authenticatedContext =
+    await getApiCommercialContext()
+
+  if (authenticatedContext instanceof Response) {
+    return authenticatedContext
+  }
+
   const url = new URL(request.url)
   const workspaceId =
     url.searchParams.get("workspaceId")?.trim() ?? ""
@@ -110,21 +115,10 @@ export async function GET(
     )
   }
 
-  const workspace =
-    await prisma.workspace.findFirst({
-      where: {
-        id: workspaceId,
-        slug: PILOT_WORKSPACE_SLUG,
-      },
-      select: {
-        id: true,
-      },
-    })
-
-  if (!workspace) {
+  if (workspaceId !== authenticatedContext.workspaceId) {
     return json(
       {
-        error: "Workspace is not available for persistent R2 events.",
+        error: "O workspace informado não corresponde ao usuário autenticado.",
       },
       403,
     )
@@ -132,7 +126,7 @@ export async function GET(
 
   const repository =
     new PrismaCommercialEventRepository(
-      workspace.id,
+      authenticatedContext.workspaceId,
     )
 
   const events =

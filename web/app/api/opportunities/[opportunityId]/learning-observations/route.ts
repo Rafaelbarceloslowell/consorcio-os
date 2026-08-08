@@ -13,8 +13,9 @@ import {
   prisma,
 } from "@/infrastructure/prisma/client"
 
-const WORKSPACE_SLUG =
-  "consorcio-os"
+import {
+  getApiCommercialContext,
+} from "@/lib/auth/get-authenticated-commercial-context"
 
 type RouteContext = Readonly<{
   params: Promise<{
@@ -129,6 +130,13 @@ export async function POST(
   request: Request,
   context: RouteContext,
 ): Promise<Response> {
+  const authenticatedContext =
+    await getApiCommercialContext()
+
+  if (authenticatedContext instanceof Response) {
+    return authenticatedContext
+  }
+
   const {
     opportunityId:
       rawOpportunityId,
@@ -171,26 +179,16 @@ export async function POST(
     )
   }
 
-  const workspace =
-    await prisma
-      .workspace
-      .findUnique({
-        where: {
-          slug:
-            WORKSPACE_SLUG,
-        },
-        select: {
-          id: true,
-        },
-      })
-
-  if (!workspace) {
+  if (
+    observation.consultantId !==
+    authenticatedContext.consultantId
+  ) {
     return json(
       {
         error:
-          "Workspace não encontrado.",
+          "O consultor informado não corresponde ao usuário autenticado.",
       },
-      404,
+      403,
     )
   }
 
@@ -202,7 +200,7 @@ export async function POST(
           id:
             opportunityId,
           workspaceId:
-            workspace.id,
+            authenticatedContext.workspaceId,
         },
         select: {
           id: true,
@@ -260,7 +258,7 @@ export async function POST(
         .findFirst({
           where: {
             workspaceId:
-              workspace.id,
+              authenticatedContext.workspaceId,
             isFinal: true,
             isLost: true,
             isActive: true,
@@ -306,7 +304,7 @@ export async function POST(
                   id:
                     journey.id,
                   workspaceId:
-                    workspace.id,
+                    authenticatedContext.workspaceId,
                   consultantId:
                     observation
                       .consultantId,
@@ -356,7 +354,7 @@ export async function POST(
                   id:
                     journey.leadId,
                   workspaceId:
-                    workspace.id,
+                    authenticatedContext.workspaceId,
                   status: {
                     notIn: [
                       LeadStatus.LOST,
@@ -381,7 +379,7 @@ export async function POST(
               .create({
                 data: {
                   workspaceId:
-                    workspace.id,
+                    authenticatedContext.workspaceId,
                   journeyId:
                     journey.id,
                   type:

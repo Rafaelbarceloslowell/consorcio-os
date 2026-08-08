@@ -7,8 +7,9 @@ import {
   prisma,
 } from "@/infrastructure/prisma/client"
 
-const WORKSPACE_SLUG =
-  "consorcio-os"
+import {
+  getApiCommercialContext,
+} from "@/lib/auth/get-authenticated-commercial-context"
 
 const stages = [
   "opening",
@@ -237,6 +238,13 @@ export async function POST(
   request: Request,
   context: RouteContext,
 ): Promise<Response> {
+  const authenticatedContext =
+    await getApiCommercialContext()
+
+  if (authenticatedContext instanceof Response) {
+    return authenticatedContext
+  }
+
   const {
     opportunityId:
       rawOpportunityId,
@@ -275,34 +283,15 @@ export async function POST(
     )
   }
 
-  const workspace =
-    await prisma.workspace.findUnique({
-      where: {
-        slug:
-          WORKSPACE_SLUG,
-      },
-      select: {
-        id: true,
-      },
-    })
-
-  if (!workspace) {
-    return json(
-      {
-        error:
-          "Workspace não encontrado.",
-      },
-      404,
-    )
-  }
-
   const journey =
     await prisma.commercialJourney.findFirst({
       where: {
         id:
           opportunityId,
         workspaceId:
-          workspace.id,
+          authenticatedContext.workspaceId,
+        consultantId:
+          authenticatedContext.consultantId,
         closedAt:
           null,
       },
@@ -335,7 +324,7 @@ export async function POST(
           },
           create: {
             workspaceId:
-              workspace.id,
+              authenticatedContext.workspaceId,
             journeyId:
               journey.id,
             stage:
