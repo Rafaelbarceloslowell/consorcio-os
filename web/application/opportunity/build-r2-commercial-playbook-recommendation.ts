@@ -1,5 +1,7 @@
 import type {
   ManualWhatsAppAnalysis,
+  ManualWhatsAppIntent,
+  ManualWhatsAppStage,
 } from "./analyze-manual-whatsapp-message"
 
 import type {
@@ -34,10 +36,25 @@ export type R2CommercialTechniqueDefinition = {
   label: string
   purpose: string
   guardrail: string
+  appropriateStages:
+    readonly ManualWhatsAppStage[]
+  appropriateIntents:
+    readonly ManualWhatsAppIntent[]
+  prerequisites: readonly string[]
+  supportingSignals: readonly string[]
+  avoidWhen: readonly string[]
+  riskLevel: "LOW" | "MEDIUM" | "HIGH"
+  customerGoal: string
+  commercialGoal: string
 }
 
-export const R2_COMMERCIAL_TECHNIQUE_LIBRARY:
-  readonly R2CommercialTechniqueDefinition[] = [
+type R2CommercialTechniqueCore = Pick<
+  R2CommercialTechniqueDefinition,
+  "id" | "label" | "purpose" | "guardrail"
+>
+
+const R2_COMMERCIAL_TECHNIQUE_CORE:
+  readonly R2CommercialTechniqueCore[] = [
     {
       id: "seals_commercial_script",
       label: "Script Comercial da Seal’s",
@@ -208,13 +225,266 @@ export const R2_COMMERCIAL_TECHNIQUE_LIBRARY:
     },
   ]
 
+const ALL_COMMERCIAL_STAGES:
+  readonly ManualWhatsAppStage[] = [
+    "opening",
+    "discovery",
+    "diagnosis",
+    "qualification",
+    "strategy",
+    "call_to_action",
+    "follow_up",
+  ]
+
+const ALL_COMMERCIAL_INTENTS:
+  readonly ManualWhatsAppIntent[] = [
+    "callback_requested",
+    "not_interested",
+    "pricing_question",
+    "meeting_interest",
+    "interest_area",
+    "interested",
+    "no_previous_response",
+    "stopped_replying",
+    "objection",
+    "needs_review",
+  ]
+
+function buildTechniqueMetadata(
+  id: R2CommercialTechniqueId,
+): Omit<
+  R2CommercialTechniqueDefinition,
+  "id" | "label" | "purpose" | "guardrail"
+> {
+  const common = {
+    appropriateStages:
+      ALL_COMMERCIAL_STAGES,
+    appropriateIntents:
+      ALL_COMMERCIAL_INTENTS,
+    prerequisites: [
+      "Contexto real suficiente para aplicar a técnica.",
+    ],
+    supportingSignals: [
+      "O estágio e a intenção atuais são compatíveis com o objetivo da técnica.",
+    ],
+    avoidWhen: [
+      "A técnica exigiria presumir informação não confirmada.",
+    ],
+    riskLevel: "LOW" as const,
+    customerGoal:
+      "Avançar com clareza e sem pressão indevida.",
+    commercialGoal:
+      "Conduzir o próximo passo coerente com o contexto.",
+  }
+
+  switch (id) {
+    case "ethical_fomo":
+    case "cost_of_inaction":
+      return {
+        ...common,
+        appropriateStages: [
+          "diagnosis",
+          "strategy",
+          "follow_up",
+        ],
+        appropriateIntents: [
+          "stopped_replying",
+          "objection",
+          "interested",
+        ],
+        prerequisites: [
+          "Consequência real, atual e confirmada no contexto.",
+        ],
+        supportingSignals: [
+          "O cliente reconheceu um impacto verdadeiro da demora.",
+        ],
+        avoidWhen: [
+          "Não existe prazo, condição ou consequência verificável.",
+          "A mensagem dependeria de urgência ou escassez inventada.",
+        ],
+        riskLevel: "HIGH",
+        customerGoal:
+          "Entender consequências reais sem ser manipulado.",
+        commercialGoal:
+          "Ajudar o cliente a decidir com informação verdadeira.",
+      }
+
+    case "social_proof":
+    case "storytelling":
+      return {
+        ...common,
+        appropriateStages: [
+          "diagnosis",
+          "strategy",
+          "call_to_action",
+        ],
+        appropriateIntents: [
+          "pricing_question",
+          "meeting_interest",
+          "objection",
+          "interested",
+        ],
+        prerequisites: [
+          "Caso real, semelhante e autorizado da Seal’s confirmado pelo consultor.",
+        ],
+        supportingSignals: [
+          "O cliente precisa reduzir insegurança sobre um cenário comparável.",
+        ],
+        avoidWhen: [
+          "Não há prova validada e autorizada.",
+          "O caso seria apresentado como garantia de resultado.",
+        ],
+        riskLevel: "HIGH",
+        customerGoal:
+          "Avaliar evidência real sem receber promessa.",
+        commercialGoal:
+          "Reduzir insegurança com prova autorizada.",
+      }
+
+    case "price_anchoring":
+    case "three_options":
+      return {
+        ...common,
+        appropriateStages: [
+          "qualification",
+          "strategy",
+        ],
+        appropriateIntents: [
+          "pricing_question",
+          "objection",
+          "interested",
+        ],
+        prerequisites: [
+          "Valores, prazos e condições confirmados e comparáveis.",
+        ],
+        supportingSignals: [
+          "O cliente já informou objetivo e restrições mínimas.",
+        ],
+        avoidWhen: [
+          "Os números ou as diferenças entre cenários não estão verificados.",
+        ],
+        riskLevel: "MEDIUM",
+        customerGoal:
+          "Comparar alternativas transparentes.",
+        commercialGoal:
+          "Apresentar valor e trade-offs sem opção-isca.",
+      }
+
+    case "objection_handling":
+      return {
+        ...common,
+        appropriateStages: [
+          "diagnosis",
+          "qualification",
+          "strategy",
+          "call_to_action",
+          "follow_up",
+        ],
+        appropriateIntents: [
+          "objection",
+          "not_interested",
+        ],
+        prerequisites: [
+          "Objeção real identificada ou pedido de esclarecimento.",
+        ],
+        supportingSignals: [
+          "O cliente declarou uma trava específica.",
+        ],
+        avoidWhen: [
+          "A resposta exigiria discutir, pressionar ou inventar condição.",
+        ],
+        riskLevel: "MEDIUM",
+        customerGoal:
+          "Ter a preocupação compreendida e respondida com fatos.",
+        commercialGoal:
+          "Esclarecer a objeção antes de pedir avanço.",
+      }
+
+    case "spin":
+    case "diagnostic_selling":
+    case "bant":
+    case "gpct":
+      return {
+        ...common,
+        appropriateStages: [
+          "discovery",
+          "diagnosis",
+          "qualification",
+        ],
+        appropriateIntents: [
+          "pricing_question",
+          "interest_area",
+          "interested",
+          "objection",
+          "needs_review",
+        ],
+        supportingSignals: [
+          "Faltam objetivo, prazo, capacidade, critério ou decisor.",
+        ],
+        avoidWhen: [
+          "O cliente já respondeu à pergunta ou pediu encerramento.",
+          "A sequência pareceria um interrogatório.",
+        ],
+        customerGoal:
+          "Ser compreendido antes de receber recomendação.",
+        commercialGoal:
+          "Completar diagnóstico e qualificação com uma pergunta por vez.",
+      }
+
+    case "next_step_closing":
+    case "consultative_closing":
+      return {
+        ...common,
+        appropriateStages: [
+          "strategy",
+          "call_to_action",
+          "follow_up",
+        ],
+        appropriateIntents: [
+          "callback_requested",
+          "meeting_interest",
+          "interested",
+          "objection",
+        ],
+        prerequisites: [
+          "Próximo passo compatível com a maturidade e aceito pelo cliente.",
+        ],
+        supportingSignals: [
+          "Existe abertura para combinar data, horário ou ação concreta.",
+        ],
+        avoidWhen: [
+          "O cliente pediu encerramento ou ainda falta contexto essencial.",
+        ],
+        riskLevel: "MEDIUM",
+        customerGoal:
+          "Saber exatamente o que acontecerá depois.",
+        commercialGoal:
+          "Converter abertura em compromisso proporcional.",
+      }
+
+    default:
+      return common
+  }
+}
+
+export const R2_COMMERCIAL_TECHNIQUE_LIBRARY:
+  readonly R2CommercialTechniqueDefinition[] =
+    R2_COMMERCIAL_TECHNIQUE_CORE.map(
+      (technique) => ({
+        ...technique,
+        ...buildTechniqueMetadata(
+          technique.id,
+        ),
+      }),
+    )
+
 export type R2SocialProofDirective = {
   shouldAskConsultant: boolean
   prompt: string | null
   rule: string
 }
 
-export type R2CommercialPlaybookRecommendation = {
+type R2CommercialPlaybookBaseRecommendation = {
   foundation: "seals_commercial_script"
   primaryTechnique: R2CommercialTechniqueId
   supportingTechniques:
@@ -227,6 +497,23 @@ export type R2CommercialPlaybookRecommendation = {
   avoid: readonly string[]
   socialProof: R2SocialProofDirective
 }
+
+export type R2CommercialPlaybookRecommendation =
+  R2CommercialPlaybookBaseRecommendation &
+  Readonly<{
+    stage: ManualWhatsAppAnalysis["stage"]
+    intent: ManualWhatsAppAnalysis["intent"]
+    strategy: string
+    recommendedAction: string
+    suggestedQuestion: string | null
+    suggestedArgument: string
+    suggestedNextStep: string
+    socialProofRequirement:
+      R2SocialProofDirective
+    riskWarnings: readonly string[]
+    reasoningSummary: string
+    requiresRecentContext: boolean
+  }>
 
 export type BuildR2CommercialPlaybookRecommendationInput = {
   approachType: ConversationApproachType
@@ -261,7 +548,7 @@ function buildRecommendation({
   avoid,
   shouldAskConsultantForSocialProof = false,
 }: Omit<
-  R2CommercialPlaybookRecommendation,
+  R2CommercialPlaybookBaseRecommendation,
   | "foundation"
   | "closingTechnique"
   | "socialProof"
@@ -269,7 +556,7 @@ function buildRecommendation({
 > & {
   shouldAskConsultantForSocialProof?: boolean
   callToAction?: string
-}): R2CommercialPlaybookRecommendation {
+}): R2CommercialPlaybookBaseRecommendation {
   return {
     foundation:
       "seals_commercial_script",
@@ -301,10 +588,10 @@ export function formatR2CommercialTechnique(
   )
 }
 
-export function buildR2CommercialPlaybookRecommendation({
+function buildBaseR2CommercialPlaybookRecommendation({
   approachType,
   analysis,
-}: BuildR2CommercialPlaybookRecommendationInput): R2CommercialPlaybookRecommendation {
+}: BuildR2CommercialPlaybookRecommendationInput): R2CommercialPlaybookBaseRecommendation {
   if (
     analysis.context
       ?.projectTimingDeferred
@@ -628,5 +915,67 @@ export function buildR2CommercialPlaybookRecommendation({
           "Apresentar preço ou reunião sem base.",
         ],
       })
+  }
+}
+
+function extractSuggestedQuestion(
+  action: string,
+): string | null {
+  const match =
+    action.match(/[^.!?]*\?/u)
+
+  return match?.[0]?.trim() ??
+    null
+}
+
+export function buildR2CommercialPlaybookRecommendation(
+  input: BuildR2CommercialPlaybookRecommendationInput,
+): R2CommercialPlaybookRecommendation {
+  const base =
+    buildBaseR2CommercialPlaybookRecommendation(
+      input,
+    )
+
+  const requiresRecentContext =
+    input.approachType ===
+      "reactivation" &&
+    input.analysis.intent ===
+      "needs_review"
+
+  const recommendedAction =
+    requiresRecentContext
+      ? "Peça ao consultor as últimas mensagens ou um resumo fiel do histórico antes de preparar qualquer reativação."
+      : base.consultantInstruction
+
+  const suggestedNextStep =
+    requiresRecentContext
+      ? "Obter contexto recente; não produzir mensagem ao cliente ainda."
+      : base.callToAction
+
+  return {
+    ...base,
+    stage:
+      input.analysis.stage,
+    intent:
+      input.analysis.intent,
+    strategy:
+      base.objective,
+    recommendedAction,
+    suggestedQuestion:
+      requiresRecentContext
+        ? "Quais foram as últimas mensagens trocadas e o que o cliente respondeu?"
+        : extractSuggestedQuestion(
+            base.callToAction,
+          ),
+    suggestedArgument:
+      base.rationale,
+    suggestedNextStep,
+    socialProofRequirement:
+      base.socialProof,
+    riskWarnings:
+      base.avoid,
+    reasoningSummary:
+      base.rationale,
+    requiresRecentContext,
   }
 }

@@ -180,6 +180,15 @@ export function buildManualWhatsAppReply({
     return null
   }
 
+  if (
+    approachType ===
+      "reactivation" &&
+    analysis.intent ===
+      "needs_review"
+  ) {
+    return null
+  }
+
   const name =
     firstName(contactName)
 

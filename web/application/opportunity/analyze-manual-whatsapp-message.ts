@@ -1152,6 +1152,24 @@ export function analyzeManualWhatsAppMessage(
     }
   }
 
+  if (
+    options.approachType ===
+    "reactivation"
+  ) {
+    return {
+      intent:
+        "needs_review",
+      stage:
+        "opening",
+      label:
+        "Contexto recente necessário",
+      summary:
+        "O histórico informado não contém mensagens recentes suficientes para preparar uma reativação segura.",
+      recommendedAction:
+        "Peça ao consultor as últimas mensagens ou um resumo fiel do histórico antes de sugerir qualquer contato ao cliente.",
+    }
+  }
+
   return {
     intent:
       "needs_review",

@@ -39,7 +39,7 @@ function build({
   })
 }
 
-describe(
+  describe(
   "buildManualWhatsAppReply",
   () => {
     it(
@@ -261,7 +261,7 @@ describe(
     )
 
     it(
-      "nao usa resposta generica quando a reativacao exige atualizacao",
+      "bloqueia resposta generica quando a reativacao exige contexto",
       () => {
         expect(
           build({
@@ -270,9 +270,7 @@ describe(
             approachType:
               "reactivation",
           }),
-        ).toBe(
-          "Obrigado por me responder, Janaina. Só para eu me atualizar: esse projeto ainda está de pé ou seus planos mudaram desde a última vez?",
-        )
+        ).toBeNull()
       },
     )
 
@@ -296,6 +294,29 @@ describe(
         expect(reply).not.toContain(
           "ainda está de pé",
         )
+      },
+    )
+    it(
+      "não prepara mensagem de reativação sem contexto recente suficiente",
+      () => {
+        const analysis =
+          analyzeManualWhatsAppMessage(
+            "Oi",
+            {
+              approachType:
+                "reactivation",
+            },
+          )
+
+        expect(
+          buildManualWhatsAppReply({
+            contactName: "Rafael",
+            incomingMessage: "Oi",
+            approachType:
+              "reactivation",
+            analysis,
+          }),
+        ).toBeNull()
       },
     )
   },

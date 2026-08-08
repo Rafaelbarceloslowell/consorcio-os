@@ -362,5 +362,105 @@ describe(
         )
       },
     )
+
+    it(
+      "expõe metadados auditáveis para todas as técnicas",
+      () => {
+        for (
+          const technique of
+          R2_COMMERCIAL_TECHNIQUE_LIBRARY
+        ) {
+          expect(
+            technique.appropriateStages.length,
+          ).toBeGreaterThan(0)
+          expect(
+            technique.appropriateIntents.length,
+          ).toBeGreaterThan(0)
+          expect(
+            technique.prerequisites.length,
+          ).toBeGreaterThan(0)
+          expect(
+            technique.supportingSignals.length,
+          ).toBeGreaterThan(0)
+          expect(
+            technique.avoidWhen.length,
+          ).toBeGreaterThan(0)
+          expect(
+            ["LOW", "MEDIUM", "HIGH"],
+          ).toContain(
+            technique.riskLevel,
+          )
+          expect(
+            technique.customerGoal,
+          ).not.toBe("")
+          expect(
+            technique.commercialGoal,
+          ).not.toBe("")
+        }
+      },
+    )
+
+    it(
+      "entrega contrato estruturado e explicável sem chain of thought",
+      () => {
+        const recommendation =
+          build({
+            message:
+              "Qual o valor da parcela?",
+            approachType:
+              "new",
+          })
+
+        expect(
+          recommendation,
+        ).toMatchObject({
+          stage: "qualification",
+          intent: "pricing_question",
+          strategy:
+            recommendation.objective,
+          recommendedAction:
+            recommendation.consultantInstruction,
+          suggestedArgument:
+            recommendation.rationale,
+          suggestedNextStep:
+            recommendation.callToAction,
+          socialProofRequirement:
+            recommendation.socialProof,
+          riskWarnings:
+            recommendation.avoid,
+          reasoningSummary:
+            recommendation.rationale,
+          requiresRecentContext:
+            false,
+        })
+      },
+    )
+
+    it(
+      "bloqueia reativação sem contexto recente",
+      () => {
+        const recommendation =
+          build({
+            message: "Oi",
+            approachType:
+              "reactivation",
+          })
+
+        expect(
+          recommendation,
+        ).toMatchObject({
+          intent: "needs_review",
+          requiresRecentContext:
+            true,
+          suggestedNextStep:
+            "Obter contexto recente; não produzir mensagem ao cliente ainda.",
+        })
+        expect(
+          recommendation.recommendedAction,
+        ).toContain(
+          "últimas mensagens",
+        )
+      },
+    )
   },
 )
