@@ -200,6 +200,40 @@ describe(
     )
 
     it(
+      "registra contexto e técnicas sem duplicar apoios",
+      () => {
+        expect(
+          build({
+            approachType: "new",
+            assetCategory:
+              "real_estate",
+            leadCategory: "lead",
+            recommendedPrimaryTechnique:
+              "spin",
+            recommendedSupportingTechniques: [
+              "value_building",
+              "value_building",
+            ],
+            recommendedClosingTechnique:
+              "next_step_closing",
+          }),
+        ).toMatchObject({
+          approachType: "new",
+          assetCategory:
+            "real_estate",
+          leadCategory: "lead",
+          recommendedPrimaryTechnique:
+            "spin",
+          recommendedSupportingTechniques: [
+            "value_building",
+          ],
+          recommendedClosingTechnique:
+            "next_step_closing",
+        })
+      },
+    )
+
+    it(
       "exige e preserva o motivo de uma oportunidade perdida",
       () => {
         expect(

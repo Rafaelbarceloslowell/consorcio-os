@@ -1,3 +1,11 @@
+import {
+  R2_COMMERCIAL_TECHNIQUE_LIBRARY,
+} from "@/application/opportunity/build-r2-commercial-playbook-recommendation"
+
+import type {
+  R2CommercialTechniqueId,
+} from "@/application/opportunity/build-r2-commercial-playbook-recommendation"
+
 export const R2_LEARNING_OUTCOMES = [
   "NO_RESPONSE",
   "POSITIVE_RESPONSE",
@@ -37,6 +45,15 @@ export type BuildR2LearningObservationInput =
       | string
       | null
     outcome: R2LearningOutcome
+    approachType?: string | null
+    assetCategory?: string | null
+    leadCategory?: string | null
+    recommendedPrimaryTechnique?:
+      R2CommercialTechniqueId | null
+    recommendedSupportingTechniques?:
+      readonly R2CommercialTechniqueId[]
+    recommendedClosingTechnique?:
+      R2CommercialTechniqueId | null
     intent?: string | null
     stage?: string | null
     goal?: string | null
@@ -55,6 +72,15 @@ export type R2LearningObservation =
     finalSentMessage: string
     customerResponse: string | null
     outcome: R2LearningOutcome
+    approachType: string | null
+    assetCategory: string | null
+    leadCategory: string | null
+    recommendedPrimaryTechnique:
+      R2CommercialTechniqueId | null
+    recommendedSupportingTechniques:
+      readonly R2CommercialTechniqueId[]
+    recommendedClosingTechnique:
+      R2CommercialTechniqueId | null
     signal: R2LearningSignal
     consultantEdited: boolean
     customerResponded: boolean
@@ -149,6 +175,66 @@ function isLearningOutcome(
     R2_LEARNING_OUTCOMES as
       readonly string[]
   ).includes(value)
+}
+
+const R2_TECHNIQUE_IDS =
+  new Set<R2CommercialTechniqueId>(
+    R2_COMMERCIAL_TECHNIQUE_LIBRARY.map(
+      (technique) =>
+        technique.id,
+    ),
+  )
+
+function normalizeTechnique(
+  value:
+    | R2CommercialTechniqueId
+    | null
+    | undefined,
+  field: string,
+): R2CommercialTechniqueId | null {
+  if (value === null || value === undefined) {
+    return null
+  }
+
+  if (!R2_TECHNIQUE_IDS.has(value)) {
+    throw new Error(
+      `${field} contém uma técnica comercial inválida.`,
+    )
+  }
+
+  return value
+}
+
+function normalizeTechniques(
+  values:
+    readonly R2CommercialTechniqueId[] |
+    undefined,
+): readonly R2CommercialTechniqueId[] {
+  if (!values) {
+    return []
+  }
+
+  return [
+    ...new Set(
+      values.map(
+        (value) => {
+          const technique =
+            normalizeTechnique(
+              value,
+              "Técnicas de apoio",
+            )
+
+          if (!technique) {
+            throw new Error(
+              "Técnicas de apoio contêm um valor vazio.",
+            )
+          }
+
+          return technique
+        },
+      ),
+    ),
+  ]
 }
 
 function mapSignal(
@@ -289,6 +375,44 @@ export function buildR2LearningObservation(
       2000,
     )
 
+  const approachType =
+    normalizeOptionalText(
+      input.approachType,
+      "Tipo de abordagem",
+      100,
+    )
+
+  const assetCategory =
+    normalizeOptionalText(
+      input.assetCategory,
+      "Categoria do bem",
+      100,
+    )
+
+  const leadCategory =
+    normalizeOptionalText(
+      input.leadCategory,
+      "Categoria do lead",
+      100,
+    )
+
+  const recommendedPrimaryTechnique =
+    normalizeTechnique(
+      input.recommendedPrimaryTechnique,
+      "Técnica principal",
+    )
+
+  const recommendedSupportingTechniques =
+    normalizeTechniques(
+      input.recommendedSupportingTechniques,
+    )
+
+  const recommendedClosingTechnique =
+    normalizeTechnique(
+      input.recommendedClosingTechnique,
+      "Técnica de fechamento",
+    )
+
   if (
     input.outcome === "LOST" &&
     notes === null
@@ -324,6 +448,12 @@ export function buildR2LearningObservation(
     customerResponse,
     outcome:
       input.outcome,
+    approachType,
+    assetCategory,
+    leadCategory,
+    recommendedPrimaryTechnique,
+    recommendedSupportingTechniques,
+    recommendedClosingTechnique,
     signal:
       mapSignal(
         input.outcome,

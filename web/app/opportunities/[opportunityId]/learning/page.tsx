@@ -11,6 +11,14 @@ import {
 } from "@/components/opportunity/opportunity-r2-learning-cycle"
 
 import {
+  analyzeManualWhatsAppMessage,
+} from "@/application/opportunity/analyze-manual-whatsapp-message"
+
+import {
+  buildR2CommercialPlaybookRecommendation,
+} from "@/application/opportunity/build-r2-commercial-playbook-recommendation"
+
+import {
   prisma,
 } from "@/infrastructure/prisma/client"
 
@@ -127,6 +135,30 @@ export default async function R2LearningPage({
   const opportunity =
     await loadOpportunity()
 
+  const approachType =
+    opportunity.contactContext
+      ?.approachType ??
+    null
+  const sourceIncomingMessage =
+    opportunity.conversationMemory
+      ?.lastIncomingMessage ??
+    null
+  const analysis =
+    sourceIncomingMessage &&
+    approachType
+      ? analyzeManualWhatsAppMessage(
+          sourceIncomingMessage,
+          { approachType },
+        )
+      : null
+  const playbook =
+    analysis && approachType
+      ? buildR2CommercialPlaybookRecommendation({
+          approachType,
+          analysis,
+        })
+      : null
+
   return (
     <OpportunityR2LearningCycle
       opportunityId={
@@ -149,10 +181,7 @@ export default async function R2LearningPage({
         null
       }
       sourceIncomingMessage={
-        opportunity
-          .conversationMemory
-          ?.lastIncomingMessage ??
-        null
+        sourceIncomingMessage
       }
       intent={
         opportunity
@@ -170,6 +199,27 @@ export default async function R2LearningPage({
         opportunity
           .conversationMemory
           ?.goal ??
+        null
+      }
+      approachType={
+        approachType
+      }
+      assetCategory={
+        opportunity.consortiumType
+      }
+      leadCategory={
+        opportunity.origin
+      }
+      recommendedPrimaryTechnique={
+        playbook?.primaryTechnique ??
+        null
+      }
+      recommendedSupportingTechniques={
+        playbook?.supportingTechniques ??
+        []
+      }
+      recommendedClosingTechnique={
+        playbook?.closingTechnique ??
         null
       }
     />

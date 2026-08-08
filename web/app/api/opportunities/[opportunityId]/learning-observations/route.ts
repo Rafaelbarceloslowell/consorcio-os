@@ -100,6 +100,52 @@ function parseBody(
             typeof buildR2LearningObservation
           >[0]["outcome"]
         : "OTHER",
+    approachType:
+      typeof body.approachType ===
+      "string"
+        ? body.approachType
+        : null,
+    assetCategory:
+      typeof body.assetCategory ===
+      "string"
+        ? body.assetCategory
+        : null,
+    leadCategory:
+      typeof body.leadCategory ===
+      "string"
+        ? body.leadCategory
+        : null,
+    recommendedPrimaryTechnique:
+      typeof body.recommendedPrimaryTechnique ===
+      "string"
+        ? body.recommendedPrimaryTechnique as
+          Parameters<
+            typeof buildR2LearningObservation
+          >[0]["recommendedPrimaryTechnique"]
+        : null,
+    recommendedSupportingTechniques:
+      Array.isArray(
+        body.recommendedSupportingTechniques,
+      )
+        ? body.recommendedSupportingTechniques
+            .filter(
+              (
+                value,
+              ): value is string =>
+                typeof value ===
+                "string",
+            ) as Parameters<
+              typeof buildR2LearningObservation
+            >[0]["recommendedSupportingTechniques"]
+        : [],
+    recommendedClosingTechnique:
+      typeof body.recommendedClosingTechnique ===
+      "string"
+        ? body.recommendedClosingTechnique as
+          Parameters<
+            typeof buildR2LearningObservation
+          >[0]["recommendedClosingTechnique"]
+        : null,
     intent:
       typeof body.intent ===
         "string"

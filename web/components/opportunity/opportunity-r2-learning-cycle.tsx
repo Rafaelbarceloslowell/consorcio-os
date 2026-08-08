@@ -16,6 +16,10 @@ import type {
   R2LearningOutcome,
 } from "@/application/learning/build-r2-learning-observation"
 
+import type {
+  R2CommercialTechniqueId,
+} from "@/application/opportunity/build-r2-commercial-playbook-recommendation"
+
 type OpportunityR2LearningCycleProps =
   Readonly<{
     opportunityId: string
@@ -31,6 +35,18 @@ type OpportunityR2LearningCycleProps =
       string | null
     goal:
       string | null
+    approachType?:
+      string | null
+    assetCategory?:
+      string | null
+    leadCategory?:
+      string | null
+    recommendedPrimaryTechnique?:
+      R2CommercialTechniqueId | null
+    recommendedSupportingTechniques?:
+      readonly R2CommercialTechniqueId[]
+    recommendedClosingTechnique?:
+      R2CommercialTechniqueId | null
   }>
 
 type LearningResponse =
@@ -83,6 +99,12 @@ export function OpportunityR2LearningCycle({
   intent,
   stage,
   goal,
+  approachType = null,
+  assetCategory = null,
+  leadCategory = null,
+  recommendedPrimaryTechnique = null,
+  recommendedSupportingTechniques = [],
+  recommendedClosingTechnique = null,
 }: OpportunityR2LearningCycleProps) {
   const [isPending, startTransition] =
     useTransition()
@@ -233,6 +255,12 @@ export function OpportunityR2LearningCycle({
                         ? null
                         : customerResponse,
                     outcome,
+                    approachType,
+                    assetCategory,
+                    leadCategory,
+                    recommendedPrimaryTechnique,
+                    recommendedSupportingTechniques,
+                    recommendedClosingTechnique,
                     intent,
                     stage,
                     goal,
