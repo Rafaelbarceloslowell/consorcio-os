@@ -66,6 +66,8 @@ function consultantStatusLabel(
   }
 }
 
+export const dynamic = "force-dynamic"
+
 export default async function SettingsPage() {
   const workspace =
     await prisma.workspace.findUnique({

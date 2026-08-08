@@ -18,6 +18,8 @@ import {
   createPrismaCrmRepositories,
 } from "@/infrastructure/prisma/repositories/prisma-crm-repositories"
 
+export const dynamic = "force-dynamic"
+
 export default async function MissionControlPage() {
   const workspace =
     await prisma.workspace.findUnique({

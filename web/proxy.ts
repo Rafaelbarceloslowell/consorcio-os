@@ -22,6 +22,7 @@ import {
 
 const publicPaths = new Set([
   "/acesso-negado",
+  "/api/health",
   "/cadastro",
   "/login",
 ])

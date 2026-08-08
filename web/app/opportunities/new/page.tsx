@@ -18,6 +18,8 @@ import {
   createOpportunityAction,
 } from "./actions"
 
+export const dynamic = "force-dynamic"
+
 export default async function OpportunityCreatePage() {
   const workspace =
     await prisma.workspace.findUnique({

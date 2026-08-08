@@ -46,6 +46,8 @@ function toDateTimeLocal(
     .slice(0, 16)
 }
 
+export const dynamic = "force-dynamic"
+
 export default async function AgendaPage() {
   const workspace =
     await prisma.workspace.findUnique({

@@ -17,6 +17,8 @@ import {
   createProposalAction,
 } from "./actions"
 
+export const dynamic = "force-dynamic"
+
 export default async function ProposalCreatePage() {
   const workspace =
     await prisma.workspace.findUnique({

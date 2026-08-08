@@ -28,6 +28,8 @@ type OpportunityDetailsPageProps = {
   }>
 }
 
+export const dynamic = "force-dynamic"
+
 export default async function OpportunityDetailsPage({
   params,
 }: OpportunityDetailsPageProps) {

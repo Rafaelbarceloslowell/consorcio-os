@@ -84,11 +84,3 @@ import type {
     runDecisionEngine({
       context: enrichedContext,
     })
-  
-  console.log(
-    JSON.stringify(
-      decisionEngineExample,
-      null,
-      2,
-    ),
-  )

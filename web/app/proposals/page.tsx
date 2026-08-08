@@ -48,6 +48,8 @@ function getStatusLabel(
   }
 }
 
+export const dynamic = "force-dynamic"
+
 export default async function ProposalsPage() {
   const workspace =
     await prisma.workspace.findUnique({

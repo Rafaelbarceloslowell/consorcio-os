@@ -69,6 +69,8 @@ function displayEmail(
     : value
 }
 
+export const dynamic = "force-dynamic"
+
 export default async function LeadEditPage({
   params,
   searchParams,

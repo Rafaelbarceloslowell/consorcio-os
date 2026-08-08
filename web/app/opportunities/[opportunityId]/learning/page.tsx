@@ -29,6 +29,8 @@ type R2LearningPageProps =
     }>
   }>
 
+export const dynamic = "force-dynamic"
+
 export default async function R2LearningPage({
   params,
 }: R2LearningPageProps) {

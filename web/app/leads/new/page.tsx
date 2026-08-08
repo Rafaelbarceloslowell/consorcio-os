@@ -16,6 +16,8 @@ import {
   createLeadAction,
 } from "./actions"
 
+export const dynamic = "force-dynamic"
+
 export default async function LeadCreatePage() {
   const workspace =
     await prisma.workspace.findUnique({

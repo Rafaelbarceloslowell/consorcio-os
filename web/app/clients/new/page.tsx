@@ -6,6 +6,8 @@ import type { ClientCreateFormView } from "@/types/client-create"
 
 import { createClientAction } from "./actions"
 
+export const dynamic = "force-dynamic"
+
 export default async function ClientCreatePage() {
   const workspace =
     await prisma.workspace.findUnique({

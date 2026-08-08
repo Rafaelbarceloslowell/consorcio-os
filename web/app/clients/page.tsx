@@ -23,6 +23,8 @@ import type {
   ClientListView,
 } from "@/types/client-list"
 
+export const dynamic = "force-dynamic"
+
 export default async function ClientsPage() {
   const workspace =
     await prisma.workspace.findUnique({
