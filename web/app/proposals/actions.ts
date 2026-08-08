@@ -24,6 +24,9 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+import {
+  getWorkspaceSlug,
+} from "@/lib/workspace/workspace-slug"
 
 import {
   ClientMapper,
@@ -55,7 +58,7 @@ import type {
 } from "@/types/domain"
 
 const WORKSPACE_SLUG =
-  "consorcio-os"
+  getWorkspaceSlug()
 
 type Transaction =
   Prisma.TransactionClient

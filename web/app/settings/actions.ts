@@ -7,9 +7,12 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+import {
+  getWorkspaceSlug,
+} from "@/lib/workspace/workspace-slug"
 
 const WORKSPACE_SLUG =
-  "consorcio-os"
+  getWorkspaceSlug()
 
 function requiredText(
   formData: FormData,

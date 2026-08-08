@@ -19,6 +19,9 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+import {
+  getWorkspaceSlug,
+} from "@/lib/workspace/workspace-slug"
 
 import type {
   LeadUpdateActionFieldErrors,
@@ -26,7 +29,8 @@ import type {
   LeadUpdateActionValues,
 } from "@/types/lead-update"
 
-const WORKSPACE_SLUG = "consorcio-os"
+const WORKSPACE_SLUG =
+  getWorkspaceSlug()
 
 class LeadUpdateError extends Error {
   constructor(

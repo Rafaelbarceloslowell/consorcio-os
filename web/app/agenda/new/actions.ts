@@ -21,6 +21,9 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+import {
+  getWorkspaceSlug,
+} from "@/lib/workspace/workspace-slug"
 
 import type {
   AgendaCreateActionState,
@@ -29,7 +32,7 @@ import type {
 } from "@/types/agenda"
 
 const WORKSPACE_SLUG =
-  "consorcio-os"
+  getWorkspaceSlug()
 
 class AgendaCreateError extends Error {
   constructor(

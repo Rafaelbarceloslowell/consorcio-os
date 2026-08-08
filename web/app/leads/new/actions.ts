@@ -22,6 +22,9 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+import {
+  getWorkspaceSlug,
+} from "@/lib/workspace/workspace-slug"
 
 import type {
   LeadCreateActionFieldErrors,
@@ -29,7 +32,8 @@ import type {
   LeadCreateActionValues,
 } from "@/types/lead-create"
 
-const WORKSPACE_SLUG = "consorcio-os"
+const WORKSPACE_SLUG =
+  getWorkspaceSlug()
 
 class LeadIntakeError extends Error {
   constructor(

@@ -14,6 +14,9 @@ import {
 import {
   getAuthConfigurationState,
 } from "@/lib/auth/auth-configuration"
+import {
+  getWorkspaceSlug,
+} from "@/lib/workspace/workspace-slug"
 
 import {
   CommercialContextError,
@@ -75,8 +78,7 @@ export async function proxy(
       await prisma.workspace.findUnique({
         where: {
           slug:
-            process.env.WORKSPACE_SLUG?.trim() ||
-            "consorcio-os",
+            getWorkspaceSlug(),
         },
         select: {
           id: true,

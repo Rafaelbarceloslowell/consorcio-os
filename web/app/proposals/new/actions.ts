@@ -25,6 +25,9 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+import {
+  getWorkspaceSlug,
+} from "@/lib/workspace/workspace-slug"
 
 import type {
   ProposalCreateActionState,
@@ -33,7 +36,7 @@ import type {
 } from "@/types/proposal-operational"
 
 const WORKSPACE_SLUG =
-  "consorcio-os"
+  getWorkspaceSlug()
 
 class ProposalCreateError extends Error {
   constructor(
