@@ -566,12 +566,20 @@ export function OpportunityManualWhatsAppIntake({
                     .join(" · ")}
                 />
                 <ResultItem
+                  label="Objetivo comercial"
+                  value={commercialPlaybook.objective}
+                />
+                <ResultItem
                   label="Por que agora"
                   value={commercialPlaybook.rationale}
                 />
                 <ResultItem
                   label="Orientação ao consultor"
                   value={commercialPlaybook.consultantInstruction}
+                />
+                <ResultItem
+                  label="CTA recomendado"
+                  value={commercialPlaybook.callToAction}
                 />
                 <ResultItem
                   label="Evitar agora"

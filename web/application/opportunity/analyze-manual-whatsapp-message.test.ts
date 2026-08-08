@@ -131,6 +131,72 @@ describe(
       },
     )
 
+    it.each([
+      [
+        "A parcela ficou alta para mim.",
+        "high_installment",
+      ],
+      [
+        "Achei essa taxa cara.",
+        "fee_concern",
+      ],
+      [
+        "Não tenho dinheiro agora.",
+        "no_money_now",
+      ],
+      [
+        "Não tenho lance.",
+        "no_bid",
+      ],
+      [
+        "Preciso pensar.",
+        "needs_time_to_think",
+      ],
+      [
+        "Preciso falar com minha esposa.",
+        "needs_other_decision_maker",
+      ],
+      [
+        "Tenho medo de não contemplar.",
+        "contemplation_fear",
+      ],
+      [
+        "Prefiro financiamento.",
+        "prefers_financing",
+      ],
+      [
+        "Não tenho urgência.",
+        "no_urgency",
+      ],
+      [
+        "Não confio em consórcio.",
+        "trust_concern",
+      ],
+      [
+        "Já tive uma experiência ruim.",
+        "bad_previous_experience",
+      ],
+      [
+        "Quero esperar.",
+        "wants_to_wait",
+      ],
+    ])(
+      "reconhece a objeção comercial em %s",
+      (message, objectionId) => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            message,
+          ),
+        ).toMatchObject({
+          intent: "objection",
+          stage: "diagnosis",
+          objection: {
+            id: objectionId,
+          },
+        })
+      },
+    )
+
     it(
       "identifica pedido de retorno",
       () => {

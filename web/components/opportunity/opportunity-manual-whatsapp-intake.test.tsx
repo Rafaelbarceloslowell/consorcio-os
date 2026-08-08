@@ -334,6 +334,18 @@ describe(
         ).toHaveTextContent(
           "caso real, semelhante e autorizado",
         )
+
+        expect(
+          screen.getByText(
+            "Descobrir objetivo, valor, prazo e capacidade antes de apresentar condição.",
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          screen.getByText(
+            "Termine com uma pergunta simples ou um compromisso concreto coerente com o estágio atual.",
+          ),
+        ).toBeInTheDocument()
       },
     )
 

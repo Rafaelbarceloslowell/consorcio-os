@@ -7,7 +7,27 @@ export type ManualWhatsAppIntent =
   | "interested"
   | "no_previous_response"
   | "stopped_replying"
+  | "objection"
   | "needs_review"
+
+export type ManualWhatsAppObjectionId =
+  | "high_installment"
+  | "fee_concern"
+  | "no_money_now"
+  | "no_bid"
+  | "needs_time_to_think"
+  | "needs_other_decision_maker"
+  | "contemplation_fear"
+  | "prefers_financing"
+  | "no_urgency"
+  | "trust_concern"
+  | "bad_previous_experience"
+  | "wants_to_wait"
+
+export type ManualWhatsAppObjection = {
+  id: ManualWhatsAppObjectionId
+  label: string
+}
 
 export type ManualWhatsAppStage =
   | "opening"
@@ -43,6 +63,8 @@ export type ManualWhatsAppAnalysis = {
   label: string
   summary: string
   recommendedAction: string
+  objection?:
+    ManualWhatsAppObjection
   context?: ManualWhatsAppContext
 }
 
@@ -81,6 +103,148 @@ function containsAny(
     (fragment) =>
       value.includes(fragment),
   )
+}
+
+const OBJECTION_SIGNALS: ReadonlyArray<{
+  id: ManualWhatsAppObjectionId
+  label: string
+  fragments: readonly string[]
+}> = [
+  {
+    id: "high_installment",
+    label: "parcela alta",
+    fragments: [
+      "parcela alta",
+      "parcela ficou alta",
+      "parcela cara",
+      "parcela pesada",
+      "parcela nao cabe",
+    ],
+  },
+  {
+    id: "fee_concern",
+    label: "preocupação com a taxa",
+    fragments: [
+      "taxa alta",
+      "taxa cara",
+      "essa taxa",
+    ],
+  },
+  {
+    id: "no_money_now",
+    label: "falta de recurso agora",
+    fragments: [
+      "nao tenho dinheiro agora",
+      "sem dinheiro agora",
+      "agora nao tenho dinheiro",
+      "nao cabe agora",
+    ],
+  },
+  {
+    id: "no_bid",
+    label: "não possui lance",
+    fragments: [
+      "nao tenho lance",
+      "sem lance",
+      "nao consigo dar lance",
+    ],
+  },
+  {
+    id: "needs_time_to_think",
+    label: "precisa pensar",
+    fragments: [
+      "vou pensar",
+      "preciso pensar",
+      "deixa eu pensar",
+    ],
+  },
+  {
+    id: "needs_other_decision_maker",
+    label: "precisa envolver outro decisor",
+    fragments: [
+      "falar com minha esposa",
+      "falar com meu marido",
+      "falar com meu socio",
+      "falar com minha socia",
+      "conversar com minha esposa",
+      "conversar com meu marido",
+      "conversar com meu socio",
+    ],
+  },
+  {
+    id: "contemplation_fear",
+    label: "receio sobre contemplação",
+    fragments: [
+      "medo de nao contemplar",
+      "medo de demorar",
+      "e se eu nao for contemplado",
+      "quando vou ser contemplado",
+    ],
+  },
+  {
+    id: "prefers_financing",
+    label: "prefere financiamento",
+    fragments: [
+      "prefiro financiamento",
+      "vou financiar",
+      "financiamento e melhor",
+    ],
+  },
+  {
+    id: "no_urgency",
+    label: "não possui urgência",
+    fragments: [
+      "nao tenho urgencia",
+      "nao tenho pressa",
+      "posso esperar",
+    ],
+  },
+  {
+    id: "bad_previous_experience",
+    label: "experiência anterior ruim",
+    fragments: [
+      "experiencia ruim",
+      "tive problema com consorcio",
+      "ja me dei mal com consorcio",
+    ],
+  },
+  {
+    id: "trust_concern",
+    label: "falta de confiança",
+    fragments: [
+      "nao confio em consorcio",
+      "consorcio e golpe",
+      "tenho receio de consorcio",
+    ],
+  },
+  {
+    id: "wants_to_wait",
+    label: "quer esperar",
+    fragments: [
+      "quero esperar",
+      "melhor esperar",
+      "vou esperar mais",
+    ],
+  },
+]
+
+function detectObjection(
+  value: string,
+): ManualWhatsAppObjection | null {
+  const signal = OBJECTION_SIGNALS.find(
+    (candidate) =>
+      containsAny(
+        value,
+        candidate.fragments,
+      ),
+  )
+
+  return signal
+    ? {
+        id: signal.id,
+        label: signal.label,
+      }
+    : null
 }
 
 function extractRoleMessages(
@@ -791,6 +955,24 @@ export function analyzeManualWhatsAppMessage(
         "O contato sinalizou que não deseja avançar neste momento.",
       recommendedAction:
         "Respeite a posição, confirme o motivo sem pressionar e encerre a conversa com educação.",
+    }
+  }
+
+  const objection = detectObjection(
+    messageForCustomerSignals,
+  )
+
+  if (objection) {
+    return {
+      intent: "objection",
+      stage: "diagnosis",
+      label:
+        `Objeção: ${objection.label}`,
+      summary:
+        `O contato apresentou ${objection.label} como ponto de atenção para avançar.`,
+      recommendedAction:
+        "Acolha a preocupação, confirme o que está por trás dela, responda somente com fatos conhecidos e faça uma pergunta de avanço.",
+      objection,
     }
   }
 

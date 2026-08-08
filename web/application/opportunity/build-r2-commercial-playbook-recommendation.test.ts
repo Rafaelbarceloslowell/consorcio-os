@@ -240,6 +240,48 @@ describe(
     )
 
     it(
+      "explica objetivo e CTA ao tratar uma objeção específica",
+      () => {
+        const recommendation =
+          build({
+            message:
+              "A parcela ficou alta para mim.",
+            approachType:
+              "new",
+          })
+
+        expect(recommendation).toMatchObject({
+          primaryTechnique:
+            "objection_handling",
+          objective:
+            "Compreender e tratar parcela alta sem perder o próximo passo comercial.",
+          callToAction:
+            "Faça uma pergunta de avanço ligada à objeção e combine o próximo passo somente depois da resposta.",
+        })
+
+        expect(
+          recommendation.supportingTechniques,
+        ).toEqual(
+          expect.arrayContaining([
+            "rapport",
+            "diagnostic_selling",
+            "consultative_closing",
+          ]),
+        )
+
+        expect(
+          recommendation.avoid,
+        ).toEqual(
+          expect.arrayContaining([
+            "Inventar taxa, lance, prazo ou regra de administradora.",
+            "Garantir contemplação ou aprovação.",
+            "Usar prova social sem caso real e autorizado.",
+          ]),
+        )
+      },
+    )
+
+    it(
       "não finge continuidade quando o cliente nunca respondeu",
       () => {
         const recommendation =

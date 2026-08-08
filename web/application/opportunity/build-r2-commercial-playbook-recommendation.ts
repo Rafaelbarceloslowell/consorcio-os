@@ -223,6 +223,7 @@ export type R2CommercialPlaybookRecommendation = {
   objective: string
   rationale: string
   consultantInstruction: string
+  callToAction: string
   avoid: readonly string[]
   socialProof: R2SocialProofDirective
 }
@@ -255,6 +256,8 @@ function buildRecommendation({
   objective,
   rationale,
   consultantInstruction,
+  callToAction =
+    "Termine com uma pergunta simples ou um compromisso concreto coerente com o estágio atual.",
   avoid,
   shouldAskConsultantForSocialProof = false,
 }: Omit<
@@ -262,8 +265,10 @@ function buildRecommendation({
   | "foundation"
   | "closingTechnique"
   | "socialProof"
+  | "callToAction"
 > & {
   shouldAskConsultantForSocialProof?: boolean
+  callToAction?: string
 }): R2CommercialPlaybookRecommendation {
   return {
     foundation:
@@ -275,6 +280,7 @@ function buildRecommendation({
     objective,
     rationale,
     consultantInstruction,
+    callToAction,
     avoid,
     socialProof:
       buildSocialProofDirective(
@@ -446,6 +452,33 @@ export function buildR2CommercialPlaybookRecommendation({
           "Pressionar.",
           "Usar FOMO.",
           "Discutir com a objeção.",
+        ],
+      })
+
+    case "objection":
+      return buildRecommendation({
+        primaryTechnique:
+          "objection_handling",
+        supportingTechniques: [
+          "rapport",
+          "diagnostic_selling",
+          "consultative_closing",
+        ],
+        objective:
+          analysis.objection
+            ? `Compreender e tratar ${analysis.objection.label} sem perder o próximo passo comercial.`
+            : "Compreender a objeção real antes de responder.",
+        rationale:
+          "O cliente apresentou uma trava específica; responder antes de confirmar a preocupação pode gerar confronto ou promessa indevida.",
+        consultantInstruction:
+          "Reconheça a preocupação, faça uma pergunta curta para entender o critério real, responda apenas com informações confirmadas e valide se a resposta permite avançar.",
+        callToAction:
+          "Faça uma pergunta de avanço ligada à objeção e combine o próximo passo somente depois da resposta.",
+        avoid: [
+          "Discutir com o cliente.",
+          "Inventar taxa, lance, prazo ou regra de administradora.",
+          "Garantir contemplação ou aprovação.",
+          "Usar prova social sem caso real e autorizado.",
         ],
       })
 

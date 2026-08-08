@@ -191,6 +191,60 @@ describe(
     )
 
     it(
+      "acolhe parcela alta e busca uma faixa confortável",
+      () => {
+        expect(
+          build({
+            message:
+              "A parcela ficou alta para mim.",
+            approachType:
+              "new",
+          }),
+        ).toBe(
+          "Entendo, Janaina. Para ajustarmos sem forçar seu orçamento, qual faixa de parcela ficaria confortável hoje?",
+        )
+      },
+    )
+
+    it(
+      "não promete contemplação ao tratar esse receio",
+      () => {
+        const reply = build({
+          message:
+            "Tenho medo de não contemplar.",
+          approachType:
+            "new",
+        })
+
+        expect(reply).toContain(
+          "não existe garantia de data de contemplação",
+        )
+        expect(reply).toContain(
+          "qual prazo seu projeto consegue suportar?",
+        )
+      },
+    )
+
+    it(
+      "investiga falta de confiança sem inventar prova social",
+      () => {
+        const reply = build({
+          message:
+            "Não confio em consórcio.",
+          approachType:
+            "reactivation",
+        })
+
+        expect(reply).toBe(
+          "Sua segurança vem primeiro, Janaina. Qual ponto do consórcio você gostaria de validar antes de continuar?",
+        )
+        expect(reply).not.toMatch(
+          /cliente|contemplado|resultado garantido/iu,
+        )
+      },
+    )
+
+    it(
       "evita passar preco isolado",
       () => {
         expect(

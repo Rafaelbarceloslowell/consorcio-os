@@ -120,6 +120,52 @@ function buildNoPreviousResponseReply(
   return `Oi, ${name}, tudo bem? Tentei falar com você há um tempo, mas ainda não conseguimos conversar. Hoje você está buscando imóvel, veículo ou quer entender o consórcio como investimento?`
 }
 
+function buildObjectionReply(
+  name: string,
+  analysis: ManualWhatsAppAnalysis,
+): string {
+  switch (analysis.objection?.id) {
+    case "high_installment":
+      return `Entendo, ${name}. Para ajustarmos sem forçar seu orçamento, qual faixa de parcela ficaria confortável hoje?`
+
+    case "fee_concern":
+      return `Faz sentido avaliar isso, ${name}. Qual comparação ou ponto da taxa mais pesa na sua decisão?`
+
+    case "no_money_now":
+      return `Entendo seu momento, ${name}. Em que período faria sentido retomarmos esse planejamento sem comprometer sua organização financeira?`
+
+    case "no_bid":
+      return `Entendo, ${name}. Você quer avaliar caminhos possíveis sem presumirmos lance nem prazo de contemplação?`
+
+    case "needs_time_to_think":
+      return `Claro, ${name}. Qual ponto você ainda precisa esclarecer para conseguir avaliar com segurança?`
+
+    case "needs_other_decision_maker":
+      return `Perfeito, ${name}. Qual informação precisa ficar clara para vocês tomarem essa decisão juntos?`
+
+    case "contemplation_fear":
+      return `Esse cuidado é importante, ${name}. Como não existe garantia de data de contemplação, qual prazo seu projeto consegue suportar?`
+
+    case "prefers_financing":
+      return `Entendo, ${name}. Qual critério faz o financiamento parecer mais adequado hoje: prazo, acesso imediato, entrada ou custo total?`
+
+    case "no_urgency":
+      return `Faz sentido planejar sem pressa, ${name}. Existe alguma data ou objetivo futuro que devemos usar como referência?`
+
+    case "bad_previous_experience":
+      return `Entendo sua cautela, ${name}. O que aconteceu naquela experiência e o que precisaria ser diferente agora?`
+
+    case "trust_concern":
+      return `Sua segurança vem primeiro, ${name}. Qual ponto do consórcio você gostaria de validar antes de continuar?`
+
+    case "wants_to_wait":
+      return `Tudo bem, ${name}. Quando seria um momento adequado para retomarmos sem te pressionar?`
+
+    default:
+      return `Entendo, ${name}. O que precisaria ficar claro para você se sentir seguro em relação ao próximo passo?`
+  }
+}
+
 export function buildManualWhatsAppReply({
   contactName,
   incomingMessage,
@@ -195,6 +241,12 @@ export function buildManualWhatsAppReply({
 
     case "pricing_question":
       return `Claro, ${name}. Para eu te passar uma condição que realmente faça sentido, posso confirmar qual valor você pretende alcançar e em quanto tempo quer realizar esse objetivo?`
+
+    case "objection":
+      return buildObjectionReply(
+        name,
+        analysis,
+      )
 
     case "interest_area":
     case "interested":
