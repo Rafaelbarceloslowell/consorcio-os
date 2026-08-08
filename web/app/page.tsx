@@ -1,14 +1,6 @@
 import {
-  applyExternalCrmPilotToDashboard,
-} from "@/application/dashboard/apply-external-crm-pilot-to-dashboard"
-
-import {
   getAsyncDashboardData,
 } from "@/application/dashboard/get-async-dashboard-data"
-
-import {
-  loadMockMaestroPilotView,
-} from "@/application/dashboard/load-mock-maestro-pilot-view"
 
 import {
   DashboardShell,
@@ -26,30 +18,7 @@ import {
   createPrismaCrmRepositories,
 } from "@/infrastructure/prisma/repositories/prisma-crm-repositories"
 
-type MissionControlPageProps = {
-  searchParams?: Promise<{
-    crmMock?:
-      | string
-      | string[]
-  }>
-}
-
-export default async function MissionControlPage({
-  searchParams,
-}: MissionControlPageProps) {
-  const resolvedSearchParams =
-    searchParams
-      ? await searchParams
-      : {}
-
-  const externalCrmPilotPromise =
-    loadMockMaestroPilotView({
-      scenario:
-        resolvedSearchParams.crmMock,
-      nodeEnvironment:
-        process.env.NODE_ENV,
-    })
-
+export default async function MissionControlPage() {
   const workspace =
     await prisma.workspace.findUnique({
       where: {
@@ -66,11 +35,8 @@ export default async function MissionControlPage({
     )
   }
 
-  const [
-    dashboardData,
-    externalCrmPilot,
-  ] = await Promise.all([
-    getAsyncDashboardData(
+  const dashboardData =
+    await getAsyncDashboardData(
       {
         workspaceId:
           workspace.id,
@@ -89,22 +55,11 @@ export default async function MissionControlPage({
               workspace.id,
           }),
       },
-    ),
-    externalCrmPilotPromise,
-  ])
-
-  const synchronizedDashboardData =
-    applyExternalCrmPilotToDashboard({
-      dashboardData,
-      externalCrmPilot,
-    })
+    )
 
   return (
     <DashboardShell
-      {...synchronizedDashboardData}
-      externalCrmPilot={
-        externalCrmPilot
-      }
+      {...dashboardData}
     />
   )
 }
