@@ -316,23 +316,27 @@ async function bootstrapStaging() {
   )
 }
 
-try {
-  const result = await bootstrapStaging()
+async function main() {
+  try {
+    const result = await bootstrapStaging()
 
-  console.info("STAGING_BOOTSTRAP=APROVADO")
-  console.info(
-    `STRUCTURAL_COUNTS=${JSON.stringify(result)}`,
-  )
-} catch (error) {
-  console.error("STAGING_BOOTSTRAP=REPROVADO")
-  console.error(
-    `ERROR_TYPE=${
-      error instanceof Error
-        ? error.name
-        : "UnknownError"
-    }`,
-  )
-  process.exitCode = 1
-} finally {
-  await prisma.$disconnect()
+    console.info("STAGING_BOOTSTRAP=APROVADO")
+    console.info(
+      `STRUCTURAL_COUNTS=${JSON.stringify(result)}`,
+    )
+  } catch (error) {
+    console.error("STAGING_BOOTSTRAP=REPROVADO")
+    console.error(
+      `ERROR_TYPE=${
+        error instanceof Error
+          ? error.name
+          : "UnknownError"
+      }`,
+    )
+    process.exitCode = 1
+  } finally {
+    await prisma.$disconnect()
+  }
 }
+
+void main()

@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs"
+
 import {
   describe,
   expect,
@@ -12,6 +14,19 @@ import {
 } from "./staging-bootstrap-data"
 
 describe("staging bootstrap data", () => {
+  it("mantém o entrypoint compatível com o output CommonJS do tsx", () => {
+    const source = readFileSync(
+      new URL(
+        "./bootstrap-staging.ts",
+        import.meta.url,
+      ),
+      "utf8",
+    )
+
+    expect(source).not.toMatch(/^await\s/m)
+    expect(source).toContain("void main()")
+  })
+
   it("exige confirmação explícita e os identificadores do staging", () => {
     expect(() =>
       readStagingBootstrapConfiguration({
