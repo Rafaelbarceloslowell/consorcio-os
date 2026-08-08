@@ -1,5 +1,9 @@
 import Link from "next/link"
 
+import {
+  MarketPulse,
+} from "@/components/finance/market-pulse"
+
 import type {
   FinanceView,
 } from "@/types/finance-operational"
@@ -90,6 +94,8 @@ export function FinanceOverview({
             </article>
           ))}
         </div>
+
+        <MarketPulse />
 
         <div className="px-6 pb-6">
           <div className="rounded-2xl border border-amber-300/15 bg-amber-300/[0.045] p-4">

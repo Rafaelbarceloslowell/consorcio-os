@@ -13,7 +13,8 @@
     "test": "vitest",
     "test:watch": "vitest",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "market:smoke": "tsx scripts/smoke-market-intelligence.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
