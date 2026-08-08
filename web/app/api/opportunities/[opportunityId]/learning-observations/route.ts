@@ -1,6 +1,8 @@
 import {
   CommercialActorType,
   CommercialEventType,
+  CommercialJourneyOutcome,
+  LeadStatus,
 } from "@/lib/generated/prisma/client"
 
 import {
@@ -205,6 +207,8 @@ export async function POST(
         select: {
           id: true,
           consultantId: true,
+          leadId: true,
+          currentStateId: true,
           closedAt: true,
         },
       })
@@ -245,6 +249,44 @@ export async function POST(
     )
   }
 
+  const lossReason =
+    observation.outcome === "LOST"
+      ? observation.notes
+      : null
+
+  const lostState = lossReason
+    ? await prisma
+        .journeyState
+        .findFirst({
+          where: {
+            workspaceId:
+              workspace.id,
+            isFinal: true,
+            isLost: true,
+            isActive: true,
+          },
+          select: {
+            id: true,
+          },
+          orderBy: {
+            order: "asc",
+          },
+        })
+    : null
+
+  if (
+    lossReason &&
+    !lostState
+  ) {
+    return json(
+      {
+        error:
+          "O workspace não possui um estado final de oportunidade perdida configurado.",
+      },
+      409,
+    )
+  }
+
   const occurredAt =
     new Date(
       observation.recordedAt,
@@ -274,6 +316,20 @@ export async function POST(
                 data: {
                   lastInteractionAt:
                     occurredAt,
+                  ...(lossReason &&
+                  lostState
+                    ? {
+                        currentStateId:
+                          lostState.id,
+                        stateEnteredAt:
+                          occurredAt,
+                        outcome:
+                          CommercialJourneyOutcome
+                            .OTHER,
+                        closedAt:
+                          occurredAt,
+                      }
+                    : {}),
                   version: {
                     increment: 1,
                   },
@@ -289,6 +345,36 @@ export async function POST(
             )
           }
 
+          if (
+            lossReason &&
+            journey.leadId
+          ) {
+            await transaction
+              .lead
+              .updateMany({
+                where: {
+                  id:
+                    journey.leadId,
+                  workspaceId:
+                    workspace.id,
+                  status: {
+                    notIn: [
+                      LeadStatus.LOST,
+                      LeadStatus.CONVERTED,
+                    ],
+                  },
+                },
+                data: {
+                  status:
+                    LeadStatus.LOST,
+                  lostReason:
+                    lossReason,
+                  lastContactAt:
+                    occurredAt,
+                },
+              })
+          }
+
           const event =
             await transaction
               .commercialEvent
@@ -299,8 +385,11 @@ export async function POST(
                   journeyId:
                     journey.id,
                   type:
-                    CommercialEventType
-                      .NOTE_ADDED,
+                    lossReason
+                      ? CommercialEventType
+                          .STATE_CHANGED
+                      : CommercialEventType
+                          .NOTE_ADDED,
                   actorType:
                     CommercialActorType
                       .CONSULTANT,
@@ -309,9 +398,23 @@ export async function POST(
                       .consultantId,
                   payload: {
                     category:
-                      "r2_learning_observation_recorded",
+                      lossReason
+                        ? "opportunity_lost"
+                        : "r2_learning_observation_recorded",
                     source:
                       "manual_whatsapp_pilot",
+                    ...(lossReason &&
+                    lostState
+                      ? {
+                          fromStateId:
+                            journey.currentStateId,
+                          toStateId:
+                            lostState.id,
+                          journeyOutcome:
+                            "OTHER",
+                          lossReason,
+                        }
+                      : {}),
                     ...observation,
                   },
                   occurredAt,
@@ -329,7 +432,9 @@ export async function POST(
       observationId:
         result.id,
       message:
-        "Observação registrada para revisão do aprendizado do R2.",
+        lossReason
+          ? "Oportunidade encerrada como perdida e observação registrada para revisão do R2."
+          : "Observação registrada para revisão do aprendizado do R2.",
       learning: {
         consultantEdited:
           observation

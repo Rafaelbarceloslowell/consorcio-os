@@ -289,6 +289,15 @@ export function buildR2LearningObservation(
       2000,
     )
 
+  if (
+    input.outcome === "LOST" &&
+    notes === null
+  ) {
+    throw new Error(
+      "Informe o motivo da perda.",
+    )
+  }
+
   const recordedAt =
     input.recordedAt ??
     new Date()

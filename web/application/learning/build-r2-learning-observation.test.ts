@@ -200,6 +200,34 @@ describe(
     )
 
     it(
+      "exige e preserva o motivo de uma oportunidade perdida",
+      () => {
+        expect(
+          () =>
+            build({
+              outcome: "LOST",
+              notes: null,
+            }),
+        ).toThrow(
+          "Informe o motivo da perda.",
+        )
+
+        expect(
+          build({
+            outcome: "LOST",
+            notes:
+              "Cliente desistiu do projeto.",
+          }),
+        ).toMatchObject({
+          outcome: "LOST",
+          signal: "NEGATIVE",
+          notes:
+            "Cliente desistiu do projeto.",
+        })
+      },
+    )
+
+    it(
       "não permite observação sem sugestão original",
       () => {
         expect(

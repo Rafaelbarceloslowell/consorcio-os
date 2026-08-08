@@ -11,6 +11,7 @@ import type {
 } from "@/repositories/crm/crm-repository"
 
 import type {
+  CommercialJourney,
   NextBestAction,
 } from "@/types/domain"
 
@@ -133,6 +134,13 @@ function isOpenNextBestAction(
   }
 
   return expirationTime > now.getTime()
+}
+
+function isOpenJourney(
+  journey: CommercialJourney,
+): boolean {
+  return journey.closedAt === null &&
+    journey.outcome === null
 }
 
 function validateLimit(
@@ -273,9 +281,12 @@ function getLegacyNextBestActions({
         .filter(
           (journey) =>
             journey.consultantId ===
-            consultantId,
+              consultantId &&
+            isOpenJourney(journey),
         )
-    : commercialRepository.getJourneys()
+    : commercialRepository
+        .getJourneys()
+        .filter(isOpenJourney)
 
   const operationalActions =
     journeys.flatMap(
@@ -380,12 +391,14 @@ async function getAsyncNextBestActions({
 
   const journeysById =
     new Map(
-      journeys.map(
-        (journey) => [
-          journey.id,
-          journey,
-        ] as const,
-      ),
+      journeys
+        .filter(isOpenJourney)
+        .map(
+          (journey) => [
+            journey.id,
+            journey,
+          ] as const,
+        ),
     )
 
   const recommendations =

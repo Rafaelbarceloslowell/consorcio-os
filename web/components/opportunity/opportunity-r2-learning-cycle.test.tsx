@@ -332,5 +332,108 @@ describe(
         })
       },
     )
+
+    it(
+      "exige motivo explícito ao encerrar oportunidade perdida",
+      async () => {
+        renderComponent()
+
+        fireEvent.change(
+          screen.getByRole(
+            "combobox",
+            {
+              name:
+                "Resultado comercial",
+            },
+          ),
+          {
+            target: {
+              value: "LOST",
+            },
+          },
+        )
+        fireEvent.change(
+          screen.getByRole(
+            "textbox",
+            {
+              name:
+                "Resposta recebida do cliente",
+            },
+          ),
+          {
+            target: {
+              value:
+                "Não vou seguir com o projeto.",
+            },
+          },
+        )
+        fireEvent.click(
+          screen.getByRole(
+            "checkbox",
+          ),
+        )
+        fireEvent.click(
+          screen.getByRole(
+            "button",
+            {
+              name:
+                "Registrar observação para revisão",
+            },
+          ),
+        )
+
+        expect(
+          screen.getByText(
+            "Informe o motivo da perda.",
+          ),
+        ).toBeTruthy()
+        expect(
+          fetchMock,
+        ).not.toHaveBeenCalled()
+
+        fireEvent.change(
+          screen.getByRole(
+            "textbox",
+            {
+              name:
+                "Motivo da perda",
+            },
+          ),
+          {
+            target: {
+              value:
+                "Cliente desistiu do projeto.",
+            },
+          },
+        )
+        fireEvent.click(
+          screen.getByRole(
+            "button",
+            {
+              name:
+                "Registrar observação para revisão",
+            },
+          ),
+        )
+
+        await waitFor(() => {
+          expect(
+            fetchMock,
+          ).toHaveBeenCalled()
+        })
+
+        expect(
+          JSON.parse(
+            fetchMock.mock
+              .calls[0][1]
+              .body,
+          ),
+        ).toMatchObject({
+          outcome: "LOST",
+          notes:
+            "Cliente desistiu do projeto.",
+        })
+      },
+    )
   },
 )

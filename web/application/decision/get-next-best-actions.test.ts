@@ -733,5 +733,80 @@ describe(
         expect(result).toEqual([])
       },
     )
+
+    it(
+      "remove da fila recomendações de jornadas encerradas",
+      async () => {
+        const openJourney =
+          createJourney({
+            id: "journey-open",
+          })
+        const closedJourney =
+          createJourney({
+            id: "journey-closed",
+            closedAt:
+              "2026-07-22T14:00:00.000Z",
+            outcome: "OTHER",
+          })
+        const outcomeOnlyJourney =
+          createJourney({
+            id:
+              "journey-outcome-only",
+            outcome: "NO_RESPONSE",
+          })
+        const openRecommendation =
+          createNextBestAction(
+            openJourney,
+            {
+              id:
+                "recommendation-open-journey",
+            },
+          )
+        const commercialRepository =
+          createCommercialRepository(
+            [
+              openJourney,
+              closedJourney,
+              outcomeOnlyJourney,
+            ],
+            [
+              openRecommendation,
+              createNextBestAction(
+                closedJourney,
+                {
+                  id:
+                    "recommendation-closed-journey",
+                  priority:
+                    "URGENT",
+                },
+              ),
+              createNextBestAction(
+                outcomeOnlyJourney,
+                {
+                  id:
+                    "recommendation-outcome-journey",
+                  priority:
+                    "URGENT",
+                },
+              ),
+            ],
+          )
+
+        const result =
+          await getNextBestActions({
+            commercialRepository,
+            now: NOW,
+          })
+
+        expect(
+          result.map(
+            ({ recommendation }) =>
+              recommendation.id,
+          ),
+        ).toEqual([
+          openRecommendation.id,
+        ])
+      },
+    )
   },
 )

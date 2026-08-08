@@ -131,6 +131,9 @@ export function OpportunityR2LearningCycle({
     outcome ===
     "NO_RESPONSE"
 
+  const lostOutcome =
+    outcome === "LOST"
+
   function changeOutcome(
     value: R2LearningOutcome,
   ): void {
@@ -189,6 +192,16 @@ export function OpportunityR2LearningCycle({
     ) {
       setError(
         "Informe a resposta do cliente.",
+      )
+      return
+    }
+
+    if (
+      lostOutcome &&
+      !notes.trim()
+    ) {
+      setError(
+        "Informe o motivo da perda.",
       )
       return
     }
@@ -428,9 +441,15 @@ export function OpportunityR2LearningCycle({
             )}
 
             <label className="block text-sm font-medium text-[#D6DBE3]">
-              Observações para revisão
+              {lostOutcome
+                ? "Motivo da perda"
+                : "Observações para revisão"}
               <textarea
-                aria-label="Observações para revisão"
+                aria-label={
+                  lostOutcome
+                    ? "Motivo da perda"
+                    : "Observações para revisão"
+                }
                 rows={3}
                 maxLength={2000}
                 value={notes}
@@ -439,7 +458,11 @@ export function OpportunityR2LearningCycle({
                     event.target.value,
                   )
                 }
-                placeholder="Ex.: reduzi a mensagem porque o cliente costuma responder melhor a perguntas curtas."
+                placeholder={
+                  lostOutcome
+                    ? "Descreva o motivo comercial que encerrou esta oportunidade."
+                    : "Ex.: reduzi a mensagem porque o cliente costuma responder melhor a perguntas curtas."
+                }
                 className={fieldClass}
               />
               <span className="mt-1 block text-right text-[11px] text-[#697384]">

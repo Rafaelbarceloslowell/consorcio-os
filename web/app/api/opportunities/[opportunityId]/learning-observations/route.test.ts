@@ -12,7 +12,11 @@ const mocks = vi.hoisted(
       vi.fn(),
     findJourney:
       vi.fn(),
+    findLostState:
+      vi.fn(),
     updateJourney:
+      vi.fn(),
+    updateLead:
       vi.fn(),
     createEvent:
       vi.fn(),
@@ -32,6 +36,10 @@ vi.mock(
       commercialJourney: {
         findFirst:
           mocks.findJourney,
+      },
+      journeyState: {
+        findFirst:
+          mocks.findLostState,
       },
       $transaction:
         mocks.transaction,
@@ -114,8 +122,18 @@ describe(
             "journey-1",
           consultantId:
             "consultant-1",
+          leadId:
+            "lead-1",
+          currentStateId:
+            "state-current",
           closedAt:
             null,
+        })
+
+      mocks
+        .findLostState
+        .mockResolvedValue({
+          id: "state-lost",
         })
 
       mocks
@@ -132,6 +150,12 @@ describe(
         })
 
       mocks
+        .updateLead
+        .mockResolvedValue({
+          count: 1,
+        })
+
+      mocks
         .transaction
         .mockImplementation(
           async (
@@ -143,6 +167,10 @@ describe(
               commercialJourney: {
                 updateMany:
                   mocks.updateJourney,
+              },
+              lead: {
+                updateMany:
+                  mocks.updateLead,
               },
               commercialEvent: {
                 create:
@@ -350,6 +378,134 @@ describe(
           response.status,
         ).toBe(409)
 
+        expect(
+          mocks.transaction,
+        ).not.toHaveBeenCalled()
+      },
+    )
+
+    it(
+      "encerra oportunidade perdida com motivo, data, evento e lead fora da fila ativa",
+      async () => {
+        const response =
+          await POST(
+            request({
+              outcome: "LOST",
+              customerResponse:
+                "Não vou seguir.",
+              notes:
+                "Cliente desistiu do projeto.",
+            }),
+            context,
+          )
+
+        expect(response.status).toBe(200)
+        expect(
+          mocks.findLostState,
+        ).toHaveBeenCalledWith({
+          where: {
+            workspaceId:
+              "workspace-1",
+            isFinal: true,
+            isLost: true,
+            isActive: true,
+          },
+          select: {
+            id: true,
+          },
+          orderBy: {
+            order: "asc",
+          },
+        })
+        expect(
+          mocks.updateJourney,
+        ).toHaveBeenCalledWith({
+          where:
+            expect.objectContaining({
+              id: "journey-1",
+              closedAt: null,
+            }),
+          data:
+            expect.objectContaining({
+              currentStateId:
+                "state-lost",
+              stateEnteredAt:
+                expect.any(Date),
+              outcome: "OTHER",
+              closedAt:
+                expect.any(Date),
+              lastInteractionAt:
+                expect.any(Date),
+            }),
+        })
+        expect(
+          mocks.updateLead,
+        ).toHaveBeenCalledWith({
+          where: {
+            id: "lead-1",
+            workspaceId:
+              "workspace-1",
+            status: {
+              notIn: [
+                "LOST",
+                "CONVERTED",
+              ],
+            },
+          },
+          data: {
+            status: "LOST",
+            lostReason:
+              "Cliente desistiu do projeto.",
+            lastContactAt:
+              expect.any(Date),
+          },
+        })
+        expect(
+          mocks.createEvent,
+        ).toHaveBeenCalledWith({
+          data:
+            expect.objectContaining({
+              type:
+                "STATE_CHANGED",
+              payload:
+                expect.objectContaining({
+                  category:
+                    "opportunity_lost",
+                  fromStateId:
+                    "state-current",
+                  toStateId:
+                    "state-lost",
+                  journeyOutcome:
+                    "OTHER",
+                  lossReason:
+                    "Cliente desistiu do projeto.",
+                }),
+            }),
+          select: {
+            id: true,
+          },
+        })
+      },
+    )
+
+    it(
+      "não encerra perda sem estado final configurado",
+      async () => {
+        mocks
+          .findLostState
+          .mockResolvedValue(null)
+
+        const response =
+          await POST(
+            request({
+              outcome: "LOST",
+              notes:
+                "Cliente desistiu do projeto.",
+            }),
+            context,
+          )
+
+        expect(response.status).toBe(409)
         expect(
           mocks.transaction,
         ).not.toHaveBeenCalled()
