@@ -8,6 +8,7 @@ import {
   createMeetingActivities,
   createMissedCallbackRecovery,
   createNoShowRecovery,
+  createReactivationContact,
   isStaleOpportunity,
   markImpactSent,
   markRecoveryMessageSent,
@@ -222,6 +223,14 @@ describe("R2ActivityOrchestrator", () => {
     })
 
     expect(gate.canRecommendMessage).toBe(false)
+  })
+
+  it("cria contato de reativacao com id proprio e idempotente", () => {
+    const contact = createReactivationContact(base, now, "cycle-a", "PROVIDED")
+
+    expect(contact.id).toBe("activity-cycle-a-contact")
+    expect(contact.idempotencyKey).toBe("cycle-a:contact")
+    expect(contact.type).toBe("REACTIVATION_CONTACT")
   })
 
   it("identifica ciclos distintos no mesmo dia pela versÃ£o da abordagem", () => {

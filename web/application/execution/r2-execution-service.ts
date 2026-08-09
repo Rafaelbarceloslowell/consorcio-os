@@ -17,6 +17,7 @@ import {
   createMeetingActivities,
   createMissedCallbackRecovery,
   createNoShowRecovery,
+  createReactivationContact,
   markRecoveryMessageSent,
   markImpactSent,
   resolveNoResponse,
@@ -787,7 +788,16 @@ export async function executeOpportunityCommand(input: Readonly<{
       })
       await transaction.task.update({ where: { id: task.id }, data: { status: TaskStatus.COMPLETED, completedAt: now } })
       const contact = {
-        ...startNewLeadCadence({ workspaceId: input.workspaceId, consultantId: input.consultantId, opportunityId: input.opportunityId }, now, input.command.cycleId),
+        ...createReactivationContact(
+          {
+            workspaceId: input.workspaceId,
+            consultantId: input.consultantId,
+            opportunityId: input.opportunityId,
+          },
+          now,
+          input.command.cycleId,
+          contextState,
+        ),
         type: "REACTIVATION_CONTACT" as const,
         idempotencyKey: `${input.command.cycleId}:contact`,
         reason: contextState === ReactivationContextState.NEVER_REPLIED

@@ -112,6 +112,31 @@ export function startNewLeadCadence(
   }, now)
 }
 
+export function createReactivationContact(
+  base: ActivityBase,
+  now: Date,
+  reactivationCycleId: string,
+  contextState: "PROVIDED" | "NEVER_REPLIED" | "NO_PREVIOUS_CONVERSATION" | "PROVIDER_SYNCHRONIZED",
+): ExecutionActivity {
+  return createActivity(base, {
+    type: "REACTIVATION_CONTACT",
+    status: "PENDING",
+    dueAt: now.toISOString(),
+    priority: "HIGH",
+    channel: "WHATSAPP",
+    cadenceInstanceId: reactivationCycleId,
+    impactNumber: 1,
+    commitmentId: null,
+    sourceEventId: null,
+    idempotencyKey: `${reactivationCycleId}:contact`,
+    reason: contextState === "NEVER_REPLIED"
+      ? "Contato nunca respondeu; preparar primeira reativaÃ§Ã£o sem fabricar conversa anterior."
+      : contextState === "NO_PREVIOUS_CONVERSATION"
+        ? "NÃ£o houve conversa anterior; preparar abertura de reativaÃ§Ã£o sem inventar histÃ³rico."
+        : "Contexto atual confirmado; usar o R2 Intelligence Core para preparar a reativaÃ§Ã£o.",
+  }, now)
+}
+
 export function markImpactSent(
   activity: ExecutionActivity,
   now: Date,
