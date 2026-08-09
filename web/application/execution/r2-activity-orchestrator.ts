@@ -411,6 +411,14 @@ export type ReactivationContext = Readonly<{
   state: "PROVIDED" | "NEVER_REPLIED" | "NO_PREVIOUS_CONVERSATION" | "PROVIDER_SYNCHRONIZED"
 }>
 
+export function buildReactivationCycleId(
+  opportunityId: string,
+  approachUpdatedAt: Date,
+  existingCycleCount: number,
+): string {
+  return `reactivation-${opportunityId}-${approachUpdatedAt.toISOString()}-${existingCycleCount + 1}`
+}
+
 export function resolveReactivationGate(input: Readonly<{
   approachType: "NEW" | "REACTIVATION"
   reactivationCycleId: string

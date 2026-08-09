@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest"
 
 import {
+  buildReactivationCycleId,
   buildActiveWorkset,
   cancelAllOutreachForDoNotContact,
   createCommitmentActivity,
@@ -221,6 +222,27 @@ describe("R2ActivityOrchestrator", () => {
     })
 
     expect(gate.canRecommendMessage).toBe(false)
+  })
+
+  it("identifica ciclos distintos no mesmo dia pela versÃ£o da abordagem", () => {
+    const firstCycle = buildReactivationCycleId(
+      "opportunity-a",
+      new Date("2026-08-10T12:00:00.000Z"),
+      0,
+    )
+    const secondCycle = buildReactivationCycleId(
+      "opportunity-a",
+      new Date("2026-08-10T12:30:00.000Z"),
+      0,
+    )
+
+    expect(firstCycle).not.toBe(secondCycle)
+  })
+
+  it("incrementa o ciclo sem depender da data do calendÃ¡rio", () => {
+    expect(buildReactivationCycleId("opportunity-a", now, 1)).toBe(
+      "reactivation-opportunity-a-2026-08-10T12:00:00.000Z-2",
+    )
   })
 
   it("caminho nunca respondeu resolve gate sem fabricar conversa", () => {

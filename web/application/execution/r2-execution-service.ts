@@ -13,6 +13,7 @@ import {
 
 import { prisma } from "@/infrastructure/prisma/client"
 import {
+  buildReactivationCycleId,
   createMeetingActivities,
   createMissedCallbackRecovery,
   createNoShowRecovery,
@@ -27,6 +28,15 @@ import {
 type Transaction = Prisma.TransactionClient
 
 const OPEN_TASK_STATUSES = [TaskStatus.PENDING, TaskStatus.IN_PROGRESS] as const
+
+const APPROACH_ACTIVITY_TYPES = [
+  CommercialActivityType.NEW_LEAD_FIRST_CONTACT,
+  CommercialActivityType.CADENCE_WHATSAPP,
+  CommercialActivityType.CADENCE_CALL,
+  CommercialActivityType.RESPONSE_CHECK,
+  CommercialActivityType.REACTIVATION_CONTEXT_REQUIRED,
+  CommercialActivityType.REACTIVATION_CONTACT,
+] as const
 
 const taskTypeByExecutionType: Record<string, TaskType> = {
   NEW_LEAD_FIRST_CONTACT: TaskType.FOLLOW_UP,
@@ -211,11 +221,15 @@ export async function ensureOpportunityExecutionState(input: Readonly<{
       select: {
         id: true,
         consultantId: true,
-        lead: { select: { approachType: true } },
+        lead: { select: { approachType: true, updatedAt: true } },
         tasks: {
           where: { status: { in: [...OPEN_TASK_STATUSES] } },
-          select: { id: true },
-          take: 1,
+          select: {
+            id: true,
+            executionType: true,
+            cadenceInstanceId: true,
+            commitmentId: true,
+          },
         },
         commitments: {
           where: { status: CommercialCommitmentStatus.PENDING, dueAt: { gte: now } },
@@ -236,35 +250,80 @@ export async function ensureOpportunityExecutionState(input: Readonly<{
       },
     })
 
-    if (
-      !journey ||
-      journey.tasks.length > 0 ||
-      journey.commitments.length > 0 ||
-      journey.commercialEvents.length > 0
-    ) {
+    if (!journey || journey.commercialEvents.length > 0) {
       return
     }
 
-    const isReactivation = journey.lead?.approachType === "REACTIVATION"
-    const cycleId = `reactivation-${journey.id}-${now.toISOString().slice(0, 10)}`
-    const activity = isReactivation
-      ? {
-          ...startNewLeadCadence({
-            workspaceId: input.workspaceId,
-            consultantId: journey.consultantId,
-            opportunityId: journey.id,
-          }, now, cycleId),
-          type: "REACTIVATION_CONTEXT_REQUIRED" as const,
-          channel: "SYSTEM" as const,
-          impactNumber: null,
-          idempotencyKey: `${cycleId}:context-required`,
-          reason: "Antes de reativar este contato, preciso saber onde a conversa parou.",
-        }
-      : startNewLeadCadence({
-          workspaceId: input.workspaceId,
-          consultantId: journey.consultantId,
-          opportunityId: journey.id,
-        }, now)
+    const reactivationLead = journey.lead?.approachType === "REACTIVATION"
+      ? journey.lead
+      : null
+    if (!reactivationLead) {
+      if (journey.tasks.length > 0 || journey.commitments.length > 0) {
+        return
+      }
+
+      await createActivityIdempotently(transaction, startNewLeadCadence({
+        workspaceId: input.workspaceId,
+        consultantId: journey.consultantId,
+        opportunityId: journey.id,
+      }, now))
+      return
+    }
+
+    const cyclePrefix = `reactivation-${journey.id}-${reactivationLead.updatedAt.toISOString()}-`
+    const hasCurrentCycleActivity = journey.tasks.some(
+      (task) => task.cadenceInstanceId?.startsWith(cyclePrefix),
+    )
+    if (hasCurrentCycleActivity) {
+      return
+    }
+
+    const existingCycleCount = await transaction.task.count({
+      where: {
+        workspaceId: input.workspaceId,
+        opportunityId: journey.id,
+        executionType: CommercialActivityType.REACTIVATION_CONTEXT_REQUIRED,
+        cadenceInstanceId: { startsWith: cyclePrefix },
+      },
+    })
+    const cycleId = buildReactivationCycleId(
+      journey.id,
+      reactivationLead.updatedAt,
+      existingCycleCount,
+    )
+
+    const obsoleteApproachTaskIds = journey.tasks
+      .filter((task) =>
+        !task.commitmentId &&
+        task.executionType !== null &&
+        APPROACH_ACTIVITY_TYPES.includes(task.executionType as (typeof APPROACH_ACTIVITY_TYPES)[number]),
+      )
+      .map((task) => task.id)
+
+    if (obsoleteApproachTaskIds.length > 0) {
+      await transaction.task.updateMany({
+        where: { id: { in: obsoleteApproachTaskIds }, workspaceId: input.workspaceId },
+        data: {
+          status: TaskStatus.CANCELLED,
+          cancelledAt: now,
+          supersededAt: now,
+          reason: "Atividade supersedida pelo gate obrigatório do novo ciclo de reativação.",
+        },
+      })
+    }
+
+    const activity = {
+      ...startNewLeadCadence({
+        workspaceId: input.workspaceId,
+        consultantId: journey.consultantId,
+        opportunityId: journey.id,
+      }, now, cycleId),
+      type: "REACTIVATION_CONTEXT_REQUIRED" as const,
+      channel: "SYSTEM" as const,
+      impactNumber: null,
+      idempotencyKey: `${cycleId}:context-required`,
+      reason: "Antes de reativar este contato, preciso saber onde a conversa parou.",
+    }
 
     await createActivityIdempotently(transaction, activity)
   })
