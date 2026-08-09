@@ -25,6 +25,8 @@ describe("staging bootstrap data", () => {
 
     expect(source).not.toMatch(/^await\s/m)
     expect(source).toContain("void main()")
+    expect(source).toContain('name: "Rafael Barcelos"')
+    expect(source).not.toContain('name: "STAGING TESTE - Consultor QA"')
   })
 
   it("exige confirmação explícita e os identificadores do staging", () => {

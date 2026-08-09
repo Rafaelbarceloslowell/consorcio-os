@@ -41,10 +41,12 @@ async function bootstrapStaging() {
               configuration.consultantEmail,
           },
         },
-        update: {},
+        update: {
+          name: "Rafael Barcelos",
+        },
         create: {
           workspaceId: workspace.id,
-          name: "STAGING TESTE - Consultor QA",
+          name: "Rafael Barcelos",
           email:
             configuration.consultantEmail,
           phone: "STAGING-SEM-TELEFONE",
