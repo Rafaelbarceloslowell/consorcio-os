@@ -160,6 +160,8 @@ export function SettingsPanel({
               <Field
                 label="Telefone"
                 name="phone"
+                required={false}
+                placeholder="Não informado"
                 value={
                   consultant.phone
                 }
@@ -168,6 +170,7 @@ export function SettingsPanel({
                 label="Equipe (opcional)"
                 name="team"
                 required={false}
+                placeholder="Não informado"
                 value={
                   consultant.team
                 }
@@ -175,6 +178,8 @@ export function SettingsPanel({
               <Field
                 label="Região"
                 name="region"
+                required={false}
+                placeholder="Não informado"
                 value={
                   consultant.region
                 }
@@ -345,7 +350,7 @@ export function SettingsPanel({
         <section className="border-t border-white/[0.07] p-6">
           <SectionTitle
             title="Usuários do workspace"
-            description={`${view.users.length} usuários cadastrados na empresa`}
+            description={`${view.users.length} ${view.users.length === 1 ? "usuário cadastrado" : "usuários cadastrados"} na empresa`}
           />
 
           <ul className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -370,7 +375,7 @@ export function SettingsPanel({
                     {member.email}
                   </p>
                   <p className="mt-1 text-xs text-[#697384]">
-                    {member.region} · Reporte: {member.reportingLineLabel}
+                    {member.regionLabel} · Reporte: {member.reportingLineLabel}
                   </p>
                 </li>
               ),
@@ -383,7 +388,7 @@ export function SettingsPanel({
 }
 
 const fieldClass =
-  "mt-2 w-full rounded-xl border border-white/[0.10] bg-[#0F1412] px-3 py-2.5 text-sm text-[#F5F7FA] outline-none transition focus:border-[#43A972]/55 focus:ring-4 focus:ring-[#2F8F5B]/10"
+  "mt-2 w-full rounded-xl border border-white/[0.10] bg-[#0F1412] px-3 py-2.5 text-sm text-[#F5F7FA] outline-none transition placeholder:text-[var(--gorila-text-muted)] focus:border-[#43A972]/55 focus:ring-4 focus:ring-[#2F8F5B]/10"
 
 function Field({
   label,
@@ -391,12 +396,14 @@ function Field({
   value,
   type = "text",
   required = true,
+  placeholder,
 }: Readonly<{
   label: string
   name: string
   value: string
   type?: string
   required?: boolean
+  placeholder?: string
 }>) {
   return (
     <label className="text-sm text-[#B7C0CC]">
@@ -405,6 +412,7 @@ function Field({
         name={name}
         type={type}
         required={required}
+        placeholder={placeholder}
         maxLength={160}
         defaultValue={value}
         className={fieldClass}

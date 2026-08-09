@@ -43,18 +43,21 @@ async function bootstrapStaging() {
         },
         update: {
           name: "Rafael Barcelos",
+          phone: "",
+          team: "",
+          region: "",
         },
         create: {
           workspaceId: workspace.id,
           name: "Rafael Barcelos",
           email:
             configuration.consultantEmail,
-          phone: "STAGING-SEM-TELEFONE",
+          phone: "",
           document:
             "STAGING-SEM-DOCUMENTO",
           role: "CONSULTANT",
-          team: "QA STAGING",
-          region: "STAGING",
+          team: "",
+          region: "",
           status: "ACTIVE",
           monthlySalesTarget:
             new Prisma.Decimal(0),

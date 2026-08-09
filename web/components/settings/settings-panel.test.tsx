@@ -42,18 +42,19 @@ describe(
                   "Rafael Ramos Barcelos",
                 email:
                   "rafaelbconsorcio@gmail.com",
-                phone:
-                  "+5541999999999",
+                phone: "",
                 accessRoleLabel:
                   "Consultor",
                 positionTitle:
-                  "Consultor Sênior",
+                  "Consultor",
                 team: "",
                 teamLabel:
-                  "Sem equipe",
+                  "Não informado",
                 reportingLineLabel:
-                  "Diretoria",
-                region: "Paraná",
+                  "Não informado",
+                region: "",
+                regionLabel:
+                  "Não informado",
                 statusLabel:
                   "Ativo",
                 monthlySalesTargetInput:
@@ -71,18 +72,19 @@ describe(
                     "Rafael Ramos Barcelos",
                   email:
                     "rafaelbconsorcio@gmail.com",
-                  phone:
-                    "+5541999999999",
+                  phone: "",
                   accessRoleLabel:
                     "Consultor",
                   positionTitle:
-                    "Consultor Sênior",
+                    "Consultor",
                   team: "",
                   teamLabel:
-                    "Sem equipe",
+                    "Não informado",
                   reportingLineLabel:
-                    "Diretoria",
-                  region: "Paraná",
+                    "Não informado",
+                  region: "",
+                  regionLabel:
+                    "Não informado",
                   statusLabel:
                     "Ativo",
                   monthlySalesTargetInput:
@@ -154,19 +156,20 @@ describe(
         ).toBeInTheDocument()
         expect(
           screen.getAllByText(
-            "Consultor Sênior",
+            "Consultor",
           ).length,
         ).toBeGreaterThan(0)
         expect(
           screen.getAllByText(
-            "Diretoria",
+            "Não informado",
           ).length,
         ).toBeGreaterThan(0)
         expect(
-          screen.getAllByText(
-            "Sem equipe",
-          ).length,
-        ).toBeGreaterThan(0)
+          screen.getByRole(
+            "textbox",
+            { name: "Telefone" },
+          ),
+        ).toHaveValue("")
         expect(
           screen.getByText(
             "40 novos leads por dia",
@@ -175,6 +178,11 @@ describe(
         expect(
           screen.getByText(
             "Reativados",
+          ),
+        ).toBeInTheDocument()
+        expect(
+          screen.getByText(
+            "1 usuário cadastrado na empresa",
           ),
         ).toBeInTheDocument()
       },

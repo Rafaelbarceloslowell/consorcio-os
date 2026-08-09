@@ -10,6 +10,9 @@ import {
 import {
   getWorkspaceSlug,
 } from "@/lib/workspace/workspace-slug"
+import {
+  getAuthenticatedCommercialContext,
+} from "@/lib/auth/get-authenticated-commercial-context"
 
 const WORKSPACE_SLUG =
   getWorkspaceSlug()
@@ -145,7 +148,23 @@ function nonNegativeMoney(
 
 async function requireWorkspace(
   workspaceId: string,
+  consultantId?: string,
 ): Promise<void> {
+  const context =
+    await getAuthenticatedCommercialContext()
+
+  if (
+    context.workspaceId !== workspaceId ||
+    (
+      consultantId !== undefined &&
+      context.consultantId !== consultantId
+    )
+  ) {
+    throw new Error(
+      "Workspace não autorizado.",
+    )
+  }
+
   const workspace =
     await prisma.workspace.findFirst({
       where: {
@@ -241,10 +260,9 @@ export async function updateConsultantProfileAction(
       "email",
     )
   const phone =
-    requiredText(
+    optionalText(
       formData,
       "phone",
-      "O telefone",
       30,
     )
   const team =
@@ -254,15 +272,15 @@ export async function updateConsultantProfileAction(
       80,
     )
   const region =
-    requiredText(
+    optionalText(
       formData,
       "region",
-      "A região",
       80,
     )
 
   await requireWorkspace(
     workspaceId,
+    consultantId,
   )
 
   const result =
@@ -275,9 +293,7 @@ export async function updateConsultantProfileAction(
         name,
         email,
         phone,
-        team:
-          team ||
-          "Sem equipe",
+        team,
         region,
       },
     })
@@ -326,6 +342,7 @@ export async function updateConsultantGoalsAction(
 
   await requireWorkspace(
     workspaceId,
+    consultantId,
   )
 
   const result =

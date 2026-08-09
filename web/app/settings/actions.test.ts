@@ -113,7 +113,7 @@ describe(
     )
 
     it(
-      "atualiza perfil, e-mail e permite usuário sem equipe",
+      "atualiza perfil e preserva campos opcionais vazios",
       async () => {
         await updateConsultantProfileAction(
           data({
@@ -125,10 +125,9 @@ describe(
               "Rafael Ramos Barcelos",
             email:
               "rafaelbconsorcio@gmail.com",
-            phone:
-              "+5541999999999",
+            phone: "",
             team: "",
-            region: "Paraná",
+            region: "",
           }),
         )
 
@@ -145,11 +144,9 @@ describe(
               "Rafael Ramos Barcelos",
             email:
               "rafaelbconsorcio@gmail.com",
-            phone:
-              "+5541999999999",
-            team:
-              "Sem equipe",
-            region: "Paraná",
+            phone: "",
+            team: "",
+            region: "",
           },
         })
       },

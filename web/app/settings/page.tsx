@@ -16,6 +16,9 @@ import {
 import {
   formatCurrency,
 } from "@/lib/formatters"
+import {
+  getAuthenticatedCommercialContext,
+} from "@/lib/auth/get-authenticated-commercial-context"
 
 import type {
   SettingsConsultantView,
@@ -26,9 +29,6 @@ import {
   updateConsultantProfileAction,
   updateWorkspaceSettingsAction,
 } from "./actions"
-
-const CURRENT_CONSULTANT_EMAIL =
-  "rafaelbconsorcio@gmail.com"
 
 function accessRoleLabel(
   role: ConsultantRole,
@@ -63,10 +63,13 @@ function consultantStatusLabel(
 export const dynamic = "force-dynamic"
 
 export default async function SettingsPage() {
+  const context =
+    await getAuthenticatedCommercialContext()
   const workspace =
-    await prisma.workspace.findUnique({
+    await prisma.workspace.findFirst({
       where: {
-        slug: "consorcio-os",
+        id: context.workspaceId,
+        status: WorkspaceStatus.ACTIVE,
       },
       select: {
         id: true,
@@ -119,21 +122,9 @@ export default async function SettingsPage() {
   const current =
     workspace.consultants.find(
       (consultant: ResolvedConsultant) =>
-        consultant.email
-          .trim()
-          .toLocaleLowerCase() ===
-        CURRENT_CONSULTANT_EMAIL,
-    ) ??
-    workspace.consultants.find(
-      (consultant: ResolvedConsultant) =>
-        consultant.name
-          .trim()
-          .toLocaleLowerCase(
-            "pt-BR",
-          ) ===
-        "rafael ramos barcelos",
-    ) ??
-    workspace.consultants[0]
+        consultant.id ===
+        context.consultantId,
+    )
 
   if (!current) {
     throw new Error(
@@ -150,16 +141,25 @@ export default async function SettingsPage() {
         consultant
           .monthlySalesTarget,
       )
-    const isCurrent =
-      consultant.id ===
-      current.id
     const hasTeam =
-      consultant.team
+      consultant.team.trim().length > 0 &&
+      ![
+        "sem equipe",
+        "qa staging",
+      ].includes(
+        consultant.team
+          .trim()
+          .toLocaleLowerCase(
+            "pt-BR",
+          ),
+      )
+    const hasRegion =
+      consultant.region.trim().length > 0 &&
+      consultant.region
         .trim()
         .toLocaleLowerCase(
           "pt-BR",
-        ) !==
-      "sem equipe"
+        ) !== "staging"
 
     return {
       id: consultant.id,
@@ -171,22 +171,23 @@ export default async function SettingsPage() {
           consultant.role,
         ),
       positionTitle:
-        isCurrent
-          ? "Consultor Sênior"
-          : accessRoleLabel(
-              consultant.role,
-            ),
+        accessRoleLabel(
+          consultant.role,
+        ),
       team: hasTeam
         ? consultant.team
         : "",
       teamLabel: hasTeam
         ? consultant.team
-        : "Sem equipe",
+        : "Não informado",
       reportingLineLabel:
-        isCurrent
-          ? "Diretoria"
-          : "Estrutura da empresa",
-      region: consultant.region,
+        "Não informado",
+      region: hasRegion
+        ? consultant.region
+        : "",
+      regionLabel: hasRegion
+        ? consultant.region
+        : "Não informado",
       statusLabel:
         consultantStatusLabel(
           consultant.status,

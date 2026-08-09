@@ -23,6 +23,7 @@ export type SettingsConsultantView =
     teamLabel: string
     reportingLineLabel: string
     region: string
+    regionLabel: string
     statusLabel: string
     monthlySalesTargetInput: string
     monthlySalesTargetLabel: string
