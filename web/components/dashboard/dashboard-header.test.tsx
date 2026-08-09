@@ -65,7 +65,7 @@ describe("DashboardHeader premium R2 hero", () => {
   it("usa o nome real no cumprimento e apresenta a função do R2", () => {
     render(<DashboardHeader user={user} summary="Resumo" />)
 
-    expect(screen.getByText(/Boa (manhã|tarde|noite), Rafael Ramos Barcelos/i)).toBeInTheDocument()
+    expect(screen.getByText(/(?:Bom dia|Boa tarde|Boa noite), Rafael Ramos Barcelos/i)).toBeInTheDocument()
     expect(screen.getByText(/R2 está monitorando sua operação/i)).toBeInTheDocument()
   })
 
