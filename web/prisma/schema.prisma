@@ -472,21 +472,31 @@ model ReactivationContext {
 }
 
 model R2Notification {
-  id           String   @id @default(cuid())
-  workspaceId  String   @map("workspace_id")
-  consultantId String   @map("consultant_id")
-  taskId       String   @unique(map: "r2_notifications_task_key") @map("task_id")
-  kind         R2NotificationKind
-  title        String
-  body         String
-  readAt       DateTime? @map("read_at")
-  createdAt    DateTime @default(now()) @map("created_at")
-  updatedAt    DateTime @updatedAt @map("updated_at")
-  workspace    Workspace @relation(fields: [workspaceId], references: [id])
-  consultant   Consultant @relation(fields: [consultantId], references: [id])
-  task         Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  id                String                    @id @default(cuid())
+  workspaceId       String                    @map("workspace_id")
+  consultantId      String                    @map("consultant_id")
+  taskId            String                    @unique(map: "r2_notifications_task_key") @map("task_id")
+  kind              R2NotificationKind
+  priority          CommercialJourneyPriority @default(NORMAL)
+  title             String
+  body              String
+  href              String
+  originalDueAt     DateTime                  @map("original_due_at")
+  deliveryDueAt     DateTime                  @map("delivery_due_at")
+  snoozedUntil      DateTime?                 @map("snoozed_until")
+  readAt            DateTime?                 @map("read_at")
+  resolvedAt        DateTime?                 @map("resolved_at")
+  cancelledAt       DateTime?                 @map("cancelled_at")
+  nativeDeliveredAt DateTime?                 @map("native_delivered_at")
+  deliveryVersion   Int                       @default(1) @map("delivery_version")
+  createdAt         DateTime                  @default(now()) @map("created_at")
+  updatedAt         DateTime                  @updatedAt @map("updated_at")
+  workspace         Workspace                 @relation(fields: [workspaceId], references: [id])
+  consultant        Consultant                @relation(fields: [consultantId], references: [id])
+  task              Task                      @relation(fields: [taskId], references: [id], onDelete: Cascade)
 
   @@index([workspaceId, consultantId, readAt, createdAt], map: "r2_notifications_consultant_read_idx")
+  @@index([workspaceId, consultantId, resolvedAt, cancelledAt, deliveryDueAt], map: "r2_notifications_delivery_idx")
   @@map("r2_notifications")
 }
 

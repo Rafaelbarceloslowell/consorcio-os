@@ -1,6 +1,8 @@
 import {
   CommercialActivityType,
+  CommercialJourneyPriority,
   R2NotificationKind,
+  TaskPriority,
   TaskStatus,
 } from "@/lib/generated/prisma/client"
 
@@ -36,6 +38,53 @@ function notificationKind(type: CommercialActivityType | null): R2NotificationKi
   }
 }
 
+export function notificationPriority(
+  taskPriority: TaskPriority,
+  kind: R2NotificationKind,
+  dueAt: Date,
+  now: Date,
+): CommercialJourneyPriority {
+  if (kind === R2NotificationKind.MEETING_SOON || now.getTime() - dueAt.getTime() >= 60 * 60 * 1000) {
+    return CommercialJourneyPriority.URGENT
+  }
+  if (taskPriority === TaskPriority.HIGH) return CommercialJourneyPriority.HIGH
+  if (taskPriority === TaskPriority.LOW) return CommercialJourneyPriority.LOW
+  return CommercialJourneyPriority.NORMAL
+}
+
+export function notificationTerminalState(task: Readonly<{
+  status: TaskStatus
+  cancelledAt: Date | null
+  supersededAt: Date | null
+  opportunity: { closedAt: Date | null } | null
+}>): "RESOLVED" | "CANCELLED" | null {
+  if (task.status === TaskStatus.COMPLETED) return "RESOLVED"
+  if (
+    task.status === TaskStatus.CANCELLED
+    || task.cancelledAt !== null
+    || task.supersededAt !== null
+    || (task.opportunity !== null && task.opportunity.closedAt !== null)
+  ) return "CANCELLED"
+  return null
+}
+
+function notificationCopy(kind: R2NotificationKind): Readonly<{ title: string; body: string }> {
+  switch (kind) {
+    case R2NotificationKind.CALLBACK_DUE:
+      return { title: "Callback pendente", body: "Abra o GorillaOS para retomar o compromisso comercial." }
+    case R2NotificationKind.MEETING_SOON:
+      return { title: "Reunião próxima", body: "Abra o GorillaOS para revisar a preparação da reunião." }
+    case R2NotificationKind.RECOVERY_DUE:
+      return { title: "Recovery pendente", body: "Abra o GorillaOS para revisar a próxima ação segura." }
+    case R2NotificationKind.FOLLOW_UP_OVERDUE:
+      return { title: "Follow-up pendente", body: "Abra o GorillaOS para continuar o acompanhamento." }
+    case R2NotificationKind.STALE_OPPORTUNITY:
+      return { title: "Oportunidade sem próxima ação", body: "Abra o GorillaOS para revisar a oportunidade." }
+    default:
+      return { title: "Ação comercial pendente", body: "Abra o GorillaOS para revisar a ação." }
+  }
+}
+
 export async function getR2DailyMission(input: Readonly<{
   workspaceId: string
   consultantId: string
@@ -44,6 +93,36 @@ export async function getR2DailyMission(input: Readonly<{
   const now = input.now ?? new Date()
 
   await prisma.$transaction(async (transaction) => {
+    const activeNotifications = await transaction.r2Notification.findMany({
+      where: {
+        workspaceId: input.workspaceId,
+        consultantId: input.consultantId,
+        resolvedAt: null,
+        cancelledAt: null,
+      },
+      select: {
+        id: true,
+        task: {
+          select: {
+            status: true,
+            cancelledAt: true,
+            supersededAt: true,
+            opportunity: { select: { closedAt: true } },
+          },
+        },
+      },
+    })
+
+    for (const notification of activeNotifications) {
+      const terminalState = notificationTerminalState(notification.task)
+      if (terminalState) {
+        await transaction.r2Notification.update({
+          where: { id: notification.id },
+          data: terminalState === "RESOLVED" ? { resolvedAt: now } : { cancelledAt: now },
+        })
+      }
+    }
+
     const stale = await transaction.commercialJourney.findMany({
       where: {
         workspaceId: input.workspaceId,
@@ -55,26 +134,18 @@ export async function getR2DailyMission(input: Readonly<{
         commercialEvents: {
           none: {
             type: "NOTE_ADDED",
-            payload: {
-              path: ["category"],
-              equals: "do_not_contact",
-            },
+            payload: { path: ["category"], equals: "do_not_contact" },
           },
         },
       },
-      select: { id: true, title: true },
+      select: { id: true },
       take: 50,
     })
 
     for (const journey of stale) {
       const idempotencyKey = `stale:${journey.id}:r2-review`
       await transaction.task.upsert({
-        where: {
-          workspaceId_idempotencyKey: {
-            workspaceId: input.workspaceId,
-            idempotencyKey,
-          },
-        },
+        where: { workspaceId_idempotencyKey: { workspaceId: input.workspaceId, idempotencyKey } },
         create: {
           workspaceId: input.workspaceId,
           opportunityId: journey.id,
@@ -102,22 +173,39 @@ export async function getR2DailyMission(input: Readonly<{
         dueAt: { lte: now },
         executionType: { not: null },
       },
-      select: { id: true, title: true, reason: true, executionType: true },
+      select: {
+        id: true,
+        opportunityId: true,
+        dueAt: true,
+        priority: true,
+        executionType: true,
+      },
       take: 100,
     })
 
     for (const task of dueTasks) {
+      const kind = notificationKind(task.executionType)
+      const copy = notificationCopy(kind)
+      const priority = notificationPriority(task.priority, kind, task.dueAt, now)
+      const href = task.opportunityId
+        ? `/opportunities/${encodeURIComponent(task.opportunityId)}#r2-action-controls`
+        : "/"
+
       await transaction.r2Notification.upsert({
         where: { taskId: task.id },
         create: {
           workspaceId: input.workspaceId,
           consultantId: input.consultantId,
           taskId: task.id,
-          kind: notificationKind(task.executionType),
-          title: task.title,
-          body: task.reason ?? "Existe uma ação comercial aguardando você.",
+          kind,
+          priority,
+          title: copy.title,
+          body: copy.body,
+          href,
+          originalDueAt: task.dueAt,
+          deliveryDueAt: task.dueAt,
         },
-        update: {},
+        update: { kind, priority, title: copy.title, body: copy.body, href },
       })
     }
   })
@@ -150,10 +238,31 @@ export async function getR2DailyMission(input: Readonly<{
       where: { workspaceId: input.workspaceId, consultantId: input.consultantId, status: "SCHEDULED", startAt: { gte: now } },
     }),
     prisma.r2Notification.findMany({
-      where: { workspaceId: input.workspaceId, consultantId: input.consultantId, readAt: null },
-      orderBy: { createdAt: "desc" },
+      where: {
+        workspaceId: input.workspaceId,
+        consultantId: input.consultantId,
+        readAt: null,
+        resolvedAt: null,
+        cancelledAt: null,
+        deliveryDueAt: { lte: now },
+      },
+      orderBy: [{ priority: "desc" }, { deliveryDueAt: "asc" }],
       take: 20,
-      select: { id: true, kind: true, title: true, body: true, createdAt: true },
+      select: {
+        id: true,
+        taskId: true,
+        kind: true,
+        priority: true,
+        title: true,
+        body: true,
+        href: true,
+        originalDueAt: true,
+        deliveryDueAt: true,
+        snoozedUntil: true,
+        nativeDeliveredAt: true,
+        deliveryVersion: true,
+        createdAt: true,
+      },
     }),
     prisma.commercialJourney.count({
       where: { workspaceId: input.workspaceId, consultantId: input.consultantId, closedAt: null },
@@ -176,6 +285,13 @@ export async function getR2DailyMission(input: Readonly<{
     ...counts,
     now: tasks.filter((task) => task.dueAt <= now).map((task) => ({ ...task, dueAt: task.dueAt.toISOString() })),
     next: tasks.filter((task) => task.dueAt > now).map((task) => ({ ...task, dueAt: task.dueAt.toISOString() })),
-    notifications: notifications.map((notification) => ({ ...notification, createdAt: notification.createdAt.toISOString() })),
+    notifications: notifications.map((notification) => ({
+      ...notification,
+      originalDueAt: notification.originalDueAt.toISOString(),
+      deliveryDueAt: notification.deliveryDueAt.toISOString(),
+      snoozedUntil: notification.snoozedUntil?.toISOString() ?? null,
+      nativeDeliveredAt: notification.nativeDeliveredAt?.toISOString() ?? null,
+      createdAt: notification.createdAt.toISOString(),
+    })),
   }
 }
