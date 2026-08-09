@@ -11,11 +11,10 @@ import type {
   LeadListView,
 } from "@/types/lead-list"
 
-const DATA_CRAZY_MARKER =
-  "[IMPORTAÇÃO DATA CRAZY — LEAD REATIVADO]"
-
-const DATA_CRAZY_STAGE_NAME =
-  "Reativação Data Crazy"
+const DATA_CRAZY_STAGE_NAMES = new Set([
+  "Reativação Data Crazy",
+  "Backlog Data Crazy",
+])
 
 const dateFormatter =
   new Intl.DateTimeFormat("pt-BR")
@@ -28,6 +27,7 @@ type LeadListSourceRecord = {
   companyName: string | null
   source: string
   status: string
+  approachType: string | null
   consortiumType: string
   desiredCreditValue: unknown
   desiredTermMonths: number
@@ -46,31 +46,53 @@ type LeadListSourceRecord = {
 }
 
 type DataCrazyMetadata = {
-  isReactivated: boolean
+  isDataCrazy: boolean
   funnelMemberships: string[]
   objective: string | null
 }
 
 export function buildLeadListPresentation(
   leads: LeadListSourceRecord[],
+  options: Readonly<{
+    page?: number
+    pageSize?: number
+    totalCount?: number
+    untriagedCount?: number
+    reactivatedCount?: number
+  }> = {},
 ): LeadListView {
   const items = leads.map(
     buildLeadListItemPresentation,
   )
 
-  const reactivatedCount =
+  const reactivatedCount = options.reactivatedCount ??
     items.filter(
       (lead) =>
         lead.classification ===
         "REACTIVATED",
     ).length
 
+  const untriagedCount = options.untriagedCount ??
+    items.filter((lead) => lead.classification === "UNTRIAGED").length
+  const totalCount = options.totalCount ?? items.length
+  const page = Math.max(1, options.page ?? 1)
+  const pageSize = Math.max(1, options.pageSize ?? Math.max(1, items.length))
+  const totalPages = Math.max(1, Math.ceil(totalCount / pageSize))
+
   return {
     summaryLabel: buildSummaryLabel(
-      items.length,
+      totalCount,
       reactivatedCount,
+      untriagedCount,
     ),
     leads: items,
+    pagination: {
+      page,
+      totalPages,
+      totalCount,
+      previousHref: page > 1 ? `/leads?page=${page - 1}` : null,
+      nextHref: page < totalPages ? `/leads?page=${page + 1}` : null,
+    },
   }
 }
 
@@ -88,7 +110,9 @@ function buildLeadListItemPresentation(
 
   const classification:
     LeadListClassification =
-      metadata.isReactivated
+      metadata.isDataCrazy && !lead.approachType
+        ? "UNTRIAGED"
+        : lead.approachType === "REACTIVATION"
         ? "REACTIVATED"
         : "ACTIVE"
 
@@ -101,7 +125,7 @@ function buildLeadListItemPresentation(
     ),
     companyName: lead.companyName,
     sourceLabel:
-      metadata.isReactivated
+      metadata.isDataCrazy
         ? buildDataCrazySourceLabel(
             metadata.funnelMemberships,
           )
@@ -109,14 +133,16 @@ function buildLeadListItemPresentation(
             lead.source,
           ),
     statusLabel:
-      metadata.isReactivated
-        ? "Reativado"
+      classification === "UNTRIAGED"
+        ? "Triagem pendente"
+        : classification === "REACTIVATED"
+          ? "Reativado"
         : getLeadStatusLabel(
             lead.status,
           ),
     classification,
     consortiumTypeLabel:
-      metadata.isReactivated
+      metadata.isDataCrazy
         ? metadata.objective ??
           "Não informado"
         : getConsortiumTypeLabel(
@@ -136,7 +162,7 @@ function buildLeadListItemPresentation(
       lead.pipelineStage.name,
     score: lead.score,
     entryLabel:
-      metadata.isReactivated
+      metadata.isDataCrazy
         ? "Importado em"
         : "Entrada",
     createdAtLabel:
@@ -149,6 +175,8 @@ function buildLeadListItemPresentation(
             openJourney.id,
           )}`
         : null,
+    canTriage:
+      classification === "UNTRIAGED" && !openJourney,
   }
 }
 
@@ -159,16 +187,15 @@ function parseDataCrazyMetadata(
   const normalizedNotes =
     notes?.trim() ?? ""
 
-  const isReactivated =
+  const isDataCrazy =
     normalizedNotes.startsWith(
-      DATA_CRAZY_MARKER,
+      "[IMPORTAÇÃO DATA CRAZY",
     ) ||
-    pipelineStageName ===
-      DATA_CRAZY_STAGE_NAME
+    DATA_CRAZY_STAGE_NAMES.has(pipelineStageName)
 
-  if (!isReactivated) {
+  if (!isDataCrazy) {
     return {
-      isReactivated: false,
+      isDataCrazy: false,
       funnelMemberships: [],
       objective: null,
     }
@@ -208,7 +235,7 @@ function parseDataCrazyMetadata(
   )
 
   return {
-    isReactivated: true,
+    isDataCrazy: true,
     funnelMemberships:
       Array.from(
         new Set(resolvedFunnels),
@@ -380,32 +407,31 @@ function formatPhone(
 function buildSummaryLabel(
   totalCount: number,
   reactivatedCount: number,
+  untriagedCount: number,
 ): string {
-  const activeCount =
-    totalCount - reactivatedCount
+  const activeCount = Math.max(
+    0,
+    totalCount - reactivatedCount - untriagedCount,
+  )
+  const labels: string[] = []
 
-  if (
-    reactivatedCount > 0 &&
-    activeCount === 0
-  ) {
-    return `${reactivatedCount} ${
-      reactivatedCount === 1
-        ? "lead reativado"
-        : "leads reativados"
-    }`
+  if (untriagedCount > 0) {
+    labels.push(`${untriagedCount} ${untriagedCount === 1 ? "lead em triagem" : "leads em triagem"}`)
   }
 
-  if (reactivatedCount === 0) {
-    return `${activeCount} ${
-      activeCount === 1
-        ? "lead em atendimento"
-        : "leads em atendimento"
-    }`
+  if (reactivatedCount > 0) {
+    labels.push(`${reactivatedCount} ${labels.length === 0 && activeCount === 0
+      ? reactivatedCount === 1 ? "lead reativado" : "leads reativados"
+      : reactivatedCount === 1 ? "reativado" : "reativados"
+    }`)
   }
 
-  return `${reactivatedCount} ${
-    reactivatedCount === 1
-      ? "reativado"
-      : "reativados"
-  } · ${activeCount} em atendimento`
+  if (activeCount > 0 || labels.length === 0) {
+    labels.push(`${activeCount} ${labels.length === 0
+      ? activeCount === 1 ? "lead em atendimento" : "leads em atendimento"
+      : "em atendimento"
+    }`)
+  }
+
+  return labels.join(" · ")
 }

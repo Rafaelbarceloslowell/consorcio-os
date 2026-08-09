@@ -23,6 +23,7 @@ function createLead(
     companyName: null,
     source: "REFERRAL",
     status: "NEGOTIATING",
+    approachType: "NEW",
     consortiumType: "REAL_ESTATE",
     desiredCreditValue: 500000,
     desiredTermMonths: 200,
@@ -82,6 +83,7 @@ describe("buildLeadListPresentation", () => {
             "datacrazy-1@sem-email.gorila.local",
           source: "OTHER",
           status: "CONTACTED",
+          approachType: "REACTIVATION",
           consortiumType: "OTHER",
           desiredCreditValue: 0,
           desiredTermMonths: 0,
@@ -126,6 +128,7 @@ describe("buildLeadListPresentation", () => {
       buildLeadListPresentation([
         createLead({
           phone: "351916855779",
+          approachType: "REACTIVATION",
           notes: [
             "[IMPORTAÇÃO DATA CRAZY — LEAD REATIVADO]",
             "Funil principal: INBOUND",
@@ -157,6 +160,7 @@ describe("buildLeadListPresentation", () => {
         createLead(),
         createLead({
           id: "lead-2",
+          approachType: "REACTIVATION",
           notes:
             "[IMPORTAÇÃO DATA CRAZY — LEAD REATIVADO]",
           pipelineStage: {
@@ -169,5 +173,28 @@ describe("buildLeadListPresentation", () => {
     expect(view.summaryLabel).toBe(
       "1 reativado · 1 em atendimento",
     )
+  })
+
+  it("mantém importado sem classificação no backlog", () => {
+    const view = buildLeadListPresentation([
+      createLead({
+        approachType: null,
+        notes: [
+          "[IMPORTAÇÃO DATA CRAZY — TRIAGEM PENDENTE]",
+          "Data Crazy ID: dc-1",
+          "Funil principal: INBOUND",
+        ].join("\n"),
+        pipelineStage: { name: "Backlog Data Crazy" },
+        commercialJourneys: [],
+      }),
+    ])
+
+    expect(view.summaryLabel).toBe("1 lead em triagem")
+    expect(view.leads[0]).toMatchObject({
+      classification: "UNTRIAGED",
+      statusLabel: "Triagem pendente",
+      canTriage: true,
+      opportunityHref: null,
+    })
   })
 })

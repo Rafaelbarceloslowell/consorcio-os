@@ -13,8 +13,9 @@ import {
 } from "vitest"
 
 const mocks = vi.hoisted(() => ({
-  findWorkspace: vi.fn(),
+  getContext: vi.fn(),
   findLeads: vi.fn(),
+  countLeads: vi.fn(),
   listProps: vi.fn(),
 }))
 
@@ -44,26 +45,41 @@ vi.mock(
   "@/infrastructure/prisma/client",
   () => ({
     prisma: {
-      workspace: {
-        findUnique:
-          mocks.findWorkspace,
-      },
       lead: {
         findMany:
           mocks.findLeads,
+        count: mocks.countLeads,
       },
     },
   }),
 )
 
+vi.mock(
+  "@/lib/auth/get-authenticated-commercial-context",
+  () => ({
+    getAuthenticatedCommercialContext: mocks.getContext,
+  }),
+)
+
 import LeadsPage from "./page"
+
+const pageProps = {
+  searchParams: Promise.resolve({}),
+}
 
 describe("LeadsPage", () => {
   beforeEach(() => {
     vi.clearAllMocks()
-    mocks.findWorkspace.mockResolvedValue({
-      id: "workspace-1",
+    mocks.getContext.mockResolvedValue({
+      userId: "user-1",
+      workspaceId: "workspace-1",
+      consultantId: "consultant-1",
+      role: "CONSULTANT",
     })
+    mocks.countLeads
+      .mockResolvedValueOnce(1)
+      .mockResolvedValueOnce(0)
+      .mockResolvedValueOnce(0)
     mocks.findLeads.mockResolvedValue([
       {
         id: "lead-1",
@@ -74,6 +90,7 @@ describe("LeadsPage", () => {
         companyName: null,
         source: "REFERRAL",
         status: "NEGOTIATING",
+        approachType: "NEW",
         consortiumType:
           "REAL_ESTATE",
         desiredCreditValue:
@@ -101,7 +118,7 @@ describe("LeadsPage", () => {
   })
 
   it("lista leads do workspace com apresentação operacional", async () => {
-    render(await LeadsPage())
+    render(await LeadsPage(pageProps))
 
     expect(
       screen.getByText(
@@ -109,22 +126,14 @@ describe("LeadsPage", () => {
       ),
     ).toBeInTheDocument()
     expect(
-      mocks.findWorkspace,
-    ).toHaveBeenCalledExactlyOnceWith({
-      where: {
-        slug: "consorcio-os",
-      },
-      select: {
-        id: true,
-      },
-    })
-    expect(
       mocks.findLeads,
     ).toHaveBeenCalledExactlyOnceWith(
       expect.objectContaining({
         where: {
           workspaceId:
             "workspace-1",
+          consultantId:
+            "consultant-1",
           convertedClientId: null,
         },
         select:
@@ -134,6 +143,8 @@ describe("LeadsPage", () => {
         orderBy: {
           createdAt: "desc",
         },
+        skip: 0,
+        take: 24,
       }),
     )
     expect(
@@ -157,14 +168,23 @@ describe("LeadsPage", () => {
               "/opportunities/journey-1",
           }),
         ],
+        pagination: {
+          page: 1,
+          totalPages: 1,
+          totalCount: 1,
+          previousHref: null,
+          nextHref: null,
+        },
       },
     })
   })
 
   it("encaminha lista vazia", async () => {
     mocks.findLeads.mockResolvedValue([])
+    mocks.countLeads.mockReset()
+    mocks.countLeads.mockResolvedValue(0)
 
-    render(await LeadsPage())
+    render(await LeadsPage(pageProps))
 
     expect(
       screen.getByText("Sem leads"),
@@ -176,19 +196,24 @@ describe("LeadsPage", () => {
         summaryLabel:
           "0 leads em atendimento",
         leads: [],
+        pagination: {
+          page: 1,
+          totalPages: 1,
+          totalCount: 0,
+          previousHref: null,
+          nextHref: null,
+        },
       },
     })
   })
 
-  it("não consulta leads sem workspace", async () => {
-    mocks.findWorkspace.mockResolvedValue(
-      null,
-    )
+  it("não consulta leads sem contexto autenticado", async () => {
+    mocks.getContext.mockRejectedValue(new Error("Acesso negado"))
 
     await expect(
-      LeadsPage(),
+      LeadsPage(pageProps),
     ).rejects.toThrow(
-      'Workspace "consorcio-os" não encontrado.',
+      "Acesso negado",
     )
     expect(
       mocks.findLeads,

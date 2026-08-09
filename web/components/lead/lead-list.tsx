@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+import { triageDataCrazyLeadAction } from "@/app/leads/actions"
+
 import type {
   LeadListView,
 } from "@/types/lead-list"
@@ -93,6 +95,8 @@ export function LeadList({
                         lead.classification ===
                         "REACTIVATED"
                           ? "rounded-full border border-[#D0B96C]/25 bg-[#D0B96C]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#D0B96C]"
+                          : lead.classification === "UNTRIAGED"
+                            ? "rounded-full border border-amber-300/25 bg-amber-300/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-amber-200"
                           : "rounded-full border border-[#43A972]/20 bg-[#2F8F5B]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#63C68C]"
                       }
                     >
@@ -148,7 +152,30 @@ export function LeadList({
                       Editar dados
                     </Link>
 
-                    {lead.opportunityHref ? (
+                    {lead.canTriage ? (
+                      <form
+                        action={triageDataCrazyLeadAction.bind(null, lead.id)}
+                        aria-label={`Classificar ${lead.name}`}
+                        className="flex flex-wrap gap-2"
+                      >
+                        <button
+                          type="submit"
+                          name="approachType"
+                          value="NEW"
+                          className="rounded-lg border border-[#43A972]/35 bg-[#2F8F5B]/10 px-3 py-2 text-xs font-semibold text-[#63C68C] transition hover:bg-[#43A972]/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+                        >
+                          Novo
+                        </button>
+                        <button
+                          type="submit"
+                          name="approachType"
+                          value="REACTIVATION"
+                          className="rounded-lg border border-[#D0B96C]/35 bg-[#D0B96C]/8 px-3 py-2 text-xs font-semibold text-[#E0CF8A] transition hover:bg-[#D0B96C]/12 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D0B96C]"
+                        >
+                          Reativação
+                        </button>
+                      </form>
+                    ) : lead.opportunityHref ? (
                       <Link
                         href={lead.opportunityHref}
                         aria-label={`Abrir oportunidade de ${lead.name}`}
@@ -167,6 +194,33 @@ export function LeadList({
             )}
           </ul>
         )}
+
+        {view.pagination.totalPages > 1 ? (
+          <nav
+            aria-label="Paginação de leads"
+            className="flex items-center justify-between gap-4 border-t border-white/[0.06] px-5 py-4 text-xs text-[#96A0AF] sm:px-6"
+          >
+            {view.pagination.previousHref ? (
+              <Link
+                href={view.pagination.previousHref}
+                className="rounded-lg border border-white/[0.10] px-3 py-2 font-semibold text-[#D6DBE3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+              >
+                Anterior
+              </Link>
+            ) : <span />}
+            <span>
+              Página {view.pagination.page} de {view.pagination.totalPages}
+            </span>
+            {view.pagination.nextHref ? (
+              <Link
+                href={view.pagination.nextHref}
+                className="rounded-lg border border-white/[0.10] px-3 py-2 font-semibold text-[#D6DBE3] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#43A972]"
+              >
+                Próxima
+              </Link>
+            ) : <span />}
+          </nav>
+        ) : null}
       </section>
     </main>
   )

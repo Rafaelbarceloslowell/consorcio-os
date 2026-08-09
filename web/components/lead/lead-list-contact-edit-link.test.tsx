@@ -42,8 +42,16 @@ const view: LeadListView = {
       createdAtLabel: "06/08/2026",
       opportunityHref:
         "/opportunities/journey-1",
+      canTriage: false,
     },
   ],
+  pagination: {
+    page: 1,
+    totalPages: 1,
+    totalCount: 1,
+    previousHref: null,
+    nextHref: null,
+  },
 }
 
 describe("LeadList contact edit link", () => {

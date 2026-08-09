@@ -15,7 +15,8 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "market:smoke": "tsx scripts/smoke-market-intelligence.ts",
-    "staging:bootstrap": "tsx scripts/bootstrap-staging.ts"
+    "staging:bootstrap": "tsx scripts/bootstrap-staging.ts",
+    "data-crazy:import": "tsx scripts/import-data-crazy-leads.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

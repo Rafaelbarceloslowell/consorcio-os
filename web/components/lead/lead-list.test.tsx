@@ -46,8 +46,16 @@ function createView(): LeadListView {
         createdAtLabel: "03/08/2026",
         opportunityHref:
           "/opportunities/journey-1",
+        canTriage: false,
       },
     ],
+    pagination: {
+      page: 1,
+      totalPages: 1,
+      totalCount: 1,
+      previousHref: null,
+      nextHref: null,
+    },
   }
 }
 
@@ -143,6 +151,13 @@ describe("LeadList", () => {
           summaryLabel:
             "0 leads em atendimento",
           leads: [],
+          pagination: {
+            page: 1,
+            totalPages: 1,
+            totalCount: 0,
+            previousHref: null,
+            nextHref: null,
+          },
         }}
       />,
     )
@@ -160,5 +175,39 @@ describe("LeadList", () => {
       "href",
       "/leads/new",
     )
+  })
+
+  it("oferece classificação explícita para backlog não triado", () => {
+    const view = createView()
+    view.summaryLabel = "1 em triagem"
+    view.leads[0] = {
+      ...view.leads[0],
+      classification: "UNTRIAGED",
+      statusLabel: "Triagem pendente",
+      canTriage: true,
+      opportunityHref: null,
+    }
+
+    render(<LeadList view={view} />)
+
+    expect(screen.getByRole("button", { name: "Novo" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "Reativação" })).toBeInTheDocument()
+    expect(screen.queryByText("Nenhuma oportunidade aberta.")).not.toBeInTheDocument()
+  })
+
+  it("pagina sem renderizar toda a base", () => {
+    const view = createView()
+    view.pagination = {
+      page: 2,
+      totalPages: 13,
+      totalCount: 309,
+      previousHref: "/leads?page=1",
+      nextHref: "/leads?page=3",
+    }
+
+    render(<LeadList view={view} />)
+
+    expect(screen.getByText("Página 2 de 13")).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: "Próxima" })).toHaveAttribute("href", "/leads?page=3")
   })
 })

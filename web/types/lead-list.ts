@@ -1,6 +1,7 @@
 export type LeadListClassification =
   | "ACTIVE"
   | "REACTIVATED"
+  | "UNTRIAGED"
 
 export type LeadListItemView = {
   id: string
@@ -20,9 +21,17 @@ export type LeadListItemView = {
   entryLabel: string
   createdAtLabel: string
   opportunityHref: string | null
+  canTriage: boolean
 }
 
 export type LeadListView = {
   summaryLabel: string
   leads: LeadListItemView[]
+  pagination: {
+    page: number
+    totalPages: number
+    totalCount: number
+    previousHref: string | null
+    nextHref: string | null
+  }
 }

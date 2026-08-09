@@ -7,31 +7,34 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+import { getAuthenticatedCommercialContext } from "@/lib/auth/get-authenticated-commercial-context"
 
 export const dynamic = "force-dynamic"
 
-export default async function LeadsPage() {
-  const workspace =
-    await prisma.workspace.findUnique({
-      where: {
-        slug: "consorcio-os",
-      },
-      select: {
-        id: true,
-      },
-    })
+const PAGE_SIZE = 24
 
-  if (!workspace) {
-    throw new Error(
-      'Workspace "consorcio-os" não encontrado.',
-    )
+function parsePage(value: string | undefined): number {
+  const page = Number(value)
+  return Number.isInteger(page) && page > 0 ? page : 1
+}
+
+export default async function LeadsPage({
+  searchParams,
+}: Readonly<{
+  searchParams: Promise<{ page?: string }>
+}>) {
+  const context = await getAuthenticatedCommercialContext()
+  const page = parsePage((await searchParams).page)
+  const scope = {
+    workspaceId: context.workspaceId,
+    consultantId: context.consultantId,
+    convertedClientId: null,
   }
 
-  const leads =
-    await prisma.lead.findMany({
+  const [leads, totalCount, untriagedCount, reactivatedCount] = await Promise.all([
+    prisma.lead.findMany({
       where: {
-        workspaceId: workspace.id,
-        convertedClientId: null,
+        ...scope,
       },
       select: {
         id: true,
@@ -41,6 +44,7 @@ export default async function LeadsPage() {
         companyName: true,
         source: true,
         status: true,
+        approachType: true,
         consortiumType: true,
         desiredCreditValue: true,
         desiredTermMonths: true,
@@ -73,13 +77,26 @@ export default async function LeadsPage() {
       orderBy: {
         createdAt: "desc",
       },
-    })
+      skip: (page - 1) * PAGE_SIZE,
+      take: PAGE_SIZE,
+    }),
+    prisma.lead.count({ where: scope }),
+    prisma.lead.count({ where: { ...scope, approachType: null } }),
+    prisma.lead.count({ where: { ...scope, approachType: "REACTIVATION" } }),
+  ])
 
   return (
     <LeadList
       view={
         buildLeadListPresentation(
           leads,
+          {
+            page,
+            pageSize: PAGE_SIZE,
+            totalCount,
+            untriagedCount,
+            reactivatedCount,
+          },
         )
       }
     />
