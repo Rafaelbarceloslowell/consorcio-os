@@ -41,7 +41,7 @@ describe(
               reactivationContext,
           }),
         ).toBe(
-          "Olá, Janaina! Tudo bem? Aqui é o Rafael. Passei pelo seu cadastro hoje e lembrei da nossa conversa sobre comprar imóvel. Fiquei curioso para saber como esse projeto evoluiu. Você conseguiu avançar ou ainda está estudando as possibilidades?",
+          "Olá, Janaina! Tudo bem? Aqui é o Rafael. Passei pelo seu cadastro hoje e vi seu interesse em comprar imóvel. Queria entender como esse projeto evoluiu. Você conseguiu avançar ou ainda está estudando as possibilidades?",
         )
       },
     )
@@ -85,7 +85,29 @@ describe(
             },
           }),
         ).toBe(
-          "Olá! Tudo bem? Aqui é o Rafael. Passei pelo seu cadastro hoje e lembrei que conversamos há um tempo. Fiquei curioso para saber como esse projeto evoluiu. Você conseguiu avançar ou ainda está estudando as possibilidades?",
+          "Olá! Tudo bem? Aqui é o Rafael. Passei pelo seu cadastro hoje e quis retomar seu interesse. Queria entender como esse projeto evoluiu. Você conseguiu avançar ou ainda está estudando as possibilidades?",
+        )
+      },
+    )
+
+    it(
+      "não fabrica conversa anterior ao reativar um contato que nunca respondeu",
+      () => {
+        const message =
+          buildOpportunitySuggestedMessage({
+            contactName:
+              "Janaina Rodrigues",
+            consultantName:
+              "Rafael Barcelos",
+            contactContext:
+              reactivationContext,
+          })
+
+        expect(message).not.toContain(
+          "nossa conversa",
+        )
+        expect(message).not.toContain(
+          "conversamos",
         )
       },
     )

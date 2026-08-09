@@ -220,7 +220,7 @@ describe(
           result.opportunity
             .suggestedMessage,
         ).toBe(
-          "Olá, Janaina! Tudo bem? Aqui é o Rafael. Passei pelo seu cadastro hoje e lembrei da nossa conversa sobre comprar imóvel. Fiquei curioso para saber como esse projeto evoluiu. Você conseguiu avançar ou ainda está estudando as possibilidades?",
+          "Olá, Janaina! Tudo bem? Aqui é o Rafael. Passei pelo seu cadastro hoje e vi seu interesse em comprar imóvel. Queria entender como esse projeto evoluiu. Você conseguiu avançar ou ainda está estudando as possibilidades?",
         )
       },
     )

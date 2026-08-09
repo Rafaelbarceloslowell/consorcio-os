@@ -136,18 +136,18 @@ function buildReactivationMessage({
     )
 
   const memorySentence = objective
-    ? `Passei pelo seu cadastro hoje e lembrei da nossa conversa sobre ${lowercaseInitial(
+    ? `Passei pelo seu cadastro hoje e vi seu interesse em ${lowercaseInitial(
         removeTerminalPunctuation(
           objective,
         ),
       )}.`
-    : "Passei pelo seu cadastro hoje e lembrei que conversamos há um tempo."
+    : "Passei pelo seu cadastro hoje e quis retomar seu interesse."
 
   return [
     greeting,
     `Aqui é o ${consultantFirstName}.`,
     memorySentence,
-    "Fiquei curioso para saber como esse projeto evoluiu.",
+    "Queria entender como esse projeto evoluiu.",
     "Você conseguiu avançar ou ainda está estudando as possibilidades?",
   ].join(" ")
 }
