@@ -16,7 +16,7 @@ export type MarketIndicator = Readonly<{
   observedAt: string
   fetchedAt: string
   source: "Banco Central do Brasil"
-  sourceReference: string
+  sourceReference: string | null
   stale: boolean
 }>
 

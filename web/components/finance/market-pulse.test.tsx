@@ -14,6 +14,7 @@ import {
 } from "vitest"
 
 import {
+  formatMarketReferenceDate,
   MarketPulse,
 } from "./market-pulse"
 
@@ -112,12 +113,18 @@ describe(
         expect(
           screen.getByRole("link", {
             name:
-              "Consultar fonte oficial",
+              /Consultar fonte oficial de Meta Selic/i,
           }),
         ).toHaveAttribute(
           "href",
           "https://api.bcb.gov.br/serie/432",
         )
+        expect(
+          screen.getByRole("link", {
+            name: /Consultar fonte oficial de Meta Selic/i,
+          }),
+        ).toHaveAttribute("rel", "noopener noreferrer")
+        expect(screen.getByText(/Referência: 07\/08\/2026/)).toBeInTheDocument()
       },
     )
 
@@ -157,5 +164,37 @@ describe(
         ).not.toBeInTheDocument()
       },
     )
+
+    it("preserva datas de referência como calendar date em qualquer fuso", () => {
+      expect(formatMarketReferenceDate("2026-06-01")).toBe("01/06/2026")
+      expect(formatMarketReferenceDate("2026-05-31")).toBe("31/05/2026")
+      expect(formatMarketReferenceDate("2026-01-01")).toBe("01/01/2026")
+    })
+
+    it("não inventa link quando o provider não informa URL confiável", async () => {
+      vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(JSON.stringify({
+        status: "partial",
+        indicators: [{
+          key: "selic_target",
+          name: "Meta Selic",
+          value: 14.75,
+          unit: "% a.a.",
+          observedAt: "2026-08-07",
+          fetchedAt: "2026-08-08T12:00:00.000Z",
+          source: "Banco Central do Brasil",
+          sourceReference: null,
+          stale: false,
+        }],
+        contexts: [],
+        unavailableKeys: [],
+        updatedAt: "2026-08-08T12:00:00.000Z",
+        message: "Fonte parcial.",
+      }), { status: 200 })))
+
+      render(<MarketPulse />)
+
+      expect(await screen.findByText("Fonte oficial indisponível")).toBeInTheDocument()
+      expect(screen.queryByRole("link", { name: /Consultar fonte oficial/i })).not.toBeInTheDocument()
+    })
   },
 )

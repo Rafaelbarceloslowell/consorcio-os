@@ -20,12 +20,19 @@ type SgsSeriesConfiguration = {
   name: string
   unit: string
   staleAfterDays: number
+  sourceUrl: string
 }
 
 const BCB_SGS_BASE_URL =
   "https://api.bcb.gov.br/dados/serie"
 const BCB_CONSORTIUM_BASE_URL =
   "https://olinda.bcb.gov.br/olinda/servico/PANORAMA_DE_CONSORCIOS/versao/v1/odata"
+const BCB_CONSORTIUM_SOURCE_URL =
+  "https://dadosabertos.bcb.gov.br/dataset/dados-agregados-do-segmento-de-consorcios"
+
+function sgsSourceUrl(code: number): string {
+  return `https://www3.bcb.gov.br/sgspub/consultarvalores/consultarValoresSeries.do?method=consultarGraficoPorId&hdOidSeriesSelecionadas=${code}`
+}
 
 const SGS_SERIES:
   readonly SgsSeriesConfiguration[] = [
@@ -35,6 +42,7 @@ const SGS_SERIES:
       name: "Meta Selic definida pelo Copom",
       unit: "% a.a.",
       staleAfterDays: 7,
+      sourceUrl: sgsSourceUrl(432),
     },
     {
       key: "vehicle_financing_pf",
@@ -42,6 +50,7 @@ const SGS_SERIES:
       name: "Taxa média de financiamento de veículos para pessoas físicas",
       unit: "% a.a.",
       staleAfterDays: 120,
+      sourceUrl: sgsSourceUrl(20749),
     },
     {
       key: "real_estate_financing_pf",
@@ -49,6 +58,7 @@ const SGS_SERIES:
       name: "Taxa média de financiamento imobiliário para pessoas físicas",
       unit: "% a.a.",
       staleAfterDays: 120,
+      sourceUrl: sgsSourceUrl(20772),
     },
   ]
 
@@ -303,7 +313,8 @@ implements MarketIntelligenceProvider {
         fetchedAt.toISOString(),
       source:
         "Banco Central do Brasil",
-      sourceReference: url,
+      sourceReference:
+        configuration.sourceUrl,
       stale: status === "stale",
     }
   }
@@ -361,7 +372,8 @@ implements MarketIntelligenceProvider {
         fetchedAt.toISOString(),
       source:
         "Banco Central do Brasil",
-      sourceReference: url,
+      sourceReference:
+        BCB_CONSORTIUM_SOURCE_URL,
       stale:
         observedAtStatus(
           observedAt,

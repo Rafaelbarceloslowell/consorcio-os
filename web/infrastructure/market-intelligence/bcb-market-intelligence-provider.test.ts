@@ -171,6 +171,12 @@ describe(
             "2025-12-01",
           stale: true,
         })
+        expect(indicators.map((indicator) => indicator.sourceReference)).toEqual([
+          "https://www3.bcb.gov.br/sgspub/consultarvalores/consultarValoresSeries.do?method=consultarGraficoPorId&hdOidSeriesSelecionadas=432",
+          "https://www3.bcb.gov.br/sgspub/consultarvalores/consultarValoresSeries.do?method=consultarGraficoPorId&hdOidSeriesSelecionadas=20749",
+          "https://www3.bcb.gov.br/sgspub/consultarvalores/consultarValoresSeries.do?method=consultarGraficoPorId&hdOidSeriesSelecionadas=20772",
+          "https://dadosabertos.bcb.gov.br/dataset/dados-agregados-do-segmento-de-consorcios",
+        ])
       },
     )
 

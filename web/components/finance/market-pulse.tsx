@@ -10,14 +10,12 @@ import type {
   MarketIntelligenceView,
 } from "@/types/market-intelligence"
 
-function formatObservedAt(value: string) {
-  const [year, month, day] = value.split("-").map(Number)
+export function formatMarketReferenceDate(value: string) {
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/u)
+  if (!match) return value
 
-  if (!year || !month || !day) return value
-
-  return new Intl.DateTimeFormat("pt-BR").format(
-    new Date(Date.UTC(year, month - 1, day)),
-  )
+  const [, year, month, day] = match
+  return `${day}/${month}/${year}`
 }
 
 function formatIndicator(indicator: MarketIndicator) {
@@ -115,19 +113,30 @@ export function MarketPulse({
                   </p>
                 </div>
                 <p className="mt-1 text-[9px] leading-4 text-[var(--gorila-text-muted)]">
-                  Referência: {formatObservedAt(indicator.observedAt)}
+                  Referência: {formatMarketReferenceDate(indicator.observedAt)}
                   {indicator.stale
                     ? " · último valor conhecido (stale)"
                     : " · atualizado"}
                 </p>
-                <a
-                  className="mt-1 inline-flex text-[9px] font-semibold text-[var(--gorila-green-bright)] underline decoration-[var(--gorila-green)] underline-offset-4"
-                  href={indicator.sourceReference}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Consultar fonte oficial
-                </a>
+                {indicator.sourceReference ? (
+                  <a
+                    className="mt-1 inline-flex rounded-sm text-[9px] font-semibold text-[var(--gorila-green-bright)] underline decoration-[var(--gorila-green)] underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]"
+                    href={indicator.sourceReference}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Consultar fonte oficial de ${indicator.name}`}
+                  >
+                    Consultar fonte oficial
+                  </a>
+                ) : (
+                  <span
+                    className="mt-1 inline-flex text-[9px] text-[var(--gorila-text-muted)]"
+                    aria-label={`Fonte oficial indisponível para ${indicator.name}`}
+                    title="O provedor não informou uma URL oficial confiável."
+                  >
+                    Fonte oficial indisponível
+                  </span>
+                )}
               </article>
             ))}
           </div>
