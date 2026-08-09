@@ -30,6 +30,9 @@ model Workspace {
   proposals            Proposal[]
   sales                Sale[]
   tasks                Task[]
+  commercialCommitments CommercialCommitment[]
+  reactivationContexts ReactivationContext[]
+  r2Notifications      R2Notification[]
   workflowRules        WorkflowRule[]
   authUsers            User[]
 
@@ -61,6 +64,9 @@ model Consultant {
   proposals          Proposal[]
   sales              Sale[]
   assignedTasks      Task[]
+  commercialCommitments CommercialCommitment[]
+  reactivationContexts ReactivationContext[]
+  r2Notifications      R2Notification[]
   authUser           User?
 
   @@unique([workspaceId, email], map: "consultants_workspace_email_key")
@@ -281,6 +287,7 @@ model Meeting {
   leadId       String?         @map("lead_id")
   clientId     String?         @map("client_id")
   proposalId   String?         @map("proposal_id")
+  opportunityId String?        @map("opportunity_id")
   outcome      MeetingOutcome?
   notes        String?
   createdAt    DateTime        @default(now()) @map("created_at")
@@ -289,6 +296,7 @@ model Meeting {
   consultant   Consultant      @relation(fields: [consultantId], references: [id])
   lead         Lead?           @relation(fields: [leadId], references: [id], onDelete: Restrict)
   proposal     Proposal?       @relation(fields: [proposalId], references: [id], onDelete: Restrict)
+  opportunity  CommercialJourney? @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
   workspace    Workspace       @relation(fields: [workspaceId], references: [id])
   tasks        Task[]
 
@@ -299,6 +307,7 @@ model Meeting {
   @@index([workspaceId, leadId], map: "meetings_workspace_lead_idx")
   @@index([workspaceId, clientId], map: "meetings_workspace_client_idx")
   @@index([workspaceId, proposalId], map: "meetings_workspace_proposal_idx")
+  @@index([workspaceId, opportunityId], map: "meetings_workspace_opportunity_idx")
   @@index([workspaceId, startAt], map: "meetings_workspace_start_at_idx")
   @@index([workspaceId, consultantId, startAt], map: "meetings_consultant_start_at_idx")
   @@map("meetings")
@@ -367,6 +376,18 @@ model Task {
   clientId     String?      @map("client_id")
   meetingId    String?      @map("meeting_id")
   proposalId   String?      @map("proposal_id")
+  opportunityId String?     @map("opportunity_id")
+  executionType CommercialActivityType? @map("execution_type")
+  channel      CommercialActivityChannel?
+  cadenceInstanceId String? @map("cadence_instance_id")
+  impactNumber Int?         @map("impact_number")
+  commitmentId String?      @map("commitment_id")
+  sourceEventId String?     @map("source_event_id")
+  idempotencyKey String?    @map("idempotency_key")
+  reason       String?
+  startedAt    DateTime?    @map("started_at")
+  cancelledAt  DateTime?    @map("cancelled_at")
+  supersededAt DateTime?    @map("superseded_at")
   completedAt  DateTime?    @map("completed_at")
   createdAt    DateTime     @default(now()) @map("created_at")
   updatedAt    DateTime     @updatedAt @map("updated_at")
@@ -375,6 +396,9 @@ model Task {
   lead         Lead?        @relation(fields: [leadId], references: [id], onDelete: Restrict)
   meeting      Meeting?     @relation(fields: [meetingId], references: [id], onDelete: Restrict)
   proposal     Proposal?    @relation(fields: [proposalId], references: [id], onDelete: Restrict)
+  opportunity  CommercialJourney? @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  commitment   CommercialCommitment? @relation(fields: [commitmentId], references: [id], onDelete: SetNull)
+  notification R2Notification?
   workspace    Workspace    @relation(fields: [workspaceId], references: [id])
 
   @@index([workspaceId], map: "tasks_workspace_idx")
@@ -389,7 +413,81 @@ model Task {
   @@index([workspaceId, clientId], map: "tasks_workspace_client_idx")
   @@index([workspaceId, meetingId], map: "tasks_workspace_meeting_idx")
   @@index([workspaceId, proposalId], map: "tasks_workspace_proposal_idx")
+  @@index([workspaceId, opportunityId], map: "tasks_workspace_opportunity_idx")
+  @@index([workspaceId, assignedToId, status, dueAt], map: "tasks_consultant_status_due_idx")
+  @@index([workspaceId, cadenceInstanceId, impactNumber], map: "tasks_cadence_impact_idx")
+  @@index([workspaceId, commitmentId], map: "tasks_workspace_commitment_idx")
+  @@unique([workspaceId, idempotencyKey], map: "tasks_workspace_idempotency_key")
   @@map("tasks")
+}
+
+model CommercialCommitment {
+  id            String                    @id @default(cuid())
+  workspaceId   String                    @map("workspace_id")
+  opportunityId String                    @map("opportunity_id")
+  consultantId  String                    @map("consultant_id")
+  promisedBy    CommercialCommitmentParty @map("promised_by")
+  type          CommercialCommitmentType
+  status        CommercialCommitmentStatus @default(PENDING)
+  dueAt         DateTime                  @map("due_at")
+  description   String
+  sourceEventId String?                   @map("source_event_id")
+  completedAt   DateTime?                 @map("completed_at")
+  missedAt      DateTime?                 @map("missed_at")
+  cancelledAt   DateTime?                 @map("cancelled_at")
+  rescheduledAt DateTime?                 @map("rescheduled_at")
+  createdAt     DateTime                  @default(now()) @map("created_at")
+  updatedAt     DateTime                  @updatedAt @map("updated_at")
+  workspace     Workspace                 @relation(fields: [workspaceId], references: [id])
+  opportunity   CommercialJourney         @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  consultant    Consultant                @relation(fields: [consultantId], references: [id])
+  tasks         Task[]
+
+  @@index([workspaceId, status, dueAt], map: "commercial_commitments_status_due_idx")
+  @@index([workspaceId, consultantId, status, dueAt], map: "commercial_commitments_consultant_due_idx")
+  @@index([workspaceId, opportunityId], map: "commercial_commitments_opportunity_idx")
+  @@unique([workspaceId, sourceEventId], map: "commercial_commitments_source_event_key")
+  @@map("commercial_commitments")
+}
+
+model ReactivationContext {
+  id                    String   @id @default(cuid())
+  workspaceId           String   @map("workspace_id")
+  opportunityId         String   @map("opportunity_id")
+  consultantId          String   @map("consultant_id")
+  reactivationCycleId   String   @map("reactivation_cycle_id")
+  contextState          ReactivationContextState @map("context_state")
+  contextSummary        String?  @map("context_summary")
+  synchronizedByProvider Boolean @default(false) @map("synchronized_by_provider")
+  providedAt            DateTime @map("provided_at")
+  createdAt             DateTime @default(now()) @map("created_at")
+  updatedAt             DateTime @updatedAt @map("updated_at")
+  workspace             Workspace @relation(fields: [workspaceId], references: [id])
+  opportunity           CommercialJourney @relation(fields: [opportunityId], references: [id], onDelete: Cascade)
+  consultant            Consultant @relation(fields: [consultantId], references: [id])
+
+  @@unique([workspaceId, opportunityId, reactivationCycleId], map: "reactivation_context_cycle_key")
+  @@index([workspaceId, consultantId, providedAt], map: "reactivation_context_consultant_idx")
+  @@map("reactivation_contexts")
+}
+
+model R2Notification {
+  id           String   @id @default(cuid())
+  workspaceId  String   @map("workspace_id")
+  consultantId String   @map("consultant_id")
+  taskId       String   @unique(map: "r2_notifications_task_key") @map("task_id")
+  kind         R2NotificationKind
+  title        String
+  body         String
+  readAt       DateTime? @map("read_at")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+  workspace    Workspace @relation(fields: [workspaceId], references: [id])
+  consultant   Consultant @relation(fields: [consultantId], references: [id])
+  task         Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  @@index([workspaceId, consultantId, readAt, createdAt], map: "r2_notifications_consultant_read_idx")
+  @@map("r2_notifications")
 }
 
 model JourneyPhase {
@@ -476,6 +574,10 @@ model CommercialJourney {
   workspace          Workspace                     @relation(fields: [workspaceId], references: [id])
   nextBestActions    NextBestAction[]
   conversationMemory CommercialConversationMemory?
+  tasks              Task[]
+  meetings           Meeting[]
+  commitments        CommercialCommitment[]
+  reactivationContexts ReactivationContext[]
 
   @@index([workspaceId], map: "commercial_journeys_workspace_idx")
   @@index([workspaceId, leadId], map: "commercial_journeys_workspace_lead_idx")
@@ -500,6 +602,10 @@ model CommercialConversationMemory {
   lastIncomingMessage String?                     @map("last_incoming_message")
   lastSuggestedReply  String?                     @map("last_suggested_reply")
   analyzedAt          DateTime?                   @map("analyzed_at")
+  structuredFacts     Json                        @default("{}") @map("structured_facts")
+  narrativeSummary    String?                     @map("narrative_summary")
+  factProvenance      Json                        @default("{}") @map("fact_provenance")
+  observedAt          DateTime?                   @map("observed_at")
   createdAt           DateTime                    @default(now()) @map("created_at")
   updatedAt           DateTime                    @updatedAt @map("updated_at")
   journey             CommercialJourney           @relation(fields: [journeyId], references: [id], onDelete: Cascade)
@@ -898,6 +1004,86 @@ enum TaskType {
   OTHER           @map("other")
 
   @@map("task_type")
+}
+
+enum CommercialActivityType {
+  NEW_LEAD_FIRST_CONTACT       @map("new_lead_first_contact")
+  CADENCE_WHATSAPP             @map("cadence_whatsapp")
+  CADENCE_CALL                 @map("cadence_call")
+  RESPONSE_CHECK               @map("response_check")
+  CALLBACK                     @map("callback")
+  CALLBACK_RECOVERY            @map("callback_recovery")
+  MEETING_PREP                 @map("meeting_prep")
+  MEETING_START                @map("meeting_start")
+  MEETING_OUTCOME_CHECK        @map("meeting_outcome_check")
+  NO_SHOW_RECOVERY             @map("no_show_recovery")
+  STRATEGIC_FOLLOW_UP          @map("strategic_follow_up")
+  REACTIVATION_CONTEXT_REQUIRED @map("reactivation_context_required")
+  REACTIVATION_CONTACT         @map("reactivation_contact")
+  PROPOSAL_FOLLOW_UP           @map("proposal_follow_up")
+  R2_REVIEW                    @map("r2_review")
+
+  @@map("commercial_activity_type")
+}
+
+enum CommercialActivityChannel {
+  WHATSAPP @map("whatsapp")
+  CALL     @map("call")
+  EMAIL    @map("email")
+  MEETING  @map("meeting")
+  SYSTEM   @map("system")
+
+  @@map("commercial_activity_channel")
+}
+
+enum CommercialCommitmentParty {
+  CUSTOMER   @map("customer")
+  CONSULTANT @map("consultant")
+  BOTH       @map("both")
+
+  @@map("commercial_commitment_party")
+}
+
+enum CommercialCommitmentType {
+  CALLBACK      @map("callback")
+  MEETING       @map("meeting")
+  SEND_PROPOSAL @map("send_proposal")
+  SEND_DOCUMENT @map("send_document")
+  FOLLOW_UP     @map("follow_up")
+  OTHER         @map("other")
+
+  @@map("commercial_commitment_type")
+}
+
+enum CommercialCommitmentStatus {
+  PENDING     @map("pending")
+  COMPLETED   @map("completed")
+  MISSED      @map("missed")
+  CANCELLED   @map("cancelled")
+  RESCHEDULED @map("rescheduled")
+
+  @@map("commercial_commitment_status")
+}
+
+enum ReactivationContextState {
+  PROVIDED              @map("provided")
+  NEVER_REPLIED         @map("never_replied")
+  NO_PREVIOUS_CONVERSATION @map("no_previous_conversation")
+  PROVIDER_SYNCHRONIZED @map("provider_synchronized")
+
+  @@map("reactivation_context_state")
+}
+
+enum R2NotificationKind {
+  ACTIVITY_DUE      @map("activity_due")
+  CALLBACK_DUE      @map("callback_due")
+  MEETING_SOON      @map("meeting_soon")
+  REPLY_WAITING     @map("reply_waiting")
+  RECOVERY_DUE      @map("recovery_due")
+  FOLLOW_UP_OVERDUE @map("follow_up_overdue")
+  STALE_OPPORTUNITY @map("stale_opportunity")
+
+  @@map("r2_notification_kind")
 }
 
 enum CommercialJourneyPriority {
