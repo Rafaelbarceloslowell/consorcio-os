@@ -174,6 +174,44 @@ describe(
     )
 
     it(
+      "continua do ponto da estrategia quando cliente some apos apresentacao",
+      () => {
+        const recommendation =
+          build({
+            message:
+              "O objetivo era investimento. Já apresentei o produto e fiz duas propostas com cartas de 500 mil. Depois disso ele não me respondeu mais.",
+            approachType:
+              "reactivation",
+          })
+
+        expect(
+          recommendation,
+        ).toMatchObject({
+          primaryTechnique:
+            "diagnostic_selling",
+        })
+
+        expect(
+          recommendation.objective,
+        ).toContain(
+          "estratégia comercial apresentada",
+        )
+
+        expect(
+          recommendation.avoid,
+        ).toContain(
+          "Voltar à descoberta do zero.",
+        )
+
+        expect(
+          recommendation.avoid,
+        ).toContain(
+          "Perguntar novamente um objetivo já conhecido.",
+        )
+      },
+    )
+
+    it(
       "usa SPIN e GPCT quando o cliente confirma que o projeto continua ativo",
       () => {
         const recommendation =

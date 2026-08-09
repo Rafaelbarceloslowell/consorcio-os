@@ -464,6 +464,260 @@ describe(
     )
 
     it(
+      "bloqueia mensagem em conflito e exige correção humana antes de recalcular",
+      async () => {
+        const correctedContext =
+          "Já conversei com o cliente, apresentei a estratégia de investimento e depois ele parou de responder."
+
+        const serverAnalysis =
+          analyzeManualWhatsAppMessage(
+            correctedContext,
+            {
+              approachType:
+                "reactivation",
+            },
+          )
+
+        expect(
+          serverAnalysis,
+        ).not.toBeNull()
+
+        const intelligence =
+          resolveR2Intelligence({
+            recommendationId:
+              "recommendation-conflict-1",
+            workspaceId:
+              "workspace-1",
+            opportunityId:
+              "journey-1",
+            approachType:
+              "reactivation",
+            analysis:
+              serverAnalysis!,
+            profile: {
+              assetCategory:
+                "real_estate",
+            },
+            candidates: [],
+            commercialEvents: [],
+            now: new Date(
+              "2026-08-09T16:00:00.000Z",
+            ),
+          })
+
+        fetchMock
+          .mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+              reconciliation: {
+                status:
+                  "CONFLICT",
+                reason:
+                  "O histórico indica que já houve apresentação comercial, mas a nova observação pode ser interpretada como se o cliente nunca tivesse respondido.",
+                savedContext:
+                  "Já apresentei o produto e fiz duas propostas. Depois disso ele não me respondeu mais.",
+                currentObservation:
+                  "Ele não me respondeu.",
+                proposedContext:
+                  "contexto conflitante",
+                effectiveContext:
+                  null,
+              },
+              analysis: null,
+              reply: null,
+              intelligence: null,
+              memorySaved: false,
+            }),
+          })
+          .mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+              reconciliation: {
+                status:
+                  "CONSISTENT",
+                reason:
+                  "Contexto confirmado pelo consultor.",
+                savedContext:
+                  "contexto anterior",
+                currentObservation:
+                  correctedContext,
+                proposedContext:
+                  correctedContext,
+                effectiveContext:
+                  correctedContext,
+              },
+              analysis:
+                serverAnalysis,
+              reply:
+                "Resposta recalculada com contexto confirmado.",
+              intelligence,
+              memorySaved: true,
+            }),
+          })
+
+        render(
+          <OpportunityManualWhatsAppIntake
+            opportunityId="journey-1"
+            contactName="Laucione Lira"
+            approachType="reactivation"
+          />,
+        )
+
+        fireEvent.change(
+          screen.getByRole(
+            "textbox",
+            {
+              name:
+                "Últimas mensagens ou resumo do histórico",
+            },
+          ),
+          {
+            target: {
+              value:
+                "Ele não me respondeu.",
+            },
+          },
+        )
+
+        fireEvent.click(
+          screen.getByRole(
+            "button",
+            {
+              name:
+                "Analisar contexto",
+            },
+          ),
+        )
+
+        const conflict =
+          await screen.findByTestId(
+            "r2-context-reconciliation",
+          )
+
+        expect(
+          conflict,
+        ).toHaveTextContent(
+          "R2 precisa confirmar o contexto",
+        )
+
+        expect(
+          conflict,
+        ).toHaveTextContent(
+          "Contexto que já estava salvo",
+        )
+
+        expect(
+          conflict,
+        ).toHaveTextContent(
+          "Já apresentei o produto e fiz duas propostas",
+        )
+
+        expect(
+          conflict,
+        ).toHaveTextContent(
+          "Nova observação que gerou dúvida",
+        )
+
+        expect(
+          conflict,
+        ).toHaveTextContent(
+          "Ele não me respondeu.",
+        )
+
+        expect(
+          screen.queryByRole(
+            "textbox",
+            {
+              name:
+                "Resposta preparada pelo R2",
+            },
+          ),
+        ).not.toBeInTheDocument()
+
+        const correction =
+          screen.getByRole(
+            "textbox",
+            {
+              name:
+                "Correção / complemento do consultor",
+            },
+          )
+
+        expect(
+          correction,
+        ).toHaveValue("")
+
+        const confirmButton =
+          screen.getByRole(
+            "button",
+            {
+              name:
+                "Confirmar contexto e recalcular",
+            },
+          )
+
+        expect(
+          confirmButton,
+        ).toBeDisabled()
+
+        fireEvent.change(
+          correction,
+          {
+            target: {
+              value:
+                correctedContext,
+            },
+          },
+        )
+
+        expect(
+          confirmButton,
+        ).toBeEnabled()
+
+        fireEvent.click(
+          confirmButton,
+        )
+
+        expect(
+          await screen.findByRole(
+            "textbox",
+            {
+              name:
+                "Resposta preparada pelo R2",
+            },
+          ),
+        ).toHaveValue(
+          "Resposta recalculada com contexto confirmado.",
+        )
+
+        await waitFor(() => {
+          expect(
+            fetchMock,
+          ).toHaveBeenCalledTimes(2)
+        })
+
+        const secondRequest =
+          fetchMock.mock
+            .calls[1]?.[1] as
+            | RequestInit
+            | undefined
+
+        expect(
+          JSON.parse(
+            String(
+              secondRequest?.body,
+            ),
+          ),
+        ).toMatchObject({
+          incomingMessage:
+            correctedContext,
+          contextDecision:
+            "CONFIRM_CONTEXT",
+        })
+      },
+    )
+
+    it(
       "descarta análise anterior quando a mensagem recebida é alterada",
       () => {
         render(

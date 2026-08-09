@@ -326,6 +326,15 @@ function extractCustomerInterest(
   }> = [
     {
       fragments: [
+        "investimento",
+        "investir",
+        "estrategia de investimento",
+      ],
+      label:
+        "investimento",
+    },
+    {
+      fragments: [
         "corolla",
         "corola",
       ],
@@ -468,6 +477,25 @@ function extractConsultantAction(
 
   if (
     containsAny(actionSource, [
+      "apresentei o produto",
+      "apresentei o consorcio",
+      "apresentei a estrategia",
+      "apresentei uma estrategia",
+      "montei uma estrategia",
+      "fiz uma proposta",
+      "fiz duas propostas",
+      "apresentei duas propostas",
+      "apresentei as cotas",
+      "duas cotas",
+      "uma na integral",
+      "meia parcela",
+    ])
+  ) {
+    return "estratégia comercial apresentada"
+  }
+
+  if (
+    containsAny(actionSource, [
       "tentei marcar uma reuniao",
       "tentei marca uma reuniao",
       "tentei agendar uma reuniao",
@@ -526,6 +554,14 @@ function buildStoppedReplyingAnalysis(
       originalValue,
     )
 
+  const hasPresentedCommercialStrategy =
+    previousConsultantAction ===
+      "estratégia comercial apresentada" ||
+    previousConsultantAction ===
+      "proposta enviada" ||
+    previousConsultantAction ===
+      "condição ou simulação enviada"
+
   const summaryParts: string[] = []
 
   if (customerInterest) {
@@ -556,9 +592,11 @@ function buildStoppedReplyingAnalysis(
     summary:
       summaryParts.join(" "),
     recommendedAction:
-      customerInterest
-        ? `Retome pelo interesse em ${customerInterest}, confirme se o projeto continua ativo e só depois proponha uma reunião.`
-        : "Retome pelo último objetivo conhecido, confirme se o projeto continua ativo e só depois proponha uma reunião.",
+      hasPresentedCommercialStrategy
+        ? `Retome exatamente a partir da ${previousConsultantAction}, investigue o que interrompeu a continuidade e não repita perguntas que o cliente já respondeu.`
+        : customerInterest
+          ? `Retome pelo interesse em ${customerInterest}, confirme o momento atual sem refazer a descoberta do zero.`
+          : "Retome pelo último objetivo conhecido e confirme o momento atual sem refazer a descoberta do zero.",
     context: {
       customerInterest,
       previousConsultantAction,

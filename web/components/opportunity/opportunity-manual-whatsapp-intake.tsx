@@ -41,6 +41,19 @@ import {
   OpportunityR2Intelligence,
 } from "./opportunity-r2-intelligence"
 
+type R2ContextReconciliation =
+  Readonly<{
+    status:
+      | "CONSISTENT"
+      | "INSUFFICIENT"
+      | "CONFLICT"
+    reason: string
+    savedContext: string | null
+    currentObservation: string
+    proposedContext: string
+    effectiveContext: string | null
+  }>
+
 type OpportunityManualWhatsAppIntakeProps = {
   opportunityId?: string
   initialMemory?:
@@ -208,6 +221,14 @@ export function OpportunityManualWhatsAppIntake({
   const [isSavingMemory, setIsSavingMemory] =
     useState(false)
 
+  const [
+    contextReconciliation,
+    setContextReconciliation,
+  ] =
+    useState<R2ContextReconciliation | null>(
+      null,
+    )
+
   const commercialGoal =
     analysis && resolvedApproachType
       ? buildNextGoal({
@@ -228,7 +249,9 @@ export function OpportunityManualWhatsAppIntake({
         })
       : null
 
-  async function handleAnalyze() {
+  async function handleAnalyze(
+    confirmContext = false,
+  ) {
     let nextAnalysis =
       analyzeManualWhatsAppMessage(
         incomingMessage,
@@ -268,16 +291,53 @@ export function OpportunityManualWhatsAppIntake({
               },
               body: JSON.stringify({
                 incomingMessage,
+                ...(confirmContext
+                  ? {
+                      contextDecision:
+                        "CONFIRM_CONTEXT",
+                    }
+                  : {}),
               }),
             },
           )
         const responseBody =
           await response.json() as {
             error?: string
-            analysis?: ManualWhatsAppAnalysis
+            analysis?:
+              ManualWhatsAppAnalysis | null
             reply?: string | null
-            intelligence?: R2IntelligenceResult
+            intelligence?:
+              R2IntelligenceResult | null
+            reconciliation?:
+              R2ContextReconciliation
           }
+
+        if (
+          response.ok &&
+          responseBody.reconciliation &&
+          responseBody
+            .reconciliation
+            .status !==
+              "CONSISTENT"
+        ) {
+          const reconciliation =
+            responseBody.reconciliation
+
+          setContextReconciliation(
+            reconciliation,
+          )
+          setAnalysis(null)
+          setReply("")
+          setIntelligence(null)
+
+          setIncomingMessage("")
+
+          setMemoryStatus(
+            `${reconciliation.reason} Revise ou complemente o contexto e confirme para o R2 recalcular.`,
+          )
+          setIsSavingMemory(false)
+          return
+        }
 
         if (
           !response.ok ||
@@ -296,6 +356,9 @@ export function OpportunityManualWhatsAppIntake({
           responseBody.reply ?? null
         setIntelligence(
           responseBody.intelligence,
+        )
+        setContextReconciliation(
+          null,
         )
         setAnalysis(nextAnalysis)
         setReply(nextReply ?? "")
@@ -328,6 +391,7 @@ export function OpportunityManualWhatsAppIntake({
     setCopyStatus("")
     setMemoryStatus("")
     setIntelligence(null)
+    setContextReconciliation(null)
     setIsSavingMemory(false)
   }
 
@@ -452,7 +516,9 @@ export function OpportunityManualWhatsAppIntake({
         className="mt-5 block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]"
       >
         {isReactivation
-          ? "\u00daltimas mensagens ou resumo do hist\u00f3rico"
+          ? contextReconciliation
+            ? "Correção / complemento do consultor"
+            : "Últimas mensagens ou resumo do histórico"
           : "Mensagem recebida do cliente"}
       </label>
       <textarea
@@ -471,11 +537,58 @@ export function OpportunityManualWhatsAppIntake({
         }}
         placeholder={
           isReactivation
-            ? "Ex.: O cliente buscava um Corolla. Tentei marcar uma reuni\u00e3o, mas ele n\u00e3o respondeu mais. Meu \u00faltimo contato foi em 23/04/2026.\n\nOu use: Cliente: ... / Consultor: ..."
+            ? contextReconciliation
+              ? "Escreva a versão correta e completa do contexto. Ex.: Já conversei com o cliente, apresentei a estratégia e depois ele parou de responder."
+              : "Ex.: O cliente buscava um Corolla. Tentei marcar uma reunião, mas ele não respondeu mais. Meu último contato foi em 23/04/2026.\n\nOu use: Cliente: ... / Consultor: ..."
             : "Cole aqui a mensagem recebida no WhatsApp"
         }
         className="mt-3 w-full resize-y rounded-2xl border border-white/[0.10] bg-[#0F1412] px-4 py-3 text-sm leading-6 text-[#F5F7FA] outline-none transition focus:border-[#43A972]/55 focus:ring-4 focus:ring-[#2F8F5B]/10"
       />
+
+      {contextReconciliation ? (
+        <div
+          className="mt-3 rounded-2xl border border-[#D9A441]/35 bg-[#D9A441]/[0.08] p-4"
+          data-testid="r2-context-reconciliation"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#F4C96B]">
+            R2 precisa confirmar o contexto
+          </p>
+
+          <p className="mt-2 text-sm leading-6 text-[var(--gorila-text)]">
+            {contextReconciliation.reason}
+          </p>
+
+          {contextReconciliation.savedContext ? (
+            <div className="mt-3 rounded-xl border border-[var(--gorila-line)] bg-[var(--gorila-surface)] p-3">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]">
+                Contexto que já estava salvo
+              </p>
+
+              <p className="mt-2 whitespace-pre-wrap text-sm leading-6">
+                {contextReconciliation.savedContext}
+              </p>
+            </div>
+          ) : null}
+
+          {contextReconciliation.currentObservation ? (
+            <div className="mt-3 rounded-xl border border-[var(--gorila-line)] bg-[var(--gorila-surface)] p-3">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]">
+                Nova observação que gerou dúvida
+              </p>
+
+              <p className="mt-2 whitespace-pre-wrap text-sm leading-6">
+                {contextReconciliation.currentObservation}
+              </p>
+            </div>
+          ) : null}
+
+          <p className="mt-3 text-xs leading-5 text-[var(--gorila-text-muted)]">
+            O R2 não vai preparar nenhuma mensagem enquanto esse conflito estiver aberto.
+            Escreva a versão correta no campo acima.
+            A confirmação do consultor terá prioridade sobre a interpretação automática do R2.
+          </p>
+        </div>
+      ) : null}
 
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button
@@ -484,14 +597,21 @@ export function OpportunityManualWhatsAppIntake({
             !incomingMessage.trim() ||
             isSavingMemory
           }
-          onClick={handleAnalyze}
+          onClick={() =>
+            void handleAnalyze(
+              contextReconciliation !==
+                null,
+            )
+          }
           className="inline-flex min-h-10 items-center justify-center rounded-xl border border-[#43A972]/30 bg-[#2F8F5B]/15 px-4 text-xs font-semibold text-[#6FD39B] transition hover:-translate-y-0.5 hover:border-[#43A972]/45 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
         >
           {isSavingMemory
             ? "Analisando e salvando..."
-            : isReactivation
-              ? "Analisar contexto"
-              : "Analisar mensagem"}
+            : contextReconciliation
+              ? "Confirmar contexto e recalcular"
+              : isReactivation
+                ? "Analisar contexto"
+                : "Analisar mensagem"}
         </button>
         <button
           type="button"

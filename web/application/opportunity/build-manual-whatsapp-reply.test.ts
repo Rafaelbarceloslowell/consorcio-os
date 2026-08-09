@@ -104,6 +104,37 @@ function build({
     )
 
     it(
+      "retoma estrategia apresentada sem voltar a descoberta do zero",
+      () => {
+        const prepared =
+          build({
+            message:
+              "O objetivo era investimento. Já apresentei o produto e fiz duas propostas com cartas de 500 mil, uma na integral e outra na meia parcela, prazo de 220 meses. Depois disso ele não me respondeu mais.",
+            approachType:
+              "reactivation",
+            contactName:
+              "Laucione Lira",
+          })
+
+        expect(prepared).toContain(
+          "estratégia que te apresentei",
+        )
+
+        expect(prepared).toContain(
+          "ficou alguma dúvida",
+        )
+
+        expect(prepared).not.toContain(
+          "imóvel, veículo",
+        )
+
+        expect(prepared).not.toContain(
+          "ainda não conseguimos conversar",
+        )
+      },
+    )
+
+    it(
       "continua o fluxo Seals quando o novo lead responde imovel",
       () => {
         expect(

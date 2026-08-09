@@ -96,6 +96,43 @@ describe(
     )
 
     it(
+      "nao confunde estrategia apresentada com cliente que nunca respondeu",
+      () => {
+        const analysis =
+          analyzeManualWhatsAppMessage(
+            "O objetivo era investimento. Já apresentei o produto e fiz duas propostas com cartas de 500 mil, uma na parcela integral e outra na meia parcela, prazo de 220 meses. Depois disso ele não me respondeu mais.",
+            {
+              approachType:
+                "reactivation",
+            },
+          )
+
+        expect(
+          analysis,
+        ).toMatchObject({
+          intent:
+            "stopped_replying",
+          stage:
+            "follow_up",
+          context: {
+            customerInterest:
+              "investimento",
+            previousConsultantAction:
+              "estratégia comercial apresentada",
+            customerResponseState:
+              "stopped_replying",
+          },
+        })
+
+        expect(
+          analysis?.recommendedAction,
+        ).toContain(
+          "não repita perguntas",
+        )
+      },
+    )
+
+    it(
       "analisa somente falas do cliente quando o contexto usa marcadores de papel",
       () => {
         expect(

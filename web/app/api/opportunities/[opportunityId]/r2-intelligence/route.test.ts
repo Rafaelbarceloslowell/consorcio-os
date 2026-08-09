@@ -12,6 +12,8 @@ const mocks = vi.hoisted(
     findJourney: vi.fn(),
     createEvent: vi.fn(),
     upsertMemory: vi.fn(),
+    updateReactivationContext:
+      vi.fn(),
     transaction: vi.fn(),
     listCandidates: vi.fn(),
     findAllEvents: vi.fn(),
@@ -98,6 +100,12 @@ function request(
 function journey(
   consultantId = "consultant-1",
   approachType = "NEW",
+  reactivationContexts:
+    Array<{
+      id: string
+      contextSummary: string | null
+      contextState: string
+    }> = [],
 ) {
   return {
     id: "journey-1",
@@ -112,6 +120,7 @@ function journey(
       desiredTermMonths: 180,
     },
     client: null,
+    reactivationContexts,
     nextBestActions: [
       {
         id: "nba-1",
@@ -161,6 +170,10 @@ describe(
           commercialConversationMemory: {
             upsert:
               mocks.upsertMemory,
+          },
+          reactivationContext: {
+            update:
+              mocks.updateReactivationContext,
           },
           commercialEvent: {
             create:
@@ -306,14 +319,63 @@ describe(
 
         expect(response.status).toBe(200)
         expect(body.reply).toBeNull()
+        expect(body.intelligence).toBeNull()
+
         expect(
-          body.intelligence.confidence,
-        ).toBe("INSUFFICIENT_DATA")
-        expect(
-          body.intelligence.missingData,
-        ).toContain(
-          "recentConversationContext",
+          body.reconciliation,
+        ).toMatchObject({
+          status:
+            "INSUFFICIENT",
+        })
+      },
+    )
+
+    it(
+      "bloqueia sugestao quando observacao contradiz contexto salvo",
+      async () => {
+        mocks.findJourney.mockResolvedValue(
+          journey(
+            "consultant-1",
+            "REACTIVATION",
+            [
+              {
+                id:
+                  "reactivation-context-1",
+                contextSummary:
+                  "Já apresentei o produto e fiz duas propostas. Depois disso ele não me respondeu mais.",
+                contextState:
+                  "PROVIDED",
+              },
+            ],
+          ),
         )
+
+        const response =
+          await POST(
+            request(
+              "Ele não me respondeu.",
+            ),
+            context,
+          )
+
+        const body =
+          await response.json()
+
+        expect(response.status).toBe(200)
+
+        expect(
+          body.reconciliation,
+        ).toMatchObject({
+          status:
+            "CONFLICT",
+        })
+
+        expect(body.reply).toBeNull()
+        expect(body.intelligence).toBeNull()
+
+        expect(
+          mocks.createEvent,
+        ).not.toHaveBeenCalled()
       },
     )
 

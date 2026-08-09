@@ -86,6 +86,40 @@ function buildStoppedReplyingReply(
   const lastContactDate =
     analysis.context?.lastContactDate ??
     null
+  const previousConsultantAction =
+    analysis.context?.previousConsultantAction ??
+    null
+
+  const hasPresentedCommercialStrategy =
+    previousConsultantAction ===
+      "estratégia comercial apresentada" ||
+    previousConsultantAction ===
+      "proposta enviada" ||
+    previousConsultantAction ===
+      "condição ou simulação enviada"
+
+  if (hasPresentedCommercialStrategy) {
+    const actionReference =
+      previousConsultantAction ===
+        "estratégia comercial apresentada"
+        ? "a estratégia que te apresentei"
+        : previousConsultantAction ===
+            "proposta enviada"
+          ? "a proposta que te enviei"
+          : previousConsultantAction ===
+              "condição ou simulação enviada"
+            ? "a condição ou simulação que te enviei"
+            : previousConsultantAction ===
+                "tentativa de agendar uma reunião"
+              ? "nossa tentativa de combinar uma conversa"
+              : "nosso último ponto comercial"
+
+    if (customerInterest) {
+      return `Oi, ${name}, tudo bem? Retomando ${actionReference} para ${customerInterest}, queria entender uma coisa antes de te mandar qualquer atualização: ficou alguma dúvida sobre o que montamos ou foi mais uma questão de momento para você?`
+    }
+
+    return `Oi, ${name}, tudo bem? Retomando ${actionReference}, queria entender uma coisa antes de te mandar qualquer atualização: ficou alguma dúvida sobre o que montamos ou foi mais uma questão de momento para você?`
+  }
 
   if (
     customerInterest &&

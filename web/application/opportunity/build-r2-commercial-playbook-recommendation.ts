@@ -698,7 +698,46 @@ function buildBaseR2CommercialPlaybookRecommendation({
         ],
       })
 
-    case "stopped_replying":
+    case "stopped_replying": {
+      const previousConsultantAction =
+        analysis.context
+          ?.previousConsultantAction ??
+        null
+
+      const hasPresentedCommercialStrategy =
+        previousConsultantAction ===
+          "estratégia comercial apresentada" ||
+        previousConsultantAction ===
+          "proposta enviada" ||
+        previousConsultantAction ===
+          "condição ou simulação enviada"
+
+      if (hasPresentedCommercialStrategy) {
+        return buildRecommendation({
+          primaryTechnique:
+            "diagnostic_selling",
+          supportingTechniques: [
+            "rapport",
+            "sandler_selling",
+            "objection_handling",
+            "consultative_closing",
+          ],
+          objective:
+            `Entender o que interrompeu a continuidade após a ${previousConsultantAction}, preservando tudo o que já foi descoberto.`,
+          rationale:
+            "Já houve avanço comercial antes do silêncio. A retomada deve continuar do ponto real em que a conversa parou, sem voltar à descoberta do zero.",
+          consultantInstruction:
+            "Reconheça o ponto já alcançado e faça uma pergunta curta que ajude a separar dúvida, momento, condição financeira ou outra trava real. Não reapresente tudo antes de entender o motivo do silêncio.",
+          avoid: [
+            "Voltar à descoberta do zero.",
+            "Perguntar novamente um objetivo já conhecido.",
+            "Fingir que nunca houve conversa.",
+            "Reenviar proposta ou tabela sem entender o que travou.",
+            "Criar urgência ou consequência não confirmada.",
+          ],
+        })
+      }
+
       return buildRecommendation({
         primaryTechnique:
           "rapport",
@@ -710,7 +749,7 @@ function buildBaseR2CommercialPlaybookRecommendation({
         objective:
           "Atualizar o momento do cliente e recuperar a conversa pelo último contexto real.",
         rationale:
-          "Existe histórico, mas o cliente interrompeu a conversa; primeiro é necessário confirmar se o projeto continua ativo.",
+          "Existe histórico, mas o cliente interrompeu a conversa; primeiro é necessário atualizar o momento sem fabricar contexto.",
         consultantInstruction:
           "Retome pelo objetivo conhecido. Use FOMO ético apenas se houver consequência real confirmada e só proponha reunião depois da resposta.",
         avoid: [
@@ -719,6 +758,7 @@ function buildBaseR2CommercialPlaybookRecommendation({
           "Repetir a tentativa anterior sem atualizar o contexto.",
         ],
       })
+    }
 
     case "not_interested":
       return buildRecommendation({

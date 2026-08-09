@@ -14,6 +14,10 @@ import {
   analyzeManualWhatsAppMessage,
 } from "@/application/opportunity/analyze-manual-whatsapp-message"
 
+import {
+  reconcileReactivationContext,
+} from "@/application/opportunity/reconcile-reactivation-context"
+
 import type {
   ManualWhatsAppAnalysis,
 } from "@/application/opportunity/analyze-manual-whatsapp-message"
@@ -181,6 +185,9 @@ export async function POST(
   }
 
   let incomingMessage = ""
+  let contextDecision:
+    | "CONFIRM_CONTEXT"
+    | null = null
 
   try {
     const body =
@@ -192,6 +199,12 @@ export async function POST(
         "string"
         ? body.incomingMessage.trim()
         : ""
+
+    contextDecision =
+      body.contextDecision ===
+        "CONFIRM_CONTEXT"
+        ? "CONFIRM_CONTEXT"
+        : null
   } catch {
     return json(
       { error: "O corpo da análise é inválido." },
@@ -235,6 +248,17 @@ export async function POST(
         client: {
           select: {
             name: true,
+          },
+        },
+        reactivationContexts: {
+          orderBy: {
+            providedAt: "desc",
+          },
+          take: 1,
+          select: {
+            id: true,
+            contextSummary: true,
+            contextState: true,
           },
         },
         nextBestActions: {
@@ -291,9 +315,48 @@ export async function POST(
       "REACTIVATION"
       ? "reactivation" as const
       : "new" as const
+  const latestReactivationContext =
+    journey.reactivationContexts[0] ??
+    null
+
+  const reconciliation =
+    approachType ===
+      "reactivation"
+      ? reconcileReactivationContext({
+          savedContext:
+            latestReactivationContext
+              ?.contextSummary ??
+            null,
+          currentObservation:
+            incomingMessage,
+          consultantConfirmed:
+            contextDecision ===
+            "CONFIRM_CONTEXT",
+        })
+      : null
+
+  if (
+    reconciliation &&
+    reconciliation.status !==
+      "CONSISTENT"
+  ) {
+    return json({
+      reconciliation,
+      analysis: null,
+      reply: null,
+      intelligence: null,
+      memorySaved: false,
+    })
+  }
+
+  const effectiveIncomingMessage =
+    reconciliation
+      ?.effectiveContext ??
+    incomingMessage
+
   const analysis =
     analyzeManualWhatsAppMessage(
-      incomingMessage,
+      effectiveIncomingMessage,
       { approachType },
     )
 
@@ -363,7 +426,8 @@ export async function POST(
   const reply =
     buildManualWhatsAppReply({
       contactName,
-      incomingMessage,
+      incomingMessage:
+        effectiveIncomingMessage,
       approachType,
       analysis,
     })
@@ -384,6 +448,29 @@ export async function POST(
 
   await prisma.$transaction(
     async (transaction) => {
+      if (
+        approachType ===
+          "reactivation" &&
+        latestReactivationContext &&
+        reconciliation?.status ===
+          "CONSISTENT"
+      ) {
+        await transaction
+          .reactivationContext
+          .update({
+            where: {
+              id:
+                latestReactivationContext.id,
+            },
+            data: {
+              contextSummary:
+                effectiveIncomingMessage,
+              providedAt:
+                now,
+            },
+          })
+      }
+
       await transaction
         .commercialConversationMemory
         .upsert({
@@ -405,7 +492,7 @@ export async function POST(
             lastIntent:
               analysis.intent,
             lastIncomingMessage:
-              incomingMessage,
+              effectiveIncomingMessage,
             lastSuggestedReply:
               preparedReply,
             analyzedAt: now,
@@ -413,7 +500,10 @@ export async function POST(
               `Último contexto recebido no estágio ${conversationStage}; objetivo atual ${conversationGoal}.`,
             factProvenance: {
               lastIncomingMessage:
-                "manual_context",
+                contextDecision ===
+                  "CONFIRM_CONTEXT"
+                  ? "consultant_confirmation"
+                  : "manual_context",
               lastSuggestedReply:
                 "system_event",
             },
@@ -431,7 +521,7 @@ export async function POST(
             lastIntent:
               analysis.intent,
             lastIncomingMessage:
-              incomingMessage,
+              effectiveIncomingMessage,
             lastSuggestedReply:
               preparedReply,
             analyzedAt: now,
@@ -439,7 +529,10 @@ export async function POST(
               `Último contexto recebido no estágio ${conversationStage}; objetivo atual ${conversationGoal}.`,
             factProvenance: {
               lastIncomingMessage:
-                "manual_context",
+                contextDecision ===
+                  "CONFIRM_CONTEXT"
+                  ? "consultant_confirmation"
+                  : "manual_context",
               lastSuggestedReply:
                 "system_event",
             },
@@ -490,6 +583,7 @@ export async function POST(
   )
 
   return json({
+    reconciliation,
     analysis,
     reply: preparedReply,
     intelligence,
