@@ -168,7 +168,10 @@ export function OpportunityDetails({
 
           {opportunity.status === "open" ? (
             <div className="border-b border-[var(--gorila-line)] px-6 py-6 sm:px-8">
-              <OpportunityExecutionCard opportunityId={opportunity.id} />
+              <OpportunityExecutionCard
+                key={opportunity.contactContext?.approachType ?? "unclassified"}
+                opportunityId={opportunity.id}
+              />
             </div>
           ) : null}
 
@@ -207,8 +210,15 @@ export function OpportunityDetails({
 
           {opportunity.suggestedMessage ? (
             <OpportunitySuggestedMessage
+              key={opportunity.contactContext?.approachType ?? "unclassified"}
               initialMessage={
                 opportunity.suggestedMessage
+              }
+              gateOpportunityId={
+                opportunity.status === "open" &&
+                opportunity.contactContext?.approachType === "reactivation"
+                  ? opportunity.id
+                  : null
               }
             />
           ) : null}

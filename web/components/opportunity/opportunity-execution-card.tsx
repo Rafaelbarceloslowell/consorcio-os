@@ -78,6 +78,9 @@ export function OpportunityExecutionCard({ opportunityId }: Readonly<{ opportuni
       setView(body)
       setContext("")
       setContextMode(null)
+      window.dispatchEvent(new CustomEvent("r2-execution-updated", {
+        detail: { opportunityId },
+      }))
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Não foi possível registrar a ação.")
     } finally {

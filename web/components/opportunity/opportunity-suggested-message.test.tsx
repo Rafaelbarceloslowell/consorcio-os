@@ -178,5 +178,38 @@ describe(
         ).toBeDisabled()
       },
     )
+
+    it(
+      "libera a mensagem quando o contexto do ciclo atual resolve o gate",
+      async () => {
+        const fetchMock = vi.fn()
+          .mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({ reactivation: { canRecommendMessage: false } }),
+          })
+          .mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({ reactivation: { canRecommendMessage: true } }),
+          })
+        vi.stubGlobal("fetch", fetchMock)
+
+        render(
+          <OpportunitySuggestedMessage
+            initialMessage={initialMessage}
+            gateOpportunityId="opportunity-1"
+          />,
+        )
+
+        await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1))
+        expect(screen.queryByRole("textbox", { name: "Texto da mensagem" })).not.toBeInTheDocument()
+
+        window.dispatchEvent(new CustomEvent("r2-execution-updated", {
+          detail: { opportunityId: "opportunity-1" },
+        }))
+
+        expect(await screen.findByRole("textbox", { name: "Texto da mensagem" })).toHaveValue(initialMessage)
+        expect(fetchMock).toHaveBeenCalledTimes(2)
+      },
+    )
   },
 )

@@ -1,20 +1,65 @@
 "use client"
 
 import {
+  useCallback,
+  useEffect,
   useState,
 } from "react"
 
 type OpportunitySuggestedMessageProps = {
   initialMessage: string
+  gateOpportunityId?: string | null
 }
 
 export function OpportunitySuggestedMessage({
   initialMessage,
+  gateOpportunityId = null,
 }: OpportunitySuggestedMessageProps) {
   const [message, setMessage] =
     useState(initialMessage)
   const [copyFeedback, setCopyFeedback] =
     useState<string | null>(null)
+  const [gateAllowsMessage, setGateAllowsMessage] =
+    useState(gateOpportunityId === null)
+
+  const loadExecutionGate = useCallback(async (): Promise<void> => {
+    if (!gateOpportunityId) {
+      setGateAllowsMessage(true)
+      return
+    }
+
+    setGateAllowsMessage(false)
+
+    try {
+      const response = await fetch(
+        `/api/opportunities/${encodeURIComponent(gateOpportunityId)}/execution`,
+        { cache: "no-store" },
+      )
+      const body = await response.json() as {
+        reactivation?: { canRecommendMessage?: boolean }
+      }
+
+      setGateAllowsMessage(
+        response.ok && body.reactivation?.canRecommendMessage === true,
+      )
+    } catch {
+      setGateAllowsMessage(false)
+    }
+  }, [gateOpportunityId])
+
+  useEffect(() => {
+    void loadExecutionGate()
+
+    function handleExecutionUpdate(event: Event): void {
+      const detail = (event as CustomEvent<{ opportunityId?: string }>).detail
+      if (detail?.opportunityId === gateOpportunityId) {
+        void loadExecutionGate()
+      }
+    }
+
+    window.addEventListener("r2-execution-updated", handleExecutionUpdate)
+    return () => window.removeEventListener("r2-execution-updated", handleExecutionUpdate)
+  }, [gateOpportunityId, loadExecutionGate])
 
   async function copyMessage(): Promise<void> {
     setCopyFeedback(null)
@@ -38,6 +83,10 @@ export function OpportunitySuggestedMessage({
         "Não foi possível copiar automaticamente. Selecione o texto e copie manualmente.",
       )
     }
+  }
+
+  if (!gateAllowsMessage) {
+    return null
   }
 
   return (
