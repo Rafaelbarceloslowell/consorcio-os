@@ -409,6 +409,15 @@ export async function POST(
             lastSuggestedReply:
               preparedReply,
             analyzedAt: now,
+            narrativeSummary:
+              `Último contexto recebido no estágio ${conversationStage}; objetivo atual ${conversationGoal}.`,
+            factProvenance: {
+              lastIncomingMessage:
+                "manual_context",
+              lastSuggestedReply:
+                "system_event",
+            },
+            observedAt: now,
           },
           update: {
             stage:
@@ -426,6 +435,15 @@ export async function POST(
             lastSuggestedReply:
               preparedReply,
             analyzedAt: now,
+            narrativeSummary:
+              `Último contexto recebido no estágio ${conversationStage}; objetivo atual ${conversationGoal}.`,
+            factProvenance: {
+              lastIncomingMessage:
+                "manual_context",
+              lastSuggestedReply:
+                "system_event",
+            },
+            observedAt: now,
           },
         })
 

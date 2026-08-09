@@ -91,6 +91,14 @@ export class CommercialConversationMemoryMapper {
       analyzedAt:
         raw.analyzedAt?.toISOString() ??
         null,
+      structuredFacts:
+        raw.structuredFacts as Readonly<Record<string, unknown>>,
+      narrativeSummary:
+        raw.narrativeSummary,
+      factProvenance:
+        raw.factProvenance as Readonly<Record<string, unknown>>,
+      observedAt:
+        raw.observedAt?.toISOString() ?? null,
       createdAt:
         raw.createdAt.toISOString(),
       updatedAt:

@@ -21,6 +21,10 @@ import {
 import {
   prisma,
 } from "@/infrastructure/prisma/client"
+
+import {
+  scheduleMeetingExecution,
+} from "@/application/execution/r2-execution-service"
 import {
   getWorkspaceSlug,
 } from "@/lib/workspace/workspace-slug"
@@ -374,6 +378,14 @@ export async function createAgendaCommitmentAction(
 
   let input: ParsedAgendaInput
 
+  let meetingExecution: {
+    workspaceId: string
+    opportunityId: string
+    consultantId: string
+    meetingId: string
+    startAt: Date
+  } | null = null
+
   try {
     input =
       parseInput(values)
@@ -489,6 +501,8 @@ export async function createAgendaCommitmentAction(
                     lead.id,
                   clientId:
                     null,
+                  opportunityId:
+                    journey?.id ?? null,
                 },
                 select: {
                   id: true,
@@ -560,6 +574,8 @@ export async function createAgendaCommitmentAction(
                   lead.id,
                 clientId:
                   null,
+                opportunityId:
+                  journey?.id ?? null,
               },
               select: {
                 id: true,
@@ -567,6 +583,14 @@ export async function createAgendaCommitmentAction(
             })
 
         if (journey) {
+          meetingExecution = {
+            workspaceId: workspace.id,
+            opportunityId: journey.id,
+            consultantId: lead.consultantId,
+            meetingId: meeting.id,
+            startAt: input.startAt,
+          }
+
           await transaction
             .commercialEvent
             .create({
@@ -603,6 +627,10 @@ export async function createAgendaCommitmentAction(
         }
       },
     )
+
+    if (meetingExecution) {
+      await scheduleMeetingExecution(meetingExecution)
+    }
   }
   catch (error) {
     if (

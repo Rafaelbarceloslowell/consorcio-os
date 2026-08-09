@@ -16,6 +16,9 @@ import {
 import {
   UpcomingTasks,
 } from "@/components/dashboard/upcoming-tasks"
+import {
+  R2DailyMission,
+} from "@/components/dashboard/r2-daily-mission"
 import type {
   DashboardData,
 } from "@/types/dashboard"
@@ -65,6 +68,8 @@ export function DashboardContent({
             gorilaR2={gorilaR2}
             behavior={gorilaR2Behavior}
           />
+
+          <R2DailyMission />
 
           <MetricsGrid
             metrics={metrics}

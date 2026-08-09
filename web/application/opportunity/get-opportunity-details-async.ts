@@ -283,6 +283,14 @@ export class GetOpportunityDetailsAsync {
                   conversationMemory.analyzedAt,
                 updatedAt:
                   conversationMemory.updatedAt,
+                narrativeSummary:
+                  conversationMemory.narrativeSummary ?? null,
+                structuredFacts:
+                  conversationMemory.structuredFacts ?? {},
+                factProvenance:
+                  conversationMemory.factProvenance ?? {},
+                observedAt:
+                  conversationMemory.observedAt ?? null,
               }
             : null,
         suggestedMessage,

@@ -1087,8 +1087,16 @@ export async function closeProposalSaleAction(
         await transaction.task.updateMany({
           where: {
             workspaceId,
-            proposalId:
-              proposal.id,
+            OR: [
+              {
+                proposalId:
+                  proposal.id,
+              },
+              {
+                opportunityId:
+                  journey.id,
+              },
+            ],
             status: {
               in: [
                 TaskStatus.PENDING,
@@ -1098,8 +1106,11 @@ export async function closeProposalSaleAction(
           },
           data: {
             status:
-              TaskStatus.COMPLETED,
-            completedAt: now,
+              TaskStatus.CANCELLED,
+            cancelledAt: now,
+            supersededAt: now,
+            reason:
+              "Venda concluída; toda abordagem aberta foi encerrada.",
           },
         })
       },

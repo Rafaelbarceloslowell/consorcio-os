@@ -22,6 +22,7 @@ export type AgendaMeetingItem = {
   relatedName: string
   location: string | null
   meetingUrl: string | null
+  liveBriefing?: string | null
   opportunityHref: string | null
 }
 

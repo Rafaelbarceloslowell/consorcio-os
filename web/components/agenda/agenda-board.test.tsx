@@ -64,6 +64,8 @@ describe("AgendaBoard", () => {
               location: null,
               meetingUrl:
                 "https://meet.example.com/test",
+              liveBriefing:
+                "Cliente atualizou o crédito desejado para R$ 350 mil.",
               opportunityHref:
                 "/opportunities/journey-2",
             },
@@ -102,6 +104,11 @@ describe("AgendaBoard", () => {
       "href",
       "https://meet.example.com/test",
     )
+    expect(
+      screen.getByText(
+        "Cliente atualizou o crédito desejado para R$ 350 mil.",
+      ),
+    ).toBeInTheDocument()
   })
 
   it("exibe estados vazios", () => {

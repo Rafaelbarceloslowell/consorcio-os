@@ -143,6 +143,20 @@ export default async function AgendaPage() {
           endAt: true,
           location: true,
           meetingUrl: true,
+          opportunity: {
+            select: {
+              id: true,
+              title: true,
+              conversationMemory: {
+                select: {
+                  narrativeSummary: true,
+                  lastIncomingMessage: true,
+                  goal: true,
+                  observedAt: true,
+                },
+              },
+            },
+          },
           lead: {
             select: {
               name: true,
@@ -240,6 +254,7 @@ export default async function AgendaPage() {
           meeting.lead ??
           meeting.client
         const journey =
+          meeting.opportunity ??
           meeting.lead
             ?.commercialJourneys[0] ??
           meeting.client
@@ -277,6 +292,14 @@ export default async function AgendaPage() {
             meeting.location,
           meetingUrl:
             meeting.meetingUrl,
+          liveBriefing:
+            meeting.opportunity
+              ?.conversationMemory
+              ?.narrativeSummary ??
+            meeting.opportunity
+              ?.conversationMemory
+              ?.lastIncomingMessage ??
+            null,
           opportunityHref:
             journey
               ? `/opportunities/${encodeURIComponent(

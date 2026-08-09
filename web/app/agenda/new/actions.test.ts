@@ -17,6 +17,7 @@ const mocks = vi.hoisted(() => ({
   createTask: vi.fn(),
   createMeeting: vi.fn(),
   createEvent: vi.fn(),
+  scheduleMeetingExecution: vi.fn(),
   revalidatePath: vi.fn(),
   redirect: vi.fn(() => {
     throw new Error("NEXT_REDIRECT")
@@ -45,6 +46,14 @@ vi.mock("next/cache", () => ({
 vi.mock("next/navigation", () => ({
   redirect: mocks.redirect,
 }))
+
+vi.mock(
+  "@/application/execution/r2-execution-service",
+  () => ({
+    scheduleMeetingExecution:
+      mocks.scheduleMeetingExecution,
+  }),
+)
 
 import {
   createAgendaCommitmentAction,
@@ -162,6 +171,8 @@ describe(
         .mockResolvedValue({
           id: "event-1",
         })
+      mocks.scheduleMeetingExecution
+        .mockResolvedValue(undefined)
       mocks.transaction
         .mockImplementation(
           async (
@@ -281,6 +292,21 @@ describe(
                 }),
             }),
         })
+
+        expect(
+          mocks.scheduleMeetingExecution,
+        ).toHaveBeenCalledWith(
+          expect.objectContaining({
+            workspaceId:
+              "workspace-1",
+            opportunityId:
+              "journey-1",
+            consultantId:
+              "consultant-1",
+            meetingId:
+              "meeting-1",
+          }),
+        )
       },
     )
   },

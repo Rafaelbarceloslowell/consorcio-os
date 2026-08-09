@@ -20,6 +20,15 @@ import {
   getWorkspaceSlug,
 } from "@/lib/workspace/workspace-slug"
 
+import {
+  registerMeetingNoShowExecution,
+  scheduleMeetingExecution,
+} from "@/application/execution/r2-execution-service"
+
+import {
+  MEETING_NO_SHOW_GRACE_MINUTES,
+} from "@/application/execution/commercial-execution-policy"
+
 const WORKSPACE_SLUG =
   getWorkspaceSlug()
 
@@ -390,6 +399,12 @@ export async function completeAgendaMeetingAction(
   const workspaceId =
     await resolveWorkspaceId()
   const now = new Date()
+  let noShowExecution: {
+    workspaceId: string
+    opportunityId: string
+    consultantId: string
+    meetingId: string
+  } | null = null
 
   await prisma.$transaction(
     async (transaction: Prisma.TransactionClient) => {
@@ -409,12 +424,28 @@ export async function completeAgendaMeetingAction(
               consultantId: true,
               leadId: true,
               clientId: true,
+              opportunityId: true,
+              endAt: true,
             },
           })
 
       if (!meeting) {
         throw new Error(
           "A reunião não está disponível para conclusão.",
+        )
+      }
+
+      const isNoShow =
+        outcome === MeetingOutcome.NO_ANSWER
+
+      if (
+        isNoShow &&
+        now.getTime() <
+          meeting.endAt.getTime() +
+            MEETING_NO_SHOW_GRACE_MINUTES * 60_000
+      ) {
+        throw new Error(
+          `Aguarde ${MEETING_NO_SHOW_GRACE_MINUTES} minutos após o horário da reunião antes de registrar não comparecimento.`,
         )
       }
 
@@ -426,7 +457,9 @@ export async function completeAgendaMeetingAction(
           },
           data: {
             status:
-              MeetingStatus.COMPLETED,
+              isNoShow
+                ? MeetingStatus.NO_SHOW
+                : MeetingStatus.COMPLETED,
             outcome,
             notes,
           },
@@ -453,7 +486,9 @@ export async function completeAgendaMeetingAction(
           meeting.consultantId,
         payload: {
           category:
-            "agenda_meeting_completed",
+            isNoShow
+              ? "agenda_meeting_no_show"
+              : "agenda_meeting_completed",
           meetingId:
             meeting.id,
           title:
@@ -465,8 +500,29 @@ export async function completeAgendaMeetingAction(
         },
         occurredAt: now,
       })
+
+      if (
+        isNoShow &&
+        meeting.opportunityId
+      ) {
+        noShowExecution = {
+          workspaceId,
+          opportunityId:
+            meeting.opportunityId,
+          consultantId:
+            meeting.consultantId,
+          meetingId:
+            meeting.id,
+        }
+      }
     },
   )
+
+  if (noShowExecution) {
+    await registerMeetingNoShowExecution(
+      noShowExecution,
+    )
+  }
 
   revalidatePath("/agenda")
   revalidatePath("/")
@@ -518,24 +574,48 @@ export async function rescheduleAgendaMeetingAction(
   const workspaceId =
     await resolveWorkspaceId()
 
-  const updated =
-    await prisma.meeting.updateMany({
+  const meeting =
+    await prisma.meeting.findFirst({
       where: {
         id: meetingId,
         workspaceId,
         status:
           MeetingStatus.SCHEDULED,
       },
-      data: {
-        startAt,
-        endAt,
+      select: {
+        id: true,
+        opportunityId: true,
+        consultantId: true,
       },
     })
 
-  if (updated.count !== 1) {
+  if (!meeting) {
     throw new Error(
       "A reunião não está disponível para remarcação.",
     )
+  }
+
+  await prisma.meeting.update({
+    where: {
+      id: meeting.id,
+    },
+    data: {
+      startAt,
+      endAt,
+    },
+  })
+
+  if (meeting.opportunityId) {
+    await scheduleMeetingExecution({
+      workspaceId,
+      opportunityId:
+        meeting.opportunityId,
+      consultantId:
+        meeting.consultantId,
+      meetingId:
+        meeting.id,
+      startAt,
+    })
   }
 
   revalidatePath("/agenda")

@@ -38,6 +38,10 @@ import {
   OpportunityR2Intelligence,
 } from "./opportunity-r2-intelligence"
 
+import {
+  OpportunityExecutionCard,
+} from "./opportunity-execution-card"
+
 import type {
   R2IntelligenceResult,
 } from "@/application/r2/resolve-r2-intelligence"
@@ -161,6 +165,12 @@ export function OpportunityDetails({
               </div>
             </div>
           </header>
+
+          {opportunity.status === "open" ? (
+            <div className="border-b border-[var(--gorila-line)] px-6 py-6 sm:px-8">
+              <OpportunityExecutionCard opportunityId={opportunity.id} />
+            </div>
+          ) : null}
 
           {opportunity.origin === "lead" ? (
             <OpportunityApproachSelector

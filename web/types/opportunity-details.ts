@@ -69,6 +69,10 @@ export type OpportunityConversationMemoryView = {
   lastSuggestedReply: string | null
   analyzedAt: string | null
   updatedAt: string
+  narrativeSummary?: string | null
+  structuredFacts?: Readonly<Record<string, unknown>>
+  factProvenance?: Readonly<Record<string, unknown>>
+  observedAt?: string | null
 }
 
 export type OpportunityContactContextView = {

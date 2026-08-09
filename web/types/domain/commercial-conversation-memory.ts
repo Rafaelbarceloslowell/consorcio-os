@@ -36,4 +36,8 @@ export type CommercialConversationMemory = {
   lastIncomingMessage: string | null
   lastSuggestedReply: string | null
   analyzedAt: string | null
+  structuredFacts?: Readonly<Record<string, unknown>>
+  narrativeSummary?: string | null
+  factProvenance?: Readonly<Record<string, unknown>>
+  observedAt?: string | null
 } & Timestamps

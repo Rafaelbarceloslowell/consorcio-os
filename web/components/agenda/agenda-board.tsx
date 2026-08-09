@@ -197,6 +197,17 @@ export function AgendaBoard({
                   </p>
                 ) : null}
 
+                {meeting.liveBriefing ? (
+                  <div className="mt-4 rounded-xl border border-[#D0B96C]/20 bg-[#D0B96C]/5 p-3">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#D0B96C]">
+                      Briefing vivo do R2
+                    </p>
+                    <p className="mt-2 text-sm leading-6 text-[#B7C0CC]">
+                      {meeting.liveBriefing}
+                    </p>
+                  </div>
+                ) : null}
+
                 <dl className="mt-4 grid gap-3 text-xs sm:grid-cols-2">
                   <Data label="Horário">
                     {meeting.startAtLabel}
