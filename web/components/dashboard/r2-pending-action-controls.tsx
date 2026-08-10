@@ -28,6 +28,47 @@ type ContactOutcome =
   | "WRONG_NUMBER"
   | "OTHER"
 
+type ContactCommercialOutcome =
+  | "POSTPONED"
+  | "CLIENT_WITHDREW"
+  | "LOST_TO_COMPETITOR"
+  | "NO_FINANCIAL_CAPACITY"
+  | "PRODUCT_NOT_SUITABLE"
+  | "TRUST_CONCERN"
+
+const commercialOutcomeOptions:
+  ReadonlyArray<
+    Readonly<{
+      value: ContactCommercialOutcome
+      label: string
+    }>
+  > = [
+    {
+      value: "POSTPONED",
+      label: "Adiou e pode retomar mais à frente",
+    },
+    {
+      value: "CLIENT_WITHDREW",
+      label: "Cliente desistiu definitivamente",
+    },
+    {
+      value: "LOST_TO_COMPETITOR",
+      label: "Fechou ou decidiu seguir com concorrente",
+    },
+    {
+      value: "NO_FINANCIAL_CAPACITY",
+      label: "Sem capacidade financeira no momento",
+    },
+    {
+      value: "PRODUCT_NOT_SUITABLE",
+      label: "Produto não atende à necessidade",
+    },
+    {
+      value: "TRUST_CONCERN",
+      label: "Não avançou por questão de confiança",
+    },
+  ]
+
 type CompleteActionResponse = Readonly<{
   message?: string
   error?: string
@@ -88,6 +129,12 @@ export function R2PendingActionControls({
     useState<ContactOutcome>(
       "INTERESTED",
     )
+  const [
+    commercialOutcome,
+    setCommercialOutcome,
+  ] = useState<
+    ContactCommercialOutcome | ""
+  >("")
   const [notes, setNotes] =
     useState("")
   const [
@@ -119,6 +166,7 @@ export function R2PendingActionControls({
   ): void {
     setContactMade(value)
     setError(null)
+    setCommercialOutcome("")
 
     if (
       value &&
@@ -150,6 +198,12 @@ export function R2PendingActionControls({
     setError(null)
 
     if (
+      value !== "NOT_INTERESTED"
+    ) {
+      setCommercialOutcome("")
+    }
+
+    if (
       value === "NO_ANSWER" ||
       value === "WRONG_NUMBER"
     ) {
@@ -174,6 +228,16 @@ export function R2PendingActionControls({
     event.preventDefault()
     setFeedback(null)
     setError(null)
+
+    if (
+      outcome === "NOT_INTERESTED" &&
+      !commercialOutcome
+    ) {
+      setError(
+        "Informe o desfecho comercial.",
+      )
+      return
+    }
 
     if (
       requiresFollowUp(outcome) &&
@@ -225,6 +289,14 @@ export function R2PendingActionControls({
               consultantId,
               contactMade,
               outcome,
+              ...(outcome ===
+              "NOT_INTERESTED"
+                ? {
+                    commercialOutcome:
+                      commercialOutcome ||
+                      null,
+                  }
+                : {}),
               notes:
                 notes.trim() || null,
               nextFollowUpAt:
@@ -410,6 +482,47 @@ export function R2PendingActionControls({
                   )}
                 </select>
               </label>
+          {outcome === "NOT_INTERESTED" ? (
+            <label className="grid gap-2 text-sm text-[#C6CFDB]">
+              <span>
+                Desfecho comercial
+              </span>
+
+              <select
+                aria-label="Desfecho comercial"
+                value={commercialOutcome}
+                onChange={(event) => {
+                  setCommercialOutcome(
+                    event.target.value as (
+                      ContactCommercialOutcome |
+                      ""
+                    ),
+                  )
+                  setError(null)
+                }}
+                className="rounded-xl border border-white/10 bg-[#111820] px-3 py-2 text-white outline-none"
+              >
+                <option value="">
+                  Selecione o motivo
+                </option>
+
+                {commercialOutcomeOptions.map(
+                  (option) => (
+                    <option
+                      key={option.value}
+                      value={option.value}
+                    >
+                      {option.label}
+                    </option>
+                  ),
+                )}
+              </select>
+
+              <span className="text-xs text-[#96A0AF]">
+                Adiamento mantém a oportunidade ativa. Os demais motivos encerram a oportunidade como perdida.
+              </span>
+            </label>
+          ) : null}
 
               <label className="block text-sm font-medium text-[#D6DBE3]">
                 Observação

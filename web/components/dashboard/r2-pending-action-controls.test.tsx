@@ -186,6 +186,147 @@ describe(
     )
 
     it(
+      "exige desfecho comercial quando cliente não tem interesse",
+      () => {
+        render(
+          <R2PendingActionControls
+            workspaceId="workspace-1"
+            consultantId="consultant-1"
+            action={action}
+          />,
+        )
+
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Registrar resultado",
+          }),
+        )
+
+        fireEvent.change(
+          screen.getByLabelText(
+            "Resultado do contato",
+          ),
+          {
+            target: {
+              value:
+                "NOT_INTERESTED",
+            },
+          },
+        )
+
+        expect(
+          screen.getByLabelText(
+            "Desfecho comercial",
+          ),
+        ).toBeInTheDocument()
+
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Registrar e concluir",
+          }),
+        )
+
+        expect(
+          screen.getByText(
+            "Informe o desfecho comercial.",
+          ),
+        ).toBeInTheDocument()
+
+        expect(
+          fetch,
+        ).not.toHaveBeenCalled()
+      },
+    )
+
+    it(
+      "envia desistência definitiva como CLIENT_WITHDREW",
+      async () => {
+        render(
+          <R2PendingActionControls
+            workspaceId="workspace-1"
+            consultantId="consultant-1"
+            action={action}
+          />,
+        )
+
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Registrar resultado",
+          }),
+        )
+
+        fireEvent.change(
+          screen.getByLabelText(
+            "Resultado do contato",
+          ),
+          {
+            target: {
+              value:
+                "NOT_INTERESTED",
+            },
+          },
+        )
+
+        fireEvent.change(
+          screen.getByLabelText(
+            "Desfecho comercial",
+          ),
+          {
+            target: {
+              value:
+                "CLIENT_WITHDREW",
+            },
+          },
+        )
+
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Registrar e concluir",
+          }),
+        )
+
+        await waitFor(() => {
+          expect(
+            fetch,
+          ).toHaveBeenCalled()
+        })
+
+        const call =
+          vi.mocked(fetch)
+            .mock.calls[0]
+
+        const requestInit =
+          call?.[1] as RequestInit
+
+        const body =
+          JSON.parse(
+            String(
+              requestInit.body,
+            ),
+          )
+
+        expect(
+          body,
+        ).toMatchObject({
+          workspaceId:
+            "workspace-1",
+          consultantId:
+            "consultant-1",
+          contactMade:
+            true,
+          outcome:
+            "NOT_INTERESTED",
+          commercialOutcome:
+            "CLIENT_WITHDREW",
+          notes:
+            null,
+          nextFollowUpAt:
+            null,
+        })
+      },
+    )
+
+    it(
       "exige uma data para acompanhamento",
       () => {
         render(
