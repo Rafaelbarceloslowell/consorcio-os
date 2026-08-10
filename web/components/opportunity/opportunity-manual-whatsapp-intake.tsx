@@ -18,8 +18,8 @@ import {
 } from "@/application/opportunity/build-r2-commercial-playbook-recommendation"
 
 import {
-  buildNextGoal,
-} from "@/application/opportunity/conversation/build-next-goal"
+  resolveManualWhatsAppCommercialGoal,
+} from "@/application/opportunity/resolve-manual-whatsapp-commercial-goal"
 
 import type {
   ConversationStage,
@@ -231,9 +231,10 @@ export function OpportunityManualWhatsAppIntake({
 
   const commercialGoal =
     analysis && resolvedApproachType
-      ? buildNextGoal({
+      ? resolveManualWhatsAppCommercialGoal({
           approachType:
             resolvedApproachType,
+          analysis,
           stage: mapConversationStage(
             analysis.stage,
           ),
