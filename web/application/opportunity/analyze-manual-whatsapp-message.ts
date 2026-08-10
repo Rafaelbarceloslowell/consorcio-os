@@ -667,8 +667,6 @@ function hasProjectRejection(
       "nao continua de pe",
       "desisti do projeto",
       "desisti do consorcio",
-      "nao quero dar inicio",
-      "nao pretendo dar inicio",
     ],
   )
 }
@@ -811,6 +809,9 @@ function isProjectActiveConfirmation(
       "ainda esta nos nossos planos",
       "ainda quero seguir",
       "quero continuar com o projeto",
+      "continuo com o projeto",
+      "continuo com esse projeto",
+      "o projeto continua",
       "continuo interessado",
       "continuo interessada",
     ],
@@ -914,6 +915,20 @@ export function analyzeManualWhatsAppMessage(
       ? normalizedCustomerMessage
       : normalizedFullMessage
 
+  const reactivationProjectActiveWithDeferredTiming =
+    options.approachType ===
+      "reactivation" &&
+    isProjectActiveWithDeferredTiming(
+      messageForCustomerSignals,
+    )
+
+  const reactivationProjectActiveConfirmation =
+    options.approachType ===
+      "reactivation" &&
+    isProjectActiveConfirmation(
+      messageForCustomerSignals,
+    )
+
   if (
     options.approachType ===
       "reactivation" &&
@@ -970,6 +985,8 @@ export function analyzeManualWhatsAppMessage(
   }
 
   if (
+    !reactivationProjectActiveWithDeferredTiming &&
+    !reactivationProjectActiveConfirmation &&
     containsAny(
       messageForCustomerSignals,
       [
@@ -1102,11 +1119,7 @@ export function analyzeManualWhatsAppMessage(
   }
 
   if (
-    options.approachType ===
-      "reactivation" &&
-    isProjectActiveWithDeferredTiming(
-      messageForCustomerSignals,
-    )
+    reactivationProjectActiveWithDeferredTiming
   ) {
     return buildProjectActiveDeferredAnalysis(
       messageForCustomerSignals,
@@ -1114,11 +1127,7 @@ export function analyzeManualWhatsAppMessage(
   }
 
   if (
-    options.approachType ===
-      "reactivation" &&
-    isProjectActiveConfirmation(
-      messageForCustomerSignals,
-    )
+    reactivationProjectActiveConfirmation
   ) {
     return buildProjectActiveConfirmationAnalysis(
       messageForCustomerSignals,

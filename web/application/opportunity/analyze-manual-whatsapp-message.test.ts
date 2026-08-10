@@ -153,6 +153,78 @@ describe(
     )
 
     it(
+      "nao perde projeto ativo quando inicio foi adiado",
+      () => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            "Agora nao quero dar inicio porque preciso me organizar, mas ano que vem ainda quero fazer o consorcio.",
+            {
+              approachType:
+                "reactivation",
+            },
+          ),
+        ).toMatchObject({
+          intent:
+            "interested",
+          stage:
+            "follow_up",
+          context: {
+            projectActiveConfirmed:
+              true,
+            projectTimingDeferred:
+              true,
+            projectTimingHint:
+              "next_year",
+          },
+        })
+      },
+    )
+
+    it(
+      "nao perde projeto quando cliente nega inicio agora mas confirma continuidade",
+      () => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            "Agora nao quero iniciar, mas continuo com o projeto.",
+            {
+              approachType:
+                "reactivation",
+            },
+          ),
+        ).toMatchObject({
+          intent:
+            "interested",
+          stage:
+            "diagnosis",
+          context: {
+            projectActiveConfirmed:
+              true,
+          },
+        })
+      },
+    )
+
+    it(
+      "mantem desistência definitiva como falta de interesse",
+      () => {
+        expect(
+          analyzeManualWhatsAppMessage(
+            "Desisti do consorcio e nao quero continuar.",
+            {
+              approachType:
+                "reactivation",
+            },
+          ),
+        ).toMatchObject({
+          intent:
+            "not_interested",
+          stage:
+            "call_to_action",
+        })
+      },
+    )
+
+    it(
       "identifica falta de interesse com prioridade",
       () => {
         expect(
