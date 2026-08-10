@@ -9,8 +9,10 @@ import {
 const mocks = vi.hoisted(() => ({
   findWorkspace: vi.fn(),
   findAction: vi.fn(),
+  findLostState: vi.fn(),
   updateAction: vi.fn(),
   updateJourney: vi.fn(),
+  updateLead: vi.fn(),
   createTask: vi.fn(),
   createEvent: vi.fn(),
   transaction: vi.fn(),
@@ -27,6 +29,10 @@ vi.mock(
       commercialAction: {
         findFirst:
           mocks.findAction,
+      },
+      journeyState: {
+        findFirst:
+          mocks.findLostState,
       },
       $transaction:
         mocks.transaction,
@@ -97,6 +103,12 @@ describe(
       mocks.updateJourney.mockResolvedValue({
         count: 1,
       })
+      mocks.findLostState.mockResolvedValue({
+        id: "state-lost",
+      })
+      mocks.updateLead.mockResolvedValue({
+        count: 1,
+      })
       mocks.createTask.mockResolvedValue({
         id: "task-1",
       })
@@ -117,6 +129,10 @@ describe(
             commercialJourney: {
               updateMany:
                 mocks.updateJourney,
+            },
+            lead: {
+              updateMany:
+                mocks.updateLead,
             },
             task: {
               create:
@@ -402,6 +418,299 @@ describe(
           followUpTaskId: "task-1",
           message:
             "Resultado registrado. Se não houver resposta, a ligação entrará na fila em 5 minutos.",
+        })
+      },
+    )
+
+    it(
+      "mantém NOT_INTERESTED sem desfecho comercial como oportunidade aberta",
+      async () => {
+        const response = await POST(
+          request({
+            workspaceId:
+              "workspace-1",
+            consultantId:
+              "consultant-1",
+            contactMade: true,
+            outcome:
+              "NOT_INTERESTED",
+            notes:
+              "Cliente ainda não explicou o motivo.",
+            nextFollowUpAt:
+              null,
+          }),
+          context,
+        )
+
+        expect(response.status).toBe(200)
+
+        expect(
+          mocks.findLostState,
+        ).not.toHaveBeenCalled()
+
+        expect(
+          mocks.updateLead,
+        ).not.toHaveBeenCalled()
+
+        expect(
+          mocks.updateJourney,
+        ).toHaveBeenCalledWith({
+          where:
+            expect.objectContaining({
+              id:
+                "journey-1",
+              closedAt:
+                null,
+            }),
+          data: {
+            lastInteractionAt:
+              expect.any(Date),
+            version: {
+              increment:
+                1,
+            },
+          },
+        })
+
+        const payload =
+          await response.json()
+
+        expect(payload).toMatchObject({
+          outcome:
+            "NOT_INTERESTED",
+          commercialOutcome:
+            null,
+          opportunityClosed:
+            false,
+        })
+      },
+    )
+
+    it(
+      "marca adiamento sem fechar a oportunidade",
+      async () => {
+        const response = await POST(
+          request({
+            workspaceId:
+              "workspace-1",
+            consultantId:
+              "consultant-1",
+            contactMade: true,
+            outcome:
+              "NOT_INTERESTED",
+            commercialOutcome:
+              "POSTPONED",
+            notes:
+              "Cliente quer retomar mais para frente.",
+            nextFollowUpAt:
+              null,
+          }),
+          context,
+        )
+
+        expect(response.status).toBe(200)
+
+        expect(
+          mocks.findLostState,
+        ).not.toHaveBeenCalled()
+
+        expect(
+          mocks.updateLead,
+        ).not.toHaveBeenCalled()
+
+        expect(
+          mocks.updateJourney,
+        ).toHaveBeenCalledWith({
+          where:
+            expect.objectContaining({
+              id:
+                "journey-1",
+              closedAt:
+                null,
+            }),
+          data:
+            expect.objectContaining({
+              outcome:
+                "POSTPONED",
+              lastInteractionAt:
+                expect.any(Date),
+            }),
+        })
+
+        const payload =
+          await response.json()
+
+        expect(payload).toMatchObject({
+          outcome:
+            "NOT_INTERESTED",
+          commercialOutcome:
+            "POSTPONED",
+          opportunityClosed:
+            false,
+        })
+      },
+    )
+
+    it(
+      "encerra desistência definitiva com outcome específico e cancela ações abertas",
+      async () => {
+        const response = await POST(
+          request({
+            workspaceId:
+              "workspace-1",
+            consultantId:
+              "consultant-1",
+            contactMade: true,
+            outcome:
+              "NOT_INTERESTED",
+            commercialOutcome:
+              "CLIENT_WITHDREW",
+            notes:
+              "Cliente confirmou que desistiu do projeto.",
+            nextFollowUpAt:
+              null,
+          }),
+          context,
+        )
+
+        expect(response.status).toBe(200)
+
+        expect(
+          mocks.findLostState,
+        ).toHaveBeenCalledWith({
+          where: {
+            workspaceId:
+              "workspace-1",
+            isFinal:
+              true,
+            isLost:
+              true,
+            isActive:
+              true,
+          },
+          select: {
+            id:
+              true,
+          },
+          orderBy: {
+            order:
+              "asc",
+          },
+        })
+
+        expect(
+          mocks.updateJourney,
+        ).toHaveBeenCalledWith({
+          where:
+            expect.objectContaining({
+              id:
+                "journey-1",
+              closedAt:
+                null,
+            }),
+          data:
+            expect.objectContaining({
+              currentStateId:
+                "state-lost",
+              stateEnteredAt:
+                expect.any(Date),
+              outcome:
+                "CLIENT_WITHDREW",
+              closedAt:
+                expect.any(Date),
+              lastInteractionAt:
+                expect.any(Date),
+            }),
+        })
+
+        expect(
+          mocks.updateLead,
+        ).toHaveBeenCalledWith({
+          where: {
+            id:
+              "lead-1",
+            workspaceId:
+              "workspace-1",
+            status: {
+              notIn: [
+                "LOST",
+                "CONVERTED",
+              ],
+            },
+          },
+          data: {
+            status:
+              "LOST",
+            lostReason:
+              "Cliente confirmou que desistiu do projeto.",
+            lastContactAt:
+              expect.any(Date),
+          },
+        })
+
+        expect(
+          mocks.updateAction,
+        ).toHaveBeenCalledWith({
+          where:
+            expect.objectContaining({
+              workspaceId:
+                "workspace-1",
+              journeyId:
+                "journey-1",
+              id: {
+                not:
+                  "action-1",
+              },
+              status: {
+                in: [
+                  "PENDING",
+                  "IN_PROGRESS",
+                ],
+              },
+            }),
+          data: {
+            status:
+              "CANCELLED",
+            completedAt:
+              expect.any(Date),
+          },
+        })
+
+        expect(
+          mocks.createEvent,
+        ).toHaveBeenCalledWith({
+          data:
+            expect.objectContaining({
+              type:
+                "STATE_CHANGED",
+              payload:
+                expect.objectContaining({
+                  category:
+                    "r2_opportunity_lost",
+                  commercialOutcome:
+                    "CLIENT_WITHDREW",
+                  lostReason:
+                    "Cliente confirmou que desistiu do projeto.",
+                }),
+            }),
+        })
+
+        expect(
+          mocks.createTask,
+        ).not.toHaveBeenCalled()
+
+        const payload =
+          await response.json()
+
+        expect(payload).toMatchObject({
+          outcome:
+            "NOT_INTERESTED",
+          commercialOutcome:
+            "CLIENT_WITHDREW",
+          opportunityClosed:
+            true,
+          followUpTaskId:
+            null,
         })
       },
     )

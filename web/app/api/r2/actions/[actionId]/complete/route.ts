@@ -3,6 +3,7 @@ import {
   CommercialActionStatus,
   CommercialActorType,
   CommercialEventType,
+  CommercialJourneyOutcome,
   Prisma,
   TaskPriority,
   TaskStatus,
@@ -31,11 +32,35 @@ const contactOutcomes = [
 type ContactOutcome =
   typeof contactOutcomes[number]
 
+const contactCommercialOutcomes = [
+  "POSTPONED",
+  "CLIENT_WITHDREW",
+  "LOST_TO_COMPETITOR",
+  "NO_FINANCIAL_CAPACITY",
+  "PRODUCT_NOT_SUITABLE",
+  "TRUST_CONCERN",
+] as const
+
+type ContactCommercialOutcome =
+  typeof contactCommercialOutcomes[number]
+
+const terminalCommercialOutcomes:
+  readonly ContactCommercialOutcome[] = [
+    "CLIENT_WITHDREW",
+    "LOST_TO_COMPETITOR",
+    "NO_FINANCIAL_CAPACITY",
+    "PRODUCT_NOT_SUITABLE",
+    "TRUST_CONCERN",
+  ]
+
 type CompleteActionRequest = Readonly<{
   workspaceId: string
   consultantId: string
   contactMade: boolean
   outcome: ContactOutcome
+  commercialOutcome:
+    | ContactCommercialOutcome
+    | null
   notes: string | null
   nextFollowUpAt: Date | null
 }>
@@ -69,6 +94,70 @@ function isContactOutcome(
   return (
     contactOutcomes as readonly string[]
   ).includes(value)
+}
+
+function isContactCommercialOutcome(
+  value: string,
+): value is ContactCommercialOutcome {
+  return (
+    contactCommercialOutcomes as readonly string[]
+  ).includes(value)
+}
+
+function isTerminalCommercialOutcome(
+  value: ContactCommercialOutcome,
+): boolean {
+  return terminalCommercialOutcomes.includes(
+    value,
+  )
+}
+
+function toJourneyOutcome(
+  value: ContactCommercialOutcome,
+): CommercialJourneyOutcome {
+  switch (value) {
+    case "POSTPONED":
+      return CommercialJourneyOutcome.POSTPONED
+
+    case "CLIENT_WITHDREW":
+      return CommercialJourneyOutcome.CLIENT_WITHDREW
+
+    case "LOST_TO_COMPETITOR":
+      return CommercialJourneyOutcome.LOST_TO_COMPETITOR
+
+    case "NO_FINANCIAL_CAPACITY":
+      return CommercialJourneyOutcome.NO_FINANCIAL_CAPACITY
+
+    case "PRODUCT_NOT_SUITABLE":
+      return CommercialJourneyOutcome.PRODUCT_NOT_SUITABLE
+
+    case "TRUST_CONCERN":
+      return CommercialJourneyOutcome.TRUST_CONCERN
+  }
+}
+
+function defaultLossReason(
+  value: ContactCommercialOutcome,
+): string {
+  switch (value) {
+    case "CLIENT_WITHDREW":
+      return "Cliente desistiu do projeto."
+
+    case "LOST_TO_COMPETITOR":
+      return "Cliente optou por um concorrente."
+
+    case "NO_FINANCIAL_CAPACITY":
+      return "Cliente não possui capacidade financeira no momento."
+
+    case "PRODUCT_NOT_SUITABLE":
+      return "O produto não atende à necessidade atual do cliente."
+
+    case "TRUST_CONCERN":
+      return "Cliente não avançou por uma questão de confiança."
+
+    case "POSTPONED":
+      return "Cliente decidiu adiar a contratação."
+  }
 }
 
 function requiresFollowUp(
@@ -183,6 +272,52 @@ function parseCompleteActionRequest(
     )
   }
 
+  let commercialOutcome:
+    | ContactCommercialOutcome
+    | null = null
+
+  if (
+    body.commercialOutcome !==
+      undefined &&
+    body.commercialOutcome !==
+      null &&
+    body.commercialOutcome !== ""
+  ) {
+    if (
+      typeof body.commercialOutcome !==
+      "string"
+    ) {
+      throw new Error(
+        "O desfecho comercial informado é inválido.",
+      )
+    }
+
+    const normalizedCommercialOutcome =
+      body.commercialOutcome.trim()
+
+    if (
+      !isContactCommercialOutcome(
+        normalizedCommercialOutcome,
+      )
+    ) {
+      throw new Error(
+        "O desfecho comercial informado é inválido.",
+      )
+    }
+
+    commercialOutcome =
+      normalizedCommercialOutcome
+  }
+
+  if (
+    commercialOutcome !== null &&
+    outcome !== "NOT_INTERESTED"
+  ) {
+    throw new Error(
+      "O desfecho comercial só pode ser informado para um contato sem interesse.",
+    )
+  }
+
   if (
     !body.contactMade &&
     (
@@ -239,6 +374,7 @@ function parseCompleteActionRequest(
     contactMade:
       body.contactMade,
     outcome,
+    commercialOutcome,
     notes:
       notes || null,
     nextFollowUpAt,
@@ -461,6 +597,53 @@ export async function POST(
     )
   }
 
+  const terminalCommercialOutcome =
+    input.commercialOutcome !== null &&
+    isTerminalCommercialOutcome(
+      input.commercialOutcome,
+    )
+
+  const lostState =
+    terminalCommercialOutcome
+      ? await prisma.journeyState.findFirst({
+          where: {
+            workspaceId:
+              authenticatedContext.workspaceId,
+            isFinal: true,
+            isLost: true,
+            isActive: true,
+          },
+          select: {
+            id: true,
+          },
+          orderBy: {
+            order: "asc",
+          },
+        })
+      : null
+
+  if (
+    terminalCommercialOutcome &&
+    !lostState
+  ) {
+    return json(
+      {
+        error:
+          "O workspace não possui um estado final de oportunidade perdida configurado.",
+      },
+      409,
+    )
+  }
+
+  const lossReason =
+    terminalCommercialOutcome &&
+    input.commercialOutcome
+      ? input.notes ??
+        defaultLossReason(
+          input.commercialOutcome,
+        )
+      : null
+
   const now = new Date()
 
   const automaticNoAnswerCall =
@@ -468,17 +651,19 @@ export async function POST(
     input.nextFollowUpAt === null
 
   const followUpDueAt =
-    input.nextFollowUpAt ??
-    (
-      automaticNoAnswerCall
-        ? new Date(
-            now.getTime() +
-              NO_ANSWER_CALL_DELAY_MINUTES *
-                60 *
-                1000,
-          )
-        : null
-    )
+    terminalCommercialOutcome
+      ? null
+      : input.nextFollowUpAt ??
+        (
+          automaticNoAnswerCall
+            ? new Date(
+                now.getTime() +
+                  NO_ANSWER_CALL_DELAY_MINUTES *
+                    60 *
+                    1000,
+              )
+            : null
+        )
 
   const existingPayload =
     asJsonObject(
@@ -514,6 +699,8 @@ export async function POST(
                         input.contactMade,
                       outcome:
                         input.outcome,
+                      commercialOutcome:
+                        input.commercialOutcome,
                       notes:
                         input.notes,
                       nextFollowUpAt:
@@ -560,6 +747,30 @@ export async function POST(
                 data: {
                   lastInteractionAt:
                     now,
+                  ...(input
+                    .commercialOutcome ===
+                  "POSTPONED"
+                    ? {
+                        outcome:
+                          CommercialJourneyOutcome.POSTPONED,
+                      }
+                    : {}),
+                  ...(terminalCommercialOutcome &&
+                  lostState &&
+                  input.commercialOutcome
+                    ? {
+                        currentStateId:
+                          lostState.id,
+                        stateEnteredAt:
+                          now,
+                        outcome:
+                          toJourneyOutcome(
+                            input.commercialOutcome,
+                          ),
+                        closedAt:
+                          now,
+                      }
+                    : {}),
                   version: {
                     increment: 1,
                   },
@@ -572,6 +783,105 @@ export async function POST(
             throw new ActionConflictError(
               "A oportunidade foi alterada durante esta operação.",
             )
+          }
+
+          if (
+            terminalCommercialOutcome &&
+            lostState &&
+            input.commercialOutcome
+          ) {
+            const resolvedLossReason =
+              input.notes ??
+              defaultLossReason(
+                input.commercialOutcome,
+              )
+
+            if (
+              action.journey.leadId
+            ) {
+              await transaction
+                .lead
+                .updateMany({
+                  where: {
+                    id:
+                      action.journey.leadId,
+                    workspaceId:
+                      authenticatedContext.workspaceId,
+                    status: {
+                      notIn: [
+                        "LOST",
+                        "CONVERTED",
+                      ],
+                    },
+                  },
+                  data: {
+                    status:
+                      "LOST",
+                    lostReason:
+                      resolvedLossReason,
+                    lastContactAt:
+                      now,
+                  },
+                })
+            }
+
+            await transaction
+              .commercialAction
+              .updateMany({
+                where: {
+                  workspaceId:
+                    authenticatedContext.workspaceId,
+                  journeyId:
+                    action.journeyId,
+                  id: {
+                    not:
+                      action.id,
+                  },
+                  status: {
+                    in: [
+                      CommercialActionStatus.PENDING,
+                      CommercialActionStatus.IN_PROGRESS,
+                    ],
+                  },
+                },
+                data: {
+                  status:
+                    CommercialActionStatus.CANCELLED,
+                  completedAt:
+                    now,
+                },
+              })
+
+            await transaction
+              .commercialEvent
+              .create({
+                data: {
+                  workspaceId:
+                    authenticatedContext.workspaceId,
+                  journeyId:
+                    action.journeyId,
+                  type:
+                    CommercialEventType.STATE_CHANGED,
+                  actorType:
+                    CommercialActorType.CONSULTANT,
+                  actorId:
+                    input.consultantId,
+                  payload: {
+                    category:
+                      "r2_opportunity_lost",
+                    commercialActionId:
+                      action.id,
+                    commercialOutcome:
+                      input.commercialOutcome,
+                    lostReason:
+                      resolvedLossReason,
+                    closedAt:
+                      now.toISOString(),
+                  },
+                  occurredAt:
+                    now,
+                },
+              })
           }
 
           let followUpTaskId:
@@ -686,6 +996,8 @@ export async function POST(
                     input.contactMade,
                   outcome:
                     input.outcome,
+                  commercialOutcome:
+                    input.commercialOutcome,
                   notes:
                     input.notes,
                   nextFollowUpAt:
@@ -702,6 +1014,8 @@ export async function POST(
 
           return {
             followUpTaskId,
+            opportunityClosed:
+              terminalCommercialOutcome,
           }
         },
       )
@@ -719,14 +1033,23 @@ export async function POST(
         input.contactMade,
       outcome:
         input.outcome,
+      commercialOutcome:
+        input.commercialOutcome,
+      opportunityClosed:
+        transactionResult.opportunityClosed,
       followUpTaskId:
         transactionResult.followUpTaskId,
       message:
-        automaticNoAnswerCall
-          ? "Resultado registrado. Se não houver resposta, a ligação entrará na fila em 5 minutos."
-          : transactionResult.followUpTaskId
-            ? "Resultado registrado, ação concluída e próximo retorno agendado."
-            : "Resultado registrado e ação concluída. O R2 vai buscar a próxima prioridade.",
+        transactionResult.opportunityClosed
+          ? "Resultado registrado e oportunidade encerrada como perdida."
+          : input.commercialOutcome ===
+              "POSTPONED"
+            ? "Resultado registrado. A oportunidade continua ativa e foi marcada como adiada."
+            : automaticNoAnswerCall
+              ? "Resultado registrado. Se não houver resposta, a ligação entrará na fila em 5 minutos."
+              : transactionResult.followUpTaskId
+                ? "Resultado registrado, ação concluída e próximo retorno agendado."
+                : "Resultado registrado e ação concluída. O R2 vai buscar a próxima prioridade.",
     })
   }
   catch (error) {
