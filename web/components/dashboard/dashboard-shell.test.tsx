@@ -162,10 +162,26 @@ describe("DashboardShell", () => {
       container.firstElementChild
 
     expect(shell).toHaveClass(
+      "gorilla-dashboard-shell",
       "min-h-screen",
       "bg-[var(--gorila-canvas)]",
       "text-[var(--gorila-text)]"
     )
+  })
+
+  it("deve renderizar uma unica camada cinematic decorativa", () => {
+    const {
+      container,
+    } = render(
+      <DashboardShell {...dashboardData} />
+    )
+
+    const backgrounds = container.querySelectorAll(
+      ".gorilla-cinematic-canvas",
+    )
+
+    expect(backgrounds).toHaveLength(1)
+    expect(backgrounds[0]).toHaveAttribute("aria-hidden", "true")
   })
 
   it("deve renderizar a sidebar", () => {
@@ -382,6 +398,8 @@ describe("DashboardShell", () => {
     expect(
       contentWrapper
     ).toHaveClass(
+      "relative",
+      "z-10",
       "min-h-screen",
       "transition-[padding-left]",
       "duration-250",

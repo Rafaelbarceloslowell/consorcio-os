@@ -36,7 +36,12 @@ export function DashboardShell({
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
 
   return (
-    <div className="min-h-screen bg-[var(--gorila-canvas)] text-[var(--gorila-text)]">
+    <div className="gorilla-dashboard-shell min-h-screen bg-[var(--gorila-canvas)] text-[var(--gorila-text)]">
+      <div
+        aria-hidden="true"
+        className="gorilla-cinematic-canvas"
+      />
+
       <Sidebar
         open={sidebarOpen}
         user={user}
@@ -47,7 +52,7 @@ export function DashboardShell({
 
       <div
         className={cn(
-          "min-h-screen transition-[padding-left] duration-250 ease-out",
+          "relative z-10 min-h-screen transition-[padding-left] duration-250 ease-out",
           sidebarCollapsed ? "lg:pl-[84px]" : "lg:pl-[248px]"
         )}
       >

@@ -56,6 +56,20 @@
   --ring: #5d653e;
   --radius: 14px;
   --gorila-canvas: #cec7bc;
+  --gorila-canvas-image-fallback: url("/images/dashboard/gorillaos-dashboard-city-light.webp");
+  --gorila-canvas-image: image-set(
+    url("/images/dashboard/gorillaos-dashboard-city-light.avif") type("image/avif"),
+    url("/images/dashboard/gorillaos-dashboard-city-light.webp") type("image/webp")
+  );
+  --gorila-canvas-image-opacity: 0.52;
+  --gorila-canvas-position: 52% 46%;
+  --gorila-canvas-overlay:
+    linear-gradient(112deg, rgba(206, 199, 188, 0.74), rgba(224, 217, 207, 0.60) 46%, rgba(206, 199, 188, 0.76)),
+    linear-gradient(180deg, rgba(239, 235, 228, 0.24), rgba(198, 190, 177, 0.62));
+  --gorila-canvas-vignette:
+    radial-gradient(ellipse at 24% 38%, rgba(224, 217, 207, 0.56), rgba(224, 217, 207, 0.18) 30%, transparent 56%),
+    radial-gradient(ellipse at 58% 42%, rgba(229, 223, 213, 0.30), transparent 52%),
+    linear-gradient(90deg, rgba(198, 190, 177, 0.24), transparent 20%, transparent 82%, rgba(198, 190, 177, 0.22));
   --gorila-sidebar: rgba(198, 190, 177, 0.86);
   --gorila-surface: rgba(239, 235, 228, 0.60);
   --gorila-surface-solid: #ded8ce;
@@ -122,6 +136,20 @@
   --input: #3b392f;
   --ring: #858c59;
   --gorila-canvas: #171815;
+  --gorila-canvas-image-fallback: url("/images/dashboard/gorillaos-dashboard-city-dark.webp");
+  --gorila-canvas-image: image-set(
+    url("/images/dashboard/gorillaos-dashboard-city-dark.avif") type("image/avif"),
+    url("/images/dashboard/gorillaos-dashboard-city-dark.webp") type("image/webp")
+  );
+  --gorila-canvas-image-opacity: 0.56;
+  --gorila-canvas-position: 49% 50%;
+  --gorila-canvas-overlay:
+    linear-gradient(112deg, rgba(23, 24, 21, 0.74), rgba(29, 31, 27, 0.62) 46%, rgba(23, 24, 21, 0.78)),
+    linear-gradient(180deg, rgba(40, 42, 37, 0.16), rgba(15, 16, 13, 0.66));
+  --gorila-canvas-vignette:
+    radial-gradient(ellipse at 24% 38%, rgba(23, 24, 21, 0.62), rgba(23, 24, 21, 0.22) 30%, transparent 56%),
+    radial-gradient(ellipse at 58% 42%, rgba(29, 31, 27, 0.38), transparent 52%),
+    linear-gradient(90deg, rgba(15, 16, 13, 0.30), transparent 20%, transparent 82%, rgba(15, 16, 13, 0.28));
   --gorila-sidebar: rgba(29, 31, 27, 0.88);
   --gorila-surface: rgba(40, 42, 37, 0.60);
   --gorila-surface-solid: #242520;
@@ -246,6 +274,48 @@
 }
 
 @layer utilities {
+  .gorilla-dashboard-shell {
+    position: relative;
+    isolation: isolate;
+    background: var(--gorila-canvas);
+  }
+
+  .gorilla-cinematic-canvas {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background: var(--gorila-canvas);
+  }
+
+  .gorilla-cinematic-canvas::before,
+  .gorilla-cinematic-canvas::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .gorilla-cinematic-canvas::before {
+    background-image: var(--gorila-canvas-image-fallback);
+    background-repeat: no-repeat;
+    background-position: var(--gorila-canvas-position);
+    background-size: cover;
+    opacity: var(--gorila-canvas-image-opacity);
+    transition: opacity 220ms ease;
+  }
+
+  @supports (background-image: image-set(url("/images/dashboard/gorillaos-dashboard-city-light.avif") type("image/avif"))) {
+    .gorilla-cinematic-canvas::before {
+      background-image: var(--gorila-canvas-image);
+    }
+  }
+
+  .gorilla-cinematic-canvas::after {
+    background: var(--gorila-canvas-vignette), var(--gorila-canvas-overlay);
+  }
+
   .gorila-material {
     border-color: var(--gorila-material-border) !important;
     background: var(--gorila-material-surface) !important;
@@ -465,5 +535,9 @@
 .gorila-night [class*="border-[#43A972]"] { border-color: color-mix(in srgb, var(--gorila-green) 52%, transparent) !important; }
 
 @media (max-width: 767px) {
+  .gorila-light { --gorila-canvas-image-opacity: 0.40; }
+  .gorila-night { --gorila-canvas-image-opacity: 0.44; }
+  .gorila-light,
+  .gorila-night { --gorila-canvas-position: 52% 48%; }
   .gorilla-kpi-strip { grid-template-columns: 1fr !important; }
 }

@@ -1,4 +1,7 @@
-import { readFileSync } from "node:fs"
+import {
+  readFileSync,
+  statSync,
+} from "node:fs"
 
 import {
   describe,
@@ -41,5 +44,47 @@ describe("Warm Earth theme tokens", () => {
     expect(css).toContain("backdrop-filter: blur(16px) saturate(110%)")
     expect(css).toContain(".gorilla-action-card")
     expect(css).not.toContain("--gorila-canvas: #11120f")
+  })
+
+  it("seleciona o skyline colorido no Light e o skyline P&B no Dark", () => {
+    const lightBlock = css.match(
+      /:root,\s*\.gorila-light\s*\{([\s\S]*?)\n\}/u,
+    )?.[1]
+    const darkBlock = css.match(
+      /\.dark,\s*\.gorila-night\s*\{([\s\S]*?)\n\}/u,
+    )?.[1]
+
+    expect(lightBlock).toContain(
+      "/images/dashboard/gorillaos-dashboard-city-light.avif",
+    )
+    expect(lightBlock).toContain(
+      "/images/dashboard/gorillaos-dashboard-city-light.webp",
+    )
+    expect(darkBlock).toContain(
+      "/images/dashboard/gorillaos-dashboard-city-dark.avif",
+    )
+    expect(darkBlock).toContain(
+      "/images/dashboard/gorillaos-dashboard-city-dark.webp",
+    )
+  })
+
+  it("preserva canvas solido, overlay e vignette independentes do conteudo", () => {
+    expect(css).toContain(".gorilla-cinematic-canvas::before")
+    expect(css).toContain("background: var(--gorila-canvas)")
+    expect(css).toContain("background: var(--gorila-canvas-vignette), var(--gorila-canvas-overlay)")
+    expect(css).toContain("pointer-events: none")
+  })
+
+  it("mantem os assets de producao dentro do budget", () => {
+    const assetUrls = [
+      "../public/images/dashboard/gorillaos-dashboard-city-light.avif",
+      "../public/images/dashboard/gorillaos-dashboard-city-dark.avif",
+      "../public/images/dashboard/gorillaos-dashboard-city-light.webp",
+      "../public/images/dashboard/gorillaos-dashboard-city-dark.webp",
+    ]
+
+    for (const assetUrl of assetUrls) {
+      expect(statSync(new URL(assetUrl, import.meta.url)).size).toBeLessThan(160_000)
+    }
   })
 })
