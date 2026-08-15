@@ -80,6 +80,9 @@ describe("Warm Earth theme tokens", () => {
     expect(css).toMatch(/\.gorila-glass-3\s*\{[\s\S]*?backdrop-filter: none;/u)
     expect(css).toContain("--gorila-glass-border: rgba(255, 252, 244, 0.46)")
     expect(css).toContain("--gorila-glass-border: rgba(255, 249, 238, 0.12)")
+    expect(css).toContain("--gorila-hero-haze-main: rgba(229, 223, 213, 0.14)")
+    expect(css).toContain("--gorila-hero-haze-main: rgba(25, 26, 22, 0.13)")
+    expect(css).toContain("opacity: var(--gorila-hero-grid-opacity)")
   })
 
   it("seleciona o skyline colorido no Light e o skyline P&B no Dark", () => {

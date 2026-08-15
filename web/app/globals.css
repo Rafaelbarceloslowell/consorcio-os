@@ -82,6 +82,11 @@
   --gorila-glass-shadow-nav: inset 0 1px 0 rgba(255,253,247,.38), inset 0 -1px 0 rgba(65,60,50,.055), 0 16px 40px rgba(65,60,50,.055);
   --gorila-glass-shadow-info: inset 0 1px 0 rgba(255,253,247,.45), inset 0 -1px 0 rgba(65,60,50,.06), 0 22px 52px rgba(65,60,50,.065);
   --gorila-glass-shadow-nested: inset 0 1px 0 rgba(255,253,247,.30), inset 0 -1px 0 rgba(65,60,50,.04), 0 8px 24px rgba(65,60,50,.035);
+  --gorila-hero-haze-main: rgba(229, 223, 213, 0.14);
+  --gorila-hero-haze-side: rgba(239, 235, 228, 0.08);
+  --gorila-hero-grid-opacity: 0.04;
+  --gorila-hero-grid-line: rgba(65, 60, 50, 0.08);
+  --gorila-hero-grid-line-vertical: rgba(65, 60, 50, 0.07);
   --gorila-surface: rgba(239, 235, 228, 0.60);
   --gorila-surface-solid: #ded8ce;
   --gorila-surface-raised: rgba(239, 235, 228, 0.78);
@@ -173,6 +178,11 @@
   --gorila-glass-shadow-nav: inset 0 1px 0 rgba(255,249,238,.10), inset 0 -1px 0 rgba(8,9,7,.16), 0 16px 42px rgba(8,9,7,.13);
   --gorila-glass-shadow-info: inset 0 1px 0 rgba(255,249,238,.12), inset 0 -1px 0 rgba(8,9,7,.18), 0 22px 52px rgba(8,9,7,.16);
   --gorila-glass-shadow-nested: inset 0 1px 0 rgba(255,249,238,.08), inset 0 -1px 0 rgba(8,9,7,.14), 0 8px 24px rgba(8,9,7,.10);
+  --gorila-hero-haze-main: rgba(25, 26, 22, 0.13);
+  --gorila-hero-haze-side: rgba(15, 16, 13, 0.07);
+  --gorila-hero-grid-opacity: 0.06;
+  --gorila-hero-grid-line: rgba(239, 231, 214, 0.04);
+  --gorila-hero-grid-line-vertical: rgba(239, 231, 214, 0.035);
   --gorila-surface: rgba(40, 42, 37, 0.60);
   --gorila-surface-solid: #242520;
   --gorila-surface-raised: rgba(47, 49, 43, 0.78);
@@ -440,8 +450,8 @@
 
   .gorila-glass-0.gorilla-hero-environment {
     background:
-      radial-gradient(ellipse at 24% 56%, rgba(25, 26, 22, 0.13), transparent 48%),
-      linear-gradient(90deg, transparent 34%, rgba(15, 16, 13, 0.07) 72%, transparent) !important;
+      radial-gradient(ellipse at 24% 56%, var(--gorila-hero-haze-main), transparent 48%),
+      linear-gradient(90deg, transparent 34%, var(--gorila-hero-haze-side) 72%, transparent) !important;
   }
 
   .gorilla-hero-environment::after {
@@ -449,10 +459,10 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.06;
+    opacity: var(--gorila-hero-grid-opacity);
     background-image:
-      linear-gradient(rgba(239, 231, 214, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(239, 231, 214, 0.035) 1px, transparent 1px);
+      linear-gradient(var(--gorila-hero-grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--gorila-hero-grid-line-vertical) 1px, transparent 1px);
     background-size: 52px 52px;
     mask-image: linear-gradient(to top, black, transparent 72%);
   }
@@ -488,19 +498,6 @@
 
 @media (min-width: 1536px) {
   .gorilla-kpi-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-}
-
-.gorila-light .gorila-glass-0.gorilla-hero-environment {
-  background:
-    radial-gradient(ellipse at 24% 56%, rgba(229, 223, 213, 0.14), transparent 48%),
-    linear-gradient(90deg, transparent 34%, rgba(239, 235, 228, 0.08) 72%, transparent) !important;
-}
-
-.gorila-light .gorilla-hero-environment::after {
-  opacity: 0.04;
-  background-image:
-    linear-gradient(rgba(65, 60, 50, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(65, 60, 50, 0.07) 1px, transparent 1px);
 }
 
 @media (prefers-reduced-motion: reduce) {
