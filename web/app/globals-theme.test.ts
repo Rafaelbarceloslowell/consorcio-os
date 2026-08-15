@@ -55,12 +55,12 @@ describe("Warm Earth theme tokens", () => {
     )?.[1]
 
     expect(lightBlock).toContain("--gorila-glass-0: transparent")
-    expect(lightBlock).toContain("--gorila-glass-1: rgba(229, 224, 216, 0.46)")
-    expect(lightBlock).toContain("--gorila-glass-2: rgba(247, 243, 235, 0.58)")
-    expect(lightBlock).toContain("--gorila-glass-3: rgba(239, 235, 228, 0.38)")
-    expect(darkBlock).toContain("--gorila-glass-1: rgba(27, 29, 25, 0.50)")
-    expect(darkBlock).toContain("--gorila-glass-2: rgba(36, 38, 33, 0.56)")
-    expect(darkBlock).toContain("--gorila-glass-3: rgba(31, 33, 29, 0.42)")
+    expect(lightBlock).toContain("--gorila-glass-1: rgba(244, 240, 233, 0.20)")
+    expect(lightBlock).toContain("--gorila-glass-2: rgba(250, 247, 240, 0.26)")
+    expect(lightBlock).toContain("--gorila-glass-3: rgba(248, 244, 237, 0.17)")
+    expect(darkBlock).toContain("--gorila-glass-1: rgba(24, 27, 23, 0.26)")
+    expect(darkBlock).toContain("--gorila-glass-2: rgba(29, 32, 27, 0.30)")
+    expect(darkBlock).toContain("--gorila-glass-3: rgba(32, 35, 30, 0.21)")
     expect(css).toContain(".gorila-glass-0")
     expect(css).toContain("background: var(--gorila-glass-0) !important")
     expect(css).toContain("backdrop-filter: none !important")
@@ -69,8 +69,17 @@ describe("Warm Earth theme tokens", () => {
   it("protege superfícies no mobile sem alterar a fotografia desktop", () => {
     expect(css).toContain("--gorila-canvas-image-opacity: 0.52")
     expect(css).toContain("--gorila-canvas-image-opacity: 0.56")
-    expect(css).toContain("--gorila-glass-2: rgba(247, 243, 235, 0.68)")
-    expect(css).toContain("--gorila-glass-2: rgba(36, 38, 33, 0.68)")
+    expect(css).toContain("--gorila-glass-2: rgba(250, 247, 240, 0.40)")
+    expect(css).toContain("--gorila-glass-2: rgba(29, 32, 27, 0.44)")
+  })
+
+  it("mantem frosted glass claro com blur controlado e sem empilhar blur nos filhos", () => {
+    expect(css).toContain("backdrop-filter: blur(22px) saturate(114%)")
+    expect(css).toContain("backdrop-filter: blur(22px) saturate(112%)")
+    expect(css).toContain("backdrop-filter: blur(24px) saturate(110%)")
+    expect(css).toMatch(/\.gorila-glass-3\s*\{[\s\S]*?backdrop-filter: none;/u)
+    expect(css).toContain("--gorila-glass-border: rgba(255, 252, 244, 0.46)")
+    expect(css).toContain("--gorila-glass-border: rgba(255, 249, 238, 0.12)")
   })
 
   it("seleciona o skyline colorido no Light e o skyline P&B no Dark", () => {
