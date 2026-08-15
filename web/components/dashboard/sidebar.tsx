@@ -109,7 +109,7 @@ export function Sidebar({
       <aside
         aria-label="Navegação principal"
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex flex-col border-r border-[var(--gorila-line)] bg-[var(--gorila-sidebar)]",
+          "gorila-glass-1 fixed inset-y-0 left-0 z-50 flex flex-col border-r",
           "shadow-[inset_-1px_0_0_rgba(255,247,229,0.025),12px_0_38px_rgba(0,0,0,0.18)] transition-[width,transform] duration-200",
           "lg:translate-x-0",
           collapsed ? "w-[84px]" : "w-[248px]",
@@ -159,7 +159,7 @@ export function Sidebar({
                     "focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]",
                     collapsed ? "justify-center px-2" : "gap-3 px-3",
                     active
-                      ? "border-[var(--gorila-material-border-strong)] bg-[var(--gorila-green-soft)] text-[var(--gorila-text)]"
+                      ? "gorila-glass-3 border-[var(--gorila-material-border-strong)] text-[var(--gorila-text)]"
                       : "border-transparent text-[var(--gorila-text-muted)] hover:bg-white/[0.035] hover:text-[var(--gorila-text-soft)]",
                   )}
                 >
@@ -190,7 +190,7 @@ export function Sidebar({
               onClick={onClose}
               aria-label="Ver ação do R2"
               className={cn(
-                "block rounded-[18px] border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] transition duration-200 hover:border-[var(--gorila-green)] hover:bg-[var(--gorila-green-soft)]",
+                "gorila-glass-3 block rounded-[18px] border transition duration-200 hover:border-[var(--gorila-green)] hover:bg-[var(--gorila-green-soft)]",
                 collapsed ? "p-1.5" : "p-3",
               )}
             >

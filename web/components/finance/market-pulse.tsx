@@ -59,7 +59,7 @@ export function MarketPulse({
 
   return (
     <section
-      className={["gorilla-panel overflow-hidden", compact ? "" : "mx-6 mb-6"].join(" ")}
+      className={["gorila-glass-4 overflow-hidden rounded-[var(--gorilla-radius-module)] border", compact ? "" : "mx-6 mb-6"].join(" ")}
       data-testid="market-pulse"
     >
       <header className="flex items-start justify-between gap-3 border-b border-[var(--gorila-line)] px-5 py-4">

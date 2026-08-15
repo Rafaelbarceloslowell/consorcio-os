@@ -156,7 +156,7 @@ export function R2DailyMission() {
   const first = mission?.now[0] ?? mission?.next[0]
 
   return (
-    <section aria-labelledby="daily-mission-title" className="gorila-material rounded-[22px] border border-[var(--gorila-line)] bg-[var(--gorila-surface)] p-5">
+    <section aria-labelledby="daily-mission-title" className="gorila-glass-0 rounded-[22px] border p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--gorila-bronze)]">Missão diária R2</p>
@@ -180,7 +180,7 @@ export function R2DailyMission() {
           </div>
 
           {first ? (
-            <div className="gorilla-action-card mt-4 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[var(--gorilla-border-strong)] bg-[var(--gorila-surface-raised)] p-4">
+            <div className="gorila-glass-2 mt-4 flex flex-wrap items-center justify-between gap-4 rounded-2xl border p-4">
               <div className="min-w-0 flex-1">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[var(--gorila-bronze)]">Comece por</p>
                 <p className="mt-1 text-base font-semibold text-[var(--gorila-text)]">
@@ -260,7 +260,7 @@ function NotificationCenter({
       </div>
       <ul className="mt-3 space-y-2">
         {notifications.map((notification) => (
-          <li key={notification.id} className="rounded-xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-strong)] p-3">
+          <li key={notification.id} className="gorila-glass-3 rounded-xl border p-3">
             <div className="flex flex-wrap items-start justify-between gap-2">
               <div>
                 <p className="text-sm font-semibold">{notification.title}</p>
@@ -298,7 +298,7 @@ function priorityLabel(priority: MissionNotification["priority"]): string {
 
 function Metric({ label, value }: Readonly<{ label: string; value: string | number }>) {
   return (
-    <div className="rounded-xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-strong)] p-3">
+    <div className="gorila-glass-3 rounded-xl border p-3">
       <p className="text-[var(--gorila-text-muted)]">{label}</p>
       <p className="mt-1 text-base font-semibold">{value}</p>
     </div>

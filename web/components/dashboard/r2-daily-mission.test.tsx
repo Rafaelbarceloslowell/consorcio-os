@@ -46,9 +46,12 @@ describe("R2DailyMission", () => {
       }),
     }))
 
-    render(<R2DailyMission />)
+    const { container } = render(<R2DailyMission />)
 
     expect(await screen.findByText("47/50")).toBeInTheDocument()
+    expect(container.querySelector('section[aria-labelledby="daily-mission-title"]')).toHaveClass("gorila-glass-0")
+    expect(screen.getByText("47/50").closest("div")).toHaveClass("gorila-glass-3")
+    expect(screen.getByText("Realizar callback combinado").closest("div.gorila-glass-2")).toBeInTheDocument()
     expect(screen.getByText("Realizar callback combinado")).toBeInTheDocument()
     expect(screen.getByText("Cliente pediu ligação às 09:00.")).toBeInTheDocument()
     expect(screen.getByRole("link", { name: "Abrir ação" })).toHaveAttribute(

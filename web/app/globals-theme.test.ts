@@ -46,6 +46,33 @@ describe("Warm Earth theme tokens", () => {
     expect(css).not.toContain("--gorila-canvas: #11120f")
   })
 
+  it("define níveis estruturais de glass distintos entre Light e Dark", () => {
+    const lightBlock = css.match(
+      /:root,\s*\.gorila-light\s*\{([\s\S]*?)\n\}/u,
+    )?.[1]
+    const darkBlock = css.match(
+      /\.dark,\s*\.gorila-night\s*\{([\s\S]*?)\n\}/u,
+    )?.[1]
+
+    expect(lightBlock).toContain("--gorila-glass-0: transparent")
+    expect(lightBlock).toContain("--gorila-glass-1: rgba(229, 224, 216, 0.46)")
+    expect(lightBlock).toContain("--gorila-glass-2: rgba(247, 243, 235, 0.58)")
+    expect(lightBlock).toContain("--gorila-glass-3: rgba(239, 235, 228, 0.38)")
+    expect(darkBlock).toContain("--gorila-glass-1: rgba(27, 29, 25, 0.50)")
+    expect(darkBlock).toContain("--gorila-glass-2: rgba(36, 38, 33, 0.56)")
+    expect(darkBlock).toContain("--gorila-glass-3: rgba(31, 33, 29, 0.42)")
+    expect(css).toContain(".gorila-glass-0")
+    expect(css).toContain("background: var(--gorila-glass-0) !important")
+    expect(css).toContain("backdrop-filter: none !important")
+  })
+
+  it("protege superfícies no mobile sem alterar a fotografia desktop", () => {
+    expect(css).toContain("--gorila-canvas-image-opacity: 0.52")
+    expect(css).toContain("--gorila-canvas-image-opacity: 0.56")
+    expect(css).toContain("--gorila-glass-2: rgba(247, 243, 235, 0.68)")
+    expect(css).toContain("--gorila-glass-2: rgba(36, 38, 33, 0.68)")
+  })
+
   it("seleciona o skyline colorido no Light e o skyline P&B no Dark", () => {
     const lightBlock = css.match(
       /:root,\s*\.gorila-light\s*\{([\s\S]*?)\n\}/u,

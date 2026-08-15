@@ -86,7 +86,7 @@ describe(
           fetchMock,
         )
 
-        render(<MarketPulse />)
+        const { container } = render(<MarketPulse />)
 
         expect(
           await screen.findByText(
@@ -125,6 +125,7 @@ describe(
           }),
         ).toHaveAttribute("rel", "noopener noreferrer")
         expect(screen.getByText(/Referência: 07\/08\/2026/)).toBeInTheDocument()
+        expect(container.querySelector('[data-testid="market-pulse"]')).toHaveClass("gorila-glass-4")
       },
     )
 

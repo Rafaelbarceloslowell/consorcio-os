@@ -57,7 +57,9 @@ describe("IntelligenceRail", () => {
   it("identifica semanticamente a região de inteligência comercial", () => {
     render(<IntelligenceRail opportunities={[]} criticalCount={0} importantCount={0} monitoringCount={0} />)
 
-    expect(screen.getByRole("complementary", { name: "Inteligência comercial" })).toBeInTheDocument()
+    const rail = screen.getByRole("complementary", { name: "Inteligência comercial" })
+    expect(rail).toHaveClass("gorila-glass-0")
+    expect(rail.querySelectorAll("section.gorila-glass-2")).toHaveLength(2)
   })
 
   it("usa a variante compacta do Market Pulse na lateral", () => {

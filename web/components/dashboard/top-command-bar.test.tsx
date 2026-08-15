@@ -43,8 +43,11 @@ describe("TopCommandBar", () => {
   })
 
   it("marca Home como comando ativo", () => {
-    render(<TopCommandBar user={user} />)
+    const { container } = render(<TopCommandBar user={user} />)
+    expect(container.querySelector(".gorila-glass-1")).toBeInTheDocument()
     expect(screen.getByRole("link", { name: "Home" })).toHaveAttribute("aria-current", "page")
+    expect(screen.getByRole("link", { name: "Home" })).toHaveClass("gorila-glass-3")
+    expect(screen.getByRole("link", { name: "Pipeline" })).not.toHaveClass("gorila-glass-3")
   })
 
   it("abre a pesquisa global por um botão semântico", () => {

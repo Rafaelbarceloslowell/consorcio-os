@@ -60,7 +60,7 @@ export function TopCommandBar({
   return (
     <>
       <div className="sticky top-0 z-40 hidden px-5 pt-4 lg:block 2xl:px-7">
-        <div className="gorilla-command-bar mx-auto flex h-[68px] max-w-[1640px] items-center justify-between gap-4 rounded-[24px] px-3">
+        <div className="gorila-glass-1 mx-auto flex h-[68px] max-w-[1640px] items-center justify-between gap-4 rounded-[24px] border px-3">
           <nav
             aria-label="Navegação de comando"
             className="hidden min-w-0 flex-1 items-center xl:flex"
@@ -80,7 +80,7 @@ export function TopCommandBar({
                     "inline-flex h-11 min-w-0 items-center justify-center rounded-[16px] px-4 text-[11px] font-medium uppercase tracking-[0.055em] outline-none",
                     "transition-[background-color,border-color,color,transform] duration-200 focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]",
                     active
-                      ? "border border-[var(--gorila-material-border-strong)] bg-[var(--gorila-green-soft)] text-[var(--gorila-text)]"
+                      ? "gorila-glass-3 border border-[var(--gorila-material-border-strong)] text-[var(--gorila-text)]"
                       : "border border-transparent text-[var(--gorila-text-muted)] hover:bg-white/[0.035] hover:text-[var(--gorila-text-soft)]",
                   ].join(" ")}
                 >

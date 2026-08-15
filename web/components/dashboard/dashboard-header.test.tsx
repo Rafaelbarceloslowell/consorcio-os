@@ -119,6 +119,8 @@ describe("DashboardHeader premium R2 hero", () => {
       "href",
       "/opportunities/journey-1#r2-action-controls",
     )
+    expect(screen.getByText("Não existe compromisso futuro ou espera explícita válida.").closest("div")).toHaveClass("gorila-glass-3")
+    expect(screen.getByText("Defina o próximo passo e registre o resultado.").closest("div")).toHaveClass("gorila-glass-3")
   })
 
   it("usa fallback operacional legítimo quando não há ação", () => {

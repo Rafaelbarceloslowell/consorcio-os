@@ -71,11 +71,11 @@ export function DashboardHeader({
   return (
     <header
       id="r2-command"
-      className="gorilla-panel gorilla-hero-environment relative isolate overflow-hidden rounded-[30px]"
+      className="gorila-glass-0 gorilla-hero-environment relative isolate overflow-hidden rounded-[30px]"
     >
       <div className="relative z-10 grid min-h-[500px] items-end lg:grid-cols-[minmax(320px,0.82fr)_minmax(0,1.18fr)] xl:min-h-[530px]">
         <div className="relative flex min-h-[330px] items-end justify-center self-stretch lg:min-h-full">
-          <div className="absolute left-5 top-5 z-20 flex items-center gap-2 rounded-full border border-[var(--gorila-line)] bg-black/25 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-soft)] backdrop-blur-md">
+          <div className="gorila-glass-3 absolute left-5 top-5 z-20 flex items-center gap-2 rounded-full border px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-soft)]">
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-[var(--gorila-green-bright)] opacity-25" />
               <span className="relative inline-flex size-2 rounded-full bg-[var(--gorila-green-bright)]" />
@@ -103,7 +103,7 @@ export function DashboardHeader({
 
           <section
             aria-labelledby="next-best-action-title"
-            className="gorilla-action-card mt-7 max-w-2xl rounded-[22px] border border-[var(--gorilla-border-strong)] bg-[var(--gorilla-surface-raised)] p-5 shadow-[var(--gorilla-shadow)] sm:p-6"
+            className="gorila-glass-2 mt-7 max-w-2xl rounded-[22px] border p-5 sm:p-6"
           >
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.17em] text-[var(--gorila-bronze)]">
@@ -146,16 +146,16 @@ export function DashboardHeader({
 
             {context ? (
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] p-3.5">
+                <div className="gorila-glass-3 rounded-2xl border p-3.5">
                   <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[var(--gorila-text-muted)]">Por que agora</p>
                   <p className="mt-1.5 text-xs leading-5 text-[var(--gorila-text-soft)]">{context.whyNow}</p>
                 </div>
-                <div className="rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-green-soft)] p-3.5">
+                <div className="gorila-glass-3 rounded-2xl border p-3.5">
                   <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[var(--gorila-green-bright)]">R2 recomenda</p>
                   <p className="mt-1.5 text-xs leading-5 text-[var(--gorila-text)]">{context.r2Recommendation}</p>
                 </div>
                 {context.lastRelevantInteraction || context.lastInteractionAt ? (
-                  <div className="rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] p-3.5 sm:col-span-2">
+                  <div className="gorila-glass-3 rounded-2xl border p-3.5 sm:col-span-2">
                     <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[var(--gorila-text-muted)]">
                       Última interação{context.lastInteractionAt ? ` · ${formatRelativeTime(context.lastInteractionAt)}` : ""}
                     </p>

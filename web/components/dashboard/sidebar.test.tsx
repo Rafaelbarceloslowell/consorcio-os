@@ -175,6 +175,19 @@ describe("Sidebar", () => {
       "aria-current",
       "page"
     )
+    expect(dashboardLink).toHaveClass("gorila-glass-3")
+  })
+
+  it("usa navegação glass sem backgrounds permanentes nos itens normais", () => {
+    const { container } = render(
+      <Sidebar
+        open={true}
+        onClose={vi.fn()}
+      />
+    )
+
+    expect(container.querySelector("aside")).toHaveClass("gorila-glass-1")
+    expect(screen.getByRole("link", { name: "Pipeline" })).not.toHaveClass("gorila-glass-3")
   })
 
   it("deve renderizar o R2 como copiloto online", () => {

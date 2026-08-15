@@ -23,6 +23,8 @@ describe("DashboardHeader responsive cockpit layout", () => {
       />,
     )
 
+    expect(container.querySelector("#r2-command")).toHaveClass("gorila-glass-0")
+    expect(screen.getByRole("heading", { name: "Operação acompanhada pelo R2" }).closest("section")).toHaveClass("gorila-glass-2")
     expect(container.querySelector(".lg\\:grid-cols-\\[minmax\\(320px\\,0\\.82fr\\)_minmax\\(0\\,1\\.18fr\\)\\]")).toBeInTheDocument()
     expect(screen.getByTestId("gorila-r2-static-avatar")).toBeInTheDocument()
   })

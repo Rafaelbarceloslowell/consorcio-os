@@ -34,11 +34,11 @@ export function IntelligenceRail({
   return (
     <aside
       aria-label="Inteligência comercial"
-      className="space-y-4 xl:sticky xl:top-[100px] xl:self-start"
+      className="gorila-glass-0 space-y-4 xl:sticky xl:top-[100px] xl:self-start"
     >
       <MarketPulse compact />
 
-      <section className="gorilla-panel overflow-hidden">
+      <section className="gorila-glass-2 overflow-hidden rounded-[var(--gorilla-radius-module)] border">
         <header className="flex items-center gap-3 border-b border-[var(--gorila-line)] px-5 py-4">
           <Activity className="size-4 text-[var(--gorila-bronze)]" strokeWidth={1.7} />
           <div>
@@ -77,7 +77,7 @@ export function IntelligenceRail({
         )}
       </section>
 
-      <section className="gorilla-panel p-5">
+      <section className="gorila-glass-2 rounded-[var(--gorilla-radius-module)] border p-5">
         <div className="flex items-center gap-3">
           <Radar className="size-4 text-[var(--gorila-green-bright)]" strokeWidth={1.7} />
           <div>
@@ -96,7 +96,7 @@ export function IntelligenceRail({
             ["Importantes", importantCount],
             ["Monitorar", monitoringCount],
           ].map(([label, value]) => (
-            <div key={label} className="rounded-xl border border-[var(--gorila-line)] bg-black/10 px-2 py-3 text-center">
+            <div key={label} className="gorila-glass-3 rounded-xl border px-2 py-3 text-center">
               <span className="block text-lg font-semibold text-[var(--gorila-text)]">{value}</span>
               <span className="mt-1 block text-[8px] uppercase tracking-[0.08em] text-[var(--gorila-text-muted)]">{label}</span>
             </div>
