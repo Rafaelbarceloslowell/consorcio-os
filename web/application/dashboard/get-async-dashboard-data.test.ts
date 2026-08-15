@@ -1022,6 +1022,24 @@ describe(
             status:
               "PENDING",
           },
+          actionContext: {
+            actionId:
+              "action-pending-1",
+            opportunityId:
+              "journey-pending-action",
+            personName:
+              "Cliente real",
+            contextLabel:
+              "Negociação · Proposta enviada",
+            actionTitle:
+              "Retomar contato com Rosecleia",
+            actionReason:
+              "Você aceitou esta ação para Teste funcional R2. O R2 vai mantê-la em foco até a conclusão.",
+            r2Recommendation:
+              "Retomar contato com Rosecleia",
+            href:
+              "/opportunities/journey-pending-action",
+          },
         })
 
         expect(

@@ -139,6 +139,8 @@ describe("DashboardContent premium cockpit composition", () => {
 
   it("usa composição vertical antes do breakpoint do cockpit", () => {
     const { container } = render(<DashboardContent {...dashboardData} />)
-    expect(container.querySelector(".xl\\:grid-cols-\\[minmax\\(0\\,1fr\\)_310px\\]")).toBeInTheDocument()
+    expect(container.querySelector("main > div")).toHaveClass(
+      "min-[1400px]:grid-cols-[minmax(0,1fr)_310px]",
+    )
   })
 })

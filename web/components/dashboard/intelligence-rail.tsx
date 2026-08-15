@@ -11,24 +11,7 @@ import {
 import type {
   MissionControlOpportunityView,
 } from "@/types/dashboard"
-
-function formatRelativeUpdate(value: string) {
-  const minutes = Math.max(
-    0,
-    Math.round((Date.now() - new Date(value).getTime()) / 60_000),
-  )
-
-  if (minutes < 1) return "agora"
-  if (minutes < 60) return `há ${minutes} min`
-
-  const hours = Math.floor(minutes / 60)
-  if (hours < 24) return `há ${hours} h`
-
-  return new Intl.DateTimeFormat("pt-BR", {
-    day: "2-digit",
-    month: "2-digit",
-  }).format(new Date(value))
-}
+import { formatRelativeTime } from "@/lib/formatters"
 
 export function IntelligenceRail({
   opportunities,
@@ -85,7 +68,7 @@ export function IntelligenceRail({
                   </span>
                   <span className="mt-1 flex items-center justify-between gap-3 text-[10px] text-[var(--gorila-text-muted)]">
                     <span className="truncate">{opportunity.phaseName} · {opportunity.stateName}</span>
-                    <span className="shrink-0">{formatRelativeUpdate(opportunity.updatedAt)}</span>
+                    <span className="shrink-0">{formatRelativeTime(opportunity.updatedAt)}</span>
                   </span>
                 </Link>
               </li>

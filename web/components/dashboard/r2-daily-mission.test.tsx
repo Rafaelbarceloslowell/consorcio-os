@@ -57,6 +57,47 @@ describe("R2DailyMission", () => {
     )
   })
 
+  it("resume pessoa, situação, motivo e recomendação sem exigir o clique", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        ...emptyMission(),
+        now: [{
+          id: "task-2",
+          opportunityId: "opportunity-2",
+          title: "Revisar oportunidade sem próxima ação",
+          reason: "Invariant STALE_OPPORTUNITY detectado.",
+          dueAt: "2026-08-15T12:00:00.000Z",
+          actionContext: {
+            actionId: "task-2",
+            opportunityId: "opportunity-2",
+            personName: "Nair Silva",
+            contextLabel: "Aquisição · Novo lead",
+            actionTitle: "Nair Silva está sem próxima ação",
+            actionReason: "A oportunidade está ativa sem atividade pendente.",
+            whyNow: "Não há compromisso futuro ou espera válida.",
+            r2Recommendation: "Defina o próximo passo comercial.",
+            priority: "HIGH",
+            actionType: "R2_REVIEW",
+            href: "/opportunities/opportunity-2#r2-action-controls",
+          },
+        }],
+      }),
+    }))
+
+    render(<R2DailyMission />)
+
+    expect(await screen.findByText("Nair Silva")).toBeInTheDocument()
+    expect(screen.getByText(/Aquisição · Novo lead · Nair Silva está sem próxima ação/)).toBeInTheDocument()
+    expect(screen.getByText(/A oportunidade está ativa sem atividade pendente/)).toBeInTheDocument()
+    expect(screen.getByText(/Defina o próximo passo comercial/)).toBeInTheDocument()
+    expect(screen.queryByText("Invariant STALE_OPPORTUNITY detectado.")).not.toBeInTheDocument()
+    expect(screen.getByRole("link", { name: "Abrir ação" })).toHaveAttribute(
+      "href",
+      "/opportunities/opportunity-2#r2-action-controls",
+    )
+  })
+
   it("oferece ativação explícita quando a permissão ainda não foi decidida", async () => {
     vi.stubGlobal("Notification", {
       permission: "default",

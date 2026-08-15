@@ -109,6 +109,22 @@ export type GorilaR2Confidence =
   | "medium"
   | "low"
 
+export type R2ActionContext = {
+  actionId: string
+  opportunityId: string
+  personName: string
+  contextLabel: string
+  actionTitle: string
+  actionReason: string
+  whyNow: string
+  lastRelevantInteraction?: string
+  lastInteractionAt?: string
+  r2Recommendation: string
+  priority: string
+  actionType: string
+  href: string
+}
+
 export type GorilaR2PilotAction = {
   recommendationId: string
   journeyId: string
@@ -151,6 +167,7 @@ export type GorilaR2Briefing = {
 
   pilotAction?: GorilaR2PilotAction
   pendingAction?: GorilaR2PendingAction
+  actionContext?: R2ActionContext
 
   generatedAt: string
 }

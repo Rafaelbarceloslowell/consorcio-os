@@ -63,7 +63,7 @@ export function TopCommandBar({
         <div className="gorilla-command-bar mx-auto flex h-[68px] max-w-[1640px] items-center justify-between gap-4 rounded-[24px] px-3">
           <nav
             aria-label="Navegação de comando"
-            className="flex min-w-0 flex-1 items-center"
+            className="hidden min-w-0 flex-1 items-center xl:flex"
           >
             {commandItems.map((item) => {
               const active = isActivePath(

@@ -66,3 +66,25 @@ export function formatGreeting(
 
   return `Boa noite, ${name}`
 }
+
+export function formatRelativeTime(
+  value: string | Date,
+  reference: Date = new Date(),
+): string {
+  const elapsedMinutes = Math.max(
+    0,
+    Math.floor((reference.getTime() - new Date(value).getTime()) / 60_000),
+  )
+
+  if (elapsedMinutes < 1) return "agora"
+  if (elapsedMinutes < 60) return `há ${elapsedMinutes} min`
+
+  const elapsedHours = Math.floor(elapsedMinutes / 60)
+  if (elapsedHours < 24) return `há ${elapsedHours} h`
+  if (elapsedHours < 48) return "ontem"
+
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+  }).format(new Date(value))
+}

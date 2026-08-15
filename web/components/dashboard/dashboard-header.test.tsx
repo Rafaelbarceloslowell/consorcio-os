@@ -61,6 +61,26 @@ const briefing: GorilaR2Briefing = {
   generatedAt: "2026-08-08T12:00:00.000Z",
 }
 
+const contextualBriefing: GorilaR2Briefing = {
+  ...briefing,
+  pilotAction: undefined,
+  actionContext: {
+    actionId: "task-1",
+    opportunityId: "journey-1",
+    personName: "Ana Martins",
+    contextLabel: "Aquisição · Lead ativo",
+    actionTitle: "Ana Martins está sem próxima ação",
+    actionReason: "A oportunidade está ativa sem atividade pendente.",
+    whyNow: "Não existe compromisso futuro ou espera explícita válida.",
+    lastRelevantInteraction: "Quero entender melhor a parcela.",
+    lastInteractionAt: "2026-08-15T12:00:00.000Z",
+    r2Recommendation: "Defina o próximo passo e registre o resultado.",
+    priority: "HIGH",
+    actionType: "R2_REVIEW",
+    href: "/opportunities/journey-1#r2-action-controls",
+  },
+}
+
 describe("DashboardHeader premium R2 hero", () => {
   it("usa o nome real no cumprimento e apresenta a função do R2", () => {
     render(<DashboardHeader user={user} summary="Resumo" />)
@@ -81,9 +101,24 @@ describe("DashboardHeader premium R2 hero", () => {
   it("mantém os CTAs semânticos conectados à oportunidade", () => {
     render(<DashboardHeader user={user} summary="Resumo" gorilaR2={briefing} workspaceId="workspace-1" />)
 
-    expect(screen.getByRole("link", { name: /Atender agora/i })).toHaveAttribute("href", "/opportunities/journey-1")
+    expect(screen.getByRole("link", { name: /Abrir ação/i })).toHaveAttribute("href", "/opportunities/journey-1")
     expect(screen.getByRole("link", { name: /Ver detalhes/i })).toHaveAttribute("href", "/opportunities/journey-1")
     expect(screen.getByTestId("pilot-actions")).toBeInTheDocument()
+  })
+
+  it("expõe quem, contexto, motivo, recomendação e interação antes do clique", () => {
+    render(<DashboardHeader user={user} summary="Resumo" gorilaR2={contextualBriefing} />)
+
+    expect(screen.getByRole("heading", { name: "Ana Martins está sem próxima ação" })).toBeInTheDocument()
+    expect(screen.getByText("Aquisição · Lead ativo")).toBeInTheDocument()
+    expect(screen.getByText("A oportunidade está ativa sem atividade pendente.")).toBeInTheDocument()
+    expect(screen.getByText("Não existe compromisso futuro ou espera explícita válida.")).toBeInTheDocument()
+    expect(screen.getByText("Defina o próximo passo e registre o resultado.")).toBeInTheDocument()
+    expect(screen.getByText(/Quero entender melhor a parcela/)).toBeInTheDocument()
+    expect(screen.getByRole("link", { name: "Abrir ação" })).toHaveAttribute(
+      "href",
+      "/opportunities/journey-1#r2-action-controls",
+    )
   })
 
   it("usa fallback operacional legítimo quando não há ação", () => {

@@ -8,6 +8,7 @@ import {
     formatCompactCurrency,
     formatCurrency,
     formatGreeting,
+    formatRelativeTime,
   } from "./formatters"
   
   describe(
@@ -244,5 +245,17 @@ import {
     it("não presume valor ausente", () => {
       expect(formatCurrency(null)).toBe("—")
       expect(formatCompactCurrency(undefined)).toBe("—")
+    })
+  })
+
+  describe("formatRelativeTime", () => {
+    const reference = new Date("2026-08-15T15:00:00.000Z")
+
+    it.each([
+      ["2026-08-15T14:56:00.000Z", "há 4 min"],
+      ["2026-08-15T13:00:00.000Z", "há 2 h"],
+      ["2026-08-14T15:00:00.000Z", "ontem"],
+    ])("formata %s como %s", (value, expected) => {
+      expect(formatRelativeTime(value, reference)).toBe(expected)
     })
   })

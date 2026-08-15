@@ -34,6 +34,10 @@ import {
   enrichGorilaR2PilotBriefing,
 } from "./enrich-gorilar2-pilot-briefing"
 
+import {
+  buildR2ActionContext,
+} from "../execution/r2-action-context"
+
 export type GetAsyncDashboardDataInput = {
   workspaceId: string
   consultantId?: string
@@ -878,8 +882,8 @@ export async function getAsyncDashboardData(
         }
       : undefined
 
-  const dashboardTasks =
-    openConsultantTasks
+  const rankedConsultantTasks =
+    [...openConsultantTasks]
       .sort(
         (
           firstTask,
@@ -909,6 +913,9 @@ export async function getAsyncDashboardData(
           )
         },
       )
+
+  const dashboardTasks =
+    rankedConsultantTasks
       .map<DashboardTask>(
         (task) => ({
           id:
@@ -1061,7 +1068,7 @@ export async function getAsyncDashboardData(
           )
       : undefined
 
-  const gorilaR2 =
+  const baseGorilaR2 =
     enrichGorilaR2PilotBriefing(
       buildGorilaR2Briefing({
         intelligence,
@@ -1080,6 +1087,64 @@ export async function getAsyncDashboardData(
         : undefined,
       primaryConversationContext,
     )
+
+  const primaryTask = rankedConsultantTasks[0]
+  const contextualAction = baseGorilaR2.pendingAction
+    ? {
+        actionId: baseGorilaR2.pendingAction.actionId,
+        opportunityId: baseGorilaR2.pendingAction.journeyId,
+        taskTitle: baseGorilaR2.pendingAction.title,
+        specificActionTitle: baseGorilaR2.pendingAction.title,
+        taskDescription: baseGorilaR2.pendingAction.description,
+        taskReason: baseGorilaR2.reason,
+        r2Recommendation: baseGorilaR2.recommendation,
+        priority: "high",
+        actionType: baseGorilaR2.pendingAction.actionType,
+        href: baseGorilaR2.pendingAction.opportunityHref,
+      }
+    : baseGorilaR2.pilotAction
+      ? {
+          actionId: baseGorilaR2.pilotAction.recommendationId,
+          opportunityId: baseGorilaR2.pilotAction.journeyId,
+          taskTitle: baseGorilaR2.pilotAction.title,
+          specificActionTitle: baseGorilaR2.pilotAction.title,
+          taskDescription: baseGorilaR2.pilotAction.description,
+          taskReason: baseGorilaR2.pilotAction.reason,
+          r2Recommendation: baseGorilaR2.recommendation,
+          priority: baseGorilaR2.pilotAction.priority,
+          actionType: baseGorilaR2.pilotAction.actionType,
+          href: baseGorilaR2.pilotAction.opportunityHref,
+        }
+      : primaryTask?.opportunityId
+        ? {
+            actionId: primaryTask.id,
+            opportunityId: primaryTask.opportunityId,
+            taskTitle: primaryTask.title,
+            taskDescription: primaryTask.description,
+            taskReason: primaryTask.reason,
+            r2Recommendation: null,
+            priority: primaryTask.priority,
+            actionType: primaryTask.executionType,
+            href: `/opportunities/${encodeURIComponent(primaryTask.opportunityId)}#r2-action-controls`,
+          }
+        : undefined
+
+  const actionOpportunity = contextualAction
+    ? opportunities.find((opportunity) => opportunity.id === contextualAction.opportunityId)
+    : undefined
+
+  const gorilaR2 = contextualAction && actionOpportunity
+    ? {
+        ...baseGorilaR2,
+        actionContext: buildR2ActionContext({
+          ...contextualAction,
+          personName: actionOpportunity.originName,
+          phaseName: actionOpportunity.phaseName,
+          stateName: actionOpportunity.stateName,
+          lastInteractionAt: actionOpportunity.lastInteractionAt,
+        }),
+      }
+    : baseGorilaR2
 
   return {
     ...dashboardData,

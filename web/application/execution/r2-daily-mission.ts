@@ -8,6 +8,8 @@ import {
 
 import { prisma } from "@/infrastructure/prisma/client"
 
+import { buildR2ActionContext } from "./r2-action-context"
+
 const TERMINAL_OUTCOMES = [
   "WON",
   "LOST_TO_COMPETITOR",
@@ -248,11 +250,42 @@ export async function getR2DailyMission(input: Readonly<{
         id: true,
         opportunityId: true,
         title: true,
+        description: true,
         reason: true,
         executionType: true,
         dueAt: true,
         priority: true,
         impactNumber: true,
+        opportunity: {
+          select: {
+            title: true,
+            lastInteractionAt: true,
+            lead: { select: { name: true } },
+            client: { select: { name: true } },
+            currentPhase: { select: { name: true } },
+            currentState: { select: { name: true } },
+            conversationMemory: {
+              select: {
+                lastIncomingMessage: true,
+                observedAt: true,
+                analyzedAt: true,
+              },
+            },
+            nextBestActions: {
+              where: {
+                acceptedAt: null,
+                rejectedAt: null,
+                executedActionId: null,
+              },
+              orderBy: { createdAt: "desc" },
+              take: 1,
+              select: {
+                title: true,
+                description: true,
+              },
+            },
+          },
+        },
       },
     }),
     prisma.commercialCommitment.count({
@@ -301,14 +334,51 @@ export async function getR2DailyMission(input: Readonly<{
     return summary
   }, { newLeads: 0, checks: 0, recoveries: 0, followUps: 0 })
 
+  const missionTasks = tasks.map((task) => {
+    const opportunity = task.opportunity
+    const actionContext = task.opportunityId && opportunity
+      ? buildR2ActionContext({
+          actionId: task.id,
+          opportunityId: task.opportunityId,
+          personName: opportunity.lead?.name ?? opportunity.client?.name ?? opportunity.title,
+          phaseName: opportunity.currentPhase.name,
+          stateName: opportunity.currentState.name,
+          taskTitle: task.title,
+          taskDescription: task.description,
+          taskReason: task.reason,
+          r2Recommendation: opportunity.nextBestActions[0]?.description
+            ?? opportunity.nextBestActions[0]?.title,
+          lastRelevantInteraction: opportunity.conversationMemory?.lastIncomingMessage,
+          lastInteractionAt: opportunity.conversationMemory?.observedAt
+            ?? opportunity.conversationMemory?.analyzedAt
+            ?? opportunity.lastInteractionAt,
+          priority: task.priority,
+          actionType: task.executionType,
+          href: `/opportunities/${encodeURIComponent(task.opportunityId)}#r2-action-controls`,
+        })
+      : undefined
+
+    return {
+      id: task.id,
+      opportunityId: task.opportunityId,
+      title: task.title,
+      reason: task.reason,
+      executionType: task.executionType,
+      dueAt: task.dueAt.toISOString(),
+      priority: task.priority,
+      impactNumber: task.impactNumber,
+      actionContext,
+    }
+  })
+
   return {
     target: 50,
     totalActive,
     commitments,
     meetings,
     ...counts,
-    now: tasks.filter((task) => task.dueAt <= now).map((task) => ({ ...task, dueAt: task.dueAt.toISOString() })),
-    next: tasks.filter((task) => task.dueAt > now).map((task) => ({ ...task, dueAt: task.dueAt.toISOString() })),
+    now: missionTasks.filter((task) => new Date(task.dueAt) <= now),
+    next: missionTasks.filter((task) => new Date(task.dueAt) > now),
     notifications: notifications.map((notification) => ({
       ...notification,
       originalDueAt: notification.originalDueAt.toISOString(),

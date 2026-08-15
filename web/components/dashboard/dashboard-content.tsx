@@ -58,7 +58,7 @@ export function DashboardContent({
 
   return (
     <main className="min-h-screen">
-      <div className="mx-auto grid w-full max-w-[1640px] gap-5 px-4 py-4 sm:px-5 sm:py-5 xl:grid-cols-[minmax(0,1fr)_310px] 2xl:px-7">
+      <div className="mx-auto grid w-full max-w-[1640px] gap-5 px-4 py-4 sm:px-5 sm:py-5 min-[1400px]:grid-cols-[minmax(0,1fr)_310px] 2xl:px-7">
         <div className="min-w-0 space-y-5">
           <DashboardHeader
             workspaceId={workspaceId}

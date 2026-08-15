@@ -20,6 +20,7 @@ import {
 } from "@/components/dashboard/r2-pilot-actions"
 import {
   formatGreeting,
+  formatRelativeTime,
 } from "@/lib/formatters"
 import type {
   GorilaR2Briefing,
@@ -56,9 +57,10 @@ export function DashboardHeader({
 }: DashboardHeaderProps) {
   const r2State = resolveR2State(gorilaR2, behavior)
   const action = gorilaR2?.pendingAction ?? gorilaR2?.pilotAction
-  const actionTitle = action?.title ?? gorilaR2?.nextAction?.title ?? gorilaR2?.recommendation
-  const actionContext = action?.description ?? gorilaR2?.reason ?? gorilaR2?.analysis ?? summary
-  const actionHref = action?.opportunityHref
+  const context = gorilaR2?.actionContext
+  const actionTitle = context?.actionTitle ?? action?.title ?? gorilaR2?.nextAction?.title ?? gorilaR2?.recommendation
+  const actionReason = context?.actionReason ?? action?.description ?? gorilaR2?.reason ?? gorilaR2?.analysis ?? summary
+  const actionHref = context?.href ?? action?.opportunityHref
   const contactName = action?.journeyTitle
   const status = r2State === "alert"
     ? "alert"
@@ -101,7 +103,7 @@ export function DashboardHeader({
 
           <section
             aria-labelledby="next-best-action-title"
-            className="mt-7 max-w-2xl rounded-[22px] border border-[var(--gorilla-border-strong)] bg-[var(--gorilla-surface-raised)] p-5 shadow-[var(--gorilla-shadow)] backdrop-blur-xl sm:p-6"
+            className="gorilla-action-card mt-7 max-w-2xl rounded-[22px] border border-[var(--gorilla-border-strong)] bg-[var(--gorilla-surface-raised)] p-5 shadow-[var(--gorilla-shadow)] sm:p-6"
           >
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="flex items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.17em] text-[var(--gorila-bronze)]">
@@ -121,22 +123,49 @@ export function DashboardHeader({
               id="next-best-action-title"
               className="mt-4 text-2xl font-semibold leading-tight tracking-[-0.045em] text-[var(--gorila-text)] sm:text-3xl"
             >
-              {contactName ?? actionTitle ?? "Operação acompanhada pelo R2"}
+              {context?.actionTitle ?? contactName ?? actionTitle ?? "Operação acompanhada pelo R2"}
             </h1>
 
-            {contactName && actionTitle ? (
+            {context ? (
+              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.11em] text-[var(--gorila-green-bright)]">
+                {context.contextLabel}
+              </p>
+            ) : contactName && actionTitle ? (
               <p className="mt-2 text-sm font-medium text-[var(--gorila-green-bright)]">
                 {actionTitle}
               </p>
             ) : null}
 
             <p className="mt-3 max-w-xl text-xs leading-5 text-[var(--gorila-text-soft)] sm:text-sm sm:leading-6">
-              {actionContext || (
+              {actionReason || (
                 priorityCount > 0
                   ? `${priorityCount} ações prioritárias aguardam decisão.`
                   : "Sua operação está estável. O R2 seguirá buscando o próximo avanço comercial."
               )}
             </p>
+
+            {context ? (
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] p-3.5">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[var(--gorila-text-muted)]">Por que agora</p>
+                  <p className="mt-1.5 text-xs leading-5 text-[var(--gorila-text-soft)]">{context.whyNow}</p>
+                </div>
+                <div className="rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-green-soft)] p-3.5">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[var(--gorila-green-bright)]">R2 recomenda</p>
+                  <p className="mt-1.5 text-xs leading-5 text-[var(--gorila-text)]">{context.r2Recommendation}</p>
+                </div>
+                {context.lastRelevantInteraction || context.lastInteractionAt ? (
+                  <div className="rounded-2xl border border-[var(--gorila-line)] bg-[var(--gorila-surface-inset)] p-3.5 sm:col-span-2">
+                    <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[var(--gorila-text-muted)]">
+                      Última interação{context.lastInteractionAt ? ` · ${formatRelativeTime(context.lastInteractionAt)}` : ""}
+                    </p>
+                    {context.lastRelevantInteraction ? (
+                      <blockquote className="mt-1.5 text-xs italic leading-5 text-[var(--gorila-text-soft)]">“{context.lastRelevantInteraction}”</blockquote>
+                    ) : null}
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
 
             <div className="mt-5 flex flex-wrap gap-2">
               {actionHref ? (
@@ -146,7 +175,7 @@ export function DashboardHeader({
                     className="inline-flex h-10 items-center gap-2 rounded-full border border-[var(--gorila-green)] bg-[var(--gorila-green-soft)] px-4 text-xs font-semibold text-[var(--gorila-text)] transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--gorila-green)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]"
                   >
                     <Bot className="size-3.5" />
-                    Atender agora
+                    Abrir ação
                   </Link>
                   <Link
                     href={actionHref}

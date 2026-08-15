@@ -3,6 +3,9 @@
 import Link from "next/link"
 import { useCallback, useEffect, useRef, useState } from "react"
 
+import type { R2ActionContext } from "@/types/dashboard"
+import { formatRelativeTime } from "@/lib/formatters"
+
 import {
   browserNotificationTag,
   getBrowserNotificationPermission,
@@ -39,6 +42,7 @@ type DailyMission = Readonly<{
     title: string
     reason: string | null
     dueAt: string
+    actionContext?: R2ActionContext
   }>
   next: ReadonlyArray<{
     id: string
@@ -46,6 +50,7 @@ type DailyMission = Readonly<{
     title: string
     reason: string | null
     dueAt: string
+    actionContext?: R2ActionContext
   }>
   notifications: ReadonlyArray<MissionNotification>
 }>
@@ -154,7 +159,7 @@ export function R2DailyMission() {
     <section aria-labelledby="daily-mission-title" className="gorila-material rounded-[22px] border border-[var(--gorila-line)] bg-[var(--gorila-surface)] p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#D0B96C]">Missão diária R2</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--gorila-bronze)]">Missão diária R2</p>
           <h2 id="daily-mission-title" className="mt-1 text-lg font-semibold">Sua operação agora</h2>
         </div>
         <BrowserPermissionControl permission={browserPermission} onEnable={() => void enableBrowserNotifications()} />
@@ -175,14 +180,41 @@ export function R2DailyMission() {
           </div>
 
           {first ? (
-            <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-[#697842]/30 bg-[#697842]/8 p-4">
-              <div>
-                <p className="text-xs font-semibold text-[#D0B96C]">Comece por</p>
-                <p className="mt-1 text-sm font-semibold">{first.title}</p>
-                <p className="mt-1 text-xs text-[var(--gorila-text-muted)]">{first.reason}</p>
+            <div className="gorilla-action-card mt-4 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[var(--gorilla-border-strong)] bg-[var(--gorila-surface-raised)] p-4">
+              <div className="min-w-0 flex-1">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[var(--gorila-bronze)]">Comece por</p>
+                <p className="mt-1 text-base font-semibold text-[var(--gorila-text)]">
+                  {first.actionContext?.personName ?? first.title}
+                </p>
+                {first.actionContext ? (
+                  <>
+                    <p className="mt-1 text-xs font-medium text-[var(--gorila-green-bright)]">
+                      {first.actionContext.contextLabel} · {first.actionContext.actionTitle}
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-[var(--gorila-text-soft)]">
+                      {first.actionContext.actionReason} {first.actionContext.whyNow}
+                    </p>
+                    {first.actionContext.lastInteractionAt ? (
+                      <p className="mt-1 text-[10px] uppercase tracking-[0.11em] text-[var(--gorila-text-muted)]">
+                        Última interação {formatRelativeTime(first.actionContext.lastInteractionAt)}
+                      </p>
+                    ) : null}
+                    <p className="mt-2 text-xs leading-5 text-[var(--gorila-text)]">
+                      <span className="font-semibold text-[var(--gorila-green-bright)]">R2 recomenda:</span>{" "}
+                      {first.actionContext.r2Recommendation}
+                    </p>
+                  </>
+                ) : (
+                  <p className="mt-1 text-xs text-[var(--gorila-text-muted)]">{first.reason}</p>
+                )}
               </div>
-              {first.opportunityId ? (
-                <Link href={`/opportunities/${encodeURIComponent(first.opportunityId)}#r2-action-controls`} className="rounded-lg bg-[#697842] px-3 py-2 text-xs font-semibold text-white">Abrir ação</Link>
+              {first.actionContext?.href ?? first.opportunityId ? (
+                <Link
+                  href={first.actionContext?.href ?? `/opportunities/${encodeURIComponent(first.opportunityId!)}#r2-action-controls`}
+                  className="rounded-xl border border-[var(--gorila-green)] bg-[var(--gorila-green)] px-3 py-2 text-xs font-semibold text-[var(--primary-foreground)] shadow-[var(--gorila-control-shadow)] transition hover:-translate-y-0.5 hover:bg-[var(--gorila-green-bright)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--gorila-green-bright)]"
+                >
+                  Abrir ação
+                </Link>
               ) : null}
             </div>
           ) : (
@@ -204,7 +236,7 @@ function BrowserPermissionControl({
   onEnable,
 }: Readonly<{ permission: BrowserNotificationPermission; onEnable: () => void }>) {
   if (permission === "default") {
-    return <button onClick={onEnable} className="rounded-lg border border-[var(--gorila-line)] px-3 py-2 text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D0B96C]">Ativar notificações do R2</button>
+    return <button onClick={onEnable} className="rounded-lg border border-[var(--gorila-line)] px-3 py-2 text-xs font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gorila-bronze)]">Ativar notificações do R2</button>
   }
   if (permission === "granted") return <p className="text-xs text-[var(--gorila-text-muted)]">Alertas do navegador ativos</p>
   if (permission === "denied") return <p className="max-w-64 text-xs text-[var(--gorila-text-muted)]">Alertas bloqueados pelo navegador. Libere a permissão nas configurações do site.</p>
@@ -224,7 +256,7 @@ function NotificationCenter({
     <div className="mt-4 border-t border-[var(--gorila-line)] pt-4" aria-labelledby="r2-notification-center-title">
       <div className="flex items-center gap-2">
         <h3 id="r2-notification-center-title" className="text-sm font-semibold">Central de notificações</h3>
-        <span aria-label={`${notifications.length} notificações pendentes`} className="rounded-full bg-[#697842] px-2 py-0.5 text-[10px] font-bold text-white">{notifications.length}</span>
+        <span aria-label={`${notifications.length} notificações pendentes`} className="rounded-full bg-[var(--gorila-green)] px-2 py-0.5 text-[10px] font-bold text-[var(--primary-foreground)]">{notifications.length}</span>
       </div>
       <ul className="mt-3 space-y-2">
         {notifications.map((notification) => (
@@ -233,14 +265,14 @@ function NotificationCenter({
               <div>
                 <p className="text-sm font-semibold">{notification.title}</p>
                 <p className="mt-1 text-xs text-[var(--gorila-text-muted)]">{notification.body}</p>
-                <p className="mt-2 text-[10px] uppercase tracking-wide text-[#D0B96C]">
+                <p className="mt-2 text-[10px] uppercase tracking-wide text-[var(--gorila-bronze)]">
                   {priorityLabel(notification.priority)} · {new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short" }).format(new Date(notification.deliveryDueAt))}
                 </p>
               </div>
               <Link
                 href={notification.href}
                 onClick={() => onAction(notification.id, { type: "READ" })}
-                className="rounded-lg bg-[#697842] px-3 py-2 text-xs font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D0B96C]"
+                className="rounded-lg bg-[var(--gorila-green)] px-3 py-2 text-xs font-semibold text-[var(--primary-foreground)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gorila-bronze)]"
               >
                 Abrir destino
               </Link>

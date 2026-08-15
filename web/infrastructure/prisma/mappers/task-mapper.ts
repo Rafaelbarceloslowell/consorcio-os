@@ -118,6 +118,12 @@ import {
           raw.meetingId ?? undefined,
         proposalId:
           raw.proposalId ?? undefined,
+        opportunityId:
+          raw.opportunityId ?? undefined,
+        executionType:
+          raw.executionType ?? undefined,
+        reason:
+          raw.reason ?? undefined,
         completedAt:
           raw.completedAt?.toISOString(),
         createdAt:

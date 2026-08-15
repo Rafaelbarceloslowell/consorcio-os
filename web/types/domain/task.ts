@@ -26,5 +26,8 @@ export type Task = {
   clientId?: EntityId
   meetingId?: EntityId
   proposalId?: EntityId
+  opportunityId?: EntityId
+  executionType?: string
+  reason?: string
   completedAt?: string
 } & Timestamps
