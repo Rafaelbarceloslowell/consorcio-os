@@ -48,6 +48,10 @@ import {
   import {
     runDecisionAutomationPipeline,
   } from "./run-decision-automation-pipeline"
+
+  import {
+    analyzeR2CustomerBoundary,
+  } from "@/application/r2/boundary"
   
   vi.mock(
     "./run-decision-engine",
@@ -1009,6 +1013,77 @@ import {
         },
       )
   
+      it(
+        "cancela fila e ignora estratégia ativa após rejeição terminal",
+        () => {
+          const journey = getJourney()
+          const commercialRepository =
+            new MockCommercialRepository(mockCommercialData)
+          const crmRepository = new MockCrmRepository()
+          const activeStrategy =
+            createStrategy({ status: "ACTIVE" })
+          const pendingJob = createAutomationJob({
+            status: "PENDING",
+            startedAt: null,
+            completedAt: null,
+            cancelledAt: null,
+            attemptCount: 0,
+            createdActionId: null,
+          })
+          const cancelledJob = {
+            ...pendingJob,
+            status: "CANCELLED" as const,
+            cancelledAt: NOW.toISOString(),
+            lastFailureReason:
+              "Customer Boundary encerrou a comunicação comercial proativa.",
+            updatedAt: NOW.toISOString(),
+          }
+          const decisionAutomationRepository =
+            new MockDecisionAutomationRepository({
+              strategies: [activeStrategy],
+              automationJobs: [pendingJob],
+            })
+          const customerBoundaryContext =
+            analyzeR2CustomerBoundary({
+              opportunityId: journey.id,
+              message:
+                "Já falei que não quero, que merda.",
+            })
+
+          mockedRunApplicationDecisionEngine.mockReturnValue({
+            nextBestActions: [],
+            strategy: activeStrategy,
+            diagnostics: [],
+            warnings: [],
+            customerBoundaryContext,
+          })
+          mockedRunAutomationEngine.mockReturnValue(
+            createAutomationOutput(null, {
+              jobs: [cancelledJob],
+            }),
+          )
+
+          runDecisionAutomationPipeline({
+            commercialRepository,
+            crmRepository,
+            decisionAutomationRepository,
+            journeyId: journey.id,
+            now: NOW,
+          })
+
+          expect(mockedRunAutomationEngine).toHaveBeenCalledWith({
+            strategy: null,
+            journey,
+            queue: {
+              jobs: [cancelledJob],
+              executions: [],
+            },
+            now: NOW,
+            executionLimit: undefined,
+          })
+        },
+      )
+
       it(
         "deve rejeitar uma jornada inexistente antes de executar os motores",
         () => {

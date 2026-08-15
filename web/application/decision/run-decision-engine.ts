@@ -19,24 +19,47 @@ import type {
   CrmRepository,
 } from "@/repositories/crm/crm-repository"
 
-export type RunApplicationDecisionEngineCommonInput = {
-  crmRepository: CrmRepository
+import type {
+  AsyncCrmRepositories,
+} from "@/repositories/crm/async-crm-repositories"
 
+import type {
+  R2EvidenceDecisionContext,
+} from "@/application/r2/evidence/types"
+
+import type {
+  R2CustomerBoundaryContext,
+} from "@/application/r2/boundary"
+
+export type RunApplicationDecisionEngineCommonInput = {
   journeyId: string
 
   now?: Date
+
+  evidenceContext?:
+    R2EvidenceDecisionContext
+
+  customerBoundaryContext?:
+    R2CustomerBoundaryContext
 }
 
 export type RunApplicationDecisionEngineLegacyInput =
   RunApplicationDecisionEngineCommonInput & {
     commercialRepository:
       CommercialRepository
+
+    crmRepository:
+      CrmRepository
   }
 
 export type RunApplicationDecisionEngineAsyncInput =
   RunApplicationDecisionEngineCommonInput & {
     commercialRepository:
       AsyncCommercialRepositories
+
+    crmRepository:
+      | CrmRepository
+      | AsyncCrmRepositories
   }
 
 export type RunApplicationDecisionEngineInput =
@@ -81,6 +104,8 @@ function runLegacyApplicationDecisionEngine({
   crmRepository,
   journeyId,
   now = new Date(),
+  evidenceContext,
+  customerBoundaryContext,
 }: RunApplicationDecisionEngineLegacyInput) {
   const journey =
     commercialRepository.getJourneyById(
@@ -158,6 +183,8 @@ function runLegacyApplicationDecisionEngine({
 
   return runDecisionEngine({
     context: enrichedContext,
+    evidenceContext,
+    customerBoundaryContext,
   })
 }
 
@@ -166,6 +193,8 @@ async function runAsyncApplicationDecisionEngine({
   crmRepository,
   journeyId,
   now = new Date(),
+  evidenceContext,
+  customerBoundaryContext,
 }: RunApplicationDecisionEngineAsyncInput) {
   const journey =
     await commercialRepository.journeys.findById(
@@ -178,19 +207,9 @@ async function runAsyncApplicationDecisionEngine({
     )
   }
 
-  const lead = journey.leadId
-    ? crmRepository.getLeadById(
-        journey.leadId,
-      ) ?? null
-    : null
-
-  const client = journey.clientId
-    ? crmRepository.getClientById(
-        journey.clientId,
-      ) ?? null
-    : null
-
   const [
+    lead,
+    client,
     phase,
     state,
     events,
@@ -198,6 +217,30 @@ async function runAsyncApplicationDecisionEngine({
     actions,
     recommendations,
   ] = await Promise.all([
+    journey.leadId
+      ? isAsyncCrmRepositories(crmRepository)
+        ? crmRepository.leads.findById(
+            journey.leadId,
+          )
+        : Promise.resolve(
+            crmRepository.getLeadById(
+              journey.leadId,
+            ),
+          )
+      : Promise.resolve(undefined),
+
+    journey.clientId
+      ? isAsyncCrmRepositories(crmRepository)
+        ? crmRepository.clients.findById(
+            journey.clientId,
+          )
+        : Promise.resolve(
+            crmRepository.getClientById(
+              journey.clientId,
+            ),
+          )
+      : Promise.resolve(undefined),
+
     journey.currentPhaseId
       ? commercialRepository.phases.findById(
           journey.currentPhaseId,
@@ -229,8 +272,8 @@ async function runAsyncApplicationDecisionEngine({
     buildCommercialContext({
       now,
       journey,
-      lead,
-      client,
+      lead: lead ?? null,
+      client: client ?? null,
       phase: phase ?? null,
       state: state ?? null,
       events,
@@ -246,6 +289,8 @@ async function runAsyncApplicationDecisionEngine({
 
   return runDecisionEngine({
     context: enrichedContext,
+    evidenceContext,
+    customerBoundaryContext,
   })
 }
 
@@ -282,10 +327,35 @@ export function runApplicationDecisionEngine(
     })
   }
 
-  return runLegacyApplicationDecisionEngine({
-    ...input,
+  const crmRepository = input.crmRepository
 
+  if (isAsyncCrmRepositories(crmRepository)) {
+    throw new Error(
+      "Repositórios CRM assíncronos exigem repositórios comerciais assíncronos.",
+    )
+  }
+
+  return runLegacyApplicationDecisionEngine({
     commercialRepository:
       input.commercialRepository,
+    crmRepository,
+    journeyId: input.journeyId,
+    now: input.now,
+    evidenceContext:
+      input.evidenceContext,
+    customerBoundaryContext:
+      input.customerBoundaryContext,
   })
+}
+
+function isAsyncCrmRepositories(
+  crmRepository:
+    | CrmRepository
+    | AsyncCrmRepositories,
+): crmRepository is AsyncCrmRepositories {
+  return "leads" in crmRepository &&
+    typeof crmRepository.leads === "object" &&
+    crmRepository.leads !== null &&
+    "findById" in crmRepository.leads &&
+    typeof crmRepository.leads.findById === "function"
 }

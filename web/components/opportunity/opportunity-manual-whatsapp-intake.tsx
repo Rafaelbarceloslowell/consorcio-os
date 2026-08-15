@@ -37,9 +37,22 @@ import type {
   R2IntelligenceResult,
 } from "@/application/r2/resolve-r2-intelligence"
 
+import type {
+  R2DecisionSafetyResult,
+  R2EvidenceDecisionContext,
+} from "@/application/r2/evidence"
+
 import {
   OpportunityR2Intelligence,
 } from "./opportunity-r2-intelligence"
+
+import {
+  OpportunityR2ConsultantFeedback,
+} from "./opportunity-r2-consultant-feedback"
+
+import type {
+  R2ConsultantFeedbackRevision,
+} from "./opportunity-r2-consultant-feedback"
 
 type R2ContextReconciliation =
   Readonly<{
@@ -52,6 +65,14 @@ type R2ContextReconciliation =
     currentObservation: string
     proposedContext: string
     effectiveContext: string | null
+  }>
+
+type R2EvidenceHumanReview =
+  Readonly<{
+    title: string
+    reason: string
+    confirmationAlreadyRequested: boolean
+    instruction: string
   }>
 
 type OpportunityManualWhatsAppIntakeProps = {
@@ -84,6 +105,8 @@ function formatConversationStage(
       return "Pr\u00f3ximo passo"
     case "follow_up":
       return "Acompanhamento"
+    case "closing":
+      return "Encerramento"
   }
 }
 
@@ -105,6 +128,8 @@ function mapConversationStage(
       return "meeting"
     case "follow_up":
       return "follow_up"
+    case "closing":
+      return "closing"
   }
 }
 
@@ -218,6 +243,12 @@ export function OpportunityManualWhatsAppIntake({
     useState("")
   const [intelligence, setIntelligence] =
     useState<R2IntelligenceResult | null>(null)
+  const [evidence, setEvidence] =
+    useState<R2EvidenceDecisionContext | null>(null)
+  const [safetyCheck, setSafetyCheck] =
+    useState<R2DecisionSafetyResult | null>(null)
+  const [evidenceHumanReview, setEvidenceHumanReview] =
+    useState<R2EvidenceHumanReview | null>(null)
   const [isSavingMemory, setIsSavingMemory] =
     useState(false)
 
@@ -250,9 +281,7 @@ export function OpportunityManualWhatsAppIntake({
         })
       : null
 
-  async function handleAnalyze(
-    confirmContext = false,
-  ) {
+  async function handleAnalyze() {
     let nextAnalysis =
       analyzeManualWhatsAppMessage(
         incomingMessage,
@@ -274,6 +303,8 @@ export function OpportunityManualWhatsAppIntake({
     setCopyStatus("")
     setMemoryStatus("")
     setIntelligence(null)
+    setEvidence(null)
+    setSafetyCheck(null)
 
     if (opportunityId) {
       setIsSavingMemory(true)
@@ -292,10 +323,13 @@ export function OpportunityManualWhatsAppIntake({
               },
               body: JSON.stringify({
                 incomingMessage,
-                ...(confirmContext
+                ...(contextReconciliation ||
+                evidenceHumanReview
                   ? {
                       contextDecision:
-                        "CONFIRM_CONTEXT",
+                        contextReconciliation
+                          ? "CONFIRM_CONTEXT"
+                          : "CONFIRM_EVIDENCE",
                     }
                   : {}),
               }),
@@ -311,6 +345,12 @@ export function OpportunityManualWhatsAppIntake({
               R2IntelligenceResult | null
             reconciliation?:
               R2ContextReconciliation
+            evidence?:
+              R2EvidenceDecisionContext
+            safetyCheck?:
+              R2DecisionSafetyResult
+            humanReview?:
+              R2EvidenceHumanReview | null
           }
 
         if (
@@ -330,11 +370,43 @@ export function OpportunityManualWhatsAppIntake({
           setAnalysis(null)
           setReply("")
           setIntelligence(null)
+          setEvidence(null)
+          setSafetyCheck(null)
+          setEvidenceHumanReview(null)
 
           setIncomingMessage("")
 
           setMemoryStatus(
             `${reconciliation.reason} Revise ou complemente o contexto e confirme para o R2 recalcular.`,
+          )
+          setIsSavingMemory(false)
+          return
+        }
+
+        if (
+          response.ok &&
+          responseBody.humanReview
+        ) {
+          setContextReconciliation(null)
+          setEvidenceHumanReview(
+            responseBody.humanReview,
+          )
+          setEvidence(
+            responseBody.evidence ?? null,
+          )
+          setSafetyCheck(
+            responseBody.safetyCheck ?? null,
+          )
+          setAnalysis(
+            responseBody.analysis ?? null,
+          )
+          setIntelligence(
+            responseBody.intelligence ?? null,
+          )
+          setReply("")
+          setIncomingMessage("")
+          setMemoryStatus(
+            `${responseBody.humanReview.reason} ${responseBody.humanReview.instruction}`,
           )
           setIsSavingMemory(false)
           return
@@ -358,6 +430,13 @@ export function OpportunityManualWhatsAppIntake({
         setIntelligence(
           responseBody.intelligence,
         )
+        setEvidence(
+          responseBody.evidence ?? null,
+        )
+        setSafetyCheck(
+          responseBody.safetyCheck ?? null,
+        )
+        setEvidenceHumanReview(null)
         setContextReconciliation(
           null,
         )
@@ -392,6 +471,9 @@ export function OpportunityManualWhatsAppIntake({
     setCopyStatus("")
     setMemoryStatus("")
     setIntelligence(null)
+    setEvidence(null)
+    setSafetyCheck(null)
+    setEvidenceHumanReview(null)
     setContextReconciliation(null)
     setIsSavingMemory(false)
   }
@@ -413,6 +495,19 @@ export function OpportunityManualWhatsAppIntake({
         "N\u00e3o foi poss\u00edvel copiar automaticamente. Selecione o texto e copie manualmente.",
       )
     }
+  }
+
+  function handleFeedbackRevision(
+    revision: R2ConsultantFeedbackRevision,
+  ): void {
+    setIntelligence(revision.intelligence)
+    setAnalysis(revision.analysis)
+    setReply(revision.reply ?? "")
+    setEvidence(revision.evidence)
+    setSafetyCheck(revision.safetyCheck)
+    setMemoryStatus(
+      "CorreÃ§Ã£o aplicada neste caso e registrada para avaliaÃ§Ã£o de aprendizado.",
+    )
   }
 
   return (
@@ -517,7 +612,8 @@ export function OpportunityManualWhatsAppIntake({
         className="mt-5 block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]"
       >
         {isReactivation
-          ? contextReconciliation
+          ? contextReconciliation ||
+            evidenceHumanReview
             ? "Correção / complemento do consultor"
             : "Últimas mensagens ou resumo do histórico"
           : "Mensagem recebida do cliente"}
@@ -535,10 +631,13 @@ export function OpportunityManualWhatsAppIntake({
           setCopyStatus("")
           setMemoryStatus("")
           setIntelligence(null)
+          setEvidence(null)
+          setSafetyCheck(null)
         }}
         placeholder={
           isReactivation
-            ? contextReconciliation
+            ? contextReconciliation ||
+              evidenceHumanReview
               ? "Escreva a versão correta e completa do contexto. Ex.: Já conversei com o cliente, apresentei a estratégia e depois ele parou de responder."
               : "Ex.: O cliente buscava um Corolla. Tentei marcar uma reunião, mas ele não respondeu mais. Meu último contato foi em 23/04/2026.\n\nOu use: Cliente: ... / Consultor: ..."
             : "Cole aqui a mensagem recebida no WhatsApp"
@@ -591,6 +690,46 @@ export function OpportunityManualWhatsAppIntake({
         </div>
       ) : null}
 
+      {evidenceHumanReview ? (
+        <div
+          className="mt-3 rounded-2xl border border-[#D9A441]/35 bg-[#D9A441]/[0.08] p-4"
+          data-testid="r2-evidence-human-review"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#F4C96B]">
+            {`⚠ ${evidenceHumanReview.title}`}
+          </p>
+          <p className="mt-2 text-sm leading-6 text-[var(--gorila-text)]">
+            {evidenceHumanReview.reason}
+          </p>
+          <p className="mt-2 text-xs leading-5 text-[var(--gorila-text-muted)]">
+            {evidenceHumanReview.instruction}
+            {evidenceHumanReview.confirmationAlreadyRequested
+              ? " O pedido anterior continua aberto; o R2 não criou uma confirmação duplicada."
+              : ""}
+          </p>
+        </div>
+      ) : null}
+
+      {!evidenceHumanReview &&
+      evidence &&
+      (
+        evidence.warnings.length > 0 ||
+        safetyCheck?.status === "SAFE_WITH_WARNING"
+      ) ? (
+        <div
+          className="mt-3 rounded-2xl border border-[#D9A441]/25 bg-[#D9A441]/[0.05] p-4"
+          data-testid="r2-evidence-warning"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#F4C96B]">
+            Evidência usada com cautela
+          </p>
+          <p className="mt-2 text-sm leading-6 text-[var(--gorila-text)]">
+            {evidence.warnings[0] ??
+              "A recomendação é segura, mas depende de informação ainda não confirmada externamente."}
+          </p>
+        </div>
+      ) : null}
+
       <div className="mt-3 flex flex-wrap items-center gap-2">
         <button
           type="button"
@@ -599,10 +738,7 @@ export function OpportunityManualWhatsAppIntake({
             isSavingMemory
           }
           onClick={() =>
-            void handleAnalyze(
-              contextReconciliation !==
-                null,
-            )
+            void handleAnalyze()
           }
           className="inline-flex min-h-10 items-center justify-center rounded-xl border border-[#43A972]/30 bg-[#2F8F5B]/15 px-4 text-xs font-semibold text-[#6FD39B] transition hover:-translate-y-0.5 hover:border-[#43A972]/45 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0"
         >
@@ -610,6 +746,8 @@ export function OpportunityManualWhatsAppIntake({
             ? "Analisando e salvando..."
             : contextReconciliation
               ? "Confirmar contexto e recalcular"
+              : evidenceHumanReview
+                ? "Confirmar informação e recalcular"
               : isReactivation
                 ? "Analisar contexto"
                 : "Analisar mensagem"}
@@ -643,6 +781,18 @@ export function OpportunityManualWhatsAppIntake({
         <div className="mt-5 overflow-hidden rounded-2xl border border-[var(--gorila-line)]">
           <OpportunityR2Intelligence
             intelligence={intelligence}
+            opportunityId={opportunityId}
+            showFeedback={false}
+            onRevision={(revision) => {
+              setIntelligence(revision.intelligence)
+              setAnalysis(revision.analysis)
+              setReply(revision.reply ?? "")
+              setEvidence(revision.evidence)
+              setSafetyCheck(revision.safetyCheck)
+              setMemoryStatus(
+                "Correção aplicada neste caso e registrada para avaliação de aprendizado.",
+              )
+            }}
           />
         </div>
       ) : null}
@@ -789,6 +939,14 @@ export function OpportunityManualWhatsAppIntake({
           >
             {copyStatus}
           </p>
+
+          {intelligence && opportunityId ? (
+            <OpportunityR2ConsultantFeedback
+              opportunityId={opportunityId}
+              intelligence={intelligence}
+              onRevision={handleFeedbackRevision}
+            />
+          ) : null}
         </div>
       ) : null}
     </section>

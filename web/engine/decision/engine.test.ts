@@ -13,6 +13,10 @@ import {
 
 import { runDecisionEngine } from "./engine"
 
+import {
+  analyzeR2CustomerBoundary,
+} from "@/application/r2/boundary"
+
 function createJourney(
   now: Date,
   overrides: Partial<CommercialJourney> = {},
@@ -170,6 +174,32 @@ function createContext(options?: {
 }
 
 describe("DecisionEngine", () => {
+  it("suprime NBA e estratégia quando a Customer Boundary é terminal", () => {
+    const context = createContext()
+    const customerBoundaryContext =
+      analyzeR2CustomerBoundary({
+        opportunityId: context.journey.id,
+        message: "Já falei que não quero, que merda.",
+      })
+
+    const result = runDecisionEngine({
+      context,
+      customerBoundaryContext,
+    })
+
+    expect(result).toMatchObject({
+      nextBestActions: [],
+      strategy: null,
+      customerBoundaryContext: {
+        terminal: true,
+        signal: "HOSTILE_REJECTION",
+      },
+    })
+    expect(result.warnings.join(" ")).toContain(
+      "R2_CUSTOMER_BOUNDARY",
+    )
+  })
+
   it("deve executar a análise de um contexto comercial válido", () => {
     const context = createContext()
 
@@ -372,5 +402,49 @@ describe("DecisionEngine", () => {
           ),
       ),
     ).toBe(true)
+  })
+
+  it("recebe contexto de evidência e preserva a decisão normal", () => {
+    const result = runDecisionEngine({
+      context: createContext(),
+      evidenceContext: {
+        status: "SUPPORTED",
+        confidence: "HIGH",
+        outcome: "PASS",
+        sensitivity: "HIGH",
+        warnings: [],
+        conflicts: [],
+        humanConfirmationRequired: false,
+        assessments: [],
+      },
+    })
+
+    expect(result.nextBestActions).toHaveLength(1)
+    expect(result.evidenceContext?.status).toBe("SUPPORTED")
+    expect(result.diagnostics).toContain(
+      "Contexto de evidência recebido com status SUPPORTED e resultado PASS.",
+    )
+  })
+
+  it("não emite NBA quando evidência sensível exige confirmação humana", () => {
+    const result = runDecisionEngine({
+      context: createContext(),
+      evidenceContext: {
+        status: "CONFLICTING",
+        confidence: "LOW",
+        outcome: "HUMAN_CONFIRMATION_REQUIRED",
+        sensitivity: "HIGH",
+        warnings: ["Valor de lance conflitante."],
+        conflicts: ["Valor de lance conflitante."],
+        humanConfirmationRequired: true,
+        assessments: [],
+      },
+    })
+
+    expect(result.nextBestActions).toEqual([])
+    expect(result.strategy).toBeNull()
+    expect(result.warnings).toContain(
+      "[R2_HUMAN_CONFIRMATION_REQUIRED] Um conflito sensível precisa ser confirmado antes da recomendação.",
+    )
   })
 })

@@ -9,6 +9,7 @@ import type {
 } from "./conversation/conversation-stage"
 
 export type R2CommercialTechniqueId =
+  | "none"
   | "seals_commercial_script"
   | "rapport"
   | "aida"
@@ -55,6 +56,14 @@ type R2CommercialTechniqueCore = Pick<
 
 const R2_COMMERCIAL_TECHNIQUE_CORE:
   readonly R2CommercialTechniqueCore[] = [
+    {
+      id: "none",
+      label: "Nenhuma técnica comercial",
+      purpose:
+        "Respeitar uma fronteira do cliente sem persuasão, descoberta ou tentativa de avanço.",
+      guardrail:
+        "Usar quando a conversa atual foi encerrada pelo cliente.",
+    },
     {
       id: "seals_commercial_script",
       label: "Script Comercial da Seal’s",
@@ -489,7 +498,7 @@ type R2CommercialPlaybookBaseRecommendation = {
   primaryTechnique: R2CommercialTechniqueId
   supportingTechniques:
     readonly R2CommercialTechniqueId[]
-  closingTechnique: "next_step_closing"
+  closingTechnique: R2CommercialTechniqueId
   objective: string
   rationale: string
   consultantInstruction: string
@@ -547,6 +556,7 @@ function buildRecommendation({
     "Termine com uma pergunta simples ou um compromisso concreto coerente com o estágio atual.",
   avoid,
   shouldAskConsultantForSocialProof = false,
+  closingTechnique = "next_step_closing",
 }: Omit<
   R2CommercialPlaybookBaseRecommendation,
   | "foundation"
@@ -556,14 +566,14 @@ function buildRecommendation({
 > & {
   shouldAskConsultantForSocialProof?: boolean
   callToAction?: string
+  closingTechnique?: R2CommercialTechniqueId
 }): R2CommercialPlaybookBaseRecommendation {
   return {
     foundation:
       "seals_commercial_script",
     primaryTechnique,
     supportingTechniques,
-    closingTechnique:
-      "next_step_closing",
+    closingTechnique,
     objective,
     rationale,
     consultantInstruction,
@@ -592,6 +602,30 @@ function buildBaseR2CommercialPlaybookRecommendation({
   approachType,
   analysis,
 }: BuildR2CommercialPlaybookRecommendationInput): R2CommercialPlaybookBaseRecommendation {
+  if (
+    analysis.intent === "not_interested" ||
+    analysis.customerBoundary?.terminal
+  ) {
+    return buildRecommendation({
+      primaryTechnique: "none",
+      supportingTechniques: [],
+      closingTechnique: "none",
+      objective:
+        "Encerrar a conversa atual respeitosamente.",
+      rationale:
+        "A decisão explícita do cliente tem precedência sobre playbook, persuasão, descoberta e fechamento comercial.",
+      consultantInstruction:
+        "Reconheça a decisão e encerre de forma breve. Não investigue o motivo e não tente reabrir a venda.",
+      callToAction: "Nenhum CTA comercial.",
+      avoid: [
+        "Fazer perguntas.",
+        "Tratar a rejeição como objeção.",
+        "Usar FOMO, pressão ou urgência.",
+        "Criar follow-up sem autorização do cliente.",
+      ],
+    })
+  }
+
   if (
     analysis.context
       ?.projectTimingDeferred
@@ -676,7 +710,9 @@ function buildBaseR2CommercialPlaybookRecommendation({
     })
   }
 
-  switch (analysis.intent) {
+  switch (
+    analysis.intent as ManualWhatsAppAnalysis["intent"]
+  ) {
     case "no_previous_response":
       return buildRecommendation({
         primaryTechnique:

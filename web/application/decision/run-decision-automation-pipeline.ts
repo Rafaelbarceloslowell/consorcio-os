@@ -4,6 +4,7 @@ import type {
 
 import {
   runAutomationEngine,
+  cancelAutomationJobs,
 } from "@/engine/decision/automation"
 
 import type {
@@ -428,14 +429,26 @@ function runLegacyDecisionAutomationPipeline({
       )
 
   const strategyToExecute =
-    activePersistedStrategy ??
-    decision.strategy
+    decision.customerBoundaryContext?.terminal
+      ? null
+      : activePersistedStrategy ??
+        decision.strategy
 
   const currentQueue =
     decisionAutomationRepository
       .getAutomationQueueByJourneyId(
-        journey.id,
-      )
+      journey.id,
+    )
+  const effectiveQueue =
+    decision.customerBoundaryContext?.terminal
+      ? cancelAutomationJobs({
+          queue: currentQueue,
+          journeyId: journey.id,
+          now,
+          reason:
+            "Customer Boundary encerrou a comunicação comercial proativa.",
+        }).queue
+      : currentQueue
 
   const automation =
     runAutomationEngine({
@@ -445,7 +458,7 @@ function runLegacyDecisionAutomationPipeline({
       journey,
 
       queue:
-        currentQueue,
+        effectiveQueue,
 
       now,
 
@@ -539,14 +552,26 @@ async function runAsyncDecisionAutomationPipeline({
       )
 
   const strategyToExecute =
-    activePersistedStrategy ??
-    decision.strategy
+    decision.customerBoundaryContext?.terminal
+      ? null
+      : activePersistedStrategy ??
+        decision.strategy
 
   const currentQueue =
     decisionAutomationRepository
       .getAutomationQueueByJourneyId(
-        journey.id,
-      )
+      journey.id,
+    )
+  const effectiveQueue =
+    decision.customerBoundaryContext?.terminal
+      ? cancelAutomationJobs({
+          queue: currentQueue,
+          journeyId: journey.id,
+          now,
+          reason:
+            "Customer Boundary encerrou a comunicação comercial proativa.",
+        }).queue
+      : currentQueue
 
   const automation =
     runAutomationEngine({
@@ -556,7 +581,7 @@ async function runAsyncDecisionAutomationPipeline({
       journey,
 
       queue:
-        currentQueue,
+        effectiveQueue,
 
       now,
 

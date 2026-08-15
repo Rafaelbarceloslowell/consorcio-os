@@ -411,5 +411,50 @@ describe(
           })
       },
     )
+
+    it(
+      "explicita correção apenas no caso e mantém aprendizado global pendente",
+      () => {
+        const result = resolveR2Intelligence({
+          recommendationId: "recommendation-b",
+          workspaceId: "workspace-1",
+          opportunityId: "opportunity-1",
+          approachType: "new",
+          analysis: analysis(
+            "Tenho interesse em imóvel.",
+            "new",
+          ),
+          profile: PROFILE,
+          candidates: [],
+          commercialEvents: [],
+          consultantCorrectionContext: {
+            feedbackId: "feedback-1",
+            originalRecommendationId: "recommendation-a",
+            errorCategory: "WRONG_COMMERCIAL_STRATEGY",
+            correctionType: "STRATEGY_CORRECTION",
+            disagreementReason: "Estratégia repetia a pergunta.",
+            correctPath: "Compare as opções.",
+            affectsEvidence: false,
+            consultantReportsCustomerConfirmation: false,
+            scope: "CASE_CORRECTION",
+            learningStatus: "LEARNING_CANDIDATE",
+            reviewStatus: "PENDING_HUMAN_REVIEW",
+            automaticGlobalModelUpdate: false,
+          },
+        })
+
+        expect(result.explanation).toContain(
+          "Correção aplicada neste caso",
+        )
+        expect(result.supervision).toEqual({
+          feedbackId: "feedback-1",
+          parentRecommendationId: "recommendation-a",
+          scope: "CASE_CORRECTION",
+          learningStatus: "LEARNING_CANDIDATE",
+          reviewStatus: "PENDING_HUMAN_REVIEW",
+          automaticGlobalModelUpdate: false,
+        })
+      },
+    )
   },
 )

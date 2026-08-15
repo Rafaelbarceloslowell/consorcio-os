@@ -260,7 +260,11 @@ describe(
 
         expect(recommendation).toMatchObject({
           primaryTechnique:
-            "objection_handling",
+            "none",
+          supportingTechniques: [],
+          closingTechnique: "none",
+          callToAction:
+            "Nenhum CTA comercial.",
         })
 
         expect(
@@ -272,7 +276,7 @@ describe(
         expect(
           recommendation.avoid,
         ).toContain(
-          "Pressionar.",
+          "Fazer perguntas.",
         )
       },
     )

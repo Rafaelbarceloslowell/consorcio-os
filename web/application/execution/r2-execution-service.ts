@@ -240,10 +240,31 @@ export async function ensureOpportunityExecutionState(input: Readonly<{
         commercialEvents: {
           where: {
             type: "NOTE_ADDED",
-            payload: {
-              path: ["category"],
-              equals: "do_not_contact",
-            },
+            OR: [
+              {
+                payload: {
+                  path: ["category"],
+                  equals: "do_not_contact",
+                },
+              },
+              {
+                AND: [
+                  {
+                    payload: {
+                      path: ["category"],
+                      equals:
+                        "r2_customer_boundary_detected",
+                    },
+                  },
+                  {
+                    payload: {
+                      path: ["terminal"],
+                      equals: true,
+                    },
+                  },
+                ],
+              },
+            ],
           },
           select: { id: true },
           take: 1,

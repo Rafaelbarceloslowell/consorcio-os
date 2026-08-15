@@ -443,6 +443,20 @@ describe(
         ).toHaveValue(
           "Resposta segura do servidor.",
         )
+        expect(
+          screen.getByRole("button", {
+            name: "Faz sentido",
+          }),
+        ).toBeVisible()
+        const disagreeButton =
+          screen.getByRole("button", {
+            name: "Discordo",
+          })
+        expect(disagreeButton).toBeVisible()
+        fireEvent.click(disagreeButton)
+        expect(
+          screen.getByRole("dialog"),
+        ).toHaveTextContent("Onde o R2 errou?")
         await waitFor(() => {
           expect(fetchMock).toHaveBeenCalledOnce()
         })
@@ -460,6 +474,140 @@ describe(
           ),
           expect.anything(),
         )
+      },
+    )
+
+    it(
+      "mantém feedback visível no incidente de rejeição e submete discordância ao Safety",
+      async () => {
+        const incomingMessage =
+          "Já falei que não quero, que merda."
+        const serverAnalysis =
+          analyzeManualWhatsAppMessage(
+            incomingMessage,
+            { approachType: "new" },
+          )
+
+        expect(serverAnalysis).toMatchObject({
+          intent: "not_interested",
+          stage: "closing",
+          customerBoundary: {
+            terminal: true,
+          },
+        })
+
+        const intelligence = resolveR2Intelligence({
+          recommendationId:
+            "recommendation-rejection",
+          workspaceId: "workspace-1",
+          opportunityId: "journey-1",
+          approachType: "new",
+          analysis: serverAnalysis!,
+          profile: {
+            assetCategory: "real_estate",
+          },
+          candidates: [],
+          commercialEvents: [],
+        })
+
+        fetchMock
+          .mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+              analysis: serverAnalysis,
+              reply:
+                "Entendido. Desculpe pela insistência. Vou encerrar o contato por aqui.",
+              intelligence,
+            }),
+          })
+          .mockResolvedValueOnce({
+            ok: false,
+            json: async () => ({
+              status: "BLOCKED_BY_SAFETY",
+              feedbackPersisted: true,
+              feedbackId: "feedback-rejection",
+              message:
+                "A correção foi registrada, mas a boundary continua protegida pelo Safety.",
+            }),
+          })
+
+        render(
+          <OpportunityManualWhatsAppIntake
+            opportunityId="journey-1"
+            contactName="João"
+          />,
+        )
+        fireEvent.change(
+          screen.getByRole("textbox", {
+            name: "Mensagem recebida do cliente",
+          }),
+          { target: { value: incomingMessage } },
+        )
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Analisar mensagem",
+          }),
+        )
+
+        expect(
+          await screen.findByRole("button", {
+            name: "Faz sentido",
+          }),
+        ).toBeVisible()
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Discordo",
+          }),
+        )
+        fireEvent.change(
+          screen.getByLabelText("Tipo do erro"),
+          {
+            target: {
+              value: "WRONG_COMMERCIAL_STRATEGY",
+            },
+          },
+        )
+        fireEvent.change(
+          screen.getByLabelText(
+            "O que o R2 entendeu errado?",
+          ),
+          {
+            target: {
+              value:
+                "Acho que ainda podemos insistir.",
+            },
+          },
+        )
+        fireEvent.change(
+          screen.getByLabelText(
+            "Qual seria o caminho correto?",
+          ),
+          {
+            target: {
+              value:
+                "Pressionar mais uma vez e perguntar o motivo.",
+            },
+          },
+        )
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Corrigir R2",
+          }),
+        )
+
+        expect(await screen.findByText(
+          "A correção foi registrada, mas a boundary continua protegida pelo Safety.",
+        )).toBeVisible()
+        expect(fetchMock).toHaveBeenCalledTimes(2)
+        expect(JSON.parse(
+          fetchMock.mock.calls[1]?.[1]?.body as string,
+        )).toMatchObject({
+          action: "DISAGREE",
+          recommendationId:
+            "recommendation-rejection",
+          correctPath:
+            "Pressionar mais uma vez e perguntar o motivo.",
+        })
       },
     )
 

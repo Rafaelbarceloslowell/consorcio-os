@@ -45,6 +45,7 @@ export type R2LearningEvidence = Readonly<{
   confidence: R2LearningConfidence
   observationCount: number
   automaticOutcomeCount: number
+  consultantFeedbackCandidateCount: number
   outcomeSummary:
     Readonly<Partial<Record<R2LearningOutcome, number>>>
   smoothedPerformance: number
@@ -211,6 +212,26 @@ function normalizeObservation(
   }
 }
 
+function isConsultantFeedbackCandidate(
+  event: CommercialEvent,
+  techniqueId: R2CommercialTechniqueId,
+): boolean {
+  if (
+    event.type !== "NOTE_ADDED" ||
+    event.payload.category !== "r2_consultant_feedback" ||
+    event.payload.learningStatus !== "LEARNING_CANDIDATE" ||
+    event.payload.automaticGlobalModelUpdate !== false
+  ) {
+    return false
+  }
+
+  const techniqueIds =
+    event.payload.commercialTechniqueIds
+
+  return Array.isArray(techniqueIds) &&
+    techniqueIds.includes(techniqueId)
+}
+
 function matchesContext(
   observation:
     NormalizedLearningObservation,
@@ -364,6 +385,15 @@ export function buildR2LearningEvidence({
           ),
       )
 
+  const consultantFeedbackCandidateCount =
+    uniqueEvents.filter(
+      (event) =>
+        isConsultantFeedbackCandidate(
+          event,
+          techniqueId,
+        ),
+    ).length
+
   const outcomeSummary:
     Partial<Record<R2LearningOutcome, number>> =
       {}
@@ -464,7 +494,7 @@ export function buildR2LearningEvidence({
           : "MEDIUM"
         : "INSUFFICIENT_DATA"
 
-  const explanation =
+  const baseExplanation =
     guardrailBlocked
       ? "O guardrail prevalece; evidência histórica não pode liberar comportamento inseguro."
       : enoughEvidence
@@ -473,12 +503,18 @@ export function buildR2LearningEvidence({
           ? "Existe um sinal interno, mas ainda sem evidência suficiente para alterar a recomendação-base."
           : "Não existem observações comparáveis para esta técnica e contexto."
 
+  const explanation =
+    consultantFeedbackCandidateCount > 0
+      ? `${baseExplanation} Há ${consultantFeedbackCandidateCount} feedback(s) de consultor aguardando revisão; eles não alteram o ranking automaticamente.`
+      : baseExplanation
+
   return {
     techniqueId,
     status,
     confidence,
     observationCount,
     automaticOutcomeCount,
+    consultantFeedbackCandidateCount,
     outcomeSummary,
     smoothedPerformance,
     sampleConfidence,

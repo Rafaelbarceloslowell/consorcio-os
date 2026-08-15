@@ -14,9 +14,14 @@ const mocks = vi.hoisted(
     upsertMemory: vi.fn(),
     updateReactivationContext:
       vi.fn(),
+    updateJourneyVersion:
+      vi.fn(),
+    cancelTasks: vi.fn(),
+    cancelCommitments: vi.fn(),
     transaction: vi.fn(),
     listCandidates: vi.fn(),
     findAllEvents: vi.fn(),
+    runDecisionEngine: vi.fn(),
   }),
 )
 
@@ -68,9 +73,27 @@ vi.mock(
   }),
 )
 
+vi.mock(
+  "@/application/decision/run-decision-engine",
+  () => ({
+    runApplicationDecisionEngine:
+      mocks.runDecisionEngine,
+  }),
+)
+
 import {
   POST,
 } from "./route"
+
+import {
+  processR2Evidence,
+} from "@/application/r2/evidence"
+
+import {
+  analyzeR2CustomerBoundary,
+  evolveR2CustomerBoundaryMemory,
+  writeR2CustomerBoundaryMemory,
+} from "@/application/r2/boundary"
 
 const context = {
   params: Promise.resolve({
@@ -81,6 +104,9 @@ const context = {
 function request(
   incomingMessage =
     "Qual o valor da parcela?",
+  contextDecision?:
+    | "CONFIRM_CONTEXT"
+    | "CONFIRM_EVIDENCE",
 ): Request {
   return new Request(
     "http://localhost/api/opportunities/journey-1/r2-intelligence",
@@ -92,6 +118,9 @@ function request(
       },
       body: JSON.stringify({
         incomingMessage,
+        ...(contextDecision
+          ? { contextDecision }
+          : {}),
       }),
     },
   )
@@ -109,6 +138,7 @@ function journey(
 ) {
   return {
     id: "journey-1",
+    version: 1,
     consultantId,
     consortiumType:
       "REAL_ESTATE",
@@ -121,6 +151,7 @@ function journey(
     },
     client: null,
     reactivationContexts,
+    commercialEvents: [],
     nextBestActions: [
       {
         id: "nba-1",
@@ -130,6 +161,7 @@ function journey(
           "A decisão operacional existente tem prioridade.",
       },
     ],
+    conversationMemory: null,
   }
 }
 
@@ -155,18 +187,39 @@ describe(
       mocks.findAllEvents.mockResolvedValue(
         [],
       )
+      mocks.runDecisionEngine.mockImplementation(
+        async (input: {
+          evidenceContext?: unknown
+        }) => ({
+          nextBestActions: [],
+          strategy: null,
+          diagnostics: [],
+          warnings: [],
+          evidenceContext:
+            input.evidenceContext,
+        }),
+      )
       mocks.createEvent.mockResolvedValue({
         id: "event-1",
       })
       mocks.upsertMemory.mockResolvedValue({
         id: "memory-1",
       })
+      mocks.updateJourneyVersion.mockResolvedValue({
+        count: 1,
+      })
+      mocks.cancelTasks.mockResolvedValue({ count: 0 })
+      mocks.cancelCommitments.mockResolvedValue({ count: 0 })
       mocks.transaction.mockImplementation(
         async (
           operation: (
             transaction: unknown,
           ) => unknown,
         ) => operation({
+          commercialJourney: {
+            updateMany:
+              mocks.updateJourneyVersion,
+          },
           commercialConversationMemory: {
             upsert:
               mocks.upsertMemory,
@@ -178,6 +231,14 @@ describe(
           commercialEvent: {
             create:
               mocks.createEvent,
+          },
+          task: {
+            updateMany:
+              mocks.cancelTasks,
+          },
+          commercialCommitment: {
+            updateMany:
+              mocks.cancelCommitments,
           },
         }),
       )
@@ -253,10 +314,40 @@ describe(
           expect.objectContaining({
             recommendationId:
               expect.any(String),
+            version: 1,
+            parentRecommendationId: null,
+            recommendationSnapshot:
+              expect.objectContaining({
+                title: expect.any(String),
+                explanation: expect.any(String),
+              }),
+            analysisSnapshot:
+              expect.objectContaining({
+                intent: expect.any(String),
+                stage: expect.any(String),
+                recommendedAction:
+                  expect.any(String),
+              }),
+            decisionContext:
+              expect.objectContaining({
+                approachType: "new",
+                assetCategory:
+                  "real_estate",
+              }),
             commercialTechniqueIds:
               expect.any(Array),
             learningEvidenceCount:
               expect.any(Number),
+            evidence:
+              expect.objectContaining({
+                status:
+                  expect.any(String),
+              }),
+            safetyCheck:
+              expect.objectContaining({
+                status:
+                  expect.any(String),
+              }),
           }),
         )
         expect(
@@ -280,6 +371,198 @@ describe(
     )
 
     it(
+      "executa o fluxo real de claim, evidência, NBA/playbook, safety e resposta",
+      async () => {
+        const response = await POST(
+          request(
+            "Tenho R$ 100 mil para lance.",
+          ),
+          context,
+        )
+        const body = await response.json()
+
+        expect(response.status).toBe(200)
+        expect(body.evidence).toMatchObject({
+          status: "SUPPORTED",
+          confidence: "HIGH",
+          outcome: "PASS",
+          humanConfirmationRequired: false,
+        })
+        expect(body.intelligence.nextBestAction.source).toBe(
+          "DECISION_ENGINE",
+        )
+        expect(mocks.runDecisionEngine).toHaveBeenCalledWith(
+          expect.objectContaining({
+            journeyId: "journey-1",
+            evidenceContext:
+              expect.objectContaining({
+                status: "SUPPORTED",
+                outcome: "PASS",
+              }),
+          }),
+        )
+        expect(body.intelligence.commercialStrategy).toBeDefined()
+        expect(body.safetyCheck).toMatchObject({
+          status: "SAFE",
+          safeToPresent: true,
+        })
+        expect(body.reply).toEqual(expect.any(String))
+
+        const memoryWrite = mocks.upsertMemory.mock.calls[0]?.[0]
+        expect(
+          memoryWrite.create.structuredFacts.r2Evidence.claims,
+        ).toHaveLength(1)
+      },
+    )
+
+    it(
+      "persiste conflito, pede humano uma vez e não apresenta resposta",
+      async () => {
+        const oldEvidence = processR2Evidence({
+          opportunityId: "journey-1",
+          subject: "Janaina",
+          text: "Tenho R$ 50 mil para lance.",
+          sourceType: "CUSTOMER_MESSAGE",
+          sourceReference: "customer-message-1",
+          observedAt: new Date("2026-08-14T12:00:00.000Z"),
+        })
+
+        mocks.findJourney.mockResolvedValue({
+          ...journey(),
+          conversationMemory: {
+            structuredFacts:
+              oldEvidence.structuredFacts,
+            factProvenance:
+              oldEvidence.factProvenance,
+          },
+        })
+
+        const response = await POST(
+          request(
+            "Consultor: Ele tem R$ 200 mil para lance.",
+          ),
+          context,
+        )
+        const body = await response.json()
+
+        expect(body.evidence).toMatchObject({
+          status: "CONFLICTING",
+          outcome: "HUMAN_CONFIRMATION_REQUIRED",
+          humanConfirmationRequired: true,
+        })
+        expect(body.humanReview).toMatchObject({
+          title: "Informação conflitante",
+          confirmationAlreadyRequested: false,
+        })
+        expect(body.reply).toBeNull()
+        expect(body.safetyCheck.status).toBe(
+          "HUMAN_REVIEW_REQUIRED",
+        )
+        expect(
+          mocks.upsertMemory.mock.calls[0]?.[0]
+            .create.structuredFacts.r2Evidence.claims,
+        ).toHaveLength(2)
+      },
+    )
+
+    it(
+      "encerra o caso real de rejeição repetida sem NBA, pergunta ou pressão",
+      async () => {
+        let structuredFacts: unknown = {}
+
+        for (const message of [
+          "Não tenho interesse.",
+          "Já falei que não quero.",
+          "Não quero.",
+        ]) {
+          const boundary = analyzeR2CustomerBoundary({
+            opportunityId: "journey-1",
+            message,
+            structuredFacts,
+          })
+          structuredFacts = writeR2CustomerBoundaryMemory(
+            structuredFacts,
+            evolveR2CustomerBoundaryMemory({
+              structuredFacts,
+              boundary,
+            }),
+          )
+        }
+
+        mocks.findJourney.mockResolvedValue({
+          ...journey(),
+          conversationMemory: {
+            structuredFacts,
+            factProvenance: {},
+            lastIncomingMessage:
+              "Não quero.",
+          },
+        })
+
+        const response = await POST(
+          request("Já falei que não quero, que merda."),
+          context,
+        )
+        const body = await response.json()
+
+        expect(response.status).toBe(200)
+        expect(body.customerBoundary).toMatchObject({
+          signal: "HOSTILE_REJECTION",
+          state: "STOP_CURRENT_CONVERSATION",
+          explicitRejectionCount: 4,
+          terminal: true,
+          outboundAutomationSuppressed: true,
+        })
+        expect(body.analysis).toMatchObject({
+          intent: "not_interested",
+          stage: "closing",
+          intentConfidence: "HIGH",
+          reasonForRejectionConfidence: "UNKNOWN",
+        })
+        expect(body.intelligence.nextBestAction).toMatchObject({
+          source: "CUSTOMER_BOUNDARY",
+          title: "Encerrar o contato respeitosamente",
+        })
+        expect(body.intelligence.commercialStrategy).toMatchObject({
+          primaryTechnique: "none",
+          supportingTechniques: [],
+          callToAction: "Nenhum CTA comercial.",
+          suggestedQuestion: null,
+        })
+        expect(body.reply).toBe(
+          "Entendido. Desculpe pela insistência. Vou encerrar o contato por aqui.",
+        )
+        expect(body.reply).not.toContain("?")
+        expect(body.safetyCheck.safeToPresent).toBe(true)
+        expect(mocks.runDecisionEngine).toHaveBeenCalledWith(
+          expect.objectContaining({
+            customerBoundaryContext:
+              expect.objectContaining({
+                terminal: true,
+              }),
+          }),
+        )
+        expect(
+          mocks.upsertMemory.mock.calls[0]?.[0]
+            .create.structuredFacts.r2CustomerBoundary,
+        ).toMatchObject({
+          currentState: "STOP_CURRENT_CONVERSATION",
+          explicitRejectionCount: 4,
+        })
+        expect(
+          mocks.createEvent.mock.calls.map(
+            (call) => call[0].data.payload.category,
+          ),
+        ).toEqual([
+          "r2_customer_boundary_detected",
+          "r2_intelligence_recommendation",
+        ])
+        expect(mocks.cancelTasks).toHaveBeenCalledOnce()
+        expect(mocks.cancelCommitments).toHaveBeenCalledOnce()
+      },
+    )
+
+    it(
       "bloqueia oportunidade de outro consultor",
       async () => {
         mocks.findJourney.mockResolvedValue(
@@ -296,6 +579,24 @@ describe(
         expect(
           mocks.createEvent,
         ).not.toHaveBeenCalled()
+      },
+    )
+
+    it(
+      "rejeita atualização concorrente sem sobrescrever memória",
+      async () => {
+        mocks.updateJourneyVersion.mockResolvedValue({
+          count: 0,
+        })
+
+        const response = await POST(
+          request("Tenho R$ 100 mil para lance."),
+          context,
+        )
+
+        expect(response.status).toBe(409)
+        expect(mocks.upsertMemory).not.toHaveBeenCalled()
+        expect(mocks.createEvent).not.toHaveBeenCalled()
       },
     )
 

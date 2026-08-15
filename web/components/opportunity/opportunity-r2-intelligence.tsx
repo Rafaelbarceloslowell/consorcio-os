@@ -6,10 +6,26 @@ import type {
   R2IntelligenceResult,
 } from "@/application/r2/resolve-r2-intelligence"
 
+import {
+  OpportunityR2ConsultantFeedback,
+} from "./opportunity-r2-consultant-feedback"
+
+import type {
+  R2ConsultantFeedbackRevision,
+} from "./opportunity-r2-consultant-feedback"
+
 export function OpportunityR2Intelligence({
   intelligence,
+  opportunityId,
+  onRevision,
+  showFeedback = true,
 }: Readonly<{
   intelligence: R2IntelligenceResult
+  opportunityId?: string
+  onRevision?: (
+    revision: R2ConsultantFeedbackRevision,
+  ) => void
+  showFeedback?: boolean
 }>) {
   const consortium =
     intelligence
@@ -35,7 +51,7 @@ export function OpportunityR2Intelligence({
           </h2>
         </div>
         <span className="rounded-full border border-[#8F9B63]/30 bg-[#8F9B63]/10 px-3 py-1 text-xs font-semibold text-[#CDD59B]">
-          Confiança {intelligence.confidence}
+          Confiança da intenção {intelligence.intentConfidence}
         </span>
       </div>
 
@@ -56,7 +72,11 @@ export function OpportunityR2Intelligence({
           )}
         />
         <Item
-          label="Pergunte / combine"
+          label={
+            intelligence.customerBoundary?.terminal
+              ? "Conduta de encerramento"
+              : "Pergunte / combine"
+          }
           value={
             intelligence
               .commercialStrategy
@@ -69,7 +89,9 @@ export function OpportunityR2Intelligence({
         <Item
           label="Consórcio"
           value={
-            consortium
+            intelligence.customerBoundary?.terminal
+              ? "Não se aplica ao encerramento atual."
+              : consortium
               ? `${consortium.administratorId} · ${consortium.productLabel} · ${consortium.fitBand}`
               : intelligence
                   .consortiumRecommendation
@@ -83,6 +105,12 @@ export function OpportunityR2Intelligence({
               .explanation
           }
         />
+        {intelligence.customerBoundary ? (
+          <Item
+            label="Fronteira do cliente"
+            value={`${intelligence.customerBoundary.state} · contato proativo ${intelligence.customerBoundary.proactiveContactSuppressed ? "suprimido" : "permitido"} · motivo ${intelligence.reasonForRejectionConfidence}`}
+          />
+        ) : null}
       </dl>
 
       {intelligence.missingData.length > 0 ? (
@@ -106,6 +134,14 @@ export function OpportunityR2Intelligence({
             )}
           </ul>
         </details>
+      ) : null}
+
+      {opportunityId && showFeedback ? (
+        <OpportunityR2ConsultantFeedback
+          opportunityId={opportunityId}
+          intelligence={intelligence}
+          onRevision={onRevision}
+        />
       ) : null}
     </section>
   )

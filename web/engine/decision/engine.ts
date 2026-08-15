@@ -22,6 +22,10 @@ import type {
   import {
     analyzeTimeline,
   } from "./timeline"
+
+  import {
+    latestR2CustomerBoundaryFromEvents,
+  } from "@/application/r2/boundary"
   
   export function runDecisionEngine(
     input: DecisionEngineInput,
@@ -32,7 +36,12 @@ import type {
     const nextBestActions:
       DecisionEngineOutput["nextBestActions"] = []
   
-    const { context } = input
+    const {
+      context,
+      evidenceContext,
+      customerBoundaryContext:
+        explicitCustomerBoundary,
+    } = input
   
     const validation =
       validateCommercialContext({
@@ -57,6 +66,62 @@ import type {
           `[${issue.code}] ${issue.message}`,
       ),
     )
+
+    const customerBoundaryContext =
+      explicitCustomerBoundary ??
+      latestR2CustomerBoundaryFromEvents(
+        context.events,
+      )
+
+    if (customerBoundaryContext?.terminal) {
+      diagnostics.push(
+        `Customer Boundary ${customerBoundaryContext.state} aplicada antes do planejamento comercial.`,
+      )
+      warnings.push(
+        "[R2_CUSTOMER_BOUNDARY] A conversa atual foi encerrada pelo cliente; NBA, estratégia e automação comercial foram suprimidas.",
+      )
+
+      return {
+        nextBestActions,
+        strategy: null,
+        diagnostics,
+        warnings,
+        evidenceContext,
+        customerBoundaryContext,
+      }
+    }
+
+    if (evidenceContext) {
+      diagnostics.push(
+        `Contexto de evidência recebido com status ${evidenceContext.status} e resultado ${evidenceContext.outcome}.`,
+      )
+
+      warnings.push(
+        ...evidenceContext.warnings.map(
+          (warning) =>
+            `[R2_EVIDENCE] ${warning}`,
+        ),
+      )
+
+      if (
+        evidenceContext.outcome === "BLOCKED" ||
+        evidenceContext.humanConfirmationRequired
+      ) {
+        warnings.push(
+          evidenceContext.outcome === "BLOCKED"
+            ? "[R2_EVIDENCE_BLOCKED] A evidência atual não autoriza uma recomendação automática."
+            : "[R2_HUMAN_CONFIRMATION_REQUIRED] Um conflito sensível precisa ser confirmado antes da recomendação.",
+        )
+
+        return {
+          nextBestActions,
+          strategy: null,
+          diagnostics,
+          warnings,
+          evidenceContext,
+        }
+      }
+    }
   
     const {
       journey,
@@ -175,5 +240,8 @@ import type {
       strategy: strategyResult.strategy,
       diagnostics,
       warnings,
+      evidenceContext,
+      customerBoundaryContext:
+        customerBoundaryContext ?? undefined,
     }
   }

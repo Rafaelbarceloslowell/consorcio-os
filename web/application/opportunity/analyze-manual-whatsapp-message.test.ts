@@ -219,7 +219,7 @@ describe(
           intent:
             "not_interested",
           stage:
-            "call_to_action",
+            "closing",
         })
       },
     )
@@ -235,7 +235,7 @@ describe(
           intent:
             "not_interested",
           stage:
-            "call_to_action",
+            "closing",
         })
       },
     )

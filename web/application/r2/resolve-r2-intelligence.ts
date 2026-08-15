@@ -40,6 +40,15 @@ import type {
   Consortium,
 } from "@/types/domain"
 
+import type {
+  R2ConsultantCorrectionContext,
+} from "@/application/r2/feedback"
+
+import type {
+  R2BoundaryConfidence,
+  R2CustomerBoundaryContext,
+} from "@/application/r2/boundary"
+
 export type R2IntelligenceConfidence =
   | "HIGH"
   | "MEDIUM"
@@ -62,11 +71,18 @@ export type R2IntelligenceResult =
       ManualWhatsAppAnalysis["stage"]
     intent:
       ManualWhatsAppAnalysis["intent"]
+    customerBoundary:
+      R2CustomerBoundaryContext | null
+    intentConfidence:
+      R2BoundaryConfidence
+    reasonForRejectionConfidence:
+      R2BoundaryConfidence
     nextBestAction:
       R2OperationalActionContext & {
         source:
           | "DECISION_ENGINE"
           | "COMMERCIAL_ENGINE"
+          | "CUSTOMER_BOUNDARY"
       }
     commercialStrategy:
       R2CommercialPlaybookRecommendation & {
@@ -85,6 +101,14 @@ export type R2IntelligenceResult =
     warnings: readonly string[]
     missingData: readonly string[]
     explanation: string
+    supervision?: Readonly<{
+      feedbackId: string
+      parentRecommendationId: string
+      scope: "CASE_CORRECTION"
+      learningStatus: "LEARNING_CANDIDATE"
+      reviewStatus: "PENDING_HUMAN_REVIEW"
+      automaticGlobalModelUpdate: false
+    }>
     confidence:
       R2IntelligenceConfidence
     observability: Readonly<{
@@ -117,6 +141,8 @@ export type ResolveR2IntelligenceInput =
       boolean
     hasVerifiedConsequence?:
       boolean
+    consultantCorrectionContext?:
+      R2ConsultantCorrectionContext
     now?: Date
   }>
 
@@ -358,20 +384,38 @@ export function resolveR2Intelligence(
             "Guardrail comercial prevaleceu sobre evidência histórica.",
           ]
         : []),
+      ...(input.analysis.customerBoundary?.terminal
+        ? [
+            "Customer Boundary ativa: persuasão, CTA, perguntas e contato proativo foram suprimidos.",
+          ]
+        : []),
     ])
   const missingData =
-    unique([
+    input.analysis.customerBoundary?.terminal
+      ? []
+      : unique([
       ...consortiumRecommendation
         .missingData,
       ...(commercialStrategy
         .requiresRecentContext
         ? ["recentConversationContext"]
         : []),
-    ])
+        ])
   const operationalAction =
     input.operationalAction
   const nextBestAction =
-    operationalAction
+    input.analysis.customerBoundary?.terminal
+      ? {
+          id:
+            `boundary-close-${input.opportunityId}`,
+          title:
+            "Encerrar o contato respeitosamente",
+          reason:
+            input.analysis.customerBoundary.rationale,
+          source:
+            "CUSTOMER_BOUNDARY" as const,
+        }
+      : operationalAction
       ? {
           ...operationalAction,
           source:
@@ -398,7 +442,9 @@ export function resolveR2Intelligence(
     consortiumRecommendation
       .topOptions[0] ?? null
   const confidence =
-    resolveConfidence({
+    input.analysis.customerBoundary?.terminal
+      ? "HIGH" as const
+      : resolveConfidence({
       requiresRecentContext:
         commercialStrategy
           .requiresRecentContext,
@@ -406,9 +452,11 @@ export function resolveR2Intelligence(
         consortiumRecommendation,
       learning:
         ranked.evidence,
-    })
-  const explanation =
-    commercialStrategy
+        })
+  const baseExplanation =
+    input.analysis.customerBoundary?.terminal
+      ? "A intenção de encerrar está explícita. O motivo da rejeição permanece desconhecido, mas isso não autoriza nova pergunta; encerre com brevidade e suprima contato proativo."
+      : commercialStrategy
       .requiresRecentContext
       ? "Peça o contexto recente antes de agir. Nenhuma mensagem ou opção de produto foi preparada sem essa informação."
       : [
@@ -419,6 +467,9 @@ export function resolveR2Intelligence(
             .explanation,
           ranked.evidence.explanation,
         ].join(" ")
+  const explanation = input.consultantCorrectionContext
+    ? `Correção aplicada neste caso. ${baseExplanation} O feedback foi registrado para avaliação de aprendizado; nenhuma regra global foi alterada.`
+    : baseExplanation
 
   return {
     recommendationId:
@@ -430,6 +481,16 @@ export function resolveR2Intelligence(
       input.workspaceId,
     stage: input.analysis.stage,
     intent: input.analysis.intent,
+    customerBoundary:
+      input.analysis.customerBoundary ?? null,
+    intentConfidence:
+      input.analysis.intentConfidence ??
+      input.analysis.customerBoundary?.intentConfidence ??
+      "UNKNOWN",
+    reasonForRejectionConfidence:
+      input.analysis.reasonForRejectionConfidence ??
+      input.analysis.customerBoundary?.reasonForRejectionConfidence ??
+      "UNKNOWN",
     nextBestAction,
     commercialStrategy,
     consortiumRecommendation,
@@ -440,6 +501,20 @@ export function resolveR2Intelligence(
     warnings,
     missingData,
     explanation,
+    ...(input.consultantCorrectionContext
+      ? {
+          supervision: {
+            feedbackId:
+              input.consultantCorrectionContext.feedbackId,
+            parentRecommendationId:
+              input.consultantCorrectionContext.originalRecommendationId,
+            scope: "CASE_CORRECTION" as const,
+            learningStatus: "LEARNING_CANDIDATE" as const,
+            reviewStatus: "PENDING_HUMAN_REVIEW" as const,
+            automaticGlobalModelUpdate: false as const,
+          },
+        }
+      : {}),
     confidence,
     observability: {
       commercialTechniqueIds:

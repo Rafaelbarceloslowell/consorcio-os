@@ -215,8 +215,8 @@ function build({
             approachType:
               "reactivation",
           }),
-        ).toContain(
-          "respeitar seu momento",
+        ).toBe(
+          "Entendido, Janaina. Obrigado por avisar. Vou encerrar por aqui.",
         )
       },
     )

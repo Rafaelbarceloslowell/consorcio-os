@@ -463,5 +463,49 @@ describe(
         })
       },
     )
+
+    it(
+      "contabiliza feedback supervisionado como candidato sem alterar o ranking",
+      () => {
+        const timestamp =
+          "2026-08-15T12:00:00.000Z"
+        const candidate: CommercialEvent = {
+          id: "feedback-candidate-1",
+          workspaceId: "workspace-a",
+          journeyId: "journey-feedback",
+          type: "NOTE_ADDED",
+          actorType: "CONSULTANT",
+          actorId: "consultant-1",
+          payload: {
+            category: "r2_consultant_feedback",
+            feedback: "DISAGREED",
+            commercialTechniqueIds: ["spin"],
+            learningStatus: "LEARNING_CANDIDATE",
+            reviewStatus: "PENDING_HUMAN_REVIEW",
+            automaticGlobalModelUpdate: false,
+          },
+          occurredAt: timestamp,
+          createdAt: timestamp,
+          updatedAt: timestamp,
+        }
+
+        const evidence = buildR2LearningEvidence({
+          workspaceId: "workspace-a",
+          techniqueId: "spin",
+          context: CONTEXT,
+          events: [candidate],
+        })
+
+        expect(evidence).toMatchObject({
+          consultantFeedbackCandidateCount: 1,
+          observationCount: 0,
+          learningAdjustment: 0,
+          status: "NO_EVIDENCE",
+        })
+        expect(evidence.explanation).toContain(
+          "não alteram o ranking automaticamente",
+        )
+      },
+    )
   },
 )

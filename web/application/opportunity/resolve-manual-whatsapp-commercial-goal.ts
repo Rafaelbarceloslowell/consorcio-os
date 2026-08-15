@@ -37,11 +37,11 @@ export function resolveManualWhatsAppCommercialGoal({
   ) {
     return {
       goal:
-        "understand_objection",
+        "close_next_step",
       label:
-        "Entender o motivo da decisão",
+        "Encerrar respeitosamente",
       explanation:
-        "Distinguir adiamento de encerramento definitivo e registrar o desfecho correto sem pressionar o cliente.",
+        "Reconhecer a decisão do cliente sem buscar motivo, pressionar ou criar um novo próximo passo comercial.",
     }
   }
 

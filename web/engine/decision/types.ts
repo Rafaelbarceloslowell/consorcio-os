@@ -9,9 +9,23 @@ import type {
   import type {
     CommercialStrategy,
   } from "./strategy/types"
+
+  import type {
+    R2EvidenceDecisionContext,
+  } from "@/application/r2/evidence/types"
+
+  import type {
+    R2CustomerBoundaryContext,
+  } from "@/application/r2/boundary"
   
   export type DecisionEngineInput = {
     context: EnrichedCommercialContext
+
+    evidenceContext?:
+      R2EvidenceDecisionContext
+
+    customerBoundaryContext?:
+      R2CustomerBoundaryContext
   }
   
   export type DecisionEngineOutput = {
@@ -22,4 +36,10 @@ import type {
     diagnostics: string[]
   
     warnings: string[]
+
+    evidenceContext?:
+      R2EvidenceDecisionContext
+
+    customerBoundaryContext?:
+      R2CustomerBoundaryContext
   }

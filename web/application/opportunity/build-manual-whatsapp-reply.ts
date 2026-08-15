@@ -73,6 +73,9 @@ function mapAnalysisStage(
 
     case "follow_up":
       return "follow_up"
+
+    case "closing":
+      return "closing"
   }
 }
 
@@ -274,7 +277,15 @@ export function buildManualWhatsAppReply({
       )
 
     case "not_interested":
-      return `Entendo, ${name}. Para eu respeitar seu momento e não insistir de forma errada, posso confirmar se mudou a prioridade ou se o consórcio deixou de fazer sentido para você?`
+      return analysis.customerBoundary?.state === "DO_NOT_CONTACT"
+        ? "Entendido. Não enviarei novas mensagens. Desculpe pelo incômodo."
+        : analysis.customerBoundary?.signal === "HOSTILE_REJECTION" ||
+            (
+              analysis.customerBoundary?.explicitRejectionCount !== undefined &&
+              analysis.customerBoundary.explicitRejectionCount > 1
+            )
+          ? "Entendido. Desculpe pela insistência. Vou encerrar o contato por aqui."
+          : `Entendido, ${name}. Obrigado por avisar. Vou encerrar por aqui.`
 
     case "callback_requested":
       return `Claro, ${name}. Qual dia e horário ficam melhores para eu retornar sem atrapalhar sua rotina?`

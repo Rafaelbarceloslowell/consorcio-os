@@ -1,3 +1,12 @@
+import {
+  analyzeR2CustomerBoundary,
+} from "@/application/r2/boundary"
+
+import type {
+  R2BoundaryConfidence,
+  R2CustomerBoundaryContext,
+} from "@/application/r2/boundary"
+
 export type ManualWhatsAppIntent =
   | "callback_requested"
   | "not_interested"
@@ -37,6 +46,7 @@ export type ManualWhatsAppStage =
   | "strategy"
   | "call_to_action"
   | "follow_up"
+  | "closing"
 
 export type ManualWhatsAppCustomerResponseState =
   | "never_replied"
@@ -66,6 +76,12 @@ export type ManualWhatsAppAnalysis = {
   objection?:
     ManualWhatsAppObjection
   context?: ManualWhatsAppContext
+  customerBoundary?:
+    R2CustomerBoundaryContext
+  intentConfidence?:
+    R2BoundaryConfidence
+  reasonForRejectionConfidence?:
+    R2BoundaryConfidence
 }
 
 export type AnalyzeManualWhatsAppMessageOptions = {
@@ -73,6 +89,8 @@ export type AnalyzeManualWhatsAppMessageOptions = {
     | "new"
     | "reactivation"
     | null
+  customerBoundary?:
+    R2CustomerBoundaryContext
 }
 
 type RoleMessages = {
@@ -914,6 +932,41 @@ export function analyzeManualWhatsAppMessage(
     roleMessages.hasRoleLabels
       ? normalizedCustomerMessage
       : normalizedFullMessage
+  const customerBoundary =
+    options.customerBoundary ??
+    analyzeR2CustomerBoundary({
+      opportunityId: "unpersisted-analysis",
+      message:
+        roleMessages.hasRoleLabels
+          ? roleMessages.customerMessages.join(" ")
+          : incomingMessage,
+    })
+
+  if (customerBoundary.terminal) {
+    return {
+      intent: "not_interested",
+      stage: "closing",
+      label:
+        customerBoundary.signal === "DO_NOT_CONTACT_REQUEST"
+          ? "Pedido para encerrar contatos"
+          : customerBoundary.signal === "HOSTILE_REJECTION"
+            ? "Rejeição explícita com irritação"
+            : customerBoundary.signal === "REPEATED_EXPLICIT_REJECTION"
+              ? "Rejeição explícita repetida"
+              : "Sem interesse declarado",
+      summary:
+        customerBoundary.signal === "DO_NOT_CONTACT_REQUEST"
+          ? "O cliente estabeleceu uma fronteira explícita para não receber novos contatos."
+          : "O cliente declarou que não deseja continuar; o motivo desconhecido não autoriza nova investigação.",
+      recommendedAction:
+        "Reconheça a decisão, peça desculpas pela insistência quando aplicável e encerre sem pergunta, CTA ou nova tentativa comercial.",
+      customerBoundary,
+      intentConfidence:
+        customerBoundary.intentConfidence,
+      reasonForRejectionConfidence:
+        customerBoundary.reasonForRejectionConfidence,
+    }
+  }
 
   const reactivationProjectActiveWithDeferredTiming =
     options.approachType ===

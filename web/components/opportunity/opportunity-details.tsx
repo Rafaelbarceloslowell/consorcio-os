@@ -205,6 +205,7 @@ export function OpportunityDetails({
           {intelligence ? (
             <OpportunityR2Intelligence
               intelligence={intelligence}
+              opportunityId={opportunity.id}
             />
           ) : null}
 

@@ -134,7 +134,31 @@ export async function getR2DailyMission(input: Readonly<{
         commercialEvents: {
           none: {
             type: "NOTE_ADDED",
-            payload: { path: ["category"], equals: "do_not_contact" },
+            OR: [
+              {
+                payload: {
+                  path: ["category"],
+                  equals: "do_not_contact",
+                },
+              },
+              {
+                AND: [
+                  {
+                    payload: {
+                      path: ["category"],
+                      equals:
+                        "r2_customer_boundary_detected",
+                    },
+                  },
+                  {
+                    payload: {
+                      path: ["terminal"],
+                      equals: true,
+                    },
+                  },
+                ],
+              },
+            ],
           },
         },
       },
