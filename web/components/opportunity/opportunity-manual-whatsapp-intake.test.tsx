@@ -176,6 +176,139 @@ describe(
     )
 
     it(
+      "envia contexto do consultor com origem explícita e sem agradecimento por resposta",
+      async () => {
+        const consultantContext =
+          "Cliente nunca respondeu"
+        const serverAnalysis =
+          analyzeManualWhatsAppMessage(
+            consultantContext,
+            { approachType: "new" },
+          )
+        const intelligence =
+          resolveR2Intelligence({
+            recommendationId:
+              "recommendation-context",
+            workspaceId: "workspace-1",
+            opportunityId: "journey-1",
+            approachType: "new",
+            analysis: serverAnalysis!,
+            profile: {
+              assetCategory:
+                "real_estate",
+            },
+            candidates: [],
+            commercialEvents: [],
+          })
+
+        fetchMock.mockResolvedValueOnce({
+          ok: true,
+          json: async () => ({
+            analysis: serverAnalysis,
+            reply:
+              "Oi, Janaina, tudo bem? Ainda não conseguimos conversar. Seu projeto continua nos planos?",
+            intelligence,
+          }),
+        })
+
+        render(
+          <section className="gorila-material overflow-hidden backdrop-blur-xl">
+            <OpportunityManualWhatsAppIntake
+              opportunityId="journey-1"
+              contactName="Janaina Rodrigues"
+            />
+          </section>,
+        )
+
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Contexto do consultor",
+          }),
+        )
+        fireEvent.change(
+          screen.getByRole("textbox", {
+            name:
+              "Contexto registrado pelo consultor",
+          }),
+          {
+            target: {
+              value: consultantContext,
+            },
+          },
+        )
+        fireEvent.click(
+          screen.getByRole("button", {
+            name: "Analisar contexto",
+          }),
+        )
+
+        expect(
+          await screen.findByRole("textbox", {
+            name: "Resposta preparada pelo R2",
+          }),
+        ).not.toHaveValue(
+          expect.stringMatching(
+            /obrigad[oa].*(?:responder|retorno|resposta)/iu,
+          ),
+        )
+        expect(JSON.parse(
+          fetchMock.mock.calls[0]?.[1]
+            ?.body as string,
+        )).toMatchObject({
+          incomingMessage:
+            consultantContext,
+          sourceType:
+            "CONSULTANT_CONTEXT",
+        })
+      },
+    )
+
+    it(
+      "mostra ausência de inbound e contexto do consultor em blocos separados",
+      () => {
+        render(
+          <OpportunityManualWhatsAppIntake
+            contactName="Janaina Rodrigues"
+            initialMemory={{
+              id: "memory-1",
+              stage: "opening",
+              goal: "get_first_response",
+              lastIntent:
+                "no_previous_response",
+              lastIncomingMessage: null,
+              customerHasReplied: false,
+              responseStatus:
+                "NEVER_RESPONDED",
+              consultantContext:
+                "Cliente nunca respondeu",
+              lastSuggestedReply:
+                "Oi, Janaina, tudo bem?",
+              analyzedAt:
+                "2026-08-15T12:00:00.000Z",
+              updatedAt:
+                "2026-08-15T12:00:00.000Z",
+            }}
+          />,
+        )
+
+        expect(
+          screen.getByTestId(
+            "commercial-conversation-memory",
+          ),
+        ).toHaveTextContent(
+          "Nenhuma mensagem recebida",
+        )
+        expect(
+          screen.getByTestId(
+            "consultant-context-memory",
+          ),
+        ).toHaveTextContent(
+          "Cliente nunca respondeu",
+        )
+      },
+    )
+
+    it(
       "usa o contexto do Corolla e nao confunde tentativa de reuniao com aceite do cliente",
       () => {
         render(
@@ -407,10 +540,12 @@ describe(
           })
 
         render(
-          <OpportunityManualWhatsAppIntake
-            opportunityId="journey-1"
-            contactName="Janaina Rodrigues"
-          />,
+          <section className="gorila-material overflow-hidden backdrop-blur-xl">
+            <OpportunityManualWhatsAppIntake
+              opportunityId="journey-1"
+              contactName="Janaina Rodrigues"
+            />
+          </section>,
         )
 
         fireEvent.change(
@@ -457,6 +592,29 @@ describe(
         expect(
           screen.getByRole("dialog"),
         ).toHaveTextContent("Onde o R2 errou?")
+        const dialogRoot =
+          document.querySelector(
+            '[data-slot="dialog-root"]',
+          )
+        const overlay =
+          document.querySelector(
+            '[data-slot="dialog-overlay"]',
+          )
+        const dialogContent =
+          document.querySelector(
+            '[data-slot="dialog-content"]',
+          )
+
+        expect(dialogRoot?.parentElement).toBe(
+          document.body,
+        )
+        expect(overlay?.parentElement).toBe(
+          dialogRoot,
+        )
+        expect(dialogContent?.parentElement).toBe(
+          dialogRoot,
+        )
+        expect(dialogContent).toHaveClass("z-10")
         await waitFor(() => {
           expect(fetchMock).toHaveBeenCalledOnce()
         })

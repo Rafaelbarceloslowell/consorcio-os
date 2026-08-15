@@ -7,6 +7,7 @@
 
 import type {
   Client,
+  CommercialConversationMemory,
   CommercialJourney,
   Consultant,
   JourneyPhase,
@@ -182,6 +183,7 @@ function createDependencies({
   consultant = createConsultant(),
   phase = createPhase(),
   state = createState(),
+  conversationMemory = null,
 }: {
   journey?: CommercialJourney | null
   lead?: Lead | null
@@ -189,6 +191,9 @@ function createDependencies({
   consultant?: Consultant | null
   phase?: JourneyPhase | null
   state?: JourneyState | null
+  conversationMemory?:
+    | CommercialConversationMemory
+    | null
 } = {}) {
   const entityRepository = <
     Entity,
@@ -239,6 +244,13 @@ function createDependencies({
     events: {
       findByJourneyId:
         vi.fn(async () => []),
+    },
+    conversationMemories: {
+      findByJourneyId:
+        vi.fn(async () =>
+          conversationMemory ??
+          undefined,
+        ),
     },
     leads:
       entityRepository(
@@ -364,6 +376,58 @@ describe(
             dependencies.leads.findById,
           ).not.toHaveBeenCalled()
         }
+      },
+    )
+
+    it(
+      "normaliza falso inbound histórico somente quando a provenance comprova contexto manual",
+      async () => {
+        const result =
+          await new GetOpportunityDetailsAsync(
+            createDependencies({
+              conversationMemory: {
+                id: "memory-1",
+                workspaceId:
+                  "workspace-1",
+                journeyId: "journey-1",
+                stage: "opening",
+                goal:
+                  "get_first_response",
+                lastIntent:
+                  "no_previous_response",
+                lastIncomingMessage:
+                  "Cliente nunca respondeu",
+                lastSuggestedReply:
+                  "Oi, tudo bem?",
+                analyzedAt: TIMESTAMP,
+                structuredFacts: {},
+                factProvenance: {
+                  lastIncomingMessage:
+                    "manual_context",
+                },
+                observedAt: TIMESTAMP,
+                createdAt: TIMESTAMP,
+                updatedAt: TIMESTAMP,
+              },
+            }),
+          ).execute({
+            workspaceId:
+              "workspace-1",
+            opportunityId:
+              "journey-1",
+          })
+
+        expect(
+          result.opportunity
+            .conversationMemory,
+        ).toMatchObject({
+          lastIncomingMessage: null,
+          customerHasReplied: false,
+          responseStatus:
+            "NEVER_RESPONDED",
+          consultantContext:
+            "Cliente nunca respondeu",
+        })
       },
     )
 

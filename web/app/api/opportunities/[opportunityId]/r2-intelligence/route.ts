@@ -36,6 +36,16 @@ import {
   buildNextGoal,
 } from "@/application/opportunity/conversation/build-next-goal"
 
+import {
+  buildConversationInteractionState,
+  resolveConversationInteractionState,
+  writeConversationInteractionState,
+} from "@/application/opportunity/conversation/conversation-interaction-state"
+
+import type {
+  ManualWhatsAppInputSource,
+} from "@/application/opportunity/conversation/conversation-interaction-state"
+
 import type {
   ConversationStage,
 } from "@/application/opportunity/conversation/conversation-stage"
@@ -224,6 +234,9 @@ export async function POST(
     | "CONFIRM_EVIDENCE"
     | null = null
   let sourceReference: string | null = null
+  let requestedSourceType:
+    | ManualWhatsAppInputSource
+    | null = null
 
   try {
     const body =
@@ -250,6 +263,15 @@ export async function POST(
       body.sourceReference.trim()
         ? body.sourceReference.trim().slice(0, 300)
         : null
+
+    requestedSourceType =
+      body.sourceType ===
+        "CONSULTANT_CONTEXT"
+        ? "CONSULTANT_CONTEXT"
+        : body.sourceType ===
+            "CUSTOMER_INBOUND"
+          ? "CUSTOMER_INBOUND"
+          : null
   } catch {
     return json(
       { error: "O corpo da análise é inválido." },
@@ -265,6 +287,16 @@ export async function POST(
       {
         error:
           "Informe um contexto de até 5000 caracteres.",
+      },
+      400,
+    )
+  }
+
+  if (!requestedSourceType) {
+    return json(
+      {
+        error:
+          "Informe se o texto é mensagem do cliente ou contexto do consultor.",
       },
       400,
     )
@@ -385,6 +417,21 @@ export async function POST(
   const latestReactivationContext =
     journey.reactivationContexts[0] ??
     null
+  const inputSourceType:
+    ManualWhatsAppInputSource =
+      requestedSourceType
+  const existingInteraction =
+    resolveConversationInteractionState({
+      structuredFacts:
+        journey.conversationMemory
+          ?.structuredFacts,
+      factProvenance:
+        journey.conversationMemory
+          ?.factProvenance,
+      lastIncomingMessage:
+        journey.conversationMemory
+          ?.lastIncomingMessage,
+    })
 
   const reconciliation =
     approachType ===
@@ -435,10 +482,10 @@ export async function POST(
         journey.conversationMemory
           ?.structuredFacts,
       recentMessages:
-        journey.conversationMemory
-          ?.lastIncomingMessage
+        existingInteraction
+          .lastIncomingMessage
           ? [
-              journey.conversationMemory
+              existingInteraction
                 .lastIncomingMessage,
             ]
           : [],
@@ -491,16 +538,15 @@ export async function POST(
       "Contato",
     text: effectiveIncomingMessage,
     sourceType:
-      approachType === "reactivation" ||
-      /^\s*consultor\s*:/iu.test(
-        effectiveIncomingMessage,
-      )
+      inputSourceType ===
+        "CONSULTANT_CONTEXT"
         ? "CONSULTANT_INPUT"
         : "CUSTOMER_MESSAGE",
     sourceReference:
       effectiveSourceReference,
     actorId:
-      approachType === "reactivation"
+      inputSourceType ===
+        "CONSULTANT_CONTEXT"
         ? authenticated.consultantId
         : null,
     observedAt: now,
@@ -604,6 +650,26 @@ export async function POST(
     journey.lead?.name ??
     journey.client?.name ??
     "Contato"
+  const interactionUpdate =
+    buildConversationInteractionState({
+      sourceType: inputSourceType,
+      text: effectiveIncomingMessage,
+      observedAt: now,
+      existing:
+        existingInteraction.interaction,
+      existingLastIncomingMessage:
+        existingInteraction
+          .lastIncomingMessage,
+      explicitlyNeverResponded:
+        analysis.intent ===
+          "no_previous_response" ||
+        evidence.claims.some(
+          (claim) =>
+            claim.key ===
+              "customer_never_replied" &&
+            claim.normalizedValue === true,
+        ),
+    })
   const reply =
     buildManualWhatsAppReply({
       contactName,
@@ -611,6 +677,10 @@ export async function POST(
         effectiveIncomingMessage,
       approachType,
       analysis,
+      customerHasReplied:
+        interactionUpdate
+          .interaction
+          .customerHasReplied,
     })
   const candidateReply =
     intelligence.commercialStrategy
@@ -646,6 +716,17 @@ export async function POST(
           intelligence.commercialStrategy.suggestedQuestion,
         avoid:
           intelligence.commercialStrategy.avoid,
+        customerHasReplied:
+          interactionUpdate
+            .interaction
+            .customerHasReplied,
+        responseStatus:
+          interactionUpdate
+            .interaction
+            .responseStatus,
+        lastIncomingMessage:
+          interactionUpdate
+            .lastIncomingMessage,
       },
     })
   const preparedReply =
@@ -663,6 +744,55 @@ export async function POST(
       approachType,
       stage: conversationStage,
     }).goal
+  const structuredFactsWithInteraction =
+    writeConversationInteractionState(
+      structuredFactsWithBoundary,
+      interactionUpdate.interaction,
+    )
+  const previousFactProvenance =
+    typeof journey.conversationMemory
+      ?.factProvenance === "object" &&
+    journey.conversationMemory
+      .factProvenance !== null &&
+    !Array.isArray(
+      journey.conversationMemory
+        .factProvenance,
+    )
+      ? journey.conversationMemory
+          .factProvenance as Record<string, unknown>
+      : {}
+  const interactionFactProvenance = {
+    ...previousFactProvenance,
+    ...evidence.factProvenance,
+    ...(
+      inputSourceType ===
+        "CUSTOMER_INBOUND"
+        ? {
+            lastIncomingMessage:
+              "customer_message",
+          }
+        : {
+            consultantContext:
+              contextDecision ===
+                "CONFIRM_CONTEXT" ||
+              contextDecision ===
+                "CONFIRM_EVIDENCE"
+                ? "consultant_confirmation"
+                : "manual_context",
+          }
+    ),
+    conversationInteraction:
+      "system_event",
+    lastSuggestedReply:
+      "system_event",
+    r2CustomerBoundary:
+      "system_event",
+  }
+  const narrativeSummary =
+    inputSourceType ===
+      "CONSULTANT_CONTEXT"
+      ? `Contexto do consultor analisado no estágio ${conversationStage}; objetivo atual ${conversationGoal}.`
+      : `Mensagem do cliente recebida no estágio ${conversationStage}; objetivo atual ${conversationGoal}.`
 
   try {
     await prisma.$transaction(
@@ -737,26 +867,17 @@ export async function POST(
             lastIntent:
               analysis.intent,
             lastIncomingMessage:
-              effectiveIncomingMessage,
+              interactionUpdate
+                .lastIncomingMessage,
             lastSuggestedReply:
               preparedReply,
             analyzedAt: now,
             structuredFacts:
-              structuredFactsWithBoundary as Prisma.InputJsonValue,
+              structuredFactsWithInteraction as Prisma.InputJsonValue,
             narrativeSummary:
-              `Último contexto recebido no estágio ${conversationStage}; objetivo atual ${conversationGoal}.`,
-            factProvenance: {
-              ...evidence.factProvenance,
-              lastIncomingMessage:
-                contextDecision === "CONFIRM_CONTEXT" ||
-                contextDecision === "CONFIRM_EVIDENCE"
-                  ? "consultant_confirmation"
-                  : "manual_context",
-              lastSuggestedReply:
-                "system_event",
-              r2CustomerBoundary:
-                "system_event",
-            },
+              narrativeSummary,
+            factProvenance:
+              interactionFactProvenance,
             observedAt: now,
           },
           update: {
@@ -771,26 +892,17 @@ export async function POST(
             lastIntent:
               analysis.intent,
             lastIncomingMessage:
-              effectiveIncomingMessage,
+              interactionUpdate
+                .lastIncomingMessage,
             lastSuggestedReply:
               preparedReply,
             analyzedAt: now,
             structuredFacts:
-              structuredFactsWithBoundary as Prisma.InputJsonValue,
+              structuredFactsWithInteraction as Prisma.InputJsonValue,
             narrativeSummary:
-              `Último contexto recebido no estágio ${conversationStage}; objetivo atual ${conversationGoal}.`,
-            factProvenance: {
-              ...evidence.factProvenance,
-              lastIncomingMessage:
-                contextDecision === "CONFIRM_CONTEXT" ||
-                contextDecision === "CONFIRM_EVIDENCE"
-                  ? "consultant_confirmation"
-                  : "manual_context",
-              lastSuggestedReply:
-                "system_event",
-              r2CustomerBoundary:
-                "system_event",
-            },
+              narrativeSummary,
+            factProvenance:
+              interactionFactProvenance,
             observedAt: now,
           },
         })
@@ -1056,6 +1168,8 @@ export async function POST(
     evidence:
       evidence.decisionContext,
     safetyCheck,
+    interactionState:
+      interactionUpdate.interaction,
     customerBoundary,
     humanReview:
       evidence.decisionContext

@@ -5,12 +5,17 @@ import {
   useEffect,
   useId,
   useRef,
+  useSyncExternalStore,
   type ComponentPropsWithoutRef,
   type CSSProperties,
   type KeyboardEvent,
   type MouseEvent,
   type ReactNode,
 } from "react";
+
+import {
+  createPortal,
+} from "react-dom";
 
 import {
   animation,
@@ -53,20 +58,20 @@ interface DialogContentProps
     | "full";
 }
 
-interface DialogHeaderProps
-  extends ComponentPropsWithoutRef<"header"> {}
+type DialogHeaderProps =
+  ComponentPropsWithoutRef<"header">;
 
-interface DialogTitleProps
-  extends ComponentPropsWithoutRef<"h2"> {}
+type DialogTitleProps =
+  ComponentPropsWithoutRef<"h2">;
 
-interface DialogDescriptionProps
-  extends ComponentPropsWithoutRef<"p"> {}
+type DialogDescriptionProps =
+  ComponentPropsWithoutRef<"p">;
 
-interface DialogBodyProps
-  extends ComponentPropsWithoutRef<"div"> {}
+type DialogBodyProps =
+  ComponentPropsWithoutRef<"div">;
 
-interface DialogFooterProps
-  extends ComponentPropsWithoutRef<"footer"> {}
+type DialogFooterProps =
+  ComponentPropsWithoutRef<"footer">;
 
 const dialogSizeClasses: Record<
   NonNullable<DialogContentProps["size"]>,
@@ -88,6 +93,18 @@ const dialogSizeClasses: Record<
     "max-w-[calc(100vw-2rem)]",
 };
 
+function subscribeToPortalContainer() {
+  return () => {};
+}
+
+function getPortalContainer() {
+  return document.body;
+}
+
+function getServerPortalContainer() {
+  return null;
+}
+
 function Dialog({
   open,
   onOpenChange,
@@ -96,6 +113,13 @@ function Dialog({
   closeOnEscape = true,
   className,
 }: DialogProps) {
+  const portalContainer =
+    useSyncExternalStore(
+      subscribeToPortalContainer,
+      getPortalContainer,
+      getServerPortalContainer,
+    );
+
   useEffect(() => {
     if (!open) {
       return;
@@ -153,7 +177,7 @@ function Dialog({
     }
   }
 
-  return (
+  const dialogRoot = (
     <div
       data-slot="dialog-root"
       data-state="open"
@@ -193,6 +217,13 @@ function Dialog({
       {children}
     </div>
   );
+
+  return portalContainer
+    ? createPortal(
+        dialogRoot,
+        portalContainer,
+      )
+    : dialogRoot;
 }
 
 const DialogContent = forwardRef<

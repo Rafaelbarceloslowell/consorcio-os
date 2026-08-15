@@ -21,6 +21,9 @@ export type BuildManualWhatsAppReplyInput = {
   analysis:
     | ManualWhatsAppAnalysis
     | null
+  customerHasReplied?:
+    | boolean
+    | null
 }
 
 function firstName(
@@ -208,6 +211,7 @@ export function buildManualWhatsAppReply({
   incomingMessage,
   approachType,
   analysis,
+  customerHasReplied,
 }: BuildManualWhatsAppReplyInput): string | null {
   if (
     !incomingMessage.trim() ||
@@ -236,6 +240,17 @@ export function buildManualWhatsAppReply({
         analysis.stage,
       ),
     })
+
+  if (
+    customerHasReplied === false &&
+    nextGoal.goal ===
+      "get_first_response"
+  ) {
+    return buildNoPreviousResponseReply(
+      name,
+      analysis,
+    )
+  }
 
   if (
     analysis.context

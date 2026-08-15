@@ -20,6 +20,10 @@ import {
   analyzeR2CustomerBoundary,
 } from "@/application/r2/boundary"
 
+import {
+  writeConversationInteractionState,
+} from "@/application/opportunity/conversation/conversation-interaction-state"
+
 describe("R2 supervised correction application flow", () => {
   it("não permite que feedback do consultor reabra rejeição terminal", () => {
     const parsed = parseR2ConsultantFeedback({
@@ -189,6 +193,111 @@ describe("R2 supervised correction application flow", () => {
     expect(regenerated.reply).toEqual(expect.any(String))
     expect(correction.originalRecommendationId).toBe(
       "recommendation-a",
+    )
+  })
+
+  it("preserva nunca respondeu durante regeneração supervisionada", async () => {
+    const parsed = parseR2ConsultantFeedback({
+      action: "DISAGREE",
+      recommendationId:
+        "recommendation-never-replied",
+      idempotencyKey:
+        "never-replied-correction",
+      errorCategory:
+        "MISREAD_CONTEXT",
+      disagreementReason:
+        "O cliente nunca respondeu.",
+      correctPath:
+        "Faça uma abertura curta sem agradecer retorno.",
+    })
+
+    if (parsed.action !== "DISAGREE") {
+      throw new Error("disagreement required")
+    }
+
+    const correction =
+      buildR2ConsultantCorrectionContext(
+        parsed,
+        "feedback-never-replied",
+      )
+    const structuredFacts =
+      writeConversationInteractionState(
+        {},
+        {
+          schemaVersion: "1.0",
+          sourceType:
+            "CONSULTANT_CONTEXT",
+          customerHasReplied: false,
+          responseStatus:
+            "NEVER_RESPONDED",
+          consultantContext:
+            "Cliente nunca respondeu",
+          lastCustomerInboundAt: null,
+        },
+      )
+    const prepared =
+      prepareR2ConsultantCorrection({
+        opportunityId:
+          "opportunity-1",
+        subject: "Cliente",
+        originalAnalysis: {
+          intent: "needs_review",
+          stage: "opening",
+          label: "Contexto incompleto",
+          summary:
+            "É preciso abrir a conversa.",
+          recommendedAction:
+            "Faça uma pergunta curta.",
+        },
+        correction,
+        consultantId:
+          "consultant-1",
+        structuredFacts,
+        factProvenance: {
+          consultantContext:
+            "manual_context",
+        },
+        now: new Date(
+          "2026-08-15T12:00:00.000Z",
+        ),
+      })
+    const regenerated =
+      await regeneratePreparedR2ConsultantCorrection({
+        prepared,
+        correction,
+        workspaceId: "workspace-1",
+        opportunityId:
+          "opportunity-1",
+        approachType: "new",
+        profile: {
+          assetCategory:
+            "real_estate",
+        },
+        candidates: [],
+        commercialEvents: [],
+        contactName: "Cliente",
+        now: new Date(
+          "2026-08-15T12:00:00.000Z",
+        ),
+        runDecisionEngine:
+          vi.fn().mockResolvedValue({
+            nextBestActions: [],
+            warnings: [],
+          }),
+      })
+
+    expect(regenerated.reply).not.toMatch(
+      /obrigad[oa].*(?:responder|retorno|resposta)/iu,
+    )
+    expect(
+      regenerated.safetyCheck.issues,
+    ).not.toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code:
+            "FALSE_INBOUND_ACKNOWLEDGEMENT",
+        }),
+      ]),
     )
   })
 })

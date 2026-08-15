@@ -11,6 +11,14 @@ import type {
 } from "@/application/opportunity/conversation/conversation-stage"
 
 import {
+  resolveConversationInteractionState,
+} from "@/application/opportunity/conversation/conversation-interaction-state"
+
+import type {
+  ConversationInteractionState,
+} from "@/application/opportunity/conversation/conversation-interaction-state"
+
+import {
   buildR2EvidenceContextFromMemory,
   checkR2DecisionSafety,
   processR2Evidence,
@@ -55,6 +63,8 @@ export type PreparedR2ConsultantCorrection = Readonly<{
   proposedPathSafety: R2DecisionSafetyResult
   customerBoundary:
     R2CustomerBoundaryContext | null
+  interactionState:
+    ConversationInteractionState
 }>
 
 export type R2ConsultantCorrectionDecision = Readonly<{
@@ -120,6 +130,11 @@ export function prepareR2ConsultantCorrection({
   const evidenceContext =
     evidence?.decisionContext ??
     currentEvidence
+  const interactionState =
+    resolveConversationInteractionState({
+      structuredFacts,
+      factProvenance,
+    }).interaction
 
   return {
     analysis:
@@ -142,10 +157,18 @@ export function prepareR2ConsultantCorrection({
             originalAnalysis.customerBoundary?.terminal
               ? "none"
               : null,
+          customerHasReplied:
+            interactionState
+              .customerHasReplied,
+          responseStatus:
+            interactionState
+              .responseStatus,
+          lastIncomingMessage: null,
         },
       }),
     customerBoundary:
       originalAnalysis.customerBoundary ?? null,
+    interactionState,
   }
 }
 
@@ -204,6 +227,9 @@ export async function regeneratePreparedR2ConsultantCorrection({
         correction.correctPath,
       approachType,
       analysis: prepared.analysis,
+      customerHasReplied:
+        prepared.interactionState
+          .customerHasReplied,
     })
   const safetyCheck =
     checkR2DecisionSafety({
@@ -236,6 +262,13 @@ export async function regeneratePreparedR2ConsultantCorrection({
           intelligence.commercialStrategy.suggestedQuestion,
         avoid:
           intelligence.commercialStrategy.avoid,
+        customerHasReplied:
+          prepared.interactionState
+            .customerHasReplied,
+        responseStatus:
+          prepared.interactionState
+            .responseStatus,
+        lastIncomingMessage: null,
       },
     })
 

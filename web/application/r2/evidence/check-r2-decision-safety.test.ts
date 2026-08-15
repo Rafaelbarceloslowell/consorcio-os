@@ -177,4 +177,52 @@ describe("checkR2DecisionSafety", () => {
       safeToPresent: false,
     })
   })
+
+  it("revisa reconhecimento de inbound quando o cliente nunca respondeu", () => {
+    const result = checkR2DecisionSafety({
+      decisionText:
+        "Obrigado por me responder. Vamos conversar?",
+      evidence: supportedBid(),
+      decisionConsistency: {
+        customerHasReplied: false,
+        responseStatus:
+          "NEVER_RESPONDED",
+        lastIncomingMessage: null,
+      },
+    })
+
+    expect(result).toMatchObject({
+      status: "REVISE",
+      safeToPresent: false,
+    })
+    expect(
+      result.issues.map(
+        (issue) => issue.code,
+      ),
+    ).toContain(
+      "FALSE_INBOUND_ACKNOWLEDGEMENT",
+    )
+  })
+
+  it("revisa estado de interação internamente contraditório", () => {
+    const result = checkR2DecisionSafety({
+      decisionText:
+        "Prepare uma pergunta curta.",
+      evidence: supportedBid(),
+      decisionConsistency: {
+        customerHasReplied: false,
+        responseStatus: "RESPONDED",
+        lastIncomingMessage: null,
+      },
+    })
+
+    expect(result.status).toBe("REVISE")
+    expect(
+      result.issues.map(
+        (issue) => issue.code,
+      ),
+    ).toContain(
+      "INTERACTION_STATE_CONTRADICTION",
+    )
+  })
 })

@@ -107,6 +107,10 @@ function request(
   contextDecision?:
     | "CONFIRM_CONTEXT"
     | "CONFIRM_EVIDENCE",
+  sourceType:
+    | "CUSTOMER_INBOUND"
+    | "CONSULTANT_CONTEXT" =
+      "CUSTOMER_INBOUND",
 ): Request {
   return new Request(
     "http://localhost/api/opportunities/journey-1/r2-intelligence",
@@ -120,6 +124,9 @@ function request(
         incomingMessage,
         ...(contextDecision
           ? { contextDecision }
+          : {}),
+        ...(sourceType
+          ? { sourceType }
           : {}),
       }),
     },
@@ -416,6 +423,157 @@ describe(
     )
 
     it(
+      "preserva nunca respondeu como contexto do consultor sem criar falso inbound",
+      async () => {
+        const response = await POST(
+          request(
+            "Cliente nunca respondeu",
+            undefined,
+            "CONSULTANT_CONTEXT",
+          ),
+          context,
+        )
+        const body = await response.json()
+
+        expect(response.status).toBe(200)
+        expect(body.interactionState).toMatchObject({
+          sourceType: "CONSULTANT_CONTEXT",
+          customerHasReplied: false,
+          responseStatus: "NEVER_RESPONDED",
+          consultantContext:
+            "Cliente nunca respondeu",
+        })
+        expect(body.reply).not.toMatch(
+          /obrigad[oa].*(?:responder|retorno|resposta)/iu,
+        )
+
+        const memoryWrite =
+          mocks.upsertMemory.mock.calls[0]?.[0]
+            .create
+
+        expect(memoryWrite).toMatchObject({
+          lastIncomingMessage: null,
+          structuredFacts: {
+            conversationInteraction: {
+              sourceType:
+                "CONSULTANT_CONTEXT",
+              customerHasReplied: false,
+              responseStatus:
+                "NEVER_RESPONDED",
+              consultantContext:
+                "Cliente nunca respondeu",
+            },
+          },
+          factProvenance: {
+            consultantContext:
+              "manual_context",
+          },
+        })
+        expect(
+          memoryWrite.structuredFacts
+            .r2Evidence.claims[0]
+            .provenance,
+        ).toMatchObject({
+          sourceType: "CONSULTANT_INPUT",
+          actorId: "consultant-1",
+        })
+      },
+    )
+
+    it(
+      "substitui o estado por inbound real quando o cliente responde depois",
+      async () => {
+        const firstResponse = await POST(
+          request(
+            "Cliente nunca respondeu",
+            undefined,
+            "CONSULTANT_CONTEXT",
+          ),
+          context,
+        )
+
+        expect(firstResponse.status).toBe(200)
+
+        const firstMemory =
+          mocks.upsertMemory.mock.calls[0]?.[0]
+            .create
+
+        mocks.findJourney.mockResolvedValue({
+          ...journey(),
+          version: 2,
+          conversationMemory: {
+            structuredFacts:
+              firstMemory.structuredFacts,
+            factProvenance:
+              firstMemory.factProvenance,
+            lastIncomingMessage: null,
+          },
+        })
+        mocks.upsertMemory.mockClear()
+
+        const response = await POST(
+          request(
+            "Oi, agora posso falar.",
+            undefined,
+            "CUSTOMER_INBOUND",
+          ),
+          context,
+        )
+        const body = await response.json()
+
+        expect(body.interactionState).toMatchObject({
+          sourceType: "CUSTOMER_INBOUND",
+          customerHasReplied: true,
+          responseStatus: "RESPONDED",
+          consultantContext:
+            "Cliente nunca respondeu",
+        })
+        expect(
+          mocks.upsertMemory.mock.calls[0]?.[0]
+            .create,
+        ).toMatchObject({
+          lastIncomingMessage:
+            "Oi, agora posso falar.",
+          factProvenance: {
+            lastIncomingMessage:
+              "customer_message",
+          },
+        })
+      },
+    )
+
+    it(
+      "mantém outro relato do consultor fora de lastIncomingMessage",
+      async () => {
+        const consultantContext =
+          "Cliente pediu para retornar mês que vem."
+        const response = await POST(
+          request(
+            consultantContext,
+            undefined,
+            "CONSULTANT_CONTEXT",
+          ),
+          context,
+        )
+
+        expect(response.status).toBe(200)
+        expect(
+          mocks.upsertMemory.mock.calls[0]?.[0]
+            .create,
+        ).toMatchObject({
+          lastIncomingMessage: null,
+          structuredFacts: {
+            conversationInteraction: {
+              sourceType:
+                "CONSULTANT_CONTEXT",
+              consultantContext,
+            },
+          },
+        })
+      },
+    )
+
+    it(
       "persiste conflito, pede humano uma vez e não apresenta resposta",
       async () => {
         const oldEvidence = processR2Evidence({
@@ -612,7 +770,11 @@ describe(
 
         const response =
           await POST(
-            request("Oi"),
+            request(
+              "Oi",
+              undefined,
+              "CONSULTANT_CONTEXT",
+            ),
             context,
           )
         const body =
@@ -655,6 +817,8 @@ describe(
           await POST(
             request(
               "Ele não me respondeu.",
+              undefined,
+              "CONSULTANT_CONTEXT",
             ),
             context,
           )
@@ -719,6 +883,34 @@ describe(
 
         expect(empty.status).toBe(400)
         expect(oversized.status).toBe(400)
+        expect(
+          mocks.findJourney,
+        ).not.toHaveBeenCalled()
+      },
+    )
+
+    it(
+      "recusa texto sem origem semântica explícita",
+      async () => {
+        const response = await POST(
+          new Request(
+            "http://localhost/api/opportunities/journey-1/r2-intelligence",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type":
+                  "application/json",
+              },
+              body: JSON.stringify({
+                incomingMessage:
+                  "Cliente nunca respondeu",
+              }),
+            },
+          ),
+          context,
+        )
+
+        expect(response.status).toBe(400)
         expect(
           mocks.findJourney,
         ).not.toHaveBeenCalled()

@@ -26,6 +26,10 @@ import type {
 } from "@/application/opportunity/conversation/conversation-stage"
 
 import type {
+  ManualWhatsAppInputSource,
+} from "@/application/opportunity/conversation/conversation-interaction-state"
+
+import type {
   ManualWhatsAppAnalysis,
 } from "@/application/opportunity/analyze-manual-whatsapp-message"
 
@@ -233,6 +237,12 @@ export function OpportunityManualWhatsAppIntake({
 
   const [incomingMessage, setIncomingMessage] =
     useState("")
+  const [inputSource, setInputSource] =
+    useState<ManualWhatsAppInputSource>(
+      isReactivation
+        ? "CONSULTANT_CONTEXT"
+        : "CUSTOMER_INBOUND",
+    )
   const [analysis, setAnalysis] =
     useState<ManualWhatsAppAnalysis | null>(null)
   const [reply, setReply] =
@@ -298,6 +308,9 @@ export function OpportunityManualWhatsAppIntake({
         approachType:
           resolvedApproachType,
         analysis: nextAnalysis,
+        customerHasReplied:
+          inputSource ===
+            "CUSTOMER_INBOUND",
       })
 
     setCopyStatus("")
@@ -323,6 +336,8 @@ export function OpportunityManualWhatsAppIntake({
               },
               body: JSON.stringify({
                 incomingMessage,
+                sourceType:
+                  inputSource,
                 ...(contextReconciliation ||
                 evidenceHumanReview
                   ? {
@@ -538,7 +553,7 @@ export function OpportunityManualWhatsAppIntake({
       <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--gorila-text-soft)]">
         {isReactivation
           ? "Cole as \u00faltimas mensagens ou escreva um resumo do hist\u00f3rico, deixando claro o que o cliente queria, o que voc\u00ea fez e como ele respondeu. O R2 separa a fala do cliente da a\u00e7\u00e3o do consultor antes de preparar qualquer nova mensagem."
-          : "Cole abaixo a \u00faltima mensagem recebida do cliente. A an\u00e1lise \u00e9 local, n\u00e3o l\u00ea o WhatsApp e salva apenas a mem\u00f3ria comercial no GorillaOS. Nenhuma mensagem ser\u00e1 enviada automaticamente."}
+          : "Selecione a origem e informe uma mensagem realmente recebida ou um contexto registrado pelo consultor. A an\u00e1lise \u00e9 local, n\u00e3o l\u00ea o WhatsApp e salva apenas a mem\u00f3ria comercial no GorillaOS. Nenhuma mensagem ser\u00e1 enviada automaticamente."}
       </p>
 
       {initialMemory ? (
@@ -577,17 +592,26 @@ export function OpportunityManualWhatsAppIntake({
             />
           </div>
 
-          {initialMemory.lastIncomingMessage ? (
-            <div className="mt-3 rounded-xl border border-[var(--gorila-line)] bg-[var(--gorila-surface)] p-3">
+          <div className="mt-3 rounded-xl border border-[var(--gorila-line)] bg-[var(--gorila-surface)] p-3">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]">
+              {"\u00daltima mensagem recebida"}
+            </p>
+            <p className="mt-2 whitespace-pre-wrap text-sm leading-6">
+              {initialMemory.lastIncomingMessage ??
+                "Nenhuma mensagem recebida"}
+            </p>
+          </div>
+
+          {initialMemory.consultantContext ? (
+            <div
+              className="mt-3 rounded-xl border border-[var(--gorila-line)] bg-[var(--gorila-surface)] p-3"
+              data-testid="consultant-context-memory"
+            >
               <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]">
-                {isReactivation
-                  ? "\u00daltimo contexto informado"
-                  : "\u00daltima mensagem recebida"}
+                Contexto registrado
               </p>
               <p className="mt-2 whitespace-pre-wrap text-sm leading-6">
-                {
-                  initialMemory.lastIncomingMessage
-                }
+                {initialMemory.consultantContext}
               </p>
             </div>
           ) : null}
@@ -607,16 +631,60 @@ export function OpportunityManualWhatsAppIntake({
         </div>
       ) : null}
 
+      {!isReactivation ? (
+        <div
+          className="mt-5 flex flex-wrap gap-2"
+          aria-label="Origem da informação"
+          role="group"
+        >
+          <button
+            type="button"
+            aria-pressed={
+              inputSource ===
+              "CUSTOMER_INBOUND"
+            }
+            onClick={() => {
+              setInputSource(
+                "CUSTOMER_INBOUND",
+              )
+              handleClear()
+            }}
+            className="inline-flex min-h-9 items-center justify-center rounded-xl border border-white/[0.10] bg-white/[0.035] px-3 text-xs font-semibold text-[var(--gorila-text-soft)] aria-pressed:border-[#43A972]/45 aria-pressed:bg-[#2F8F5B]/15 aria-pressed:text-[#6FD39B]"
+          >
+            Mensagem do cliente
+          </button>
+          <button
+            type="button"
+            aria-pressed={
+              inputSource ===
+              "CONSULTANT_CONTEXT"
+            }
+            onClick={() => {
+              setInputSource(
+                "CONSULTANT_CONTEXT",
+              )
+              handleClear()
+            }}
+            className="inline-flex min-h-9 items-center justify-center rounded-xl border border-white/[0.10] bg-white/[0.035] px-3 text-xs font-semibold text-[var(--gorila-text-soft)] aria-pressed:border-[#43A972]/45 aria-pressed:bg-[#2F8F5B]/15 aria-pressed:text-[#6FD39B]"
+          >
+            Contexto do consultor
+          </button>
+        </div>
+      ) : null}
+
       <label
         htmlFor="opportunity-manual-whatsapp-message"
-        className="mt-5 block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]"
+        className={`${isReactivation ? "mt-5" : "mt-3"} block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--gorila-text-muted)]`}
       >
         {isReactivation
           ? contextReconciliation ||
             evidenceHumanReview
             ? "Correção / complemento do consultor"
             : "Últimas mensagens ou resumo do histórico"
-          : "Mensagem recebida do cliente"}
+          : inputSource ===
+              "CONSULTANT_CONTEXT"
+            ? "Contexto registrado pelo consultor"
+            : "Mensagem recebida do cliente"}
       </label>
       <textarea
         id="opportunity-manual-whatsapp-message"
@@ -640,7 +708,10 @@ export function OpportunityManualWhatsAppIntake({
               evidenceHumanReview
               ? "Escreva a versão correta e completa do contexto. Ex.: Já conversei com o cliente, apresentei a estratégia e depois ele parou de responder."
               : "Ex.: O cliente buscava um Corolla. Tentei marcar uma reunião, mas ele não respondeu mais. Meu último contato foi em 23/04/2026.\n\nOu use: Cliente: ... / Consultor: ..."
-            : "Cole aqui a mensagem recebida no WhatsApp"
+            : inputSource ===
+                "CONSULTANT_CONTEXT"
+              ? "Ex.: Cliente nunca respondeu."
+              : "Cole aqui a mensagem recebida no WhatsApp"
         }
         className="mt-3 w-full resize-y rounded-2xl border border-white/[0.10] bg-[#0F1412] px-4 py-3 text-sm leading-6 text-[#F5F7FA] outline-none transition focus:border-[#43A972]/55 focus:ring-4 focus:ring-[#2F8F5B]/10"
       />
@@ -750,7 +821,10 @@ export function OpportunityManualWhatsAppIntake({
                 ? "Confirmar informação e recalcular"
               : isReactivation
                 ? "Analisar contexto"
-                : "Analisar mensagem"}
+                : inputSource ===
+                    "CONSULTANT_CONTEXT"
+                  ? "Analisar contexto"
+                  : "Analisar mensagem"}
         </button>
         <button
           type="button"

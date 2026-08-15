@@ -24,6 +24,13 @@ export type CheckR2DecisionSafetyInput =
       callToAction?: string | null
       question?: string | null
       avoid?: readonly string[]
+      customerHasReplied?: boolean | null
+      responseStatus?:
+        | "NEVER_RESPONDED"
+        | "RESPONDED"
+        | "UNKNOWN"
+        | null
+      lastIncomingMessage?: string | null
     }>
   }>
 
@@ -92,6 +99,55 @@ export function checkR2DecisionSafety({
     if (!issues.some((issue) => issue.code === code)) {
       issues.push({ code, rationale })
     }
+  }
+
+  const customerHasNotReplied =
+    decisionConsistency
+      ?.customerHasReplied === false ||
+    decisionConsistency
+      ?.responseStatus ===
+        "NEVER_RESPONDED"
+  const acknowledgesInbound =
+    /\b(?:obrigad[oa]\s+(?:por\s+)?(?:me\s+)?(?:responder|pelo retorno|pela resposta)|obrigad[oa]\s+(?:pelo\s+)?retorno|que bom que (?:voce )?respondeu|vi sua mensagem|pelo que (?:voce )?respondeu)\b/u
+      .test(normalized)
+  const interactionStateContradiction =
+    (
+      decisionConsistency
+        ?.responseStatus ===
+        "NEVER_RESPONDED" &&
+      (
+        decisionConsistency
+          .customerHasReplied === true ||
+        Boolean(
+          decisionConsistency
+            .lastIncomingMessage
+            ?.trim(),
+        )
+      )
+    ) ||
+    (
+      decisionConsistency
+        ?.responseStatus ===
+        "RESPONDED" &&
+      decisionConsistency
+        .customerHasReplied === false
+    )
+
+  if (interactionStateContradiction) {
+    addIssue(
+      "INTERACTION_STATE_CONTRADICTION",
+      "O estado de resposta, o indicador de inbound e a última mensagem recebida são incompatíveis entre si.",
+    )
+  }
+
+  if (
+    customerHasNotReplied &&
+    acknowledgesInbound
+  ) {
+    addIssue(
+      "FALSE_INBOUND_ACKNOWLEDGEMENT",
+      "A decisão reconhece uma resposta do cliente, mas o estado de interação informa que nenhum inbound ocorreu.",
+    )
   }
 
   if (customerBoundary?.terminal) {

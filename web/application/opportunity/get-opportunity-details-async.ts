@@ -11,6 +11,10 @@ import {
 } from "./build-opportunity-suggested-questions"
 
 import {
+  resolveConversationInteractionState,
+} from "./conversation/conversation-interaction-state"
+
+import {
   buildOpportunityBriefing,
 } from "./build-opportunity-briefing"
 
@@ -255,6 +259,17 @@ export class GetOpportunityDetailsAsync {
         contactContext,
         suggestedQuestions,
       })
+    const conversationInteraction =
+      conversationMemory
+        ? resolveConversationInteractionState({
+            structuredFacts:
+              conversationMemory.structuredFacts,
+            factProvenance:
+              conversationMemory.factProvenance,
+            lastIncomingMessage:
+              conversationMemory.lastIncomingMessage,
+          })
+        : null
 
     return {
       opportunity: {
@@ -276,7 +291,21 @@ export class GetOpportunityDetailsAsync {
                 lastIntent:
                   conversationMemory.lastIntent,
                 lastIncomingMessage:
-                  conversationMemory.lastIncomingMessage,
+                  conversationInteraction
+                    ?.lastIncomingMessage ?? null,
+                customerHasReplied:
+                  conversationInteraction
+                    ?.interaction
+                    .customerHasReplied ?? false,
+                responseStatus:
+                  conversationInteraction
+                    ?.interaction
+                    .responseStatus ??
+                  "UNKNOWN",
+                consultantContext:
+                  conversationInteraction
+                    ?.interaction
+                    .consultantContext ?? null,
                 lastSuggestedReply:
                   conversationMemory.lastSuggestedReply,
                 analyzedAt:

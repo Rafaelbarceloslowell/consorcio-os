@@ -66,6 +66,12 @@ export type OpportunityConversationMemoryView = {
     | "close_next_step"
   lastIntent: string | null
   lastIncomingMessage: string | null
+  customerHasReplied?: boolean
+  responseStatus?:
+    | "NEVER_RESPONDED"
+    | "RESPONDED"
+    | "UNKNOWN"
+  consultantContext?: string | null
   lastSuggestedReply: string | null
   analyzedAt: string | null
   updatedAt: string
